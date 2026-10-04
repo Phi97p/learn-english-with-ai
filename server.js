@@ -70,6 +70,27 @@ const server = http.createServer((req, res) => {
           mdContent += `\n`;
         }
 
+        if (data.userVocabData) {
+          let customWords = [];
+          Object.keys(data.userVocabData).forEach(key => {
+            const sc = data.userVocabData[key];
+            if (sc && sc.words) {
+              sc.words.forEach(w => {
+                if (w.tip && (w.tip.includes('tự thêm') || w.readVi === '')) {
+                  customWords.push({ ...w, scenarioTitle: sc.title });
+                }
+              });
+            }
+          });
+          if (customWords.length > 0) {
+            mdContent += `### 💡 Các từ vựng bạn đã tự thêm vào:\n`;
+            customWords.forEach(w => {
+              mdContent += `- **${w.word}**: ${w.vi} ${w.ipa ? `(${w.ipa})` : ''} *[${w.scenarioTitle || ''}]*\n`;
+            });
+            mdContent += `\n`;
+          }
+        }
+
         fs.writeFileSync(LOG_MD_PATH, mdContent, 'utf-8');
 
         res.writeHead(200, { 'Content-Type': 'application/json' });

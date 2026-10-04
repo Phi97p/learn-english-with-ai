@@ -689,6 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const removedWord = scenarioData.words[currentVocabIdx].word;
       scenarioData.words.splice(currentVocabIdx, 1);
       saveUserVocabData();
+      syncProgress();
 
       if (currentVocabIdx >= scenarioData.words.length) {
         currentVocabIdx = Math.max(0, scenarioData.words.length - 1);
@@ -709,6 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (confirm('Bạn có chắc chắn muốn khôi phục lại danh sách từ vựng gốc cho chủ đề này không?')) {
         userVocabData[currentVocabScenario] = JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA[currentVocabScenario]));
         saveUserVocabData();
+        syncProgress();
         loadVocabScenario(currentVocabScenario);
       }
     });
@@ -760,6 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       saveUserVocabData();
+      syncProgress();
       closeAddVocabModal();
 
       loadVocabScenario(currentVocabScenario);
@@ -993,7 +996,8 @@ document.addEventListener('DOMContentLoaded', () => {
       wordsLearnedCount,
       currentLesson: currentLessonName,
       chatHistory,
-      spokenSentences
+      spokenSentences,
+      userVocabData
     };
   }
 
@@ -1104,4 +1108,31 @@ document.addEventListener('DOMContentLoaded', () => {
   loadVocabScenario('intro');
   loadSpeakingChallenge(0);
   loadFlashcard(0);
+
+  // Tự động tải tiến độ & từ vựng tùy chỉnh từ study_log.json (Đồng bộ giữa các máy)
+  fetch('/api/get-log')
+    .then(res => res.json())
+    .then(logData => {
+      if (logData && !logData.empty) {
+        if (logData.userVocabData) {
+          userVocabData = logData.userVocabData;
+          localStorage.setItem('userVocabData', JSON.stringify(userVocabData));
+          loadVocabScenario(currentVocabScenario);
+        }
+        if (typeof logData.streakDays === 'number') {
+          streakDays = logData.streakDays;
+          localStorage.setItem('streakDays', streakDays);
+        }
+        if (typeof logData.wordsLearnedCount === 'number') {
+          wordsLearnedCount = logData.wordsLearnedCount;
+          localStorage.setItem('wordsLearnedCount', wordsLearnedCount);
+        }
+        if (logData.currentLesson) {
+          currentLessonName = logData.currentLesson;
+          localStorage.setItem('currentLessonName', currentLessonName);
+        }
+        updateStatsDisplay();
+      }
+    })
+    .catch(() => {});
 });
