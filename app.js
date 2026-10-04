@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gender === 'female') {
       // Danh sách ưu tiên giọng nữ phổ biến & tự nhiên nhất trên Windows, Edge, Chrome, Mac
       const femaleKeywords = [
-        'jenny', 'aria', 'zira', 'samantha', 'victoria', 'karen', 'google us english', 
+        'jenny', 'aria', 'zira', 'samantha', 'victoria', 'karen', 'google us english',
         'female', 'stephanie', 'susan', 'allison', 'ava', 'emma', 'olivia', 'cindy'
       ];
       for (const kw of femaleKeywords) {
@@ -119,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (found) return found;
       }
       // Nếu không tìm thấy theo tên, loại trừ các giọng nam rõ ràng
-      const fallbackFemale = englishVoices.find(v => 
-        !v.name.toLowerCase().includes('david') && 
-        !v.name.toLowerCase().includes('guy') && 
-        !v.name.toLowerCase().includes('george') && 
-        !v.name.toLowerCase().includes('mark') && 
+      const fallbackFemale = englishVoices.find(v =>
+        !v.name.toLowerCase().includes('david') &&
+        !v.name.toLowerCase().includes('guy') &&
+        !v.name.toLowerCase().includes('george') &&
+        !v.name.toLowerCase().includes('mark') &&
         !v.name.toLowerCase().includes('male')
       );
       if (fallbackFemale) return fallbackFemale;
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentScenarioStep = 0;
     const scenario = CHAT_SCENARIOS[scenarioKey];
     chatMessages.innerHTML = '';
-    
+
     // Render tin nhắn mở đầu của Alex
     scenario.initialMessages.forEach(msg => {
       appendChatMessage(msg.sender, msg.en, msg.vi, false);
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
           renderQuickReplies(stepData.replies);
         } else {
           // Khi đã hoàn thành tất cả các lượt
-          appendChatMessage('bot', 
+          appendChatMessage('bot',
             "🎉 You have completed this full conversation! Would you like to practice again or explore another scenario?",
             "🎉 Bạn đã hoàn thành trọn vẹn bài hội thoại này! Bạn muốn luyện lại hay thử chủ đề khác?",
             true
@@ -832,10 +832,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const cleanTarget = item.word.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
 
       // So khớp từ
-      const isMatch = cleanSpoken === cleanTarget || 
-                      cleanSpoken.split(' ').includes(cleanTarget) ||
-                      cleanTarget.split(' ').includes(cleanSpoken) ||
-                      cleanSpoken.includes(cleanTarget);
+      const isMatch = cleanSpoken === cleanTarget ||
+        cleanSpoken.split(' ').includes(cleanTarget) ||
+        cleanTarget.split(' ').includes(cleanSpoken) ||
+        cleanSpoken.includes(cleanTarget);
 
       if (isMatch) {
         vocabFeedback.innerHTML = `
@@ -957,7 +957,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadFlashcard(idx) {
     const item = FLASHCARDS_ITEMS[idx];
     flashcard.classList.remove('flipped');
-    
+
     fcCategory.textContent = item.category;
     fcWord.textContent = item.word;
     fcPhonetic.textContent = item.phonetic;
@@ -1015,18 +1015,18 @@ document.addEventListener('DOMContentLoaded', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(res => {
-      if (notifySuccess) {
-        alert('✅ Đã lưu tiến độ học tập thành công vào file study_log.md trên máy tính!');
-      }
-    })
-    .catch(() => {
-      // Nếu mở trực tiếp dạng file:/// không qua server
-      if (notifySuccess) {
-        downloadStudyLogMarkdown(data);
-      }
-    });
+      .then(res => res.json())
+      .then(res => {
+        if (notifySuccess) {
+          alert('✅ Đã lưu tiến độ học tập thành công vào file study_log.md trên máy tính!');
+        }
+      })
+      .catch(() => {
+        // Nếu mở trực tiếp dạng file:/// không qua server
+        if (notifySuccess) {
+          downloadStudyLogMarkdown(data);
+        }
+      });
   }
 
   function downloadStudyLogMarkdown(data) {
@@ -1134,5 +1134,5 @@ document.addEventListener('DOMContentLoaded', () => {
         updateStatsDisplay();
       }
     })
-    .catch(() => {});
+    .catch(() => { });
 });

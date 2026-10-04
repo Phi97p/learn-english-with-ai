@@ -8,8 +8,14 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 3000;
+const LOGS_DIR = path.join(__dirname, 'logs');
 const LOG_JSON_PATH = path.join(__dirname, 'study_log.json');
 const LOG_MD_PATH = path.join(__dirname, 'study_log.md');
+
+// Đảm bảo thư mục logs/ luôn sẵn sàng
+if (!fs.existsSync(LOGS_DIR)) {
+  fs.mkdirSync(LOGS_DIR, { recursive: true });
+}
 
 // MIME types
 const MIME_TYPES = {
@@ -34,21 +40,32 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // API 1: Lưu lịch sử và tiến độ học
+  // API 1: Lưu lịch sử và tiến độ học (Tự động lưu vào root & phân loại theo tháng trong logs/)
   if (req.method === 'POST' && req.url === '/api/save-log') {
     let body = '';
     req.on('data', chunk => { body += chunk.toString(); });
     req.on('end', () => {
       try {
         const data = JSON.parse(body);
-        data.lastUpdated = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+        const now = new Date();
+        data.lastUpdated = now.toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
 
-        // 1. Lưu dưới dạng JSON máy đọc
-        fs.writeFileSync(LOG_JSON_PATH, JSON.stringify(data, null, 2), 'utf-8');
+        // Xác định tháng hiện tại dạng YYYY-MM (Ví dụ: 2026-10)
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const monthKey = `${year}-${month}`;
+        const monthJsonPath = path.join(LOGS_DIR, `study_log_${monthKey}.json`);
+        const monthMdPath = path.join(LOGS_DIR, `study_log_${monthKey}.md`);
 
-        // 2. Lưu dưới dạng Markdown cho AI và người học đọc
-        let mdContent = `# 📝 NHẬT KÝ HỌC TIẾNG ANH (Cập nhật: ${data.lastUpdated})\n\n`;
-        mdContent += `### 📊 Tổng quan tiến độ\n`;
+        const jsonStr = JSON.stringify(data, null, 2);
+
+        // 1. Lưu JSON vào file tháng trong logs/ và file tổng ở root
+        fs.writeFileSync(monthJsonPath, jsonStr, 'utf-8');
+        fs.writeFileSync(LOG_JSON_PATH, jsonStr, 'utf-8');
+
+        // 2. Tạo nội dung Markdown rõ ràng cho AI và người học
+        let mdContent = `# 📝 NHẬT KÝ HỌC TIẾNG ANH - THÁNG ${month}/${year} (Cập nhật: ${data.lastUpdated})\n\n`;
+        mdContent += `### 📊 Tổng quan tiến độ tháng ${month}/${year}\n`;
         mdContent += `- **Chuỗi ngày học (Streak):** ${data.streakDays || 1} ngày\n`;
         mdContent += `- **Số mẫu câu / từ đã học:** ${data.wordsLearnedCount || 0} từ\n`;
         mdContent += `- **Bài học đang học:** ${data.currentLesson || 'Bài 1: Chào hỏi & Làm quen'}\n\n`;
@@ -91,10 +108,16 @@ const server = http.createServer((req, res) => {
           }
         }
 
+        // Lưu Markdown vào file tháng trong logs/ và file tổng ở root
+        fs.writeFileSync(monthMdPath, mdContent, 'utf-8');
         fs.writeFileSync(LOG_MD_PATH, mdContent, 'utf-8');
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, message: 'Đã lưu lịch sử vào ổ đĩa thành công!' }));
+        res.end(JSON.stringify({ 
+          success: true, 
+          month: monthKey,
+          message: `Đã lưu nhật ký vào logs/study_log_${monthKey}.md và study_log.md!` 
+        }));
       } catch (err) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ success: false, error: err.message }));
@@ -112,6 +135,19 @@ const server = http.createServer((req, res) => {
     } else {
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ empty: true }));
+    }
+    return;
+  }
+
+  // API 3: Danh sách tất cả file log theo tháng trong thư mục logs/
+  if (req.method === 'GET' && req.url === '/api/list-logs') {
+    try {
+      const files = fs.existsSync(LOGS_DIR) ? fs.readdirSync(LOGS_DIR) : [];
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: true, logs: files }));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, error: err.message }));
     }
     return;
   }
