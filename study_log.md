@@ -1,31 +1,19 @@
-# 📝 NHẬT KÝ HỌC TIẾNG ANH (Cập nhật: 23:15:12 4/10/2026)
+# 📝 NHẬT KÝ HỌC TIẾNG ANH (Cập nhật: 23:47:38 4/10/2026)
 
-- **Chuỗi ngày học:** 1 ngày
-- **Số mẫu câu đã học:** 12 câu
-- **Bài học gần nhất:** Bài 1: Chào hỏi & Làm quen
+### 📊 Tổng quan tiến độ
+- **Chuỗi ngày học (Streak):** 1 ngày
+- **Số mẫu câu / từ đã học:** 5 từ
+- **Bài học đang học:** Bài 1: Chào hỏi & Làm quen
 
-### 💬 Các câu hội thoại bạn vừa luyện:
+### 💬 Lịch sử hội thoại phản xạ gần nhất
+- **👤 Bạn**: "hi Alice  my name is phi nice to meet you" *(Phản xạ của bạn)*
+- **🤖 Alex (AI)**: "It's so wonderful to meet you! Where are you from, and where do you live right now?" *(Rất tuyệt khi được làm quen với bạn! Bạn đến từ đâu, và hiện tại bạn đang sống ở đâu thế?)*
+- **👤 Bạn**: "I'm from Vietnam and live in Ha noi the capital city" *(Phản xạ của bạn)*
+- **🤖 Alex (AI)**: "Vietnam is such a wonderful country with delicious food and friendly people! What do you do for work or study?" *(Việt Nam là một đất nước thật tuyệt vời với ẩm thực ngon và con người thân thiện! Bạn đang làm công việc gì hay đang đi học thế?)*
+- **👤 Bạn**: "I work in IT as the software developer" *(Phản xạ của bạn)*
+- **🤖 Alex (AI)**: "That sounds like a very interesting and rewarding job! What do you usually like to do in your free time?" *(Nghe có vẻ là một công việc rất thú vị và ý nghĩa đấy! Bạn thường thích làm gì vào thời gian rảnh rỗi?)*
+- **👤 Bạn**: "in my free time I love listening to music watching movie and reading book" *(Phản xạ của bạn)*
+- **🤖 Alex (AI)**: "Those are wonderful hobbies! By the way, your English is quite good. Why do you want to learn English?" *(Đó đều là những sở thích tuyệt vời! Nhân tiện, tiếng Anh của bạn khá tốt đấy. Tại sao bạn lại muốn học tiếng Anh?)*
+- **👤 Bạn**: "I want to speak English fluently to get better career opportunities" *(Phản xạ của bạn)*
+- **🤖 Alex (AI)**: "You have an inspiring goal! If you keep practicing a little bit every day, you will definitely achieve it. Thank you for this delightful chat today!" *(Bạn có một mục tiêu rất truyền cảm hứng! Nếu tiếp tục luyện tập một chút mỗi ngày, chắc chắn bạn sẽ đạt được. Cảm ơn bạn rất nhiều vì buổi trò chuyện hôm nay!)*
 
-- **👤 Bạn**: "my name is fee nice to meet you" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "hi Alice my name is fish" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "hi Alex my name is fee nice to meet you" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "I live in Hanoi Vietnam" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "I live in London City it is very beautiful" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "my name is Phi" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "hi Alex my name is fee nice to meet you" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-- **👤 Bạn**: "I live in Hanoi Vietnam" (Bạn vừa nói vào micro)
-- **🤖 Alex**: "That's wonderful! It's so nice to meet you. Where do you live right now?" (Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?)
-
-### 🎙️ Các câu bạn đã phát âm chuẩn:
-
-- "Nice to meet you!" - Rất vui được gặp bạn!
-- "Nice to meet you!" - Rất vui được gặp bạn!
-- "How are you doing today?" - Hôm nay bạn thế nào rồi?
-- "How are you doing today?" - Hôm nay bạn thế nào rồi?

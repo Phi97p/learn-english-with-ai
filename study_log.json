@@ -1,20 +1,69 @@
 {
-  "lastUpdated": "04/10/2026",
   "streakDays": 1,
-  "wordsLearnedCount": 3,
+  "wordsLearnedCount": 5,
   "currentLesson": "Bài 1: Chào hỏi & Làm quen",
   "chatHistory": [
     {
+      "sender": "user",
+      "en": "hi Alice  my name is phi nice to meet you",
+      "vi": "Phản xạ của bạn",
+      "time": "23:44:32"
+    },
+    {
       "sender": "bot",
-      "en": "Hello there! Welcome! My name is Alex. What's your name?",
-      "vi": "Xin chào bạn! Chào mừng bạn! Tôi tên là Alex. Tên bạn là gì nhỉ?"
+      "en": "It's so wonderful to meet you! Where are you from, and where do you live right now?",
+      "vi": "Rất tuyệt khi được làm quen với bạn! Bạn đến từ đâu, và hiện tại bạn đang sống ở đâu thế?",
+      "time": "23:44:33"
+    },
+    {
+      "sender": "user",
+      "en": "I'm from Vietnam and live in Ha noi the capital city",
+      "vi": "Phản xạ của bạn",
+      "time": "23:45:15"
+    },
+    {
+      "sender": "bot",
+      "en": "Vietnam is such a wonderful country with delicious food and friendly people! What do you do for work or study?",
+      "vi": "Việt Nam là một đất nước thật tuyệt vời với ẩm thực ngon và con người thân thiện! Bạn đang làm công việc gì hay đang đi học thế?",
+      "time": "23:45:16"
+    },
+    {
+      "sender": "user",
+      "en": "I work in IT as the software developer",
+      "vi": "Phản xạ của bạn",
+      "time": "23:46:03"
+    },
+    {
+      "sender": "bot",
+      "en": "That sounds like a very interesting and rewarding job! What do you usually like to do in your free time?",
+      "vi": "Nghe có vẻ là một công việc rất thú vị và ý nghĩa đấy! Bạn thường thích làm gì vào thời gian rảnh rỗi?",
+      "time": "23:46:03"
+    },
+    {
+      "sender": "user",
+      "en": "in my free time I love listening to music watching movie and reading book",
+      "vi": "Phản xạ của bạn",
+      "time": "23:46:33"
+    },
+    {
+      "sender": "bot",
+      "en": "Those are wonderful hobbies! By the way, your English is quite good. Why do you want to learn English?",
+      "vi": "Đó đều là những sở thích tuyệt vời! Nhân tiện, tiếng Anh của bạn khá tốt đấy. Tại sao bạn lại muốn học tiếng Anh?",
+      "time": "23:46:34"
+    },
+    {
+      "sender": "user",
+      "en": "I want to speak English fluently to get better career opportunities",
+      "vi": "Phản xạ của bạn",
+      "time": "23:47:29"
+    },
+    {
+      "sender": "bot",
+      "en": "You have an inspiring goal! If you keep practicing a little bit every day, you will definitely achieve it. Thank you for this delightful chat today!",
+      "vi": "Bạn có một mục tiêu rất truyền cảm hứng! Nếu tiếp tục luyện tập một chút mỗi ngày, chắc chắn bạn sẽ đạt được. Cảm ơn bạn rất nhiều vì buổi trò chuyện hôm nay!",
+      "time": "23:47:30"
     }
   ],
-  "spokenSentences": [
-    {
-      "en": "Nice to meet you!",
-      "vi": "Rất vui được gặp bạn!",
-      "accuracy": "Rất chuẩn"
-    }
-  ]
+  "spokenSentences": [],
+  "lastUpdated": "23:47:38 4/10/2026"
 }
