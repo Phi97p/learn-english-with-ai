@@ -1,6 +1,6 @@
 {
   "streakDays": 1,
-  "wordsLearnedCount": 5,
+  "wordsLearnedCount": 23,
   "currentLesson": "Bài 1: Chào hỏi & Làm quen",
   "chatHistory": [
     {
@@ -64,6 +64,115 @@
       "time": "23:47:30"
     }
   ],
-  "spokenSentences": [],
-  "lastUpdated": "23:47:38 4/10/2026"
+  "spokenSentences": [
+    {
+      "en": "[Từ vựng] Welcome",
+      "vi": "Chào mừng",
+      "accuracy": "Rất chuẩn",
+      "time": "00:02:29"
+    },
+    {
+      "en": "[Từ vựng] Name",
+      "vi": "Tên",
+      "accuracy": "Rất chuẩn",
+      "time": "00:02:38"
+    },
+    {
+      "en": "[Từ vựng] Meet",
+      "vi": "Gặp gỡ",
+      "accuracy": "Rất chuẩn",
+      "time": "00:02:50"
+    },
+    {
+      "en": "[Từ vựng] Capital",
+      "vi": "Thủ đô",
+      "accuracy": "Rất chuẩn",
+      "time": "00:02:58"
+    },
+    {
+      "en": "[Từ vựng] Developer",
+      "vi": "Lập trình viên",
+      "accuracy": "Rất chuẩn",
+      "time": "00:03:02"
+    },
+    {
+      "en": "[Từ vựng] Developer",
+      "vi": "Lập trình viên",
+      "accuracy": "Rất chuẩn",
+      "time": "00:03:20"
+    },
+    {
+      "en": "[Từ vựng] Developer",
+      "vi": "Lập trình viên",
+      "accuracy": "Rất chuẩn",
+      "time": "00:03:25"
+    },
+    {
+      "en": "[Từ vựng] Developer",
+      "vi": "Lập trình viên",
+      "accuracy": "Rất chuẩn",
+      "time": "00:03:27"
+    },
+    {
+      "en": "[Từ vựng] Student",
+      "vi": "Sinh viên / Học sinh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:11"
+    },
+    {
+      "en": "[Từ vựng] Student",
+      "vi": "Sinh viên / Học sinh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:14"
+    },
+    {
+      "en": "[Từ vựng] Business",
+      "vi": "Kinh doanh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:27"
+    },
+    {
+      "en": "[Từ vựng] Business",
+      "vi": "Kinh doanh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:30"
+    },
+    {
+      "en": "[Từ vựng] Business",
+      "vi": "Kinh doanh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:33"
+    },
+    {
+      "en": "[Từ vựng] Business",
+      "vi": "Kinh doanh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:43"
+    },
+    {
+      "en": "[Từ vựng] Business",
+      "vi": "Kinh doanh",
+      "accuracy": "Rất chuẩn",
+      "time": "00:04:45"
+    },
+    {
+      "en": "[Từ vựng] Capital",
+      "vi": "Thủ đô",
+      "accuracy": "Rất chuẩn",
+      "time": "00:05:09"
+    },
+    {
+      "en": "[Từ vựng] Hobby",
+      "vi": "Sở thích",
+      "accuracy": "Rất chuẩn",
+      "time": "00:05:35"
+    },
+    {
+      "en": "[Từ vựng] Hobby",
+      "vi": "Sở thích",
+      "accuracy": "Rất chuẩn",
+      "time": "00:05:41"
+    }
+  ],
+  "lastUpdated": "00:05:45 5/10/2026"
 }
