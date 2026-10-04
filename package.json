@@ -1,0 +1,14 @@
+{
+  "name": "learn-english-ai",
+  "version": "1.0.0",
+  "description": "Ứng dụng AI học tiếng Anh giao tiếp từ con số 0",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node server.js",
+    "serve": "npx serve ."
+  },
+  "keywords": ["english", "learning", "ai", "pronunciation", "speech"],
+  "author": "",
+  "license": "MIT"
+}

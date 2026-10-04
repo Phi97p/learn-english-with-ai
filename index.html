@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English AI Buddy - Học Tiếng Anh Giao Tiếp Từ Con Số 0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar / Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🇬🇧</div>
+        <div class="brand-text">
+          <h2>English AI Buddy</h2>
+          <span>Học giao tiếp từ số 0</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="lessons">
+          <span class="icon">📚</span>
+          <span>Lộ trình bài học</span>
+        </button>
+        <button class="nav-item" data-tab="chat">
+          <span class="icon">💬</span>
+          <span>Luyện phản xạ AI</span>
+          <span class="badge">Hot</span>
+        </button>
+        <button class="nav-item" data-tab="speaking">
+          <span class="icon">🎙️</span>
+          <span>Luyện nói & Phát âm</span>
+        </button>
+        <button class="nav-item" data-tab="flashcards">
+          <span class="icon">🗂️</span>
+          <span>Thẻ từ vựng (Flashcards)</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-stats">
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div>
+            <div class="stat-val" id="streak-count">1 Ngày</div>
+            <div class="stat-label">Chuỗi học tập</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div>
+            <div class="stat-val" id="words-learned">0 / 40</div>
+            <div class="stat-label">Mẫu câu đã nạp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="audio-controls-panel">
+        <div class="control-label">🔊 Tốc độ phát âm:</div>
+        <div class="speed-toggle">
+          <button class="speed-btn" data-speed="0.75">Chậm (0.75x)</button>
+          <button class="speed-btn active" data-speed="1.0">Chuẩn (1.0x)</button>
+          <button class="speed-btn" data-speed="1.2">Nhanh (1.2x)</button>
+        </div>
+        <div class="control-label" style="margin-top: 10px;">🎙️ Giọng đọc:</div>
+        <div class="voice-toggle">
+          <button class="voice-btn active" data-gender="female">👩 Giọng Nữ</button>
+          <button class="voice-btn" data-gender="male">👨 Giọng Nam</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top header bar -->
+      <header class="top-header">
+        <div class="header-left">
+          <h1 id="page-title">Lộ trình bài học giao tiếp hàng ngày</h1>
+          <p id="page-subtitle">Học qua phản xạ thực tế, nghe giọng bản ngữ và thực hành ngay lập tức</p>
+        </div>
+        <div class="header-right">
+          <button id="save-log-btn" class="header-btn" title="Lưu lại toàn bộ lịch sử học tập để AI ghi nhớ">💾 Lưu tiến độ</button>
+          <button id="copy-summary-btn" class="header-btn" title="Sao chép bản tóm tắt học tập để gửi cho AI">📋 Sao chép cho AI</button>
+          <button id="theme-toggle" class="header-btn" title="Đổi giao diện">🌓 Giao diện</button>
+        </div>
+      </header>
+
+      <!-- TAB 1: LESSONS -->
+      <section id="tab-lessons" class="tab-pane active">
+        <div class="lessons-overview">
+          <div class="welcome-banner">
+            <div class="banner-content">
+              <h3>👋 Xin chào bạn! Chào mừng đến với hành trình nói tiếng Anh</h3>
+              <p>Đừng lo nếu bạn chưa biết gì! Chúng ta học theo nguyên lý <strong>"Hiểu nghĩa - Nghe mẫu - Bắt chước nói to (Shadowing)"</strong>. Mỗi ngày chỉ cần 10-15 phút là bạn sẽ tự tin nói được.</p>
+            </div>
+            <div class="banner-badge">🎯 Cấp độ: Mới bắt đầu (A0)</div>
+          </div>
+
+          <div class="lesson-cards-grid" id="lessons-grid">
+            <!-- Dynamic lesson cards injected by app.js -->
+          </div>
+        </div>
+
+        <!-- Lesson Detail Modal / View -->
+        <div id="lesson-detail-view" class="lesson-detail-view hidden">
+          <button class="back-btn" id="back-to-lessons-btn">← Quay lại danh sách bài học</button>
+          <div id="lesson-detail-content"></div>
+        </div>
+      </section>
+
+      <!-- TAB 2: AI ROLEPLAY CHAT -->
+      <section id="tab-chat" class="tab-pane">
+        <div class="chat-container">
+          <div class="chat-header">
+            <div class="ai-avatar">👩</div>
+            <div class="ai-info">
+              <h3>Alex - Trợ lý luyện giao tiếp AI (Giọng Nữ)</h3>
+              <p>Alex sẽ trò chuyện thân thiện, kiên nhẫn và sửa lỗi cho bạn từng câu</p>
+            </div>
+            <div class="scenario-selector">
+              <label for="scenario-select">Chọn tình huống:</label>
+              <select id="scenario-select">
+                <option value="intro">1. Chào hỏi & Làm quen lần đầu</option>
+                <option value="coffee">2. Gọi đồ uống ở quán Coffee</option>
+                <option value="shopping">3. Mua sắm & Hỏi giá tiền</option>
+                <option value="directions">4. Hỏi đường trên phố</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chat-messages">
+            <!-- Injected by app.js -->
+          </div>
+
+          <!-- Suggested quick replies for beginner -->
+          <div class="quick-replies-container">
+            <div class="quick-replies-label">💡 Gợi ý câu trả lời phản xạ (Bấm để chọn hoặc nghe thử):</div>
+            <div class="quick-replies" id="quick-replies"></div>
+          </div>
+
+          <div class="chat-input-bar">
+            <input type="text" id="chat-input" placeholder="Gõ câu trả lời của bạn hoặc bấm nút gợi ý phía trên..." autocomplete="off">
+            <button id="chat-mic-btn" class="icon-btn" title="Bấm để nói bằng giọng của bạn">🎙️</button>
+            <button id="chat-send-btn" class="send-btn">Gửi phản xạ 🚀</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: SPEAKING PRACTICE -->
+      <section id="tab-speaking" class="tab-pane">
+        <div class="speaking-container">
+          <div class="speaking-header-card">
+            <h2>🎙️ Phòng Luyện Phát Âm & Nhại Giọng (Shadowing Lab)</h2>
+            <p>1. Bấm <strong>"Nghe mẫu"</strong> để nghe người bản xứ đọc chậm & rõ ràng.<br>
+               2. Bấm <strong>"Nói thử"</strong> và đọc to theo câu mẫu để máy phân tích độ chính xác.</p>
+          </div>
+
+          <div class="speaking-challenge-card" id="speaking-card">
+            <div class="challenge-category" id="spk-category">CHỦ ĐỀ: CHÀO HỎI</div>
+            <div class="challenge-phrase-en" id="spk-phrase-en">"Nice to meet you!"</div>
+            <div class="challenge-phrase-ipa" id="spk-phrase-ipa">Phiên âm: /naɪs tuː miːt juː/ (Nai-xừ tu mít diu)</div>
+            <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Rất vui được gặp bạn!</div>
+
+            <div class="speaking-actions">
+              <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
+              <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
+              <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
+            </div>
+
+            <div class="speaking-feedback" id="spk-feedback">
+              <div class="feedback-status">Bấm "Bấm để nói thử" và nói vào micro nhé!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: FLASHCARDS -->
+      <section id="tab-flashcards" class="tab-pane">
+        <div class="flashcards-container">
+          <div class="flashcard-header">
+            <h2>🗂️ Thẻ Ghi Nhớ Từ Vựng & Mẫu Câu Thông Dụng</h2>
+            <p>Bấm vào thẻ để lật xem nghĩa tiếng Việt & cách phát âm bồi dễ nhớ</p>
+          </div>
+
+          <div class="flashcard-wrapper">
+            <div class="flashcard" id="flashcard">
+              <div class="flashcard-face flashcard-front">
+                <span class="fc-tag" id="fc-category">GIAO TIẾP HÀNG NGÀY</span>
+                <h3 class="fc-word" id="fc-word">How's it going?</h3>
+                <p class="fc-phonetic" id="fc-phonetic">/haʊz ɪt ˈɡoʊ.ɪŋ/</p>
+                <button class="fc-sound-btn" id="fc-sound-btn" title="Nghe âm thanh">🔊 Nghe đọc</button>
+                <div class="fc-hint">👉 Bấm vào thẻ để lật mặt sau</div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <span class="fc-tag-vi">Ý NGHĨA & CÁCH DÙNG</span>
+                <h3 class="fc-meaning" id="fc-meaning">Dạo này thế nào rồi? (Thân mật)</h3>
+                <p class="fc-easy-read" id="fc-easy-read">Đọc tựa như: "Hao zit gô-ing?"</p>
+                <div class="fc-example">
+                  <strong>Ví dụ:</strong> "Hey Nam, how's it going? - Good, thanks!"
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flashcard-controls">
+            <button class="fc-nav-btn" id="fc-prev-btn">◀ Câu trước</button>
+            <span class="fc-counter" id="fc-counter">1 / 15</span>
+            <button class="fc-nav-btn" id="fc-next-btn">Câu tiếp ▶</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

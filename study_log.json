@@ -1,0 +1,20 @@
+{
+  "lastUpdated": "04/10/2026",
+  "streakDays": 1,
+  "wordsLearnedCount": 3,
+  "currentLesson": "Bài 1: Chào hỏi & Làm quen",
+  "chatHistory": [
+    {
+      "sender": "bot",
+      "en": "Hello there! Welcome! My name is Alex. What's your name?",
+      "vi": "Xin chào bạn! Chào mừng bạn! Tôi tên là Alex. Tên bạn là gì nhỉ?"
+    }
+  ],
+  "spokenSentences": [
+    {
+      "en": "Nice to meet you!",
+      "vi": "Rất vui được gặp bạn!",
+      "accuracy": "Rất chuẩn"
+    }
+  ]
+}
