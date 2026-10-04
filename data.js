@@ -666,3 +666,87 @@ const FLASHCARDS_ITEMS = [
     example: "I have to go now. Take care and see you later!"
   }
 ];
+
+// ==========================================
+// TỪ VỰNG THEO TÌNH HUỐNG PHẢN XẠ (DÀNH CHO LUYỆN PHÁT ÂM TỪ ĐƠN)
+// ==========================================
+const VOCAB_SCENARIOS_DATA = {
+  intro: {
+    title: "1. Chào hỏi & Làm quen",
+    icon: "🤝",
+    words: [
+      { word: "Hello", ipa: "/həˈloʊ/", readVi: "Hơ-lâu", vi: "Xin chào", tip: "Chào thân thiện bất cứ lúc nào" },
+      { word: "Welcome", ipa: "/ˈwɛlkəm/", readVi: "Oeo-cầm", vi: "Chào mừng", tip: "Trọng âm rơi vào âm tiết đầu 'Wel'" },
+      { word: "Name", ipa: "/neɪm/", readVi: "Nêm", vi: "Tên", tip: "Kéo dài âm /eɪ/ và khép môi âm /m/" },
+      { word: "Meet", ipa: "/miːt/", readVi: "Mít-t", vi: "Gặp gỡ", tip: "Âm /iː/ dài, bật nhẹ âm /t/ cuối" },
+      { word: "Vietnam", ipa: "/ˌvjɛtˈnɑːm/", readVi: "Việt Nam", vi: "Việt Nam", tip: "Người bản xứ nhấn mạnh vào 'Nam'" },
+      { word: "Hanoi", ipa: "/hæˈnɔɪ/", readVi: "Hà Nội", vi: "Hà Nội", tip: "Trọng âm rơi vào 'Noi'" },
+      { word: "Capital", ipa: "/ˈkæpɪtl/", readVi: "Cá-pi-tồ", vi: "Thủ đô", tip: "Bật hơi âm /k/ đầu tiên" },
+      { word: "Developer", ipa: "/dɪˈvɛləpər/", readVi: "Đi-vé-lơ-pơ", vi: "Lập trình viên", tip: "Trọng âm rơi vào âm tiết 2 've'" },
+      { word: "Student", ipa: "/ˈstuːdnt/", readVi: "S-tiu-đần-t", vi: "Sinh viên / Học sinh", tip: "Bật nhẹ s ở đầu và t ở cuối" },
+      { word: "Business", ipa: "/ˈbɪznəs/", readVi: "Bít-x-nợt-s", vi: "Kinh doanh", tip: "Chỉ phát âm 2 âm tiết 'biz-nis'" },
+      { word: "Hobby", ipa: "/ˈhɑːbi/", readVi: "Hóp-bi", vi: "Sở thích", tip: "Âm /ɑː/ mở rộng miệng" },
+      { word: "Music", ipa: "/ˈmjuːzɪk/", readVi: "Miu-zịch", vi: "Âm nhạc", tip: "Âm giữa là /z/ chứ không phải /s/" },
+      { word: "Movies", ipa: "/ˈmuːviz/", readVi: "Mu-vi-z", vi: "Phim ảnh", tip: "Âm cuối là /z/" },
+      { word: "Travel", ipa: "/ˈtrævl/", readVi: "Tré-vồ", vi: "Đi du lịch", tip: "Âm /v/ rung nhẹ môi dưới và răng trên" },
+      { word: "Fluently", ipa: "/ˈfluːəntli/", readVi: "Phlú-ơn-tli", vi: "Lưu loát / Trôi chảy", tip: "Nhấn âm 'Flu'" },
+      { word: "Opportunity", ipa: "/ˌɑːpərˈtuːnəti/", readVi: "O-pơ-tú-nơ-ti", vi: "Cơ hội", tip: "Nhấn mạnh vào âm 'tu'" }
+    ]
+  },
+  coffee: {
+    title: "2. Gọi đồ uống tại quán Coffee",
+    icon: "☕",
+    words: [
+      { word: "Coffee", ipa: "/ˈkɔːfi/", readVi: "Có-phi", vi: "Cà phê", tip: "Nhấn âm 'Cof'" },
+      { word: "Latte", ipa: "/ˈlɑːteɪ/", readVi: "La-tây", vi: "Cà phê sữa Latte", tip: "Âm /ɑː/ trầm và sâu" },
+      { word: "Cappuccino", ipa: "/ˌkæpʊˈtʃiːnoʊ/", readVi: "Ca-pu-chí-nô", vi: "Cà phê Cappuccino", tip: "Nhấn mạnh vào 'chi'" },
+      { word: "Americano", ipa: "/əˌmɛrɪˈkɑːnoʊ/", readVi: "Ơ-me-ri-cá-nô", vi: "Cà phê Americano", tip: "Nhấn mạnh vào 'ca'" },
+      { word: "Small", ipa: "/smɔːl/", readVi: "S-mó-l", vi: "Kích cỡ nhỏ", tip: "Uốn cong lưỡi ở âm /l/ cuối" },
+      { word: "Medium", ipa: "/ˈmiːdiəm/", readVi: "Mí-đi-ừm", vi: "Kích cỡ vừa", tip: "Nhấn vào 'Me'" },
+      { word: "Large", ipa: "/lɑːrdʒ/", readVi: "La-d-ch", vi: "Kích cỡ lớn", tip: "Bật âm /dʒ/ tròn môi ở cuối" },
+      { word: "Sugar", ipa: "/ˈʃʊɡər/", readVi: "Sú-gơ", vi: "Đường", tip: "Âm /ʃ/ chu môi như ra hiệu im lặng" },
+      { word: "Milk", ipa: "/mɪlk/", readVi: "Miu-k", vi: "Sữa", tip: "Uốn lưỡi âm /l/ rồi bật nhẹ /k/" },
+      { word: "Croissant", ipa: "/kwɑːˈsɑːnt/", readVi: "Oa-xông", vi: "Bánh sừng bò", tip: "Từ gốc Pháp, nhấn âm cuối 'sant'" },
+      { word: "Cookie", ipa: "/ˈkʊki/", readVi: "Cúc-ki", vi: "Bánh quy", tip: "Âm /ʊ/ ngắn và dứt khoát" },
+      { word: "Receipt", ipa: "/rɪˈsiːt/", readVi: "Ri-xít", vi: "Hóa đơn", tip: "Âm 'p' câm, không đọc 're-sipt'!" },
+      { word: "Cash", ipa: "/kæʃ/", readVi: "Ké-s", vi: "Tiền mặt", tip: "Chu môi bật âm /ʃ/ thật dày" },
+      { word: "Card", ipa: "/kɑːrd/", readVi: "Cát-d", vi: "Thẻ ngân hàng", tip: "Chặn âm /d/ ở đầu lưỡi" }
+    ]
+  },
+  shopping: {
+    title: "3. Mua sắm & Hỏi giá tiền",
+    icon: "🛍️",
+    words: [
+      { word: "Jacket", ipa: "/ˈdʒækɪt/", readVi: "Dzá-kịt", vi: "Áo khoác", tip: "Âm /dʒ/ bật mạnh từ vòm họng" },
+      { word: "T-shirt", ipa: "/ˈtiː ʃɜːrt/", readVi: "Ti-sớt", vi: "Áo phông", tip: "Kéo dài âm /ɜːr/ và bật /t/" },
+      { word: "Jeans", ipa: "/dʒiːnz/", readVi: "Dzin-z", vi: "Quần bò jeans", tip: "Luôn có đuôi số nhiều /z/" },
+      { word: "Shoes", ipa: "/ʃuːz/", readVi: "Su-z", vi: "Đôi giày", tip: "Chu môi âm /ʃ/ và ngân /uː/" },
+      { word: "Color", ipa: "/ˈkʌlər/", readVi: "Cớ-lơ", vi: "Màu sắc", tip: "Nhấn âm đầu 'Col'" },
+      { word: "Size", ipa: "/saɪz/", readVi: "Sai-z", vi: "Kích cỡ", tip: "Bật âm rung /z/ ở cuối từ" },
+      { word: "Fitting room", ipa: "/ˈfɪtɪŋ rʊm/", readVi: "Phít-ting rum", vi: "Phòng thử đồ", tip: "Bật nhẹ âm /t/ ở fitting" },
+      { word: "Comfortable", ipa: "/ˈkʌmftəbl/", readVi: "Cắm-ph-tơ-bồ", vi: "Thoải mái / Dễ chịu", tip: "Đọc 3 âm tiết 'cumf-ter-ble', không đọc 'com-for-ta-ble'!" },
+      { word: "Discount", ipa: "/ˈdɪskaʊnt/", readVi: "Đít-x-cao-nt", vi: "Giảm giá", tip: "Nhấn âm 'Dis', bật /nt/ ở cuối" },
+      { word: "Promotion", ipa: "/prəˈmoʊʃn/", readVi: "Prờ-môu-sần", vi: "Khuyến mãi", tip: "Nhấn âm 2 'mo'" },
+      { word: "Price", ipa: "/praɪs/", readVi: "P-rai-s", vi: "Giá tiền", tip: "Bật âm gió /s/ rõ ràng ở cuối" },
+      { word: "Customer", ipa: "/ˈkʌstəmər/", readVi: "Cắt-x-tơ-mơ", vi: "Khách hàng", tip: "Nhấn âm 'Cus'" }
+    ]
+  },
+  directions: {
+    title: "4. Hỏi đường trên phố",
+    icon: "🗺️",
+    words: [
+      { word: "Excuse", ipa: "/ɪkˈskjuːz/", readVi: "Ích-x-kiu-z", vi: "Xin phép / Xin lỗi", tip: "Âm cuối là /z/ rung nhẹ" },
+      { word: "Station", ipa: "/ˈsteɪʃn/", readVi: "S-tây-sần", vi: "Nhà ga", tip: "Nhấn âm đầu 'stay', đuôi 'tion' chu môi" },
+      { word: "Museum", ipa: "/mjuˈziːəm/", readVi: "Miu-zí-ừm", vi: "Bảo tàng", tip: "Trọng âm rơi vào 'ze'" },
+      { word: "Supermarket", ipa: "/ˈsuːpərmɑːrkɪt/", readVi: "Sú-pơ-mát-kịt", vi: "Siêu thị", tip: "Nhấn mạnh âm 'Su'" },
+      { word: "Straight", ipa: "/streɪt/", readVi: "S-trây-t", vi: "Đi thẳng", tip: "Bắt đầu bằng cụm phụ âm /str/" },
+      { word: "Blocks", ipa: "/blɑːks/", readVi: "B-lóc-x", vi: "Dãy nhà / Ngã tư", tip: "Âm cuối là /ks/ bật gió" },
+      { word: "Traffic", ipa: "/ˈtræfɪk/", readVi: "Tré-phích", vi: "Giao thông", tip: "Nhấn âm đầu 'Tra'" },
+      { word: "Distance", ipa: "/ˈdɪstəns/", readVi: "Đít-x-từn-s", vi: "Khoảng cách", tip: "Nhấn âm đầu, kết thúc bằng /s/" },
+      { word: "Walking", ipa: "/ˈwɔːkɪŋ/", readVi: "Oắt-king", vi: "Đi bộ", tip: "Âm 'l' câm, không đọc 'wal-king'" },
+      { word: "Landmark", ipa: "/ˈlændmɑːrk/", readVi: "Lén-d-mác", vi: "Điểm mốc nhận diện", tip: "Nhấn âm 'Land'" },
+      { word: "Entrance", ipa: "/ˈɛntrəns/", readVi: "Én-trừn-s", vi: "Lối vào / Cổng vào", tip: "Nhấn âm đầu 'En'" },
+      { word: "Starbucks", ipa: "/ˈstɑːrbʌks/", readVi: "S-ta-bắc-x", vi: "Quán cà phê Starbucks", tip: "Bắt đầu s- và kết thúc -ks" }
+    ]
+  }
+};

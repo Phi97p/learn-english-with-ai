@@ -44,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatInput = document.getElementById('chat-input');
   const chatSendBtn = document.getElementById('chat-send-btn');
   const chatMicBtn = document.getElementById('chat-mic-btn');
+  const chatClearBtn = document.getElementById('chat-clear-btn');
 
-  // Speaking elements
+  // Speaking elements (Sentence Shadowing)
   const spkCategory = document.getElementById('spk-category');
   const spkPhraseEn = document.getElementById('spk-phrase-en');
   const spkPhraseIpa = document.getElementById('spk-phrase-ipa');
@@ -54,6 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const spkRecordBtn = document.getElementById('spk-record-btn');
   const spkNextBtn = document.getElementById('spk-next-btn');
   const spkFeedback = document.getElementById('spk-feedback');
+
+  // Speaking elements (Vocabulary Speaking Lab - Mới)
+  const btnModeVocab = document.getElementById('btn-mode-vocab');
+  const btnModeSentence = document.getElementById('btn-mode-sentence');
+  const vocabSpeakingSection = document.getElementById('vocab-speaking-section');
+  const sentenceSpeakingSection = document.getElementById('sentence-speaking-section');
+
+  const vocabScenarioSelect = document.getElementById('vocab-scenario-select');
+  const vocabChipsWrapper = document.getElementById('vocab-chips-wrapper');
+  const vocabCategory = document.getElementById('vocab-category');
+  const vocabWordEn = document.getElementById('vocab-word-en');
+  const vocabWordIpa = document.getElementById('vocab-word-ipa');
+  const vocabWordVi = document.getElementById('vocab-word-vi');
+  const vocabWordTip = document.getElementById('vocab-word-tip');
+  const vocabListenBtn = document.getElementById('vocab-listen-btn');
+  const vocabRecordBtn = document.getElementById('vocab-record-btn');
+  const vocabPrevBtn = document.getElementById('vocab-prev-btn');
+  const vocabNextBtn = document.getElementById('vocab-next-btn');
+  const vocabFeedback = document.getElementById('vocab-feedback');
+  const vocabRemoveBtn = document.getElementById('vocab-remove-btn');
+  const btnAddVocab = document.getElementById('btn-add-vocab');
+  const btnResetVocab = document.getElementById('btn-reset-vocab');
+
+  // Add Vocab Modal elements
+  const addVocabModal = document.getElementById('add-vocab-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalCancelBtn = document.getElementById('modal-cancel-btn');
+  const modalSaveBtn = document.getElementById('modal-save-btn');
+  const newVocabWord = document.getElementById('new-vocab-word');
+  const newVocabVi = document.getElementById('new-vocab-vi');
+  const newVocabIpa = document.getElementById('new-vocab-ipa');
+  const newVocabTip = document.getElementById('new-vocab-tip');
 
   // Flashcards elements
   const flashcard = document.getElementById('flashcard');
@@ -448,6 +481,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  if (chatClearBtn) {
+    chatClearBtn.addEventListener('click', () => {
+      chatInput.value = '';
+      baseInputText = '';
+      if (isListeningChat && recognition) {
+        userManuallyStopped = true;
+        recognition.stop();
+      }
+      chatInput.focus();
+    });
+  }
+
   scenarioSelect.addEventListener('change', (e) => {
     loadScenario(e.target.value);
   });
@@ -529,7 +574,302 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5. Phòng luyện phát âm (Shadowing Lab)
+  // 5.1. Luyện nói theo từng từ vựng (Từ phản xạ)
+  // ==========================================
+  let currentVocabScenario = 'intro';
+  let currentVocabIdx = 0;
+
+  // Khởi tạo & nạp dữ liệu từ vựng của người dùng (lưu trữ trong LocalStorage)
+  let userVocabData = null;
+  try {
+    const savedVocab = localStorage.getItem('userVocabData');
+    if (savedVocab) {
+      userVocabData = JSON.parse(savedVocab);
+    }
+  } catch (e) {
+    userVocabData = null;
+  }
+  if (!userVocabData) {
+    userVocabData = JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA));
+  }
+
+  function saveUserVocabData() {
+    localStorage.setItem('userVocabData', JSON.stringify(userVocabData));
+  }
+
+  // Chuyển đổi giữa 2 chế độ: Luyện từ vựng vs Luyện cả câu
+  if (btnModeVocab && btnModeSentence) {
+    btnModeVocab.addEventListener('click', () => {
+      btnModeVocab.classList.add('active');
+      btnModeSentence.classList.remove('active');
+      vocabSpeakingSection.style.display = 'flex';
+      sentenceSpeakingSection.style.display = 'none';
+    });
+
+    btnModeSentence.addEventListener('click', () => {
+      btnModeSentence.classList.add('active');
+      btnModeVocab.classList.remove('active');
+      sentenceSpeakingSection.style.display = 'flex';
+      vocabSpeakingSection.style.display = 'none';
+    });
+  }
+
+  function loadVocabScenario(scenarioKey) {
+    currentVocabScenario = scenarioKey;
+    currentVocabIdx = 0;
+    const scenarioData = userVocabData[scenarioKey];
+    if (!scenarioData) return;
+
+    vocabChipsWrapper.innerHTML = '';
+
+    if (!scenarioData.words || scenarioData.words.length === 0) {
+      vocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" hoặc "🔄 Khôi phục" nhé!</span>';
+      vocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TRỐNG)`;
+      vocabWordEn.textContent = "Không có từ nào";
+      vocabWordIpa.textContent = "Bạn đã loại bỏ hết từ trong danh sách này.";
+      vocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới hoặc '🔄 Khôi phục' để lấy lại từ mặc định.";
+      vocabWordTip.textContent = "";
+      vocabFeedback.innerHTML = '<div class="feedback-status">Hãy thêm từ vựng để bắt đầu luyện nói!</div>';
+      return;
+    }
+
+    scenarioData.words.forEach((item, idx) => {
+      const chip = document.createElement('button');
+      chip.className = `vocab-chip ${idx === 0 ? 'active' : ''}`;
+      chip.innerHTML = `<span>${item.word}</span> <span style="font-size:0.75rem;opacity:0.7;">(${item.vi || ''})</span>`;
+      chip.addEventListener('click', () => {
+        loadVocabWord(idx);
+      });
+      vocabChipsWrapper.appendChild(chip);
+    });
+
+    loadVocabWord(0);
+  }
+
+  function loadVocabWord(idx) {
+    const scenarioData = userVocabData[currentVocabScenario];
+    if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+
+    if (idx >= scenarioData.words.length) idx = 0;
+    currentVocabIdx = idx;
+    const item = scenarioData.words[idx];
+
+    // Cập nhật chip active
+    const chips = vocabChipsWrapper.querySelectorAll('.vocab-chip');
+    chips.forEach((c, i) => {
+      if (i === idx) {
+        c.classList.add('active');
+        c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        c.classList.remove('active');
+      }
+    });
+
+    vocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TỪ ${idx + 1} / ${scenarioData.words.length})`;
+    vocabWordEn.textContent = item.word;
+    vocabWordIpa.textContent = item.ipa ? `Phiên âm: ${item.ipa} ${item.readVi ? `(${item.readVi})` : ''}` : '';
+    vocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
+    vocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
+    vocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
+  }
+
+  // Đổi tình huống từ vựng
+  if (vocabScenarioSelect) {
+    vocabScenarioSelect.addEventListener('change', (e) => {
+      loadVocabScenario(e.target.value);
+    });
+  }
+
+  // Loại bỏ từ không muốn học
+  if (vocabRemoveBtn) {
+    vocabRemoveBtn.addEventListener('click', () => {
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+
+      const removedWord = scenarioData.words[currentVocabIdx].word;
+      scenarioData.words.splice(currentVocabIdx, 1);
+      saveUserVocabData();
+
+      if (currentVocabIdx >= scenarioData.words.length) {
+        currentVocabIdx = Math.max(0, scenarioData.words.length - 1);
+      }
+
+      loadVocabScenario(currentVocabScenario);
+      if (scenarioData.words.length > 0) {
+        loadVocabWord(currentVocabIdx);
+      }
+
+      vocabFeedback.innerHTML = `<div class="feedback-status" style="color:var(--accent-rose);">🗑️ Đã loại bỏ từ "<strong>${removedWord}</strong>" khỏi danh sách luyện tập!</div>`;
+    });
+  }
+
+  // Khôi phục danh sách từ gốc
+  if (btnResetVocab) {
+    btnResetVocab.addEventListener('click', () => {
+      if (confirm('Bạn có chắc chắn muốn khôi phục lại danh sách từ vựng gốc cho chủ đề này không?')) {
+        userVocabData[currentVocabScenario] = JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA[currentVocabScenario]));
+        saveUserVocabData();
+        loadVocabScenario(currentVocabScenario);
+      }
+    });
+  }
+
+  // Mở modal thêm từ vựng mới
+  if (btnAddVocab && addVocabModal) {
+    btnAddVocab.addEventListener('click', () => {
+      addVocabModal.style.display = 'flex';
+      newVocabWord.value = '';
+      newVocabVi.value = '';
+      newVocabIpa.value = '';
+      newVocabTip.value = '';
+      newVocabWord.focus();
+    });
+  }
+
+  // Đóng modal
+  function closeAddVocabModal() {
+    if (addVocabModal) addVocabModal.style.display = 'none';
+  }
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAddVocabModal);
+  if (modalCancelBtn) modalCancelBtn.addEventListener('click', closeAddVocabModal);
+
+  // Lưu từ mới từ modal
+  if (modalSaveBtn) {
+    modalSaveBtn.addEventListener('click', () => {
+      const word = newVocabWord.value.trim();
+      if (!word) {
+        alert('Vui lòng nhập từ tiếng Anh bạn muốn học!');
+        newVocabWord.focus();
+        return;
+      }
+
+      const vi = newVocabVi.value.trim() || 'Từ do bạn tự thêm';
+      const ipa = newVocabIpa.value.trim() || '';
+      const tip = newVocabTip.value.trim() || 'Từ vựng do bạn tự thêm vào danh sách';
+
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (!scenarioData.words) scenarioData.words = [];
+
+      scenarioData.words.push({
+        word,
+        ipa,
+        readVi: '',
+        vi,
+        tip
+      });
+
+      saveUserVocabData();
+      closeAddVocabModal();
+
+      loadVocabScenario(currentVocabScenario);
+      loadVocabWord(scenarioData.words.length - 1);
+
+      vocabFeedback.innerHTML = `<div class="feedback-success">✨ Đã thêm thành công từ "<strong>${word}</strong>"! Hãy bấm nghe phát âm và luyện nói ngay nhé!</div>`;
+    });
+  }
+
+  if (vocabListenBtn) {
+    vocabListenBtn.addEventListener('click', () => {
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (scenarioData && scenarioData.words && scenarioData.words[currentVocabIdx]) {
+        speak(scenarioData.words[currentVocabIdx].word);
+      }
+    });
+  }
+
+  if (vocabPrevBtn) {
+    vocabPrevBtn.addEventListener('click', () => {
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+      currentVocabIdx = (currentVocabIdx - 1 + scenarioData.words.length) % scenarioData.words.length;
+      loadVocabWord(currentVocabIdx);
+    });
+  }
+
+  if (vocabNextBtn) {
+    vocabNextBtn.addEventListener('click', () => {
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+      currentVocabIdx = (currentVocabIdx + 1) % scenarioData.words.length;
+      loadVocabWord(currentVocabIdx);
+    });
+  }
+
+  // Nhận diện giọng nói cho từ vựng đơn lẻ
+  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const vocabRecognition = new SpeechRecognition();
+    vocabRecognition.lang = 'en-US';
+    vocabRecognition.interimResults = false;
+
+    if (vocabRecordBtn) {
+      vocabRecordBtn.addEventListener('click', () => {
+        const scenarioData = userVocabData[currentVocabScenario];
+        if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+
+        try {
+          vocabRecognition.start();
+          vocabRecordBtn.classList.add('recording');
+          vocabRecordBtn.textContent = '🔴 Đang nghe... Hãy đọc to từ này!';
+          vocabFeedback.innerHTML = '<div class="feedback-status">Đang lắng nghe bạn đọc từ... Nói to rõ ràng nhé!</div>';
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    vocabRecognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      const scenarioData = userVocabData[currentVocabScenario];
+      if (!scenarioData || !scenarioData.words || !scenarioData.words[currentVocabIdx]) return;
+      const item = scenarioData.words[currentVocabIdx];
+
+      const cleanSpoken = transcript.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
+      const cleanTarget = item.word.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
+
+      // So khớp từ
+      const isMatch = cleanSpoken === cleanTarget || 
+                      cleanSpoken.split(' ').includes(cleanTarget) ||
+                      cleanTarget.split(' ').includes(cleanSpoken) ||
+                      cleanSpoken.includes(cleanTarget);
+
+      if (isMatch) {
+        vocabFeedback.innerHTML = `
+          <div class="feedback-success">
+            🎉 Tuyệt vời! Bạn phát âm từ "<strong>${item.word}</strong>" rất chuẩn xác!<br>
+            <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được: "<strong>${transcript}</strong>"</span>
+          </div>
+        `;
+        spokenSentences.push({
+          en: `[Từ vựng] ${item.word}`,
+          vi: item.vi || '',
+          accuracy: 'Rất chuẩn',
+          time: new Date().toLocaleTimeString('vi-VN')
+        });
+        localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
+        incrementWordCount();
+        syncProgress();
+      } else {
+        vocabFeedback.innerHTML = `
+          <div class="feedback-error">
+            👏 Đã ghi nhận! Máy nghe được: "<strong>${transcript}</strong>"<br>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần và đọc to, dứt khoát âm tiết nhé!</span>
+          </div>
+        `;
+      }
+    };
+
+    vocabRecognition.onend = () => {
+      if (vocabRecordBtn) {
+        vocabRecordBtn.classList.remove('recording');
+        vocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
+      }
+    };
+  }
+
+  // ==========================================
+  // 5.2. Phòng luyện phát âm cả câu (Shadowing Lab)
   // ==========================================
   function loadSpeakingChallenge(idx) {
     const item = SPEAKING_ITEMS[idx];
@@ -761,6 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStatsDisplay();
   renderLessons();
   loadScenario('intro');
+  loadVocabScenario('intro');
   loadSpeakingChallenge(0);
   loadFlashcard(0);
 });

@@ -143,6 +143,7 @@
 
           <div class="chat-input-bar">
             <input type="text" id="chat-input" placeholder="Gõ câu trả lời của bạn hoặc bấm nút gợi ý phía trên..." autocomplete="off">
+            <button id="chat-clear-btn" class="icon-btn clear-btn" title="Xóa câu vừa nói để nói lại">🗑️</button>
             <button id="chat-mic-btn" class="icon-btn" title="Bấm để nói bằng giọng của bạn">🎙️</button>
             <button id="chat-send-btn" class="send-btn">Gửi phản xạ 🚀</button>
           </div>
@@ -152,28 +153,101 @@
       <!-- TAB 3: SPEAKING PRACTICE -->
       <section id="tab-speaking" class="tab-pane">
         <div class="speaking-container">
-          <div class="speaking-header-card">
-            <h2>🎙️ Phòng Luyện Phát Âm & Nhại Giọng (Shadowing Lab)</h2>
-            <p>1. Bấm <strong>"Nghe mẫu"</strong> để nghe người bản xứ đọc chậm & rõ ràng.<br>
-               2. Bấm <strong>"Nói thử"</strong> và đọc to theo câu mẫu để máy phân tích độ chính xác.</p>
+
+          <!-- SPEAKING MODE SWITCHER -->
+          <div class="speaking-mode-switcher">
+            <button class="mode-tab-btn active" id="btn-mode-vocab">
+              <span class="mode-icon">🎯</span>
+              <span>1. Luyện nói theo từ vựng (Từ phản xạ)</span>
+            </button>
+            <button class="mode-tab-btn" id="btn-mode-sentence">
+              <span class="mode-icon">🎙️</span>
+              <span>2. Luyện nói cả câu (Shadowing Lab)</span>
+            </button>
           </div>
 
-          <div class="speaking-challenge-card" id="speaking-card">
-            <div class="challenge-category" id="spk-category">CHỦ ĐỀ: CHÀO HỎI</div>
-            <div class="challenge-phrase-en" id="spk-phrase-en">"Nice to meet you!"</div>
-            <div class="challenge-phrase-ipa" id="spk-phrase-ipa">Phiên âm: /naɪs tuː miːt juː/ (Nai-xừ tu mít diu)</div>
-            <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Rất vui được gặp bạn!</div>
-
-            <div class="speaking-actions">
-              <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
-              <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
-              <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
+          <!-- MODULE 1: LUYỆN NÓI THEO TỪ VỰNG (TRÍCH TỪ PHẢN XẠ AI) -->
+          <div class="speaking-module-card" id="vocab-speaking-section">
+            <div class="speaking-header-card">
+              <div class="vocab-header-top">
+                <div>
+                  <h2>🎯 Luyện Nói Từng Từ Vựng Cốt Lõi</h2>
+                  <p>Luyện phát âm chuẩn xác từng từ vựng trong các tình huống giao tiếp</p>
+                </div>
+                <div class="scenario-selector vocab-selector">
+                  <div class="vocab-toolbar-actions">
+                    <label for="vocab-scenario-select">Tình huống:</label>
+                    <select id="vocab-scenario-select">
+                      <option value="intro">1. Chào hỏi & Làm quen</option>
+                      <option value="coffee">2. Gọi đồ uống Coffee</option>
+                      <option value="shopping">3. Mua sắm & Giá tiền</option>
+                      <option value="directions">4. Hỏi đường trên phố</option>
+                    </select>
+                    <button id="btn-add-vocab" class="btn-action-small" title="Tự thêm từ mới bạn muốn luyện">➕ Thêm từ</button>
+                    <button id="btn-reset-vocab" class="btn-action-small" title="Khôi phục danh sách từ vựng gốc">🔄 Khôi phục</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="speaking-feedback" id="spk-feedback">
-              <div class="feedback-status">Bấm "Bấm để nói thử" và nói vào micro nhé!</div>
+            <!-- Card luyện nói từ vựng đang chọn -->
+            <div class="speaking-challenge-card vocab-challenge-card">
+              <div class="challenge-category" id="vocab-category">CHỦ ĐỀ: CHÀO HỎI & LÀM QUEN (TỪ 1 / 16)</div>
+              <div class="challenge-word-en" id="vocab-word-en">Hello</div>
+              <div class="challenge-phrase-ipa" id="vocab-word-ipa">Phiên âm: /həˈloʊ/ (Hơ-lâu)</div>
+              <div class="challenge-phrase-vi" id="vocab-word-vi">Ý nghĩa: Xin chào</div>
+              <div class="challenge-word-tip" id="vocab-word-tip">💡 Mẹo: Chào thân thiện bất cứ lúc nào</div>
+
+              <div class="speaking-actions">
+                <button class="btn-listen" id="vocab-listen-btn">🔊 Nghe phát âm từ mẫu</button>
+                <button class="btn-record" id="vocab-record-btn">🎙️ Bấm để nói từ này</button>
+                <button class="btn-nav" id="vocab-prev-btn">⬅️ Từ trước</button>
+                <button class="btn-next" id="vocab-next-btn">Từ tiếp theo ➔</button>
+                <button class="btn-remove-word" id="vocab-remove-btn" title="Bỏ từ này khỏi danh sách luyện">🗑️ Bỏ từ này</button>
+              </div>
+
+              <div class="speaking-feedback" id="vocab-feedback">
+                <div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>
+              </div>
+            </div>
+
+            <!-- DANH SÁCH TỪ VỰNG TRONG TÌNH HUỐNG (CHUYỂN XUỐNG DƯỚI CÙNG) -->
+            <div class="speaking-header-card vocab-bottom-list-card">
+              <div class="vocab-chip-list-label" style="margin-top: 0; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
+                📋 Danh sách toàn bộ từ vựng (Bấm vào từ bất kỳ để chọn luyện nói):
+              </div>
+              <div class="vocab-chips-wrapper" id="vocab-chips-wrapper" style="margin-top: 10px;">
+                <!-- Injected by app.js -->
+              </div>
             </div>
           </div>
+
+          <!-- MODULE 2: LUYỆN NÓI CẢ CÂU (SHADOWING LAB) -->
+          <div class="speaking-module-card" id="sentence-speaking-section" style="display: none;">
+            <div class="speaking-header-card">
+              <h2>🎙️ Phòng Luyện Phát Âm & Nhại Giọng Cả Câu (Shadowing Lab)</h2>
+              <p>1. Bấm <strong>"Nghe mẫu"</strong> để nghe người bản xứ đọc chậm & rõ ràng.<br>
+                 2. Bấm <strong>"Nói thử"</strong> và đọc to theo câu mẫu để máy phân tích độ chính xác.</p>
+            </div>
+
+            <div class="speaking-challenge-card" id="speaking-card">
+              <div class="challenge-category" id="spk-category">CHỦ ĐỀ: CHÀO HỎI</div>
+              <div class="challenge-phrase-en" id="spk-phrase-en">"Nice to meet you!"</div>
+              <div class="challenge-phrase-ipa" id="spk-phrase-ipa">Phiên âm: /naɪs tuː miːt juː/ (Nai-xừ tu mít diu)</div>
+              <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Rất vui được gặp bạn!</div>
+
+              <div class="speaking-actions">
+                <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
+                <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
+                <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
+              </div>
+
+              <div class="speaking-feedback" id="spk-feedback">
+                <div class="feedback-status">Bấm "Bấm để nói thử" và nói vào micro nhé!</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -213,6 +287,36 @@
         </div>
       </section>
     </main>
+  <!-- Modal Thêm từ vựng mới -->
+  <div id="add-vocab-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Thêm từ vựng vào danh sách luyện tập</h3>
+        <button id="modal-close-btn" class="modal-close-btn" title="Đóng">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="new-vocab-word">Từ tiếng Anh <span style="color:var(--accent-rose);">*</span>:</label>
+          <input type="text" id="new-vocab-word" placeholder="Ví dụ: Opportunity, Schedule, Passion..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="new-vocab-vi">Ý nghĩa tiếng Việt:</label>
+          <input type="text" id="new-vocab-vi" placeholder="Ví dụ: Cơ hội, Lịch trình, Niềm đam mê..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="new-vocab-ipa">Phiên âm / Cách đọc bồi (Tùy chọn):</label>
+          <input type="text" id="new-vocab-ipa" placeholder="Ví dụ: /ˌɑːpərˈtuːnəti/ (O-pơ-tú-nơ-ti)..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="new-vocab-tip">Mẹo phát âm / Ghi nhớ (Tùy chọn):</label>
+          <input type="text" id="new-vocab-tip" placeholder="Ví dụ: Nhấn mạnh vào âm tiết thứ 3..." autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-cancel-btn" class="btn-nav">Hủy bỏ</button>
+        <button id="modal-save-btn" class="send-btn">Lưu từ mới ✨</button>
+      </div>
+    </div>
   </div>
 
   <script src="data.js"></script>
