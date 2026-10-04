@@ -4,22 +4,22 @@ Chào mừng bạn đến với ứng dụng **English AI Buddy**! Ứng dụng 
 
 ---
 
-## 🚀 1. Cách mở ứng dụng để thực hành ngay
+## 🚀 1. Cách mở ứng dụng (1-Click cực nhanh)
 
-Bạn có thể mở ứng dụng theo 2 cách cực kỳ đơn giản:
+Ứng dụng đã có sẵn 2 phiên bản khởi chạy 1-click cho cả **Windows** và **MacBook**:
 
-### Cách 1 (Nhanh nhất - Không cần cài đặt gì thêm):
-- Vào thư mục `d:\phi-learning-english\learn-english-with-ai`
-- Nhấp đúp chuột vào file **`index.html`** để mở trực tiếp trên trình duyệt (Google Chrome, Microsoft Edge, Brave,...)
+### 💻 Đối với Máy Windows:
+- Nhấp đúp chuột vào file: **`Chay_Ung_Dung_Windows.bat`**
+- Trình duyệt sẽ tự động mở `http://localhost:3000`.
 
-### Cách 2 (Dùng qua Server cục bộ):
-Mở terminal trong thư mục này và chạy:
-```bash
-npx serve .
-# Hoặc
-npm start
-```
-Sau đó mở đường link hiển thị (ví dụ: `http://localhost:3000`).
+### 🍏 Đối với Máy MacBook (macOS):
+- Trong Finder, nhấp đúp chuột vào file: **`Chay_Ung_Dung_Mac.command`**
+- Trình duyệt trên Mac (Chrome/Safari) sẽ tự động mở `http://localhost:3000`.
+- *(Lưu ý: Nếu lần đầu Mac hỏi bảo mật quyền file, bạn chỉ cần mở Terminal gõ `chmod +x Chay_Ung_Dung_Mac.command` là từ sau nhấp đúp thoải mái).*
+
+> 💡 **Điểm vượt trội khi mở qua 2 file này:**
+> - Trình duyệt lưu **vĩnh viễn quyền micro** (không bị hỏi lại mỗi lần bấm mic).
+> - Tiến độ học tập và hội thoại sẽ **tự động lưu trực tiếp vào file `study_log.md` và `study_log.json`** trên máy tính mà không bao giờ tải file về máy!
 
 ---
 
