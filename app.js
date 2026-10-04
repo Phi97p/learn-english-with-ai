@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSpeakingIdx = 0;
   let currentFlashcardIdx = 0;
   let currentScenario = 'intro';
+  let currentScenarioStep = 0;
   let currentLessonName = localStorage.getItem('currentLessonName') || 'Bài 1: Chào hỏi & Làm quen';
   let wordsLearnedCount = parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10);
   let streakDays = parseInt(localStorage.getItem('streakDays') || '1', 10);
@@ -291,15 +292,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   function loadScenario(scenarioKey) {
     currentScenario = scenarioKey;
+    currentScenarioStep = 0;
     const scenario = CHAT_SCENARIOS[scenarioKey];
     chatMessages.innerHTML = '';
     
-    // Check if we have previous history for this session, otherwise show initial
+    // Render tin nhắn mở đầu của Alex
     scenario.initialMessages.forEach(msg => {
       appendChatMessage(msg.sender, msg.en, msg.vi, false);
     });
 
-    renderQuickReplies(scenario.replies);
+    renderQuickReplies(scenario.initialReplies || scenario.replies || []);
   }
 
   function appendChatMessage(sender, textEn, textVi, recordHistory = true) {
@@ -361,6 +363,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleUserMessage(textEn, textVi = '') {
     if (!textEn.trim()) return;
 
+    // Điều hướng nhanh khi người dùng bấm vào các nút gợi ý đặc biệt ở cuối bài
+    if (textEn.includes("Let's practice this scenario one more time!")) {
+      loadScenario(currentScenario);
+      return;
+    }
+    if (textEn.includes("I want to try ordering coffee at Coffee House!")) {
+      scenarioSelect.value = 'coffee';
+      loadScenario('coffee');
+      return;
+    }
+    if (textEn.includes("Let's try shopping & asking for prices next!")) {
+      scenarioSelect.value = 'shopping';
+      loadScenario('shopping');
+      return;
+    }
+    if (textEn.includes("Let's try asking for directions next!")) {
+      scenarioSelect.value = 'directions';
+      loadScenario('directions');
+      return;
+    }
+    if (textEn.includes("Let's go back to Lesson 1 practice!")) {
+      switchTab('lessons');
+      return;
+    }
+
     appendChatMessage('user', textEn, textVi || 'Phản xạ của bạn', true);
     chatInput.value = '';
     quickRepliesContainer.innerHTML = '<span style="color:var(--text-muted);font-size:0.8rem;">Alex đang suy nghĩ phản hồi... ⏳</span>';
@@ -369,22 +396,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       const scenario = CHAT_SCENARIOS[currentScenario];
-      const botReply = scenario.responses.default;
 
-      appendChatMessage('bot', botReply.en, botReply.vi, true);
-      renderQuickReplies(botReply.nextReplies || [
-        { en: "Thank you for practicing with me!", vi: "Cảm ơn bạn đã luyện tập cùng tôi!" },
-        { en: "Have a nice day! See you soon!", vi: "Chúc một ngày tốt lành! Hẹn gặp lại nhé!" }
-      ]);
-    }, 1000);
+      // Nếu kịch bản có các bước tuần tự phong phú (multi-turn dialogue)
+      if (scenario.steps && scenario.steps.length > 0) {
+        if (currentScenarioStep < scenario.steps.length) {
+          const stepData = scenario.steps[currentScenarioStep];
+          currentScenarioStep++;
+
+          const botReply = typeof stepData.botReply === 'function' ? stepData.botReply(textEn) : stepData.botReply;
+          appendChatMessage('bot', botReply.en, botReply.vi, true);
+          renderQuickReplies(stepData.replies);
+        } else {
+          // Khi đã hoàn thành tất cả các lượt
+          appendChatMessage('bot', 
+            "🎉 You have completed this full conversation! Would you like to practice again or explore another scenario?",
+            "🎉 Bạn đã hoàn thành trọn vẹn bài hội thoại này! Bạn muốn luyện lại hay thử chủ đề khác?",
+            true
+          );
+          renderQuickReplies([
+            { en: "Let's practice this scenario one more time!", vi: "Hãy cùng luyện lại tình huống này một lần nữa!" },
+            { en: "I want to try ordering coffee at Coffee House!", vi: "Tôi muốn thử tình huống gọi cà phê tại quán!" }
+          ]);
+        }
+      } else {
+        const botReply = scenario.responses ? scenario.responses.default : { en: "Thank you for chatting!", vi: "Cảm ơn bạn đã trò chuyện!" };
+        appendChatMessage('bot', botReply.en, botReply.vi, true);
+        renderQuickReplies(botReply.nextReplies || [
+          { en: "Thank you for practicing with me!", vi: "Cảm ơn bạn đã luyện tập cùng tôi!" },
+          { en: "Have a nice day! See you soon!", vi: "Chúc một ngày tốt lành! Hẹn gặp lại nhé!" }
+        ]);
+      }
+    }, 700);
+  }
+
+  function stopChatListening() {
+    if (isListeningChat && recognition) {
+      userManuallyStopped = true;
+      recognition.stop();
+    }
   }
 
   chatSendBtn.addEventListener('click', () => {
+    stopChatListening();
     handleUserMessage(chatInput.value.trim());
   });
 
   chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+      stopChatListening();
       handleUserMessage(chatInput.value.trim());
     }
   });
@@ -393,22 +452,32 @@ document.addEventListener('DOMContentLoaded', () => {
     loadScenario(e.target.value);
   });
 
-  // Chat Voice Input
+  // Chat Voice Input (Chủ động bật/tắt - Không tự ngắt khi ngập ngừng suy nghĩ)
   let isListeningChat = false;
+  let userManuallyStopped = false;
+  let baseInputText = '';
+  let recognition = null;
+
   if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
+    recognition = new SpeechRecognition();
     recognition.lang = 'en-US';
-    recognition.interimResults = false;
+    recognition.continuous = true;
+    recognition.interimResults = true;
 
     chatMicBtn.addEventListener('click', () => {
       if (isListeningChat) {
+        userManuallyStopped = true;
         recognition.stop();
         return;
       }
       try {
+        userManuallyStopped = false;
+        baseInputText = chatInput.value.trim() ? chatInput.value.trim() + ' ' : '';
         recognition.start();
         chatMicBtn.classList.add('recording');
+        chatMicBtn.textContent = '⏹️';
+        chatMicBtn.title = 'Đang lắng nghe... Bấm vào đây để DỪNG khi bạn nói xong';
         isListeningChat = true;
       } catch (err) {
         console.error(err);
@@ -416,14 +485,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     recognition.onresult = (event) => {
-      const speechResult = event.results[0][0].transcript;
-      chatInput.value = speechResult;
-      handleUserMessage(speechResult, 'Bạn vừa nói vào micro');
+      let finalTranscript = '';
+      let interimTranscript = '';
+
+      for (let i = 0; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript + ' ';
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+
+      chatInput.value = (baseInputText + finalTranscript + interimTranscript).trim();
+      chatInput.focus();
     };
 
     recognition.onend = () => {
+      // Nếu người dùng chưa bấm dừng mà trình duyệt tự ngắt do khoảng lặng suy nghĩ, tự động bật lại
+      if (isListeningChat && !userManuallyStopped) {
+        try {
+          recognition.start();
+          return;
+        } catch (err) {
+          // Tránh crash nếu trình duyệt chặn restart tức thì
+        }
+      }
       chatMicBtn.classList.remove('recording');
+      chatMicBtn.textContent = '🎙️';
+      chatMicBtn.title = 'Bấm để nói bằng giọng của bạn (Bấm lại để dừng)';
       isListeningChat = false;
+    };
+
+    recognition.onerror = (event) => {
+      if (event.error === 'no-speech') {
+        // Người học đang suy nghĩ từ ngữ, không cần báo lỗi
+        return;
+      }
+      console.warn('Speech recognition warning:', event.error);
     };
   } else {
     chatMicBtn.title = 'Trình duyệt không hỗ trợ nhận diện giọng nói';

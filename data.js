@@ -229,10 +229,10 @@ const LESSONS_DATA = [
   }
 ];
 
-// CHAT SCENARIOS
+// CHAT SCENARIOS - ĐOẠN HỘI THOẠI ĐA LƯỢT HOÀN CHỈNH TỪ A ĐẾN Z
 const CHAT_SCENARIOS = {
   intro: {
-    title: "Chào hỏi & Làm quen",
+    title: "1. Chào hỏi & Làm quen (A-Z)",
     initialMessages: [
       {
         sender: "bot",
@@ -240,133 +240,339 @@ const CHAT_SCENARIOS = {
         vi: "Xin chào bạn! Chào mừng bạn! Tôi tên là Alex. Tên bạn là gì nhỉ?"
       }
     ],
-    replies: [
-      {
-        en: "Hi Alex! My name is Nam. Nice to meet you!",
-        vi: "Chào Alex! Tên tôi là Nam. Rất vui được gặp bạn!"
-      },
-      {
-        en: "Hello Alex, I'm Linh. How are you doing today?",
-        vi: "Chào Alex, tôi là Linh. Hôm nay bạn thế nào?"
-      },
-      {
-        en: "Hi! I am from Vietnam. I am learning English.",
-        vi: "Chào bạn! Tôi đến từ Việt Nam. Tôi đang học tiếng Anh."
-      }
+    initialReplies: [
+      { en: "Hi Alex! My name is Phi. Nice to meet you!", vi: "Chào Alex! Tên tôi là Phi. Rất vui được gặp bạn!" },
+      { en: "Hello Alex! I am Nam. Great to meet you!", vi: "Chào Alex! Tôi là Nam. Rất vui được gặp bạn!" },
+      { en: "Good morning Alex! I'm happy to practice English with you.", vi: "Chào buổi sáng Alex! Tôi rất vui được luyện tiếng Anh với bạn." }
     ],
-    responses: {
-      default: {
-        en: "That's wonderful! It's so nice to meet you. Where do you live right now?",
-        vi: "Tuyệt quá! Rất vui được làm quen với bạn. Hiện tại bạn đang sống ở đâu thế?",
-        nextReplies: [
-          { en: "I live in Hanoi, Vietnam.", vi: "Tôi sống ở Hà Nội, Việt Nam." },
-          { en: "I live in Ho Chi Minh City.", vi: "Tôi sống ở Thành phố Hồ Chí Minh." },
-          { en: "I live in Da Nang city. It is very beautiful!", vi: "Tôi sống ở Đà Nẵng. Thành phố này rất đẹp!" }
+    steps: [
+      {
+        // Lượt 1: Hỏi quê quán & nơi sống
+        botReply: {
+          en: "It's so wonderful to meet you! Where are you from, and where do you live right now?",
+          vi: "Rất tuyệt khi được làm quen với bạn! Bạn đến từ đâu, và hiện tại bạn đang sống ở đâu thế?"
+        },
+        replies: [
+          { en: "I am from Vietnam. I live in Hanoi, the capital city.", vi: "Tôi đến từ Việt Nam. Tôi sống ở Hà Nội, thủ đô." },
+          { en: "I live in Ho Chi Minh City, Vietnam. It is a very lively and busy city.", vi: "Tôi sống ở TP. Hồ Chí Minh. Đó là một thành phố rất sôi động và náo nhiệt." },
+          { en: "I come from Da Nang, Vietnam. It is famous for beautiful beaches.", vi: "Tôi đến từ Đà Nẵng, Việt Nam. Nơi đây rất nổi tiếng với các bãi biển đẹp." }
+        ]
+      },
+      {
+        // Lượt 2: Hỏi công việc / học tập
+        botReply: {
+          en: "Vietnam is such a wonderful country with delicious food and friendly people! What do you do for work or study?",
+          vi: "Việt Nam là một đất nước thật tuyệt vời với ẩm thực ngon và con người thân thiện! Bạn đang làm công việc gì hay đang đi học thế?"
+        },
+        replies: [
+          { en: "I work in IT as a software developer.", vi: "Tôi làm việc trong ngành CNTT với vai trò lập trình viên." },
+          { en: "I work as an office worker at a company.", vi: "Tôi là nhân viên văn phòng tại một công ty." },
+          { en: "I run my own business.", vi: "Tôi đang tự kinh doanh riêng." },
+          { en: "I am a student at university.", vi: "Tôi đang là sinh viên đại học." }
+        ]
+      },
+      {
+        // Lượt 3: Hỏi sở thích lúc rảnh rỗi
+        botReply: {
+          en: "That sounds like a very interesting and rewarding job! What do you usually like to do in your free time?",
+          vi: "Nghe có vẻ là một công việc rất thú vị và ý nghĩa đấy! Bạn thường thích làm gì vào thời gian rảnh rỗi?"
+        },
+        replies: [
+          { en: "In my free time, I love listening to music, watching movies and reading books.", vi: "Vào thời gian rảnh, tôi thích nghe nhạc, xem phim và đọc sách." },
+          { en: "I enjoy drinking coffee with good friends and going for a walk.", vi: "Tôi thích đi cà phê với bạn thân và đi dạo." },
+          { en: "I like working out at the gym, playing sports and traveling.", vi: "Tôi thích tập gym, chơi thể thao và đi du lịch." },
+          { en: "I spend my free time practicing English speaking with AI.", vi: "Tôi dành thời gian rảnh để luyện nói tiếng Anh cùng AI." }
+        ]
+      },
+      {
+        // Lượt 4: Hỏi mục tiêu học tiếng Anh
+        botReply: {
+          en: "Those are wonderful hobbies! By the way, your English is quite good. Why do you want to learn English?",
+          vi: "Đó đều là những sở thích tuyệt vời! Nhân tiện, tiếng Anh của bạn khá tốt đấy. Tại sao bạn lại muốn học tiếng Anh?"
+        },
+        replies: [
+          { en: "I want to speak English fluently to get better career opportunities.", vi: "Tôi muốn nói tiếng Anh lưu loát để có cơ hội việc làm tốt hơn." },
+          { en: "I want to travel abroad and chat with people worldwide without fear.", vi: "Tôi muốn đi du lịch nước ngoài và tự tin nói chuyện với bạn bè quốc tế." },
+          { en: "I want to understand English movies and tech documents easily.", vi: "Tôi muốn hiểu phim ảnh và đọc tài liệu kỹ thuật tiếng Anh dễ dàng." }
+        ]
+      },
+      {
+        // Lượt 5: Động viên & Lời kết
+        botReply: {
+          en: "You have an inspiring goal! If you keep practicing a little bit every day, you will definitely achieve it. Thank you for this delightful chat today!",
+          vi: "Bạn có một mục tiêu rất truyền cảm hứng! Nếu tiếp tục luyện tập một chút mỗi ngày, chắc chắn bạn sẽ đạt được. Cảm ơn bạn rất nhiều vì buổi trò chuyện hôm nay!"
+        },
+        replies: [
+          { en: "Thank you so much, Alex! I really enjoyed practicing with you.", vi: "Cảm ơn Alex rất nhiều! Tôi thực sự rất thích luyện tập cùng bạn." },
+          { en: "Thanks for your great encouragement! See you tomorrow for our next lesson!", vi: "Cảm ơn lời động viên của bạn! Hẹn gặp lại bạn vào ngày mai nhé!" },
+          { en: "Have a wonderful day ahead, Alex! Goodbye!", vi: "Chúc bạn một ngày tuyệt vời nhé, Alex! Tạm biệt!" }
+        ]
+      },
+      {
+        // Lượt 6: Chúc mừng hoàn thành toàn bộ hội thoại
+        botReply: {
+          en: "🎉 Outstanding! You have successfully completed a full 6-turn English conversation from A to Z! Would you like to practice again or explore another scenario?",
+          vi: "🎉 Xuất sắc! Bạn vừa hoàn thành trọn vẹn một đoạn hội thoại 6 lượt đàm thoại từ A đến Z! Bạn muốn luyện lại để phản xạ tự nhiên hơn hay thử chủ đề khác?"
+        },
+        replies: [
+          { en: "Let's practice this scenario one more time!", vi: "Hãy cùng luyện lại tình huống này một lần nữa!" },
+          { en: "I want to try ordering coffee at Coffee House!", vi: "Tôi muốn thử tình huống gọi cà phê tại quán!" }
         ]
       }
-    }
+    ]
   },
   coffee: {
-    title: "Gọi cà phê",
+    title: "2. Gọi đồ uống ở quán Coffee (A-Z)",
     initialMessages: [
       {
         sender: "bot",
-        en: "Good morning! Welcome to Coffee House. What can I get for you today?",
-        vi: "Chào buổi sáng! Chào mừng đến với Coffee House. Tôi có thể lấy món gì cho bạn hôm nay ạ?"
+        en: "Good morning! Welcome to Central Coffee House. What can I get started for you today?",
+        vi: "Chào buổi sáng! Chào mừng đến với quán Central Coffee House. Tôi có thể lấy món gì cho bạn hôm nay ạ?"
       }
     ],
-    replies: [
-      {
-        en: "Can I get an iced Latte, please?",
-        vi: "Cho tôi một ly Latte đá được không ạ?"
-      },
-      {
-        en: "I'd like a hot cappuccino with less sugar.",
-        vi: "Tôi muốn một ly Cappuccino nóng, ít đường."
-      },
-      {
-        en: "Do you have fresh fruit juice or tea?",
-        vi: "Ở đây bạn có nước ép trái cây tươi hoặc trà không?"
-      }
+    initialReplies: [
+      { en: "Can I get an iced Latte, please?", vi: "Cho tôi một ly Latte đá được không ạ?" },
+      { en: "I'd like a hot Cappuccino, please.", vi: "Tôi muốn một ly Cappuccino nóng nhé." },
+      { en: "Do you have fresh fruit juice or iced peach tea?", vi: "Ở đây bạn có nước ép trái cây tươi hoặc trà đào đá không?" }
     ],
-    responses: {
-      default: {
-        en: "Sure thing! What size would you like: Small, Medium, or Large? And is it for here or to go?",
-        vi: "Dạ được chứ! Bạn chọn size nào ạ: Nhỏ, Vừa hay Lớn? Và bạn dùng tại quán hay mang về?",
-        nextReplies: [
-          { en: "Medium size, to go, please!", vi: "Size vừa, mang về giúp tôi nhé!" },
-          { en: "Small size, for here, please. How much is it?", vi: "Size nhỏ, uống tại đây. Hết bao nhiêu tiền ạ?" }
+    steps: [
+      {
+        // Lượt 1: Hỏi kích cỡ
+        botReply: {
+          en: "Great choice! What size would you like today: Small, Medium, or Large?",
+          vi: "Lựa chọn tuyệt vời! Bạn muốn chọn kích cỡ nào ạ: Nhỏ (Small), Vừa (Medium) hay Lớn (Large)?"
+        },
+        replies: [
+          { en: "Medium size would be perfect, thank you!", vi: "Cỡ vừa (Medium) là chuẩn nhất, cảm ơn bạn!" },
+          { en: "A Large size, please. I need a lot of energy today!", vi: "Cho tôi cỡ lớn (Large) nhé. Hôm nay tôi cần thật nhiều năng lượng!" },
+          { en: "Just a Small size for me, please.", vi: "Cho tôi cỡ nhỏ (Small) thôi nhé." }
+        ]
+      },
+      {
+        // Lượt 2: Hỏi lượng đường và loại sữa
+        botReply: {
+          en: "Got it! How would you like your sugar and milk? We have regular whole milk, oat milk, and soy milk.",
+          vi: "Tôi hiểu rồi! Bạn muốn độ ngọt và loại sữa thế nào ạ? Chúng tôi có sữa tươi thông thường, sữa yến mạch và sữa đậu nành."
+        },
+        replies: [
+          { en: "With oat milk and less sugar, please.", vi: "Dùng sữa yến mạch và ít đường giúp tôi nhé." },
+          { en: "Regular milk with normal sugar is fine.", vi: "Sữa tươi bình thường và lượng đường vừa phải là được rồi." },
+          { en: "No sugar and no milk, just black coffee, please.", vi: "Không đường và không sữa, chỉ cà phê đen nguyên chất thôi nhé." }
+        ]
+      },
+      {
+        // Lượt 3: Hỏi dùng tại quán hay mang về & gợi ý bánh ngọt
+        botReply: {
+          en: "Understood! Is that for here or to go? Also, would you like a warm butter croissant or chocolate cookie to go with it?",
+          vi: "Đã rõ ạ! Bạn dùng tại quán hay mang về? Tiện thể bạn có muốn dùng thêm một chiếc bánh sừng bò bơ nóng hay bánh quy sô-cô-la không?"
+        },
+        replies: [
+          { en: "For here, please. And I'll take a warm croissant too.", vi: "Tôi dùng tại quán. Và cho tôi thêm một bánh sừng bò bơ nóng nhé." },
+          { en: "To go, please! Just the drink is enough for now.", vi: "Mang về giúp tôi nhé! Chỉ đồ uống thôi là đủ rồi ạ." },
+          { en: "For here, please! Is there free Wi-Fi inside?", vi: "Uống tại quán nhé! Trong quán có Wi-Fi miễn phí không bạn?" }
+        ]
+      },
+      {
+        // Lượt 4: Báo giá & hỏi thanh toán
+        botReply: {
+          en: "Yes, we have high-speed Wi-Fi! Your total comes to $5.50. How would you like to pay: cash or credit card?",
+          vi: "Vâng, quán có Wi-Fi tốc độ cao ạ! Tổng cộng của bạn là 5.50 đô. Bạn muốn thanh toán bằng tiền mặt hay thẻ tín dụng?"
+        },
+        replies: [
+          { en: "Can I pay by credit card / Apple Pay?", vi: "Tôi quẹt thẻ tín dụng / Apple Pay được không?" },
+          { en: "Here is $10 cash. Keep the change!", vi: "Gửi bạn 10 đô tiền mặt nhé. Khỏi cần thối lại!" },
+          { en: "I'll pay with cash. Here is the exact amount.", vi: "Tôi trả bằng tiền mặt nhé. Đầy đủ số tiền đây ạ." }
+        ]
+      },
+      {
+        // Lượt 5: Đưa hóa đơn, số bàn và chúc khách
+        botReply: {
+          en: "Payment received! Here is your receipt and order number 42. Please have a seat, we will bring your drink in 3 minutes. Enjoy your stay!",
+          vi: "Đã nhận thanh toán! Đây là hóa đơn và số thứ tự 42 của bạn. Xin mời bạn ngồi, chúng tôi sẽ mang đồ uống ra trong 3 phút. Chúc bạn có thời gian thư giãn vui vẻ!"
+        },
+        replies: [
+          { en: "Thank you so much for your great service!", vi: "Cảm ơn bạn rất nhiều vì sự phục vụ chu đáo!" },
+          { en: "Awesome! Thanks and have a wonderful day!", vi: "Tuyệt quá! Cảm ơn bạn và chúc một ngày tốt lành!" }
+        ]
+      },
+      {
+        // Lượt 6: Tổng kết
+        botReply: {
+          en: "🎉 Great job! You have fully mastered ordering coffee in English like a native speaker! What would you like to do next?",
+          vi: "🎉 Tuyệt vời! Bạn đã thành thạo kỹ năng gọi cà phê bằng tiếng Anh tự nhiên như người bản xứ! Bạn muốn làm gì tiếp theo?"
+        },
+        replies: [
+          { en: "Let's practice this scenario one more time!", vi: "Hãy cùng luyện lại tình huống này một lần nữa!" },
+          { en: "Let's try shopping & asking for prices next!", vi: "Hãy thử tình huống mua sắm & hỏi giá tiền tiếp theo!" }
         ]
       }
-    }
+    ]
   },
   shopping: {
-    title: "Mua sắm & Hỏi giá",
+    title: "3. Mua sắm & Hỏi giá tiền (A-Z)",
     initialMessages: [
       {
         sender: "bot",
-        en: "Hi! Can I help you find anything today?",
-        vi: "Chào bạn! Tôi có thể giúp bạn tìm món đồ nào hôm nay không?"
+        en: "Hello! Welcome to Fashion Store. Can I help you find anything special today?",
+        vi: "Xin chào! Chào mừng đến với cửa hàng Fashion Store. Tôi có thể giúp bạn tìm món đồ nào đặc biệt hôm nay không?"
       }
     ],
-    replies: [
-      {
-        en: "Excuse me, how much is this jacket?",
-        vi: "Xin lỗi, chiếc áo khoác này giá bao nhiêu thế?"
-      },
-      {
-        en: "I'm looking for a white T-shirt.",
-        vi: "Tôi đang tìm một chiếc áo phông trắng."
-      },
-      {
-        en: "Can I try this pair of shoes on?",
-        vi: "Tôi có thể đi thử đôi giày này được không?"
-      }
+    initialReplies: [
+      { en: "Hi! I'm looking for a warm winter jacket.", vi: "Chào bạn! Tôi đang tìm một chiếc áo khoác ấm cho mùa đông." },
+      { en: "Excuse me, where can I find casual T-shirts and jeans?", vi: "Xin lỗi, tôi có thể tìm áo phông và quần jeans ở khu nào thế?" },
+      { en: "I'm just browsing for now, thank you!", vi: "Tôi chỉ đang đi ngắm xem thử thôi, cảm ơn bạn nhé!" }
     ],
-    responses: {
-      default: {
-        en: "Of course! It's $35. We also have a 10% discount today. Would you like to try it on in the fitting room?",
-        vi: "Dạ được chứ! Món này 35 đô. Hôm nay đang có giảm giá 10% nữa. Bạn có muốn thử trong phòng thay đồ không?",
-        nextReplies: [
-          { en: "Yes, please! Where is the fitting room?", vi: "Có, phòng thử đồ ở đâu thế bạn?" },
-          { en: "Great, I'll take it. Can I pay by card?", vi: "Tuyệt, tôi lấy món này. Tôi quẹt thẻ được không?" }
+    steps: [
+      {
+        // Lượt 1: Hỏi màu sắc và kích cỡ
+        botReply: {
+          en: "Our new jacket collection is right over here! What color and size are you looking for: Small, Medium, or Large?",
+          vi: "Bộ sưu tập áo khoác mới của chúng tôi ở ngay phía này! Bạn đang tìm màu sắc và kích cỡ nào: Nhỏ (S), Vừa (M) hay Lớn (L)?"
+        },
+        replies: [
+          { en: "I'm looking for size Medium in black or navy blue.", vi: "Tôi tìm cỡ Vừa (M) màu đen hoặc xanh tím than." },
+          { en: "Do you have this in size Large, white color?", vi: "Mẫu này bạn có cỡ Lớn (L) màu trắng không?" },
+          { en: "What colors do you have in size Small?", vi: "Cỡ Nhỏ (S) bên bạn đang có những màu nào thế?" }
+        ]
+      },
+      {
+        // Lượt 2: Mang đồ và mời vào phòng thử
+        botReply: {
+          en: "Here is a Medium in navy blue! The fabric is high quality and water-resistant. Would you like to try it on in the fitting room?",
+          vi: "Đây là chiếc cỡ M màu xanh tím than! Chất vải cao cấp và chống nước tốt. Bạn có muốn vào phòng thử đồ mặc thử không?"
+        },
+        replies: [
+          { en: "Yes, please! Where is the fitting room?", vi: "Có chứ! Phòng thử đồ ở đâu thế bạn?" },
+          { en: "Sure, let me try it on to see how it fits.", vi: "Được rồi, để tôi mặc thử xem có vừa vặn không." }
+        ]
+      },
+      {
+        // Lượt 3: Nhận xét đồ và hỏi giá
+        botReply: {
+          en: "The fitting rooms are right around the corner on your left... Wow, that jacket looks fantastic on you! How does it feel?",
+          vi: "Phòng thử đồ ở ngay góc rẽ bên tay trái của bạn... Oa, chiếc áo này mặc lên người bạn trông rất hợp đấy! Bạn cảm thấy thế nào?"
+        },
+        replies: [
+          { en: "It fits me perfectly and feels very comfortable! How much is it?", vi: "Nó vừa vặn hoàn hảo và rất thoải mái! Chiếc này giá bao nhiêu vậy bạn?" },
+          { en: "It looks great! Do you have any discount on this item today?", vi: "Trông đẹp đấy! Mẫu này hôm nay có được giảm giá gì không bạn?" }
+        ]
+      },
+      {
+        // Lượt 4: Báo giá & ưu đãi khuyến mãi
+        botReply: {
+          en: "The original price is $60, but today we have a weekend promotion of 20% off, so it's only $48! Would you like to take it?",
+          vi: "Giá gốc là 60 đô, nhưng hôm nay chúng tôi có ưu đãi cuối tuần giảm 20%, nên chỉ còn 48 đô thôi! Bạn có muốn lấy chiếc này không?"
+        },
+        replies: [
+          { en: "That's a great deal! I will take it. Can I pay by card?", vi: "Giá ưu đãi quá tốt! Tôi lấy chiếc này. Tôi quẹt thẻ được không?" },
+          { en: "Awesome, I'll take it! Do you offer gift wrapping?", vi: "Tuyệt vời, tôi lấy nhé! Bên bạn có dịch vụ gói quà không?" }
+        ]
+      },
+      {
+        // Lượt 5: Thanh toán & trao túi đồ
+        botReply: {
+          en: "Certainly! Card payment is accepted. Here is your receipt and your shopping bag. You have a 30-day return policy. Thank you for shopping with us!",
+          vi: "Chắc chắn rồi ạ! Chúng tôi nhận thanh toán thẻ. Đây là hóa đơn và túi đồ của bạn. Bạn có chính sách đổi trả trong vòng 30 ngày nhé. Cảm ơn bạn đã mua sắm cùng chúng tôi!"
+        },
+        replies: [
+          { en: "Thank you so much for your kind help! Have a great day!", vi: "Cảm ơn bạn rất nhiều vì đã giúp đỡ tận tình! Chúc một ngày tốt lành!" },
+          { en: "Thanks! Goodbye and see you again!", vi: "Cảm ơn! Tạm biệt và hẹn gặp lại bạn nhé!" }
+        ]
+      },
+      {
+        // Lượt 6: Tổng kết
+        botReply: {
+          en: "🎉 Bravo! You have completed the full shopping and bargaining dialogue with ease! Ready to try another one?",
+          vi: "🎉 Hoan hô! Bạn đã hoàn thành toàn bộ đoạn hội thoại mua sắm và hỏi giá một cách dễ dàng! Bạn sẵn sàng thử tiếp chưa?"
+        },
+        replies: [
+          { en: "Let's practice this scenario one more time!", vi: "Hãy cùng luyện lại tình huống này một lần nữa!" },
+          { en: "Let's try asking for directions next!", vi: "Hãy thử tình huống hỏi đường tiếp theo nhé!" }
         ]
       }
-    }
+    ]
   },
   directions: {
-    title: "Hỏi đường",
+    title: "4. Hỏi đường trên phố (A-Z)",
     initialMessages: [
       {
         sender: "bot",
-        en: "Hello! You look a bit lost. Can I help you with directions?",
-        vi: "Xin chào! Trông bạn có vẻ hơi lạc đường. Tôi có thể chỉ đường giúp bạn không?"
+        en: "Excuse me! You look a bit lost with that map. Can I help you find somewhere?",
+        vi: "Xin lỗi bạn! Trông bạn có vẻ hơi phân vân với tấm bản đồ. Tôi có thể chỉ đường giúp bạn không?"
       }
     ],
-    replies: [
-      {
-        en: "Excuse me, how do I get to the nearest metro station?",
-        vi: "Xin lỗi, làm sao để tôi đến trạm tàu điện ngầm gần nhất?"
-      },
-      {
-        en: "Could you tell me where the supermarket is?",
-        vi: "Bạn có thể chỉ giúp tôi siêu thị ở đâu không?"
-      },
-      {
-        en: "Is the central park far from here?",
-        vi: "Công viên trung tâm có xa đây không bạn?"
-      }
+    initialReplies: [
+      { en: "Yes, please! How do I get to the Central Metro Station?", vi: "Vâng, làm ơn! Làm sao để tôi đi đến ga tàu điện ngầm trung tâm thế?" },
+      { en: "Could you tell me the way to the City Museum from here?", vi: "Bạn có thể chỉ giúp tôi đường đến bảo tàng thành phố từ đây không?" },
+      { en: "Is there a convenience store or ATM nearby?", vi: "Ở gần đây có cửa hàng tiện lợi hoặc cây ATM nào không bạn?" }
     ],
-    responses: {
-      default: {
-        en: "Just go straight for two blocks, then turn right. It's right next to the bank. It takes only 5 minutes!",
-        vi: "Bạn cứ đi thẳng qua 2 ngã tư, sau đó rẽ phải. Nó nằm ngay cạnh ngân hàng. Chỉ mất 5 phút thôi!",
-        nextReplies: [
-          { en: "Thank you so much! Have a great day!", vi: "Cảm ơn bạn rất nhiều! Chúc một ngày tốt lành!" },
-          { en: "Got it! Thanks for your help!", vi: "Tôi hiểu rồi! Cảm ơn bạn đã giúp đỡ!" }
+    steps: [
+      {
+        // Lượt 1: Chỉ đường cơ bản
+        botReply: {
+          en: "Oh, it's quite close! Just walk straight along this main street for two blocks, then turn right at the traffic lights. You can't miss it.",
+          vi: "Ồ, nó khá gần đây thôi! Bạn cứ đi thẳng dọc theo con phố chính này qua 2 ngã tư, sau đó rẽ phải ở cột đèn giao thông. Rất dễ nhận ra thôi."
+        },
+        replies: [
+          { en: "Is it within walking distance, or should I take a bus or taxi?", vi: "Chỗ đó đi bộ được không, hay tôi nên bắt xe buýt hoặc taxi?" },
+          { en: "How long does it take to walk there from here?", vi: "Đi bộ từ đây tới đó mất khoảng bao lâu thế bạn?" }
+        ]
+      },
+      {
+        // Lượt 2: Giải thích khoảng cách & thời gian
+        botReply: {
+          en: "It's definitely within walking distance! It only takes about 7 to 10 minutes on foot. The weather is nice, so walking is very pleasant.",
+          vi: "Chắc chắn là đi bộ được bạn nhé! Đi bộ chỉ mất khoảng 7 đến 10 phút thôi. Thời tiết hôm nay rất đẹp nên đi bộ sẽ rất dễ chịu."
+        },
+        replies: [
+          { en: "Are there any big landmarks I should look out for along the way?", vi: "Có tòa nhà hoặc dấu hiệu nổi bật nào trên đường để tôi nhận biết không?" },
+          { en: "Which side of the street is it on, the left or the right?", vi: "Nó nằm ở bên tay trái hay tay phải của con đường thế?" }
+        ]
+      },
+      {
+        // Lượt 3: Nêu điểm mốc nhận diện
+        botReply: {
+          en: "Look for a tall glass building and a big Starbucks coffee shop on the corner. The entrance is right behind the Starbucks, on the left side.",
+          vi: "Bạn hãy để ý một tòa nhà kính cao tầng và quán cà phê Starbucks lớn ở góc phố. Lối vào nằm ngay phía sau Starbucks, ở bên tay trái."
+        },
+        replies: [
+          { en: "Got it! Go straight two blocks, turn right at Starbucks, entrance on the left. Right?", vi: "Tôi hiểu rồi! Đi thẳng 2 ngã tư, rẽ phải ở Starbucks, lối vào bên trái. Đúng không bạn?" },
+          { en: "That is very clear and easy to follow. Thank you!", vi: "Chỉ dẫn rất rõ ràng và dễ đi theo. Cảm ơn bạn!" }
+        ]
+      },
+      {
+        // Lượt 4: Xác nhận và dặn dò
+        botReply: {
+          en: "Exactly right! You've got it. Also, be careful at the pedestrian crossing because the traffic can be quite busy around noon.",
+          vi: "Chính xác luôn rồi đấy! Bạn nhớ chuẩn rồi. Ngoài ra hãy chú ý khi qua vạch kẻ đường cho người đi bộ vì xe cộ lúc trưa khá đông nhé."
+        },
+        replies: [
+          { en: "Thank you so much for your kind help and advice!", vi: "Cảm ơn bạn rất nhiều vì sự giúp đỡ nhiệt tình và lời khuyên bổ ích!" },
+          { en: "I really appreciate your help. Have a wonderful day!", vi: "Tôi thực sự rất biết ơn sự giúp đỡ của bạn. Chúc bạn một ngày tuyệt vời!" }
+        ]
+      },
+      {
+        // Lượt 5: Chúc lên đường bình an
+        botReply: {
+          en: "You're very welcome! Have a safe trip and enjoy your time exploring our city. Take care!",
+          vi: "Không có chi đâu bạn! Chúc bạn đi lại an toàn và có khoảng thời gian khám phá thành phố thật vui. Giữ gìn sức khỏe nhé!"
+        },
+        replies: [
+          { en: "Thank you! Goodbye and take care!", vi: "Cảm ơn bạn! Tạm biệt và bảo trọng nhé!" }
+        ]
+      },
+      {
+        // Lượt 6: Tổng kết
+        botReply: {
+          en: "🎉 Excellent! You have successfully completed a practical asking-directions dialogue in English! Where to next?",
+          vi: "🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn một đoạn hội thoại hỏi đường thực tế bằng tiếng Anh! Bạn muốn thử tiếp ở đâu?"
+        },
+        replies: [
+          { en: "Let's practice this scenario one more time!", vi: "Hãy cùng luyện lại tình huống này một lần nữa!" },
+          { en: "Let's go back to Lesson 1 practice!", vi: "Hãy quay lại luyện các câu của Bài 1!" }
         ]
       }
-    }
+    ]
   }
 };
 
