@@ -1,8 +1,448 @@
 {
   "streakDays": 1,
-  "wordsLearnedCount": 0,
+  "wordsLearnedCount": 56,
   "currentLesson": "Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)",
-  "chatHistory": [],
-  "spokenSentences": [],
-  "lastUpdated": "22:04:00 05/10/2026"
+  "chatHistory": [
+    {
+      "sender": "user",
+      "en": "Heidi  I'm almost ready",
+      "vi": "Phản xạ của bạn",
+      "time": "22:48:35"
+    },
+    {
+      "sender": "bot",
+      "en": "Oh, this is Duy, my new friend.",
+      "vi": "Ồ, đây là Duy, bạn mới của mình.",
+      "time": "22:48:36"
+    },
+    {
+      "sender": "user",
+      "en": "hi Duy nice to meet you",
+      "vi": "Phản xạ của bạn",
+      "time": "22:48:52"
+    },
+    {
+      "sender": "bot",
+      "en": "Hi, Phong. I live near here, and we go to the same school!",
+      "vi": "Chào Phong. Mình sống ở gần đây, và chúng ta học cùng trường đấy!",
+      "time": "22:48:53"
+    },
+    {
+      "sender": "user",
+      "en": "yes already",
+      "vi": "Phản xạ của bạn",
+      "time": "22:55:24"
+    },
+    {
+      "sender": "bot",
+      "en": "Oh, this is Duy, my new friend.",
+      "vi": "Ồ, đây là Duy, bạn mới của mình.",
+      "time": "22:55:25"
+    },
+    {
+      "sender": "user",
+      "en": "hi nice to meet you",
+      "vi": "Phản xạ của bạn",
+      "time": "22:55:51"
+    },
+    {
+      "sender": "bot",
+      "en": "Hi, Phong. I live near here, and we go to the same school!",
+      "vi": "Chào Phong. Mình sống ở gần đây, và chúng ta học cùng trường đấy!",
+      "time": "22:55:52"
+    }
+  ],
+  "spokenSentences": [
+    {
+      "en": "[Từ vựng] Ready",
+      "vi": "Sẵn sàng",
+      "accuracy": "Rất chuẩn",
+      "time": "22:49:40"
+    },
+    {
+      "en": "[Từ vựng] Friend",
+      "vi": "Bạn bè",
+      "accuracy": "Rất chuẩn",
+      "time": "22:49:46"
+    },
+    {
+      "en": "[Từ vựng] Minute",
+      "vi": "Phút / Chốc lát",
+      "accuracy": "Rất chuẩn",
+      "time": "22:50:00"
+    },
+    {
+      "en": "[Từ vựng] Minute",
+      "vi": "Phút / Chốc lát",
+      "accuracy": "Rất chuẩn",
+      "time": "22:50:17"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:50:48"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:51:18"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:51:27"
+    },
+    {
+      "en": "[Từ vựng] Heavy",
+      "vi": "Nặng",
+      "accuracy": "Rất chuẩn",
+      "time": "22:52:02"
+    },
+    {
+      "en": "[Từ vựng] Heavy",
+      "vi": "Nặng",
+      "accuracy": "Rất chuẩn",
+      "time": "22:52:05"
+    },
+    {
+      "en": "[Từ vựng] Subject",
+      "vi": "Môn học",
+      "accuracy": "Rất chuẩn",
+      "time": "22:52:25"
+    },
+    {
+      "en": "Hi, Phong. Are you ready? - Just a minute.",
+      "vi": "Chào Phong. Bạn đã sẵn sàng chưa? - Chờ mình một phút nhé.",
+      "accuracy": "Rất chuẩn",
+      "time": "22:53:24"
+    },
+    {
+      "en": "Hi, Phong. Are you ready? - Just a minute.",
+      "vi": "Chào Phong. Bạn đã sẵn sàng chưa? - Chờ mình một phút nhé.",
+      "accuracy": "Rất chuẩn",
+      "time": "22:53:28"
+    },
+    {
+      "en": "Hi, Phong. Are you ready? - Just a minute.",
+      "vi": "Chào Phong. Bạn đã sẵn sàng chưa? - Chờ mình một phút nhé.",
+      "accuracy": "Rất chuẩn",
+      "time": "22:53:42"
+    },
+    {
+      "en": "I live near here, and we go to the same school!",
+      "vi": "Chào Phong. Mình sống ở gần đây, và chúng ta học cùng trường đấy!",
+      "accuracy": "Rất chuẩn",
+      "time": "22:54:41"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:57:25"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:57:39"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:57:46"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:57:59"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:58:56"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:03"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:14"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:25"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:33"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:36"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:42"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "22:59:59"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:35"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:44"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:46"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:52"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:57"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:00:59"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:05"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:11"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:14"
+    },
+    {
+      "en": "[Từ vựng] Heavy",
+      "vi": "Nặng",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:21"
+    },
+    {
+      "en": "[Từ vựng] Subject",
+      "vi": "Môn học",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:31"
+    },
+    {
+      "en": "[Từ vựng] Subject",
+      "vi": "Môn học",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:34"
+    },
+    {
+      "en": "[Từ vựng] Study",
+      "vi": "Học tập",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:40"
+    },
+    {
+      "en": "[Từ vựng] Study",
+      "vi": "Học tập",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:43"
+    },
+    {
+      "en": "[Từ vựng] Uniform",
+      "vi": "Bộ đồng phục",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:51"
+    },
+    {
+      "en": "[Từ vựng] Smart",
+      "vi": "Bảnh bao / Sáng sủa",
+      "accuracy": "Rất chuẩn",
+      "time": "23:01:59"
+    },
+    {
+      "en": "[Từ vựng] Put on",
+      "vi": "Mặc vào / Đeo vào",
+      "accuracy": "Rất chuẩn",
+      "time": "23:02:04"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:02:09"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:02:11"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:02:23"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:02:30"
+    },
+    {
+      "en": "Yes! I have new books, and we have new subjects to study.",
+      "vi": "Đúng rồi! Mình có sách mới, và chúng ta có nhiều môn học mới để học.",
+      "accuracy": "Rất chuẩn",
+      "time": "23:03:20"
+    },
+    {
+      "en": "We always look smart in our uniforms.",
+      "vi": "Chúng ta luôn trông bảnh bao trong bộ đồng phục mà.",
+      "accuracy": "Rất chuẩn",
+      "time": "23:05:36"
+    },
+    {
+      "en": "We always look smart in our uniforms.",
+      "vi": "Chúng ta luôn trông bảnh bao trong bộ đồng phục mà.",
+      "accuracy": "Rất chuẩn",
+      "time": "23:06:09"
+    },
+    {
+      "en": "[Từ vựng] Ready",
+      "vi": "Sẵn sàng",
+      "accuracy": "Rất chuẩn",
+      "time": "23:09:30"
+    },
+    {
+      "en": "[Từ vựng] School bag",
+      "vi": "Cặp sách / Ba lô",
+      "accuracy": "Rất chuẩn",
+      "time": "23:09:35"
+    }
+  ],
+  "userVocabData": {
+    "my_new_school": {
+      "title": "Unit 1: Bạn Mới & Năm Học Mới (My New School)",
+      "icon": "🏫",
+      "words": [
+        {
+          "word": "Ready",
+          "ipa": "/ˈrɛdi/",
+          "readVi": "Ré-đi",
+          "vi": "Sẵn sàng",
+          "tip": "Nhấn âm đầu 'Re'"
+        },
+        {
+          "word": "Friend",
+          "ipa": "/frɛnd/",
+          "readVi": "Phrèn-d",
+          "vi": "Bạn bè",
+          "tip": "Bật nhẹ âm /d/ ở cuối"
+        },
+        {
+          "word": "Minute",
+          "ipa": "/ˈmɪnɪt/",
+          "readVi": "Mí-nịt",
+          "vi": "Phút / Chốc lát",
+          "tip": "Nhấn âm đầu, bật /t/"
+        },
+        {
+          "word": "School bag",
+          "ipa": "/ˈskuːl bæɡ/",
+          "readVi": "S-cu-l béc-g",
+          "vi": "Cặp sách / Ba lô",
+          "tip": "Âm /uː/ kéo dài"
+        },
+        {
+          "word": "Heavy",
+          "ipa": "/ˈhɛvi/",
+          "readVi": "Hé-vi",
+          "vi": "Nặng",
+          "tip": "Nhấn mạnh âm 'He'"
+        },
+        {
+          "word": "Subject",
+          "ipa": "/ˈsʌbdʒɪkt/",
+          "readVi": "Xắp-dzịt-k-t",
+          "vi": "Môn học",
+          "tip": "Trọng âm âm 1, bật /kt/ cuối"
+        },
+        {
+          "word": "Study",
+          "ipa": "/ˈstʌdi/",
+          "readVi": "X-tá-đi",
+          "vi": "Học tập",
+          "tip": "Bắt đầu bằng cụm /st/"
+        },
+        {
+          "word": "Uniform",
+          "ipa": "/ˈjuːnɪfɔːrm/",
+          "readVi": "Diu-ni-phoom",
+          "vi": "Bộ đồng phục",
+          "tip": "Nhấn âm đầu 'U'"
+        },
+        {
+          "word": "Smart",
+          "ipa": "/smɑːrt/",
+          "readVi": "S-mát-t",
+          "vi": "Bảnh bao / Sáng sủa",
+          "tip": "Bật /t/ gió ở cuối"
+        },
+        {
+          "word": "Put on",
+          "ipa": "/pʊt ɑːn/",
+          "readVi": "Pút on",
+          "vi": "Mặc vào / Đeo vào",
+          "tip": "Nối âm: 'pu-ton'"
+        }
+      ]
+    }
+  },
+  "lastUpdated": "23:09:35 5/10/2026"
 }
