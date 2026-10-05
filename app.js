@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentTab = 'lessons';
   let currentSpeakingIdx = 0;
   let currentFlashcardIdx = 0;
-  let currentScenario = 'intro';
+  let currentScenario = 'my_new_school';
   let currentScenarioStep = 0;
-  let currentLessonName = localStorage.getItem('currentLessonName') || 'Bài 1: Chào hỏi & Làm quen';
+  let currentLessonName = localStorage.getItem('currentLessonName') || 'Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)';
   let wordsLearnedCount = parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10);
   let streakDays = parseInt(localStorage.getItem('streakDays') || '1', 10);
   let chatHistory = JSON.parse(localStorage.getItem('chatHistory') || '[]');
@@ -323,16 +323,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 4. Luyện phản xạ Hội thoại AI (Roleplay)
   // ==========================================
+  function renderScenarioSelect() {
+    if (!scenarioSelect) return;
+    scenarioSelect.innerHTML = '';
+    const keys = Object.keys(CHAT_SCENARIOS || {});
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có bài hội thoại - Chờ nạp bài mới)';
+      scenarioSelect.appendChild(opt);
+    } else {
+      keys.forEach(k => {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = (CHAT_SCENARIOS[k] && CHAT_SCENARIOS[k].title) ? CHAT_SCENARIOS[k].title : k;
+        scenarioSelect.appendChild(opt);
+      });
+    }
+  }
+
   function loadScenario(scenarioKey) {
     currentScenario = scenarioKey;
     currentScenarioStep = 0;
-    const scenario = CHAT_SCENARIOS[scenarioKey];
+    const scenario = CHAT_SCENARIOS ? CHAT_SCENARIOS[scenarioKey] : null;
     chatMessages.innerHTML = '';
 
+    if (!scenario) {
+      chatMessages.innerHTML = `
+        <div style="text-align:center; padding: 48px 20px; color: var(--text-muted);">
+          <div style="font-size: 2.8rem; margin-bottom: 14px;">💬</div>
+          <h3 style="margin-bottom: 8px; color: var(--text-main);">Chưa có bài hội thoại nào</h3>
+          <p style="font-size: 0.95rem; max-width: 480px; margin: 0 auto; line-height: 1.6;">
+            Dữ liệu bài hội thoại đã được dọn sạch theo yêu cầu.<br>
+            Bạn hãy gửi các đoạn hội thoại hoặc kế hoạch mới cho AI để nạp vào nhé!
+          </p>
+        </div>
+      `;
+      renderQuickReplies([]);
+      return;
+    }
+
     // Render tin nhắn mở đầu của Alex
-    scenario.initialMessages.forEach(msg => {
-      appendChatMessage(msg.sender, msg.en, msg.vi, false);
-    });
+    if (scenario.initialMessages && Array.isArray(scenario.initialMessages)) {
+      scenario.initialMessages.forEach(msg => {
+        appendChatMessage(msg.sender, msg.en, msg.vi, false);
+      });
+    }
 
     renderQuickReplies(scenario.initialReplies || scenario.replies || []);
   }
@@ -576,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 5.1. Luyện nói theo từng từ vựng (Từ phản xạ)
   // ==========================================
-  let currentVocabScenario = 'intro';
+  let currentVocabScenario = 'my_new_school';
   let currentVocabIdx = 0;
 
   // Khởi tạo & nạp dữ liệu từ vựng của người dùng (lưu trữ trong LocalStorage)
@@ -589,12 +625,30 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {
     userVocabData = null;
   }
-  if (!userVocabData) {
+  // Nếu chưa có hoặc chỉ chứa các danh mục cũ, đồng bộ sang danh mục mới
+  if (!userVocabData || !userVocabData.my_new_school) {
     userVocabData = JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA));
+    saveUserVocabData();
   }
 
   function saveUserVocabData() {
     localStorage.setItem('userVocabData', JSON.stringify(userVocabData));
+  }
+
+  function renderVocabScenarioSelect() {
+    if (!vocabScenarioSelect) return;
+    vocabScenarioSelect.innerHTML = '';
+    const keys = Object.keys(userVocabData || VOCAB_SCENARIOS_DATA || {});
+    keys.forEach(k => {
+      const item = (userVocabData && userVocabData[k]) || VOCAB_SCENARIOS_DATA[k];
+      if (item) {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = `${item.icon || '📖'} ${item.title || k}`;
+        vocabScenarioSelect.appendChild(opt);
+      }
+    });
+    vocabScenarioSelect.value = currentVocabScenario;
   }
 
   // Chuyển đổi giữa 2 chế độ: Luyện từ vựng vs Luyện cả câu
@@ -1104,8 +1158,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial runs
   updateStatsDisplay();
   renderLessons();
-  loadScenario('intro');
-  loadVocabScenario('intro');
+  renderScenarioSelect();
+  renderVocabScenarioSelect();
+  const firstScenarioKey = Object.keys(CHAT_SCENARIOS || {})[0] || '';
+  loadScenario(firstScenarioKey);
+  loadVocabScenario('my_new_school');
   loadSpeakingChallenge(0);
   loadFlashcard(0);
 
@@ -1130,6 +1187,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (logData.currentLesson) {
           currentLessonName = logData.currentLesson;
           localStorage.setItem('currentLessonName', currentLessonName);
+        }
+        if (Array.isArray(logData.chatHistory)) {
+          chatHistory = logData.chatHistory;
+          localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+        }
+        if (Array.isArray(logData.spokenSentences)) {
+          spokenSentences = logData.spokenSentences;
+          localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
         }
         updateStatsDisplay();
       }
