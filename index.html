@@ -194,8 +194,54 @@
               <div class="speaking-actions">
                 <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
                 <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
+                <button class="btn-play-user" id="spk-play-record-btn" style="display: none;">▶️ Nghe lại giọng bạn</button>
                 <button class="btn-nav" id="spk-prev-btn">⬅️ Câu trước</button>
                 <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
+              </div>
+
+              <!-- THANH GHI ÂM TẠM THỜI (LƯU 3 CÂU: TRƯỚC • HIỆN TẠI • SAU) -->
+              <div class="temp-recordings-bar" id="temp-recordings-bar">
+                <div class="temp-rec-header">
+                  <div class="temp-rec-title">
+                    <span class="rec-icon">🎙️</span>
+                    <span>Bản ghi âm tạm thời (Tối đa 3 câu: Trước • Hiện tại • Sau)</span>
+                  </div>
+                  <span class="temp-rec-badge">Tự xóa câu cũ khi Next & dọn sạch khi đổi tab</span>
+                </div>
+                <div class="temp-rec-grid">
+                  <div class="temp-rec-card" id="rec-card-prev">
+                    <div class="rec-card-header">
+                      <span class="rec-step-tag">⏮️ Câu trước</span>
+                      <span class="rec-idx-label" id="rec-label-prev">--</span>
+                    </div>
+                    <button class="rec-play-btn" id="btn-play-rec-prev" disabled>
+                      <span class="btn-icon">🔇</span>
+                      <span class="btn-label">Chưa có</span>
+                    </button>
+                  </div>
+
+                  <div class="temp-rec-card active-curr" id="rec-card-curr">
+                    <div class="rec-card-header">
+                      <span class="rec-step-tag highlight">⭐ Hiện tại</span>
+                      <span class="rec-idx-label" id="rec-label-curr">Câu 1</span>
+                    </div>
+                    <button class="rec-play-btn" id="btn-play-rec-curr" disabled>
+                      <span class="btn-icon">🔇</span>
+                      <span class="btn-label">Chưa ghi âm</span>
+                    </button>
+                  </div>
+
+                  <div class="temp-rec-card" id="rec-card-next">
+                    <div class="rec-card-header">
+                      <span class="rec-step-tag">⏭️ Câu sau</span>
+                      <span class="rec-idx-label" id="rec-label-next">--</span>
+                    </div>
+                    <button class="rec-play-btn" id="btn-play-rec-next" disabled>
+                      <span class="btn-icon">🔇</span>
+                      <span class="btn-label">Chưa có</span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <!-- KẾT QUẢ NGƯỜI NÓI (MODULE CẢ CÂU) -->
