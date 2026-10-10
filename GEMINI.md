@@ -9,3 +9,8 @@
   - Giải thích tận tình, ngắn gọn, dễ hiểu.
   - Phân tích phát âm, mẹo nhớ từ, đưa ví dụ thực tế trong đời sống.
   - Khuyến khích người dùng luyện nói shadowing to rõ ràng.
+
+## 3. Tra cứu tài liệu học tập & SGK
+- Khi cần tìm bài, tài liệu tham khảo hoặc sách giáo khoa:
+  - **Tiếng Anh**: Tìm kiếm trong thư mục `sgk/`.
+  - **Tiếng Nhật**: Tìm kiếm trong thư mục `sgk-jp/`.

@@ -1846,7 +1846,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // State Tiếng Nhật
   let currentJaSpkUnitKey = 'unit_1_greeting';
   let currentJaSpeakingIdx = 0;
-  let currentJaVocabScenario = 'greeting_vocab';
+  let currentJaVocabScenario = 'vocab_1_greeting';
   let currentJaVocabIdx = 0;
 
   // Dữ liệu từ vựng tiếng Nhật tùy chỉnh người dùng (Lưu vào LocalStorage)
@@ -1859,9 +1859,21 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {
     userJaVocabData = null;
   }
-  if (!userJaVocabData || !userJaVocabData.greeting_vocab) {
+  if (!userJaVocabData || Object.keys(userJaVocabData).length === 0 || !userJaVocabData.vocab_1_greeting) {
     userJaVocabData = (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA)) : {};
     saveUserJaVocabData();
+  } else if (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') {
+    // Đảm bảo tự động đồng bộ nạp các bài mới (Bài 11 đến Bài 25) nếu localStorage trước đó chỉ có 10 bài
+    let hasNewLessons = false;
+    for (const key of Object.keys(JA_VOCAB_SCENARIOS_DATA)) {
+      if (!userJaVocabData[key]) {
+        userJaVocabData[key] = JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA[key]));
+        hasNewLessons = true;
+      }
+    }
+    if (hasNewLessons) {
+      saveUserJaVocabData();
+    }
   }
 
   function saveUserJaVocabData() {
@@ -2946,7 +2958,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstScenarioKey = Object.keys(CHAT_SCENARIOS || {})[0] || '';
   loadScenario(firstScenarioKey);
   loadVocabScenario('my_new_school');
-  const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || 'greeting_vocab';
+  const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || 'vocab_1_greeting';
   const firstJaSpkKey = Object.keys(JA_SENTENCE_UNITS_DATA || {})[0] || 'unit_1_greeting';
   loadJaVocabScenario(firstJaVocabKey);
   loadJaSpkUnit(firstJaSpkKey);
