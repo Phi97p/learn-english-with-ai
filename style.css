@@ -4,7 +4,7 @@
    ========================================================= */
 
 :root {
-  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Color Palette - Modern Indigo / Purple & Coral */

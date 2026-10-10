@@ -19,7 +19,7 @@ Chào mừng bạn đến với ứng dụng **English AI Buddy**! Ứng dụng 
 
 > 💡 **Điểm vượt trội khi mở qua 2 file này:**
 > - Trình duyệt lưu **vĩnh viễn quyền micro** (không bị hỏi lại mỗi lần bấm mic).
-> - Tiến độ học tập và hội thoại sẽ **tự động lưu trực tiếp vào file `study_log.md` và `study_log.json`** trên máy tính mà không bao giờ tải file về máy!
+> - Tiến độ học tập và cấu hình được tự động lưu trong trình duyệt (`localStorage`), tiện lợi và nhanh chóng.
 
 ---
 

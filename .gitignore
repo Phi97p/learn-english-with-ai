@@ -12,6 +12,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+logs/
+study_log*.json
+study_log*.md
 
 # Environment files
 .env
@@ -27,3 +30,4 @@ desktop.ini
 .idea/
 
 sgk/
+sgk-jp/

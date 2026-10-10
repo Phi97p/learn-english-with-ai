@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // DOM Elements
   const themeToggle = document.getElementById('theme-toggle');
-  const saveLogBtn = document.getElementById('save-log-btn');
   const copySummaryBtn = document.getElementById('copy-summary-btn');
   const streakCountEl = document.getElementById('streak-count');
   const wordsLearnedEl = document.getElementById('words-learned');
@@ -122,6 +121,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const fcPrevBtn = document.getElementById('fc-prev-btn');
   const fcNextBtn = document.getElementById('fc-next-btn');
 
+  // Japanese Speaking Elements (Sentence Shadowing)
+  const jaSpkUnitSelect = document.getElementById('ja-spk-unit-select');
+  const jaSpkCategory = document.getElementById('ja-spk-category');
+  const jaSpkPhraseJa = document.getElementById('ja-spk-phrase-ja');
+  const jaSpkPhraseRomaji = document.getElementById('ja-spk-phrase-romaji');
+  const jaSpkPhraseVi = document.getElementById('ja-spk-phrase-vi');
+  const jaSpkListenBtn = document.getElementById('ja-spk-listen-btn');
+  const jaSpkRecordBtn = document.getElementById('ja-spk-record-btn');
+  const jaSpkPrevBtn = document.getElementById('ja-spk-prev-btn');
+  const jaSpkNextBtn = document.getElementById('ja-spk-next-btn');
+  const jaSpkFeedback = document.getElementById('ja-spk-feedback');
+  const jaSpkSentencesWrapper = document.getElementById('ja-spk-sentences-wrapper');
+  const jaSpkPlayRecordBtn = document.getElementById('ja-spk-play-record-btn');
+  const jaTempRecordingsBar = document.getElementById('ja-temp-recordings-bar');
+  const jaBtnPlayRecPrev = document.getElementById('ja-btn-play-rec-prev');
+  const jaBtnPlayRecCurr = document.getElementById('ja-btn-play-rec-curr');
+  const jaBtnPlayRecNext = document.getElementById('ja-btn-play-rec-next');
+  const jaRecLabelPrev = document.getElementById('ja-rec-label-prev');
+  const jaRecLabelCurr = document.getElementById('ja-rec-label-curr');
+  const jaRecLabelNext = document.getElementById('ja-rec-label-next');
+  const jaSpkSpokenBox = document.getElementById('ja-spk-spoken-box');
+  const jaSpkSpokenBadge = document.getElementById('ja-spk-spoken-badge');
+  const jaSpkSpokenText = document.getElementById('ja-spk-spoken-text');
+  const jaSpkTypingCursor = document.getElementById('ja-spk-typing-cursor');
+
+  // Japanese Speaking Elements (Vocab Speaking)
+  const btnJaModeVocab = document.getElementById('btn-ja-mode-vocab');
+  const btnJaModeSentence = document.getElementById('btn-ja-mode-sentence');
+  const jaVocabSpeakingSection = document.getElementById('ja-vocab-speaking-section');
+  const jaSentenceSpeakingSection = document.getElementById('ja-sentence-speaking-section');
+  const jaVocabScenarioSelect = document.getElementById('ja-vocab-scenario-select');
+  const jaVocabChipsWrapper = document.getElementById('ja-vocab-chips-wrapper');
+  const jaVocabCategory = document.getElementById('ja-vocab-category');
+  const jaVocabWordJa = document.getElementById('ja-vocab-word-ja');
+  const jaVocabWordRomaji = document.getElementById('ja-vocab-word-romaji');
+  const jaVocabWordVi = document.getElementById('ja-vocab-word-vi');
+  const jaVocabWordTip = document.getElementById('ja-vocab-word-tip');
+  const jaVocabListenBtn = document.getElementById('ja-vocab-listen-btn');
+  const jaVocabRecordBtn = document.getElementById('ja-vocab-record-btn');
+  const jaVocabPrevBtn = document.getElementById('ja-vocab-prev-btn');
+  const jaVocabNextBtn = document.getElementById('ja-vocab-next-btn');
+  const jaVocabFeedback = document.getElementById('ja-vocab-feedback');
+  const jaVocabRemoveBtn = document.getElementById('ja-vocab-remove-btn');
+  const btnJaAddVocab = document.getElementById('btn-ja-add-vocab');
+  const btnJaResetVocab = document.getElementById('btn-ja-reset-vocab');
+  const jaVocabSpokenBox = document.getElementById('ja-vocab-spoken-box');
+  const jaVocabSpokenBadge = document.getElementById('ja-vocab-spoken-badge');
+  const jaVocabSpokenText = document.getElementById('ja-vocab-spoken-text');
+  const jaVocabTypingCursor = document.getElementById('ja-vocab-typing-cursor');
+
+  // Add Japanese Vocab Modal elements
+  const addJaVocabModal = document.getElementById('add-ja-vocab-modal');
+  const modalJaCloseBtn = document.getElementById('modal-ja-close-btn');
+  const modalJaCancelBtn = document.getElementById('modal-ja-cancel-btn');
+  const modalJaSaveBtn = document.getElementById('modal-ja-save-btn');
+  const newJaVocabWord = document.getElementById('new-ja-vocab-word');
+  const newJaVocabVi = document.getElementById('new-ja-vocab-vi');
+  const newJaVocabRomaji = document.getElementById('new-ja-vocab-romaji');
+  const newJaVocabTip = document.getElementById('new-ja-vocab-tip');
+
   // ==========================================
   // 1. Text-to-Speech (Ưu tiên giọng Nữ chuẩn Mỹ)
   // ==========================================
@@ -190,6 +249,54 @@ document.addEventListener('DOMContentLoaded', () => {
     window.speechSynthesis.speak(utterance);
   }
 
+  function getJapaneseVoice(gender = 'female') {
+    const voices = window.speechSynthesis.getVoices();
+    const jaVoices = voices.filter(v => (v.lang && (v.lang.startsWith('ja') || v.lang.includes('JP'))));
+    if (jaVoices.length === 0) return null;
+
+    if (gender === 'female') {
+      const femaleKeywords = ['haruka', 'ayumi', 'kyoko', 'otoya', 'female', 'google 日本語', 'sayaka'];
+      for (const kw of femaleKeywords) {
+        const found = jaVoices.find(v => v.name.toLowerCase().includes(kw));
+        if (found) return found;
+      }
+      const fallbackFemale = jaVoices.find(v => !v.name.toLowerCase().includes('ichiro') && !v.name.toLowerCase().includes('male'));
+      if (fallbackFemale) return fallbackFemale;
+    } else {
+      const maleKeywords = ['ichiro', 'male', 'kenji', 'keita'];
+      for (const kw of maleKeywords) {
+        const found = jaVoices.find(v => v.name.toLowerCase().includes(kw));
+        if (found) return found;
+      }
+    }
+    return jaVoices[0];
+  }
+
+  function speakJa(text) {
+    if (typeof stopUserAudioPlayback === 'function') stopUserAudioPlayback();
+    if (typeof stopJaUserAudioPlayback === 'function') stopJaUserAudioPlayback();
+    if (!('speechSynthesis' in window)) {
+      alert('Trình duyệt của bạn chưa hỗ trợ phát âm tự động.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ja-JP';
+    utterance.rate = currentSpeed;
+
+    const chosenVoice = getJapaneseVoice(currentVoiceGender);
+    if (chosenVoice) {
+      utterance.voice = chosenVoice;
+    }
+    if (currentVoiceGender === 'female') {
+      utterance.pitch = 1.05;
+    } else {
+      utterance.pitch = 0.95;
+    }
+    window.speechSynthesis.speak(utterance);
+  }
+
   if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = () => {
       window.speechSynthesis.getVoices();
@@ -240,6 +347,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tabId !== 'speaking' && typeof clearAllTempRecordings === 'function') {
       clearAllTempRecordings();
     }
+    if (tabId !== 'speaking-ja' && typeof clearAllJaTempRecordings === 'function') {
+      clearAllJaTempRecordings();
+    }
     currentTab = tabId;
     navItems.forEach(nav => {
       nav.classList.toggle('active', nav.dataset.tab === tabId);
@@ -257,6 +367,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (tabId === 'speaking') {
       pageTitle.textContent = 'Phòng luyện phát âm & Nhại giọng (Shadowing)';
       pageSubtitle.textContent = 'Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu';
+    } else if (tabId === 'speaking-ja') {
+      pageTitle.textContent = '🌸 Phòng Luyện Phát Âm Tiếng Nhật (Shadowing Lab)';
+      pageSubtitle.textContent = 'Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng';
     } else if (tabId === 'flashcards') {
       pageTitle.textContent = 'Sổ tay từ vựng & Mẫu câu thông dụng';
       pageSubtitle.textContent = 'Lật thẻ ghi nhớ câu nói kèm phiên âm tiếng Việt dễ đọc';
@@ -752,7 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     vocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TỪ ${idx + 1} / ${scenarioData.words.length})`;
     vocabWordEn.textContent = item.word;
-    vocabWordIpa.textContent = item.ipa ? `Phiên âm: ${item.ipa} ${item.readVi ? `(${item.readVi})` : ''}` : '';
+    if (vocabWordIpa) vocabWordIpa.textContent = '';
     vocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
     vocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
     vocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
@@ -1346,11 +1459,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Dọn dẹp bản ghi âm tạm khi đóng tab, tải lại trang, ẩn cửa sổ hoặc chuyển sang tab trình duyệt khác
-  window.addEventListener('beforeunload', clearAllTempRecordings);
-  window.addEventListener('pagehide', clearAllTempRecordings);
+  window.addEventListener('beforeunload', () => {
+    clearAllTempRecordings();
+    if (typeof clearAllJaTempRecordings === 'function') clearAllJaTempRecordings();
+  });
+  window.addEventListener('pagehide', () => {
+    clearAllTempRecordings();
+    if (typeof clearAllJaTempRecordings === 'function') clearAllJaTempRecordings();
+  });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       clearAllTempRecordings();
+      if (typeof clearAllJaTempRecordings === 'function') clearAllJaTempRecordings();
     }
   });
 
@@ -1457,7 +1577,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     spkCategory.textContent = `${unit.title.toUpperCase()} (CÂU ${idx + 1} / ${unit.sentences.length})`;
     spkPhraseEn.textContent = `"${item.en}"`;
-    spkPhraseIpa.textContent = `Phiên âm: ${item.ipa} ${item.readVi ? `(${item.readVi})` : ''}`;
+    if (spkPhraseIpa) spkPhraseIpa.textContent = '';
     spkPhraseVi.textContent = `Ý nghĩa: ${item.vi}`;
     spkFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>`;
     resetSpkSpokenBox();
@@ -1720,6 +1840,1003 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // 5.3. PHÒNG LUYỆN NÓI & PHÁT ÂM TIẾNG NHẬT (JAPANESE SHADOWING LAB & VOCAB LAB)
+  // ==========================================
+
+  // State Tiếng Nhật
+  let currentJaSpkUnitKey = 'unit_1_greeting';
+  let currentJaSpeakingIdx = 0;
+  let currentJaVocabScenario = 'greeting_vocab';
+  let currentJaVocabIdx = 0;
+
+  // Dữ liệu từ vựng tiếng Nhật tùy chỉnh người dùng (Lưu vào LocalStorage)
+  let userJaVocabData = null;
+  try {
+    const savedJaVocab = localStorage.getItem('userJaVocabData');
+    if (savedJaVocab) {
+      userJaVocabData = JSON.parse(savedJaVocab);
+    }
+  } catch (e) {
+    userJaVocabData = null;
+  }
+  if (!userJaVocabData || !userJaVocabData.greeting_vocab) {
+    userJaVocabData = (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA)) : {};
+    saveUserJaVocabData();
+  }
+
+  function saveUserJaVocabData() {
+    localStorage.setItem('userJaVocabData', JSON.stringify(userJaVocabData));
+  }
+
+  // --- Chuyển đổi giữa 2 chế độ Tiếng Nhật: Cả câu vs Từ vựng ---
+  if (btnJaModeVocab && btnJaModeSentence) {
+    btnJaModeVocab.addEventListener('click', () => {
+      clearAllJaTempRecordings();
+      btnJaModeVocab.classList.add('active');
+      btnJaModeSentence.classList.remove('active');
+      if (jaVocabSpeakingSection) jaVocabSpeakingSection.style.display = 'flex';
+      if (jaSentenceSpeakingSection) jaSentenceSpeakingSection.style.display = 'none';
+    });
+
+    btnJaModeSentence.addEventListener('click', () => {
+      btnJaModeSentence.classList.add('active');
+      btnJaModeVocab.classList.remove('active');
+      if (jaSentenceSpeakingSection) jaSentenceSpeakingSection.style.display = 'flex';
+      if (jaVocabSpeakingSection) jaVocabSpeakingSection.style.display = 'none';
+    });
+  }
+
+  // --- MODULE TỪ VỰNG TIẾNG NHẬT ---
+  function renderJaVocabScenarioSelect() {
+    if (!jaVocabScenarioSelect) return;
+    jaVocabScenarioSelect.innerHTML = '';
+    const srcData = userJaVocabData || (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined' ? JA_VOCAB_SCENARIOS_DATA : {});
+    const keys = Object.keys(srcData);
+    keys.forEach(k => {
+      const item = srcData[k];
+      if (item) {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = `${item.icon || '🌸'} ${item.title || k}`;
+        jaVocabScenarioSelect.appendChild(opt);
+      }
+    });
+    jaVocabScenarioSelect.value = currentJaVocabScenario;
+  }
+
+  function loadJaVocabScenario(scenarioKey) {
+    currentJaVocabScenario = scenarioKey;
+    currentJaVocabIdx = 0;
+    const scenarioData = userJaVocabData ? userJaVocabData[scenarioKey] : null;
+    if (!scenarioData || !jaVocabChipsWrapper) return;
+
+    jaVocabChipsWrapper.innerHTML = '';
+
+    if (!scenarioData.words || scenarioData.words.length === 0) {
+      jaVocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" hoặc "🔄 Khôi phục" nhé!</span>';
+      if (jaVocabCategory) jaVocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TRỐNG)`;
+      if (jaVocabWordJa) jaVocabWordJa.textContent = "Không có từ nào";
+      if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = "";
+      if (jaVocabWordVi) jaVocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới hoặc '🔄 Khôi phục' để lấy lại từ mặc định.";
+      if (jaVocabWordTip) jaVocabWordTip.textContent = "";
+      if (jaVocabFeedback) jaVocabFeedback.innerHTML = '<div class="feedback-status">Hãy thêm từ vựng để bắt đầu luyện nói!</div>';
+      return;
+    }
+
+    scenarioData.words.forEach((item, idx) => {
+      const chip = document.createElement('button');
+      chip.className = `vocab-chip ${idx === 0 ? 'active' : ''}`;
+      chip.innerHTML = `<span>${item.word}</span> <span style="font-size:0.75rem;opacity:0.7;">(${item.vi || ''})</span>`;
+      chip.addEventListener('click', () => {
+        loadJaVocabWord(idx);
+      });
+      jaVocabChipsWrapper.appendChild(chip);
+    });
+
+    loadJaVocabWord(0);
+  }
+
+  function loadJaVocabWord(idx) {
+    const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+    if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+
+    if (idx >= scenarioData.words.length) idx = 0;
+    currentJaVocabIdx = idx;
+    const item = scenarioData.words[idx];
+
+    if (jaVocabChipsWrapper) {
+      const chips = jaVocabChipsWrapper.querySelectorAll('.vocab-chip');
+      chips.forEach((c, i) => {
+        if (i === idx) {
+          c.classList.add('active');
+          c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          c.classList.remove('active');
+        }
+      });
+    }
+
+    if (jaVocabCategory) jaVocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TỪ ${idx + 1} / ${scenarioData.words.length})`;
+    if (jaVocabWordJa) jaVocabWordJa.textContent = item.word;
+    if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = item.romaji ? `Romaji: ${item.romaji} ${item.readVi ? `(${item.readVi})` : ''}` : '';
+    if (jaVocabWordVi) jaVocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
+    if (jaVocabWordTip) jaVocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
+    if (jaVocabFeedback) jaVocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
+    resetJaVocabSpokenBox();
+  }
+
+  function resetJaVocabSpokenBox() {
+    if (jaVocabSpokenBox) jaVocabSpokenBox.classList.remove('is-recording', 'match-success', 'match-retry');
+    if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = 'Đang chờ bạn nói...';
+    if (jaVocabSpokenText) jaVocabSpokenText.textContent = '"..."';
+    if (jaVocabTypingCursor) jaVocabTypingCursor.style.display = 'none';
+  }
+
+  function resetJaSpkSpokenBox() {
+    if (jaSpkSpokenBox) jaSpkSpokenBox.classList.remove('is-recording', 'match-success', 'match-retry');
+    if (jaSpkSpokenBadge) jaSpkSpokenBadge.textContent = 'Đang chờ bạn nói...';
+    if (jaSpkSpokenText) jaSpkSpokenText.textContent = '"..."';
+    if (jaSpkTypingCursor) jaSpkTypingCursor.style.display = 'none';
+  }
+
+  if (jaVocabScenarioSelect) {
+    jaVocabScenarioSelect.addEventListener('change', (e) => {
+      loadJaVocabScenario(e.target.value);
+    });
+  }
+
+  if (jaVocabListenBtn) {
+    jaVocabListenBtn.addEventListener('click', () => {
+      const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+      if (scenarioData && scenarioData.words && scenarioData.words[currentJaVocabIdx]) {
+        speakJa(scenarioData.words[currentJaVocabIdx].word);
+      }
+    });
+  }
+
+  if (jaVocabPrevBtn) {
+    jaVocabPrevBtn.addEventListener('click', () => {
+      const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+      currentJaVocabIdx = (currentJaVocabIdx - 1 + scenarioData.words.length) % scenarioData.words.length;
+      loadJaVocabWord(currentJaVocabIdx);
+    });
+  }
+
+  if (jaVocabNextBtn) {
+    jaVocabNextBtn.addEventListener('click', () => {
+      const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+      currentJaVocabIdx = (currentJaVocabIdx + 1) % scenarioData.words.length;
+      loadJaVocabWord(currentJaVocabIdx);
+    });
+  }
+
+  if (jaVocabRemoveBtn) {
+    jaVocabRemoveBtn.addEventListener('click', () => {
+      const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+      if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+      const removedWord = scenarioData.words[currentJaVocabIdx].word;
+      scenarioData.words.splice(currentJaVocabIdx, 1);
+      saveUserJaVocabData();
+      syncProgress();
+      if (currentJaVocabIdx >= scenarioData.words.length) {
+        currentJaVocabIdx = Math.max(0, scenarioData.words.length - 1);
+      }
+      loadJaVocabScenario(currentJaVocabScenario);
+      if (scenarioData.words.length > 0) {
+        loadJaVocabWord(currentJaVocabIdx);
+      }
+      if (jaVocabFeedback) {
+        jaVocabFeedback.innerHTML = `<div class="feedback-status" style="color:var(--accent-rose);">🗑️ Đã loại bỏ từ "<strong>${removedWord}</strong>" khỏi danh sách luyện tập!</div>`;
+      }
+    });
+  }
+
+  if (btnJaResetVocab) {
+    btnJaResetVocab.addEventListener('click', () => {
+      if (confirm('Bạn có chắc chắn muốn khôi phục lại danh sách từ vựng tiếng Nhật gốc cho chủ đề này không?')) {
+        if (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined' && JA_VOCAB_SCENARIOS_DATA[currentJaVocabScenario]) {
+          userJaVocabData[currentJaVocabScenario] = JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA[currentJaVocabScenario]));
+          saveUserJaVocabData();
+          syncProgress();
+          loadJaVocabScenario(currentJaVocabScenario);
+        }
+      }
+    });
+  }
+
+  // Modal Thêm từ vựng tiếng Nhật
+  function closeAddJaVocabModal() {
+    if (addJaVocabModal) addJaVocabModal.style.display = 'none';
+  }
+  if (btnJaAddVocab && addJaVocabModal) {
+    btnJaAddVocab.addEventListener('click', () => {
+      addJaVocabModal.style.display = 'flex';
+      if (newJaVocabWord) newJaVocabWord.value = '';
+      if (newJaVocabVi) newJaVocabVi.value = '';
+      if (newJaVocabRomaji) newJaVocabRomaji.value = '';
+      if (newJaVocabTip) newJaVocabTip.value = '';
+      if (newJaVocabWord) newJaVocabWord.focus();
+    });
+  }
+  if (modalJaCloseBtn) modalJaCloseBtn.addEventListener('click', closeAddJaVocabModal);
+  if (modalJaCancelBtn) modalJaCancelBtn.addEventListener('click', closeAddJaVocabModal);
+  if (modalJaSaveBtn) {
+    modalJaSaveBtn.addEventListener('click', () => {
+      const word = newJaVocabWord ? newJaVocabWord.value.trim() : '';
+      if (!word) {
+        alert('Vui lòng nhập từ tiếng Nhật (Kanji/Kana) bạn muốn học!');
+        if (newJaVocabWord) newJaVocabWord.focus();
+        return;
+      }
+      const vi = (newJaVocabVi ? newJaVocabVi.value.trim() : '') || 'Từ do bạn tự thêm';
+      const romaji = (newJaVocabRomaji ? newJaVocabRomaji.value.trim() : '') || '';
+      const tip = (newJaVocabTip ? newJaVocabTip.value.trim() : '') || 'Từ vựng tiếng Nhật do bạn thêm vào';
+
+      const scenarioData = userJaVocabData[currentJaVocabScenario];
+      if (!scenarioData.words) scenarioData.words = [];
+      scenarioData.words.push({ word, romaji, readVi: '', vi, tip });
+
+      saveUserJaVocabData();
+      syncProgress();
+      closeAddJaVocabModal();
+
+      loadJaVocabScenario(currentJaVocabScenario);
+      loadJaVocabWord(scenarioData.words.length - 1);
+
+      if (jaVocabFeedback) {
+        jaVocabFeedback.innerHTML = `<div class="feedback-success">✨ Đã thêm thành công từ "<strong>${word}</strong>"! Hãy bấm nghe phát âm và luyện nói ngay nhé!</div>`;
+      }
+    });
+  }
+
+  // Nhận diện giọng nói cho Từ vựng Tiếng Nhật
+  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const jaVocabRecognition = new SpeechRecognition();
+    jaVocabRecognition.lang = 'ja-JP';
+    jaVocabRecognition.interimResults = true;
+    jaVocabRecognition.maxAlternatives = 1;
+
+    let isJaVocabEvaluating = false;
+
+    if (jaVocabRecordBtn) {
+      jaVocabRecordBtn.addEventListener('click', () => {
+        const scenarioData = userJaVocabData ? userJaVocabData[currentJaVocabScenario] : null;
+        if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
+
+        try {
+          isJaVocabEvaluating = false;
+          jaVocabRecognition.start();
+          jaVocabRecordBtn.classList.add('recording');
+          jaVocabRecordBtn.textContent = '🔴 Đang nghe... Hãy đọc to từ này!';
+          if (jaVocabSpokenBox) {
+            jaVocabSpokenBox.classList.remove('match-success', 'match-retry');
+            jaVocabSpokenBox.classList.add('is-recording');
+          }
+          if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '🔴 Đang lắng nghe tiếng Nhật...';
+          if (jaVocabSpokenText) jaVocabSpokenText.textContent = '...';
+          if (jaVocabTypingCursor) jaVocabTypingCursor.style.display = 'inline-block';
+          if (jaVocabFeedback) jaVocabFeedback.innerHTML = '<div class="feedback-status">Đang lắng nghe bạn phát âm tiếng Nhật... Đọc to rõ nhé!</div>';
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    jaVocabRecognition.onresult = (event) => {
+      let interimTranscript = '';
+      let finalTranscript = '';
+
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+
+      if (interimTranscript && !finalTranscript) {
+        if (jaVocabSpokenText) jaVocabSpokenText.textContent = `"${interimTranscript}`;
+        if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '🎙️ Đang nghe thấy âm thanh...';
+      }
+
+      if (finalTranscript && !isJaVocabEvaluating) {
+        isJaVocabEvaluating = true;
+        const transcript = finalTranscript.trim();
+        const scenarioData = userJaVocabData[currentJaVocabScenario];
+        if (!scenarioData || !scenarioData.words || !scenarioData.words[currentJaVocabIdx]) return;
+        const item = scenarioData.words[currentJaVocabIdx];
+
+        const cleanSpoken = transcript.replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+        const cleanTarget = item.word.replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+        const cleanRomaji = (item.romaji || '').replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+
+        const isMatch = cleanSpoken === cleanTarget ||
+          cleanSpoken.includes(cleanTarget) ||
+          cleanTarget.includes(cleanSpoken) ||
+          (cleanRomaji && (cleanSpoken === cleanRomaji || cleanSpoken.includes(cleanRomaji)));
+
+        animateTypewriter(jaVocabSpokenText, jaVocabTypingCursor, `"${transcript}"`, () => {
+          if (jaVocabSpokenBox) jaVocabSpokenBox.classList.remove('is-recording');
+
+          if (isMatch) {
+            if (jaVocabSpokenBox) {
+              jaVocabSpokenBox.classList.add('match-success');
+              jaVocabSpokenBox.classList.remove('match-retry');
+            }
+            if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '✅ Chuẩn xác!';
+            if (jaVocabFeedback) {
+              jaVocabFeedback.innerHTML = `
+                <div class="feedback-success">
+                  🎉 Tuyệt vời! Bạn phát âm từ tiếng Nhật "<strong>${item.word}</strong>" rất chuẩn xác!<br>
+                  <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được chính xác: "<strong>${transcript}</strong>"</span>
+                </div>
+              `;
+            }
+            spokenSentences.push({
+              en: `[Từ vựng Tiếng Nhật] ${item.word}`,
+              vi: `${item.romaji ? item.romaji + ' - ' : ''}${item.vi || ''}`,
+              accuracy: 'Rất chuẩn',
+              time: new Date().toLocaleTimeString('vi-VN')
+            });
+            localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
+            incrementWordCount();
+            syncProgress();
+          } else {
+            if (jaVocabSpokenBox) {
+              jaVocabSpokenBox.classList.add('match-retry');
+              jaVocabSpokenBox.classList.remove('match-success');
+            }
+            if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '⚠️ Thử lại nhé';
+            if (jaVocabFeedback) {
+              jaVocabFeedback.innerHTML = `
+                <div class="feedback-error">
+                  👏 Đã ghi nhận! Máy nghe được: "<strong>${transcript}</strong>" (Từ chuẩn: "<strong>${item.word}</strong>")<br>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần và đọc to, rõ ràng từng âm tiết nhé!</span>
+                </div>
+              `;
+            }
+          }
+        });
+      }
+    };
+
+    jaVocabRecognition.onerror = (event) => {
+      if (jaVocabRecordBtn) {
+        jaVocabRecordBtn.classList.remove('recording');
+        jaVocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
+      }
+      if (jaVocabSpokenBox) jaVocabSpokenBox.classList.remove('is-recording');
+      if (event.error === 'no-speech' && jaVocabFeedback) {
+        if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '⚠️ Không có âm thanh';
+        if (jaVocabSpokenText) jaVocabSpokenText.textContent = '"(Chưa rõ)"';
+        if (jaVocabTypingCursor) jaVocabTypingCursor.style.display = 'none';
+        jaVocabFeedback.innerHTML = '<div class="feedback-status" style="color:var(--accent-amber);">Micro chưa thu được âm thanh. Hãy bấm và nói to rõ ràng hơn nhé!</div>';
+      }
+    };
+
+    jaVocabRecognition.onend = () => {
+      if (jaVocabRecordBtn) {
+        jaVocabRecordBtn.classList.remove('recording');
+        jaVocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
+      }
+      if (jaVocabSpokenBox && jaVocabSpokenBox.classList.contains('is-recording')) {
+        jaVocabSpokenBox.classList.remove('is-recording');
+        if (jaVocabSpokenBadge && jaVocabSpokenBadge.textContent.includes('Đang lắng nghe')) {
+          jaVocabSpokenBadge.textContent = 'Đã kết thúc thu âm';
+        }
+      }
+    };
+  }
+
+  // --- MODULE PHÒNG LUYỆN PHÁT ÂM TIẾNG NHẬT CẢ CÂU (SHADOWING LAB) ---
+  const tempJaSentenceRecordings = new Map();
+  let userJaAudioPlayer = new Audio();
+  let currentPlayingJaRecIdx = null;
+  let jaLabMediaRecorder = null;
+  let jaLabMediaStream = null;
+  let jaLabAudioChunks = [];
+  let isJaLabRecordingActive = false;
+
+  function stopJaUserAudioPlayback() {
+    if (userJaAudioPlayer) {
+      userJaAudioPlayer.pause();
+      userJaAudioPlayer.currentTime = 0;
+    }
+    currentPlayingJaRecIdx = null;
+    updateJaRecordingsUI();
+  }
+
+  function playJaUserRecording(targetIdx) {
+    const rec = tempJaSentenceRecordings.get(targetIdx);
+    if (!rec || !rec.url) return;
+
+    if (currentPlayingJaRecIdx === targetIdx && !userJaAudioPlayer.paused) {
+      stopJaUserAudioPlayback();
+      return;
+    }
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    stopJaUserAudioPlayback();
+    userJaAudioPlayer.src = rec.url;
+    currentPlayingJaRecIdx = targetIdx;
+    userJaAudioPlayer.play().catch(e => console.error('Lỗi phát âm thanh tiếng Nhật:', e));
+    updateJaRecordingsUI();
+    renderJaSpkSentencesList();
+
+    userJaAudioPlayer.onended = () => {
+      stopJaUserAudioPlayback();
+      renderJaSpkSentencesList();
+    };
+    userJaAudioPlayer.onpause = () => {
+      if (currentPlayingJaRecIdx === targetIdx) {
+        currentPlayingJaRecIdx = null;
+        updateJaRecordingsUI();
+        renderJaSpkSentencesList();
+      }
+    };
+  }
+
+  function pruneJaTempRecordings() {
+    if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+    if (!unit || !unit.sentences) return;
+    const total = unit.sentences.length;
+    const prevIdx = (currentJaSpeakingIdx - 1 + total) % total;
+    const currIdx = currentJaSpeakingIdx;
+    const nextIdx = (currentJaSpeakingIdx + 1) % total;
+
+    const allowed = new Set([prevIdx, currIdx, nextIdx]);
+
+    for (const [keyIdx, data] of tempJaSentenceRecordings.entries()) {
+      if (!allowed.has(keyIdx)) {
+        if (currentPlayingJaRecIdx === keyIdx) {
+          stopJaUserAudioPlayback();
+        }
+        if (data.url) {
+          URL.revokeObjectURL(data.url);
+        }
+        tempJaSentenceRecordings.delete(keyIdx);
+      }
+    }
+  }
+
+  function saveJaTempRecording(idx, blob) {
+    const old = tempJaSentenceRecordings.get(idx);
+    if (old && old.url) {
+      URL.revokeObjectURL(old.url);
+    }
+    const url = URL.createObjectURL(blob);
+    const time = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    tempJaSentenceRecordings.set(idx, { blob, url, time });
+    pruneJaTempRecordings();
+    updateJaRecordingsUI();
+    renderJaSpkSentencesList();
+  }
+
+  function clearAllJaTempRecordings() {
+    if (isJaLabRecordingActive) {
+      isJaLabRecordingActive = false;
+      jaLabAudioChunks = [];
+      if (jaSpkRecordBtn) {
+        jaSpkRecordBtn.classList.remove('recording');
+        jaSpkRecordBtn.textContent = '🎙️ Bấm để nói thử';
+      }
+      if (jaLabMediaRecorder && jaLabMediaRecorder.state !== 'inactive') {
+        jaLabMediaRecorder.onstop = null;
+        try { jaLabMediaRecorder.stop(); } catch (e) {}
+      }
+      if (jaLabMediaStream) {
+        jaLabMediaStream.getTracks().forEach(t => t.stop());
+        jaLabMediaStream = null;
+      }
+      if (jaLabRecognition) {
+        try { jaLabRecognition.stop(); } catch (e) {}
+      }
+      if (jaSpkSpokenBox && jaSpkSpokenBox.classList.contains('is-recording')) {
+        jaSpkSpokenBox.classList.remove('is-recording');
+      }
+    }
+
+    stopJaUserAudioPlayback();
+
+    for (const [keyIdx, data] of tempJaSentenceRecordings.entries()) {
+      if (data.url) {
+        URL.revokeObjectURL(data.url);
+      }
+    }
+    tempJaSentenceRecordings.clear();
+    updateJaRecordingsUI();
+    if (jaSpkSentencesWrapper) {
+      renderJaSpkSentencesList();
+    }
+  }
+
+  function updateJaRecordingsUI() {
+    if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+    if (!unit || !unit.sentences) return;
+    const total = unit.sentences.length;
+    const prevIdx = (currentJaSpeakingIdx - 1 + total) % total;
+    const currIdx = currentJaSpeakingIdx;
+    const nextIdx = (currentJaSpeakingIdx + 1) % total;
+
+    if (jaRecLabelPrev) jaRecLabelPrev.textContent = `Câu ${prevIdx + 1}`;
+    if (jaRecLabelCurr) jaRecLabelCurr.textContent = `Câu ${currIdx + 1}`;
+    if (jaRecLabelNext) jaRecLabelNext.textContent = `Câu ${nextIdx + 1}`;
+
+    const currRec = tempJaSentenceRecordings.get(currIdx);
+    if (currRec) {
+      if (jaSpkPlayRecordBtn) {
+        jaSpkPlayRecordBtn.style.display = 'inline-flex';
+        if (currentPlayingJaRecIdx === currIdx) {
+          jaSpkPlayRecordBtn.classList.add('is-playing');
+          jaSpkPlayRecordBtn.innerHTML = '⏸️ Đang phát giọng bạn...';
+        } else {
+          jaSpkPlayRecordBtn.classList.remove('is-playing');
+          jaSpkPlayRecordBtn.innerHTML = '▶️ Nghe lại giọng bạn';
+        }
+      }
+      if (jaBtnPlayRecCurr) {
+        jaBtnPlayRecCurr.disabled = false;
+        if (currentPlayingJaRecIdx === currIdx) {
+          jaBtnPlayRecCurr.className = 'rec-play-btn has-recording is-playing';
+          jaBtnPlayRecCurr.innerHTML = '<span class="btn-icon">⏸️</span><span class="btn-label">Đang phát</span>';
+        } else {
+          jaBtnPlayRecCurr.className = 'rec-play-btn has-recording';
+          jaBtnPlayRecCurr.innerHTML = `<span class="btn-icon">▶️</span><span class="btn-label">Nghe lại (${currRec.time})</span>`;
+        }
+      }
+    } else {
+      if (jaSpkPlayRecordBtn) {
+        jaSpkPlayRecordBtn.style.display = 'none';
+        jaSpkPlayRecordBtn.classList.remove('is-playing');
+      }
+      if (jaBtnPlayRecCurr) {
+        jaBtnPlayRecCurr.disabled = true;
+        jaBtnPlayRecCurr.className = 'rec-play-btn';
+        jaBtnPlayRecCurr.innerHTML = '<span class="btn-icon">🔇</span><span class="btn-label">Chưa ghi âm</span>';
+      }
+    }
+
+    const prevRec = tempJaSentenceRecordings.get(prevIdx);
+    if (prevRec && jaBtnPlayRecPrev) {
+      jaBtnPlayRecPrev.disabled = false;
+      if (currentPlayingJaRecIdx === prevIdx) {
+        jaBtnPlayRecPrev.className = 'rec-play-btn has-recording is-playing';
+        jaBtnPlayRecPrev.innerHTML = '<span class="btn-icon">⏸️</span><span class="btn-label">Đang phát</span>';
+      } else {
+        jaBtnPlayRecPrev.className = 'rec-play-btn has-recording';
+        jaBtnPlayRecPrev.innerHTML = `<span class="btn-icon">▶️</span><span class="btn-label">Nghe lại (${prevRec.time})</span>`;
+      }
+    } else if (jaBtnPlayRecPrev) {
+      jaBtnPlayRecPrev.disabled = true;
+      jaBtnPlayRecPrev.className = 'rec-play-btn';
+      jaBtnPlayRecPrev.innerHTML = '<span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>';
+    }
+
+    const nextRec = tempJaSentenceRecordings.get(nextIdx);
+    if (nextRec && jaBtnPlayRecNext) {
+      jaBtnPlayRecNext.disabled = false;
+      if (currentPlayingJaRecIdx === nextIdx) {
+        jaBtnPlayRecNext.className = 'rec-play-btn has-recording is-playing';
+        jaBtnPlayRecNext.innerHTML = '<span class="btn-icon">⏸️</span><span class="btn-label">Đang phát</span>';
+      } else {
+        jaBtnPlayRecNext.className = 'rec-play-btn has-recording';
+        jaBtnPlayRecNext.innerHTML = `<span class="btn-icon">▶️</span><span class="btn-label">Nghe lại (${nextRec.time})</span>`;
+      }
+    } else if (jaBtnPlayRecNext) {
+      jaBtnPlayRecNext.disabled = true;
+      jaBtnPlayRecNext.className = 'rec-play-btn';
+      jaBtnPlayRecNext.innerHTML = '<span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>';
+    }
+  }
+
+  if (jaSpkPlayRecordBtn) {
+    jaSpkPlayRecordBtn.addEventListener('click', () => {
+      playJaUserRecording(currentJaSpeakingIdx);
+    });
+  }
+  if (jaBtnPlayRecCurr) {
+    jaBtnPlayRecCurr.addEventListener('click', () => {
+      playJaUserRecording(currentJaSpeakingIdx);
+    });
+  }
+  if (jaBtnPlayRecPrev) {
+    jaBtnPlayRecPrev.addEventListener('click', () => {
+      if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+      const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      const total = unit.sentences.length;
+      playJaUserRecording((currentJaSpeakingIdx - 1 + total) % total);
+    });
+  }
+  if (jaBtnPlayRecNext) {
+    jaBtnPlayRecNext.addEventListener('click', () => {
+      if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+      const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      const total = unit.sentences.length;
+      playJaUserRecording((currentJaSpeakingIdx + 1) % total);
+    });
+  }
+
+  function renderJaSpkUnitSelect() {
+    if (!jaSpkUnitSelect || typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    jaSpkUnitSelect.innerHTML = '';
+    const keys = Object.keys(JA_SENTENCE_UNITS_DATA);
+    keys.forEach(k => {
+      const unit = JA_SENTENCE_UNITS_DATA[k];
+      const opt = document.createElement('option');
+      opt.value = k;
+      opt.textContent = `${unit.icon || '🌸'} ${unit.title || k}`;
+      jaSpkUnitSelect.appendChild(opt);
+    });
+    jaSpkUnitSelect.value = currentJaSpkUnitKey;
+  }
+
+  if (jaSpkUnitSelect) {
+    jaSpkUnitSelect.addEventListener('change', (e) => {
+      clearAllJaTempRecordings();
+      loadJaSpkUnit(e.target.value);
+    });
+  }
+
+  function loadJaSpkUnit(unitKey) {
+    if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    currentJaSpkUnitKey = unitKey;
+    currentJaSpeakingIdx = 0;
+    const unit = JA_SENTENCE_UNITS_DATA[unitKey];
+    if (!unit) return;
+
+    renderJaSpkSentencesList();
+    loadJaSpeakingChallenge(0);
+  }
+
+  function renderJaSpkSentencesList() {
+    if (!jaSpkSentencesWrapper || typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    jaSpkSentencesWrapper.innerHTML = '';
+    const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+    if (!unit || !unit.sentences) return;
+
+    unit.sentences.forEach((item, idx) => {
+      const itemEl = document.createElement('div');
+      itemEl.className = `spk-sentence-item ${idx === currentJaSpeakingIdx ? 'active' : ''}`;
+
+      const hasRec = tempJaSentenceRecordings.has(idx);
+      const isPlayingThis = (currentPlayingJaRecIdx === idx);
+      const userBtnHtml = hasRec ? `
+        <button class="spk-item-user-audio-btn ${isPlayingThis ? 'is-playing' : ''}" title="Bấm để nghe lại giọng bạn đã đọc">
+          ${isPlayingThis ? '⏸️ Đang phát' : '🎙️ Giọng bạn'}
+        </button>
+      ` : '';
+
+      itemEl.innerHTML = `
+        <div class="spk-item-left">
+          <span class="spk-item-num">Câu ${idx + 1}</span>
+          <div class="spk-item-text">
+            <div class="spk-item-en" style="font-size: 1.05rem;">${item.ja}</div>
+            <div class="spk-item-vi" style="font-size: 0.8rem; color: var(--accent-cyan);">${item.romaji} - ${item.vi}</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          ${userBtnHtml}
+          <button class="spk-item-audio-btn" title="Nghe câu này">🔊 Nghe</button>
+        </div>
+      `;
+
+      itemEl.querySelector('.spk-item-audio-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        speakJa(item.ja);
+      });
+
+      const userBtn = itemEl.querySelector('.spk-item-user-audio-btn');
+      if (userBtn) {
+        userBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          playJaUserRecording(idx);
+        });
+      }
+
+      itemEl.addEventListener('click', () => {
+        loadJaSpeakingChallenge(idx);
+      });
+
+      jaSpkSentencesWrapper.appendChild(itemEl);
+    });
+  }
+
+  function loadJaSpeakingChallenge(idx) {
+    if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+    const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+    if (!unit || !unit.sentences || unit.sentences.length === 0) return;
+
+    if (idx >= unit.sentences.length) idx = 0;
+    if (idx < 0) idx = unit.sentences.length - 1;
+
+    stopJaUserAudioPlayback();
+    currentJaSpeakingIdx = idx;
+
+    pruneJaTempRecordings();
+    updateJaRecordingsUI();
+
+    const item = unit.sentences[idx];
+
+    if (jaSpkCategory) jaSpkCategory.textContent = `${unit.title.toUpperCase()} (CÂU ${idx + 1} / ${unit.sentences.length})`;
+    if (jaSpkPhraseJa) jaSpkPhraseJa.textContent = `"${item.ja}"`;
+    if (jaSpkPhraseRomaji) jaSpkPhraseRomaji.textContent = `Romaji: ${item.romaji} ${item.readVi ? `(${item.readVi})` : ''}`;
+    if (jaSpkPhraseVi) jaSpkPhraseVi.textContent = `Ý nghĩa: ${item.vi}`;
+    if (jaSpkFeedback) jaSpkFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>`;
+    resetJaSpkSpokenBox();
+
+    if (jaSpkSentencesWrapper) {
+      const items = jaSpkSentencesWrapper.querySelectorAll('.spk-sentence-item');
+      items.forEach((it, i) => {
+        if (i === idx) {
+          it.classList.add('active');
+          it.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          it.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  if (jaSpkListenBtn) {
+    jaSpkListenBtn.addEventListener('click', () => {
+      if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+      const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+      if (unit && unit.sentences && unit.sentences[currentJaSpeakingIdx]) {
+        speakJa(unit.sentences[currentJaSpeakingIdx].ja);
+      }
+    });
+  }
+
+  if (jaSpkPrevBtn) {
+    jaSpkPrevBtn.addEventListener('click', () => {
+      if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+      const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      currentJaSpeakingIdx = (currentJaSpeakingIdx - 1 + unit.sentences.length) % unit.sentences.length;
+      loadJaSpeakingChallenge(currentJaSpeakingIdx);
+    });
+  }
+
+  if (jaSpkNextBtn) {
+    jaSpkNextBtn.addEventListener('click', () => {
+      if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
+      const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      currentJaSpeakingIdx = (currentJaSpeakingIdx + 1) % unit.sentences.length;
+      loadJaSpeakingChallenge(currentJaSpeakingIdx);
+    });
+  }
+
+  // Micro & Ghi âm thực tế tiếng Nhật bằng MediaRecorder + SpeechRecognition
+  let jaLabRecognition = null;
+  if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    jaLabRecognition = new SpeechRecognition();
+    jaLabRecognition.lang = 'ja-JP';
+    jaLabRecognition.interimResults = true;
+    jaLabRecognition.maxAlternatives = 1;
+  }
+
+  let isJaLabEvaluating = false;
+
+  function startJaLabRecording() {
+    stopJaUserAudioPlayback();
+    isJaLabEvaluating = false;
+    isJaLabRecordingActive = true;
+    jaLabAudioChunks = [];
+
+    if (jaSpkRecordBtn) {
+      jaSpkRecordBtn.classList.add('recording');
+      jaSpkRecordBtn.textContent = '⏹️ Đang thu âm & lắng nghe... (Bấm để DỪNG)';
+    }
+
+    if (jaSpkSpokenBox) {
+      jaSpkSpokenBox.classList.remove('match-success', 'match-retry');
+      jaSpkSpokenBox.classList.add('is-recording');
+    }
+    if (jaSpkSpokenBadge) {
+      jaSpkSpokenBadge.textContent = '🔴 Đang lắng nghe & thu âm giọng bạn...';
+    }
+    if (jaSpkSpokenText) {
+      jaSpkSpokenText.textContent = '...';
+    }
+    if (jaSpkTypingCursor) {
+      jaSpkTypingCursor.style.display = 'inline-block';
+    }
+    if (jaSpkFeedback) {
+      jaSpkFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to câu tiếng Nhật vào micro... Nói rõ ràng từng âm tiết nhé!</div>';
+    }
+
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          jaLabMediaStream = stream;
+          let mime = 'audio/webm';
+          if (!MediaRecorder.isTypeSupported('audio/webm')) {
+            mime = MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4' : '';
+          }
+          try {
+            jaLabMediaRecorder = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
+          } catch (e) {
+            jaLabMediaRecorder = new MediaRecorder(stream);
+          }
+
+          jaLabMediaRecorder.ondataavailable = (e) => {
+            if (e.data && e.data.size > 0) {
+              jaLabAudioChunks.push(e.data);
+            }
+          };
+
+          jaLabMediaRecorder.onstop = () => {
+            if (jaLabAudioChunks.length > 0) {
+              const audioBlob = new Blob(jaLabAudioChunks, { type: jaLabMediaRecorder.mimeType || 'audio/webm' });
+              saveJaTempRecording(currentJaSpeakingIdx, audioBlob);
+            }
+            if (jaLabMediaStream) {
+              jaLabMediaStream.getTracks().forEach(t => t.stop());
+              jaLabMediaStream = null;
+            }
+          };
+
+          jaLabMediaRecorder.start(100);
+        })
+        .catch(err => {
+          console.warn('Microphone stream error:', err);
+        });
+    }
+
+    if (jaLabRecognition) {
+      try {
+        jaLabRecognition.start();
+      } catch (err) {
+        console.warn('jaLabRecognition start warning:', err);
+      }
+    }
+  }
+
+  function stopJaLabRecording() {
+    if (!isJaLabRecordingActive) return;
+    isJaLabRecordingActive = false;
+
+    if (jaSpkRecordBtn) {
+      jaSpkRecordBtn.classList.remove('recording');
+      jaSpkRecordBtn.textContent = '🎙️ Bấm để nói thử';
+    }
+
+    if (jaLabMediaRecorder && jaLabMediaRecorder.state !== 'inactive') {
+      try { jaLabMediaRecorder.stop(); } catch (e) {}
+    } else if (jaLabMediaStream) {
+      jaLabMediaStream.getTracks().forEach(t => t.stop());
+      jaLabMediaStream = null;
+    }
+
+    if (jaLabRecognition) {
+      try { jaLabRecognition.stop(); } catch (e) {}
+    }
+
+    if (jaSpkSpokenBox && jaSpkSpokenBox.classList.contains('is-recording')) {
+      jaSpkSpokenBox.classList.remove('is-recording');
+    }
+  }
+
+  if (jaSpkRecordBtn) {
+    jaSpkRecordBtn.addEventListener('click', () => {
+      if (isJaLabRecordingActive) {
+        stopJaLabRecording();
+      } else {
+        startJaLabRecording();
+      }
+    });
+  }
+
+  if (jaLabRecognition) {
+    jaLabRecognition.onresult = (event) => {
+      let interimTranscript = '';
+      let finalTranscript = '';
+
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+
+      if (interimTranscript && !finalTranscript) {
+        if (jaSpkSpokenText) jaSpkSpokenText.textContent = `"${interimTranscript}`;
+        if (jaSpkSpokenBadge) jaSpkSpokenBadge.textContent = '🎙️ Đang nghe thấy âm thanh...';
+      }
+
+      if (finalTranscript && !isJaLabEvaluating) {
+        isJaLabEvaluating = true;
+        const transcript = finalTranscript.trim();
+        const unit = (typeof JA_SENTENCE_UNITS_DATA !== 'undefined') ? JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey] : null;
+        if (!unit || !unit.sentences || !unit.sentences[currentJaSpeakingIdx]) return;
+        const item = unit.sentences[currentJaSpeakingIdx];
+
+        const target = item.ja.replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+        const userSpoken = transcript.replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+        const romajiTarget = (item.romaji || '').replace(/[。、！？!?.,\s\-\"\'〜~]/g, '').toLowerCase().trim();
+
+        const isMatch = userSpoken === target ||
+          userSpoken.includes(target) ||
+          target.includes(userSpoken) ||
+          (romajiTarget && (userSpoken === romajiTarget || userSpoken.includes(romajiTarget)));
+
+        animateTypewriter(jaSpkSpokenText, jaSpkTypingCursor, `"${transcript}"`, () => {
+          stopJaLabRecording();
+
+          if (isMatch) {
+            if (jaSpkSpokenBox) {
+              jaSpkSpokenBox.classList.add('match-success');
+              jaSpkSpokenBox.classList.remove('match-retry');
+            }
+            if (jaSpkSpokenBadge) jaSpkSpokenBadge.textContent = '✅ Chuẩn xác!';
+            if (jaSpkFeedback) {
+              jaSpkFeedback.innerHTML = `
+                <div class="feedback-success">
+                  🎉 Tuyệt vời! Bạn phát âm câu tiếng Nhật trong "<strong>${unit.title}</strong>" rất chuẩn xác!<br>
+                  <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được chính xác: "<strong>${transcript}</strong>"</span><br>
+                  <span style="font-size: 0.82rem; color: #34d399; margin-top: 4px; display: inline-block;">👉 Bấm nút <strong>"▶️ Nghe lại giọng bạn"</strong> phía trên để nghe lại bản ghi âm vừa thu nhé!</span>
+                </div>
+              `;
+            }
+            spokenSentences.push({
+              en: `[Tiếng Nhật] ${item.ja}`,
+              vi: `${item.romaji} - ${item.vi}`,
+              accuracy: 'Rất chuẩn',
+              time: new Date().toLocaleTimeString('vi-VN')
+            });
+            localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
+            incrementWordCount();
+            syncProgress();
+          } else {
+            if (jaSpkSpokenBox) {
+              jaSpkSpokenBox.classList.add('match-retry');
+              jaSpkSpokenBox.classList.remove('match-success');
+            }
+            if (jaSpkSpokenBadge) jaSpkSpokenBadge.textContent = '⚠️ Thử lại nhé';
+            if (jaSpkFeedback) {
+              jaSpkFeedback.innerHTML = `
+                <div class="feedback-error">
+                  👏 Rất tốt vì đã thử! Máy nghe được: "<strong>${transcript}</strong>"<br>
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">Bạn có thể bấm <strong>"▶️ Nghe lại giọng bạn"</strong> để tự kiểm tra ngữ điệu, sau đó bấm nghe mẫu lại để cải thiện nhé!</span>
+                </div>
+              `;
+            }
+          }
+        });
+      }
+    };
+
+    jaLabRecognition.onerror = (event) => {
+      stopJaLabRecording();
+      if (event.error === 'no-speech' && jaSpkFeedback) {
+        if (jaSpkSpokenBadge) jaSpkSpokenBadge.textContent = '⚠️ Không có âm thanh';
+        if (jaSpkSpokenText) jaSpkSpokenText.textContent = '"(Chưa rõ)"';
+        if (jaSpkTypingCursor) jaSpkTypingCursor.style.display = 'none';
+        jaSpkFeedback.innerHTML = '<div class="feedback-status" style="color:var(--accent-amber);">Micro chưa thu được âm thanh rõ. Hãy nói to và gần micro hơn nhé!</div>';
+      }
+    };
+
+    jaLabRecognition.onend = () => {
+      if (isJaLabRecordingActive) {
+        stopJaLabRecording();
+      }
+    };
+  }
+
+  // ==========================================
   // 6. Flashcards thông minh
   // ==========================================
   function loadFlashcard(idx) {
@@ -1765,70 +2882,19 @@ document.addEventListener('DOMContentLoaded', () => {
       currentLesson: currentLessonName,
       chatHistory,
       spokenSentences,
-      userVocabData
+      userVocabData,
+      userJaVocabData
     };
   }
 
-  function syncProgress(notifySuccess = false) {
-    const data = getStudyData();
-
-    // 1. Luôn lưu trong LocalStorage của trình duyệt
+  function syncProgress() {
+    // Lưu trong LocalStorage của trình duyệt
     localStorage.setItem('wordsLearnedCount', wordsLearnedCount);
     localStorage.setItem('streakDays', streakDays);
     localStorage.setItem('currentLessonName', currentLessonName);
-
-    // 2. Gửi về local server để ghi thẳng vào ổ cứng máy tính (study_log.md & study_log.json)
-    fetch('/api/save-log', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (notifySuccess) {
-          alert('✅ Đã lưu tiến độ học tập thành công vào file study_log.md trên máy tính!');
-        }
-      })
-      .catch(() => {
-        // Nếu mở trực tiếp dạng file:/// không qua server
-        if (notifySuccess) {
-          downloadStudyLogMarkdown(data);
-        }
-      });
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+    localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
   }
-
-  function downloadStudyLogMarkdown(data) {
-    let md = `# 📝 NHẬT KÝ HỌC TIẾNG ANH (Cập nhật: ${new Date().toLocaleString('vi-VN')})\n\n`;
-    md += `- **Chuỗi ngày học:** ${data.streakDays} ngày\n`;
-    md += `- **Số mẫu câu đã học:** ${data.wordsLearnedCount} câu\n`;
-    md += `- **Bài học gần nhất:** ${data.currentLesson}\n\n`;
-
-    if (data.chatHistory && data.chatHistory.length > 0) {
-      md += `### 💬 Các câu hội thoại bạn vừa luyện:\n`;
-      data.chatHistory.forEach(msg => {
-        md += `- **${msg.sender === 'user' ? '👤 Bạn' : '🤖 Alex'}**: "${msg.en}" (${msg.vi})\n`;
-      });
-      md += `\n`;
-    }
-
-    if (data.spokenSentences && data.spokenSentences.length > 0) {
-      md += `### 🎙️ Các câu bạn đã phát âm chuẩn:\n`;
-      data.spokenSentences.forEach(s => {
-        md += `- "${s.en}" - ${s.vi}\n`;
-      });
-    }
-
-    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'study_log.md';
-    a.click();
-    alert('📥 Đã tải file study_log.md về máy! Bạn chỉ cần lưu vào thư mục dự án là ngày mai AI sẽ nhớ toàn bộ!');
-  }
-
-  saveLogBtn.addEventListener('click', () => {
-    syncProgress(true);
-  });
 
   copySummaryBtn.addEventListener('click', () => {
     const data = getStudyData();
@@ -1875,44 +2941,15 @@ document.addEventListener('DOMContentLoaded', () => {
   renderScenarioSelect();
   renderVocabScenarioSelect();
   renderSpkUnitSelect();
+  renderJaVocabScenarioSelect();
+  renderJaSpkUnitSelect();
   const firstScenarioKey = Object.keys(CHAT_SCENARIOS || {})[0] || '';
   loadScenario(firstScenarioKey);
   loadVocabScenario('my_new_school');
   loadSpkUnit('unit_1_my_new_school');
+  loadJaVocabScenario('greeting_vocab');
+  loadJaSpkUnit('unit_1_greeting');
   loadFlashcard(0);
 
-  // Tự động tải tiến độ & từ vựng tùy chỉnh từ study_log.json (Đồng bộ giữa các máy)
-  fetch('/api/get-log')
-    .then(res => res.json())
-    .then(logData => {
-      if (logData && !logData.empty) {
-        if (logData.userVocabData) {
-          userVocabData = logData.userVocabData;
-          localStorage.setItem('userVocabData', JSON.stringify(userVocabData));
-          loadVocabScenario(currentVocabScenario);
-        }
-        if (typeof logData.streakDays === 'number') {
-          streakDays = logData.streakDays;
-          localStorage.setItem('streakDays', streakDays);
-        }
-        if (typeof logData.wordsLearnedCount === 'number') {
-          wordsLearnedCount = logData.wordsLearnedCount;
-          localStorage.setItem('wordsLearnedCount', wordsLearnedCount);
-        }
-        if (logData.currentLesson) {
-          currentLessonName = logData.currentLesson;
-          localStorage.setItem('currentLessonName', currentLessonName);
-        }
-        if (Array.isArray(logData.chatHistory)) {
-          chatHistory = logData.chatHistory;
-          localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-        }
-        if (Array.isArray(logData.spokenSentences)) {
-          spokenSentences = logData.spokenSentences;
-          localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
-        }
-        updateStatsDisplay();
-      }
-    })
-    .catch(() => { });
+
 });
