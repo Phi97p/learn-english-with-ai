@@ -153,18 +153,75 @@
 
           <!-- SPEAKING MODE SWITCHER -->
           <div class="speaking-mode-switcher">
-            <button class="mode-tab-btn active" id="btn-mode-vocab">
-              <span class="mode-icon">🎯</span>
-              <span>1. Luyện nói theo từ vựng (Từ phản xạ)</span>
-            </button>
-            <button class="mode-tab-btn" id="btn-mode-sentence">
+            <button class="mode-tab-btn active" id="btn-mode-sentence">
               <span class="mode-icon">🎙️</span>
-              <span>2. Luyện nói cả câu (Shadowing Lab)</span>
+              <span>1. Luyện nói cả câu theo Unit (Shadowing Lab)</span>
+            </button>
+            <button class="mode-tab-btn" id="btn-mode-vocab">
+              <span class="mode-icon">🎯</span>
+              <span>2. Luyện nói từng từ vựng</span>
             </button>
           </div>
 
-          <!-- MODULE 1: LUYỆN NÓI THEO TỪ VỰNG (TRÍCH TỪ PHẢN XẠ AI) -->
-          <div class="speaking-module-card" id="vocab-speaking-section">
+          <!-- MODULE 1: LUYỆN NÓI CẢ CÂU (SHADOWING LAB) - CHIA THEO UNIT -->
+          <div class="speaking-module-card" id="sentence-speaking-section">
+            <div class="speaking-header-card">
+              <div class="vocab-header-top">
+                <div>
+                  <h2>🎙️ Phòng Luyện Phát Âm Cả Câu (Shadowing Lab)</h2>
+                  <p>Luyện phát âm & nhại giọng (Shadowing) từng mẫu câu giao tiếp chuẩn SGK theo từng Unit</p>
+                </div>
+                <div class="scenario-selector vocab-selector">
+                  <div class="vocab-toolbar-actions">
+                    <label for="spk-unit-select">Chọn Unit:</label>
+                    <select id="spk-unit-select">
+                      <option value="unit_1_my_new_school">🏫 Unit 1: Bạn Mới & Năm Học Mới (SGK 6)</option>
+                      <option value="unit_2_my_house">🏡 Unit 2: Ngôi Nhà Của Tôi (SGK 6)</option>
+                      <option value="unit_3_my_friends">👫 Unit 3: Những Người Bạn Của Tôi (SGK 6)</option>
+                      <option value="unit_4_my_neighbourhood">🏘️ Unit 4: Khu Phố Của Tôi (SGK 6)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="speaking-challenge-card" id="speaking-card">
+              <div class="challenge-category" id="spk-category">UNIT 1: BẠN MỚI & NĂM HỌC MỚI (CÂU 1 / 9)</div>
+              <div class="challenge-phrase-en" id="spk-phrase-en">"Hi, Phong. Are you ready? - Just a minute."</div>
+              <div class="challenge-phrase-ipa" id="spk-phrase-ipa">Phiên âm: /haɪ, Phong. ɑːr juː ˈrɛdi? - dʒʌst ə ˈmɪnɪt/ (Hai, Phong. A diu ré-đi? - Dchất ơ mí-nịt.)</div>
+              <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Chào Phong. Bạn đã sẵn sàng chưa? - Chờ mình một phút nhé.</div>
+
+              <div class="speaking-actions">
+                <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
+                <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
+                <button class="btn-nav" id="spk-prev-btn">⬅️ Câu trước</button>
+                <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
+              </div>
+
+              <!-- KẾT QUẢ NGƯỜI NÓI (MODULE CẢ CÂU) -->
+              <div class="spoken-result-box" id="spk-spoken-box">
+                <span class="spoken-result-text" id="spk-spoken-text">"..."</span>
+                <span class="typing-cursor" id="spk-typing-cursor" style="display: none;"></span>
+              </div>
+
+              <div class="speaking-feedback" id="spk-feedback">
+                <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>
+              </div>
+            </div>
+
+            <!-- DANH SÁCH TOÀN BỘ CÂU TRONG UNIT (DƯỚI CÙNG) -->
+            <div class="speaking-header-card spk-bottom-list-card">
+              <div class="vocab-chip-list-label" style="margin-top: 0; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
+                📋 Danh sách toàn bộ mẫu câu trong Unit (Bấm vào câu bất kỳ để chọn luyện nói):
+              </div>
+              <div class="spk-sentences-wrapper" id="spk-sentences-wrapper" style="margin-top: 10px;">
+                <!-- Injected by app.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- MODULE 2: LUYỆN NÓI THEO TỪ VỰNG (TRÍCH TỪ PHẢN XẠ AI) -->
+          <div class="speaking-module-card" id="vocab-speaking-section" style="display: none;">
             <div class="speaking-header-card">
               <div class="vocab-header-top">
                 <div>
@@ -200,6 +257,12 @@
                 <button class="btn-remove-word" id="vocab-remove-btn" title="Bỏ từ này khỏi danh sách luyện">🗑️ Bỏ từ này</button>
               </div>
 
+              <!-- KẾT QUẢ NGƯỜI NÓI (HIỂN THỊ TYPEWRITER & LIVE STREAM RESULT) -->
+              <div class="spoken-result-box" id="vocab-spoken-box">
+                <span class="spoken-result-text" id="vocab-spoken-text">"..."</span>
+                <span class="typing-cursor" id="vocab-typing-cursor" style="display: none;"></span>
+              </div>
+
               <div class="speaking-feedback" id="vocab-feedback">
                 <div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>
               </div>
@@ -212,32 +275,6 @@
               </div>
               <div class="vocab-chips-wrapper" id="vocab-chips-wrapper" style="margin-top: 10px;">
                 <!-- Injected by app.js -->
-              </div>
-            </div>
-          </div>
-
-          <!-- MODULE 2: LUYỆN NÓI CẢ CÂU (SHADOWING LAB) -->
-          <div class="speaking-module-card" id="sentence-speaking-section" style="display: none;">
-            <div class="speaking-header-card">
-              <h2>🎙️ Phòng Luyện Phát Âm & Nhại Giọng Cả Câu (Shadowing Lab)</h2>
-              <p>1. Bấm <strong>"Nghe mẫu"</strong> để nghe người bản xứ đọc chậm & rõ ràng.<br>
-                 2. Bấm <strong>"Nói thử"</strong> và đọc to theo câu mẫu để máy phân tích độ chính xác.</p>
-            </div>
-
-            <div class="speaking-challenge-card" id="speaking-card">
-              <div class="challenge-category" id="spk-category">CHỦ ĐỀ: CHÀO HỎI</div>
-              <div class="challenge-phrase-en" id="spk-phrase-en">"Nice to meet you!"</div>
-              <div class="challenge-phrase-ipa" id="spk-phrase-ipa">Phiên âm: /naɪs tuː miːt juː/ (Nai-xừ tu mít diu)</div>
-              <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Rất vui được gặp bạn!</div>
-
-              <div class="speaking-actions">
-                <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
-                <button class="btn-record" id="spk-record-btn">🎙️ Bấm để nói thử</button>
-                <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
-              </div>
-
-              <div class="speaking-feedback" id="spk-feedback">
-                <div class="feedback-status">Bấm "Bấm để nói thử" và nói vào micro nhé!</div>
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
-# 📝 NHẬT KÝ HỌC TIẾNG ANH - THÁNG 10/2026 (Cập nhật: 23:09:35 5/10/2026)
+# 📝 NHẬT KÝ HỌC TIẾNG ANH - THÁNG 10/2026 (Cập nhật: 10:11:15 10/10/2026)
 
 ### 📊 Tổng quan tiến độ tháng 10/2026
 - **Chuỗi ngày học (Streak):** 1 ngày
 - **Số mẫu câu / từ đã học:** 56 từ
-- **Bài học đang học:** Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)
+- **Bài học đang học:** Unit 1: Bạn Mới & Năm Học Mới
 
 ### 💬 Lịch sử hội thoại phản xạ gần nhất
 - **👤 Bạn**: "Heidi  I'm almost ready" *(Phản xạ của bạn)*

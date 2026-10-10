@@ -47,14 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatClearBtn = document.getElementById('chat-clear-btn');
 
   // Speaking elements (Sentence Shadowing)
+  const spkUnitSelect = document.getElementById('spk-unit-select');
   const spkCategory = document.getElementById('spk-category');
   const spkPhraseEn = document.getElementById('spk-phrase-en');
   const spkPhraseIpa = document.getElementById('spk-phrase-ipa');
   const spkPhraseVi = document.getElementById('spk-phrase-vi');
   const spkListenBtn = document.getElementById('spk-listen-btn');
   const spkRecordBtn = document.getElementById('spk-record-btn');
+  const spkPrevBtn = document.getElementById('spk-prev-btn');
   const spkNextBtn = document.getElementById('spk-next-btn');
   const spkFeedback = document.getElementById('spk-feedback');
+  const spkSentencesWrapper = document.getElementById('spk-sentences-wrapper');
 
   // Speaking elements (Vocabulary Speaking Lab - Mới)
   const btnModeVocab = document.getElementById('btn-mode-vocab');
@@ -77,6 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const vocabRemoveBtn = document.getElementById('vocab-remove-btn');
   const btnAddVocab = document.getElementById('btn-add-vocab');
   const btnResetVocab = document.getElementById('btn-reset-vocab');
+
+  // Spoken Result elements (Hiển thị câu nói & Typewriter)
+  const vocabSpokenBox = document.getElementById('vocab-spoken-box');
+  const vocabSpokenBadge = document.getElementById('vocab-spoken-badge');
+  const vocabSpokenText = document.getElementById('vocab-spoken-text');
+  const vocabTypingCursor = document.getElementById('vocab-typing-cursor');
+
+  const spkSpokenBox = document.getElementById('spk-spoken-box');
+  const spkSpokenBadge = document.getElementById('spk-spoken-badge');
+  const spkSpokenText = document.getElementById('spk-spoken-text');
+  const spkTypingCursor = document.getElementById('spk-typing-cursor');
 
   // Add Vocab Modal elements
   const addVocabModal = document.getElementById('add-vocab-modal');
@@ -725,6 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
     vocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
     vocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
+    if (typeof resetVocabSpokenBox === 'function') resetVocabSpokenBox();
   }
 
   // Đổi tình huống từ vựng
@@ -853,12 +868,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Nhận diện giọng nói cho từ vựng đơn lẻ
+  // Hiệu ứng Typewriter hiển thị kết quả người nói (Typewriter & Live Speech)
+  let activeTypewriterTimer = null;
+  function animateTypewriter(textEl, cursorEl, fullText, callback) {
+    if (activeTypewriterTimer) clearInterval(activeTypewriterTimer);
+    if (!textEl) return;
+    textEl.textContent = '';
+    if (cursorEl) cursorEl.style.display = 'inline-block';
+    let charIdx = 0;
+    const speed = Math.max(12, Math.min(32, 450 / (fullText.length || 1)));
+    activeTypewriterTimer = setInterval(() => {
+      charIdx++;
+      textEl.textContent = fullText.slice(0, charIdx);
+      if (charIdx >= fullText.length) {
+        clearInterval(activeTypewriterTimer);
+        activeTypewriterTimer = null;
+        setTimeout(() => {
+          if (cursorEl) cursorEl.style.display = 'none';
+        }, 1200);
+        if (callback) callback();
+      }
+    }, speed);
+  }
+
+  function resetVocabSpokenBox() {
+    if (activeTypewriterTimer) clearInterval(activeTypewriterTimer);
+    if (vocabSpokenBox) {
+      vocabSpokenBox.classList.remove('is-recording', 'match-success', 'match-retry');
+    }
+    if (vocabSpokenBadge) {
+      vocabSpokenBadge.textContent = 'Đang chờ bạn nói...';
+    }
+    if (vocabSpokenText) {
+      vocabSpokenText.textContent = '"..."';
+    }
+    if (vocabTypingCursor) {
+      vocabTypingCursor.style.display = 'none';
+    }
+  }
+
+  function resetSpkSpokenBox() {
+    if (activeTypewriterTimer) clearInterval(activeTypewriterTimer);
+    if (spkSpokenBox) {
+      spkSpokenBox.classList.remove('is-recording', 'match-success', 'match-retry');
+    }
+    if (spkSpokenBadge) {
+      spkSpokenBadge.textContent = 'Đang chờ bạn nói...';
+    }
+    if (spkSpokenText) {
+      spkSpokenText.textContent = '"..."';
+    }
+    if (spkTypingCursor) {
+      spkTypingCursor.style.display = 'none';
+    }
+  }
+
+  // Nhận diện giọng nói cho từ vựng đơn lẻ (Module 1)
   if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const vocabRecognition = new SpeechRecognition();
     vocabRecognition.lang = 'en-US';
-    vocabRecognition.interimResults = false;
+    vocabRecognition.interimResults = true;
+    vocabRecognition.maxAlternatives = 1;
+
+    let isVocabEvaluating = false;
 
     if (vocabRecordBtn) {
       vocabRecordBtn.addEventListener('click', () => {
@@ -866,9 +939,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) return;
 
         try {
+          isVocabEvaluating = false;
           vocabRecognition.start();
           vocabRecordBtn.classList.add('recording');
           vocabRecordBtn.textContent = '🔴 Đang nghe... Hãy đọc to từ này!';
+          if (vocabSpokenBox) {
+            vocabSpokenBox.classList.remove('match-success', 'match-retry');
+            vocabSpokenBox.classList.add('is-recording');
+          }
+          if (vocabSpokenBadge) {
+            vocabSpokenBadge.textContent = '🔴 Đang lắng nghe... Nói to rõ ràng!';
+          }
+          if (vocabSpokenText) {
+            vocabSpokenText.textContent = '...';
+          }
+          if (vocabTypingCursor) {
+            vocabTypingCursor.style.display = 'inline-block';
+          }
           vocabFeedback.innerHTML = '<div class="feedback-status">Đang lắng nghe bạn đọc từ... Nói to rõ ràng nhé!</div>';
         } catch (err) {
           console.error(err);
@@ -877,43 +964,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     vocabRecognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      const scenarioData = userVocabData[currentVocabScenario];
-      if (!scenarioData || !scenarioData.words || !scenarioData.words[currentVocabIdx]) return;
-      const item = scenarioData.words[currentVocabIdx];
+      let interimTranscript = '';
+      let finalTranscript = '';
 
-      const cleanSpoken = transcript.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
-      const cleanTarget = item.word.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
 
-      // So khớp từ
-      const isMatch = cleanSpoken === cleanTarget ||
-        cleanSpoken.split(' ').includes(cleanTarget) ||
-        cleanTarget.split(' ').includes(cleanSpoken) ||
-        cleanSpoken.includes(cleanTarget);
+      // Stream trực tiếp chữ đang nói lên màn hình
+      if (interimTranscript && !finalTranscript) {
+        if (vocabSpokenText) {
+          vocabSpokenText.textContent = `"${interimTranscript}`;
+        }
+        if (vocabSpokenBadge) {
+          vocabSpokenBadge.textContent = '🎙️ Đang nghe thấy âm thanh...';
+        }
+      }
 
-      if (isMatch) {
-        vocabFeedback.innerHTML = `
-          <div class="feedback-success">
-            🎉 Tuyệt vời! Bạn phát âm từ "<strong>${item.word}</strong>" rất chuẩn xác!<br>
-            <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được: "<strong>${transcript}</strong>"</span>
-          </div>
-        `;
-        spokenSentences.push({
-          en: `[Từ vựng] ${item.word}`,
-          vi: item.vi || '',
-          accuracy: 'Rất chuẩn',
-          time: new Date().toLocaleTimeString('vi-VN')
+      if (finalTranscript && !isVocabEvaluating) {
+        isVocabEvaluating = true;
+        const transcript = finalTranscript.trim();
+        const scenarioData = userVocabData[currentVocabScenario];
+        if (!scenarioData || !scenarioData.words || !scenarioData.words[currentVocabIdx]) return;
+        const item = scenarioData.words[currentVocabIdx];
+
+        const cleanSpoken = transcript.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
+        const cleanTarget = item.word.toLowerCase().trim().replace(/[.,!?'"-]/g, '');
+
+        // So khớp từ
+        const isMatch = cleanSpoken === cleanTarget ||
+          cleanSpoken.split(' ').includes(cleanTarget) ||
+          cleanTarget.split(' ').includes(cleanSpoken) ||
+          cleanSpoken.includes(cleanTarget);
+
+        animateTypewriter(vocabSpokenText, vocabTypingCursor, `"${transcript}"`, () => {
+          if (vocabSpokenBox) {
+            vocabSpokenBox.classList.remove('is-recording');
+          }
+
+          if (isMatch) {
+            if (vocabSpokenBox) {
+              vocabSpokenBox.classList.add('match-success');
+              vocabSpokenBox.classList.remove('match-retry');
+            }
+            if (vocabSpokenBadge) {
+              vocabSpokenBadge.textContent = '✅ Chuẩn xác!';
+            }
+            vocabFeedback.innerHTML = `
+              <div class="feedback-success">
+                🎉 Tuyệt vời! Bạn phát âm từ "<strong>${item.word}</strong>" rất chuẩn xác!<br>
+                <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được chính xác: "<strong>${transcript}</strong>"</span>
+              </div>
+            `;
+            spokenSentences.push({
+              en: `[Từ vựng] ${item.word}`,
+              vi: item.vi || '',
+              accuracy: 'Rất chuẩn',
+              time: new Date().toLocaleTimeString('vi-VN')
+            });
+            localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
+            incrementWordCount();
+            syncProgress();
+          } else {
+            if (vocabSpokenBox) {
+              vocabSpokenBox.classList.add('match-retry');
+              vocabSpokenBox.classList.remove('match-success');
+            }
+            if (vocabSpokenBadge) {
+              vocabSpokenBadge.textContent = '⚠️ Thử lại nhé';
+            }
+            vocabFeedback.innerHTML = `
+              <div class="feedback-error">
+                👏 Đã ghi nhận! Máy nghe được: "<strong>${transcript}</strong>" (Từ chuẩn: "<strong>${item.word}</strong>")<br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần và đọc to, dứt khoát âm tiết nhé!</span>
+              </div>
+            `;
+          }
         });
-        localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
-        incrementWordCount();
-        syncProgress();
-      } else {
-        vocabFeedback.innerHTML = `
-          <div class="feedback-error">
-            👏 Đã ghi nhận! Máy nghe được: "<strong>${transcript}</strong>"<br>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần và đọc to, dứt khoát âm tiết nhé!</span>
-          </div>
-        `;
+      }
+    };
+
+    vocabRecognition.onerror = (event) => {
+      if (vocabRecordBtn) {
+        vocabRecordBtn.classList.remove('recording');
+        vocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
+      }
+      if (vocabSpokenBox) {
+        vocabSpokenBox.classList.remove('is-recording');
+      }
+      if (event.error === 'no-speech') {
+        if (vocabSpokenBadge) vocabSpokenBadge.textContent = '⚠️ Không có âm thanh';
+        if (vocabSpokenText) vocabSpokenText.textContent = '"(Chưa rõ)"';
+        if (vocabTypingCursor) vocabTypingCursor.style.display = 'none';
+        vocabFeedback.innerHTML = '<div class="feedback-status" style="color:var(--accent-amber);">Micro chưa thu được âm thanh. Hãy bấm và nói to rõ ràng hơn nhé!</div>';
       }
     };
 
@@ -922,86 +1069,277 @@ document.addEventListener('DOMContentLoaded', () => {
         vocabRecordBtn.classList.remove('recording');
         vocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
       }
+      if (vocabSpokenBox && vocabSpokenBox.classList.contains('is-recording')) {
+        vocabSpokenBox.classList.remove('is-recording');
+        if (vocabSpokenBadge && vocabSpokenBadge.textContent.includes('Đang lắng nghe')) {
+          vocabSpokenBadge.textContent = 'Đã kết thúc thu âm';
+        }
+      }
     };
   }
 
   // ==========================================
-  // 5.2. Phòng luyện phát âm cả câu (Shadowing Lab)
+  // 5.2. Phòng luyện phát âm cả câu theo từng Unit (Shadowing Lab)
   // ==========================================
-  function loadSpeakingChallenge(idx) {
-    const item = SPEAKING_ITEMS[idx];
-    spkCategory.textContent = item.category;
-    spkPhraseEn.textContent = `"${item.en}"`;
-    spkPhraseIpa.textContent = `Phiên âm: ${item.ipa} (${item.readVi})`;
-    spkPhraseVi.textContent = `Ý nghĩa: ${item.vi}`;
-    spkFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>`;
+  let currentSpkUnitKey = 'unit_1_my_new_school';
+  currentSpeakingIdx = 0;
+
+  function renderSpkUnitSelect() {
+    if (!spkUnitSelect) return;
+    spkUnitSelect.innerHTML = '';
+    const keys = Object.keys(SENTENCE_UNITS_DATA || {});
+    keys.forEach(k => {
+      const unit = SENTENCE_UNITS_DATA[k];
+      const opt = document.createElement('option');
+      opt.value = k;
+      opt.textContent = `${unit.icon || '📖'} ${unit.title || k}`;
+      spkUnitSelect.appendChild(opt);
+    });
+    spkUnitSelect.value = currentSpkUnitKey;
   }
 
-  spkListenBtn.addEventListener('click', () => {
-    const item = SPEAKING_ITEMS[currentSpeakingIdx];
-    speak(item.en);
-  });
+  if (spkUnitSelect) {
+    spkUnitSelect.addEventListener('change', (e) => {
+      loadSpkUnit(e.target.value);
+    });
+  }
 
-  spkNextBtn.addEventListener('click', () => {
-    currentSpeakingIdx = (currentSpeakingIdx + 1) % SPEAKING_ITEMS.length;
-    loadSpeakingChallenge(currentSpeakingIdx);
-  });
+  function loadSpkUnit(unitKey) {
+    currentSpkUnitKey = unitKey;
+    currentSpeakingIdx = 0;
+    const unit = SENTENCE_UNITS_DATA[unitKey];
+    if (!unit) return;
 
-  // Speech Recognition for Speaking Lab
+    renderSpkSentencesList();
+    loadSpeakingChallenge(0);
+  }
+
+  function renderSpkSentencesList() {
+    if (!spkSentencesWrapper) return;
+    spkSentencesWrapper.innerHTML = '';
+    const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+    if (!unit || !unit.sentences) return;
+
+    unit.sentences.forEach((item, idx) => {
+      const itemEl = document.createElement('div');
+      itemEl.className = `spk-sentence-item ${idx === currentSpeakingIdx ? 'active' : ''}`;
+      itemEl.innerHTML = `
+        <div class="spk-item-left">
+          <span class="spk-item-num">Câu ${idx + 1}</span>
+          <div class="spk-item-text">
+            <div class="spk-item-en">${item.en}</div>
+            <div class="spk-item-vi">${item.vi}</div>
+          </div>
+        </div>
+        <button class="spk-item-audio-btn" title="Nghe câu này">🔊 Nghe</button>
+      `;
+
+      itemEl.querySelector('.spk-item-audio-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        speak(item.en);
+      });
+
+      itemEl.addEventListener('click', () => {
+        loadSpeakingChallenge(idx);
+      });
+
+      spkSentencesWrapper.appendChild(itemEl);
+    });
+  }
+
+  function loadSpeakingChallenge(idx) {
+    const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+    if (!unit || !unit.sentences || unit.sentences.length === 0) return;
+
+    if (idx >= unit.sentences.length) idx = 0;
+    if (idx < 0) idx = unit.sentences.length - 1;
+    currentSpeakingIdx = idx;
+    const item = unit.sentences[idx];
+
+    spkCategory.textContent = `${unit.title.toUpperCase()} (CÂU ${idx + 1} / ${unit.sentences.length})`;
+    spkPhraseEn.textContent = `"${item.en}"`;
+    spkPhraseIpa.textContent = `Phiên âm: ${item.ipa} ${item.readVi ? `(${item.readVi})` : ''}`;
+    spkPhraseVi.textContent = `Ý nghĩa: ${item.vi}`;
+    spkFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>`;
+    resetSpkSpokenBox();
+
+    // Cập nhật trạng thái active trong danh sách bên dưới
+    if (spkSentencesWrapper) {
+      const items = spkSentencesWrapper.querySelectorAll('.spk-sentence-item');
+      items.forEach((it, i) => {
+        if (i === idx) {
+          it.classList.add('active');
+          it.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          it.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  if (spkListenBtn) {
+    spkListenBtn.addEventListener('click', () => {
+      const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+      if (unit && unit.sentences && unit.sentences[currentSpeakingIdx]) {
+        speak(unit.sentences[currentSpeakingIdx].en);
+      }
+    });
+  }
+
+  if (spkPrevBtn) {
+    spkPrevBtn.addEventListener('click', () => {
+      const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      currentSpeakingIdx = (currentSpeakingIdx - 1 + unit.sentences.length) % unit.sentences.length;
+      loadSpeakingChallenge(currentSpeakingIdx);
+    });
+  }
+
+  if (spkNextBtn) {
+    spkNextBtn.addEventListener('click', () => {
+      const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+      if (!unit || !unit.sentences) return;
+      currentSpeakingIdx = (currentSpeakingIdx + 1) % unit.sentences.length;
+      loadSpeakingChallenge(currentSpeakingIdx);
+    });
+  }
+
+  // Nhận diện giọng nói cho Speaking Lab cả câu (Module 1 - Ưu tiên)
   if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const labRecognition = new SpeechRecognition();
     labRecognition.lang = 'en-US';
-    labRecognition.interimResults = false;
+    labRecognition.interimResults = true;
+    labRecognition.maxAlternatives = 1;
+
+    let isLabEvaluating = false;
 
     spkRecordBtn.addEventListener('click', () => {
       try {
+        isLabEvaluating = false;
         labRecognition.start();
         spkRecordBtn.classList.add('recording');
         spkRecordBtn.textContent = '🔴 Đang lắng nghe... Nói to lên nhé!';
-        spkFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to câu trên vào micro...</div>';
+        if (spkSpokenBox) {
+          spkSpokenBox.classList.remove('match-success', 'match-retry');
+          spkSpokenBox.classList.add('is-recording');
+        }
+        if (spkSpokenBadge) {
+          spkSpokenBadge.textContent = '🔴 Đang lắng nghe... Đọc to câu trên!';
+        }
+        if (spkSpokenText) {
+          spkSpokenText.textContent = '...';
+        }
+        if (spkTypingCursor) {
+          spkTypingCursor.style.display = 'inline-block';
+        }
+        spkFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to câu trên vào micro... Nói rõ ràng từng từ nhé!</div>';
       } catch (err) {
         console.error(err);
       }
     });
 
     labRecognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      const target = SPEAKING_ITEMS[currentSpeakingIdx].en.replace(/[!?,.]/g, '').toLowerCase().trim();
-      const userSpoken = transcript.replace(/[!?,.]/g, '').toLowerCase().trim();
+      let interimTranscript = '';
+      let finalTranscript = '';
 
-      const item = SPEAKING_ITEMS[currentSpeakingIdx];
-      const isMatch = userSpoken === target || userSpoken.includes(target) || target.includes(userSpoken);
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
 
-      if (isMatch) {
-        spkFeedback.innerHTML = `
-          <div class="feedback-success">
-            🎉 Tuyệt vời! Bạn phát âm rất chuẩn xác!<br>
-            <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được: "<strong>${transcript}</strong>"</span>
-          </div>
-        `;
-        spokenSentences.push({
-          en: item.en,
-          vi: item.vi,
-          accuracy: 'Rất chuẩn',
-          time: new Date().toLocaleTimeString('vi-VN')
+      if (interimTranscript && !finalTranscript) {
+        if (spkSpokenText) {
+          spkSpokenText.textContent = `"${interimTranscript}`;
+        }
+        if (spkSpokenBadge) {
+          spkSpokenBadge.textContent = '🎙️ Đang nghe thấy âm thanh...';
+        }
+      }
+
+      if (finalTranscript && !isLabEvaluating) {
+        isLabEvaluating = true;
+        const transcript = finalTranscript.trim();
+        const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+        if (!unit || !unit.sentences || !unit.sentences[currentSpeakingIdx]) return;
+        const item = unit.sentences[currentSpeakingIdx];
+
+        const target = item.en.replace(/[!?,.]/g, '').toLowerCase().trim();
+        const userSpoken = transcript.replace(/[!?,.]/g, '').toLowerCase().trim();
+
+        const isMatch = userSpoken === target || userSpoken.includes(target) || target.includes(userSpoken);
+
+        animateTypewriter(spkSpokenText, spkTypingCursor, `"${transcript}"`, () => {
+          if (spkSpokenBox) {
+            spkSpokenBox.classList.remove('is-recording');
+          }
+
+          if (isMatch) {
+            if (spkSpokenBox) {
+              spkSpokenBox.classList.add('match-success');
+              spkSpokenBox.classList.remove('match-retry');
+            }
+            if (spkSpokenBadge) {
+              spkSpokenBadge.textContent = '✅ Chuẩn xác!';
+            }
+            spkFeedback.innerHTML = `
+              <div class="feedback-success">
+                🎉 Tuyệt vời! Bạn phát âm câu trong "<strong>${unit.title}</strong>" rất chuẩn xác!<br>
+                <span style="font-size: 0.85rem; color: var(--text-main);">Máy đã nghe được chính xác: "<strong>${transcript}</strong>"</span>
+              </div>
+            `;
+            spokenSentences.push({
+              en: item.en,
+              vi: item.vi,
+              accuracy: 'Rất chuẩn',
+              time: new Date().toLocaleTimeString('vi-VN')
+            });
+            localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
+            incrementWordCount();
+            syncProgress();
+          } else {
+            if (spkSpokenBox) {
+              spkSpokenBox.classList.add('match-retry');
+              spkSpokenBox.classList.remove('match-success');
+            }
+            if (spkSpokenBadge) {
+              spkSpokenBadge.textContent = '⚠️ Thử lại nhé';
+            }
+            spkFeedback.innerHTML = `
+              <div class="feedback-error">
+                👏 Rất tốt vì đã thử! Máy nghe được: "<strong>${transcript}</strong>"<br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần nữa và đọc to rõ ràng hơn nhé!</span>
+              </div>
+            `;
+          }
         });
-        localStorage.setItem('spokenSentences', JSON.stringify(spokenSentences));
-        incrementWordCount();
-        syncProgress();
-      } else {
-        spkFeedback.innerHTML = `
-          <div class="feedback-error">
-            👏 Rất tốt vì đã thử! Máy nghe được: "<strong>${transcript}</strong>"<br>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">Hãy bấm nghe mẫu lại một lần nữa và đọc to rõ ràng hơn nhé!</span>
-          </div>
-        `;
+      }
+    };
+
+    labRecognition.onerror = (event) => {
+      spkRecordBtn.classList.remove('recording');
+      spkRecordBtn.innerHTML = '🎙️ Bấm để nói thử';
+      if (spkSpokenBox) spkSpokenBox.classList.remove('is-recording');
+      if (event.error === 'no-speech') {
+        if (spkSpokenBadge) spkSpokenBadge.textContent = '⚠️ Không có âm thanh';
+        if (spkSpokenText) spkSpokenText.textContent = '"(Chưa rõ)"';
+        if (spkTypingCursor) spkTypingCursor.style.display = 'none';
+        spkFeedback.innerHTML = '<div class="feedback-status" style="color:var(--accent-amber);">Micro chưa thu được âm thanh. Hãy nói to rõ ràng hơn nhé!</div>';
       }
     };
 
     labRecognition.onend = () => {
       spkRecordBtn.classList.remove('recording');
       spkRecordBtn.innerHTML = '🎙️ Bấm để nói thử';
+      if (spkSpokenBox && spkSpokenBox.classList.contains('is-recording')) {
+        spkSpokenBox.classList.remove('is-recording');
+        if (spkSpokenBadge && spkSpokenBadge.textContent.includes('Đang lắng nghe')) {
+          spkSpokenBadge.textContent = 'Đã kết thúc thu âm';
+        }
+      }
     };
   }
 
@@ -1160,10 +1498,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLessons();
   renderScenarioSelect();
   renderVocabScenarioSelect();
+  renderSpkUnitSelect();
   const firstScenarioKey = Object.keys(CHAT_SCENARIOS || {})[0] || '';
   loadScenario(firstScenarioKey);
   loadVocabScenario('my_new_school');
-  loadSpeakingChallenge(0);
+  loadSpkUnit('unit_1_my_new_school');
   loadFlashcard(0);
 
   // Tự động tải tiến độ & từ vựng tùy chỉnh từ study_log.json (Đồng bộ giữa các máy)
