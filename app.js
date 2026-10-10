@@ -1189,15 +1189,46 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSpkSentencesList();
   }
 
-  // Xóa toàn bộ ghi âm tạm khi chuyển tab hoặc đóng trình duyệt
+  // Xóa toàn bộ ghi âm tạm khi chuyển tab hoặc đóng trình duyệt (Tuyệt đối không lưu lại)
   function clearAllTempRecordings() {
+    // 1. Nếu đang có quá trình thu âm dở dang, lập tức hủy bỏ và không lưu
+    if (isLabRecordingActive) {
+      isLabRecordingActive = false;
+      labAudioChunks = [];
+      if (spkRecordBtn) {
+        spkRecordBtn.classList.remove('recording');
+        spkRecordBtn.textContent = '🎙️ Bấm để nói thử';
+      }
+      if (labMediaRecorder && labMediaRecorder.state !== 'inactive') {
+        labMediaRecorder.onstop = null; // Hủy callback onstop để tuyệt đối không lưu file
+        try { labMediaRecorder.stop(); } catch (e) {}
+      }
+      if (labMediaStream) {
+        labMediaStream.getTracks().forEach(t => t.stop());
+        labMediaStream = null;
+      }
+      if (labRecognition) {
+        try { labRecognition.stop(); } catch (e) {}
+      }
+      if (spkSpokenBox && spkSpokenBox.classList.contains('is-recording')) {
+        spkSpokenBox.classList.remove('is-recording');
+      }
+    }
+
+    // 2. Dừng phát âm thanh nếu đang phát
     stopUserAudioPlayback();
+
+    // 3. Giải phóng toàn bộ URL bộ nhớ Blob để trình duyệt giải phóng RAM ngay lập tức
     for (const [keyIdx, data] of tempSentenceRecordings.entries()) {
       if (data.url) {
         URL.revokeObjectURL(data.url);
       }
     }
+
+    // 4. Xóa sạch hoàn toàn Map lưu trữ ghi âm
     tempSentenceRecordings.clear();
+
+    // 5. Đưa giao diện 3 thẻ về lại trạng thái Chưa có / Chưa ghi âm
     updateRecordingsUI();
     if (spkSentencesWrapper) {
       renderSpkSentencesList();
@@ -1314,9 +1345,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Dọn dẹp bản ghi âm tạm khi đóng tab hoặc tải lại trang
+  // Dọn dẹp bản ghi âm tạm khi đóng tab, tải lại trang, ẩn cửa sổ hoặc chuyển sang tab trình duyệt khác
   window.addEventListener('beforeunload', clearAllTempRecordings);
   window.addEventListener('pagehide', clearAllTempRecordings);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearAllTempRecordings();
+    }
+  });
 
   function renderSpkUnitSelect() {
     if (!spkUnitSelect) return;
