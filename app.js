@@ -2946,9 +2946,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstScenarioKey = Object.keys(CHAT_SCENARIOS || {})[0] || '';
   loadScenario(firstScenarioKey);
   loadVocabScenario('my_new_school');
-  loadSpkUnit('unit_1_my_new_school');
-  loadJaVocabScenario('greeting_vocab');
-  loadJaSpkUnit('unit_1_greeting');
+  const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || 'greeting_vocab';
+  const firstJaSpkKey = Object.keys(JA_SENTENCE_UNITS_DATA || {})[0] || 'unit_1_greeting';
+  loadJaVocabScenario(firstJaVocabKey);
+  loadJaSpkUnit(firstJaSpkKey);
   loadFlashcard(0);
 
 
