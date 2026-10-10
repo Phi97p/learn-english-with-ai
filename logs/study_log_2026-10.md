@@ -1,8 +1,8 @@
-# 📝 NHẬT KÝ HỌC TIẾNG ANH - THÁNG 10/2026 (Cập nhật: 10:11:15 10/10/2026)
+# 📝 NHẬT KÝ HỌC TIẾNG ANH - THÁNG 10/2026 (Cập nhật: 11:51:49 10/10/2026)
 
 ### 📊 Tổng quan tiến độ tháng 10/2026
 - **Chuỗi ngày học (Streak):** 1 ngày
-- **Số mẫu câu / từ đã học:** 56 từ
+- **Số mẫu câu / từ đã học:** 83 từ
 - **Bài học đang học:** Unit 1: Bạn Mới & Năm Học Mới
 
 ### 💬 Lịch sử hội thoại phản xạ gần nhất
@@ -68,4 +68,34 @@
 - "We always look smart in our uniforms." - Chúng ta luôn trông bảnh bao trong bộ đồng phục mà. *(Độ chính xác: Rất chuẩn)*
 - "[Từ vựng] Ready" - Sẵn sàng *(Độ chính xác: Rất chuẩn)*
 - "[Từ vựng] School bag" - Cặp sách / Ba lô *(Độ chính xác: Rất chuẩn)*
+- "Where do you live, Mi? - I live in a town house." - Bạn sống ở đâu vậy Mi? - Mình sống trong một ngôi nhà phố. *(Độ chính xác: Rất chuẩn)*
+- "Excuse me, can you tell me the way to the post office?" - Xin lỗi, bạn có thể chỉ đường cho mình đến bưu điện được không? *(Độ chính xác: Rất chuẩn)*
+- "Go straight ahead, and then turn left at the traffic lights." - Hãy đi thẳng phía trước, rồi sau đó rẽ trái ở cột đèn giao thông. *(Độ chính xác: Rất chuẩn)*
+- "Go straight ahead, and then turn left at the traffic lights." - Hãy đi thẳng phía trước, rồi sau đó rẽ trái ở cột đèn giao thông. *(Độ chính xác: Rất chuẩn)*
+- "Go straight ahead, and then turn left at the traffic lights." - Hãy đi thẳng phía trước, rồi sau đó rẽ trái ở cột đèn giao thông. *(Độ chính xác: Rất chuẩn)*
+- "What does your best friend look like?" - Bạn thân của bạn trông như thế nào? *(Độ chính xác: Rất chuẩn)*
+- "What does your best friend look like?" - Bạn thân của bạn trông như thế nào? *(Độ chính xác: Rất chuẩn)*
+- "She has long black hair and big brown eyes." - Cô ấy có mái tóc đen dài và đôi mắt nâu to tròn. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+- "There is a big sofa and a television in the living room." - Có một chiếc ghế sofa lớn và một chiếc tivi trong phòng khách. *(Độ chính xác: Rất chuẩn)*
+
+### 💡 Các từ vựng bạn đã tự thêm vào:
+- **There is**: Từ do bạn tự thêm  *[Unit 1: Bạn Mới & Năm Học Mới (My New School)]*
 
