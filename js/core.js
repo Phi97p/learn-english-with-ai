@@ -73,6 +73,9 @@ const AppCore = (() => {
     if (window.JapaneseModule && typeof window.JapaneseModule.stopJaUserAudioPlayback === 'function') {
       window.JapaneseModule.stopJaUserAudioPlayback();
     }
+    if (window.ReadingJaModule && typeof window.ReadingJaModule.stopReadingUserAudioPlayback === 'function') {
+      window.ReadingJaModule.stopReadingUserAudioPlayback();
+    }
     if (!('speechSynthesis' in window)) {
       alert('Trình duyệt của bạn chưa hỗ trợ phát âm tự động.');
       return;
@@ -127,6 +130,9 @@ const AppCore = (() => {
     if (window.JapaneseModule && typeof window.JapaneseModule.stopJaUserAudioPlayback === 'function') {
       window.JapaneseModule.stopJaUserAudioPlayback();
     }
+    if (window.ReadingJaModule && typeof window.ReadingJaModule.stopReadingUserAudioPlayback === 'function') {
+      window.ReadingJaModule.stopReadingUserAudioPlayback();
+    }
     if (!('speechSynthesis' in window)) {
       alert('Trình duyệt của bạn chưa hỗ trợ phát âm tự động.');
       return;
@@ -180,6 +186,9 @@ const AppCore = (() => {
     if (tabId !== 'speaking-ja' && window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
       window.JapaneseModule.clearAllJaTempRecordings();
     }
+    if (tabId !== 'reading-ja' && window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
+      window.ReadingJaModule.clearAllReadingTempRecordings();
+    }
     state.currentTab = tabId;
     dom.navItems.forEach(nav => {
       nav.classList.toggle('active', nav.dataset.tab === tabId);
@@ -200,6 +209,9 @@ const AppCore = (() => {
     } else if (tabId === 'speaking-ja') {
       dom.pageTitle.textContent = '🌸 Phòng Luyện Phát Âm Tiếng Nhật (Shadowing Lab)';
       dom.pageSubtitle.textContent = 'Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng';
+    } else if (tabId === 'reading-ja') {
+      dom.pageTitle.textContent = '📖 Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Nhật)';
+      dom.pageSubtitle.textContent = 'Luyện ngữ điệu mạch lạc theo đoạn văn bản ngữ - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc nghe câu lẻ';
     } else if (tabId === 'flashcards') {
       dom.pageTitle.textContent = 'Sổ tay từ vựng & Mẫu câu thông dụng';
       dom.pageSubtitle.textContent = 'Lật thẻ ghi nhớ câu nói kèm phiên âm tiếng Việt dễ đọc';
@@ -321,6 +333,9 @@ const AppCore = (() => {
       if (window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
         window.JapaneseModule.clearAllJaTempRecordings();
       }
+      if (window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
+        window.ReadingJaModule.clearAllReadingTempRecordings();
+      }
     });
 
     window.addEventListener('pagehide', () => {
@@ -329,6 +344,9 @@ const AppCore = (() => {
       }
       if (window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
         window.JapaneseModule.clearAllJaTempRecordings();
+      }
+      if (window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
+        window.ReadingJaModule.clearAllReadingTempRecordings();
       }
     });
   }

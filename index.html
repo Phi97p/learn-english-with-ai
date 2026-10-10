@@ -40,6 +40,11 @@
           <span>Luyện nói Tiếng Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #ef4444, #f43f5e);">Mới</span>
         </button>
+        <button class="nav-item" data-tab="reading-ja">
+          <span class="icon">📖</span>
+          <span>Đọc hiểu & Shadowing Nhật</span>
+          <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Đoạn văn</span>
+        </button>
         <button class="nav-item" data-tab="flashcards">
           <span class="icon">🗂️</span>
           <span>Thẻ từ vựng (Flashcards)</span>
@@ -511,6 +516,139 @@
         </div>
       </section>
 
+      <!-- TAB 5: ĐỌC HIỂU & SHADOWING ĐOẠN VĂN TIẾNG NHẬT -->
+      <section id="tab-reading-ja" class="tab-pane">
+        <div class="reading-container">
+
+          <!-- HEADER CARD -->
+          <div class="speaking-header-card">
+            <div class="vocab-header-top">
+              <div>
+                <h2>📖 Phòng Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Nhật)</h2>
+                <p>Luyện ngữ điệu mạch lạc theo đoạn văn bản ngữ - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc nghe câu lẻ</p>
+              </div>
+              <div class="scenario-selector vocab-selector">
+                <div class="vocab-toolbar-actions">
+                  <label for="ja-reading-unit-select">Chọn Bài đọc:</label>
+                  <select id="ja-reading-unit-select">
+                    <!-- Injected by js/reading_ja.js from JA_READING_PASSAGES_DATA -->
+                  </select>
+                  <button id="ja-reading-listen-all-btn" class="reading-btn-all" title="Nghe toàn bộ đoạn văn liền mạch">
+                    🔊 Nghe toàn bài
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN 2-COLUMN LAYOUT -->
+          <div class="reading-layout">
+
+            <!-- CỘT TRÁI: TOÀN BỘ ĐOẠN VĂN (FULL PASSAGE) -->
+            <div class="reading-passage-panel">
+              <div class="reading-passage-header">
+                <div>
+                  <h3 class="reading-passage-title" id="ja-reading-passage-title">🌸 Bài đọc 1: はじめまして</h3>
+                  <div class="reading-passage-topic" id="ja-reading-passage-topic">Chủ đề: Tự giới thiệu bản thân & Đồng nghiệp</div>
+                </div>
+              </div>
+
+              <div class="reading-passage-content" id="ja-reading-passage-sentences">
+                <!-- Injected dynamically with interactive spans by reading_ja.js -->
+              </div>
+
+              <div class="reading-passage-footer-tip">
+                <span>💡</span>
+                <span><strong>Mẹo học:</strong> Bấm vào bất kỳ câu nào trong đoạn văn trên để chuyển sang câu đó và luyện phát âm!</span>
+              </div>
+            </div>
+
+            <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
+            <div class="speaking-challenge-card" id="ja-reading-challenge-card" style="margin: 0;">
+              <div class="challenge-category" id="ja-reading-category">BÀI ĐỌC 1 (CÂU 1 / 9)</div>
+
+              <div class="challenge-en" id="ja-reading-phrase-ja" style="font-size: 1.55rem; color: var(--text-main);">
+                はじめまして。
+              </div>
+
+              <div class="challenge-ipa" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
+                Romaji: Hajimemashite. • Đọc tựa như: "Ha-di-mê-ma-si-tê"
+              </div>
+
+              <div class="challenge-vi" id="ja-reading-phrase-vi" style="font-size: 1rem; color: var(--text-muted);">
+                👉 Ý nghĩa: Rất hân hạnh được làm quen với bạn.
+              </div>
+
+              <!-- CONTROLS -->
+              <div class="challenge-controls">
+                <button class="spk-btn-listen" id="ja-reading-listen-btn" title="Nghe câu này">
+                  🔊 Nghe câu này
+                </button>
+                <button class="spk-btn-record" id="ja-reading-record-btn" title="Bấm để đọc câu này vào micro">
+                  🎙️ Bấm để nói thử
+                </button>
+                <button class="spk-btn-listen" id="ja-reading-play-record-btn" style="display: none; background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;" title="Nghe lại giọng vừa thu âm của bạn">
+                  ▶️ Nghe lại giọng bạn
+                </button>
+              </div>
+
+              <!-- SPOKEN RESULT BOX -->
+              <div class="spoken-result-container" id="ja-reading-spoken-box">
+                <div class="spoken-badge" id="ja-reading-spoken-badge">Đang chờ bạn đọc câu này...</div>
+                <div class="spoken-text-wrapper">
+                  <span class="spoken-quote-mark">“</span>
+                  <span class="spoken-text-content" id="ja-reading-spoken-text">"..."</span>
+                  <span class="typing-cursor" id="ja-reading-typing-cursor"></span>
+                  <span class="spoken-quote-mark">”</span>
+                </div>
+              </div>
+
+              <!-- FEEDBACK -->
+              <div class="spk-feedback-box" id="ja-reading-feedback">
+                <div class="feedback-status">Bấm "🔊 Nghe câu này" rồi bấm "🎙️ Bấm để nói thử" để luyện đọc từng câu nhé!</div>
+              </div>
+
+              <!-- GHI ÂM TẠM THỜI 3 CÂU -->
+              <div class="temp-recordings-bar" id="ja-reading-recordings-bar" style="margin-top: 14px;">
+                <div class="temp-rec-header">
+                  <span class="temp-rec-title">🎙️ Bản ghi âm tạm thời 3 câu liên tiếp:</span>
+                  <span class="temp-rec-badge">Tự động làm mới</span>
+                </div>
+                <div class="temp-rec-grid">
+                  <div class="temp-rec-col">
+                    <span class="temp-rec-col-title" id="ja-reading-rec-label-prev">Câu trước</span>
+                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-prev" disabled>
+                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>
+                    </button>
+                  </div>
+                  <div class="temp-rec-col is-current">
+                    <span class="temp-rec-col-title" id="ja-reading-rec-label-curr">Câu hiện tại</span>
+                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-curr" disabled>
+                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa ghi âm</span>
+                    </button>
+                  </div>
+                  <div class="temp-rec-col">
+                    <span class="temp-rec-col-title" id="ja-reading-rec-label-next">Câu sau</span>
+                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-next" disabled>
+                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PREV / NEXT BUTTONS -->
+              <div class="challenge-nav">
+                <button class="btn-nav" id="ja-reading-prev-btn">◀ Câu trước</button>
+                <button class="btn-nav" id="ja-reading-next-btn">Câu tiếp theo ▶</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       <!-- TAB 4: FLASHCARDS -->
       <section id="tab-flashcards" class="tab-pane">
         <div class="flashcards-container">
@@ -619,6 +757,7 @@
   <script src="js/vocab.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/japanese.js"></script>
+  <script src="js/reading_ja.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

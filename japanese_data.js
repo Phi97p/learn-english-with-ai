@@ -1848,5 +1848,84 @@ const JA_VOCAB_SCENARIOS_DATA = {
       { word: "おせわになりました", romaji: "Osewa ni narimashita", readVi: "Ô-xê-oa ni na-ri-ma-si-ta", vi: "Cảm ơn vì đã giúp đỡ tôi", tip: "Lời cảm ơn chia tay ý nghĩa" }
     ]
   }
-
 };
+
+// ========================================================
+// 3. DỮ LIỆU ĐỌC HIỂU & SHADOWING ĐOẠN VĂN TIẾNG NHẬT
+// Biên soạn bám sát sách "25 Bài đọc hiểu sơ cấp Tập 1" (sgk-jp)
+// ========================================================
+
+const JA_READING_PASSAGES_DATA = {
+  reading_1_intro: {
+    title: "Bài đọc 1: はじめまして (Tự giới thiệu bản thân)",
+    icon: "🌸",
+    topic: "Giới thiệu bản thân & Đồng nghiệp (Minna Dokkai Bài 1)",
+    fullText: "はじめまして。わたしは マイク・ミラーです。アメリカから きました。IMCの しゃいんです。コンピュータの かいしゃです。こちらは サントスさんです。サントスさんは ブラジル人です。ブラジルエアの しゃいんです。どうぞ よろしく おねがいします。",
+    sentences: [
+      {
+        ja: "はじめまして。",
+        romaji: "Hajimemashite.",
+        readVi: "Ha-di-mê-ma-si-tê",
+        vi: "Rất hân hạnh được làm quen với bạn.",
+        tip: "Nói ở đầu bài giới thiệu, cúi chào nhẹ nhàng 15-30 độ."
+      },
+      {
+        ja: "わたしは マイク・ミラーです。",
+        romaji: "Watashi wa Maiku Miraa desu.",
+        readVi: "Oa-ta-si oa Mai-kư Mi-laa đê-xư",
+        vi: "Tôi tên là Mike Miller.",
+        tip: "Trợ từ は đọc là 'wa'. Đọc ngắt nhẹ sau tên Miller."
+      },
+      {
+        ja: "アメリカから きました。",
+        romaji: "Amerika kara kimashita.",
+        readVi: "A-mê-ri-ka ka-ra ki-ma-si-ta",
+        vi: "Tôi đến từ nước Mỹ.",
+        tip: "から きました (kara kimashita) = đến từ đâu đó."
+      },
+      {
+        ja: "IMCの しゃいんです。",
+        romaji: "IMC no shain desu.",
+        readVi: "Ai-em-xi nô sa-in đê-xư",
+        vi: "Tôi là nhân viên của công ty IMC.",
+        tip: "Trợ từ の nối danh từ: nhân viên của công ty IMC."
+      },
+      {
+        ja: "コンピュータの かいしゃです。",
+        romaji: "Konpyuuta no kaisha desu.",
+        readVi: "Kôn-pyuu-ta nô kai-sa đê-xư",
+        vi: "Đó là một công ty về máy vi tính.",
+        tip: "Trường âm ュー kéo dài hơi một nhịp."
+      },
+      {
+        ja: "こちらは サントスさんです。",
+        romaji: "Kochira wa Santosu-san desu.",
+        readVi: "Kô-chi-ra oa Xan-tô-xư xan đê-xư",
+        vi: "Còn vị bên cạnh đây là anh Santos.",
+        tip: "こちらは (Kochira wa) dùng lịch sự khi giới thiệu người khác bên cạnh mình."
+      },
+      {
+        ja: "サントスさんは ブラジル人です。",
+        romaji: "Santosu-san wa Burajiru-jin desu.",
+        readVi: "Xan-tô-xư xan oa Bư-ra-di-rư din đê-xư",
+        vi: "Anh Santos là người nước Brazil.",
+        tip: "Hậu tố 人 (jin) ghép sau tên quốc gia để chỉ quốc tịch."
+      },
+      {
+        ja: "ブラジルエアの しゃいんです。",
+        romaji: "Burajiruea no shain desu.",
+        readVi: "Bư-ra-di-rư ê-a nô sa-in đê-xư",
+        vi: "Anh ấy là nhân viên của hãng hàng không Brazil Air.",
+        tip: "ブラジルエア (Burajiruea) viết bằng Katakana."
+      },
+      {
+        ja: "どうぞ よろしく おねがいします。",
+        romaji: "Douzo yoroshiku onegaishimasu.",
+        readVi: "Đô-zô yô-rô-si-kư ô-nê-gai-si-ma-xư",
+        vi: "Rất mong nhận được sự giúp đỡ và chỉ giáo của mọi người.",
+        tip: "Câu kết bài giới thiệu kinh điển, nói rõ ràng, ngữ điệu chân thành."
+      }
+    ]
+  }
+};
+
