@@ -2022,40 +2022,43 @@ body {
    CHAT MESSAGE UI (HỘI THOẠI NHẮN TIN 2 NGƯỜI)
    ======================================================== */
 .chat-msg-row {
-  display: flex;
+  display: flex !important;
   align-items: flex-end;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   cursor: pointer;
   transition: transform 0.15s ease;
+  box-sizing: border-box;
 }
 
 .chat-msg-row:hover {
   transform: translateY(-2px);
 }
 
-/* BÊN TRÁI: NGƯỜI A (佐藤 - Sato) */
+/* BÊN TRÁI: NGƯỜI A (佐藤 - Sato) - LỆCH TRÁI RÕ RỆT */
 .chat-msg-row.msg-left {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
+  padding-right: 20%;
 }
 
-/* BÊN PHẢI: NGƯỜI B (山田 & ミラー) */
+/* BÊN PHẢI: NGƯỜI B (山田 & ミラー) - LỆCH PHẢI RÕ RỆT */
 .chat-msg-row.msg-right {
-  justify-content: flex-end;
-  flex-direction: row-reverse;
+  justify-content: flex-end !important;
+  flex-direction: row-reverse !important;
+  padding-left: 20%;
 }
 
 .chat-avatar {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 2px;
@@ -2064,7 +2067,7 @@ body {
 .chat-body {
   display: flex;
   flex-direction: column;
-  max-width: 82%;
+  max-width: 100%;
 }
 
 .msg-left .chat-body {
@@ -2083,34 +2086,42 @@ body {
   padding: 0 6px;
 }
 
+.msg-right .chat-sender-name {
+  text-align: right;
+}
+
 .chat-bubble {
   position: relative;
   padding: 12px 18px;
   border-radius: 18px;
   line-height: 1.5;
   transition: all 0.2s ease;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  text-align: left;
 }
 
-/* BONG BÓNG BÊN TRÁI: Màu tối tinh tế, bo góc tin nhắn */
+/* BONG BÓNG BÊN TRÁI (Người A - 佐藤): Màu tối viền hồng đỏ tinh tế */
 .msg-left .chat-bubble {
   background: #1e293b;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-left: 4px solid #f43f5e;
   border-bottom-left-radius: 4px;
   color: #f1f5f9;
 }
 
-/* BONG BÓNG BÊN PHẢI: Gradient nổi bật, bo góc tin nhắn */
+/* BONG BÓNG BÊN PHẢI (Người B - 山田 & ミラー): Gradient xanh dương nổi bật */
 .msg-right .chat-bubble {
   background: linear-gradient(135deg, #0284c7, #2563eb);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  border-right: 4px solid #38bdf8;
   border-bottom-right-radius: 4px;
   color: #ffffff;
 }
 
 /* KHI ĐƯỢC CHỌN (ACTIVE) */
 .chat-msg-row.is-active-turn .chat-bubble {
-  box-shadow: 0 0 0 2px #10b981, 0 4px 16px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 0 2px #10b981, 0 4px 18px rgba(16, 185, 129, 0.45);
 }
 
 /* KHI ĐANG NÓI (SPEAKING) */
