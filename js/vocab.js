@@ -172,7 +172,7 @@ const VocabModule = (() => {
 
     if (vocabCategory) vocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TỪ ${idx + 1} / ${scenarioData.words.length})`;
     if (vocabWordEn) vocabWordEn.textContent = item.word;
-    if (vocabWordIpa) vocabWordIpa.textContent = item.ipa ? `${item.ipa} ${item.easyRead ? `• Đọc dễ: ${item.easyRead}` : ''}` : '';
+    if (vocabWordIpa) vocabWordIpa.textContent = item.ipa || '';
     if (vocabWordVi) vocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
     if (vocabWordTip) vocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
     if (vocabFeedback) vocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
@@ -225,7 +225,7 @@ const VocabModule = (() => {
     if (fcWord) fcWord.textContent = item.word;
     if (fcPhonetic) fcPhonetic.textContent = item.phonetic;
     if (fcMeaning) fcMeaning.textContent = item.meaning;
-    if (fcEasyRead) fcEasyRead.textContent = `Đọc tựa như: "${item.easyRead}"`;
+    if (fcEasyRead) fcEasyRead.textContent = "";
     if (fcCounter) fcCounter.textContent = `${idx + 1} / ${FLASHCARDS_ITEMS.length}`;
   }
 
@@ -339,7 +339,7 @@ const VocabModule = (() => {
         if (!userVocabData[currentVocabScenario]) {
           userVocabData[currentVocabScenario] = { title: "Từ vựng của tôi", icon: "⭐", words: [] };
         }
-        userVocabData[currentVocabScenario].words.push({ word, vi: vi || word, ipa, easyRead: "", tip });
+        userVocabData[currentVocabScenario].words.push({ word, vi: vi || word, ipa, tip });
         saveUserVocabData();
         AppCore.syncProgress();
         closeAddVocabModal();
@@ -441,7 +441,7 @@ const VocabModule = (() => {
             vocabFeedback.innerHTML = `
               <div class="feedback-retry">
                 💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-                Từ mẫu cần đọc: "<strong>${item.word}</strong>" ${item.easyRead ? `(${item.easyRead})` : ''}.<br>
+                Từ mẫu cần đọc: "<strong>${item.word}</strong>"${item.ipa ? ` <em>(${item.ipa})</em>` : ''}.<br>
                 <small>👉 Bấm "Nghe phát âm từ mẫu" để nghe lại khẩu hình, rồi bấm micro thử lại nhé!</small>
               </div>
             `;

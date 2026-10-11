@@ -180,7 +180,7 @@ const ReadingJaModule = (() => {
       jaReadingCategory.textContent = `${passage.title.toUpperCase()} (CÂU ${idx + 1} / ${passage.sentences.length})`;
     }
     if (jaReadingPhraseJa) jaReadingPhraseJa.textContent = item.ja;
-    if (jaReadingPhraseRomaji) jaReadingPhraseRomaji.textContent = `Romaji: ${item.romaji} • Đọc tựa như: "${item.readVi}"`;
+    if (jaReadingPhraseRomaji) jaReadingPhraseRomaji.textContent = item.romaji ? `Romaji: ${item.romaji}` : '';
     if (jaReadingPhraseVi) jaReadingPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi} (💡 ${item.tip || ''})`;
     if (jaReadingFeedback) {
       jaReadingFeedback.innerHTML = '<div class="feedback-status">Hãy bấm "🔊 Nghe câu này", sau đó bấm "🎙️ Bấm để nói thử" để ghi âm và nhận phản hồi tức thì.</div>';
@@ -606,7 +606,7 @@ const ReadingJaModule = (() => {
         jaReadingFeedback.innerHTML = `
           <div class="feedback-retry">
             💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-            Câu mẫu: "<strong>${item.ja}</strong>" <em>(${item.readVi})</em>.<br>
+            Câu mẫu: "<strong>${item.ja}</strong>"${item.romaji ? ` <em>(${item.romaji})</em>` : ''}.<br>
             <small>👉 Hãy đọc to, rõ từng âm tiết và bấm nút để thử lại nhé!</small>
           </div>
         `;

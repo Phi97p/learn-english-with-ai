@@ -1129,6 +1129,7 @@ body {
 }
 
 .speaking-challenge-card {
+  position: relative;
   background: var(--bg-card);
   border: 2px solid rgba(99, 102, 241, 0.3);
   border-radius: var(--radius-lg);
@@ -1141,11 +1142,73 @@ body {
   gap: 16px;
 }
 
+/* NÚT ĐIỀU HƯỚNG CÂU Ở 2 GÓC TRÊN CỦA THẺ */
+.card-corner-btn {
+  position: absolute;
+  top: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+  outline: none;
+}
+
+.card-corner-btn:hover {
+  background: rgba(99, 102, 241, 0.22);
+  border-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.card-corner-btn:active {
+  transform: translateY(0);
+}
+
+.card-corner-prev {
+  left: 20px;
+}
+
+.card-corner-next {
+  right: 20px;
+}
+
+@media (max-width: 640px) {
+  .speaking-challenge-card {
+    padding: 30px 14px;
+  }
+  .card-corner-btn {
+    top: 12px;
+    width: 36px;
+    height: 36px;
+  }
+  .card-corner-prev {
+    left: 10px;
+  }
+  .card-corner-next {
+    right: 10px;
+  }
+  .challenge-category {
+    max-width: calc(100% - 85px);
+    font-size: 0.74rem;
+  }
+}
+
 .challenge-category {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   color: #a5b4fc;
   font-weight: 700;
+  max-width: calc(100% - 110px);
+  margin: 0 auto;
 }
 
 .challenge-phrase-en {
@@ -1582,16 +1645,17 @@ body {
   background: rgba(16, 185, 129, 0.15);
   border: 1px solid rgba(16, 185, 129, 0.45);
   color: #34d399;
-  padding: 12px 20px;
+  padding: 10px 14px;
   border-radius: var(--radius-md);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+  white-space: nowrap;
 }
 
 .btn-user-rec:hover {
@@ -1600,6 +1664,58 @@ body {
   border-color: #10b981;
   box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
   transform: translateY(-2px);
+}
+
+.challenge-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 14px;
+}
+
+.challenge-controls .spk-btn-listen {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.challenge-controls .spk-btn-listen:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.challenge-controls .spk-btn-record {
+  background: var(--accent-rose);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+}
+
+.challenge-controls .spk-btn-record:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.challenge-controls .btn-user-rec {
+  padding: 10px 14px;
+  font-size: 0.85rem;
 }
 
 .btn-user-rec.recording {
@@ -1975,30 +2091,23 @@ body {
   gap: 20px;
 }
 
-.dialogue-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 20px;
-  align-items: start;
-}
-
-@media (max-width: 992px) {
-  .dialogue-layout {
-    grid-template-columns: 1fr;
-  }
+.dialogue-chat-window {
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .dialogue-timeline-panel {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 20px 8px 16px 14px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-height: 750px;
-  overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  max-height: 760px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .dialogue-timeline-header {
@@ -2006,16 +2115,49 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 12px;
+  padding: 0 10px 14px 6px;
 }
 
 .dialogue-timeline-title {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.dialogue-turn-indicator {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+#ja-dialogue-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 580px;
+  padding: 4px 6px;
+}
+
+#ja-dialogue-timeline::-webkit-scrollbar {
+  width: 5px;
+}
+
+#ja-dialogue-timeline::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#ja-dialogue-timeline::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
 }
 
 /* ========================================================
@@ -2024,9 +2166,8 @@ body {
 .chat-msg-row {
   display: flex !important;
   align-items: flex-end;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
-  margin-bottom: 16px;
   cursor: pointer;
   transition: transform 0.15s ease;
   box-sizing: border-box;
@@ -2036,17 +2177,21 @@ body {
   transform: translateY(-2px);
 }
 
-/* BÊN TRÁI: NGƯỜI A (佐藤 - Sato) - LỆCH TRÁI RÕ RỆT */
+/* BÊN TRÁI: NGƯỜI A (佐藤 - Sato) - LỆCH TRÁI */
 .chat-msg-row.msg-left {
   justify-content: flex-start !important;
-  padding-right: 20%;
+  padding-right: 18%;
+  margin-left: 0 !important;
 }
 
-/* BÊN PHẢI: NGƯỜI B (山田 & ミラー) - LỆCH PHẢI RÕ RỆT */
+/* BÊN PHẢI: NGƯỜI B (山田 & ミラー) - CĂN SÁT LỀ PHẢI */
 .chat-msg-row.msg-right {
   justify-content: flex-end !important;
   flex-direction: row-reverse !important;
-  padding-left: 20%;
+  padding-left: 18%;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  align-self: flex-end;
 }
 
 .chat-avatar {
@@ -2062,6 +2207,10 @@ body {
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 2px;
+}
+
+.msg-right .chat-avatar {
+  margin-right: 0 !important;
 }
 
 .chat-body {
@@ -2099,21 +2248,22 @@ body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   text-align: left;
+  min-width: 180px;
 }
 
-/* BONG BÓNG BÊN TRÁI (Người A - 佐藤): Màu tối viền hồng đỏ tinh tế */
+/* BONG BÓNG BÊN TRÁI (Người A - 佐藤) */
 .msg-left .chat-bubble {
   background: #1e293b;
-  border: 1px solid rgba(244, 63, 94, 0.3);
+  border: 1px solid rgba(244, 63, 94, 0.35);
   border-left: 4px solid #f43f5e;
   border-bottom-left-radius: 4px;
   color: #f1f5f9;
 }
 
-/* BONG BÓNG BÊN PHẢI (Người B - 山田 & ミラー): Gradient xanh dương nổi bật */
+/* BONG BÓNG BÊN PHẢI (Người B - 山田 & ミラー) */
 .msg-right .chat-bubble {
   background: linear-gradient(135deg, #0284c7, #2563eb);
-  border: 1px solid rgba(6, 182, 212, 0.4);
+  border: 1px solid rgba(6, 182, 212, 0.45);
   border-right: 4px solid #38bdf8;
   border-bottom-right-radius: 4px;
   color: #ffffff;
@@ -2124,9 +2274,14 @@ body {
   box-shadow: 0 0 0 2px #10b981, 0 4px 18px rgba(16, 185, 129, 0.45);
 }
 
-/* KHI ĐANG NÓI (SPEAKING) */
-.chat-msg-row.is-speaking-now .chat-bubble {
+/* KHI ĐANG NÓI (SPEAKING AUDIO) */
+.chat-bubble.is-speaking-now {
   animation: pulse-speaking 0.8s infinite alternate;
+}
+
+/* KHI ĐANG THU ÂM (RECORDING) */
+.chat-bubble.is-recording-turn {
+  box-shadow: 0 0 0 3px #f43f5e, 0 0 20px rgba(244, 63, 94, 0.6) !important;
 }
 
 @keyframes pulse-speaking {
@@ -2138,68 +2293,159 @@ body {
   }
 }
 
-.chat-text-ja {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin-bottom: 4px;
-  padding-right: 28px;
-}
-
-.chat-text-romaji {
-  font-size: 0.84rem;
-  opacity: 0.92;
-  font-family: var(--font-mono, monospace);
-  margin-bottom: 2px;
-}
-
-.msg-left .chat-text-romaji {
-  color: var(--accent-cyan);
-}
-
-.msg-right .chat-text-romaji {
-  color: #e0f2fe;
-}
-
-.chat-text-vi {
-  font-size: 0.88rem;
-  opacity: 0.88;
-}
-
-.msg-left .chat-text-vi {
-  color: #cbd5e1;
-}
-
-.msg-right .chat-text-vi {
-  color: #f1f5f9;
-}
-
-.chat-btn-listen {
+.chat-bubble-tools {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.25);
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 5px;
+}
+
+.chat-btn-tool {
+  background: rgba(0, 0, 0, 0.28);
   border: none;
   color: #ffffff;
   border-radius: 50%;
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.chat-btn-listen:hover {
-  transform: scale(1.18);
-  background: rgba(0, 0, 0, 0.5);
+.chat-btn-tool:hover {
+  transform: scale(1.15);
+  background: rgba(0, 0, 0, 0.55);
 }
 
-.dialogue-focus-card {
-  position: sticky;
-  top: 20px;
+.chat-text-ja {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  padding-right: 58px; /* chừa chỗ cho cụm nút tools */
+}
+
+/* Ô INPUT GIỌNG NÓI NGƯỜI DÙNG BÊN DƯỚI CÂU TIẾNG NHẬT */
+.chat-user-input {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  font-size: 0.88rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+}
+
+.msg-right .chat-user-input {
+  border-top-color: rgba(255, 255, 255, 0.25);
+  color: #e0f2fe;
+}
+
+.chat-user-input .input-placeholder {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  font-style: italic;
+}
+
+.chat-user-input.is-listening {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.chat-user-input.has-input {
+  color: #a7f3d0;
+  font-weight: 600;
+}
+
+.user-spoken-tag {
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.pulse-mic {
+  animation: pulse-mic-anim 0.8s infinite alternate;
+}
+
+@keyframes pulse-mic-anim {
+  from { transform: scale(1); opacity: 0.7; }
+  to { transform: scale(1.25); opacity: 1; }
+}
+
+.check-badge {
+  color: #34d399;
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+
+/* THANH ĐIỀU KHIỂN DƯỚI CÙNG KHUNG CHAT */
+.dialogue-bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+
+.chat-bar-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.chat-bar-listen {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.chat-bar-listen:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.chat-bar-mic {
+  flex: 1;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.chat-bar-mic:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+}
+
+.chat-bar-mic.btn-recording-pulse {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  animation: pulse-speaking 0.7s infinite alternate;
+}
+
+.chat-bar-nav {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+}
+
+.chat-bar-nav:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .dia-role-switcher {

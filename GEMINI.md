@@ -17,11 +17,12 @@
 
 ## 4. Quy định Git (Commit & Push)
 - **Tuyệt đối KHÔNG BAO GIỜ thực hiện lệnh `git push`** lên remote repository trong mọi trường hợp.
-- AI chỉ được phép commit (`git commit`) khi có yêu cầu hoặc khi cần lưu lại thay đổi.
+- **KHÔNG TỰ ĐỘNG COMMIT**: Tuyệt đối không tự ý chạy lệnh `git commit` sau mỗi lần chỉnh sửa. Chỉ thực hiện lệnh `git commit` khi người dùng có yêu cầu cụ thể (ví dụ: "commit giúp tôi", "hãy commit",...).
+
 
 ## 5. Nguồn dữ liệu bài học (Data Source)
-- **Tab Luyện nói tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/luyen_noi_jp/` để xử lý và nạp vào hệ thống (`japanese_data.js`).
-- **Tab Đọc hiểu & Shadowing Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/doc_hieu/` để xử lý và nạp vào hệ thống (`japanese_data.js`).
-- **Tab Hội thoại tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/hoi_thoai/` để xử lý và nạp vào hệ thống (`japanese_data.js`).
+- **Tab Luyện nói tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/luyen_noi_jp/` để xử lý và nạp vào hệ thống (`japanese_data/speaking_data.js` & `japanese_data/vocab_data.js`).
+- **Tab Đọc hiểu & Shadowing Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/doc_hieu/` để xử lý và nạp vào hệ thống (`japanese_data/reading_data.js`).
+- **Tab Hội thoại tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/hoi_thoai/` để xử lý và nạp vào hệ thống (`japanese_data/dialogue_data.js`).
 
 

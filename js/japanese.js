@@ -434,7 +434,7 @@ const JapaneseModule = (() => {
 
     if (jaSpkCategory) jaSpkCategory.textContent = `${item.category} (CÂU ${idx + 1} / ${unit.sentences.length})`;
     if (jaSpkPhraseJa) jaSpkPhraseJa.textContent = item.ja;
-    if (jaSpkPhraseRomaji) jaSpkPhraseRomaji.textContent = `Romaji: ${item.romaji} • Đọc tựa như: "${item.readVi}"`;
+    if (jaSpkPhraseRomaji) jaSpkPhraseRomaji.textContent = item.romaji ? `Romaji: ${item.romaji}` : '';
     if (jaSpkPhraseVi) jaSpkPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi} (💡 ${item.tip})`;
     if (jaSpkFeedback) jaSpkFeedback.innerHTML = '<div class="feedback-status">Hãy bấm "🔊 Nghe giọng mẫu Tokyo", sau đó bấm "🎙️ Bấm để nói thử" để ghi âm và nhận phản hồi tức thì.</div>';
 
@@ -723,7 +723,7 @@ const JapaneseModule = (() => {
 
     if (jaVocabCategory) jaVocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TỪ ${idx + 1} / ${scenarioData.words.length})`;
     if (jaVocabWordJa) jaVocabWordJa.textContent = item.word;
-    if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = item.romaji ? `Romaji: ${item.romaji} ${item.readVi ? `(${item.readVi})` : ''}` : '';
+    if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = item.romaji ? `Romaji: ${item.romaji}` : '';
     if (jaVocabWordVi) jaVocabWordVi.textContent = item.vi ? `Ý nghĩa: ${item.vi}` : '';
     if (jaVocabWordTip) jaVocabWordTip.textContent = item.tip ? `💡 Mẹo phát âm: ${item.tip}` : '';
     if (jaVocabFeedback) jaVocabFeedback.innerHTML = `<div class="feedback-status">Bấm <strong>"Nghe phát âm từ mẫu"</strong>, sau đó bấm <strong>"Bấm để nói từ này"</strong> nhé!</div>`;
@@ -860,7 +860,7 @@ const JapaneseModule = (() => {
         if (!userJaVocabData[currentJaVocabScenario]) {
           userJaVocabData[currentJaVocabScenario] = { title: "Từ vựng của tôi", icon: "🌸", words: [] };
         }
-        userJaVocabData[currentJaVocabScenario].words.push({ word, vi: vi || word, romaji, readVi: "", tip });
+        userJaVocabData[currentJaVocabScenario].words.push({ word, vi: vi || word, romaji, tip });
         saveUserJaVocabData();
         AppCore.syncProgress();
         closeAddJaVocabModal();
@@ -944,7 +944,7 @@ const JapaneseModule = (() => {
               jaVocabFeedback.innerHTML = `
                 <div class="feedback-retry">
                   💡 Bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-                  Từ mẫu tiếng Nhật: "<strong>${item.word}</strong>" ${item.readVi ? `(${item.readVi})` : ''}.<br>
+                  Từ mẫu tiếng Nhật: "<strong>${item.word}</strong>"${item.romaji ? ` <em>(${item.romaji})</em>` : ''}.<br>
                   <small>👉 Bấm "Nghe phát âm từ mẫu" để nghe lại khẩu hình, rồi bấm micro thử lại nhé!</small>
                 </div>
               `;

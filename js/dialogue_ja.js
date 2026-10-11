@@ -1,29 +1,24 @@
 // ========================================================
 // JS/DIALOGUE_JA.JS - Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)
-// Phục vụ luyện giao tiếp 2 người: Tôi & Bạn tôi hoặc Tôi & AI
+// Giao diện tin nhắn thuần túy: Các bong bóng hiển thị sẵn để input giọng nói
 // Nguồn dữ liệu: datasss/jp/hoi_thoai/ (JA_DIALOGUE_DATA)
 // ========================================================
 
 const DialogueJaModule = (() => {
   let currentDialogueKey = 'bai_1';
   let currentTurnIdx = 0;
-  let activeRoleMode = 'duo'; // 'duo' (2 người), 'role_a' (Tôi vai A), 'role_b' (Tôi vai B)
+  let activeRoleMode = 'duo';
   let isAutoPlayingDialogue = false;
   let autoPlayTimer = null;
 
-  // Ghi âm giọng người dùng
-  let dialogueMediaRecorder = null;
-  let dialogueMediaStream = null;
-  let dialogueAudioChunks = [];
-  let isDialogueUserRecording = false;
-  let dialogueRecordings = new Map(); // turnIdx -> audioBlobUrl
-  let userAudioPlayer = new Audio();
+  // Lưu trữ các câu người dùng đã nói vào từng bong bóng
+  const userSpokenInputs = new Map(); // idx -> spokenText
 
   // Nhận diện giọng nói AI
   let dialogueRecognition = null;
   let isSpeechRecognizing = false;
   let lastRecognizedText = '';
-  let hasEvaluatedTurn = false;
+  let recognizingTurnIdx = 0;
 
   // DOM Elements
   let unitSelect;
@@ -31,25 +26,12 @@ const DialogueJaModule = (() => {
   let btnPlayAll;
   let btnResetDialogue;
   let timelineContainer;
-
-  // Focus Lab Card Elements
-  let turnSpeakerAvatar;
-  let turnSpeakerName;
-  let turnSpeakerRole;
-  let turnPhraseJa;
-  let turnPhraseRomaji;
-  let turnPhraseVi;
-  let turnTip;
+  let turnIndicator;
   let btnListenTurn;
   let btnRecordTurn;
-  let btnUserAudioTurn;
+  let micLabel;
   let btnPrevTurn;
   let btnNextTurn;
-  let spokenBox;
-  let spokenBadge;
-  let spokenText;
-  let typingCursor;
-  let feedbackBox;
 
   function initDOM() {
     unitSelect = document.getElementById('ja-dialogue-unit-select');
@@ -57,24 +39,13 @@ const DialogueJaModule = (() => {
     btnPlayAll = document.getElementById('ja-dialogue-play-all-btn');
     btnResetDialogue = document.getElementById('ja-dialogue-reset-btn');
     timelineContainer = document.getElementById('ja-dialogue-timeline');
+    turnIndicator = document.getElementById('ja-dialogue-turn-indicator');
 
-    turnSpeakerAvatar = document.getElementById('ja-dia-speaker-avatar');
-    turnSpeakerName = document.getElementById('ja-dia-speaker-name');
-    turnSpeakerRole = document.getElementById('ja-dia-speaker-role');
-    turnPhraseJa = document.getElementById('ja-dia-phrase-ja');
-    turnPhraseRomaji = document.getElementById('ja-dia-phrase-romaji');
-    turnPhraseVi = document.getElementById('ja-dia-phrase-vi');
-    turnTip = document.getElementById('ja-dia-tip');
     btnListenTurn = document.getElementById('ja-dia-listen-btn');
     btnRecordTurn = document.getElementById('ja-dia-record-btn');
-    btnUserAudioTurn = document.getElementById('ja-dia-user-audio-btn');
+    micLabel = document.getElementById('ja-dia-mic-label');
     btnPrevTurn = document.getElementById('ja-dia-prev-btn');
     btnNextTurn = document.getElementById('ja-dia-next-btn');
-    spokenBox = document.getElementById('ja-dia-spoken-box');
-    spokenBadge = document.getElementById('ja-dia-spoken-badge');
-    spokenText = document.getElementById('ja-dia-spoken-text');
-    typingCursor = document.getElementById('ja-dia-typing-cursor');
-    feedbackBox = document.getElementById('ja-dia-feedback');
   }
 
   function renderDialogueSelect() {
@@ -109,6 +80,8 @@ const DialogueJaModule = (() => {
       unitSelect.value = dialogueKey;
     }
     currentTurnIdx = 0;
+    userSpokenInputs.clear();
+
     const dialogue = JA_DIALOGUE_DATA[dialogueKey];
     if (!dialogue || !dialogue.turns || dialogue.turns.length === 0) {
       if (timelineContainer) {
@@ -121,6 +94,7 @@ const DialogueJaModule = (() => {
     loadTurn(0);
   }
 
+  // Render các bong bóng tin nhắn (A lệch trái, B căn sát lề phải, chỉ có câu tiếng Nhật và ô input)
   function renderDialogueTimeline() {
     if (!timelineContainer || typeof JA_DIALOGUE_DATA === 'undefined') return;
     timelineContainer.innerHTML = '';
@@ -129,34 +103,48 @@ const DialogueJaModule = (() => {
 
     dialogue.turns.forEach((turn, idx) => {
       const isRoleA = turn.role === 'A';
-      const bubble = document.createElement('div');
-      bubble.className = `chat-msg-row ${isRoleA ? 'msg-left' : 'msg-right'} ${idx === currentTurnIdx ? 'is-active-turn' : ''}`;
-      bubble.id = `dia-bubble-${idx}`;
-      bubble.dataset.idx = idx;
+      const bubbleRow = document.createElement('div');
+      bubbleRow.className = `chat-msg-row ${isRoleA ? 'msg-left' : 'msg-right'} ${idx === currentTurnIdx ? 'is-active-turn' : ''}`;
+      bubbleRow.id = `dia-bubble-row-${idx}`;
+      bubbleRow.dataset.idx = idx;
 
-      bubble.innerHTML = `
+      const hasUserInput = userSpokenInputs.has(idx);
+      const userInputText = userSpokenInputs.get(idx) || '';
+
+      bubbleRow.innerHTML = `
         <div class="chat-avatar" title="${turn.speaker}">${turn.avatar || (isRoleA ? '👩' : '👨')}</div>
         <div class="chat-body">
           <div class="chat-sender-name">${turn.speaker}</div>
-          <div class="chat-bubble">
-            <button class="chat-btn-listen" title="Nghe phát âm" data-idx="${idx}">🔊</button>
+          <div class="chat-bubble" id="dia-bubble-${idx}">
+            <div class="chat-bubble-tools">
+              <button class="chat-btn-tool chat-btn-listen" title="Nghe câu này" data-idx="${idx}">🔊</button>
+              <button class="chat-btn-tool chat-btn-mic" title="Bấm nói câu này" data-idx="${idx}">🎙️</button>
+            </div>
             <div class="chat-text-ja">${turn.ja}</div>
-            <div class="chat-text-romaji">${turn.romaji}</div>
-            <div class="chat-text-vi">👉 ${turn.vi}</div>
+            <div class="chat-user-input ${hasUserInput ? 'has-input' : ''}" id="dia-user-input-${idx}">
+              ${hasUserInput ? `<span class="user-spoken-tag">🗣️ Bạn:</span> "${userInputText}"` : '<span class="input-placeholder">🎙️ Bấm mic để nói câu này...</span>'}
+            </div>
           </div>
         </div>
       `;
 
-      // Bấm vào tin nhắn để chọn lượt
-      bubble.addEventListener('click', (e) => {
-        loadTurn(idx);
+      // Click vào dòng tin nhắn để chọn lượt
+      bubbleRow.addEventListener('click', (e) => {
         if (e.target.closest('.chat-btn-listen')) {
           e.stopPropagation();
           speakTurn(idx);
+          return;
         }
+        if (e.target.closest('.chat-btn-mic')) {
+          e.stopPropagation();
+          loadTurn(idx);
+          startSpeechForTurn(idx);
+          return;
+        }
+        loadTurn(idx);
       });
 
-      timelineContainer.appendChild(bubble);
+      timelineContainer.appendChild(bubbleRow);
     });
   }
 
@@ -169,55 +157,27 @@ const DialogueJaModule = (() => {
 
     currentTurnIdx = idx;
     const turn = dialogue.turns[idx];
-    const isRoleA = turn.role === 'A';
 
-    // Highlight timeline bubble
+    // Highlight bong bóng tin nhắn
     if (timelineContainer) {
-      const allBubbles = timelineContainer.querySelectorAll('.chat-msg-row');
-      allBubbles.forEach((b, i) => {
+      const allRows = timelineContainer.querySelectorAll('.chat-msg-row');
+      allRows.forEach((r, i) => {
         if (i === idx) {
-          b.classList.add('is-active-turn');
-          b.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          r.classList.add('is-active-turn');
+          r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
-          b.classList.remove('is-active-turn');
+          r.classList.remove('is-active-turn');
         }
       });
     }
 
-    // Cập nhật card chi tiết
-    if (turnSpeakerAvatar) turnSpeakerAvatar.textContent = turn.avatar || (isRoleA ? '👩' : '👨');
-    if (turnSpeakerName) turnSpeakerName.textContent = turn.speaker;
-
-    let roleDescription = '';
-    if (activeRoleMode === 'role_a') {
-      roleDescription = isRoleA ? '👤 VAI CỦA BẠN (Tôi nói)' : '🤖 VAI CỦA AI (Máy nói)';
-    } else if (activeRoleMode === 'role_b') {
-      roleDescription = !isRoleA ? '👤 VAI CỦA BẠN (Tôi nói)' : '🤖 VAI CỦA AI (Máy nói)';
-    } else {
-      roleDescription = isRoleA ? '👥 LƯỢT NGƯỜI A (Tôi)' : '👥 LƯỢT NGƯỜI B (Bạn tôi)';
+    // Cập nhật indicator & nhãn nút mic ở thanh chat bar
+    if (turnIndicator) {
+      turnIndicator.textContent = `Lượt ${idx + 1} / ${dialogue.turns.length}`;
     }
-    if (turnSpeakerRole) turnSpeakerRole.textContent = `${roleDescription} • (CÂU ${idx + 1} / ${dialogue.turns.length})`;
-
-    if (turnPhraseJa) turnPhraseJa.textContent = turn.ja;
-    if (turnPhraseRomaji) turnPhraseRomaji.textContent = `Romaji: ${turn.romaji} • Đọc tựa như: "${turn.readVi}"`;
-    if (turnPhraseVi) turnPhraseVi.textContent = `👉 Ý nghĩa: ${turn.vi}`;
-    if (turnTip) turnTip.textContent = turn.tip ? `💡 Mẹo ngữ cảnh: ${turn.tip}` : '';
-
-    if (feedbackBox) {
-      feedbackBox.innerHTML = '<div class="feedback-status">Hãy bấm "🔊 Nghe câu này" để cảm nhận ngữ điệu, sau đó bấm "🎙️ Bấm để nói thử" nhé!</div>';
+    if (micLabel) {
+      micLabel.textContent = `Bấm nói (Lượt ${idx + 1}: ${turn.speaker})`;
     }
-
-    resetSpokenBox();
-    updateUserAudioBtnUI();
-  }
-
-  function resetSpokenBox() {
-    if (spokenBox) {
-      spokenBox.classList.remove('is-recording', 'match-success', 'match-retry');
-    }
-    if (spokenBadge) spokenBadge.textContent = 'Đang chờ bạn nói câu này...';
-    if (spokenText) spokenText.textContent = '"..."';
-    if (typingCursor) typingCursor.style.display = 'none';
   }
 
   // Phát âm một lượt thoại tiếng Nhật
@@ -233,7 +193,6 @@ const DialogueJaModule = (() => {
     const utterance = new SpeechSynthesisUtterance(turn.ja);
     utterance.lang = 'ja-JP';
 
-    // Điều chỉnh cao độ để phân biệt giọng Nữ (Sato) và Nam (Yamada / Miller)
     if (turn.gender === 'male') {
       utterance.pitch = 0.85;
       utterance.rate = 0.95;
@@ -242,7 +201,6 @@ const DialogueJaModule = (() => {
       utterance.rate = 1.0;
     }
 
-    // Hiệu ứng nhấp nháy bubble đang nói
     const bubble = document.getElementById(`dia-bubble-${idx}`);
     if (bubble) bubble.classList.add('is-speaking-now');
 
@@ -259,7 +217,7 @@ const DialogueJaModule = (() => {
     window.speechSynthesis.speak(utterance);
   }
 
-  // Chạy toàn bộ hội thoại tuần tự (Auto Play)
+  // Phát toàn bộ hội thoại tuần tự
   function playFullDialogue() {
     if (typeof JA_DIALOGUE_DATA === 'undefined') return;
     const dialogue = JA_DIALOGUE_DATA[currentDialogueKey];
@@ -287,7 +245,7 @@ const DialogueJaModule = (() => {
         if (!isAutoPlayingDialogue) return;
         playIdx++;
         if (playIdx < dialogue.turns.length) {
-          autoPlayTimer = setTimeout(playStep, 1000); // Nghỉ 1s giữa các lượt thoại tự nhiên
+          autoPlayTimer = setTimeout(playStep, 900);
         } else {
           stopAllAudio();
         }
@@ -310,34 +268,38 @@ const DialogueJaModule = (() => {
       btnPlayAll.classList.remove('is-playing');
       btnPlayAll.innerHTML = '🔊 Phát toàn bộ hội thoại';
     }
-    const allBubbles = document.querySelectorAll('.chat-msg-row');
+    const allBubbles = document.querySelectorAll('.chat-bubble');
     allBubbles.forEach(b => b.classList.remove('is-speaking-now'));
     stopSpeechRecognition();
-    stopUserAudioRecording();
   }
 
-  // --- NHẬN DIỆN GIỌNG NÓI AI CHO LƯỢT THOẠI ---
-  function startSpeechRecognition() {
+  // Bắt đầu nhận diện giọng nói cho một lượt và input trực tiếp vào bong bóng đó
+  function startSpeechForTurn(idx) {
     if (!dialogueRecognition) return;
     stopAllAudio();
+
+    recognizingTurnIdx = idx;
+    lastRecognizedText = '';
+    isSpeechRecognizing = true;
+
     try {
-      hasEvaluatedTurn = false;
-      lastRecognizedText = '';
-      isSpeechRecognizing = true;
       dialogueRecognition.start();
-      if (btnRecordTurn) {
-        btnRecordTurn.classList.add('btn-recording-pulse');
-        btnRecordTurn.textContent = '⏹️ Đang lắng nghe... Bấm để dừng';
-      }
-      if (spokenBox) {
-        spokenBox.classList.add('is-recording');
-        spokenBox.classList.remove('match-success', 'match-retry');
-      }
-      if (spokenBadge) spokenBadge.textContent = '🎙️ Hãy đọc to câu tiếng Nhật này...';
-      if (spokenText) spokenText.textContent = '';
-      if (typingCursor) typingCursor.style.display = 'inline-block';
     } catch (e) {
-      console.warn('SpeechRecognition error:', e);
+      console.warn('SpeechRecognition start error:', e);
+    }
+
+    const bubble = document.getElementById(`dia-bubble-${idx}`);
+    if (bubble) bubble.classList.add('is-recording-turn');
+
+    const inputEl = document.getElementById(`dia-user-input-${idx}`);
+    if (inputEl) {
+      inputEl.className = 'chat-user-input is-listening';
+      inputEl.innerHTML = '<span class="pulse-mic">🎙️</span> <em>Đang lắng nghe giọng bạn nói tiếng Nhật...</em>';
+    }
+
+    if (btnRecordTurn) {
+      btnRecordTurn.classList.add('btn-recording-pulse');
+      if (micLabel) micLabel.textContent = '⏹️ Đang nghe... Bấm để dừng';
     }
   }
 
@@ -346,147 +308,57 @@ const DialogueJaModule = (() => {
     if (dialogueRecognition) {
       try { dialogueRecognition.stop(); } catch (e) {}
     }
+    const allBubbles = document.querySelectorAll('.chat-bubble');
+    allBubbles.forEach(b => b.classList.remove('is-recording-turn'));
+
     if (btnRecordTurn) {
       btnRecordTurn.classList.remove('btn-recording-pulse');
-      btnRecordTurn.textContent = '🎙️ Bấm để nói thử lượt này';
     }
-  }
-
-  function evaluateSpokenTurn(transcript) {
-    if (hasEvaluatedTurn) return;
-    hasEvaluatedTurn = true;
-    stopSpeechRecognition();
-
     const dialogue = JA_DIALOGUE_DATA[currentDialogueKey];
-    if (!dialogue || !dialogue.turns) return;
-    const item = dialogue.turns[currentTurnIdx];
-    if (!item) return;
-
-    if (spokenText) spokenText.textContent = `"${transcript}"`;
-    if (typingCursor) typingCursor.style.display = 'none';
-
-    // Chuẩn hóa và so khớp
-    const cleanActual = transcript.replace(/[.,!?、。・\s]/g, '').toLowerCase();
-    const cleanExpected = item.ja.replace(/[.,!?、。・\s]/g, '').toLowerCase();
-
-    const isMatch = cleanActual.includes(cleanExpected) || cleanExpected.includes(cleanActual) || (cleanActual.length > 2 && cleanExpected.startsWith(cleanActual.slice(0, 3)));
-
-    if (isMatch) {
-      if (spokenBox) spokenBox.classList.add('match-success');
-      if (spokenBadge) spokenBadge.textContent = '🎉 Tuyệt vời! Phát âm rất chuẩn!';
-      if (feedbackBox) {
-        feedbackBox.innerHTML = `
-          <div class="feedback-success">
-            ✨ Bạn đã đối thoại thành công câu này: "<strong>${item.ja}</strong>"<br>
-            <small>👉 Bấm "Lượt tiếp theo ➔" để tiếp tục kịch bản hội thoại!</small>
-          </div>
-        `;
-      }
-      // Đánh dấu bubble đã hoàn thành
-      const bubble = document.getElementById(`dia-bubble-${currentTurnIdx}`);
-      if (bubble) bubble.classList.add('is-completed-turn');
-    } else {
-      if (spokenBox) spokenBox.classList.add('match-retry');
-      if (spokenBadge) spokenBadge.textContent = 'Cần luyện thêm ngữ điệu...';
-      if (feedbackBox) {
-        feedbackBox.innerHTML = `
-          <div class="feedback-retry">
-            💡 AI nhận diện bạn đọc: "<strong>${transcript}</strong>"<br>
-            Câu mẫu: "<strong>${item.ja}</strong>" <em>(${item.readVi})</em>.<br>
-            <small>👉 Hãy đọc to, rõ ràng và thử lại nhé!</small>
-          </div>
-        `;
-      }
+    if (dialogue && dialogue.turns && dialogue.turns[currentTurnIdx] && micLabel) {
+      micLabel.textContent = `Bấm nói (Lượt ${currentTurnIdx + 1}: ${dialogue.turns[currentTurnIdx].speaker})`;
     }
   }
 
-  // --- THU ÂM NGHE LẠI GIỌNG NGƯỜI NÓI ---
-  async function startUserAudioRecording() {
-    try {
-      dialogueMediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      dialogueMediaRecorder = new MediaRecorder(dialogueMediaStream);
-      dialogueAudioChunks = [];
-
-      dialogueMediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) dialogueAudioChunks.push(e.data);
-      };
-
-      dialogueMediaRecorder.onstop = () => {
-        const audioBlob = new Blob(dialogueAudioChunks, { type: 'audio/webm' });
-        const audioUrl = URL.createObjectURL(audioBlob);
-        dialogueRecordings.set(currentTurnIdx, audioUrl);
-        updateUserAudioBtnUI();
-        if (dialogueMediaStream) {
-          dialogueMediaStream.getTracks().forEach(track => track.stop());
-          dialogueMediaStream = null;
-        }
-      };
-
-      dialogueMediaRecorder.start();
-      isDialogueUserRecording = true;
-      if (btnUserAudioTurn) {
-        btnUserAudioTurn.classList.add('btn-recording-pulse');
-        btnUserAudioTurn.textContent = '⏹️ Dừng ghi âm giọng bạn';
+  // Kết thúc lượt nói và input kết quả vào bong bóng
+  function finishSpokenInput(idx, transcript) {
+    stopSpeechRecognition();
+    const cleanText = transcript.trim();
+    if (!cleanText) {
+      const inputEl = document.getElementById(`dia-user-input-${idx}`);
+      if (inputEl && !userSpokenInputs.has(idx)) {
+        inputEl.className = 'chat-user-input';
+        inputEl.innerHTML = '<span class="input-placeholder">🎙️ Bấm mic để nói câu này...</span>';
       }
-    } catch (err) {
-      console.warn('Mic access error:', err);
-      alert('Không thể mở micro để ghi âm. Vui lòng cho phép quyền truy cập micro trên trình duyệt.');
-    }
-  }
-
-  function stopUserAudioRecording() {
-    if (dialogueMediaRecorder && dialogueMediaRecorder.state !== 'inactive') {
-      dialogueMediaRecorder.stop();
-    }
-    isDialogueUserRecording = false;
-    if (btnUserAudioTurn) {
-      btnUserAudioTurn.classList.remove('btn-recording-pulse');
-    }
-  }
-
-  function playUserRecording(turnIdx) {
-    const url = dialogueRecordings.get(turnIdx);
-    if (!url) {
-      alert('Bạn chưa ghi âm câu này. Hãy bấm "Ghi âm giọng bạn" trước nhé!');
       return;
     }
-    userAudioPlayer.src = url;
-    userAudioPlayer.play();
-  }
 
-  function updateUserAudioBtnUI() {
-    if (!btnUserAudioTurn) return;
-    const hasRec = dialogueRecordings.has(currentTurnIdx);
-    if (hasRec) {
-      btnUserAudioTurn.textContent = '🎧 Nghe lại giọng bạn đã thu';
-      btnUserAudioTurn.onclick = () => playUserRecording(currentTurnIdx);
-    } else {
-      btnUserAudioTurn.textContent = '🎙️ Thu âm nghe lại giọng bạn';
-      btnUserAudioTurn.onclick = () => {
-        if (isDialogueUserRecording) {
-          stopUserAudioRecording();
-        } else {
-          startUserAudioRecording();
-        }
-      };
+    userSpokenInputs.set(idx, cleanText);
+    const inputEl = document.getElementById(`dia-user-input-${idx}`);
+    if (inputEl) {
+      inputEl.className = 'chat-user-input has-input';
+      inputEl.innerHTML = `
+        <span class="user-spoken-tag">🗣️ Bạn:</span>
+        <span class="user-spoken-text">"${cleanText}"</span>
+        <span class="check-badge">✔️</span>
+      `;
+    }
+
+    // Tự động chuyển sang lượt tiếp theo để người kia đối đáp
+    const dialogue = JA_DIALOGUE_DATA[currentDialogueKey];
+    if (dialogue && dialogue.turns && idx + 1 < dialogue.turns.length) {
+      setTimeout(() => {
+        loadTurn(idx + 1);
+      }, 700);
     }
   }
 
-  // --- KHỞI TẠO MODULE ---
   function init() {
     initDOM();
 
     if (unitSelect) {
       unitSelect.addEventListener('change', (e) => {
         loadDialogue(e.target.value);
-      });
-    }
-
-    if (roleModeSelect) {
-      roleModeSelect.addEventListener('change', (e) => {
-        activeRoleMode = e.target.value;
-        renderDialogueTimeline();
-        loadTurn(currentTurnIdx);
       });
     }
 
@@ -499,6 +371,8 @@ const DialogueJaModule = (() => {
     if (btnResetDialogue) {
       btnResetDialogue.addEventListener('click', () => {
         stopAllAudio();
+        userSpokenInputs.clear();
+        renderDialogueTimeline();
         loadTurn(0);
       });
     }
@@ -507,6 +381,19 @@ const DialogueJaModule = (() => {
       btnListenTurn.addEventListener('click', () => {
         stopAllAudio();
         speakTurn(currentTurnIdx);
+      });
+    }
+
+    if (btnRecordTurn) {
+      btnRecordTurn.addEventListener('click', () => {
+        if (isSpeechRecognizing) {
+          stopSpeechRecognition();
+          if (lastRecognizedText) {
+            finishSpokenInput(recognizingTurnIdx, lastRecognizedText);
+          }
+        } else {
+          startSpeechForTurn(currentTurnIdx);
+        }
       });
     }
 
@@ -532,26 +419,13 @@ const DialogueJaModule = (() => {
       });
     }
 
-    // Nhận diện giọng nói SpeechRecognition
+    // Nhận diện giọng nói
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       dialogueRecognition = new SpeechRecognition();
       dialogueRecognition.lang = 'ja-JP';
       dialogueRecognition.continuous = false;
       dialogueRecognition.interimResults = true;
-
-      if (btnRecordTurn) {
-        btnRecordTurn.addEventListener('click', () => {
-          if (isSpeechRecognizing) {
-            stopSpeechRecognition();
-            if (lastRecognizedText && !hasEvaluatedTurn) {
-              evaluateSpokenTurn(lastRecognizedText);
-            }
-          } else {
-            startSpeechRecognition();
-          }
-        });
-      }
 
       dialogueRecognition.onresult = (event) => {
         let interim = '';
@@ -564,22 +438,22 @@ const DialogueJaModule = (() => {
         const text = (final || interim).trim();
         if (text) {
           lastRecognizedText = text;
-          if (spokenText) spokenText.textContent = `"${text}"`;
-          if (spokenBadge) spokenBadge.textContent = '🎙️ Đang lắng nghe tiếng Nhật...';
+          const inputEl = document.getElementById(`dia-user-input-${recognizingTurnIdx}`);
+          if (inputEl) {
+            inputEl.innerHTML = `<span class="pulse-mic">🎙️</span> "${text}"`;
+          }
         }
         if (final) {
-          evaluateSpokenTurn(final.trim());
+          finishSpokenInput(recognizingTurnIdx, final.trim());
         }
       };
 
       dialogueRecognition.onend = () => {
         if (isSpeechRecognizing) {
-          stopSpeechRecognition();
-          if (lastRecognizedText && !hasEvaluatedTurn) {
-            evaluateSpokenTurn(lastRecognizedText);
-          } else if (!hasEvaluatedTurn) {
-            if (spokenBadge) spokenBadge.textContent = 'Đã kết thúc lượt nghe';
-            if (spokenBox) spokenBox.classList.remove('is-recording');
+          if (lastRecognizedText) {
+            finishSpokenInput(recognizingTurnIdx, lastRecognizedText);
+          } else {
+            stopSpeechRecognition();
           }
         }
       };
@@ -587,13 +461,10 @@ const DialogueJaModule = (() => {
       dialogueRecognition.onerror = (e) => {
         console.warn('Dialogue speech recognition error:', e.error);
         stopSpeechRecognition();
-        if (spokenBox) spokenBox.classList.remove('is-recording');
-        if (feedbackBox) {
-          if (e.error === 'no-speech') {
-            feedbackBox.innerHTML = '<div class="feedback-error">⚠️ Không nhận được tiếng nói. Bạn hãy nói to hơn nhé!</div>';
-          } else if (e.error === 'not-allowed') {
-            feedbackBox.innerHTML = '<div class="feedback-error">⚠️ Chưa được cấp quyền Micro trên trình duyệt.</div>';
-          }
+        const inputEl = document.getElementById(`dia-user-input-${recognizingTurnIdx}`);
+        if (inputEl && !userSpokenInputs.has(recognizingTurnIdx)) {
+          inputEl.className = 'chat-user-input';
+          inputEl.innerHTML = '<span class="input-placeholder">⚠️ Chưa nhận được giọng nói. Bấm mic thử lại nhé!</span>';
         }
       };
     } else if (btnRecordTurn) {

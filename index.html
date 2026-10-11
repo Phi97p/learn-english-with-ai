@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 <body>
   <div class="app-container">
@@ -134,6 +134,13 @@
             </div>
 
             <div class="speaking-challenge-card" id="speaking-card">
+              <button class="card-corner-btn card-corner-prev" id="spk-prev-btn" title="Câu trước" aria-label="Câu trước">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="card-corner-btn card-corner-next" id="spk-next-btn" title="Câu tiếp theo" aria-label="Câu tiếp theo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
               <div class="challenge-category" id="spk-category">CHƯA CÓ BÀI HỌC</div>
               <div class="challenge-phrase-en" id="spk-phrase-en">(Chưa có dữ liệu bài học)</div>
               <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Hãy nạp dữ liệu bài học để bắt đầu luyện tập.</div>
@@ -141,10 +148,6 @@
               <div class="speaking-actions">
                 <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
                 <button class="btn-record" id="spk-record-btn">🎯 Bấm để nói & Chấm điểm</button>
-                <button class="btn-user-rec" id="spk-user-rec-btn">🎙️ Thu âm nghe lại</button>
-                <button class="btn-play-user" id="spk-play-record-btn" style="display: none;">▶️ Nghe lại giọng bạn</button>
-                <button class="btn-nav" id="spk-prev-btn">⬅️ Câu trước</button>
-                <button class="btn-next" id="spk-next-btn">Câu tiếp theo ➔</button>
               </div>
 
               <!-- KẾT QUẢ NGƯỜI NÓI (MODULE CẢ CÂU) -->
@@ -156,51 +159,6 @@
 
               <div class="speaking-feedback" id="spk-feedback">
                 <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>
-              </div>
-
-              <!-- THANH GHI ÂM TẠM THỜI (LƯU 3 CÂU: TRƯỚC • HIỆN TẠI • SAU) -->
-              <div class="temp-recordings-bar" id="temp-recordings-bar">
-                <div class="temp-rec-header">
-                  <div class="temp-rec-title">
-                    <span class="rec-icon">🎙️</span>
-                    <span>Bản ghi âm tạm thời (Tối đa 3 câu: Trước • Hiện tại • Sau)</span>
-                  </div>
-                  <span class="temp-rec-badge">Tự xóa câu cũ khi Next & dọn sạch khi đổi tab</span>
-                </div>
-                <div class="temp-rec-grid">
-                  <div class="temp-rec-card" id="rec-card-prev">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag">⏮️ Câu trước</span>
-                      <span class="rec-idx-label" id="rec-label-prev">--</span>
-                    </div>
-                    <button class="rec-play-btn" id="btn-play-rec-prev" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-
-                  <div class="temp-rec-card active-curr" id="rec-card-curr">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag highlight">⭐ Hiện tại</span>
-                      <span class="rec-idx-label" id="rec-label-curr">Câu 1</span>
-                    </div>
-                    <button class="rec-play-btn" id="btn-play-rec-curr" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa ghi âm</span>
-                    </button>
-                  </div>
-
-                  <div class="temp-rec-card" id="rec-card-next">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag">⏭️ Câu sau</span>
-                      <span class="rec-idx-label" id="rec-label-next">--</span>
-                    </div>
-                    <button class="rec-play-btn" id="btn-play-rec-next" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -312,18 +270,21 @@
             </div>
 
             <div class="speaking-challenge-card" id="ja-speaking-card">
+              <button class="card-corner-btn card-corner-prev" id="ja-spk-prev-btn" title="Câu trước" aria-label="Câu trước">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="card-corner-btn card-corner-next" id="ja-spk-next-btn" title="Câu tiếp theo" aria-label="Câu tiếp theo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
               <div class="challenge-category" id="ja-spk-category">BÀI 1: MẪU CÂU CỐT LÕI (CÂU 1 / 32)</div>
               <div class="challenge-phrase-en" id="ja-spk-phrase-ja" style="font-size: 1.85rem; letter-spacing: 0.03em;">"わたしは マイク・ミラーです。"</div>
-              <div class="challenge-phrase-ipa" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa desu. • Đọc tựa như: "Oa-ta-si oa Mai-kư Mi-laa đê-xư."</div>
+              <div class="challenge-phrase-ipa" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa desu.</div>
               <div class="challenge-phrase-vi" id="ja-spk-phrase-vi">👉 Ý nghĩa: Tôi là Mike Miller. (💡 Cấu trúc N1 は N2 です: N1 là N2.)</div>
 
               <div class="speaking-actions">
                 <button class="btn-listen" id="ja-spk-listen-btn">🔊 Nghe phát âm mẫu</button>
                 <button class="btn-record" id="ja-spk-record-btn">🎯 Bấm để nói & Chấm điểm</button>
-                <button class="btn-user-rec" id="ja-spk-user-rec-btn">🎙️ Thu âm nghe lại</button>
-                <button class="btn-play-user" id="ja-spk-play-record-btn" style="display: none;">▶️ Nghe lại giọng bạn</button>
-                <button class="btn-nav" id="ja-spk-prev-btn">⬅️ Câu trước</button>
-                <button class="btn-next" id="ja-spk-next-btn">Câu tiếp theo ➔</button>
               </div>
 
               <!-- KẾT QUẢ NGƯỜI NÓI (MODULE CẢ CÂU) -->
@@ -335,51 +296,6 @@
 
               <div class="speaking-feedback" id="ja-spk-feedback">
                 <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>
-              </div>
-
-              <!-- THANH GHI ÂM TẠM THỜI (LƯU 3 CÂU: TRƯỚC • HIỆN TẠI • SAU) -->
-              <div class="temp-recordings-bar" id="ja-temp-recordings-bar">
-                <div class="temp-rec-header">
-                  <div class="temp-rec-title">
-                    <span class="rec-icon">🎙️</span>
-                    <span>Bản ghi âm tạm thời (Tối đa 3 câu: Trước • Hiện tại • Sau)</span>
-                  </div>
-                  <span class="temp-rec-badge">Tự xóa câu cũ khi Next & dọn sạch khi đổi tab</span>
-                </div>
-                <div class="temp-rec-grid">
-                  <div class="temp-rec-card" id="ja-rec-card-prev">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag">⏮️ Câu trước</span>
-                      <span class="rec-idx-label" id="ja-rec-label-prev">--</span>
-                    </div>
-                    <button class="rec-play-btn" id="ja-btn-play-rec-prev" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-
-                  <div class="temp-rec-card active-curr" id="ja-rec-card-curr">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag highlight">⭐ Hiện tại</span>
-                      <span class="rec-idx-label" id="ja-rec-label-curr">Câu 1</span>
-                    </div>
-                    <button class="rec-play-btn" id="ja-btn-play-rec-curr" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa ghi âm</span>
-                    </button>
-                  </div>
-
-                  <div class="temp-rec-card" id="ja-rec-card-next">
-                    <div class="rec-card-header">
-                      <span class="rec-step-tag">⏭️ Câu sau</span>
-                      <span class="rec-idx-label" id="ja-rec-label-next">--</span>
-                    </div>
-                    <button class="rec-play-btn" id="ja-btn-play-rec-next" disabled>
-                      <span class="btn-icon">🔇</span>
-                      <span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -513,7 +429,7 @@
               </div>
 
               <div class="challenge-ipa" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
-                Romaji: Watashi wa kyonen Peruu kara Nihon e kimashita. • Đọc tựa như: "Oa-ta-si oa kyo-nen Pê-ruu ka-ra Ni-hon ê ki-ma-si-ta."
+                Romaji: Watashi wa kyonen Peruu kara Nihon e kimashita.
               </div>
 
               <div class="challenge-vi" id="ja-reading-phrase-vi" style="font-size: 1rem; color: var(--text-muted);">
@@ -527,12 +443,6 @@
                 </button>
                 <button class="spk-btn-record" id="ja-reading-record-btn" title="Bấm để đọc câu này vào micro">
                   🎯 Bấm để nói & Chấm điểm
-                </button>
-                <button class="btn-user-rec" id="ja-reading-user-rec-btn" title="Ghi âm giọng bạn để bấm nghe lại">
-                  🎙️ Thu âm nghe lại
-                </button>
-                <button class="spk-btn-listen" id="ja-reading-play-record-btn" style="display: none; background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;" title="Nghe lại giọng vừa thu âm của bạn">
-                  ▶️ Nghe lại giọng bạn
                 </button>
               </div>
 
@@ -550,34 +460,6 @@
               <!-- FEEDBACK -->
               <div class="spk-feedback-box" id="ja-reading-feedback">
                 <div class="feedback-status">Bấm "🔊 Nghe câu này" rồi bấm "🎙️ Bấm để nói thử" để luyện đọc từng câu nhé!</div>
-              </div>
-
-              <!-- GHI ÂM TẠM THỜI 3 CÂU -->
-              <div class="temp-recordings-bar" id="ja-reading-recordings-bar" style="margin-top: 14px;">
-                <div class="temp-rec-header">
-                  <span class="temp-rec-title">🎙️ Bản ghi âm tạm thời 3 câu liên tiếp:</span>
-                  <span class="temp-rec-badge">Tự động làm mới</span>
-                </div>
-                <div class="temp-rec-grid">
-                  <div class="temp-rec-col">
-                    <span class="temp-rec-col-title" id="ja-reading-rec-label-prev">Câu trước</span>
-                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-prev" disabled>
-                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-                  <div class="temp-rec-col is-current">
-                    <span class="temp-rec-col-title" id="ja-reading-rec-label-curr">Câu hiện tại</span>
-                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-curr" disabled>
-                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa ghi âm</span>
-                    </button>
-                  </div>
-                  <div class="temp-rec-col">
-                    <span class="temp-rec-col-title" id="ja-reading-rec-label-next">Câu sau</span>
-                    <button class="rec-play-btn" id="ja-reading-btn-play-rec-next" disabled>
-                      <span class="btn-icon">🔇</span><span class="btn-label">Chưa có</span>
-                    </button>
-                  </div>
-                </div>
               </div>
 
               <!-- PREV / NEXT BUTTONS -->
@@ -631,70 +513,35 @@
             </div>
           </div>
 
-          <!-- MAIN 2-COLUMN LAYOUT -->
-          <div class="dialogue-layout">
+          <!-- MAIN CHAT WINDOW (KHUNG CHAT DUY NHẤT) -->
+          <div class="dialogue-chat-window">
 
-            <!-- CỘT TRÁI: DÒNG THỜI GIAN ĐỐI THOẠI (CHAT TIMELINE STREAM) -->
+            <!-- DÒNG THỜI GIAN ĐỐI THOẠI (CHAT TIMELINE STREAM) -->
             <div class="dialogue-timeline-panel">
               <div class="dialogue-timeline-header">
                 <div class="dialogue-timeline-title">
                   <span>💬</span>
-                  <span>Cuộc trò chuyện (Bấm vào tin nhắn để nghe & luyện nói)</span>
+                  <span id="ja-dialogue-chat-title">Hội thoại đối đáp giữa 2 người (Bấm mic ở câu bất kỳ để nói)</span>
+                </div>
+                <div class="dialogue-header-actions">
+                  <span class="dialogue-turn-indicator" id="ja-dialogue-turn-indicator">Lượt 1 / 6</span>
                 </div>
               </div>
 
               <div id="ja-dialogue-timeline">
                 <!-- Rendered dynamically by js/dialogue_ja.js -->
               </div>
-            </div>
 
-            <!-- CỘT PHẢI: PHÒNG PHẢN XẠ & LUYỆN NÓI LƯỢT THOẠI HIỆN TẠI -->
-            <div class="speaking-challenge-card dialogue-focus-card" id="ja-dialogue-focus-card" style="margin: 0;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <div id="ja-dia-speaker-avatar" style="font-size: 2rem; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent-cyan);">👩</div>
-                  <div>
-                    <div id="ja-dia-speaker-name" style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">佐藤 (Sato)</div>
-                    <div id="ja-dia-speaker-role" style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600;">👥 LƯỢT NGƯỜI A (Tôi) • (CÂU 1 / 6)</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="challenge-phrase-en" id="ja-dia-phrase-ja" style="font-size: 1.75rem; letter-spacing: 0.03em;">
-                おはようございます。
-              </div>
-
-              <div class="challenge-phrase-ipa" id="ja-dia-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
-                Romaji: Ohayou gozaimasu. • Đọc tựa như: "Ô-ha-yô gô-zai-ma-xư."
-              </div>
-
-              <div class="challenge-phrase-vi" id="ja-dia-phrase-vi" style="font-size: 1.05rem; color: var(--text-muted);">
-                👉 Ý nghĩa: Chào buổi sáng ạ.
-              </div>
-
-              <div id="ja-dia-tip" style="font-size: 0.85rem; color: #a78bfa; margin-top: 6px; font-style: italic;">
-                💡 Mẹo ngữ cảnh: Lời chào buổi sáng lịch sự giữa đồng nghiệp trong công ty.
-              </div>
-
-              <!-- ACTIONS -->
-              <div class="speaking-actions" style="margin-top: 16px;">
-                <button class="btn-listen" id="ja-dia-listen-btn">🔊 Nghe câu này</button>
-                <button class="btn-record" id="ja-dia-record-btn">🎙️ Bấm để nói thử lượt này</button>
-                <button class="btn-nav" id="ja-dia-user-audio-btn">🎙️ Thu âm nghe lại giọng bạn</button>
-                <button class="btn-nav" id="ja-dia-prev-btn">◀ Lượt trước</button>
-                <button class="btn-next" id="ja-dia-next-btn">Lượt tiếp theo ➔</button>
-              </div>
-
-              <!-- SPOKEN RESULT BOX -->
-              <div class="spoken-result-box" id="ja-dia-spoken-box" style="margin-top: 14px;">
-                <div class="spoken-result-badge" id="ja-dia-spoken-badge">Đang chờ bạn nói câu này...</div>
-                <span class="spoken-result-text" id="ja-dia-spoken-text">"..."</span>
-                <span class="typing-cursor" id="ja-dia-typing-cursor" style="display: none;"></span>
-              </div>
-
-              <!-- FEEDBACK -->
-              <div class="speaking-feedback" id="ja-dia-feedback">
-                <div class="feedback-status">Hãy bấm <strong>"🔊 Nghe câu này"</strong> để làm quen ngữ điệu, sau đó bấm <strong>"🎙️ Bấm để nói thử lượt này"</strong> nhé!</div>
+              <!-- THANH ĐIỀU KHIỂN NÓI DƯỚI CÙNG KHUNG CHAT (CHAT BAR) -->
+              <div class="dialogue-bottom-bar">
+                <button class="chat-bar-btn chat-bar-listen" id="ja-dia-listen-btn" title="Nghe câu của lượt đang chọn">
+                  🔊 Nghe
+                </button>
+                <button class="chat-bar-btn chat-bar-mic" id="ja-dia-record-btn" title="Bấm để nói lượt hiện tại">
+                  🎙️ <span id="ja-dia-mic-label">Bấm để nói (Lượt 1: 佐藤)</span>
+                </button>
+                <button class="chat-bar-btn chat-bar-nav" id="ja-dia-prev-btn" title="Lượt trước">◀</button>
+                <button class="chat-bar-btn chat-bar-nav" id="ja-dia-next-btn" title="Lượt tiếp theo">▶</button>
               </div>
             </div>
 
@@ -754,8 +601,8 @@
           <input type="text" id="new-vocab-vi" placeholder="Ví dụ: Cơ hội, Lịch trình, Niềm đam mê..." autocomplete="off">
         </div>
         <div class="form-group">
-          <label for="new-vocab-ipa">Phiên âm / Cách đọc bồi (Tùy chọn):</label>
-          <input type="text" id="new-vocab-ipa" placeholder="Ví dụ: /ˌɑːpərˈtuːnəti/ (O-pơ-tú-nơ-ti)..." autocomplete="off">
+          <label for="new-vocab-ipa">Phiên âm IPA (Tùy chọn):</label>
+          <input type="text" id="new-vocab-ipa" placeholder="Ví dụ: /ˌɑːpərˈtuːnəti/..." autocomplete="off">
         </div>
         <div class="form-group">
           <label for="new-vocab-tip">Mẹo phát âm / Ghi nhớ (Tùy chọn):</label>
@@ -786,8 +633,8 @@
           <input type="text" id="new-ja-vocab-vi" placeholder="Ví dụ: Cảm ơn, Thầy cô, Bạn bè..." autocomplete="off">
         </div>
         <div class="form-group">
-          <label for="new-ja-vocab-romaji">Romaji / Cách đọc bồi (Tùy chọn):</label>
-          <input type="text" id="new-ja-vocab-romaji" placeholder="Ví dụ: Arigatou (A-ri-ga-tô), Sensei (Xên-xê)..." autocomplete="off">
+          <label for="new-ja-vocab-romaji">Phiên âm Romaji (Tùy chọn):</label>
+          <input type="text" id="new-ja-vocab-romaji" placeholder="Ví dụ: Arigatou, Sensei, Tomodachi..." autocomplete="off">
         </div>
         <div class="form-group">
           <label for="new-ja-vocab-tip">Mẹo phát âm / Ghi nhớ (Tùy chọn):</label>
@@ -802,13 +649,16 @@
   </div>
 
   <script src="data.js"></script>
-  <script src="japanese_data.js"></script>
+  <script src="japanese_data/speaking_data.js"></script>
+  <script src="japanese_data/vocab_data.js"></script>
+  <script src="japanese_data/reading_data.js"></script>
+  <script src="japanese_data/dialogue_data.js"></script>
   <script src="js/core.js"></script>
   <script src="js/vocab.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
-  <script src="js/dialogue_ja.js?v=2.0"></script>
+  <script src="js/dialogue_ja.js?v=3.0"></script>
   <script src="app.js"></script>
 </body>
 </html>
