@@ -84,9 +84,20 @@ const VocabModule = (() => {
     } catch (e) {
       userVocabData = null;
     }
-    if (!userVocabData) {
-      userVocabData = (typeof VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA)) : {};
-      saveUserVocabData();
+    if (!userVocabData || typeof userVocabData !== 'object') {
+      userVocabData = {};
+    }
+    if (typeof VOCAB_SCENARIOS_DATA !== 'undefined') {
+      let hasChanges = false;
+      for (const key of Object.keys(VOCAB_SCENARIOS_DATA)) {
+        if (!userVocabData[key] || !userVocabData[key].words || userVocabData[key].words.length === 0) {
+          userVocabData[key] = JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA[key]));
+          hasChanges = true;
+        }
+      }
+      if (hasChanges) {
+        saveUserVocabData();
+      }
     }
   }
 

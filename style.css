@@ -2472,10 +2472,12 @@ body {
   background: rgba(0, 0, 0, 0.55);
 }
 
-.chat-text-ja {
-  font-size: 1.35rem;
+.chat-text-ja,
+.chat-text-en {
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
   margin-bottom: 6px;
   padding-right: 58px; /* chừa chỗ cho cụm nút tools */
 }

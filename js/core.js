@@ -77,6 +77,12 @@ const AppCore = (() => {
     if (window.ReadingEnModule && typeof window.ReadingEnModule.stopReadingUserAudioPlayback === 'function') {
       window.ReadingEnModule.stopReadingUserAudioPlayback();
     }
+    if (window.DialogueEnModule && typeof window.DialogueEnModule.stopAllAudio === 'function') {
+      window.DialogueEnModule.stopAllAudio();
+    }
+    if (window.DialogueJaModule && typeof window.DialogueJaModule.stopAllAudio === 'function') {
+      window.DialogueJaModule.stopAllAudio();
+    }
     if (!('speechSynthesis' in window)) {
       alert('Trình duyệt của bạn chưa hỗ trợ phát âm tự động.');
       return;
@@ -196,6 +202,9 @@ const AppCore = (() => {
     if (tabId !== 'reading-en' && window.ReadingEnModule && typeof window.ReadingEnModule.clearAllReadingTempRecordings === 'function') {
       window.ReadingEnModule.clearAllReadingTempRecordings();
     }
+    if (tabId !== 'dialogue-en' && window.DialogueEnModule && typeof window.DialogueEnModule.stopAllAudio === 'function') {
+      window.DialogueEnModule.stopAllAudio();
+    }
     if (tabId !== 'dialogue-ja' && window.DialogueJaModule && typeof window.DialogueJaModule.stopAllAudio === 'function') {
       window.DialogueJaModule.stopAllAudio();
     }
@@ -213,6 +222,9 @@ const AppCore = (() => {
     } else if (tabId === 'reading-en') {
       dom.pageTitle.textContent = '📘 Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Anh)';
       dom.pageSubtitle.textContent = 'Luyện ngữ điệu mạch lạc theo đoạn văn chuẩn SGK - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc thu âm đối chiếu';
+    } else if (tabId === 'dialogue-en') {
+      dom.pageTitle.textContent = '💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Anh (2 Người)';
+      dom.pageSubtitle.textContent = 'Luyện phản xạ giao tiếp đóng vai 2 người (Tôi & Bạn tôi / Tôi & AI) theo kịch bản chuẩn SGK 6';
     } else if (tabId === 'speaking-ja') {
       dom.pageTitle.textContent = '🌸 Phòng Luyện Phát Âm Tiếng Nhật (Shadowing Lab)';
       dom.pageSubtitle.textContent = 'Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng';
