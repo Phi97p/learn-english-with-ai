@@ -10,8 +10,6 @@ const AppCore = (() => {
     currentTab: 'speaking',
     wordsLearnedCount: parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10),
     streakDays: parseInt(localStorage.getItem('streakDays') || '1', 10),
-    currentLessonName: localStorage.getItem('currentLessonName') || 'Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)',
-    chatHistory: JSON.parse(localStorage.getItem('chatHistory') || '[]'),
     spokenSentences: JSON.parse(localStorage.getItem('spokenSentences') || '[]')
   };
 
@@ -217,8 +215,6 @@ const AppCore = (() => {
     return {
       streakDays: state.streakDays,
       wordsLearnedCount: state.wordsLearnedCount,
-      currentLesson: state.currentLessonName,
-      chatHistory: state.chatHistory,
       spokenSentences: state.spokenSentences,
       userVocabData: window.VocabModule ? window.VocabModule.getUserVocabData() : null,
       userJaVocabData: window.JapaneseModule ? window.JapaneseModule.getUserJaVocabData() : null
@@ -228,8 +224,6 @@ const AppCore = (() => {
   function syncProgress() {
     localStorage.setItem('wordsLearnedCount', state.wordsLearnedCount);
     localStorage.setItem('streakDays', state.streakDays);
-    localStorage.setItem('currentLessonName', state.currentLessonName);
-    localStorage.setItem('chatHistory', JSON.stringify(state.chatHistory));
     localStorage.setItem('spokenSentences', JSON.stringify(state.spokenSentences));
   }
 
@@ -302,16 +296,12 @@ const AppCore = (() => {
     if (dom.copySummaryBtn) {
       dom.copySummaryBtn.addEventListener('click', () => {
         const data = getStudyData();
-        let summaryText = `[Báo cáo học tập tiếng Anh]\n`;
+        let summaryText = `[Báo cáo học tập tiếng Anh & Tiếng Nhật]\n`;
         summaryText += `- Chuỗi ngày: ${data.streakDays} ngày | Đã nạp: ${data.wordsLearnedCount} mẫu câu\n`;
-        summaryText += `- Bài đang học: ${data.currentLesson}\n`;
-        if (data.chatHistory.length > 0) {
-          summaryText += `- Hội thoại gần nhất: Bạn vừa nói "${data.chatHistory[data.chatHistory.length - 1].en}"\n`;
-        }
-        if (data.spokenSentences.length > 0) {
+        if (data.spokenSentences && data.spokenSentences.length > 0) {
           summaryText += `- Luyện nói chuẩn: "${data.spokenSentences[data.spokenSentences.length - 1].en}"\n`;
         }
-        summaryText += `Hôm nay tôi đã học xong phần này, bạn hướng dẫn tôi tiếp nhé!`;
+        summaryText += `Hôm nay tôi đã hoàn thành phần luyện nói này, bạn hướng dẫn tôi tiếp nhé!`;
 
         navigator.clipboard.writeText(summaryText).then(() => {
           alert('📋 Đã sao chép tóm tắt tiến độ! Bạn chỉ cần dán (Ctrl + V) vào tin nhắn với tôi là tôi sẽ nhớ ngay lập tức!');
