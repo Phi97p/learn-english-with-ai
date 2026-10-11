@@ -2018,174 +2018,172 @@ body {
   gap: 8px;
 }
 
-.dialogue-bubble-row {
+/* ========================================================
+   CHAT MESSAGE UI (HỘI THOẠI NHẮN TIN 2 NGƯỜI)
+   ======================================================== */
+.chat-msg-row {
   display: flex;
-  gap: 14px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
   cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  transition: transform 0.15s ease;
 }
 
-.dialogue-bubble-row:hover {
+.chat-msg-row:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-.dialogue-bubble-row.bubble-role-a {
-  border-left: 4px solid #f43f5e;
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.08), rgba(30, 41, 59, 0.6));
+/* BÊN TRÁI: NGƯỜI A (佐藤 - Sato) */
+.chat-msg-row.msg-left {
+  justify-content: flex-start;
 }
 
-.dialogue-bubble-row.bubble-role-b {
-  border-left: 4px solid #06b6d4;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(30, 41, 59, 0.6));
+/* BÊN PHẢI: NGƯỜI B (山田 & ミラー) */
+.chat-msg-row.msg-right {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
 }
 
-.dialogue-bubble-row.is-active-turn {
-  border: 1px solid #10b981;
-  border-left: 5px solid #10b981;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(30, 41, 59, 0.8));
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.28);
-}
-
-.dialogue-bubble-row.is-speaking-now {
-  animation: pulse-speaking 1s infinite alternate;
-}
-
-@keyframes pulse-speaking {
-  from {
-    box-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
-  }
-  to {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.85);
-  }
-}
-
-.dialogue-avatar-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 72px;
-  text-align: center;
-}
-
-.dialogue-avatar {
-  width: 44px;
-  height: 44px;
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border: 2px solid var(--border-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dialogue-avatar-name {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-top: 5px;
-  white-space: nowrap;
-}
-
-.dialogue-role-tag {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 8px;
-  margin-top: 4px;
-  white-space: nowrap;
-}
-
-.tag-role-a {
-  background: rgba(244, 63, 94, 0.2);
-  color: #fb7185;
-  border: 1px solid rgba(244, 63, 94, 0.4);
-}
-
-.tag-role-b {
-  background: rgba(6, 182, 212, 0.2);
-  color: #22d3ee;
-  border: 1px solid rgba(6, 182, 212, 0.4);
-}
-
-.dialogue-bubble-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.dialogue-bubble-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 2px;
 }
 
-.dialogue-turn-num {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.dialogue-bubble-actions {
+.chat-body {
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  max-width: 82%;
 }
 
-.dia-btn-mini {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-main);
-  border-radius: 6px;
-  font-size: 0.75rem;
-  padding: 3px 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
+.msg-left .chat-body {
+  align-items: flex-start;
 }
 
-.dia-btn-mini:hover {
-  background: var(--accent-cyan);
-  color: #0f172a;
-  border-color: var(--accent-cyan);
-  font-weight: 600;
+.msg-right .chat-body {
+  align-items: flex-end;
 }
 
-.dialogue-text-ja {
+.chat-sender-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  padding: 0 6px;
+}
+
+.chat-bubble {
+  position: relative;
+  padding: 12px 18px;
+  border-radius: 18px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* BONG BÓNG BÊN TRÁI: Màu tối tinh tế, bo góc tin nhắn */
+.msg-left .chat-bubble {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom-left-radius: 4px;
+  color: #f1f5f9;
+}
+
+/* BONG BÓNG BÊN PHẢI: Gradient nổi bật, bo góc tin nhắn */
+.msg-right .chat-bubble {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom-right-radius: 4px;
+  color: #ffffff;
+}
+
+/* KHI ĐƯỢC CHỌN (ACTIVE) */
+.chat-msg-row.is-active-turn .chat-bubble {
+  box-shadow: 0 0 0 2px #10b981, 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* KHI ĐANG NÓI (SPEAKING) */
+.chat-msg-row.is-speaking-now .chat-bubble {
+  animation: pulse-speaking 0.8s infinite alternate;
+}
+
+@keyframes pulse-speaking {
+  from {
+    box-shadow: 0 0 6px rgba(6, 182, 212, 0.5);
+  }
+  to {
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.95);
+  }
+}
+
+.chat-text-ja {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-main);
-  line-height: 1.5;
   letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  padding-right: 28px;
 }
 
-.dialogue-text-romaji {
-  font-size: 0.88rem;
-  color: var(--accent-cyan);
+.chat-text-romaji {
+  font-size: 0.84rem;
+  opacity: 0.92;
   font-family: var(--font-mono, monospace);
+  margin-bottom: 2px;
 }
 
-.dialogue-text-readvi {
+.msg-left .chat-text-romaji {
+  color: var(--accent-cyan);
+}
+
+.msg-right .chat-text-romaji {
+  color: #e0f2fe;
+}
+
+.chat-text-vi {
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+
+.msg-left .chat-text-vi {
   color: #cbd5e1;
-  font-style: italic;
 }
 
-.dialogue-text-vi {
-  font-size: 0.92rem;
-  color: #94a3b8;
-  margin-top: 2px;
+.msg-right .chat-text-vi {
+  color: #f1f5f9;
+}
+
+.chat-btn-listen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.chat-btn-listen:hover {
+  transform: scale(1.18);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .dialogue-focus-card {

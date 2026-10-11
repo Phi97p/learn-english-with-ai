@@ -130,64 +130,31 @@ const DialogueJaModule = (() => {
     dialogue.turns.forEach((turn, idx) => {
       const isRoleA = turn.role === 'A';
       const bubble = document.createElement('div');
-      bubble.className = `dialogue-bubble-row ${isRoleA ? 'bubble-role-a' : 'bubble-role-b'} ${idx === currentTurnIdx ? 'is-active-turn' : ''}`;
+      bubble.className = `chat-msg-row ${isRoleA ? 'msg-left' : 'msg-right'} ${idx === currentTurnIdx ? 'is-active-turn' : ''}`;
       bubble.id = `dia-bubble-${idx}`;
       bubble.dataset.idx = idx;
 
-      // Nhãn vai trò theo mode hiện tại
-      let roleLabel = '';
-      if (activeRoleMode === 'role_a') {
-        roleLabel = isRoleA ? '👤 BẠN (Tôi)' : '🤖 AI (Máy)';
-      } else if (activeRoleMode === 'role_b') {
-        roleLabel = !isRoleA ? '👤 BẠN (Tôi)' : '🤖 AI (Máy)';
-      } else {
-        roleLabel = isRoleA ? '👥 Người A (Tôi)' : '👥 Người B (Bạn tôi)';
-      }
-
       bubble.innerHTML = `
-        <div class="dialogue-avatar-col">
-          <div class="dialogue-avatar" title="${turn.speaker}">${turn.avatar || (isRoleA ? '👩' : '👨')}</div>
-          <div class="dialogue-avatar-name">${turn.speaker}</div>
-          <span class="dialogue-role-tag ${isRoleA ? 'tag-role-a' : 'tag-role-b'}">${roleLabel}</span>
-        </div>
-        <div class="dialogue-bubble-content">
-          <div class="dialogue-bubble-header">
-            <span class="dialogue-turn-num">Lượt #${idx + 1}</span>
-            <div class="dialogue-bubble-actions">
-              <button class="dia-btn-mini dia-btn-listen" title="Nghe câu này" data-idx="${idx}">🔊 Nghe</button>
-              <button class="dia-btn-mini dia-btn-practice" title="Luyện nói câu này" data-idx="${idx}">🎙️ Luyện câu này</button>
-            </div>
+        <div class="chat-avatar" title="${turn.speaker}">${turn.avatar || (isRoleA ? '👩' : '👨')}</div>
+        <div class="chat-body">
+          <div class="chat-sender-name">${turn.speaker}</div>
+          <div class="chat-bubble">
+            <button class="chat-btn-listen" title="Nghe phát âm" data-idx="${idx}">🔊</button>
+            <div class="chat-text-ja">${turn.ja}</div>
+            <div class="chat-text-romaji">${turn.romaji}</div>
+            <div class="chat-text-vi">👉 ${turn.vi}</div>
           </div>
-          <div class="dialogue-text-ja">${turn.ja}</div>
-          <div class="dialogue-text-romaji">${turn.romaji} • <span class="dialogue-text-readvi">${turn.readVi}</span></div>
-          <div class="dialogue-text-vi">👉 ${turn.vi}</div>
         </div>
       `;
 
-      // Bấm vào bubble để chọn lượt
+      // Bấm vào tin nhắn để chọn lượt
       bubble.addEventListener('click', (e) => {
-        if (e.target.closest('.dia-btn-mini')) return;
         loadTurn(idx);
-      });
-
-      // Nút nghe mini
-      const btnListen = bubble.querySelector('.dia-btn-listen');
-      if (btnListen) {
-        btnListen.addEventListener('click', (e) => {
+        if (e.target.closest('.chat-btn-listen')) {
           e.stopPropagation();
           speakTurn(idx);
-        });
-      }
-
-      // Nút luyện mini
-      const btnPractice = bubble.querySelector('.dia-btn-practice');
-      if (btnPractice) {
-        btnPractice.addEventListener('click', (e) => {
-          e.stopPropagation();
-          loadTurn(idx);
-          if (btnRecordTurn) btnRecordTurn.click();
-        });
-      }
+        }
+      });
 
       timelineContainer.appendChild(bubble);
     });
@@ -206,7 +173,7 @@ const DialogueJaModule = (() => {
 
     // Highlight timeline bubble
     if (timelineContainer) {
-      const allBubbles = timelineContainer.querySelectorAll('.dialogue-bubble-row');
+      const allBubbles = timelineContainer.querySelectorAll('.chat-msg-row');
       allBubbles.forEach((b, i) => {
         if (i === idx) {
           b.classList.add('is-active-turn');
@@ -343,7 +310,7 @@ const DialogueJaModule = (() => {
       btnPlayAll.classList.remove('is-playing');
       btnPlayAll.innerHTML = '🔊 Phát toàn bộ hội thoại';
     }
-    const allBubbles = document.querySelectorAll('.dialogue-bubble-row');
+    const allBubbles = document.querySelectorAll('.chat-msg-row');
     allBubbles.forEach(b => b.classList.remove('is-speaking-now'));
     stopSpeechRecognition();
     stopUserAudioRecording();
