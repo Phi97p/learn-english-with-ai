@@ -7,7 +7,7 @@ const AppCore = (() => {
   const state = {
     speechSpeed: parseFloat(localStorage.getItem('speechSpeed') || '1.0'),
     voiceGender: localStorage.getItem('voiceGender') || 'female',
-    currentTab: 'lessons',
+    currentTab: 'chat',
     wordsLearnedCount: parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10),
     streakDays: parseInt(localStorage.getItem('streakDays') || '1', 10),
     currentLessonName: localStorage.getItem('currentLessonName') || 'Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)',
@@ -197,10 +197,7 @@ const AppCore = (() => {
       pane.classList.toggle('active', pane.id === `tab-${tabId}`);
     });
 
-    if (tabId === 'lessons') {
-      dom.pageTitle.textContent = 'Lộ trình bài học giao tiếp hàng ngày';
-      dom.pageSubtitle.textContent = 'Học qua phản xạ thực tế, nghe giọng bản ngữ và thực hành ngay lập tức';
-    } else if (tabId === 'chat') {
+    if (tabId === 'chat') {
       dom.pageTitle.textContent = 'Luyện phản xạ giao tiếp với Trợ lý Alex';
       dom.pageSubtitle.textContent = 'Tự tin đóng vai theo các tình huống đời sống thường gặp nhất';
     } else if (tabId === 'speaking') {

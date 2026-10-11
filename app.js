@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Khởi tạo tất cả các Module
   AppCore.init();
-  LessonsModule.init();
   ChatModule.init();
   VocabModule.init();
   SpeakingModule.init();
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();
-  LessonsModule.renderLessons();
   ChatModule.renderScenarioSelect();
   VocabModule.renderVocabScenarioSelect();
   SpeakingModule.renderSpkUnitSelect();

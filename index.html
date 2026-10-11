@@ -27,11 +27,7 @@
       </div>
 
       <nav class="nav-menu">
-        <button class="nav-item active" data-tab="lessons">
-          <span class="icon">📚</span>
-          <span>Lộ trình bài học</span>
-        </button>
-        <button class="nav-item" data-tab="chat">
+        <button class="nav-item active" data-tab="chat">
           <span class="icon">💬</span>
           <span>Luyện phản xạ AI</span>
           <span class="badge">Hot</span>
@@ -93,8 +89,8 @@
       <!-- Top header bar -->
       <header class="top-header">
         <div class="header-left">
-          <h1 id="page-title">Lộ trình bài học giao tiếp hàng ngày</h1>
-          <p id="page-subtitle">Học qua phản xạ thực tế, nghe giọng bản ngữ và thực hành ngay lập tức</p>
+          <h1 id="page-title">Luyện phản xạ giao tiếp với Trợ lý Alex</h1>
+          <p id="page-subtitle">Tự tin đóng vai theo các tình huống đời sống thường gặp nhất</p>
         </div>
         <div class="header-right">
           <button id="copy-summary-btn" class="header-btn" title="Sao chép bản tóm tắt học tập để gửi cho AI">📋 Sao chép cho AI</button>
@@ -102,31 +98,8 @@
         </div>
       </header>
 
-      <!-- TAB 1: LESSONS -->
-      <section id="tab-lessons" class="tab-pane active">
-        <div class="lessons-overview">
-          <div class="welcome-banner">
-            <div class="banner-content">
-              <h3>👋 Xin chào bạn! Chào mừng đến với hành trình nói tiếng Anh</h3>
-              <p>Đừng lo nếu bạn chưa biết gì! Chúng ta học theo nguyên lý <strong>"Hiểu nghĩa - Nghe mẫu - Bắt chước nói to (Shadowing)"</strong>. Mỗi ngày chỉ cần 10-15 phút là bạn sẽ tự tin nói được.</p>
-            </div>
-            <div class="banner-badge">🎯 Cấp độ: Mới bắt đầu (A0)</div>
-          </div>
-
-          <div class="lesson-cards-grid" id="lessons-grid">
-            <!-- Dynamic lesson cards injected by app.js -->
-          </div>
-        </div>
-
-        <!-- Lesson Detail Modal / View -->
-        <div id="lesson-detail-view" class="lesson-detail-view hidden">
-          <button class="back-btn" id="back-to-lessons-btn">← Quay lại danh sách bài học</button>
-          <div id="lesson-detail-content"></div>
-        </div>
-      </section>
-
-      <!-- TAB 2: AI ROLEPLAY CHAT -->
-      <section id="tab-chat" class="tab-pane">
+      <!-- TAB: AI ROLEPLAY CHAT -->
+      <section id="tab-chat" class="tab-pane active">
         <div class="chat-container">
           <div class="chat-header">
             <div class="ai-avatar">👩</div>
@@ -762,7 +735,6 @@
   <script src="data.js"></script>
   <script src="japanese_data.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/lessons.js"></script>
   <script src="js/chat.js"></script>
   <script src="js/vocab.js"></script>
   <script src="js/speaking.js"></script>

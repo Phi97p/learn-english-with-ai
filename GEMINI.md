@@ -14,3 +14,8 @@
 - Khi cần tìm bài, tài liệu tham khảo hoặc sách giáo khoa:
   - **Tiếng Anh**: Tìm kiếm trong thư mục `sgk/`.
   - **Tiếng Nhật**: Tìm kiếm trong thư mục `sgk-jp/`.
+
+## 4. Quy định Git (Commit & Push)
+- **Tuyệt đối KHÔNG BAO GIỜ thực hiện lệnh `git push`** lên remote repository trong mọi trường hợp.
+- AI chỉ được phép commit (`git commit`) khi có yêu cầu hoặc khi cần lưu lại thay đổi.
+
