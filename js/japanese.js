@@ -114,7 +114,7 @@ const JapaneseModule = (() => {
     } catch (e) {
       userJaVocabData = null;
     }
-    if (!userJaVocabData) {
+    if (!userJaVocabData || Object.keys(userJaVocabData).length === 0) {
       userJaVocabData = (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA)) : {};
       saveUserJaVocabData();
     }
