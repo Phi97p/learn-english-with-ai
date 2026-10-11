@@ -600,10 +600,9 @@ const JapaneseModule = (() => {
     if (jaSpkSpokenText) jaSpkSpokenText.textContent = `"${transcript}"`;
     if (jaSpkSpokenBox) jaSpkSpokenBox.classList.remove('is-recording');
 
-    const cleanTarget = item.ja.replace(/[\s\.\,\?\!、。]/g, '');
-    const cleanSpoken = transcript.replace(/[\s\.\,\?\!、。]/g, '');
-    const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken) ||
-                    (cleanTarget.length > 4 && cleanSpoken.length > 4 && cleanTarget.slice(0, 4) === cleanSpoken.slice(0, 4));
+    const isMatch = AppCore.isJapaneseMatch
+      ? AppCore.isJapaneseMatch(transcript, item.ja, item.romaji)
+      : (transcript.replace(/[\s\.\,\?\!、。]/g, '').includes(item.ja.replace(/[\s\.\,\?\!、。]/g, '')));
 
     if (isMatch) {
       if (jaSpkSpokenBox) jaSpkSpokenBox.classList.add('match-success');
@@ -915,9 +914,9 @@ const JapaneseModule = (() => {
         AppCore.animateTypewriter(jaVocabSpokenText, jaVocabTypingCursor, `"${transcript}"`, () => {
           if (jaVocabSpokenBox) jaVocabSpokenBox.classList.remove('is-recording');
 
-          const cleanTarget = item.word.replace(/[\s\.\,\?\!]/g, '');
-          const cleanSpoken = transcript.replace(/[\s\.\,\?\!]/g, '');
-          const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken);
+          const isMatch = AppCore.isJapaneseMatch
+            ? AppCore.isJapaneseMatch(transcript, item.word, item.romaji)
+            : (transcript.replace(/[\s\.\,\?\!、。]/g, '').includes(item.word.replace(/[\s\.\,\?\!、。]/g, '')));
 
           if (isMatch) {
             if (jaVocabSpokenBox) jaVocabSpokenBox.classList.add('match-success');

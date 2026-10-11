@@ -34,6 +34,7 @@ const ReadingJaModule = (() => {
   let jaReadingPhraseVi;
   let jaReadingListenBtn;
   let jaReadingRecordBtn;
+  let jaReadingPassageRecordBtn;
   let jaReadingUserRecBtn;
   let jaReadingPlayRecordBtn;
   let jaReadingPrevBtn;
@@ -65,6 +66,7 @@ const ReadingJaModule = (() => {
     jaReadingPhraseVi = document.getElementById('ja-reading-phrase-vi');
     jaReadingListenBtn = document.getElementById('ja-reading-listen-btn');
     jaReadingRecordBtn = document.getElementById('ja-reading-record-btn');
+    jaReadingPassageRecordBtn = document.getElementById('ja-reading-passage-record-btn');
     jaReadingUserRecBtn = document.getElementById('ja-reading-user-rec-btn');
     jaReadingPlayRecordBtn = document.getElementById('ja-reading-play-record-btn');
     jaReadingPrevBtn = document.getElementById('ja-reading-prev-btn');
@@ -443,6 +445,10 @@ const ReadingJaModule = (() => {
       jaReadingRecordBtn.classList.remove('recording');
       jaReadingRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
     }
+    if (jaReadingPassageRecordBtn) {
+      jaReadingPassageRecordBtn.classList.remove('recording');
+      jaReadingPassageRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
+    }
     if (jaReadingTypingCursor) jaReadingTypingCursor.style.display = 'none';
 
     if (readingRecognition) {
@@ -484,6 +490,10 @@ const ReadingJaModule = (() => {
     if (jaReadingRecordBtn) {
       jaReadingRecordBtn.classList.add('recording');
       jaReadingRecordBtn.innerHTML = '⏹️ Đang nghe... Bấm để dừng';
+    }
+    if (jaReadingPassageRecordBtn) {
+      jaReadingPassageRecordBtn.classList.add('recording');
+      jaReadingPassageRecordBtn.innerHTML = '⏹️ Đang nghe... Bấm để dừng';
     }
     if (jaReadingSpokenBox) {
       jaReadingSpokenBox.classList.remove('match-success', 'match-retry');
@@ -576,10 +586,9 @@ const ReadingJaModule = (() => {
     if (jaReadingSpokenText) jaReadingSpokenText.textContent = `"${transcript}"`;
     if (jaReadingSpokenBox) jaReadingSpokenBox.classList.remove('is-recording');
 
-    const cleanTarget = item.ja.replace(/[\s\.\,\?\!、。]/g, '');
-    const cleanSpoken = transcript.replace(/[\s\.\,\?\!、。]/g, '');
-    const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken) ||
-                    (cleanTarget.length > 4 && cleanSpoken.length > 4 && cleanTarget.slice(0, 4) === cleanSpoken.slice(0, 4));
+    const isMatch = AppCore.isJapaneseMatch
+      ? AppCore.isJapaneseMatch(transcript, item.ja, item.romaji)
+      : (transcript.replace(/[\s\.\,\?\!、。]/g, '').includes(item.ja.replace(/[\s\.\,\?\!、。]/g, '')));
 
     if (isMatch) {
       if (jaReadingSpokenBox) jaReadingSpokenBox.classList.add('match-success');
@@ -713,17 +722,22 @@ const ReadingJaModule = (() => {
       readingRecognition.continuous = false;
       readingRecognition.interimResults = true; // Real-time trên iPhone
 
-      if (jaReadingRecordBtn) {
-        jaReadingRecordBtn.addEventListener('click', () => {
-          if (isReadingRecordingActive) {
-            stopReadingRecognition();
-            if (lastReadingTranscript && !hasEvaluatedReadingTurn) {
-              evaluateReadingSentence(lastReadingTranscript);
-            }
-          } else {
-            startReadingRecognition();
+      const handleJaRecordClick = () => {
+        if (isReadingRecordingActive) {
+          stopReadingRecognition();
+          if (lastReadingTranscript && !hasEvaluatedReadingTurn) {
+            evaluateReadingSentence(lastReadingTranscript);
           }
-        });
+        } else {
+          startReadingRecognition();
+        }
+      };
+
+      if (jaReadingRecordBtn) {
+        jaReadingRecordBtn.addEventListener('click', handleJaRecordClick);
+      }
+      if (jaReadingPassageRecordBtn) {
+        jaReadingPassageRecordBtn.addEventListener('click', handleJaRecordClick);
       }
 
       readingRecognition.onresult = (event) => {

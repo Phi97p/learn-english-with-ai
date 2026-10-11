@@ -10,12 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   SpeakingModule.init();
   JapaneseModule.init();
   ReadingJaModule.init();
+  ReadingEnModule.init();
   DialogueJaModule.init();
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();
   VocabModule.renderVocabScenarioSelect();
   SpeakingModule.renderSpkUnitSelect();
+  ReadingEnModule.renderReadingSelect();
   JapaneseModule.renderJaVocabScenarioSelect();
   JapaneseModule.renderJaSpkUnitSelect();
   ReadingJaModule.renderReadingSelect();
@@ -28,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstVocabKey = Object.keys(VOCAB_SCENARIOS_DATA || {})[0] || '';
   VocabModule.loadVocabScenario(firstVocabKey);
 
+  const firstEnReadingKey = Object.keys(EN_READING_PASSAGES_DATA || {})[0] || '';
+  ReadingEnModule.loadReadingPassage(firstEnReadingKey);
+
   const firstJaSpkKey = Object.keys(JA_SENTENCE_UNITS_DATA || {})[0] || '';
   const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || '';
   JapaneseModule.loadJaSpkUnit(firstJaSpkKey);
@@ -38,6 +43,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const firstDiaKey = Object.keys(JA_DIALOGUE_DATA || {})[0] || '';
   DialogueJaModule.loadDialogue(firstDiaKey);
-
-  VocabModule.loadFlashcard(0);
 });
