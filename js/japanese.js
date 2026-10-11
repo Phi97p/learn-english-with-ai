@@ -4,9 +4,9 @@
 
 const JapaneseModule = (() => {
   // State Tiếng Nhật
-  let currentJaSpkUnitKey = 'unit_1_greeting';
+  let currentJaSpkUnitKey = 'bai_1';
   let currentJaSpeakingIdx = 0;
-  let currentJaVocabScenario = 'vocab_1_greeting';
+  let currentJaVocabScenario = 'vocab_bai_1';
   let currentJaVocabIdx = 0;
   let userJaVocabData = null;
 
@@ -340,12 +340,18 @@ const JapaneseModule = (() => {
       opt.textContent = `${unit.icon || '🌸'} ${unit.title || k}`;
       jaSpkUnitSelect.appendChild(opt);
     });
+    if (!currentJaSpkUnitKey || !JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey]) {
+      currentJaSpkUnitKey = keys.includes('bai_1') ? 'bai_1' : keys[0];
+    }
     jaSpkUnitSelect.value = currentJaSpkUnitKey;
   }
 
   function loadJaSpkUnit(unitKey) {
     if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
     currentJaSpkUnitKey = unitKey;
+    if (jaSpkUnitSelect && jaSpkUnitSelect.value !== unitKey) {
+      jaSpkUnitSelect.value = unitKey;
+    }
     currentJaSpeakingIdx = 0;
     const unit = JA_SENTENCE_UNITS_DATA[unitKey];
     if (!unit || !unit.sentences || unit.sentences.length === 0) {
@@ -654,11 +660,17 @@ const JapaneseModule = (() => {
         jaVocabScenarioSelect.appendChild(opt);
       }
     });
+    if (!currentJaVocabScenario || !srcData[currentJaVocabScenario]) {
+      currentJaVocabScenario = keys.includes('vocab_bai_1') ? 'vocab_bai_1' : keys[0];
+    }
     jaVocabScenarioSelect.value = currentJaVocabScenario;
   }
 
   function loadJaVocabScenario(scenarioKey) {
     currentJaVocabScenario = scenarioKey;
+    if (jaVocabScenarioSelect && jaVocabScenarioSelect.value !== scenarioKey) {
+      jaVocabScenarioSelect.value = scenarioKey;
+    }
     currentJaVocabIdx = 0;
     const scenarioData = userJaVocabData ? userJaVocabData[scenarioKey] : null;
     if (!jaVocabChipsWrapper) return;
