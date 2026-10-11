@@ -144,7 +144,7 @@ const ReadingJaModule = (() => {
       const span = document.createElement('span');
       span.className = `reading-sentence-span ${idx === currentReadingSentenceIdx ? 'active' : ''}`;
       span.dataset.idx = idx;
-      span.innerHTML = `<span class="sentence-num-badge">${idx + 1}</span>${item.ja}`;
+      span.textContent = item.ja;
 
       span.addEventListener('click', () => {
         loadReadingSentence(idx);
