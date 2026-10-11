@@ -27,12 +27,7 @@
       </div>
 
       <nav class="nav-menu">
-        <button class="nav-item active" data-tab="chat">
-          <span class="icon">💬</span>
-          <span>Luyện phản xạ AI</span>
-          <span class="badge">Hot</span>
-        </button>
-        <button class="nav-item" data-tab="speaking">
+        <button class="nav-item active" data-tab="speaking">
           <span class="icon">🎙️</span>
           <span>Luyện nói & Phát âm</span>
         </button>
@@ -89,8 +84,8 @@
       <!-- Top header bar -->
       <header class="top-header">
         <div class="header-left">
-          <h1 id="page-title">Luyện phản xạ giao tiếp với Trợ lý Alex</h1>
-          <p id="page-subtitle">Tự tin đóng vai theo các tình huống đời sống thường gặp nhất</p>
+          <h1 id="page-title">Phòng luyện phát âm & Nhại giọng (Shadowing)</h1>
+          <p id="page-subtitle">Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu</p>
         </div>
         <div class="header-right">
           <button id="copy-summary-btn" class="header-btn" title="Sao chép bản tóm tắt học tập để gửi cho AI">📋 Sao chép cho AI</button>
@@ -98,44 +93,8 @@
         </div>
       </header>
 
-      <!-- TAB: AI ROLEPLAY CHAT -->
-      <section id="tab-chat" class="tab-pane active">
-        <div class="chat-container">
-          <div class="chat-header">
-            <div class="ai-avatar">👩</div>
-            <div class="ai-info">
-              <h3>Alex - Trợ lý luyện giao tiếp AI (Giọng Nữ)</h3>
-              <p>Alex sẽ trò chuyện thân thiện, kiên nhẫn và sửa lỗi cho bạn từng câu</p>
-            </div>
-            <div class="scenario-selector">
-              <label for="scenario-select">Chọn tình huống:</label>
-              <select id="scenario-select">
-                <option value="">(Chưa có bài hội thoại - Chờ nạp bài mới)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="chat-messages" id="chat-messages">
-            <!-- Injected by app.js -->
-          </div>
-
-          <!-- Suggested quick replies for beginner -->
-          <div class="quick-replies-container">
-            <div class="quick-replies-label">💡 Gợi ý câu trả lời phản xạ (Bấm để chọn hoặc nghe thử):</div>
-            <div class="quick-replies" id="quick-replies"></div>
-          </div>
-
-          <div class="chat-input-bar">
-            <input type="text" id="chat-input" placeholder="Gõ câu trả lời của bạn hoặc bấm nút gợi ý phía trên..." autocomplete="off">
-            <button id="chat-clear-btn" class="icon-btn clear-btn" title="Xóa câu vừa nói để nói lại">🗑️</button>
-            <button id="chat-mic-btn" class="icon-btn" title="Bấm để nói bằng giọng của bạn">🎙️</button>
-            <button id="chat-send-btn" class="send-btn">Gửi phản xạ 🚀</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- TAB 3: SPEAKING PRACTICE -->
-      <section id="tab-speaking" class="tab-pane">
+      <!-- TAB: SPEAKING PRACTICE -->
+      <section id="tab-speaking" class="tab-pane active">
         <div class="speaking-container">
 
           <!-- SPEAKING MODE SWITCHER -->
@@ -735,7 +694,6 @@
   <script src="data.js"></script>
   <script src="japanese_data.js"></script>
   <script src="js/core.js"></script>
-  <script src="js/chat.js"></script>
   <script src="js/vocab.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/japanese.js"></script>

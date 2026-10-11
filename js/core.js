@@ -7,7 +7,7 @@ const AppCore = (() => {
   const state = {
     speechSpeed: parseFloat(localStorage.getItem('speechSpeed') || '1.0'),
     voiceGender: localStorage.getItem('voiceGender') || 'female',
-    currentTab: 'chat',
+    currentTab: 'speaking',
     wordsLearnedCount: parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10),
     streakDays: parseInt(localStorage.getItem('streakDays') || '1', 10),
     currentLessonName: localStorage.getItem('currentLessonName') || 'Unit 1: Bạn Mới & Năm Học Mới (My New School - Lớp 6)',
@@ -197,10 +197,7 @@ const AppCore = (() => {
       pane.classList.toggle('active', pane.id === `tab-${tabId}`);
     });
 
-    if (tabId === 'chat') {
-      dom.pageTitle.textContent = 'Luyện phản xạ giao tiếp với Trợ lý Alex';
-      dom.pageSubtitle.textContent = 'Tự tin đóng vai theo các tình huống đời sống thường gặp nhất';
-    } else if (tabId === 'speaking') {
+    if (tabId === 'speaking') {
       dom.pageTitle.textContent = 'Phòng luyện phát âm & Nhại giọng (Shadowing)';
       dom.pageSubtitle.textContent = 'Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu';
     } else if (tabId === 'speaking-ja') {
