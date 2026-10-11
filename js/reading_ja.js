@@ -88,6 +88,13 @@ const ReadingJaModule = (() => {
     if (!jaReadingUnitSelect || typeof JA_READING_PASSAGES_DATA === 'undefined') return;
     jaReadingUnitSelect.innerHTML = '';
     const keys = Object.keys(JA_READING_PASSAGES_DATA);
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có đoạn văn - Chờ nạp bài)';
+      jaReadingUnitSelect.appendChild(opt);
+      return;
+    }
     keys.forEach(k => {
       const item = JA_READING_PASSAGES_DATA[k];
       const opt = document.createElement('option');
@@ -103,7 +110,16 @@ const ReadingJaModule = (() => {
     currentReadingKey = passageKey;
     currentReadingSentenceIdx = 0;
     const passage = JA_READING_PASSAGES_DATA[passageKey];
-    if (!passage) return;
+    if (!passage || !passage.sentences || passage.sentences.length === 0) {
+      if (jaReadingPassageTitle) jaReadingPassageTitle.textContent = 'CHƯA CÓ ĐOẠN VĂN';
+      if (jaReadingPassageTopic) jaReadingPassageTopic.textContent = 'Đang chờ nạp bài đọc hiểu mới...';
+      if (jaReadingPassageSentences) jaReadingPassageSentences.innerHTML = '<span style="color:var(--text-muted);padding:10px;">Chưa có đoạn văn nào trong danh sách.</span>';
+      if (jaReadingCategory) jaReadingCategory.textContent = 'CHƯA CÓ CÂU';
+      if (jaReadingPhraseJa) jaReadingPhraseJa.textContent = '(Chưa có câu đọc hiểu)';
+      if (jaReadingPhraseRomaji) jaReadingPhraseRomaji.textContent = '';
+      if (jaReadingPhraseVi) jaReadingPhraseVi.textContent = 'Hãy nạp dữ liệu bài đọc để bắt đầu luyện tập.';
+      return;
+    }
 
     if (jaReadingPassageTitle) jaReadingPassageTitle.textContent = `${passage.icon || '🌸'} ${passage.title}`;
     if (jaReadingPassageTopic) jaReadingPassageTopic.textContent = `Chủ đề: ${passage.topic || ''} • (${passage.sentences.length} câu liên kết)`;
@@ -135,7 +151,7 @@ const ReadingJaModule = (() => {
   function loadReadingSentence(idx) {
     if (typeof JA_READING_PASSAGES_DATA === 'undefined') return;
     const passage = JA_READING_PASSAGES_DATA[currentReadingKey];
-    if (!passage || !passage.sentences) return;
+    if (!passage || !passage.sentences || passage.sentences.length === 0) return;
     if (idx >= passage.sentences.length) idx = 0;
 
     currentReadingSentenceIdx = idx;

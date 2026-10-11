@@ -114,20 +114,9 @@ const JapaneseModule = (() => {
     } catch (e) {
       userJaVocabData = null;
     }
-    if (!userJaVocabData || Object.keys(userJaVocabData).length === 0 || !userJaVocabData.vocab_1_greeting) {
+    if (!userJaVocabData) {
       userJaVocabData = (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA)) : {};
       saveUserJaVocabData();
-    } else if (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined') {
-      let hasNewLessons = false;
-      for (const key of Object.keys(JA_VOCAB_SCENARIOS_DATA)) {
-        if (!userJaVocabData[key]) {
-          userJaVocabData[key] = JSON.parse(JSON.stringify(JA_VOCAB_SCENARIOS_DATA[key]));
-          hasNewLessons = true;
-        }
-      }
-      if (hasNewLessons) {
-        saveUserJaVocabData();
-      }
     }
   }
 
@@ -337,6 +326,13 @@ const JapaneseModule = (() => {
     if (!jaSpkUnitSelect || typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
     jaSpkUnitSelect.innerHTML = '';
     const keys = Object.keys(JA_SENTENCE_UNITS_DATA);
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có bài học - Chờ nạp bài)';
+      jaSpkUnitSelect.appendChild(opt);
+      return;
+    }
     keys.forEach(k => {
       const unit = JA_SENTENCE_UNITS_DATA[k];
       const opt = document.createElement('option');
@@ -352,7 +348,15 @@ const JapaneseModule = (() => {
     currentJaSpkUnitKey = unitKey;
     currentJaSpeakingIdx = 0;
     const unit = JA_SENTENCE_UNITS_DATA[unitKey];
-    if (!unit) return;
+    if (!unit || !unit.sentences || unit.sentences.length === 0) {
+      if (jaSpkCategory) jaSpkCategory.textContent = 'CHƯA CÓ BÀI HỌC';
+      if (jaSpkPhraseJa) jaSpkPhraseJa.textContent = '(Chưa có câu tiếng Nhật)';
+      if (jaSpkPhraseRomaji) jaSpkPhraseRomaji.textContent = '';
+      if (jaSpkPhraseVi) jaSpkPhraseVi.textContent = 'Hãy nạp dữ liệu bài học để bắt đầu luyện tập.';
+      if (jaSpkFeedback) jaSpkFeedback.innerHTML = '<div class="feedback-status">Đang chờ bạn nạp dữ liệu bài học mới...</div>';
+      if (jaSpkSentencesWrapper) jaSpkSentencesWrapper.innerHTML = '<div style="color:var(--text-muted);padding:12px;text-align:center;">Chưa có bài học nào trong danh sách.</div>';
+      return;
+    }
 
     renderJaSpkSentencesList();
     loadJaSpeakingChallenge(0);
@@ -416,7 +420,7 @@ const JapaneseModule = (() => {
   function loadJaSpeakingChallenge(idx) {
     if (typeof JA_SENTENCE_UNITS_DATA === 'undefined') return;
     const unit = JA_SENTENCE_UNITS_DATA[currentJaSpkUnitKey];
-    if (!unit || !unit.sentences) return;
+    if (!unit || !unit.sentences || unit.sentences.length === 0) return;
     if (idx >= unit.sentences.length) idx = 0;
 
     currentJaSpeakingIdx = idx;
@@ -634,6 +638,13 @@ const JapaneseModule = (() => {
     jaVocabScenarioSelect.innerHTML = '';
     const srcData = userJaVocabData || (typeof JA_VOCAB_SCENARIOS_DATA !== 'undefined' ? JA_VOCAB_SCENARIOS_DATA : {});
     const keys = Object.keys(srcData);
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có từ vựng - Chờ nạp bài)';
+      jaVocabScenarioSelect.appendChild(opt);
+      return;
+    }
     keys.forEach(k => {
       const item = srcData[k];
       if (item) {
@@ -650,16 +661,16 @@ const JapaneseModule = (() => {
     currentJaVocabScenario = scenarioKey;
     currentJaVocabIdx = 0;
     const scenarioData = userJaVocabData ? userJaVocabData[scenarioKey] : null;
-    if (!scenarioData || !jaVocabChipsWrapper) return;
+    if (!jaVocabChipsWrapper) return;
 
     jaVocabChipsWrapper.innerHTML = '';
 
-    if (!scenarioData.words || scenarioData.words.length === 0) {
-      jaVocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" hoặc "🔄 Khôi phục" nhé!</span>';
-      if (jaVocabCategory) jaVocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TRỐNG)`;
-      if (jaVocabWordJa) jaVocabWordJa.textContent = "Không có từ nào";
+    if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) {
+      jaVocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" để tự thêm từ vựng mới!</span>';
+      if (jaVocabCategory) jaVocabCategory.textContent = scenarioData ? `${scenarioData.title.toUpperCase()} (TRỐNG)` : 'CHƯA CÓ CHỦ ĐỀ TỪ VỰNG';
+      if (jaVocabWordJa) jaVocabWordJa.textContent = "Chưa có từ nào";
       if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = "";
-      if (jaVocabWordVi) jaVocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới hoặc '🔄 Khôi phục' để lấy lại từ mặc định.";
+      if (jaVocabWordVi) jaVocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới.";
       if (jaVocabWordTip) jaVocabWordTip.textContent = "";
       if (jaVocabFeedback) jaVocabFeedback.innerHTML = '<div class="feedback-status">Hãy thêm từ vựng để bắt đầu luyện nói!</div>';
       return;

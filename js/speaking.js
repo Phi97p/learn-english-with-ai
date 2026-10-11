@@ -257,6 +257,13 @@ const SpeakingModule = (() => {
     if (!spkUnitSelect || typeof SENTENCE_UNITS_DATA === 'undefined') return;
     spkUnitSelect.innerHTML = '';
     const keys = Object.keys(SENTENCE_UNITS_DATA);
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có bài học - Chờ nạp bài)';
+      spkUnitSelect.appendChild(opt);
+      return;
+    }
     keys.forEach(k => {
       const unit = SENTENCE_UNITS_DATA[k];
       const opt = document.createElement('option');
@@ -272,7 +279,15 @@ const SpeakingModule = (() => {
     currentSpkUnitKey = unitKey;
     currentSpeakingIdx = 0;
     const unit = SENTENCE_UNITS_DATA[unitKey];
-    if (!unit) return;
+    if (!unit || !unit.sentences || unit.sentences.length === 0) {
+      if (spkCategory) spkCategory.textContent = 'CHƯA CÓ BÀI HỌC';
+      if (spkPhraseEn) spkPhraseEn.textContent = '(Chưa có dữ liệu bài học)';
+      if (spkPhraseIpa) spkPhraseIpa.textContent = '';
+      if (spkPhraseVi) spkPhraseVi.textContent = 'Hãy nạp dữ liệu bài học để bắt đầu luyện tập.';
+      if (spkFeedback) spkFeedback.innerHTML = '<div class="feedback-status">Đang chờ bạn nạp dữ liệu bài học mới...</div>';
+      if (spkSentencesWrapper) spkSentencesWrapper.innerHTML = '<div style="color:var(--text-muted);padding:12px;text-align:center;">Chưa có bài học nào trong danh sách.</div>';
+      return;
+    }
 
     renderSpkSentencesList();
     loadSpeakingChallenge(0);
@@ -336,7 +351,7 @@ const SpeakingModule = (() => {
   function loadSpeakingChallenge(idx) {
     if (typeof SENTENCE_UNITS_DATA === 'undefined') return;
     const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
-    if (!unit || !unit.sentences) return;
+    if (!unit || !unit.sentences || unit.sentences.length === 0) return;
     if (idx >= unit.sentences.length) idx = 0;
 
     currentSpeakingIdx = idx;

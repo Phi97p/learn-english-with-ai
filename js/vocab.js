@@ -84,7 +84,7 @@ const VocabModule = (() => {
     } catch (e) {
       userVocabData = null;
     }
-    if (!userVocabData || !userVocabData.my_new_school) {
+    if (!userVocabData) {
       userVocabData = (typeof VOCAB_SCENARIOS_DATA !== 'undefined') ? JSON.parse(JSON.stringify(VOCAB_SCENARIOS_DATA)) : {};
       saveUserVocabData();
     }
@@ -99,6 +99,13 @@ const VocabModule = (() => {
     vocabScenarioSelect.innerHTML = '';
     const srcData = userVocabData || (typeof VOCAB_SCENARIOS_DATA !== 'undefined' ? VOCAB_SCENARIOS_DATA : {});
     const keys = Object.keys(srcData);
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có từ vựng - Chờ nạp bài)';
+      vocabScenarioSelect.appendChild(opt);
+      return;
+    }
     keys.forEach(k => {
       const item = srcData[k];
       if (item) {
@@ -115,16 +122,16 @@ const VocabModule = (() => {
     currentVocabScenario = scenarioKey;
     currentVocabIdx = 0;
     const scenarioData = userVocabData ? userVocabData[scenarioKey] : null;
-    if (!scenarioData || !vocabChipsWrapper) return;
+    if (!vocabChipsWrapper) return;
 
     vocabChipsWrapper.innerHTML = '';
 
-    if (!scenarioData.words || scenarioData.words.length === 0) {
-      vocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" hoặc "🔄 Khôi phục" nhé!</span>';
-      if (vocabCategory) vocabCategory.textContent = `${scenarioData.title.toUpperCase()} (TRỐNG)`;
-      if (vocabWordEn) vocabWordEn.textContent = "Không có từ nào";
-      if (vocabWordIpa) vocabWordIpa.textContent = "Bạn đã loại bỏ hết từ trong danh sách này.";
-      if (vocabWordVi) vocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới hoặc '🔄 Khôi phục' để lấy lại từ mặc định.";
+    if (!scenarioData || !scenarioData.words || scenarioData.words.length === 0) {
+      vocabChipsWrapper.innerHTML = '<span style="color:var(--text-muted);font-size:0.85rem;padding:6px 0;">Danh sách trống. Hãy bấm "➕ Thêm từ" để tự thêm từ vựng mới!</span>';
+      if (vocabCategory) vocabCategory.textContent = scenarioData ? `${scenarioData.title.toUpperCase()} (TRỐNG)` : 'CHƯA CÓ CHỦ ĐỀ TỪ VỰNG';
+      if (vocabWordEn) vocabWordEn.textContent = "Chưa có từ nào";
+      if (vocabWordIpa) vocabWordIpa.textContent = "";
+      if (vocabWordVi) vocabWordVi.textContent = "Bấm nút '➕ Thêm từ' ở trên để tự thêm từ vựng mới.";
       if (vocabWordTip) vocabWordTip.textContent = "";
       if (vocabFeedback) vocabFeedback.innerHTML = '<div class="feedback-status">Hãy thêm từ vựng để bắt đầu luyện nói!</div>';
       return;
@@ -199,7 +206,18 @@ const VocabModule = (() => {
 
   // Flashcards
   function loadFlashcard(idx) {
-    if (!flashcard || typeof FLASHCARDS_ITEMS === 'undefined' || !FLASHCARDS_ITEMS[idx]) return;
+    if (!flashcard || typeof FLASHCARDS_ITEMS === 'undefined') return;
+    if (FLASHCARDS_ITEMS.length === 0) {
+      flashcard.classList.remove('flipped');
+      if (fcCategory) fcCategory.textContent = "CHƯA CÓ THẺ";
+      if (fcWord) fcWord.textContent = "Chưa có từ vựng";
+      if (fcPhonetic) fcPhonetic.textContent = "";
+      if (fcMeaning) fcMeaning.textContent = "Đang chờ bạn nạp từ vựng mới...";
+      if (fcEasyRead) fcEasyRead.textContent = "";
+      if (fcCounter) fcCounter.textContent = "0 / 0";
+      return;
+    }
+    if (!FLASHCARDS_ITEMS[idx]) return;
     const item = FLASHCARDS_ITEMS[idx];
     flashcard.classList.remove('flipped');
 

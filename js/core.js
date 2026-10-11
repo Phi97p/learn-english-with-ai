@@ -235,11 +235,25 @@ const AppCore = (() => {
 
   function updateStatsDisplay() {
     if (dom.streakCountEl) dom.streakCountEl.textContent = `${state.streakDays} Ngày`;
-    if (dom.wordsLearnedEl) dom.wordsLearnedEl.textContent = `${state.wordsLearnedCount} / 40`;
+    if (dom.wordsLearnedEl) dom.wordsLearnedEl.textContent = `${state.wordsLearnedCount} Mẫu câu`;
   }
 
   // 7. Khởi tạo Core listeners
   function init() {
+    // Tự động xóa sạch tiến độ học cũ từ phiên bản trước
+    const dataVersion = 'v_cleared_clean_slate';
+    if (localStorage.getItem('dataVersion') !== dataVersion) {
+      localStorage.removeItem('userVocabData');
+      localStorage.removeItem('userJaVocabData');
+      localStorage.removeItem('wordsLearnedCount');
+      localStorage.removeItem('spokenSentences');
+      localStorage.removeItem('currentLessonName');
+      localStorage.removeItem('chatHistory');
+      localStorage.setItem('dataVersion', dataVersion);
+      state.wordsLearnedCount = 0;
+      state.spokenSentences = [];
+    }
+
     initDOM();
 
     // Voice voiceschanged hook

@@ -19,16 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
   JapaneseModule.renderJaSpkUnitSelect();
   ReadingJaModule.renderReadingSelect();
 
-  // 3. Tải nội dung bài học mặc định
-  VocabModule.loadVocabScenario('my_new_school');
-  SpeakingModule.loadSpkUnit('unit_1_my_new_school');
+  // 3. Tải nội dung bài học mặc định (nếu có dữ liệu)
+  const firstSpkKey = Object.keys(SENTENCE_UNITS_DATA || {})[0] || '';
+  SpeakingModule.loadSpkUnit(firstSpkKey);
 
-  const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || 'vocab_1_greeting';
-  const firstJaSpkKey = Object.keys(JA_SENTENCE_UNITS_DATA || {})[0] || 'unit_1_greeting';
-  JapaneseModule.loadJaVocabScenario(firstJaVocabKey);
+  const firstVocabKey = Object.keys(VOCAB_SCENARIOS_DATA || {})[0] || '';
+  VocabModule.loadVocabScenario(firstVocabKey);
+
+  const firstJaSpkKey = Object.keys(JA_SENTENCE_UNITS_DATA || {})[0] || '';
+  const firstJaVocabKey = Object.keys(JA_VOCAB_SCENARIOS_DATA || {})[0] || '';
   JapaneseModule.loadJaSpkUnit(firstJaSpkKey);
+  JapaneseModule.loadJaVocabScenario(firstJaVocabKey);
 
-  const firstReadingKey = Object.keys(JA_READING_PASSAGES_DATA || {})[0] || 'reading_1_intro';
+  const firstReadingKey = Object.keys(JA_READING_PASSAGES_DATA || {})[0] || '';
   ReadingJaModule.loadReadingPassage(firstReadingKey);
 
   VocabModule.loadFlashcard(0);
