@@ -340,7 +340,7 @@ const VocabModule = (() => {
       vocabRecognition = new SpeechRecognition();
       vocabRecognition.lang = 'en-US';
       vocabRecognition.continuous = false;
-      vocabRecognition.interimResults = false;
+      vocabRecognition.interimResults = true;
 
       if (vocabRecordBtn) {
         vocabRecordBtn.addEventListener('click', () => {
@@ -368,50 +368,67 @@ const VocabModule = (() => {
       }
 
       vocabRecognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript.trim();
+        let interimTranscript = '';
+        let finalTranscript = '';
+
+        for (let i = 0; i < event.results.length; ++i) {
+          const res = event.results[i];
+          if (res.isFinal) {
+            finalTranscript += res[0].transcript;
+          } else {
+            interimTranscript += res[0].transcript;
+          }
+        }
+
+        const currentText = (finalTranscript || interimTranscript).trim();
+        if (currentText && vocabSpokenText) {
+          vocabSpokenText.textContent = `"${currentText}"`;
+        }
+
+        if (!finalTranscript) return;
+
+        const transcript = finalTranscript.trim();
         const scenarioData = userVocabData ? userVocabData[currentVocabScenario] : null;
         if (!scenarioData || !scenarioData.words || !scenarioData.words[currentVocabIdx]) return;
         const item = scenarioData.words[currentVocabIdx];
 
-        AppCore.animateTypewriter(vocabSpokenText, vocabTypingCursor, `"${transcript}"`, () => {
-          if (vocabSpokenBox) vocabSpokenBox.classList.remove('is-recording');
+        if (vocabSpokenBox) vocabSpokenBox.classList.remove('is-recording');
 
-          const cleanTarget = item.word.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const cleanSpoken = transcript.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken);
+        const cleanTarget = item.word.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const cleanSpoken = transcript.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken);
 
-          if (isMatch) {
-            if (vocabSpokenBox) vocabSpokenBox.classList.add('match-success');
-            if (vocabSpokenBadge) vocabSpokenBadge.textContent = '✅ Phát âm rất chuẩn!';
-            if (vocabFeedback) {
-              vocabFeedback.innerHTML = `
-                <div class="feedback-success">
-                  🎉 Tuyệt vời! Bạn phát âm từ "<strong>${item.word}</strong>" rất chuẩn xác!<br>
-                  <small style="opacity:0.9;">Hệ thống nhận diện được: "<em>${transcript}</em>"</small>
-                </div>
-              `;
-            }
-            AppCore.incrementWordCount();
-            AppCore.state.spokenSentences.push({
-              en: `[Từ vựng] ${item.word}`,
-              time: new Date().toLocaleTimeString('vi-VN')
-            });
-            if (AppCore.state.spokenSentences.length > 30) AppCore.state.spokenSentences.shift();
-            AppCore.syncProgress();
-          } else {
-            if (vocabSpokenBox) vocabSpokenBox.classList.add('match-retry');
-            if (vocabSpokenBadge) vocabSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm';
-            if (vocabFeedback) {
-              vocabFeedback.innerHTML = `
-                <div class="feedback-retry">
-                  💡 Bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-                  Từ mẫu cần đọc: "<strong>${item.word}</strong>" ${item.easyRead ? `(${item.easyRead})` : ''}.<br>
-                  <small>👉 Bấm "Nghe phát âm từ mẫu" để nghe lại khẩu hình, rồi bấm micro thử lại nhé!</small>
-                </div>
-              `;
-            }
+        if (isMatch) {
+          if (vocabSpokenBox) vocabSpokenBox.classList.add('match-success');
+          if (vocabSpokenBadge) vocabSpokenBadge.textContent = '✅ Phát âm rất chuẩn!';
+          if (vocabFeedback) {
+            vocabFeedback.innerHTML = `
+              <div class="feedback-success">
+                🎉 Tuyệt vời! Bạn phát âm từ "<strong>${item.word}</strong>" rất chuẩn xác!<br>
+                <small style="opacity:0.9;">AI nhận diện được: "<em>${transcript}</em>"</small>
+              </div>
+            `;
           }
-        });
+          AppCore.incrementWordCount();
+          AppCore.state.spokenSentences.push({
+            en: `[Từ vựng] ${item.word}`,
+            time: new Date().toLocaleTimeString('vi-VN')
+          });
+          if (AppCore.state.spokenSentences.length > 30) AppCore.state.spokenSentences.shift();
+          AppCore.syncProgress();
+        } else {
+          if (vocabSpokenBox) vocabSpokenBox.classList.add('match-retry');
+          if (vocabSpokenBadge) vocabSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm';
+          if (vocabFeedback) {
+            vocabFeedback.innerHTML = `
+              <div class="feedback-retry">
+                💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
+                Từ mẫu cần đọc: "<strong>${item.word}</strong>" ${item.easyRead ? `(${item.easyRead})` : ''}.<br>
+                <small>👉 Bấm "Nghe phát âm từ mẫu" để nghe lại khẩu hình, rồi bấm micro thử lại nhé!</small>
+              </div>
+            `;
+          }
+        }
       };
 
       vocabRecognition.onend = () => {
@@ -424,6 +441,23 @@ const VocabModule = (() => {
           if (vocabSpokenBadge && vocabSpokenBadge.textContent.includes('Đang lắng nghe')) {
             vocabSpokenBadge.textContent = 'Đã kết thúc thu âm';
           }
+        }
+      };
+
+      vocabRecognition.onerror = (e) => {
+        console.warn('Vocab recognition error:', e.error);
+        if (vocabRecordBtn) {
+          vocabRecordBtn.classList.remove('recording');
+          vocabRecordBtn.innerHTML = '🎙️ Bấm để nói từ này';
+        }
+        if (vocabSpokenBox) vocabSpokenBox.classList.remove('is-recording');
+
+        if (e.error === 'no-speech') {
+          if (vocabFeedback) vocabFeedback.innerHTML = '<div class="feedback-error">⚠️ Không nhận được tiếng nói. Đọc to hơn nhé!</div>';
+        } else if (e.error === 'not-allowed') {
+          if (vocabFeedback) vocabFeedback.innerHTML = '<div class="feedback-error">⚠️ Cần cấp quyền Mic trong Safari (Cài đặt > Safari > Micrô).</div>';
+        } else if (e.error === 'service-not-allowed') {
+          if (vocabFeedback) vocabFeedback.innerHTML = '<div class="feedback-error">⚠️ Trên iPhone cần bật: Cài đặt > Cài đặt chung > Bàn phím > Bật đọc chính tả.</div>';
         }
       };
     }

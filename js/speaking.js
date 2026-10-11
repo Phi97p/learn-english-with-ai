@@ -16,6 +16,11 @@ const SpeakingModule = (() => {
   let isLabRecordingActive = false;
   let labRecognition = null;
 
+  let isUserRecordingActive = false;
+  let spkUserRecBtn = null;
+  let lastTranscript = '';
+  let hasEvaluatedCurrentTurn = false;
+
   // DOM Elements
   let spkUnitSelect, spkCategory, spkPhraseEn, spkPhraseIpa, spkPhraseVi;
   let spkListenBtn, spkRecordBtn, spkPrevBtn, spkNextBtn, spkFeedback, spkSentencesWrapper;
@@ -32,6 +37,7 @@ const SpeakingModule = (() => {
     spkPhraseVi = document.getElementById('spk-phrase-vi');
     spkListenBtn = document.getElementById('spk-listen-btn');
     spkRecordBtn = document.getElementById('spk-record-btn');
+    spkUserRecBtn = document.getElementById('spk-user-rec-btn');
     spkPrevBtn = document.getElementById('spk-prev-btn');
     spkNextBtn = document.getElementById('spk-next-btn');
     spkFeedback = document.getElementById('spk-feedback');
@@ -366,13 +372,29 @@ const SpeakingModule = (() => {
     if (spkTypingCursor) spkTypingCursor.style.display = 'none';
   }
 
-  function stopLabRecording() {
+  // DỪNG CÁC TIẾN TRÌNH
+  function stopLabRecognition() {
     if (!isLabRecordingActive) return;
     isLabRecordingActive = false;
 
     if (spkRecordBtn) {
       spkRecordBtn.classList.remove('recording');
-      spkRecordBtn.textContent = '🎙️ Bấm để nói thử';
+      spkRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
+    }
+    if (spkTypingCursor) spkTypingCursor.style.display = 'none';
+
+    if (labRecognition) {
+      try { labRecognition.stop(); } catch (e) {}
+    }
+  }
+
+  function stopUserAudioRecording() {
+    if (!isUserRecordingActive) return;
+    isUserRecordingActive = false;
+
+    if (spkUserRecBtn) {
+      spkUserRecBtn.classList.remove('recording');
+      spkUserRecBtn.innerHTML = '🎙️ Thu âm nghe lại';
     }
 
     if (labMediaRecorder && labMediaRecorder.state !== 'inactive') {
@@ -382,39 +404,66 @@ const SpeakingModule = (() => {
       labMediaStream.getTracks().forEach(track => track.stop());
       labMediaStream = null;
     }
-    if (labRecognition) {
-      try { labRecognition.stop(); } catch (e) {}
-    }
   }
 
-  function startLabRecording() {
+  // 1. NHẬN DIỆN & CHẤM ĐIỂM (100% Micro cho SpeechRecognition, không bị iOS Safari khóa)
+  function startLabRecognition() {
     stopUserAudioPlayback();
+    stopUserAudioRecording();
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
 
     isLabRecordingActive = true;
-    labAudioChunks = [];
+    lastTranscript = '';
+    hasEvaluatedCurrentTurn = false;
 
     if (spkRecordBtn) {
       spkRecordBtn.classList.add('recording');
-      spkRecordBtn.textContent = '⏹️ Đang thu âm & nghe... Bấm để dừng';
+      spkRecordBtn.innerHTML = '⏹️ Đang nghe... Bấm để dừng';
     }
     if (spkSpokenBox) {
       spkSpokenBox.classList.remove('match-success', 'match-retry');
       spkSpokenBox.classList.add('is-recording');
     }
-    if (spkSpokenBadge) spkSpokenBadge.textContent = '🔴 Micro đang thu âm... Hãy đọc to câu tiếng Anh!';
+    if (spkSpokenBadge) spkSpokenBadge.textContent = '🔴 Đang lắng nghe... Hãy đọc to câu tiếng Anh!';
     if (spkSpokenText) spkSpokenText.textContent = '...';
     if (spkTypingCursor) spkTypingCursor.style.display = 'inline-block';
     if (spkFeedback) {
-      spkFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to câu tiếng Anh vào micro... Nói rõ ràng từng âm tiết nhé!</div>';
+      spkFeedback.innerHTML = '<div class="feedback-status">Đang lắng nghe giọng bạn qua micro... Nói rõ ràng từng âm tiết nhé!</div>';
     }
 
-    // Khởi động MediaRecorder
+    if (labRecognition) {
+      try {
+        labRecognition.start();
+      } catch (e) {
+        console.warn('SpeechRecognition start error:', e);
+      }
+    }
+  }
+
+  // 2. GHI ÂM NGHE LẠI GIỌNG MÌNH (Dành riêng cho MediaRecorder)
+  function startUserAudioRecording() {
+    stopUserAudioPlayback();
+    stopLabRecognition();
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    isUserRecordingActive = true;
+    labAudioChunks = [];
+
+    if (spkUserRecBtn) {
+      spkUserRecBtn.classList.add('recording');
+      spkUserRecBtn.innerHTML = '⏹️ Đang thu âm... Bấm để dừng';
+    }
+    if (spkFeedback) {
+      spkFeedback.innerHTML = '<div class="feedback-status">🎙️ Đang ghi âm giọng đọc của bạn để lưu lại... Bấm dừng khi đọc xong nhé!</div>';
+    }
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
-        if (!isLabRecordingActive) {
+        if (!isUserRecordingActive) {
           stream.getTracks().forEach(t => t.stop());
           return;
         }
@@ -433,21 +482,70 @@ const SpeakingModule = (() => {
             const mime = labMediaRecorder.mimeType || 'audio/webm';
             const audioBlob = new Blob(labAudioChunks, { type: mime });
             saveTempRecording(currentSpeakingIdx, audioBlob);
+            if (spkFeedback) {
+              spkFeedback.innerHTML = '<div class="feedback-success">✨ Đã lưu bản ghi âm! Bạn có thể bấm <strong>"▶️ Nghe lại giọng bạn"</strong> để tự đối chiếu.</div>';
+            }
           }
         };
 
         labMediaRecorder.start();
       }).catch(err => {
-        console.warn('Không thể khởi động ghi âm thực tế micro:', err);
+        console.warn('Lỗi mở micro ghi âm:', err);
+        stopUserAudioRecording();
+        if (spkFeedback) {
+          spkFeedback.innerHTML = '<div class="feedback-error">⚠️ Không thể truy cập micro. Vui lòng cấp quyền trong cài đặt trình duyệt.</div>';
+        }
       });
     }
+  }
 
-    // Khởi động SpeechRecognition
-    if (labRecognition) {
-      try {
-        labRecognition.start();
-      } catch (e) {
-        console.warn('SpeechRecognition đã chạy hoặc lỗi start:', e);
+  // ĐÁNH GIÁ PHÁT ÂM CÂU
+  function evaluateSpokenSentence(transcript) {
+    if (hasEvaluatedCurrentTurn) return;
+    hasEvaluatedCurrentTurn = true;
+    stopLabRecognition();
+
+    const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
+    if (!unit || !unit.sentences || !unit.sentences[currentSpeakingIdx]) return;
+    const item = unit.sentences[currentSpeakingIdx];
+
+    if (spkSpokenText) spkSpokenText.textContent = `"${transcript}"`;
+    if (spkSpokenBox) spkSpokenBox.classList.remove('is-recording');
+
+    const cleanTarget = item.en.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const cleanSpoken = transcript.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken) ||
+                    (cleanTarget.length > 5 && cleanSpoken.length > 5 && (cleanTarget.slice(0, 5) === cleanSpoken.slice(0, 5)));
+
+    if (isMatch) {
+      if (spkSpokenBox) spkSpokenBox.classList.add('match-success');
+      if (spkSpokenBadge) spkSpokenBadge.textContent = '✅ Đã nhận diện & Phát âm rất chuẩn!';
+      if (spkFeedback) {
+        spkFeedback.innerHTML = `
+          <div class="feedback-success">
+            🎉 Tuyệt vời! Bạn phát âm câu trong "<strong>${unit.title}</strong>" rất chuẩn xác!<br>
+            <small style="opacity:0.9;">AI nhận diện được: "<em>${transcript}</em>"</small>
+          </div>
+        `;
+      }
+      AppCore.incrementWordCount();
+      AppCore.state.spokenSentences.push({
+        en: item.en,
+        time: new Date().toLocaleTimeString('vi-VN')
+      });
+      if (AppCore.state.spokenSentences.length > 30) AppCore.state.spokenSentences.shift();
+      AppCore.syncProgress();
+    } else {
+      if (spkSpokenBox) spkSpokenBox.classList.add('match-retry');
+      if (spkSpokenBadge) spkSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm';
+      if (spkFeedback) {
+        spkFeedback.innerHTML = `
+          <div class="feedback-retry">
+            💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
+            Câu mẫu: "<strong>${item.en}</strong>" <em>(${item.readVi})</em>.<br>
+            <small>👉 Hãy đọc to, rõ từng âm tiết và bấm nút để thử lại nhé!</small>
+          </div>
+        `;
       }
     }
   }
@@ -506,7 +604,8 @@ const SpeakingModule = (() => {
         if (typeof SENTENCE_UNITS_DATA === 'undefined') return;
         const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
         if (!unit || !unit.sentences) return;
-        stopLabRecording();
+        stopLabRecognition();
+        stopUserAudioRecording();
         currentSpeakingIdx = (currentSpeakingIdx - 1 + unit.sentences.length) % unit.sentences.length;
         loadSpeakingChallenge(currentSpeakingIdx);
       });
@@ -517,90 +616,100 @@ const SpeakingModule = (() => {
         if (typeof SENTENCE_UNITS_DATA === 'undefined') return;
         const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
         if (!unit || !unit.sentences) return;
-        stopLabRecording();
+        stopLabRecognition();
+        stopUserAudioRecording();
         currentSpeakingIdx = (currentSpeakingIdx + 1) % unit.sentences.length;
         loadSpeakingChallenge(currentSpeakingIdx);
       });
     }
 
-    // MediaRecorder & SpeechRecognition
+    // Nút Thu âm nghe lại giọng mình
+    if (spkUserRecBtn) {
+      spkUserRecBtn.addEventListener('click', () => {
+        if (isUserRecordingActive) {
+          stopUserAudioRecording();
+        } else {
+          startUserAudioRecording();
+        }
+      });
+    }
+
+    // Nhận diện giọng nói AI
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       labRecognition = new SpeechRecognition();
       labRecognition.lang = 'en-US';
       labRecognition.continuous = false;
-      labRecognition.interimResults = false;
+      labRecognition.interimResults = true; // Hiển thị chữ real-time trên iPhone
 
       if (spkRecordBtn) {
         spkRecordBtn.addEventListener('click', () => {
           if (isLabRecordingActive) {
-            stopLabRecording();
+            stopLabRecognition();
+            if (lastTranscript && !hasEvaluatedCurrentTurn) {
+              evaluateSpokenSentence(lastTranscript);
+            }
           } else {
-            startLabRecording();
+            startLabRecognition();
           }
         });
       }
 
       labRecognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript.trim();
-        const unit = SENTENCE_UNITS_DATA[currentSpkUnitKey];
-        if (!unit || !unit.sentences || !unit.sentences[currentSpeakingIdx]) return;
-        const item = unit.sentences[currentSpeakingIdx];
+        let interimTranscript = '';
+        let finalTranscript = '';
 
-        AppCore.animateTypewriter(spkSpokenText, spkTypingCursor, `"${transcript}"`, () => {
-          stopLabRecording();
-
-          const cleanTarget = item.en.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const cleanSpoken = transcript.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const isMatch = cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken) ||
-                          (cleanTarget.length > 5 && cleanSpoken.length > 5 && (cleanTarget.slice(0, 5) === cleanSpoken.slice(0, 5)));
-
-          if (isMatch) {
-            if (spkSpokenBox) spkSpokenBox.classList.add('match-success');
-            if (spkSpokenBadge) spkSpokenBadge.textContent = '✅ Đã ghi nhận giọng bạn & Phát âm rất chuẩn!';
-            if (spkFeedback) {
-              spkFeedback.innerHTML = `
-                <div class="feedback-success">
-                  🎉 Tuyệt vời! Bạn phát âm câu trong "<strong>${unit.title}</strong>" rất chuẩn xác!<br>
-                  <small style="opacity:0.9;">Hệ thống nhận diện được: "<em>${transcript}</em>"</small><br>
-                  <small style="color:var(--accent-cyan);margin-top:4px;display:inline-block;">🎙️ Đã lưu giọng đọc tạm thời của bạn. Bạn có thể bấm <strong>"▶️ Nghe lại giọng bạn"</strong> để nghe thử!</small>
-                </div>
-              `;
-            }
-            AppCore.incrementWordCount();
-            AppCore.state.spokenSentences.push({
-              en: item.en,
-              time: new Date().toLocaleTimeString('vi-VN')
-            });
-            if (AppCore.state.spokenSentences.length > 30) AppCore.state.spokenSentences.shift();
-            AppCore.syncProgress();
+        for (let i = 0; i < event.results.length; ++i) {
+          const res = event.results[i];
+          if (res.isFinal) {
+            finalTranscript += res[0].transcript;
           } else {
-            if (spkSpokenBox) spkSpokenBox.classList.add('match-retry');
-            if (spkSpokenBadge) spkSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm (Đã lưu giọng bạn)';
-            if (spkFeedback) {
-              spkFeedback.innerHTML = `
-                <div class="feedback-retry">
-                  💡 Bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-                  Câu mẫu: "<strong>${item.en}</strong>" <em>(${item.readVi})</em>.<br>
-                  <small>👉 Giọng bạn đã được thu âm lại. Bấm <strong>"▶️ Nghe lại giọng bạn"</strong> để tự đối chiếu với giọng mẫu của người bản ngữ nhé!</small>
-                </div>
-              `;
-            }
+            interimTranscript += res[0].transcript;
           }
-        });
+        }
+
+        const currentText = (finalTranscript || interimTranscript).trim();
+        if (currentText) {
+          lastTranscript = currentText;
+          if (spkSpokenText) spkSpokenText.textContent = `"${currentText}"`;
+          if (spkSpokenBadge) spkSpokenBadge.textContent = '🎙️ Đang nghe giọng bạn...';
+        }
+
+        if (finalTranscript) {
+          evaluateSpokenSentence(finalTranscript.trim());
+        }
       };
 
       labRecognition.onend = () => {
         if (isLabRecordingActive) {
-          stopLabRecording();
+          stopLabRecognition();
+          if (lastTranscript && !hasEvaluatedCurrentTurn) {
+            evaluateSpokenSentence(lastTranscript);
+          } else if (!hasEvaluatedCurrentTurn) {
+            if (spkSpokenBadge) spkSpokenBadge.textContent = 'Đã kết thúc lượt nghe';
+            if (spkSpokenBox) spkSpokenBox.classList.remove('is-recording');
+          }
         }
       };
 
       labRecognition.onerror = (e) => {
-        if (e.error !== 'no-speech') {
-          console.warn('Speaking recognition error:', e.error);
+        console.warn('Speaking recognition error:', e.error);
+        stopLabRecognition();
+        if (spkSpokenBox) spkSpokenBox.classList.remove('is-recording');
+
+        if (e.error === 'no-speech') {
+          if (spkFeedback) {
+            spkFeedback.innerHTML = '<div class="feedback-error">⚠️ Không nhận được tiếng nói. Bạn hãy đọc to hơn hoặc để gần micro hơn nhé!</div>';
+          }
+        } else if (e.error === 'not-allowed') {
+          if (spkFeedback) {
+            spkFeedback.innerHTML = '<div class="feedback-error">⚠️ Safari chưa được cấp quyền Mic. Hãy vào <strong>Cài đặt iPhone > Safari > Micrô</strong> và chọn <strong>Cho phép</strong>.</div>';
+          }
+        } else if (e.error === 'service-not-allowed') {
+          if (spkFeedback) {
+            spkFeedback.innerHTML = '<div class="feedback-error">⚠️ Trên iPhone cần bật: <strong>Cài đặt > Cài đặt chung > Bàn phím > Bật đọc chính tả (Enable Dictation)</strong>.</div>';
+          }
         }
-        stopLabRecording();
       };
     } else if (spkRecordBtn) {
       spkRecordBtn.title = 'Trình duyệt không hỗ trợ nhận diện giọng nói';
