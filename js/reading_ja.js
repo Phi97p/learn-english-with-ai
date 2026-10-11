@@ -4,7 +4,7 @@
 // ========================================================
 
 const ReadingJaModule = (() => {
-  let currentReadingKey = 'reading_1_intro';
+  let currentReadingKey = 'bai_1';
   let currentReadingSentenceIdx = 0;
 
   // Ghi âm tạm thời 3 câu
@@ -102,12 +102,18 @@ const ReadingJaModule = (() => {
       opt.textContent = `${item.icon || '📖'} ${item.title || k}`;
       jaReadingUnitSelect.appendChild(opt);
     });
+    if (!currentReadingKey || !JA_READING_PASSAGES_DATA[currentReadingKey]) {
+      currentReadingKey = keys.includes('bai_1') ? 'bai_1' : keys[0];
+    }
     jaReadingUnitSelect.value = currentReadingKey;
   }
 
   function loadReadingPassage(passageKey) {
     if (typeof JA_READING_PASSAGES_DATA === 'undefined') return;
     currentReadingKey = passageKey;
+    if (jaReadingUnitSelect && jaReadingUnitSelect.value !== passageKey) {
+      jaReadingUnitSelect.value = passageKey;
+    }
     currentReadingSentenceIdx = 0;
     const passage = JA_READING_PASSAGES_DATA[passageKey];
     if (!passage || !passage.sentences || passage.sentences.length === 0) {
