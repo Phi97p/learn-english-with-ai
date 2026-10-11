@@ -41,6 +41,11 @@
           <span>Đọc hiểu & Shadowing Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Đoạn văn</span>
         </button>
+        <button class="nav-item" data-tab="dialogue-ja">
+          <span class="icon">💬</span>
+          <span>Hội thoại Tiếng Nhật</span>
+          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
+        </button>
         <button class="nav-item" data-tab="flashcards">
           <span class="icon">🗂️</span>
           <span>Thẻ từ vựng (Flashcards)</span>
@@ -588,6 +593,116 @@
         </div>
       </section>
 
+      <!-- TAB: HỘI THOẠI ĐỐI THOẠI TIẾNG NHẬT (2 NGƯỜI) -->
+      <section id="tab-dialogue-ja" class="tab-pane">
+        <div class="dialogue-container">
+
+          <!-- TOOLBAR HEADER -->
+          <div class="speaking-header-card">
+            <div class="vocab-header-top">
+              <div>
+                <h2>💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)</h2>
+                <p>Thực hành phản xạ đối thoại theo vai (Tôi & Bạn tôi hoặc Tôi & AI) theo kịch bản Minna no Nihongo</p>
+              </div>
+              <div class="scenario-selector vocab-selector">
+                <div class="vocab-toolbar-actions">
+                  <label for="ja-dialogue-unit-select">Chọn Bài:</label>
+                  <select id="ja-dialogue-unit-select">
+                    <option value="bai_1">💬 Bài 1: 初めまして (Minna Kaiwa)</option>
+                  </select>
+
+                  <div class="dia-role-switcher">
+                    <span>🎭 Chế độ vai:</span>
+                    <select id="ja-dialogue-role-mode">
+                      <option value="duo">👥 Tôi & Bạn tôi (2 người luyện)</option>
+                      <option value="role_a">👤 Tôi vai A (佐藤) • AI vai B</option>
+                      <option value="role_b">👱‍♂️ Tôi vai B (ミラー/山田) • AI vai A</option>
+                    </select>
+                  </div>
+
+                  <button id="ja-dialogue-play-all-btn" class="reading-btn-all" title="Phát toàn bộ đoạn đối thoại">
+                    🔊 Phát toàn bộ hội thoại
+                  </button>
+                  <button id="ja-dialogue-reset-btn" class="btn-nav" title="Bắt đầu lại từ câu đầu tiên">
+                    🔄 Làm lại
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN 2-COLUMN LAYOUT -->
+          <div class="dialogue-layout">
+
+            <!-- CỘT TRÁI: DÒNG THỜI GIAN ĐỐI THOẠI (CHAT TIMELINE STREAM) -->
+            <div class="dialogue-timeline-panel">
+              <div class="dialogue-timeline-header">
+                <div class="dialogue-timeline-title">
+                  <span>📜</span>
+                  <span>Kịch Bản Đối Thoại (Bấm vào câu bất kỳ để chọn lượt)</span>
+                </div>
+              </div>
+
+              <div id="ja-dialogue-timeline">
+                <!-- Rendered dynamically by js/dialogue_ja.js -->
+              </div>
+            </div>
+
+            <!-- CỘT PHẢI: PHÒNG PHẢN XẠ & LUYỆN NÓI LƯỢT THOẠI HIỆN TẠI -->
+            <div class="speaking-challenge-card dialogue-focus-card" id="ja-dialogue-focus-card" style="margin: 0;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div id="ja-dia-speaker-avatar" style="font-size: 2rem; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; border: 2px solid var(--accent-cyan);">👩</div>
+                  <div>
+                    <div id="ja-dia-speaker-name" style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">佐藤 (Sato)</div>
+                    <div id="ja-dia-speaker-role" style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600;">👥 LƯỢT NGƯỜI A (Tôi) • (CÂU 1 / 6)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="challenge-phrase-en" id="ja-dia-phrase-ja" style="font-size: 1.75rem; letter-spacing: 0.03em;">
+                おはようございます。
+              </div>
+
+              <div class="challenge-phrase-ipa" id="ja-dia-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
+                Romaji: Ohayou gozaimasu. • Đọc tựa như: "Ô-ha-yô gô-zai-ma-xư."
+              </div>
+
+              <div class="challenge-phrase-vi" id="ja-dia-phrase-vi" style="font-size: 1.05rem; color: var(--text-muted);">
+                👉 Ý nghĩa: Chào buổi sáng ạ.
+              </div>
+
+              <div id="ja-dia-tip" style="font-size: 0.85rem; color: #a78bfa; margin-top: 6px; font-style: italic;">
+                💡 Mẹo ngữ cảnh: Lời chào buổi sáng lịch sự giữa đồng nghiệp trong công ty.
+              </div>
+
+              <!-- ACTIONS -->
+              <div class="speaking-actions" style="margin-top: 16px;">
+                <button class="btn-listen" id="ja-dia-listen-btn">🔊 Nghe câu này</button>
+                <button class="btn-record" id="ja-dia-record-btn">🎙️ Bấm để nói thử lượt này</button>
+                <button class="btn-nav" id="ja-dia-user-audio-btn">🎙️ Thu âm nghe lại giọng bạn</button>
+                <button class="btn-nav" id="ja-dia-prev-btn">◀ Lượt trước</button>
+                <button class="btn-next" id="ja-dia-next-btn">Lượt tiếp theo ➔</button>
+              </div>
+
+              <!-- SPOKEN RESULT BOX -->
+              <div class="spoken-result-box" id="ja-dia-spoken-box" style="margin-top: 14px;">
+                <div class="spoken-result-badge" id="ja-dia-spoken-badge">Đang chờ bạn nói câu này...</div>
+                <span class="spoken-result-text" id="ja-dia-spoken-text">"..."</span>
+                <span class="typing-cursor" id="ja-dia-typing-cursor" style="display: none;"></span>
+              </div>
+
+              <!-- FEEDBACK -->
+              <div class="speaking-feedback" id="ja-dia-feedback">
+                <div class="feedback-status">Hãy bấm <strong>"🔊 Nghe câu này"</strong> để làm quen ngữ điệu, sau đó bấm <strong>"🎙️ Bấm để nói thử lượt này"</strong> nhé!</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       <!-- TAB 4: FLASHCARDS -->
       <section id="tab-flashcards" class="tab-pane">
         <div class="flashcards-container">
@@ -693,6 +808,7 @@
   <script src="js/speaking.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
+  <script src="js/dialogue_ja.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

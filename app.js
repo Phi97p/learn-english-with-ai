@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   SpeakingModule.init();
   JapaneseModule.init();
   ReadingJaModule.init();
+  DialogueJaModule.init();
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   JapaneseModule.renderJaVocabScenarioSelect();
   JapaneseModule.renderJaSpkUnitSelect();
   ReadingJaModule.renderReadingSelect();
+  DialogueJaModule.renderDialogueSelect();
 
   // 3. Tải nội dung bài học mặc định (nếu có dữ liệu)
   const firstSpkKey = Object.keys(SENTENCE_UNITS_DATA || {})[0] || '';
@@ -33,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const firstReadingKey = Object.keys(JA_READING_PASSAGES_DATA || {})[0] || '';
   ReadingJaModule.loadReadingPassage(firstReadingKey);
+
+  const firstDiaKey = Object.keys(JA_DIALOGUE_DATA || {})[0] || '';
+  DialogueJaModule.loadDialogue(firstDiaKey);
 
   VocabModule.loadFlashcard(0);
 });

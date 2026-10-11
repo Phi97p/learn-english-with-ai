@@ -187,6 +187,9 @@ const AppCore = (() => {
     if (tabId !== 'reading-ja' && window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
       window.ReadingJaModule.clearAllReadingTempRecordings();
     }
+    if (tabId !== 'dialogue-ja' && window.DialogueJaModule && typeof window.DialogueJaModule.stopAllAudio === 'function') {
+      window.DialogueJaModule.stopAllAudio();
+    }
     state.currentTab = tabId;
     dom.navItems.forEach(nav => {
       nav.classList.toggle('active', nav.dataset.tab === tabId);
@@ -204,6 +207,9 @@ const AppCore = (() => {
     } else if (tabId === 'reading-ja') {
       dom.pageTitle.textContent = '📖 Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Nhật)';
       dom.pageSubtitle.textContent = 'Luyện ngữ điệu mạch lạc theo đoạn văn bản ngữ - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc nghe câu lẻ';
+    } else if (tabId === 'dialogue-ja') {
+      dom.pageTitle.textContent = '💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)';
+      dom.pageSubtitle.textContent = 'Luyện phản xạ giao tiếp đóng vai 2 người (Tôi & Bạn tôi / Tôi & AI) theo kịch bản Minna no Nihongo';
     } else if (tabId === 'flashcards') {
       dom.pageTitle.textContent = 'Sổ tay từ vựng & Mẫu câu thông dụng';
       dom.pageSubtitle.textContent = 'Lật thẻ ghi nhớ câu nói kèm phiên âm tiếng Việt dễ đọc';
