@@ -1,13 +1,15 @@
 // ========================================================
-// JS/VOCAB_JA.JS - Sổ Tay Từ Vựng Tiếng Nhật (Từ Khó)
-// Đọc trực tiếp từ file dữ liệu: japanese_data/vocab_data.js (JA_HARD_VOCAB_DATA)
-// Người dùng tự sửa trực tiếp trong file code khi cần thêm từ mới.
+// JS/VOCAB_JA.JS - Sổ Tay Từ Vựng Tiếng Nhật
+// Dữ liệu lấy từ: datasss/jp/vocab/voca.txt (nạp vào japanese_data/vocab_data.js)
+// Hỗ trợ chọn bài học (Unit/Bài) linh hoạt
 // ========================================================
 
 const VocabJaModule = (() => {
+  let currentUnitKey = 'bai_1';
   let currentIdx = 0;
 
   // DOM Elements
+  let jaVocabUnitSelect;
   let jaVocabCount;
   let jaVocabCard, jaVocabPrevBtn, jaVocabNextBtn;
   let jaVocabCategory, jaVocabWordJa, jaVocabWordRomaji, jaVocabWordVi;
@@ -20,13 +22,24 @@ const VocabJaModule = (() => {
   let isRecording = false;
 
   function getVocabList() {
+    if (typeof JA_VOCAB_DATA !== 'undefined' && JA_VOCAB_DATA[currentUnitKey] && Array.isArray(JA_VOCAB_DATA[currentUnitKey].words)) {
+      return JA_VOCAB_DATA[currentUnitKey].words;
+    }
     if (typeof JA_HARD_VOCAB_DATA !== 'undefined' && Array.isArray(JA_HARD_VOCAB_DATA)) {
       return JA_HARD_VOCAB_DATA;
     }
     return [];
   }
 
+  function getCurrentUnitTitle() {
+    if (typeof JA_VOCAB_DATA !== 'undefined' && JA_VOCAB_DATA[currentUnitKey]) {
+      return JA_VOCAB_DATA[currentUnitKey].title || currentUnitKey;
+    }
+    return 'BÀI 1: TỪ VỰNG TIẾNG NHẬT';
+  }
+
   function initDOM() {
+    jaVocabUnitSelect = document.getElementById('ja-vocab-unit-select');
     jaVocabCount = document.getElementById('ja-vocab-count');
 
     jaVocabCard = document.getElementById('ja-vocab-card');
@@ -51,6 +64,35 @@ const VocabJaModule = (() => {
     jaVocabListWrapper = document.getElementById('ja-vocab-list-wrapper');
   }
 
+  function populateUnitSelect() {
+    if (!jaVocabUnitSelect || typeof JA_VOCAB_DATA === 'undefined') return;
+    jaVocabUnitSelect.innerHTML = '';
+    const keys = Object.keys(JA_VOCAB_DATA);
+
+    if (keys.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = '';
+      opt.textContent = '(Chưa có bài học - Hãy nạp bài)';
+      jaVocabUnitSelect.appendChild(opt);
+      return;
+    }
+
+    const savedKey = localStorage.getItem('ja_vocab_current_unit');
+    if (savedKey && JA_VOCAB_DATA[savedKey]) {
+      currentUnitKey = savedKey;
+    } else if (!JA_VOCAB_DATA[currentUnitKey]) {
+      currentUnitKey = keys[0];
+    }
+
+    keys.forEach(k => {
+      const opt = document.createElement('option');
+      opt.value = k;
+      opt.textContent = `🌸 ${JA_VOCAB_DATA[k].title || k}`;
+      if (k === currentUnitKey) opt.selected = true;
+      jaVocabUnitSelect.appendChild(opt);
+    });
+  }
+
   function renderWord(idx) {
     const list = getVocabList();
 
@@ -64,14 +106,14 @@ const VocabJaModule = (() => {
       if (jaVocabWordJa) jaVocabWordJa.textContent = 'Chưa có từ nào';
       if (jaVocabWordRomaji) jaVocabWordRomaji.textContent = '';
       if (jaVocabWordVi) {
-        jaVocabWordVi.textContent = 'Mở file japanese_data/vocab_data.js để thêm các từ bạn muốn học vào code nhé!';
+        jaVocabWordVi.textContent = 'Thêm từ mới vào file datasss/jp/vocab/voca.txt để bắt đầu học nhé!';
       }
       if (jaVocabListenBtn) jaVocabListenBtn.style.display = 'none';
       if (jaVocabRecordBtn) jaVocabRecordBtn.style.display = 'none';
       if (jaVocabPrevBtn) jaVocabPrevBtn.style.display = 'none';
       if (jaVocabNextBtn) jaVocabNextBtn.style.display = 'none';
       if (jaVocabFeedback) {
-        jaVocabFeedback.innerHTML = '<div class="feedback-status">💡 Bạn hãy mở file <code>japanese_data/vocab_data.js</code> để thêm từ mới vào mảng <code>JA_HARD_VOCAB_DATA</code>.</div>';
+        jaVocabFeedback.innerHTML = '<div class="feedback-status">💡 Mở file <code>datasss/jp/vocab/voca.txt</code> để thêm từ mới cho bài học.</div>';
       }
       resetSpokenBox();
       renderList();
@@ -89,7 +131,7 @@ const VocabJaModule = (() => {
     if (jaVocabListenBtn) jaVocabListenBtn.style.display = 'inline-block';
     if (jaVocabRecordBtn) jaVocabRecordBtn.style.display = 'inline-block';
 
-    if (jaVocabCategory) jaVocabCategory.textContent = `TỪ KHÓ (TỪ ${idx + 1} / ${list.length})`;
+    if (jaVocabCategory) jaVocabCategory.textContent = `${getCurrentUnitTitle().toUpperCase()} (TỪ ${idx + 1} / ${list.length})`;
     if (jaVocabWordJa) jaVocabWordJa.textContent = item.word;
     if (jaVocabWordRomaji) {
       let phoneticStr = '';
@@ -129,7 +171,7 @@ const VocabJaModule = (() => {
     const list = getVocabList();
 
     if (list.length === 0) {
-      jaVocabListWrapper.innerHTML = '<div style="color:var(--text-muted);font-size:0.9rem;padding:16px 0;text-align:center;">Danh sách từ vựng hiện đang trống. Mở file <code>japanese_data/vocab_data.js</code> để thêm từ vào nhé!</div>';
+      jaVocabListWrapper.innerHTML = '<div style="color:var(--text-muted);font-size:0.9rem;padding:16px 0;text-align:center;">Danh sách từ vựng của bài học này đang trống. Thêm từ mới vào <code>datasss/jp/vocab/voca.txt</code> nhé!</div>';
       return;
     }
 
@@ -218,35 +260,40 @@ const VocabJaModule = (() => {
     };
 
     vocabRecognition.onerror = (event) => {
-      stopRecording();
-      if (jaVocabSpokenBadge) jaVocabSpokenBadge.textContent = '⚠️ Chưa nhận diện được giọng nói';
-      if (jaVocabFeedback) {
-        jaVocabFeedback.innerHTML = `<div class="feedback-status" style="color:var(--accent-rose);">Không thu được âm thanh rõ. Hãy thử nói lại gần micro hơn nhé! (${event.error})</div>`;
+      console.warn('Speech recognition error:', event.error);
+      stopRecognition();
+      if (event.error !== 'no-speech') {
+        if (jaVocabFeedback) {
+          jaVocabFeedback.innerHTML = `<div class="feedback-retry">⚠️ Lỗi nhận diện micro (${event.error}). Hãy kiểm tra quyền truy cập microphone của trình duyệt.</div>`;
+        }
       }
     };
 
     vocabRecognition.onend = () => {
-      stopRecording();
+      stopRecognition();
     };
   }
 
-  function stopRecording() {
+  function stopRecognition() {
     isRecording = false;
     if (jaVocabRecordBtn) {
       jaVocabRecordBtn.classList.remove('recording');
       jaVocabRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
     }
-    if (jaVocabSpokenBox) jaVocabSpokenBox.classList.remove('is-recording');
-    if (jaVocabTypingCursor) jaVocabTypingCursor.style.display = 'none';
+    if (jaVocabSpokenBox) {
+      jaVocabSpokenBox.classList.remove('is-recording');
+    }
+    if (jaVocabTypingCursor) {
+      jaVocabTypingCursor.style.display = 'none';
+    }
   }
 
   function evaluateResult(transcript) {
     const list = getVocabList();
-    if (list.length === 0) return;
+    if (list.length === 0 || !list[currentIdx]) return;
     const item = list[currentIdx];
-    if (!item) return;
-
     const reading = item.hiragana || item.romaji || '';
+
     const isMatch = AppCore && AppCore.isJapaneseMatch
       ? AppCore.isJapaneseMatch(transcript, item.word, reading)
       : transcript.toLowerCase().includes(item.word.toLowerCase());
@@ -282,7 +329,17 @@ const VocabJaModule = (() => {
 
   function init() {
     initDOM();
+    populateUnitSelect();
     initSpeechRecognition();
+
+    if (jaVocabUnitSelect) {
+      jaVocabUnitSelect.addEventListener('change', (e) => {
+        currentUnitKey = e.target.value;
+        localStorage.setItem('ja_vocab_current_unit', currentUnitKey);
+        currentIdx = 0;
+        renderWord(0);
+      });
+    }
 
     if (jaVocabListenBtn) {
       jaVocabListenBtn.addEventListener('click', () => {
@@ -332,7 +389,8 @@ const VocabJaModule = (() => {
   return {
     init,
     renderWord,
-    getVocabList
+    getVocabList,
+    populateUnitSelect
   };
 })();
 

@@ -570,8 +570,19 @@
         <div class="speaking-container">
 
 
-
-          <!-- THẺ LUYỆN TỪ VỰNG (CHALLENGE CARD) -->
+          <!-- TOOLBAR CHỌN BÀI HỌC -->
+          <div class="speaking-header-card">
+            <div class="vocab-header-top">
+              <div class="scenario-selector vocab-selector">
+                <div class="vocab-toolbar-actions">
+                  <label for="ja-vocab-unit-select">Chọn Bài học:</label>
+                  <select id="ja-vocab-unit-select">
+                    <option value="bai_1">🌸 Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="speaking-challenge-card" id="ja-vocab-card">
             <button class="card-corner-btn card-corner-prev" id="ja-vocab-prev-btn" title="Từ trước" aria-label="Từ trước">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -625,7 +636,7 @@
   <script src="japanese_data/speaking_data.js"></script>
   <script src="japanese_data/reading_data.js"></script>
   <script src="japanese_data/dialogue_data.js"></script>
-  <script src="japanese_data/vocab_data.js"></script>
+  <script src="japanese_data/vocab_data.js?v=2.0"></script>
   <script src="js/core.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/reading_en.js"></script>
@@ -633,7 +644,7 @@
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/dialogue_ja.js?v=3.0"></script>
-  <script src="js/vocab_ja.js"></script>
+  <script src="js/vocab_ja.js?v=2.0"></script>
   <script src="app.js"></script>
 </body>
 </html>

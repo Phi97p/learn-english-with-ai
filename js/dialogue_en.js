@@ -165,7 +165,15 @@ const DialogueEnModule = (() => {
       allRows.forEach((r, i) => {
         if (i === idx) {
           r.classList.add('is-active-turn');
-          r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          const cTop = timelineContainer.scrollTop;
+          const cBottom = cTop + timelineContainer.clientHeight;
+          const elemTop = r.offsetTop;
+          const elemBottom = elemTop + r.offsetHeight;
+          if (elemTop < cTop) {
+            timelineContainer.scrollTo({ top: elemTop, behavior: 'smooth' });
+          } else if (elemBottom > cBottom) {
+            timelineContainer.scrollTo({ top: elemBottom - timelineContainer.clientHeight, behavior: 'smooth' });
+          }
         } else {
           r.classList.remove('is-active-turn');
         }

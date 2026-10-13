@@ -372,7 +372,6 @@ const SpeakingModule = (() => {
     items.forEach((el, i) => {
       if (i === idx) {
         el.classList.add('active');
-        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         el.classList.remove('active');
       }

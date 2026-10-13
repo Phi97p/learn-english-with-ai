@@ -171,7 +171,6 @@ const ReadingJaModule = (() => {
       spans.forEach((s, i) => {
         if (i === idx) {
           s.classList.add('active');
-          s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
           s.classList.remove('active');
         }

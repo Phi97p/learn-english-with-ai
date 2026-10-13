@@ -174,7 +174,6 @@ const VocabModule = (() => {
       chips.forEach((c, i) => {
         if (i === idx) {
           c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           c.classList.remove('active');
         }

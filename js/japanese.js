@@ -449,7 +449,6 @@ const JapaneseModule = (() => {
     items.forEach((el, i) => {
       if (i === idx) {
         el.classList.add('active');
-        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         el.classList.remove('active');
       }
@@ -716,7 +715,6 @@ const JapaneseModule = (() => {
       chips.forEach((c, i) => {
         if (i === idx) {
           c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           c.classList.remove('active');
         }
