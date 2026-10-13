@@ -928,10 +928,15 @@ body.hide-phonetics .phonetic-text {
 
 .vocab-header-top {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.vocab-selector {
+  margin-left: 0;
+  width: 100%;
 }
 
 .vocab-chip-list-container {
@@ -1170,8 +1175,12 @@ body.hide-phonetics .phonetic-text {
 .speaking-header-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 22px;
+  padding: 14px 18px;
   border-radius: var(--radius-lg);
+}
+
+.speaking-header-card.spk-bottom-list-card {
+  padding: 20px;
 }
 
 .speaking-header-card h2 {
@@ -2682,5 +2691,10 @@ body.hide-phonetics .phonetic-text {
   outline: none;
   cursor: pointer;
 }
+
+.hidden {
+  display: none !important;
+}
+
 
 

@@ -237,6 +237,9 @@ const AppCore = (() => {
     } else if (tabId === 'dialogue-ja') {
       dom.pageTitle.textContent = '💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)';
       dom.pageSubtitle.textContent = 'Luyện phản xạ giao tiếp đóng vai 2 người (Tôi & Bạn tôi / Tôi & AI) theo kịch bản Minna no Nihongo';
+    } else if (tabId === 'vocab-ja') {
+      dom.pageTitle.textContent = '🗂️ Sổ Tay Từ Vựng Tiếng Nhật (Từ Khó Tự Chọn)';
+      dom.pageSubtitle.textContent = 'Luyện nghe & phát âm các từ vựng bạn thấy khó nhớ do bạn tự thêm vào sổ tay';
     }
     updatePhoneticDisplay();
   }

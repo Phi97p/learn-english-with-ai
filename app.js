@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ReadingEnModule.init();
   DialogueEnModule.init();
   DialogueJaModule.init();
+  if (window.VocabJaModule) VocabJaModule.init();
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();

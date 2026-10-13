@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3.1">
+  <link rel="stylesheet" href="style.css?v=3.2">
 </head>
 <body>
   <div class="app-container">
@@ -56,6 +56,11 @@
           <span>Hội thoại Tiếng Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
         </button>
+        <button class="nav-item" data-tab="vocab-ja">
+          <span class="icon">🗂️</span>
+          <span>Từ vựng Tiếng Nhật</span>
+          <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Từ khó</span>
+        </button>
       </nav>
 
       <div class="audio-controls-panel">
@@ -98,10 +103,6 @@
           <div class="speaking-module-card" id="sentence-speaking-section">
             <div class="speaking-header-card">
               <div class="vocab-header-top">
-                <div>
-                  <h2>🎙️ Phòng Luyện Phát Âm Cả Câu (Shadowing Lab)</h2>
-                  <p>Luyện phát âm & nhại giọng (Shadowing) từng mẫu câu giao tiếp chuẩn SGK theo từng Unit</p>
-                </div>
                 <div class="scenario-selector vocab-selector">
                   <div class="vocab-toolbar-actions">
                     <label for="spk-unit-select">Chọn Unit:</label>
@@ -164,10 +165,6 @@
           <!-- HEADER CARD -->
           <div class="speaking-header-card">
             <div class="vocab-header-top">
-              <div>
-                <h2>📘 Phòng Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Anh)</h2>
-                <p>Luyện phát âm & ngữ điệu mạch lạc theo đoạn văn bản ngữ - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc thu âm đối chiếu</p>
-              </div>
               <div class="scenario-selector vocab-selector">
                 <div class="vocab-toolbar-actions">
                   <label for="en-reading-unit-select">Chọn Bài đọc:</label>
@@ -269,10 +266,6 @@
           <!-- TOOLBAR HEADER -->
           <div class="speaking-header-card">
             <div class="vocab-header-top">
-              <div>
-                <h2>💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Anh (2 Người)</h2>
-                <p>Thực hành phản xạ đối thoại theo vai (Tôi & Bạn tôi hoặc Tôi & AI) theo kịch bản chuẩn SGK 6</p>
-              </div>
               <div class="scenario-selector vocab-selector">
                 <div class="vocab-toolbar-actions">
                   <label for="en-dialogue-unit-select">Chọn Bài:</label>
@@ -345,10 +338,6 @@
           <div class="speaking-module-card" id="ja-sentence-speaking-section">
             <div class="speaking-header-card">
               <div class="vocab-header-top">
-                <div>
-                  <h2>🌸 Phòng Luyện Phát Âm Tiếng Nhật Cả Câu (Shadowing Lab)</h2>
-                  <p>Luyện phát âm & nhại giọng (Shadowing) từng mẫu câu giao tiếp tiếng Nhật chuẩn theo từng Bài</p>
-                </div>
                 <div class="scenario-selector vocab-selector">
                   <div class="vocab-toolbar-actions">
                     <label for="ja-spk-unit-select">Chọn Bài học:</label>
@@ -411,10 +400,6 @@
           <!-- HEADER CARD -->
           <div class="speaking-header-card">
             <div class="vocab-header-top">
-              <div>
-                <h2>📖 Phòng Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Nhật)</h2>
-                <p>Luyện ngữ điệu mạch lạc theo đoạn văn bản ngữ - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc nghe câu lẻ</p>
-              </div>
               <div class="scenario-selector vocab-selector">
                 <div class="vocab-toolbar-actions">
                   <label for="ja-reading-unit-select">Chọn Bài đọc:</label>
@@ -516,10 +501,6 @@
           <!-- TOOLBAR HEADER -->
           <div class="speaking-header-card">
             <div class="vocab-header-top">
-              <div>
-                <h2>💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)</h2>
-                <p>Thực hành phản xạ đối thoại theo vai (Tôi & Bạn tôi hoặc Tôi & AI) theo kịch bản Minna no Nihongo</p>
-              </div>
               <div class="scenario-selector vocab-selector">
                 <div class="vocab-toolbar-actions">
                   <label for="ja-dialogue-unit-select">Chọn Bài:</label>
@@ -584,13 +565,67 @@
         </div>
       </section>
 
+      <!-- TAB 7: TỪ VỰNG TIẾNG NHẬT (TỪ KHÓ TỰ THÊM) -->
+      <section id="tab-vocab-ja" class="tab-pane">
+        <div class="speaking-container">
+
+
+
+          <!-- THẺ LUYỆN TỪ VỰNG (CHALLENGE CARD) -->
+          <div class="speaking-challenge-card" id="ja-vocab-card">
+            <button class="card-corner-btn card-corner-prev" id="ja-vocab-prev-btn" title="Từ trước" aria-label="Từ trước">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="card-corner-btn card-corner-next" id="ja-vocab-next-btn" title="Từ tiếp theo" aria-label="Từ tiếp theo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="challenge-category" id="ja-vocab-category">SỔ TAY TỪ VỰNG (TRỐNG)</div>
+            <div class="challenge-phrase-en" id="ja-vocab-word-ja" style="font-size: 2.2rem; letter-spacing: 0.04em;">Chưa có từ nào</div>
+            <div class="challenge-phrase-ipa phonetic-text" id="ja-vocab-word-romaji"></div>
+            <div class="challenge-phrase-vi" id="ja-vocab-word-vi">Mở file japanese_data/vocab_data.js để thêm từ bạn muốn học vào code nhé!</div>
+
+            <div class="speaking-actions" id="ja-vocab-actions">
+              <button class="btn-listen" id="ja-vocab-listen-btn">🔊 Nghe phát âm mẫu</button>
+              <button class="btn-record" id="ja-vocab-record-btn">🎯 Bấm để nói & Chấm điểm</button>
+            </div>
+
+            <!-- KẾT QUẢ NGƯỜI NÓI -->
+            <div class="spoken-result-box" id="ja-vocab-spoken-box">
+              <div class="spoken-result-badge" id="ja-vocab-spoken-badge">Đang chờ bạn nói...</div>
+              <span class="spoken-result-text" id="ja-vocab-spoken-text">"..."</span>
+              <span class="typing-cursor" id="ja-vocab-typing-cursor" style="display: none;"></span>
+            </div>
+
+            <div class="speaking-feedback" id="ja-vocab-feedback">
+              <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói & Chấm điểm"</strong> nhé!</div>
+            </div>
+          </div>
+
+          <!-- DANH SÁCH TẤT CẢ TỪ TRONG SỔ TAY -->
+          <div class="speaking-header-card spk-bottom-list-card">
+            <div class="vocab-header-top" style="margin-bottom: 6px;">
+              <div class="vocab-chip-list-label" style="font-size: 0.92rem; font-weight: 700; color: var(--text-main);">
+                📋 Toàn bộ từ vựng trong sổ tay (<span id="ja-vocab-count">0</span> từ):
+              </div>
+            </div>
+            <div class="spk-sentences-wrapper" id="ja-vocab-list-wrapper" style="margin-top: 10px;">
+              <!-- Rendered by js/vocab_ja.js -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </main>
+
   <script src="data.js"></script>
   <script src="english_data/reading_data.js"></script>
   <script src="english_data/dialogue_data.js"></script>
   <script src="japanese_data/speaking_data.js"></script>
   <script src="japanese_data/reading_data.js"></script>
   <script src="japanese_data/dialogue_data.js"></script>
+  <script src="japanese_data/vocab_data.js"></script>
   <script src="js/core.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/reading_en.js"></script>
@@ -598,6 +633,7 @@
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/dialogue_ja.js?v=3.0"></script>
+  <script src="js/vocab_ja.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

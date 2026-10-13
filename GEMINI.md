@@ -28,4 +28,6 @@
 - **Tab Đọc hiểu & Shadowing Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/doc_hieu/` để xử lý và nạp vào hệ thống (`japanese_data/reading_data.js`).
 - **Tab Hội thoại tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/hoi_thoai/` để xử lý và nạp vào hệ thống (`japanese_data/dialogue_data.js`).
 
-
+## 6. Quy định về Tab Từ Vựng (Vocabulary)
+- Phần từ vựng (từ khó) do chính người dùng tự thêm theo nhu cầu cá nhân thông qua giao diện ứng dụng.
+- **AI tuyệt đối KHÔNG ĐƯỢC tự ý nạp, tạo sẵn hoặc thêm từ mới vào phần từ vựng**.
