@@ -31,7 +31,6 @@ const EN_DIALOGUE_DATA = {
         en: "Hi, Phong. Are you ready for our first day at school?",
         ipa: "/haɪ fɒŋ ɑː juː ˈredi fɔːr ˈaʊə fɜːst deɪ æt skuːl/",
         vi: "Chào Phong. Cậu đã sẵn sàng cho ngày đầu tiên đến trường chưa?",
-        tip: "Lên giọng nhẹ ở cuối câu hỏi Yes/No 'at school?'."
       },
       {
         id: 2,
@@ -42,7 +41,6 @@ const EN_DIALOGUE_DATA = {
         en: "Hi, Duy. Yes, just a minute. I'm having breakfast.",
         ipa: "/haɪ duːi jes dʒʌst ə ˈmɪnɪt aɪm ˈhævɪŋ ˈbrekfəst/",
         vi: "Chào Duy. Có chứ, đợi mình một phút nhé. Mình đang ăn sáng.",
-        tip: "Cụm 'just a minute' nối âm /dʒʌstə ˈmɪnɪt/ tự nhiên."
       },
       {
         id: 3,
@@ -53,7 +51,6 @@ const EN_DIALOGUE_DATA = {
         en: "Oh, you have a new uniform. It looks really smart on you!",
         ipa: "/əʊ juː hæv ə njuː ˈjuːnɪfɔːm ɪt lʊks ˈrɪəli smɑːt ɒn juː/",
         vi: "Ồ, cậu có đồng phục mới kìa. Trông cậu bảnh bao và chỉn chu lắm!",
-        tip: "Nhấn mạnh vào từ 'really smart', âm /ɑː/ trong 'smart'."
       },
       {
         id: 4,
@@ -64,7 +61,6 @@ const EN_DIALOGUE_DATA = {
         en: "Thanks, Duy. My mum bought it for me yesterday. Do you have all your new books?",
         ipa: "/θæŋks duːi maɪ mʌm bɔːt ɪt fɔː miː ˈjestədeɪ duː juː hæv ɔːl jɔː njuː bʊks/",
         vi: "Cảm ơn Duy. Mẹ mình mua cho mình hôm qua đấy. Cậu có đủ sách vở mới chưa?",
-        tip: "Âm /θ/ trong 'thanks', nối âm 'bought it' thành /bɔːtɪt/."
       },
       {
         id: 5,
@@ -75,7 +71,6 @@ const EN_DIALOGUE_DATA = {
         en: "Yes, I put my calculator, compass, and textbooks into my bag.",
         ipa: "/jes aɪ pʊt maɪ ˈkælkjuleɪtə ˈkʌmpəs ænd ˈtekstbʊks ˈɪntuː maɪ bæɡ/",
         vi: "Có, mình đã để máy tính bỏ túi, com-pa và sách giáo khoa vào cặp rồi.",
-        tip: "Liệt kê danh sách: lên giọng ở 'calculator', 'compass' và xuống giọng ở 'textbooks'."
       },
       {
         id: 6,
@@ -86,7 +81,6 @@ const EN_DIALOGUE_DATA = {
         en: "Great! Let's ride our bicycles to school together now.",
         ipa: "/ɡreɪt lets raɪd ˈaʊə ˈbaɪsɪklz tuː skuːl təˈɡeðə naʊ/",
         vi: "Tuyệt quá! Chúng mình cùng nhau đạp xe đến trường ngay bây giờ nhé.",
-        tip: "Rủ rê hào hứng 'Let's ride...', âm /ð/ trong 'together'."
       },
       {
         id: 7,
@@ -97,7 +91,6 @@ const EN_DIALOGUE_DATA = {
         en: "Sure. We don't want to be late on our first day!",
         ipa: "/ʃʊə wiː dəʊnt wɒnt tuː biː leɪt ɒn ˈaʊə fɜːst deɪ/",
         vi: "Chắc chắn rồi. Chúng mình đâu muốn bị muộn trong ngày đầu tiên chứ!",
-        tip: "Âm /ʃ/ tròn môi trong 'sure', dứt khoát ở 'late'."
       }
     ]
   },
@@ -128,7 +121,6 @@ const EN_DIALOGUE_DATA = {
         en: "Wow, Mi! Is that a picture of your new house?",
         ipa: "/waʊ miː ɪz ðæt ə ˈpɪktʃər əv jɔː njuː haʊs/",
         vi: "Oa, Mi ơi! Đó có phải là ảnh ngôi nhà mới của cậu không?",
-        tip: "Giọng ngạc nhiên ở 'Wow', lên giọng ở cuối câu hỏi nghi vấn."
       },
       {
         id: 2,
@@ -139,7 +131,6 @@ const EN_DIALOGUE_DATA = {
         en: "Yes, Nick. It's a town house in Da Nang. We moved there last week.",
         ipa: "/jes nɪk ɪts ə taʊn haʊs ɪn daː næŋ wiː muːvd ðeə lɑːst wiːk/",
         vi: "Đúng rồi Nick. Đó là một ngôi nhà phố ở Đà Nẵng. Gia đình mình mới chuyển đến tuần trước.",
-        tip: "Nối âm 'It's a' (/ɪtsə/), âm /v/ trong 'moved'."
       },
       {
         id: 3,
@@ -150,7 +141,6 @@ const EN_DIALOGUE_DATA = {
         en: "It looks very spacious. How many rooms are there?",
         ipa: "/ɪt lʊks ˈveri ˈspeɪʃəs haʊ ˈmeni ruːmz ɑː ðeə/",
         vi: "Trông nó rộng rãi và thoáng mát thật đấy. Nhà có bao nhiêu phòng vậy cậu?",
-        tip: "'spacious' đọc là /ˈspeɪʃəs/ (rộng rãi), hạ giọng ở câu hỏi 'How many'."
       },
       {
         id: 4,
@@ -161,7 +151,6 @@ const EN_DIALOGUE_DATA = {
         en: "There are six rooms: a living room, a kitchen, three bedrooms and two bathrooms.",
         ipa: "/ðeər ɑː sɪks ruːmz: ə ˈlɪvɪŋ ruːm ə ˈkɪtʃɪn θriː ˈbedruːmz ænd tuː ˈbɑːθruːmz/",
         vi: "Có sáu phòng tất cả: một phòng khách, một bếp, ba phòng ngủ và hai phòng tắm.",
-        tip: "Âm /θ/ trong 'three' và 'bathrooms'."
       },
       {
         id: 5,
@@ -172,7 +161,6 @@ const EN_DIALOGUE_DATA = {
         en: "Which room is your favourite?",
         ipa: "/wɪtʃ ruːm ɪz jɔː ˈfeɪvərɪt/",
         vi: "Thế cậu thích nhất là căn phòng nào?",
-        tip: "Nhấn mạnh từ 'favourite' (3 âm tiết gọn)."
       },
       {
         id: 6,
@@ -183,7 +171,6 @@ const EN_DIALOGUE_DATA = {
         en: "My bedroom! It has a big window and there is a lovely desk near the bed.",
         ipa: "/maɪ ˈbedruːm ɪt hæz ə bɪɡ ˈwɪndəʊ ænd ðeər ɪz ə ˈlʌvli desk nɪə ðə bed/",
         vi: "Phòng ngủ của mình! Phòng có cửa sổ lớn và một chiếc bàn học xinh xắn cạnh giường.",
-        tip: "Giọng hào hứng, chú ý đuôi /sk/ trong 'desk'."
       },
       {
         id: 7,
@@ -194,7 +181,6 @@ const EN_DIALOGUE_DATA = {
         en: "That sounds wonderful. I'd love to visit your house soon!",
         ipa: "/ðæt saʊndz ˈwʌndəfl aɪd lʌv tuː ˈvɪzɪt jɔː haʊs suːn/",
         vi: "Nghe tuyệt thật đấy. Mình rất mong sớm được đến thăm nhà cậu!",
-        tip: "Nhấn vào 'wonderful' và 'visit', ngữ điệu thân mật."
       }
     ]
   },
@@ -225,7 +211,6 @@ const EN_DIALOGUE_DATA = {
         en: "Hi, Phuc. What are you doing this Saturday afternoon?",
         ipa: "/haɪ fʊk wɒt ɑː juː ˈduːɪŋ ðɪs ˈsætədeɪ ˌɑːftəˈnuːn/",
         vi: "Chào Phúc. Chiều thứ Bảy tuần này cậu định làm gì thế?",
-        tip: "Hỏi thì hiện tại tiếp diễn chỉ kế hoạch tương lai, hạ giọng ở cuối."
       },
       {
         id: 2,
@@ -236,7 +221,6 @@ const EN_DIALOGUE_DATA = {
         en: "Hello, Duong. I'm meeting Mai and An at the central park. We're having a picnic.",
         ipa: "/həˈləʊ zɯəŋ aɪm ˈmiːtɪŋ maɪ ænd æn æt ðə ˈsentrəl pɑːk wɪə ˈhævɪŋ ə ˈpɪknɪk/",
         vi: "Chào Dương. Mình sẽ gặp Mai và An ở công viên trung tâm. Tụi mình tổ chức dã ngoại.",
-        tip: "Nhấn mạnh các từ khóa: 'central park', 'picnic'."
       },
       {
         id: 3,
@@ -247,7 +231,6 @@ const EN_DIALOGUE_DATA = {
         en: "That sounds exciting! What does An look like?",
         ipa: "/ðæt saʊndz ɪkˈsaɪtɪŋ wɒt dʌz æn lʊk laɪk/",
         vi: "Nghe hấp dẫn quá! Thế bạn An trông như thế nào?",
-        tip: "Cấu trúc hỏi ngoại hình: 'What does [tên] look like?'."
       },
       {
         id: 4,
@@ -258,7 +241,6 @@ const EN_DIALOGUE_DATA = {
         en: "She has long black hair and big brown eyes. She is very creative and loves drawing.",
         ipa: "/ʃiː hæz lɒŋ blæk heər ænd bɪɡ braʊn aɪz ʃiː ɪz ˈveri kriˈeɪtɪv ænd lʌvz ˈdrɔːɪŋ/",
         vi: "Bạn ấy có mái tóc đen dài và đôi mắt nâu to. Bạn ấy rất sáng tạo và thích vẽ tranh.",
-        tip: "Nối âm tự nhiên, nhấn vào tính từ 'creative' (sáng tạo)."
       },
       {
         id: 5,
@@ -269,7 +251,6 @@ const EN_DIALOGUE_DATA = {
         en: "And how about Mai? Is she friendly?",
         ipa: "/ænd haʊ əˈbaʊt maɪ ɪz ʃiː ˈfrendli/",
         vi: "Còn Mai thì sao? Bạn ấy có thân thiện không?",
-        tip: "Lên giọng ở cuối câu hỏi Yes/No 'Is she friendly?'."
       },
       {
         id: 6,
@@ -280,7 +261,6 @@ const EN_DIALOGUE_DATA = {
         en: "Yes, Mai is very clever, kind and hard-working. Would you like to come with us?",
         ipa: "/jes maɪ ɪz ˈveri ˈklevə kaɪnd ænd ˌhɑːd ˈwɜːkɪŋ wʊd juː laɪk tuː kʌm wɪð ʌs/",
         vi: "Có chứ, Mai rất lanh lợi, tốt bụng và chăm chỉ. Cậu có muốn đi cùng tụi mình không?",
-        tip: "Lời mời lịch sự 'Would you like to come with us?', lên giọng ở cuối."
       },
       {
         id: 7,
@@ -291,7 +271,6 @@ const EN_DIALOGUE_DATA = {
         en: "I'd love to! I'll bring some biscuits and fruit juice for everyone.",
         ipa: "/aɪd lʌv tuː aɪl brɪŋ sʌm ˈbɪskɪts ænd fruːt dʒuːs fɔːr ˈevriwʌn/",
         vi: "Mình rất thích! Mình sẽ mang bánh quy và nước trái cây cho mọi người nhé.",
-        tip: "Giọng hào hứng: 'I'd love to!', phát âm chuẩn 'fruit juice' (/fruːt dʒuːs/)."
       }
     ]
   }

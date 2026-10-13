@@ -15,55 +15,46 @@ const EN_READING_PASSAGES_DATA = {
         en: "Hello everyone, my name is Phong and I am in grade 6.",
         ipa: "/həˈloʊ ˈevriwʌn, maɪ neɪm ɪz fɒŋ ænd aɪ æm ɪn ɡreɪd sɪks/",
         vi: "Xin chào mọi người, mình tên là Phong và mình đang học lớp 6.",
-        tip: "Nối âm nhẹ giữa 'name is' -> /neɪmɪz/ • Bật âm đuôi /ks/ ở 'six'."
       },
       {
         en: "Today is my first day at my new secondary school.",
         ipa: "/təˈdeɪ ɪz maɪ fɜːrst deɪ æt maɪ njuː ˈsekəndri skuːl/",
         vi: "Hôm nay là ngày đầu tiên của mình tại trường cấp hai mới.",
-        tip: "Trọng âm từ 'secondary' rơi vào âm tiết đầu tiên: /ˈsekəndri/."
       },
       {
         en: "My school is very big and it has a large playground.",
         ipa: "/maɪ skuːl ɪz ˈveri bɪɡ ænd ɪt hæz ə lɑːrdʒ ˈpleɪɡraʊnd/",
         vi: "Trường của mình rất to và có một sân chơi rộng lớn.",
-        tip: "Âm /dʒ/ cuối từ 'large' cần cong lưỡi nhẹ và bật hơi rõ."
       },
       {
         en: "I wear my new uniform and put all my books into my school bag.",
         ipa: "/aɪ weər maɪ njuː ˈjuːnɪfɔːrm ænd pʊt ɔːl maɪ bʊks ˈɪntuː maɪ skuːl bæɡ/",
         vi: "Mình mặc bộ đồng phục mới và xếp tất cả sách vở vào cặp đi học.",
-        tip: "'uniform' phát âm là /ˈjuːnɪfɔːrm/ • 'books' chú ý âm đuôi /s/."
       },
       {
         en: "My best friend is Duy, and we go to school together by bicycle.",
         ipa: "/maɪ best frend ɪz duːi, ænd wiː ɡoʊ tuː skuːl təˈɡeðər baɪ ˈbaɪsɪkl/",
         vi: "Bạn thân nhất của mình là Duy, và chúng mình cùng nhau đạp xe đến trường.",
-        tip: "Âm 'th' trong 'together' /təˈɡeðər/ đặt đầu lưỡi giữa hai hàm răng."
       },
       {
         en: "We have many exciting subjects like English, Maths and Science.",
         ipa: "/wiː hæv ˈmeni ɪkˈsaɪtɪŋ ˈsʌbdʒɪkts laɪk ˈɪŋɡlɪʃ, mæθs ænd ˈsaɪəns/",
         vi: "Chúng mình học nhiều môn thú vị như Tiếng Anh, Toán và Khoa học.",
-        tip: "'English' có âm /ʃ/ chu môi • 'Maths' kết thúc bằng âm /θs/."
       },
       {
         en: "The teachers are very friendly and always help us.",
         ipa: "/ðə ˈtiːtʃərz ɑːr ˈveri ˈfrendli ænd ˈɔːlweɪz help ʌs/",
         vi: "Các thầy cô giáo rất thân thiện và luôn sẵn lòng giúp đỡ chúng mình.",
-        tip: "Nối âm tự nhiên: 'help us' -> /ˈhelpəs/."
       },
       {
         en: "At break time, my classmates and I play football in the school yard.",
         ipa: "/æt breɪk taɪm, maɪ ˈklæsmeɪts ænd aɪ pleɪ ˈfʊtbɔːl ɪn ðə skuːl jɑːrd/",
         vi: "Vào giờ ra chơi, mình và các bạn cùng lớp chơi đá bóng ở sân trường.",
-        tip: "'break time' phát âm rõ phụ âm kép /br/ • 'classmates' có đuôi /ts/."
       },
       {
         en: "I love my new school because I learn many wonderful things here.",
         ipa: "/aɪ lʌv maɪ njuː skuːl bɪˈkəz aɪ lɜːrn ˈmeni ˈwʌndərfʊl θɪŋz hɪər/",
         vi: "Mình rất yêu ngôi trường mới vì mình được học bao điều tuyệt vời ở đây.",
-        tip: "Nhấn mạnh trọng âm vào âm đầu của 'wonderful' /ˈwʌndərfʊl/."
       }
     ]
   },
@@ -78,49 +69,41 @@ const EN_READING_PASSAGES_DATA = {
         en: "Welcome to my home in the countryside.",
         ipa: "/ˈwelkəm tuː maɪ hoʊm ɪn ðə ˈkʌntrisaɪd/",
         vi: "Chào mừng bạn đến thăm ngôi nhà của mình ở vùng nông thôn.",
-        tip: "'countryside' nhấn trọng âm vào âm tiết đầu: /ˈkʌntrisaɪd/."
       },
       {
         en: "My house has a living room, a kitchen and three bedrooms.",
         ipa: "/maɪ haʊs hæz ə ˈlɪvɪŋ ruːm, ə ˈkɪtʃɪn ænd θriː ˈbedruːmz/",
         vi: "Nhà mình có một phòng khách, một gian bếp và ba phòng ngủ.",
-        tip: "Phát âm rõ âm đầu /θ/ trong 'three' và /tʃ/ trong 'kitchen'."
       },
       {
         en: "There is a large sofa and a television in the living room.",
         ipa: "/ðeər ɪz ə lɑːrdʒ ˈsoʊfə ænd ə ˈtelɪvɪʒn ɪn ðə ˈlɪvɪŋ ruːm/",
         vi: "Có một chiếc ghế sofa lớn và một chiếc ti vi ở phòng khách.",
-        tip: "'television' phát âm âm /ʒ/ rung nhẹ ở giữa."
       },
       {
         en: "My favorite room is my bedroom because it is very cozy.",
         ipa: "/maɪ ˈfeɪvərɪt ruːm ɪz maɪ ˈbedruːm bɪˈkəz ɪt ɪz ˈveri ˈkoʊzi/",
         vi: "Căn phòng yêu thích nhất của mình là phòng ngủ vì nó rất ấm cúng.",
-        tip: "'cozy' mang nghĩa ấm cúng, dễ chịu: /ˈkoʊzi/."
       },
       {
         en: "There is a comfortable bed, a study desk and a big bookshelf.",
         ipa: "/ðeər ɪz ə ˈkʌmftəbl bed, ə ˈstʌdi desk ænd ə bɪɡ ˈbʊkʃelf/",
         vi: "Trong phòng có một chiếc giường êm ái, một bàn học và một kệ sách to.",
-        tip: "'comfortable' phát âm 3 âm tiết chuẩn: /ˈkʌmftəbl/ (không đọc là com-for-ta-ble)."
       },
       {
         en: "On the desk, I keep my computer and many English books.",
         ipa: "/ɒn ðə desk, aɪ kiːp maɪ kəmˈpjuːtər ænd ˈmeni ˈɪŋɡlɪʃ bʊks/",
         vi: "Trên bàn học, mình để máy tính và rất nhiều cuốn sách tiếng Anh.",
-        tip: "'computer' nhấn trọng âm thứ hai: /kəmˈpjuːtər/."
       },
       {
         en: "In front of the house, there is a beautiful flower garden.",
         ipa: "/ɪn frʌnt əv ðə haʊs, ðeər ɪz ə ˈbjuːtɪfl ˈflaʊər ˈɡɑːrdn/",
         vi: "Phía trước nhà có một khu vườn hoa rất xinh đẹp.",
-        tip: "Cụm 'in front of' nối âm mượt mà: /ɪnˈfrʌntəv/."
       },
       {
         en: "I feel so happy and peaceful whenever I am at home.",
         ipa: "/aɪ fiːl soʊ ˈhæpi ænd ˈpiːsfl wenˈevər aɪ æm æt hoʊm/",
         vi: "Mình luôn cảm thấy thật hạnh phúc và bình yên mỗi khi ở nhà.",
-        tip: "'peaceful' phát âm âm /s/ rõ ràng: /ˈpiːsfl/."
       }
     ]
   },
@@ -135,43 +118,36 @@ const EN_READING_PASSAGES_DATA = {
         en: "Last summer, I joined an international summer camp with my friends.",
         ipa: "/læst ˈsʌmər, aɪ dʒɔɪnd ən ˌɪntərˈnæʃnəl ˈsʌmər kæmp wɪð maɪ frendz/",
         vi: "Mùa hè năm ngoái, mình đã tham gia một trại hè quốc tế cùng bạn bè.",
-        tip: "'international' có trọng âm chính rơi vào âm tiết thứ 3: /ˌɪntərˈnæʃnəl/."
       },
       {
         en: "My friend Lucas has short curly hair and blue eyes.",
         ipa: "/maɪ frend ˈluːkəs hæz ʃɔːrt ˈkɜːrli heər ænd bluː aɪz/",
         vi: "Bạn Lucas của mình có mái tóc xoăn ngắn và đôi mắt màu xanh lam.",
-        tip: "'curly' /ˈkɜːrli/ mô tả tóc xoăn • 'eyes' có âm /z/ ở cuối."
       },
       {
         en: "He is very sporty and can play basketball extremely well.",
         ipa: "/hiː ɪz ˈveri ˈspɔːrti ænd kæn pleɪ ˈbæskɪtbɔːl ɪkˈstriːmli wel/",
         vi: "Cậu ấy rất yêu thể thao và có thể chơi bóng rổ cực kỳ giỏi.",
-        tip: "'extremely' nhấn trọng âm thứ hai: /ɪkˈstriːmli/."
       },
       {
         en: "An is another close friend who is very kind and creative.",
         ipa: "/æn ɪz əˈnʌðər kloʊs frend huː ɪz ˈveri kaɪnd ænd kriˈeɪtɪv/",
         vi: "An là một người bạn thân khác, bạn ấy rất tốt bụng và giàu sức sáng tạo.",
-        tip: "'creative' nhấn trọng âm vào nguyên âm đôi /eɪ/: /kriˈeɪtɪv/."
       },
       {
         en: "In the morning, we take part in fun outdoor treasure hunts.",
         ipa: "/ɪn ðə ˈmɔːrnɪŋ, wiː teɪk pɑːrt ɪn fʌn ˈaʊtdɔːr ˈtreʒər hʌnts/",
         vi: "Vào buổi sáng, chúng mình tham gia trò chơi truy tìm kho báu ngoài trời.",
-        tip: "'treasure' /ˈtreʒər/ phát âm âm /ʒ/ • cụm 'take part in' mang nghĩa tham gia."
       },
       {
         en: "In the evening, we sit around the campfire and sing songs.",
         ipa: "/ɪn ðə ˈiːvnɪŋ, wiː sɪt əˈraʊnd ðə ˈkæmpfaɪər ænd sɪŋ sɔːŋz/",
         vi: "Vào buổi tối, chúng mình ngồi quanh lửa trại và cùng nhau ca hát.",
-        tip: "'campfire' /ˈkæmpfaɪər/ có 2 âm tiết nhấn âm đầu."
       },
       {
         en: "Making new friends makes my summer holiday unforgettable.",
         ipa: "/ˈmeɪkɪŋ njuː frendz meɪks maɪ ˈsʌmər ˈhɑːlədeɪ ˌʌnfərˈɡetəbl/",
         vi: "Việc kết thêm nhiều bạn mới làm cho kỳ nghỉ hè của mình trở nên không thể nào quên.",
-        tip: "'unforgettable' có trọng âm chính ở 'get': /ˌʌnfərˈɡetəbl/."
       }
     ]
   }
