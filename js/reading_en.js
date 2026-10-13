@@ -158,7 +158,7 @@ const ReadingEnModule = (() => {
     }
     if (enReadingPhraseEn) enReadingPhraseEn.textContent = `"${item.en}"`;
     if (enReadingPhraseIpa) enReadingPhraseIpa.textContent = item.ipa ? `IPA: ${item.ipa}` : '';
-    if (enReadingPhraseVi) enReadingPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi}${item.tip ? ` (💡 ${item.tip})` : ''}`;
+    if (enReadingPhraseVi) enReadingPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi}`;
     if (enReadingFeedback) {
       enReadingFeedback.innerHTML = '<div class="feedback-status">Bấm <strong>"🔊 Nghe câu này"</strong> để nghe bản xứ đọc, sau đó bấm <strong>"🎯 Bấm để nói & Chấm điểm"</strong> nhé!</div>';
     }
@@ -355,7 +355,7 @@ const ReadingEnModule = (() => {
         enReadingFeedback.innerHTML = `
           <div class="feedback-retry">
             💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-            Câu mẫu: "<strong>${item.en}</strong>"${item.ipa ? ` <em>(${item.ipa})</em>` : ''}.<br>
+            Câu mẫu: "<strong>${item.en}</strong>"${item.ipa ? ` <em class="phonetic-text">(${item.ipa})</em>` : ''}.<br>
             <small>👉 Hãy bấm "🔊 Nghe câu này" để bắt chước lại ngữ điệu rồi thử lại nhé!</small>
           </div>
         `;

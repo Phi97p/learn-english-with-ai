@@ -299,6 +299,13 @@ body {
   margin-top: 4px;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .header-btn {
   padding: 8px 14px;
   background: var(--bg-secondary);
@@ -315,6 +322,46 @@ body {
 .header-btn:hover {
   background: rgba(99, 102, 241, 0.1);
   border-color: var(--primary);
+}
+
+.phonetic-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.phonetic-toggle-btn:hover {
+  background: rgba(6, 182, 212, 0.22);
+  border-color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+.phonetic-toggle-btn.is-hidden {
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  color: var(--text-muted);
+}
+
+.phonetic-toggle-btn.is-hidden:hover {
+  background: rgba(148, 163, 184, 0.16);
+  border-color: var(--text-muted);
+}
+
+/* ========================================================
+   QUY TẮC ẨN / HIỆN PHIÊN ÂM (IPA CHO TIẾNG ANH, ROMAJI CHO TIẾNG NHẬT)
+   ======================================================== */
+body.hide-phonetics .challenge-phrase-ipa,
+body.hide-phonetics .challenge-ipa,
+body.hide-phonetics .spk-item-ipa,
+body.hide-phonetics .spk-item-romaji,
+body.hide-phonetics .chat-text-ipa,
+body.hide-phonetics .chat-text-romaji,
+body.hide-phonetics .phonetic-text {
+  display: none !important;
 }
 
 /* Tab panes */
@@ -2480,6 +2527,21 @@ body {
   line-height: 1.4;
   margin-bottom: 6px;
   padding-right: 58px; /* chừa chỗ cho cụm nút tools */
+}
+
+.chat-text-ipa,
+.chat-text-romaji {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  color: #38bdf8;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  padding-right: 58px;
+}
+
+.msg-right .chat-text-ipa,
+.msg-right .chat-text-romaji {
+  color: #e0f2fe;
 }
 
 /* Ô INPUT GIỌNG NÓI NGƯỜI DÙNG BÊN DƯỚI CÂU TIẾNG NHẬT */

@@ -8,6 +8,7 @@ const AppCore = (() => {
     speechSpeed: parseFloat(localStorage.getItem('speechSpeed') || '1.0'),
     voiceGender: localStorage.getItem('voiceGender') || 'female',
     currentTab: 'speaking',
+    showPhonetics: localStorage.getItem('showPhonetics') !== 'false',
     wordsLearnedCount: parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10),
     streakDays: parseInt(localStorage.getItem('streakDays') || '1', 10),
     spokenSentences: JSON.parse(localStorage.getItem('spokenSentences') || '[]')
@@ -19,6 +20,8 @@ const AppCore = (() => {
   function initDOM() {
     dom = {
       themeToggle: document.getElementById('theme-toggle'),
+      phoneticToggle: document.getElementById('phonetic-toggle'),
+      phoneticToggleLabel: document.getElementById('phonetic-toggle-label'),
       copySummaryBtn: document.getElementById('copy-summary-btn'),
       streakCountEl: document.getElementById('streak-count'),
       wordsLearnedEl: document.getElementById('words-learned'),
@@ -235,6 +238,7 @@ const AppCore = (() => {
       dom.pageTitle.textContent = '💬 Phòng Luyện Hội Thoại Đối Thoại Tiếng Nhật (2 Người)';
       dom.pageSubtitle.textContent = 'Luyện phản xạ giao tiếp đóng vai 2 người (Tôi & Bạn tôi / Tôi & AI) theo kịch bản Minna no Nihongo';
     }
+    updatePhoneticDisplay();
   }
 
   // 6. Đồng bộ tiến độ & Thống kê
@@ -263,6 +267,29 @@ const AppCore = (() => {
   function updateStatsDisplay() {
     if (dom.streakCountEl) dom.streakCountEl.textContent = `${state.streakDays} Ngày`;
     if (dom.wordsLearnedEl) dom.wordsLearnedEl.textContent = `${state.wordsLearnedCount} Mẫu câu`;
+  }
+
+  function updatePhoneticDisplay() {
+    const isShown = state.showPhonetics;
+    document.body.classList.toggle('hide-phonetics', !isShown);
+    if (dom.phoneticToggle) {
+      dom.phoneticToggle.classList.toggle('is-hidden', !isShown);
+      dom.phoneticToggle.setAttribute('aria-pressed', isShown ? 'true' : 'false');
+      dom.phoneticToggle.setAttribute('title', isShown
+        ? 'Bấm để ẩn phiên âm IPA (tiếng Anh) & Romaji (tiếng Nhật)'
+        : 'Bấm để hiện phiên âm IPA (tiếng Anh) & Romaji (tiếng Nhật)');
+    }
+    if (dom.phoneticToggleLabel) {
+      const isJa = (state.currentTab && state.currentTab.includes('ja'));
+      const langLabel = isJa ? 'Romaji' : 'IPA';
+      dom.phoneticToggleLabel.textContent = isShown ? `${langLabel}: Hiện` : `${langLabel}: Ẩn`;
+    }
+  }
+
+  function togglePhonetics() {
+    state.showPhonetics = !state.showPhonetics;
+    localStorage.setItem('showPhonetics', state.showPhonetics ? 'true' : 'false');
+    updatePhoneticDisplay();
   }
 
   // 7. Khởi tạo Core listeners
@@ -332,6 +359,14 @@ const AppCore = (() => {
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
+
+    // Phonetic toggle (Ẩn/Hiện Romaji & IPA)
+    if (dom.phoneticToggle) {
+      dom.phoneticToggle.addEventListener('click', () => {
+        togglePhonetics();
+      });
+    }
+    updatePhoneticDisplay();
 
     // Copy Summary button
     if (dom.copySummaryBtn) {
@@ -635,6 +670,8 @@ const AppCore = (() => {
     updateStatsDisplay,
     normalizeJapanese,
     isJapaneseMatch,
+    updatePhoneticDisplay,
+    togglePhonetics,
     init
   };
 })();

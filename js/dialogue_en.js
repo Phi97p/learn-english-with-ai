@@ -121,6 +121,7 @@ const DialogueEnModule = (() => {
               <button class="chat-btn-tool chat-btn-mic" title="Bấm nói câu này" data-idx="${idx}">🎙️</button>
             </div>
             <div class="chat-text-en">${turn.en}</div>
+            ${turn.ipa ? `<div class="chat-text-ipa phonetic-text">${turn.ipa}</div>` : ''}
             <div class="chat-user-input ${hasUserInput ? 'has-input' : ''}" id="en-dia-user-input-${idx}">
               ${hasUserInput ? `<span class="user-spoken-tag">🗣️ Bạn:</span> "${userInputText}"` : '<span class="input-placeholder">🎙️ Bấm mic để nói câu này...</span>'}
             </div>

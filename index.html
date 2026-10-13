@@ -82,6 +82,10 @@
           <p id="page-subtitle">Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu</p>
         </div>
         <div class="header-right">
+          <button id="phonetic-toggle" class="header-btn phonetic-toggle-btn" title="Bấm để ẩn hoặc hiện phiên âm IPA (tiếng Anh) và Romaji (tiếng Nhật)">
+            <span class="phonetic-icon">🔤</span>
+            <span id="phonetic-toggle-label">IPA / Romaji: Hiện</span>
+          </button>
           <button id="theme-toggle" class="header-btn" title="Đổi giao diện">🌓 Giao diện</button>
         </div>
       </header>
@@ -119,6 +123,7 @@
 
               <div class="challenge-category" id="spk-category">CHƯA CÓ BÀI HỌC</div>
               <div class="challenge-phrase-en" id="spk-phrase-en">(Chưa có dữ liệu bài học)</div>
+              <div class="challenge-phrase-ipa phonetic-text" id="spk-phrase-ipa"></div>
               <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Hãy nạp dữ liệu bài học để bắt đầu luyện tập.</div>
 
               <div class="speaking-actions">
@@ -200,10 +205,6 @@
                 </button>
               </div>
 
-              <div class="reading-passage-footer-tip">
-                <span>💡</span>
-                <span><strong>Mẹo học:</strong> Bấm vào bất kỳ câu nào trong đoạn văn trên để chuyển sang câu đó và luyện phát âm!</span>
-              </div>
             </div>
 
             <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
@@ -214,7 +215,7 @@
                 "Hello everyone, my name is Phong and I am in grade 6."
               </div>
 
-              <div class="challenge-ipa" id="en-reading-phrase-ipa" style="font-size: 0.95rem; color: var(--accent-cyan);">
+              <div class="challenge-ipa phonetic-text" id="en-reading-phrase-ipa" style="font-size: 0.95rem; color: var(--accent-cyan);">
                 IPA: /həˈloʊ ˈevriwʌn, maɪ neɪm ɪz fɒŋ ænd aɪ æm ɪn ɡreɪd sɪks/
               </div>
 
@@ -369,8 +370,8 @@
 
               <div class="challenge-category" id="ja-spk-category">BÀI 1: MẪU CÂU CỐT LÕI (CÂU 1 / 32)</div>
               <div class="challenge-phrase-en" id="ja-spk-phrase-ja" style="font-size: 1.85rem; letter-spacing: 0.03em;">"わたしは マイク・ミラーです。"</div>
-              <div class="challenge-phrase-ipa" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa desu.</div>
-              <div class="challenge-phrase-vi" id="ja-spk-phrase-vi">👉 Ý nghĩa: Tôi là Mike Miller. (💡 Cấu trúc N1 は N2 です: N1 là N2.)</div>
+              <div class="challenge-phrase-ipa phonetic-text" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa desu.</div>
+              <div class="challenge-phrase-vi" id="ja-spk-phrase-vi">👉 Ý nghĩa: Tôi là Mike Miller.</div>
 
               <div class="speaking-actions">
                 <button class="btn-listen" id="ja-spk-listen-btn">🔊 Nghe phát âm mẫu</button>
@@ -451,10 +452,6 @@
                 </button>
               </div>
 
-              <div class="reading-passage-footer-tip">
-                <span>💡</span>
-                <span><strong>Mẹo học:</strong> Bấm vào bất kỳ câu nào trong đoạn văn trên để chuyển sang câu đó và luyện phát âm!</span>
-              </div>
             </div>
 
             <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
@@ -465,7 +462,7 @@
                 わたしは 去年 ペルーから 日本へ 来ました。
               </div>
 
-              <div class="challenge-ipa" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
+              <div class="challenge-ipa phonetic-text" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
                 Romaji: Watashi wa kyonen Peruu kara Nihon e kimashita.
               </div>
 

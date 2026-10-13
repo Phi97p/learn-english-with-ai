@@ -316,6 +316,7 @@ const SpeakingModule = (() => {
           <span class="spk-item-num">Câu ${idx + 1}</span>
           <div class="spk-item-text">
             <div class="spk-item-en">"${item.en}"</div>
+            ${item.ipa ? `<div class="spk-item-ipa phonetic-text" style="font-size: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 2px;">${item.ipa}</div>` : ''}
             <div class="spk-item-vi">${item.vi}</div>
           </div>
         </div>
@@ -359,8 +360,8 @@ const SpeakingModule = (() => {
 
     if (spkCategory) spkCategory.textContent = `${item.category} (CÂU ${idx + 1} / ${unit.sentences.length})`;
     if (spkPhraseEn) spkPhraseEn.textContent = `"${item.en}"`;
-    if (spkPhraseIpa) spkPhraseIpa.textContent = item.ipa || '';
-    if (spkPhraseVi) spkPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi} (💡 ${item.tip})`;
+    if (spkPhraseIpa) spkPhraseIpa.textContent = item.ipa ? `IPA: ${item.ipa}` : '';
+    if (spkPhraseVi) spkPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi}`;
     if (spkFeedback) spkFeedback.innerHTML = '<div class="feedback-status">Hãy bấm "🔊 Nghe người bản ngữ", sau đó bấm "🎙️ Bấm để nói thử" để ghi âm và nhận phản hồi tức thì.</div>';
 
     resetSpkSpokenBox();
@@ -557,7 +558,7 @@ const SpeakingModule = (() => {
         spkFeedback.innerHTML = `
           <div class="feedback-retry">
             💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-            Câu mẫu: "<strong>${item.en}</strong>"${item.ipa ? ` <em>(${item.ipa})</em>` : ''}.<br>
+            Câu mẫu: "<strong>${item.en}</strong>"${item.ipa ? ` <em class="phonetic-text">(${item.ipa})</em>` : ''}.<br>
             <small>👉 Hãy đọc to, rõ từng âm tiết và bấm nút để thử lại nhé!</small>
           </div>
         `;

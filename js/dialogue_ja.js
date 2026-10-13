@@ -121,6 +121,7 @@ const DialogueJaModule = (() => {
               <button class="chat-btn-tool chat-btn-mic" title="Bấm nói câu này" data-idx="${idx}">🎙️</button>
             </div>
             <div class="chat-text-ja">${turn.ja}</div>
+            ${turn.romaji ? `<div class="chat-text-romaji phonetic-text">${turn.romaji}</div>` : ''}
             <div class="chat-user-input ${hasUserInput ? 'has-input' : ''}" id="dia-user-input-${idx}">
               ${hasUserInput ? `<span class="user-spoken-tag">🗣️ Bạn:</span> "${userInputText}"` : '<span class="input-placeholder">🎙️ Bấm mic để nói câu này...</span>'}
             </div>

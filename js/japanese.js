@@ -391,7 +391,10 @@ const JapaneseModule = (() => {
           <span class="spk-item-num">Câu ${idx + 1}</span>
           <div class="spk-item-text">
             <div class="spk-item-en" style="font-size: 1.05rem;">${item.ja}</div>
-            <div class="spk-item-vi" style="font-size: 0.8rem; color: var(--accent-cyan);">${item.romaji} - ${item.vi}</div>
+            <div class="spk-item-vi" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">
+              ${item.romaji ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.romaji} •</span>` : ''}
+              <span>${item.vi}</span>
+            </div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
@@ -435,7 +438,7 @@ const JapaneseModule = (() => {
     if (jaSpkCategory) jaSpkCategory.textContent = `${item.category} (CÂU ${idx + 1} / ${unit.sentences.length})`;
     if (jaSpkPhraseJa) jaSpkPhraseJa.textContent = item.ja;
     if (jaSpkPhraseRomaji) jaSpkPhraseRomaji.textContent = item.romaji ? `Romaji: ${item.romaji}` : '';
-    if (jaSpkPhraseVi) jaSpkPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi} (💡 ${item.tip})`;
+    if (jaSpkPhraseVi) jaSpkPhraseVi.textContent = `👉 Ý nghĩa: ${item.vi}`;
     if (jaSpkFeedback) jaSpkFeedback.innerHTML = '<div class="feedback-status">Hãy bấm "🔊 Nghe giọng mẫu Tokyo", sau đó bấm "🎙️ Bấm để nói thử" để ghi âm và nhận phản hồi tức thì.</div>';
 
     resetJaSpkSpokenBox();
@@ -629,7 +632,7 @@ const JapaneseModule = (() => {
         jaSpkFeedback.innerHTML = `
           <div class="feedback-retry">
             💡 AI nhận diện bạn vừa đọc là: "<strong>${transcript}</strong>"<br>
-            Câu mẫu: "<strong>${item.ja}</strong>" <em>(${item.romaji})</em>.<br>
+            Câu mẫu: "<strong>${item.ja}</strong>"${item.romaji ? ` <em class="phonetic-text">(${item.romaji})</em>` : ''}.<br>
             <small>👉 Hãy đọc to, rõ từng âm tiết và bấm nút để thử lại nhé!</small>
           </div>
         `;
