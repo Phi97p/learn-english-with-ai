@@ -6,205 +6,245 @@
 
 const JA_SENTENCE_UNITS_DATA = {
   bai_1: {
-    title: "Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)",
+    title: "Bài 1: わたしは マイです (Minna no Nihongo)",
     icon: "🌸",
     sentences: [
-      // --- PHẦN 1: MẪU CÂU CỐT LÕI (文型) ---
+      // --- PHẦN 1: KHẲNG ĐỊNH ～は～です ---
       {
-        category: "BÀI 1: MẪU CÂU CỐT LÕI",
-        ja: "わたしは マイク・ミラーです。",
-        romaji: "Watashi wa Maiku Miraa desu.",
-        vi: "Tôi là Mike Miller.",
+        category: "BÀI 1: KHẲNG ĐỊNH ～は～です",
+        ja: "わたしは マイです。",
+        romaji: "Watashi wa Mai desu.",
+        vi: "Tôi là Mai."
       },
       {
-        category: "BÀI 1: MẪU CÂU CỐT LÕI",
-        ja: "サントスさんは 学生じゃ ありません。",
-        romaji: "Santosu-san wa gakusei ja arimasen.",
-        vi: "Anh Santos không phải là sinh viên.",
+        category: "BÀI 1: KHẲNG ĐỊNH ～は～です",
+        ja: "ホアさんは ぎんこういんです。",
+        romaji: "Hoa-san wa ginkouin desu.",
+        vi: "Bạn Hoa là nhân viên ngân hàng."
       },
       {
-        category: "BÀI 1: MẪU CÂU CỐT LÕI",
-        ja: "ミラーさんは 会社員ですか。",
-        romaji: "Miraa-san wa kaishain desu ka?",
-        vi: "Anh Miller có phải là nhân viên công ty không?",
+        category: "BÀI 1: KHẲNG ĐỊNH ～は～です",
+        ja: "パクさんは かんこくじんです。",
+        romaji: "Paku-san wa kankokujin desu.",
+        vi: "Anh Park là người Hàn Quốc."
       },
       {
-        category: "BÀI 1: MẪU CÂU CỐT LÕI",
-        ja: "サントスさんも 会社員です。",
-        romaji: "Santosu-san mo kaishain desu.",
-        vi: "Anh Santos cũng là nhân viên công ty.",
-      },
-
-      // --- PHẦN 2: HỘI THOẠI VÍ DỤ (例文) ---
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "「あなたは」マイク・ミラーさんですか。",
-        romaji: "Anata wa Maiku Miraa-san desu ka?",
-        vi: "Bạn có phải là anh Mike Miller không?",
+        category: "BÀI 1: KHẲNG ĐỊNH ～は～です",
+        ja: "あのひとは すずきさんです。",
+        romaji: "Ano hito wa Suzuki-san desu.",
+        vi: "Người kia là anh Suzuki."
       },
       {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "いいえ、「わたしは」マイク・ミラーです。",
-        romaji: "Iie, watashi wa Maiku Miraa desu.",
-        vi: "Không, tôi là Mike Miller.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "ミラーさんは 学生ですか。",
-        romaji: "Miraa-san wa gakusei desu ka?",
-        vi: "Anh Miller có phải là sinh viên không?",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "いいえ、「わたしは」学生じゃありません。",
-        romaji: "Iie, watashi wa gakusei ja arimasen.",
-        vi: "Không, tôi không phải là sinh viên.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "ワンさんは 銀行員ですか。",
-        romaji: "Wan-san wa ginkouin desu ka?",
-        vi: "Anh Wang có phải là nhân viên ngân hàng không?",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "いいえ、「ワンさんは」銀行員じゃありません。医者です。",
-        romaji: "Iie, Wan-san wa ginkouin ja arimasen. Isha desu.",
-        vi: "Không, anh Wang không phải là nhân viên ngân hàng. Anh ấy là bác sĩ.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "あの方は どなたですか。",
-        romaji: "Ano kata wa donata desu ka?",
-        vi: "Vị kia là ai thế ạ?",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "ワットさんです。さくら大学の先生です。",
-        romaji: "Watto-san desu. Sakura daigaku no sensei desu.",
-        vi: "Là thầy Watt. Thầy là giáo viên của Đại học Sakura.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "グプタさんは 会社員ですか。……はい、会社員です。",
-        romaji: "Guputa-san wa kaishain desu ka? ...Hai, kaishain desu.",
-        vi: "Anh Gupta có phải là nhân viên công ty không? - Vâng, là nhân viên công ty.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "カリナさんも 会社員ですか。……いいえ、「カリナさんは」学生です。",
-        romaji: "Karina-san mo kaishain desu ka? ...Iie, Karina-san wa gakusei desu.",
-        vi: "Chị Karina cũng là nhân viên công ty phải không? - Không, chị Karina là sinh viên.",
-      },
-      {
-        category: "BÀI 1: VÍ DỤ HỘI THOẠI",
-        ja: "テレーザちゃんは 何歳ですか。……9歳です。",
-        romaji: "Tereeza-chan wa nansai desu ka? ...Kyuu-sai desu.",
-        vi: "Bé Teresa mấy tuổi rồi? - Bé 9 tuổi.",
+        category: "BÀI 1: KHẲNG ĐỊNH ～は～です",
+        ja: "やまださんは エンジニアです。",
+        romaji: "Yamada-san wa enjinia desu.",
+        vi: "Anh Yamada là kỹ sư."
       },
 
-      // --- PHẦN 3: LUYỆN TẬP THAY THẾ (練習A) ---
+      // --- PHẦN 2: KHẲNG ĐỊNH & PHỦ ĐỊNH ---
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "わたしは 会社員です。",
-        romaji: "Watashi wa kaishain desu.",
-        vi: "Tôi là nhân viên công ty.",
+        category: "BÀI 1: KHẲNG ĐỊNH & PHỦ ĐỊNH",
+        ja: "ミラーさんは フランスじんです。",
+        romaji: "Miraa-san wa Furansujin desu.",
+        vi: "Anh Miller là người Pháp."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "ワンさんは 中国人です。医者です。",
-        romaji: "Wan-san wa Chuugokujin desu. Isha desu.",
-        vi: "Anh Wang là người Trung Quốc. Anh ấy là bác sĩ.",
+        category: "BÀI 1: KHẲNG ĐỊNH & PHỦ ĐỊNH",
+        ja: "ミラーさんは フランスじんじゃありません。",
+        romaji: "Miraa-san wa Furansujin ja arimasen.",
+        vi: "Anh Miller không phải là người Pháp."
+      },
+
+      // --- PHẦN 3: PHỦ ĐỊNH ～じゃありません ---
+      {
+        category: "BÀI 1: PHỦ ĐỊNH ～じゃありません",
+        ja: "わたしは かいしゃいんじゃありません。",
+        romaji: "Watashi wa kaishain ja arimasen.",
+        vi: "Tôi không phải là nhân viên công ty."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "わたしは カール・シュミットじゃ ありません。",
-        romaji: "Watashi wa Kaaru Shumitto ja arimasen.",
-        vi: "Tôi không phải là Karl Schmidt.",
+        category: "BÀI 1: PHỦ ĐỊNH ～じゃありません",
+        ja: "ゆきさんは けんきゅうしゃじゃありません。",
+        romaji: "Yuki-san wa kenkyuusha ja arimasen.",
+        vi: "Chị Yuki không phải là nhà nghiên cứu."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "わたしは 教師じゃ ありません。",
-        romaji: "Watashi wa kyoushi ja arimasen.",
-        vi: "Tôi không phải là giáo viên.",
+        category: "BÀI 1: PHỦ ĐỊNH ～じゃありません",
+        ja: "あのかたは ブラジルじんじゃありません。",
+        romaji: "Ano kata wa Burajirujin ja arimasen.",
+        vi: "Vị kia không phải là người Brazil."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "イーさんは アメリカ人じゃ ありません。学生です。",
-        romaji: "Ii-san wa Amerikajin ja arimasen. Gakusei desu.",
-        vi: "Anh Lee không phải là người Mỹ. Anh ấy là sinh viên.",
+        category: "BÀI 1: PHỦ ĐỊNH ～じゃありません",
+        ja: "リーさんは ちゅうごくじんじゃありません。",
+        romaji: "Rii-san wa Chuugokujin ja arimasen.",
+        vi: "Anh Lee không phải là người Trung Quốc."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "あの人は 木村さんですか。",
-        romaji: "Ano hito wa Kimura-san desu ka?",
-        vi: "Người kia có phải là chị Kimura không?",
+        category: "BÀI 1: PHỦ ĐỊNH ～じゃありません",
+        ja: "わたしは マイじゃありません。",
+        romaji: "Watashi wa Mai ja arimasen.",
+        vi: "Tôi không phải là Mai."
+      },
+
+      // --- PHẦN 4: CÂU HỎI CÓ / KHÔNG ---
+      {
+        category: "BÀI 1: CÂU HỎI CÓ / KHÔNG",
+        ja: "ミラーさんは フランスじんです。",
+        romaji: "Miraa-san wa Furansujin desu.",
+        vi: "Anh Miller là người Pháp."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "あの人は マリアさんですか。",
-        romaji: "Ano hito wa Maria-san desu ka?",
-        vi: "Người kia có phải là chị Maria không?",
+        category: "BÀI 1: CÂU HỎI CÓ / KHÔNG",
+        ja: "ミラーさんは フランスじんですか。",
+        romaji: "Miraa-san wa Furansujin desu ka?",
+        vi: "Anh Miller có phải là người Pháp không?"
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "あの人は だれですか。あの方は どなたですか。",
-        romaji: "Ano hito wa dare desu ka? Ano kata wa donata desu ka?",
-        vi: "Người kia là ai thế? / Vị kia là ai vậy ạ?",
+        category: "BÀI 1: CÂU HỎI CÓ / KHÔNG",
+        ja: "はい、フランスじんです。",
+        romaji: "Hai, Furansujin desu.",
+        vi: "Vâng, là người Pháp."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "わたしは IMCの 社員です。",
-        romaji: "Watashi wa IMC no shain desu.",
-        vi: "Tôi là nhân viên công ty IMC.",
+        category: "BÀI 1: CÂU HỎI CÓ / KHÔNG",
+        ja: "いいえ、フランスじんじゃありません。",
+        romaji: "Iie, Furansujin ja arimasen.",
+        vi: "Không, không phải là người Pháp."
+      },
+
+      // --- PHẦN 5: LUYỆN TẬP HỎI ĐÁP ---
+      {
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "あなたは ベトナムじんですか。",
+        romaji: "Anata wa Betonamujin desu ka?",
+        vi: "Bạn có phải là người Việt Nam không?"
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "カリナさんは 富士大学の 学生です。",
-        romaji: "Karina-san wa Fuji daigaku no gakusei desu.",
-        vi: "Chị Karina là sinh viên của trường Đại học Fuji.",
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "はい、ベトナムじんです。",
+        romaji: "Hai, Betonamujin desu.",
+        vi: "Vâng, tôi là người Việt Nam."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "ワットさんは さくら大学の 先生です。",
-        romaji: "Watto-san wa Sakura daigaku no sensei desu.",
-        vi: "Thầy Watt là giáo viên của trường Đại học Sakura.",
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "リーさんは エンジニアですか。",
+        romaji: "Rii-san wa enjinia desu ka?",
+        vi: "Anh Lee có phải là kỹ sư không?"
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "サントスさんは ブラジル人です。",
-        romaji: "Santosu-san wa Burajirujin desu.",
-        vi: "Anh Santos là người Brazil.",
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "いいえ、エンジニアじゃありません。いしゃです。",
+        romaji: "Iie, enjinia ja arimasen. Isha desu.",
+        vi: "Không, không phải là kỹ sư. Là bác sĩ."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "マリアさんも ブラジル人です。",
-        romaji: "Maria-san mo Burajirujin desu.",
-        vi: "Chị Maria cũng là người Brazil.",
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "あなたは マリアさんですか。",
+        romaji: "Anata wa Maria-san desu ka?",
+        vi: "Bạn có phải là chị Maria không?"
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "あの人も ブラジル人ですか。",
-        romaji: "Ano hito mo Burajirujin desu ka?",
-        vi: "Người kia cũng là người Brazil phải không?",
+        category: "BÀI 1: LUYỆN TẬP HỎI ĐÁP",
+        ja: "いいえ、カリナです。",
+        romaji: "Iie, Karina desu.",
+        vi: "Không, tôi là Karina."
+      },
+
+      // --- PHẦN 6: TRỢ TỪ SỞ HỮU / THUỘC TỔ CHỨC の ---
+      {
+        category: "BÀI 1: TRỢ TỪ の",
+        ja: "わたしは さくらだいがくの きょうしです。",
+        romaji: "Watashi wa Sakura daigaku no kyoushi desu.",
+        vi: "Tôi là giảng viên trường Đại học Sakura."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "テレーザちゃんは 9歳です。",
-        romaji: "Tereeza-chan wa kyuu-sai desu.",
-        vi: "Bé Teresa 9 tuổi.",
+        category: "BÀI 1: TRỢ TỪ の",
+        ja: "たなかさんは げんきびょういんの いしゃです。",
+        romaji: "Tanaka-san wa Genki byouin no isha desu.",
+        vi: "Anh Tanaka là bác sĩ của bệnh viện Genki."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "たろうちゃんは 8歳です。",
-        romaji: "Tarou-chan wa hassai desu.",
-        vi: "Bé Taro 8 tuổi.",
+        category: "BÀI 1: TRỢ TỪ の",
+        ja: "わたしは ABCの しゃいんじゃありません。",
+        romaji: "Watashi wa ABC no shain ja arimasen.",
+        vi: "Tôi không phải là nhân viên công ty ABC."
       },
       {
-        category: "BÀI 1: LUYỆN TẬP THAY THẾ",
-        ja: "テレーザちゃんは 何歳（おいくつ）ですか。",
-        romaji: "Tereeza-chan wa nansai (oikutsu) desu ka?",
-        vi: "Bé Teresa bao nhiêu tuổi rồi?",
+        category: "BÀI 1: TRỢ TỪ の",
+        ja: "あなたは タンロンだいがくの がくせいですか。",
+        romaji: "Anata wa Tanron daigaku no gakusei desu ka?",
+        vi: "Bạn có phải là sinh viên trường Đại học Thăng Long không?"
+      },
+      {
+        category: "BÀI 1: TRỢ TỪ の",
+        ja: "あのかたは IMCの エンジニアですか。",
+        romaji: "Ano kata wa IMC no enjinia desu ka?",
+        vi: "Vị kia có phải là kỹ sư của công ty IMC không?"
+      },
+
+      // --- PHẦN 7: GIỚI THIỆU BẢN THÂN & HỘI THOẠI ---
+      {
+        category: "BÀI 1: GIỚI THIỆU & HỘI THOẠI",
+        ja: "カリナさんは YONOだいがくの がくせいじゃありません。",
+        romaji: "Karina-san wa YONO daigaku no gakusei ja arimasen.",
+        vi: "Chị Karina không phải là sinh viên trường Đại học YONO."
+      },
+      {
+        category: "BÀI 1: GIỚI THIỆU & HỘI THOẠI",
+        ja: "あのかたは SUMIの しゃいんですか。",
+        romaji: "Ano kata wa SUMI no shain desu ka?",
+        vi: "Vị kia có phải là nhân viên công ty SUMI không?"
+      },
+      {
+        category: "BÀI 1: GIỚI THIỆU & HỘI THOẠI",
+        ja: "わたしは ミミです。28さいです。ABCびょういんの いしゃです。",
+        romaji: "Watashi wa Mimi desu. Nijuuhassai desu. ABC byouin no isha desu.",
+        vi: "Tôi là Mimi. Tôi 28 tuổi. Tôi là bác sĩ của bệnh viện ABC."
+      },
+      {
+        category: "BÀI 1: GIỚI THIỆU & HỘI THOẠI",
+        ja: "はじめまして。ゆきだいがくの きょうしです。",
+        romaji: "Hajimemashite. Yuki daigaku no kyoushi desu.",
+        vi: "Rất vui được gặp bạn. Tôi là giảng viên trường Đại học Yuki."
+      },
+      {
+        category: "BÀI 1: GIỚI THIỆU & HỘI THOẠI",
+        ja: "わたしも ゆきだいがくの きょうしです。どうぞ よろしく おねがいします。",
+        romaji: "Watashi mo Yuki daigaku no kyoushi desu. Douzo yoroshiku onegaishimasu.",
+        vi: "Tôi cũng là giảng viên trường Đại học Yuki. Rất mong được giúp đỡ."
+      },
+
+      // --- PHẦN 8: LUYỆN TẬP TỔNG HỢP ---
+      {
+        category: "BÀI 1: LUYỆN TẬP TỔNG HỢP",
+        ja: "わたしは IPUだいがくの がくせいです。",
+        romaji: "Watashi wa IPU daigaku no gakusei desu.",
+        vi: "Tôi là sinh viên trường Đại học IPU."
+      },
+      {
+        category: "BÀI 1: LUYỆN TẬP TỔNG HỢP",
+        ja: "あのかたは どなたですか。……ABCの しゃいんです。……わたしも ABCの しゃいんです。",
+        romaji: "Ano kata wa donata desu ka? ...ABC no shain desu. ...Watashi mo ABC no shain desu.",
+        vi: "Vị kia là ai thế ạ? - Là nhân viên ABC. - Tôi cũng là nhân viên ABC."
+      },
+      {
+        category: "BÀI 1: LUYỆN TẬP TỔNG HỢP",
+        ja: "あのひとは リーさんですか。……はい、リーさんです。",
+        romaji: "Ano hito wa Rii-san desu ka? ...Hai, Rii-san desu.",
+        vi: "Người kia có phải là anh Lee không? - Vâng, là anh Lee."
+      },
+      {
+        category: "BÀI 1: LUYỆN TẬP TỔNG HỢP",
+        ja: "あのひとは だれですか。……マイさんです。",
+        romaji: "Ano hito wa dare desu ka? ...Mai-san desu.",
+        vi: "Người kia là ai thế? - Là bạn Mai."
+      },
+      {
+        category: "BÀI 1: LUYỆN TẬP TỔNG HỢP",
+        ja: "テレサちゃんは なんさいですか。……6さいです。",
+        romaji: "Teresa-chan wa nansai desu ka? ...Rokusai desu.",
+        vi: "Bé Teresa mấy tuổi rồi? - Bé 6 tuổi."
       }
     ]
   }
