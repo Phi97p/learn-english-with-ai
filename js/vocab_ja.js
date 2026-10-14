@@ -8,8 +8,12 @@ const VocabJaModule = (() => {
   let currentUnitKey = 'bai_1';
   let currentIdx = 0;
 
+  let isRandomMode = true;
+  let navHistory = [];
+
   // DOM Elements
   let jaVocabUnitSelect;
+  let jaVocabRandomToggle;
   let jaVocabCount;
   let jaVocabCard, jaVocabPrevBtn, jaVocabNextBtn;
   let jaVocabCategory, jaVocabWordJa, jaVocabWordRomaji, jaVocabWordVi;
@@ -40,6 +44,7 @@ const VocabJaModule = (() => {
 
   function initDOM() {
     jaVocabUnitSelect = document.getElementById('ja-vocab-unit-select');
+    jaVocabRandomToggle = document.getElementById('ja-vocab-random-toggle');
     jaVocabCount = document.getElementById('ja-vocab-count');
 
     jaVocabCard = document.getElementById('ja-vocab-card');
@@ -154,6 +159,17 @@ const VocabJaModule = (() => {
 
     resetSpokenBox();
     renderList();
+  }
+
+  function getRandomIndex(listLength, current) {
+    if (listLength <= 1) return 0;
+    let next = current;
+    let attempts = 0;
+    while (next === current && attempts < 20) {
+      next = Math.floor(Math.random() * listLength);
+      attempts++;
+    }
+    return next;
   }
 
   function resetSpokenBox() {
@@ -364,11 +380,23 @@ const VocabJaModule = (() => {
       });
     }
 
+    if (jaVocabRandomToggle) {
+      jaVocabRandomToggle.addEventListener('click', () => {
+        isRandomMode = !isRandomMode;
+        jaVocabRandomToggle.innerHTML = isRandomMode ? '🔀 Ngẫu nhiên: BẬT' : '➡️ Thứ tự: TUẦN TỰ';
+        jaVocabRandomToggle.classList.toggle('active-toggle', isRandomMode);
+      });
+    }
+
     if (jaVocabPrevBtn) {
       jaVocabPrevBtn.addEventListener('click', () => {
         const list = getVocabList();
         if (list.length === 0) return;
-        currentIdx = (currentIdx - 1 + list.length) % list.length;
+        if (isRandomMode && navHistory.length > 0) {
+          currentIdx = navHistory.pop();
+        } else {
+          currentIdx = (currentIdx - 1 + list.length) % list.length;
+        }
         renderWord(currentIdx);
       });
     }
@@ -377,7 +405,13 @@ const VocabJaModule = (() => {
       jaVocabNextBtn.addEventListener('click', () => {
         const list = getVocabList();
         if (list.length === 0) return;
-        currentIdx = (currentIdx + 1) % list.length;
+        if (isRandomMode && list.length > 1) {
+          navHistory.push(currentIdx);
+          if (navHistory.length > 50) navHistory.shift();
+          currentIdx = getRandomIndex(list.length, currentIdx);
+        } else {
+          currentIdx = (currentIdx + 1) % list.length;
+        }
         renderWord(currentIdx);
       });
     }

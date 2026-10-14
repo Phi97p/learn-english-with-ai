@@ -35,6 +35,7 @@ const ReadingJaModule = (() => {
   let jaReadingListenBtn;
   let jaReadingRecordBtn;
   let jaReadingPassageRecordBtn;
+  let jaReadingPassageNextBtn;
   let jaReadingUserRecBtn;
   let jaReadingPlayRecordBtn;
   let jaReadingPrevBtn;
@@ -45,6 +46,11 @@ const ReadingJaModule = (() => {
   let jaReadingSpokenBadge;
   let jaReadingSpokenText;
   let jaReadingTypingCursor;
+
+  let jaPassageSpokenDisplay;
+  let jaPassageSpokenStatus;
+  let jaPassageSpokenText;
+  let jaPassageTypingCursor;
 
   let jaReadingBtnPlayRecPrev;
   let jaReadingBtnPlayRecCurr;
@@ -67,6 +73,7 @@ const ReadingJaModule = (() => {
     jaReadingListenBtn = document.getElementById('ja-reading-listen-btn');
     jaReadingRecordBtn = document.getElementById('ja-reading-record-btn');
     jaReadingPassageRecordBtn = document.getElementById('ja-reading-passage-record-btn');
+    jaReadingPassageNextBtn = document.getElementById('ja-reading-passage-next-btn');
     jaReadingUserRecBtn = document.getElementById('ja-reading-user-rec-btn');
     jaReadingPlayRecordBtn = document.getElementById('ja-reading-play-record-btn');
     jaReadingPrevBtn = document.getElementById('ja-reading-prev-btn');
@@ -77,6 +84,11 @@ const ReadingJaModule = (() => {
     jaReadingSpokenBadge = document.getElementById('ja-reading-spoken-badge');
     jaReadingSpokenText = document.getElementById('ja-reading-spoken-text');
     jaReadingTypingCursor = document.getElementById('ja-reading-typing-cursor');
+
+    jaPassageSpokenDisplay = document.getElementById('ja-passage-spoken-display');
+    jaPassageSpokenStatus = document.getElementById('ja-passage-spoken-status');
+    jaPassageSpokenText = document.getElementById('ja-passage-spoken-text');
+    jaPassageTypingCursor = document.getElementById('ja-passage-typing-cursor');
 
     jaReadingBtnPlayRecPrev = document.getElementById('ja-reading-btn-play-rec-prev');
     jaReadingBtnPlayRecCurr = document.getElementById('ja-reading-btn-play-rec-curr');
@@ -199,6 +211,13 @@ const ReadingJaModule = (() => {
     if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = 'Đang chờ bạn đọc câu này...';
     if (jaReadingSpokenText) jaReadingSpokenText.textContent = '"..."';
     if (jaReadingTypingCursor) jaReadingTypingCursor.style.display = 'none';
+
+    if (jaPassageSpokenDisplay) {
+      jaPassageSpokenDisplay.classList.remove('is-recording', 'match-success', 'match-retry');
+    }
+    if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = 'Chờ bạn đọc câu này...';
+    if (jaPassageSpokenText) jaPassageSpokenText.textContent = 'Chưa có giọng nói';
+    if (jaPassageTypingCursor) jaPassageTypingCursor.style.display = 'none';
   }
 
   // Phát toàn bộ bài đọc
@@ -449,6 +468,10 @@ const ReadingJaModule = (() => {
       jaReadingPassageRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
     }
     if (jaReadingTypingCursor) jaReadingTypingCursor.style.display = 'none';
+    if (jaPassageTypingCursor) jaPassageTypingCursor.style.display = 'none';
+    if (jaPassageSpokenDisplay) {
+      jaPassageSpokenDisplay.classList.remove('is-recording');
+    }
 
     if (readingRecognition) {
       try { readingRecognition.stop(); } catch (e) {}
@@ -501,6 +524,14 @@ const ReadingJaModule = (() => {
     if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = '🔴 Đang lắng nghe... Hãy đọc câu tiếng Nhật!';
     if (jaReadingSpokenText) jaReadingSpokenText.textContent = '...';
     if (jaReadingTypingCursor) jaReadingTypingCursor.style.display = 'inline-block';
+
+    if (jaPassageSpokenDisplay) {
+      jaPassageSpokenDisplay.classList.remove('match-success', 'match-retry');
+      jaPassageSpokenDisplay.classList.add('is-recording');
+    }
+    if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = '🔴 Đang lắng nghe...';
+    if (jaPassageSpokenText) jaPassageSpokenText.textContent = '...';
+    if (jaPassageTypingCursor) jaPassageTypingCursor.style.display = 'inline-block';
     if (jaReadingFeedback) {
       jaReadingFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to câu tiếng Nhật vào micro... Giữ ngữ điệu tự nhiên nhé!</div>';
     }
@@ -585,6 +616,10 @@ const ReadingJaModule = (() => {
     if (jaReadingSpokenText) jaReadingSpokenText.textContent = `"${transcript}"`;
     if (jaReadingSpokenBox) jaReadingSpokenBox.classList.remove('is-recording');
 
+    if (jaPassageSpokenText) jaPassageSpokenText.textContent = transcript;
+    if (jaPassageSpokenDisplay) jaPassageSpokenDisplay.classList.remove('is-recording');
+    if (jaPassageTypingCursor) jaPassageTypingCursor.style.display = 'none';
+
     const isMatch = AppCore.isJapaneseMatch
       ? AppCore.isJapaneseMatch(transcript, item.ja, item.romaji)
       : (transcript.replace(/[\s\.\,\?\!、。]/g, '').includes(item.ja.replace(/[\s\.\,\?\!、。]/g, '')));
@@ -592,6 +627,8 @@ const ReadingJaModule = (() => {
     if (isMatch) {
       if (jaReadingSpokenBox) jaReadingSpokenBox.classList.add('match-success');
       if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = '✅ Đã nhận diện & Phát âm rất chuẩn!';
+      if (jaPassageSpokenDisplay) jaPassageSpokenDisplay.classList.add('match-success');
+      if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = '✅ Phát âm rất chuẩn!';
       if (jaReadingFeedback) {
         jaReadingFeedback.innerHTML = `
           <div class="feedback-success">
@@ -610,6 +647,8 @@ const ReadingJaModule = (() => {
     } else {
       if (jaReadingSpokenBox) jaReadingSpokenBox.classList.add('match-retry');
       if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm';
+      if (jaPassageSpokenDisplay) jaPassageSpokenDisplay.classList.add('match-retry');
+      if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = '⚠️ Cần điều chỉnh phát âm';
       if (jaReadingFeedback) {
         jaReadingFeedback.innerHTML = `
           <div class="feedback-retry">
@@ -697,6 +736,24 @@ const ReadingJaModule = (() => {
         if (!passage || !passage.sentences) return;
         stopReadingRecognition();
         stopReadingUserAudioRecording();
+        lastReadingTranscript = '';
+        hasEvaluatedReadingTurn = false;
+        currentReadingSentenceIdx = (currentReadingSentenceIdx + 1) % passage.sentences.length;
+        loadReadingSentence(currentReadingSentenceIdx);
+      });
+    }
+
+    // Nút Next câu tiếp theo ở bên phải nút Bấm để nói & Chấm điểm (Cột đoạn văn)
+    if (jaReadingPassageNextBtn) {
+      jaReadingPassageNextBtn.addEventListener('click', () => {
+        if (typeof JA_READING_PASSAGES_DATA === 'undefined') return;
+        const passage = JA_READING_PASSAGES_DATA[currentReadingKey];
+        if (!passage || !passage.sentences) return;
+        stopReadingRecognition();
+        stopReadingUserAudioRecording();
+        lastReadingTranscript = '';
+        hasEvaluatedReadingTurn = false;
+        // Chuyển sang câu tiếp theo, reset input, không lưu gì cả
         currentReadingSentenceIdx = (currentReadingSentenceIdx + 1) % passage.sentences.length;
         loadReadingSentence(currentReadingSentenceIdx);
       });
@@ -757,6 +814,8 @@ const ReadingJaModule = (() => {
           lastReadingTranscript = currentText;
           if (jaReadingSpokenText) jaReadingSpokenText.textContent = `"${currentText}"`;
           if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = '🎙️ Đang nhận diện tiếng Nhật...';
+          if (jaPassageSpokenText) jaPassageSpokenText.textContent = currentText;
+          if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = '🎙️ Đang nhận diện...';
         }
 
         if (finalTranscript) {
@@ -772,6 +831,8 @@ const ReadingJaModule = (() => {
           } else if (!hasEvaluatedReadingTurn) {
             if (jaReadingSpokenBadge) jaReadingSpokenBadge.textContent = 'Đã kết thúc lượt nghe';
             if (jaReadingSpokenBox) jaReadingSpokenBox.classList.remove('is-recording');
+            if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = 'Đã kết thúc lượt nghe';
+            if (jaPassageSpokenDisplay) jaPassageSpokenDisplay.classList.remove('is-recording');
           }
         }
       };
@@ -780,6 +841,9 @@ const ReadingJaModule = (() => {
         console.warn('Reading recognition error:', e.error);
         stopReadingRecognition();
         if (jaReadingSpokenBox) jaReadingSpokenBox.classList.remove('is-recording');
+        if (jaPassageSpokenDisplay) jaPassageSpokenDisplay.classList.remove('is-recording');
+        if (jaPassageTypingCursor) jaPassageTypingCursor.style.display = 'none';
+        if (jaPassageSpokenStatus) jaPassageSpokenStatus.textContent = '⚠️ Lỗi nhận diện micro';
 
         if (e.error === 'no-speech') {
           if (jaReadingFeedback) {

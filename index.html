@@ -61,6 +61,11 @@
           <span>Từ vựng Tiếng Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Từ khó</span>
         </button>
+        <button class="nav-item" data-tab="katakana">
+          <span class="icon">🈂️</span>
+          <span>Học Katakana</span>
+          <span class="badge" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">Phản xạ</span>
+        </button>
       </nav>
 
       <div class="audio-controls-panel">
@@ -195,10 +200,27 @@
                 <!-- Injected dynamically with interactive spans by reading_en.js -->
               </div>
 
-              <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI -->
+              <!-- VÙNG HIỂN THỊ CÂU MÁY NGHE ĐƯỢC (TRANSCRIPT INPUT) NGAY TRÊN NÚT BẤM -->
+              <div class="passage-spoken-display" id="en-passage-spoken-display">
+                <div class="passage-spoken-header">
+                  <span class="passage-spoken-title">🎙️ Máy nghe được:</span>
+                  <span class="passage-spoken-status" id="en-passage-spoken-status">Chờ bạn đọc câu này...</span>
+                </div>
+                <div class="passage-spoken-box">
+                  <span class="passage-spoken-quote">“</span>
+                  <span class="passage-spoken-text" id="en-passage-spoken-text">Chưa có giọng nói</span>
+                  <span class="typing-cursor" id="en-passage-typing-cursor" style="display: none;"></span>
+                  <span class="passage-spoken-quote">”</span>
+                </div>
+              </div>
+
+              <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI & NÚT NEXT CÂU TIẾP THEO -->
               <div class="reading-passage-actions">
                 <button class="spk-btn-record reading-passage-record-btn" id="en-reading-passage-record-btn" title="Bấm để nói câu đang chọn vào micro">
                   🎯 Bấm để nói & Chấm điểm
+                </button>
+                <button class="btn-passage-next" id="en-reading-passage-next-btn" title="Chuyển sang câu tiếp theo trong bài đọc">
+                  Câu tiếp theo ⏭️
                 </button>
               </div>
 
@@ -430,10 +452,27 @@
                 <!-- Injected dynamically with interactive spans by reading_ja.js -->
               </div>
 
-              <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI -->
+              <!-- VÙNG HIỂN THỊ CÂU MÁY NGHE ĐƯỢC (TRANSCRIPT INPUT) NGAY TRÊN NÚT BẤM -->
+              <div class="passage-spoken-display" id="ja-passage-spoken-display">
+                <div class="passage-spoken-header">
+                  <span class="passage-spoken-title">🎙️ Máy nghe được:</span>
+                  <span class="passage-spoken-status" id="ja-passage-spoken-status">Chờ bạn đọc câu này...</span>
+                </div>
+                <div class="passage-spoken-box">
+                  <span class="passage-spoken-quote">“</span>
+                  <span class="passage-spoken-text" id="ja-passage-spoken-text">Chưa có giọng nói</span>
+                  <span class="typing-cursor" id="ja-passage-typing-cursor" style="display: none;"></span>
+                  <span class="passage-spoken-quote">”</span>
+                </div>
+              </div>
+
+              <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI & NÚT NEXT CÂU TIẾP THEO -->
               <div class="reading-passage-actions">
                 <button class="spk-btn-record reading-passage-record-btn" id="ja-reading-passage-record-btn" title="Bấm để nói câu đang chọn vào micro">
                   🎯 Bấm để nói & Chấm điểm
+                </button>
+                <button class="btn-passage-next" id="ja-reading-passage-next-btn" title="Chuyển sang câu tiếp theo trong bài đọc">
+                  Câu tiếp theo ⏭️
                 </button>
               </div>
 
@@ -444,15 +483,15 @@
               <div class="challenge-category" id="ja-reading-category">BÀI 1: ĐỌC HIỂU (CÂU 1 / 12)</div>
 
               <div class="challenge-en" id="ja-reading-phrase-ja" style="font-size: 1.55rem; color: var(--text-main);">
-                わたしは 去年 ペルーから 日本へ 来ました。
+                わたしは 去年 ベトナムから 日本へ 来ました。
               </div>
 
               <div class="challenge-ipa phonetic-text" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
-                Romaji: Watashi wa kyonen Peruu kara Nihon e kimashita.
+                Romaji: Watashi wa kyonen Betonamu kara Nihon e kimashita.
               </div>
 
               <div class="challenge-vi" id="ja-reading-phrase-vi" style="font-size: 1rem; color: var(--text-muted);">
-                👉 Ý nghĩa: Tôi đã từ Peru đến Nhật Bản vào năm ngoái.
+                👉 Ý nghĩa: Tôi đã từ Việt Nam đến Nhật Bản vào năm ngoái.
               </div>
 
               <!-- CONTROLS -->
@@ -579,6 +618,9 @@
                   <select id="ja-vocab-unit-select">
                     <option value="bai_1">🌸 Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)</option>
                   </select>
+                  <button class="btn-action-small active-toggle" id="ja-vocab-random-toggle" title="Bật/Tắt chế độ nhảy từ ngẫu nhiên khi bấm Next">
+                    🔀 Ngẫu nhiên: BẬT
+                  </button>
                 </div>
               </div>
             </div>
@@ -628,13 +670,117 @@
         </div>
       </section>
 
+      <!-- TAB: HỌC BẢNG CHỮ CÁI KATAKANA -->
+      <section id="tab-katakana" class="tab-pane">
+        <div class="katakana-container">
+
+          <!-- HEADER CARD -->
+          <div class="speaking-header-card">
+            <div class="katakana-header-info">
+              <div class="unit-badge">🎌 LUYỆN PHẢN XẠ KATAKANA</div>
+              <h2 class="katakana-title">Nhận Diện & Đoán Chữ Katakana</h2>
+              <p class="katakana-desc">
+                Nhìn 3 chữ Katakana trong các ô vuông bên dưới, nhập Romaji hoặc Hiragana tương ứng vào 3 ô nhập rồi bấm <strong>Kiểm tra</strong> hoặc nhấn <strong>Enter</strong>!
+              </p>
+            </div>
+            <div class="katakana-options">
+              <label class="katakana-filter-label">
+                <span>Chế độ:</span>
+                <select id="katakana-mode-select" class="katakana-select">
+                  <option value="basic">46 Chữ cơ bản (A - N)</option>
+                  <option value="all" selected>Tất cả (Cơ bản + Âm đục & Bán đục)</option>
+                  <option value="dakuten">Chỉ âm đục & Bán đục (Ga, Za, Da, Ba, Pa)</option>
+                </select>
+              </label>
+              <div class="katakana-live-score" id="katakana-live-score">
+                <span>Đã kiểm tra: <strong id="katakana-score-total">0</strong></span>
+                <span style="color: #34d399;">Đúng: <strong id="katakana-score-correct">0</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE 3 SQUARES AREA -->
+          <div class="katakana-quiz-wrapper">
+            <div class="katakana-slots-grid">
+
+              <!-- SLOT 1 -->
+              <div class="katakana-card-item" id="katakana-card-0">
+                <div class="katakana-box-square" id="katakana-char-0" title="Bấm để nghe phát âm">
+                  <span class="katakana-glyph">?</span>
+                  <button class="katakana-audio-btn" id="katakana-audio-0" title="Nghe phát âm">🔊</button>
+                </div>
+                <div class="katakana-input-wrapper">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-0" placeholder="Đáp án 1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <div class="katakana-result-badge" id="katakana-badge-0"></div>
+              </div>
+
+              <!-- SLOT 2 -->
+              <div class="katakana-card-item" id="katakana-card-1">
+                <div class="katakana-box-square" id="katakana-char-1" title="Bấm để nghe phát âm">
+                  <span class="katakana-glyph">?</span>
+                  <button class="katakana-audio-btn" id="katakana-audio-1" title="Nghe phát âm">🔊</button>
+                </div>
+                <div class="katakana-input-wrapper">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-1" placeholder="Đáp án 2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <div class="katakana-result-badge" id="katakana-badge-1"></div>
+              </div>
+
+              <!-- SLOT 3 -->
+              <div class="katakana-card-item" id="katakana-card-2">
+                <div class="katakana-box-square" id="katakana-char-2" title="Bấm để nghe phát âm">
+                  <span class="katakana-glyph">?</span>
+                  <button class="katakana-audio-btn" id="katakana-audio-2" title="Nghe phát âm">🔊</button>
+                </div>
+                <div class="katakana-input-wrapper">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-2" placeholder="Đáp án 3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <div class="katakana-result-badge" id="katakana-badge-2"></div>
+              </div>
+
+            </div>
+
+            <!-- FEEDBACK STATUS BANNER -->
+            <div class="katakana-feedback-banner" id="katakana-feedback-banner">
+              Nhập đáp án cho 3 ô rồi bấm <strong>Kiểm tra</strong> hoặc nhấn <strong>Enter</strong> nhé!
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="katakana-actions-bar">
+              <button class="katakana-btn-check" id="katakana-btn-check">
+                🎯 Kiểm tra đáp án (Enter)
+              </button>
+              <button class="katakana-btn-next" id="katakana-btn-next">
+                Tiếp tục (Random 3 chữ mới) ⏭️
+              </button>
+            </div>
+          </div>
+
+          <!-- BẢNG TRA CỨU NHANH BẢNG CHỮ CÁI KATAKANA (COLLAPSIBLE / ACCORDION) -->
+          <div class="speaking-header-card katakana-reference-card">
+            <details class="katakana-reference-details">
+              <summary class="katakana-reference-summary">
+                <span>📖 Bảng tra cứu toàn bộ chữ Katakana & Romaji (Bấm để xem)</span>
+                <span class="summary-arrow">▼</span>
+              </summary>
+              <div class="katakana-reference-table" id="katakana-reference-table">
+                <!-- Generated by js/katakana.js -->
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </section>
+
     </main>
+  </div>
 
   <script src="data.js"></script>
   <script src="english_data/reading_data.js"></script>
   <script src="english_data/dialogue_data.js"></script>
   <script src="japanese_data/speaking_data.js"></script>
-  <script src="japanese_data/reading_data.js"></script>
+  <script src="japanese_data/reading_data.js?v=2.0"></script>
   <script src="japanese_data/dialogue_data.js"></script>
   <script src="japanese_data/vocab_data.js?v=2.0"></script>
   <script src="js/core.js"></script>
@@ -645,6 +791,7 @@
   <script src="js/reading_ja.js"></script>
   <script src="js/dialogue_ja.js?v=3.0"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>
+  <script src="js/katakana.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

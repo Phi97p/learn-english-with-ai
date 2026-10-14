@@ -2148,28 +2148,121 @@ body.hide-phonetics .phonetic-text {
   gap: 6px;
 }
 
+/* Vùng hiển thị câu máy nghe được ngay trên nút bấm */
+.passage-spoken-display {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px dashed rgba(168, 85, 247, 0.4);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.passage-spoken-display.is-recording {
+  border-color: #ef4444;
+  border-style: solid;
+  background: rgba(239, 68, 68, 0.08);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+}
+
+.passage-spoken-display.match-success {
+  border-color: #10b981;
+  border-style: solid;
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.passage-spoken-display.match-retry {
+  border-color: #f59e0b;
+  border-style: solid;
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.passage-spoken-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.passage-spoken-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.passage-spoken-status {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.passage-spoken-display.is-recording .passage-spoken-status {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.passage-spoken-display.match-success .passage-spoken-status {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.passage-spoken-display.match-retry .passage-spoken-status {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.passage-spoken-box {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  font-weight: 600;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.passage-spoken-quote {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-family: Georgia, serif;
+}
+
+.passage-spoken-text {
+  color: #f8fafc;
+}
+
 .reading-passage-actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
   margin-top: 4px;
 }
 
 .reading-passage-record-btn {
-  width: 100%;
+  flex: 1 1 auto;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 20px;
-  font-size: 0.96rem;
+  padding: 12px 18px;
+  font-size: 0.95rem;
   font-weight: 700;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
   transition: var(--transition);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .reading-passage-record-btn:hover {
@@ -2180,6 +2273,37 @@ body.hide-phonetics .phonetic-text {
 .reading-passage-record-btn.recording {
   animation: pulse 1.2s infinite;
   background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.btn-passage-next {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(168, 85, 247, 0.28));
+  border: 1px solid rgba(168, 85, 247, 0.55);
+  color: #e0e7ff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.22);
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-passage-next:hover {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  border-color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.4);
+}
+
+.btn-passage-next:active {
+  transform: translateY(0);
 }
 
 /* ========================================================
@@ -2695,6 +2819,433 @@ body.hide-phonetics .phonetic-text {
 .hidden {
   display: none !important;
 }
+
+/* ========================================================
+   MODULE HỌC BẢNG CHỮ CÁI KATAKANA (#tab-katakana)
+   ======================================================== */
+.katakana-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.katakana-header-info {
+  margin-bottom: 12px;
+}
+
+.katakana-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.katakana-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.katakana-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.katakana-filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.katakana-select {
+  background: var(--bg-primary);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.katakana-select:focus {
+  border-color: var(--primary);
+}
+
+.katakana-live-score {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+/* KHUNG 3 Ô VUÔNG CHÍNH */
+.katakana-quiz-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.katakana-slots-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.katakana-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 160px;
+  transition: var(--transition);
+}
+
+/* Ô VUÔNG HIỂN THỊ CHỮ */
+.katakana-box-square {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.katakana-box-square:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.25);
+}
+
+.katakana-glyph {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', sans-serif;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.katakana-audio-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.katakana-audio-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* TRẠNG THÁI ĐÚNG / SAI CỦA Ô VUÔNG */
+.katakana-card-item.is-correct .katakana-box-square {
+  border-color: #10b981;
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(6, 95, 70, 0.2));
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+}
+
+.katakana-card-item.is-wrong .katakana-box-square {
+  border-color: #ef4444;
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.15), rgba(153, 27, 27, 0.2));
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+}
+
+/* Ô NHẬP LIỆU ĐÁP ÁN */
+.katakana-input-wrapper {
+  width: 150px;
+}
+
+.katakana-answer-input {
+  width: 100%;
+  height: 48px;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.katakana-answer-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.katakana-answer-input.is-correct {
+  border-color: #10b981;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.katakana-answer-input.is-wrong {
+  border-color: #ef4444;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* BADGE KẾT QUẢ ĐÚNG / SAI */
+.katakana-result-badge {
+  min-height: 32px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.katakana-result-badge.badge-correct {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.katakana-result-badge.badge-wrong {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* BANNER FEEDBACK TỔNG HỢP */
+.katakana-feedback-banner {
+  width: 100%;
+  max-width: 580px;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.katakana-feedback-banner.feedback-all-correct {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+}
+
+.katakana-feedback-banner.feedback-partial {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+}
+
+.katakana-feedback-banner.feedback-retry {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+}
+
+/* NÚT HÀNH ĐỘNG KIỂM TRA & TIẾP TỤC */
+.katakana-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.katakana-btn-check {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  color: white;
+  border: none;
+  padding: 13px 26px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.katakana-btn-check:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+}
+
+.katakana-btn-next {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  padding: 13px 26px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.katakana-btn-next:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+/* BẢNG TRA CỨU COLLAPSIBLE */
+.katakana-reference-card {
+  padding: 16px 20px;
+}
+
+.katakana-reference-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.katakana-reference-summary::-webkit-details-marker {
+  display: none;
+}
+
+.katakana-reference-details[open] .summary-arrow {
+  transform: rotate(180deg);
+}
+
+.summary-arrow {
+  transition: transform 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.katakana-ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.katakana-ref-cell {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.katakana-ref-cell:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.15);
+  transform: scale(1.05);
+}
+
+.ref-kata {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.ref-roma {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.ref-hira {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .katakana-slots-grid {
+    gap: 16px;
+  }
+  .katakana-box-square {
+    width: 100px;
+    height: 100px;
+  }
+  .katakana-glyph {
+    font-size: 2.7rem;
+  }
+  .katakana-input-wrapper {
+    width: 100px;
+  }
+  .katakana-card-item {
+    width: 100px;
+  }
+  .katakana-answer-input {
+    font-size: 1.05rem;
+    height: 42px;
+  }
+}
+
 
 
 

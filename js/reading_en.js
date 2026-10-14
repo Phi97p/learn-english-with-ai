@@ -27,6 +27,7 @@ const ReadingEnModule = (() => {
   let enReadingListenBtn;
   let enReadingRecordBtn;
   let enReadingPassageRecordBtn;
+  let enReadingPassageNextBtn;
   let enReadingPrevBtn;
   let enReadingNextBtn;
   let enReadingFeedback;
@@ -35,6 +36,11 @@ const ReadingEnModule = (() => {
   let enReadingSpokenBadge;
   let enReadingSpokenText;
   let enReadingTypingCursor;
+
+  let enPassageSpokenDisplay;
+  let enPassageSpokenStatus;
+  let enPassageSpokenText;
+  let enPassageTypingCursor;
 
   function initDOM() {
     enReadingUnitSelect = document.getElementById('en-reading-unit-select');
@@ -50,6 +56,7 @@ const ReadingEnModule = (() => {
     enReadingListenBtn = document.getElementById('en-reading-listen-btn');
     enReadingRecordBtn = document.getElementById('en-reading-record-btn');
     enReadingPassageRecordBtn = document.getElementById('en-reading-passage-record-btn');
+    enReadingPassageNextBtn = document.getElementById('en-reading-passage-next-btn');
     enReadingPrevBtn = document.getElementById('en-reading-prev-btn');
     enReadingNextBtn = document.getElementById('en-reading-next-btn');
     enReadingFeedback = document.getElementById('en-reading-feedback');
@@ -58,6 +65,11 @@ const ReadingEnModule = (() => {
     enReadingSpokenBadge = document.getElementById('en-reading-spoken-badge');
     enReadingSpokenText = document.getElementById('en-reading-spoken-text');
     enReadingTypingCursor = document.getElementById('en-reading-typing-cursor');
+
+    enPassageSpokenDisplay = document.getElementById('en-passage-spoken-display');
+    enPassageSpokenStatus = document.getElementById('en-passage-spoken-status');
+    enPassageSpokenText = document.getElementById('en-passage-spoken-text');
+    enPassageTypingCursor = document.getElementById('en-passage-typing-cursor');
   }
 
   function renderReadingSelect() {
@@ -172,6 +184,13 @@ const ReadingEnModule = (() => {
     if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = 'Đang chờ bạn đọc câu này...';
     if (enReadingSpokenText) enReadingSpokenText.textContent = '"..."';
     if (enReadingTypingCursor) enReadingTypingCursor.style.display = 'none';
+
+    if (enPassageSpokenDisplay) {
+      enPassageSpokenDisplay.classList.remove('is-recording', 'match-success', 'match-retry');
+    }
+    if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = 'Chờ bạn đọc câu này...';
+    if (enPassageSpokenText) enPassageSpokenText.textContent = 'Chưa có giọng nói';
+    if (enPassageTypingCursor) enPassageTypingCursor.style.display = 'none';
   }
 
   // Phát toàn bộ bài đọc tiếng Anh
@@ -250,6 +269,11 @@ const ReadingEnModule = (() => {
       enReadingPassageRecordBtn.classList.remove('recording');
       enReadingPassageRecordBtn.innerHTML = '🎯 Bấm để nói & Chấm điểm';
     }
+    if (enReadingTypingCursor) enReadingTypingCursor.style.display = 'none';
+    if (enPassageTypingCursor) enPassageTypingCursor.style.display = 'none';
+    if (enPassageSpokenDisplay) {
+      enPassageSpokenDisplay.classList.remove('is-recording');
+    }
     if (readingRecognition) {
       try { readingRecognition.stop(); } catch (e) {}
     }
@@ -284,6 +308,15 @@ const ReadingEnModule = (() => {
     }
     if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = '🎙️ Đang nghe giọng đọc tiếng Anh...';
     if (enReadingSpokenText) enReadingSpokenText.textContent = '"..."';
+
+    if (enPassageSpokenDisplay) {
+      enPassageSpokenDisplay.classList.remove('match-success', 'match-retry');
+      enPassageSpokenDisplay.classList.add('is-recording');
+    }
+    if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = '🔴 Đang lắng nghe...';
+    if (enPassageSpokenText) enPassageSpokenText.textContent = '...';
+    if (enPassageTypingCursor) enPassageTypingCursor.style.display = 'inline-block';
+
     if (enReadingFeedback) {
       enReadingFeedback.innerHTML = '<div class="feedback-status">Hãy đọc to, rõ ràng theo ngữ điệu câu mẫu nhé!</div>';
     }
@@ -307,6 +340,10 @@ const ReadingEnModule = (() => {
 
     if (enReadingSpokenText) enReadingSpokenText.textContent = `"${transcript}"`;
     if (enReadingSpokenBox) enReadingSpokenBox.classList.remove('is-recording');
+
+    if (enPassageSpokenText) enPassageSpokenText.textContent = transcript;
+    if (enPassageSpokenDisplay) enPassageSpokenDisplay.classList.remove('is-recording');
+    if (enPassageTypingCursor) enPassageTypingCursor.style.display = 'none';
 
     const cleanTarget = item.en.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
     const cleanSpoken = transcript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
@@ -332,6 +369,8 @@ const ReadingEnModule = (() => {
     if (isMatch) {
       if (enReadingSpokenBox) enReadingSpokenBox.classList.add('match-success');
       if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = '✅ Đã nhận diện & Phát âm rất chuẩn!';
+      if (enPassageSpokenDisplay) enPassageSpokenDisplay.classList.add('match-success');
+      if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = '✅ Phát âm rất chuẩn!';
       if (enReadingFeedback) {
         enReadingFeedback.innerHTML = `
           <div class="feedback-success">
@@ -350,6 +389,8 @@ const ReadingEnModule = (() => {
     } else {
       if (enReadingSpokenBox) enReadingSpokenBox.classList.add('match-retry');
       if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = '⚠️ Cần điều chỉnh phát âm';
+      if (enPassageSpokenDisplay) enPassageSpokenDisplay.classList.add('match-retry');
+      if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = '⚠️ Cần điều chỉnh phát âm';
       if (enReadingFeedback) {
         enReadingFeedback.innerHTML = `
           <div class="feedback-retry">
@@ -404,6 +445,25 @@ const ReadingEnModule = (() => {
         const passage = EN_READING_PASSAGES_DATA[currentReadingKey];
         if (!passage || !passage.sentences) return;
         stopFullPassage();
+        stopReadingRecognition();
+        lastReadingTranscript = '';
+        hasEvaluatedReadingTurn = false;
+        const total = passage.sentences.length;
+        loadReadingSentence((currentReadingSentenceIdx + 1) % total);
+      });
+    }
+
+    // Nút Next câu tiếp theo ở bên phải nút Bấm để nói & Chấm điểm (Cột đoạn văn tiếng Anh)
+    if (enReadingPassageNextBtn) {
+      enReadingPassageNextBtn.addEventListener('click', () => {
+        if (typeof EN_READING_PASSAGES_DATA === 'undefined') return;
+        const passage = EN_READING_PASSAGES_DATA[currentReadingKey];
+        if (!passage || !passage.sentences) return;
+        stopFullPassage();
+        stopReadingRecognition();
+        lastReadingTranscript = '';
+        hasEvaluatedReadingTurn = false;
+        // Chuyển sang câu tiếp theo, reset input, không lưu gì cả
         const total = passage.sentences.length;
         loadReadingSentence((currentReadingSentenceIdx + 1) % total);
       });
@@ -453,6 +513,8 @@ const ReadingEnModule = (() => {
           lastReadingTranscript = currentText;
           if (enReadingSpokenText) enReadingSpokenText.textContent = `"${currentText}"`;
           if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = '🎙️ Đang nhận diện tiếng Anh...';
+          if (enPassageSpokenText) enPassageSpokenText.textContent = currentText;
+          if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = '🎙️ Đang nhận diện...';
         }
 
         if (finalTranscript) {
@@ -468,6 +530,8 @@ const ReadingEnModule = (() => {
           } else if (!hasEvaluatedReadingTurn) {
             if (enReadingSpokenBadge) enReadingSpokenBadge.textContent = 'Đã kết thúc lượt nghe';
             if (enReadingSpokenBox) enReadingSpokenBox.classList.remove('is-recording');
+            if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = 'Đã kết thúc lượt nghe';
+            if (enPassageSpokenDisplay) enPassageSpokenDisplay.classList.remove('is-recording');
           }
         }
       };
@@ -476,6 +540,9 @@ const ReadingEnModule = (() => {
         console.warn('English reading recognition error:', e.error);
         stopReadingRecognition();
         if (enReadingSpokenBox) enReadingSpokenBox.classList.remove('is-recording');
+        if (enPassageSpokenDisplay) enPassageSpokenDisplay.classList.remove('is-recording');
+        if (enPassageTypingCursor) enPassageTypingCursor.style.display = 'none';
+        if (enPassageSpokenStatus) enPassageSpokenStatus.textContent = '⚠️ Lỗi nhận diện micro';
 
         if (e.error === 'no-speech') {
           if (enReadingFeedback) {
