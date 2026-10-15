@@ -27,20 +27,36 @@
       </div>
 
       <nav class="nav-menu">
-        <button class="nav-item active" data-tab="speaking">
-          <span class="icon">🎙️</span>
-          <span>Luyện nói & Phát âm</span>
-        </button>
-        <button class="nav-item" data-tab="reading-en">
-          <span class="icon">📘</span>
-          <span>Đọc hiểu & Shadowing Anh</span>
-          <span class="badge" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">Đoạn văn</span>
-        </button>
-        <button class="nav-item" data-tab="dialogue-en">
-          <span class="icon">💬</span>
-          <span>Hội thoại Tiếng Anh</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
-        </button>
+        <!-- NHÓM TIẾNG ANH (COLLAPSIBLE DROPDOWN GROUP) -->
+        <div class="nav-group collapsed" id="nav-group-en">
+          <button class="nav-group-toggle" id="nav-group-en-toggle" type="button" aria-expanded="false" title="Bấm để mở rộng / thu gọn 3 tab Tiếng Anh">
+            <div class="nav-group-title">
+              <span class="icon">🇬🇧</span>
+              <span>Học Tiếng Anh</span>
+            </div>
+            <span class="nav-group-badge">3 Tab</span>
+            <span class="nav-group-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="nav-group-content" id="nav-group-en-content">
+            <button class="nav-item active" data-tab="speaking">
+              <span class="icon">🎙️</span>
+              <span>Luyện nói & Phát âm</span>
+            </button>
+            <button class="nav-item" data-tab="reading-en">
+              <span class="icon">📘</span>
+              <span>Đọc hiểu & Shadowing Anh</span>
+              <span class="badge" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">Đoạn văn</span>
+            </button>
+            <button class="nav-item" data-tab="dialogue-en">
+              <span class="icon">💬</span>
+              <span>Hội thoại Tiếng Anh</span>
+              <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
+            </button>
+          </div>
+        </div>
+
         <button class="nav-item" data-tab="speaking-ja">
           <span class="icon">🇯🇵</span>
           <span>Luyện nói Tiếng Nhật</span>
@@ -66,21 +82,34 @@
           <span>Học Katakana</span>
           <span class="badge" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">Phản xạ</span>
         </button>
-      </nav>
 
-      <div class="audio-controls-panel">
-        <div class="control-label">🔊 Tốc độ phát âm:</div>
-        <div class="speed-toggle">
-          <button class="speed-btn" data-speed="0.75">Chậm (0.75x)</button>
-          <button class="speed-btn active" data-speed="1.0">Chuẩn (1.0x)</button>
-          <button class="speed-btn" data-speed="1.2">Nhanh (1.2x)</button>
+        <!-- NHÓM CÀI ĐẶT (COLLAPSIBLE DROPDOWN GROUP) -->
+        <div class="nav-group collapsed" id="nav-group-settings">
+          <button class="nav-group-toggle" id="nav-group-settings-toggle" type="button" aria-expanded="false" title="Bấm để mở rộng / thu gọn Cài đặt">
+            <div class="nav-group-title">
+              <span class="icon">⚙️</span>
+              <span>Cài đặt</span>
+            </div>
+            <span class="nav-group-badge">Âm thanh</span>
+            <span class="nav-group-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </button>
+          <div class="nav-group-content audio-controls-panel" id="nav-group-settings-content">
+            <div class="control-label">🔊 Tốc độ phát âm:</div>
+            <div class="speed-toggle">
+              <button class="speed-btn" data-speed="0.75">Chậm (0.75x)</button>
+              <button class="speed-btn active" data-speed="1.0">Chuẩn (1.0x)</button>
+              <button class="speed-btn" data-speed="1.2">Nhanh (1.2x)</button>
+            </div>
+            <div class="control-label" style="margin-top: 10px;">🎙️ Giọng đọc:</div>
+            <div class="voice-toggle">
+              <button class="voice-btn active" data-gender="female">👩 Giọng Nữ</button>
+              <button class="voice-btn" data-gender="male">👨 Giọng Nam</button>
+            </div>
+          </div>
         </div>
-        <div class="control-label" style="margin-top: 10px;">🎙️ Giọng đọc:</div>
-        <div class="voice-toggle">
-          <button class="voice-btn active" data-gender="female">👩 Giọng Nữ</button>
-          <button class="voice-btn" data-gender="male">👨 Giọng Nam</button>
-        </div>
-      </div>
+      </nav>
     </aside>
 
     <!-- Main Content Area -->
@@ -705,9 +734,8 @@
 
               <!-- SLOT 1 -->
               <div class="katakana-card-item" id="katakana-card-0">
-                <div class="katakana-box-square" id="katakana-char-0" title="Bấm để nghe phát âm">
+                <div class="katakana-box-square" id="katakana-char-0">
                   <span class="katakana-glyph">?</span>
-                  <button class="katakana-audio-btn" id="katakana-audio-0" title="Nghe phát âm">🔊</button>
                 </div>
                 <div class="katakana-input-wrapper">
                   <input type="text" class="katakana-answer-input" id="katakana-input-0" placeholder="Đáp án 1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -717,9 +745,8 @@
 
               <!-- SLOT 2 -->
               <div class="katakana-card-item" id="katakana-card-1">
-                <div class="katakana-box-square" id="katakana-char-1" title="Bấm để nghe phát âm">
+                <div class="katakana-box-square" id="katakana-char-1">
                   <span class="katakana-glyph">?</span>
-                  <button class="katakana-audio-btn" id="katakana-audio-1" title="Nghe phát âm">🔊</button>
                 </div>
                 <div class="katakana-input-wrapper">
                   <input type="text" class="katakana-answer-input" id="katakana-input-1" placeholder="Đáp án 2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
@@ -729,9 +756,8 @@
 
               <!-- SLOT 3 -->
               <div class="katakana-card-item" id="katakana-card-2">
-                <div class="katakana-box-square" id="katakana-char-2" title="Bấm để nghe phát âm">
+                <div class="katakana-box-square" id="katakana-char-2">
                   <span class="katakana-glyph">?</span>
-                  <button class="katakana-audio-btn" id="katakana-audio-2" title="Nghe phát âm">🔊</button>
                 </div>
                 <div class="katakana-input-wrapper">
                   <input type="text" class="katakana-answer-input" id="katakana-input-2" placeholder="Đáp án 3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">

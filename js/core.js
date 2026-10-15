@@ -219,6 +219,12 @@ const AppCore = (() => {
       pane.classList.toggle('active', pane.id === `tab-${tabId}`);
     });
 
+    const isEnTab = ['speaking', 'reading-en', 'dialogue-en'].includes(tabId);
+    const navGroupEn = document.getElementById('nav-group-en');
+    if (navGroupEn) {
+      navGroupEn.classList.toggle('has-active-child', isEnTab);
+    }
+
     if (tabId === 'speaking') {
       dom.pageTitle.textContent = 'Phòng luyện phát âm & Nhại giọng (Shadowing)';
       dom.pageSubtitle.textContent = 'Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu';
@@ -353,6 +359,48 @@ const AppCore = (() => {
         switchTab(item.dataset.tab);
       });
     });
+
+    // Nhóm menu Tiếng Anh (Collapsible Group)
+    const navGroupEn = document.getElementById('nav-group-en');
+    const navGroupEnToggle = document.getElementById('nav-group-en-toggle');
+    if (navGroupEn && navGroupEnToggle) {
+      navGroupEnToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isCollapsed = navGroupEn.classList.toggle('collapsed');
+        navGroupEnToggle.setAttribute('aria-expanded', !isCollapsed);
+        localStorage.setItem('nav_en_collapsed', isCollapsed ? '1' : '0');
+      });
+
+      const savedCollapsed = localStorage.getItem('nav_en_collapsed');
+      if (savedCollapsed === '0') {
+        navGroupEn.classList.remove('collapsed');
+        navGroupEnToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        navGroupEn.classList.add('collapsed');
+        navGroupEnToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // Nhóm Cài đặt âm thanh (Collapsible Group)
+    const navGroupSettings = document.getElementById('nav-group-settings');
+    const navGroupSettingsToggle = document.getElementById('nav-group-settings-toggle');
+    if (navGroupSettings && navGroupSettingsToggle) {
+      navGroupSettingsToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isCollapsed = navGroupSettings.classList.toggle('collapsed');
+        navGroupSettingsToggle.setAttribute('aria-expanded', !isCollapsed);
+        localStorage.setItem('nav_settings_collapsed', isCollapsed ? '1' : '0');
+      });
+
+      const savedSettingsCollapsed = localStorage.getItem('nav_settings_collapsed');
+      if (savedSettingsCollapsed === '0') {
+        navGroupSettings.classList.remove('collapsed');
+        navGroupSettingsToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        navGroupSettings.classList.add('collapsed');
+        navGroupSettingsToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
 
     // Theme toggle
     if (dom.themeToggle) {

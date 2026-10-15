@@ -127,6 +127,129 @@ body {
   gap: 8px;
 }
 
+/* NHÓM MENU ĐIỀU HƯỚNG SỔ XUỐNG (COLLAPSIBLE GROUP) */
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-group:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+}
+
+.nav-group.has-active-child {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(30, 41, 59, 0.55);
+}
+
+.nav-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  user-select: none;
+}
+
+.nav-group-toggle:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #ffffff;
+}
+
+.nav-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-group-title .icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.nav-group-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.18);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  margin-left: auto;
+  margin-right: 8px;
+  letter-spacing: 0.02em;
+}
+
+.nav-group-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-group.collapsed .nav-group-arrow {
+  transform: rotate(-90deg);
+}
+
+.nav-group:not(.collapsed) .nav-group-arrow {
+  transform: rotate(0deg);
+  color: var(--primary);
+}
+
+.nav-group-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 8px 8px 10px;
+  border-top: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.3);
+  max-height: 250px;
+  opacity: 1;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              padding 0.3s ease;
+  overflow: hidden;
+}
+
+.nav-group.collapsed .nav-group-content {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  border-top-color: transparent;
+  pointer-events: none;
+}
+
+.nav-group-content .nav-item {
+  padding: 8px 10px;
+  font-size: 0.86rem;
+  background: transparent;
+}
+
+.nav-group-content .nav-item:hover {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.nav-group-content .nav-item.active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -215,10 +338,22 @@ body {
 }
 
 .audio-controls-panel {
-  background: rgba(99, 102, 241, 0.06);
-  border: 1px solid rgba(99, 102, 241, 0.15);
-  border-radius: var(--radius-md);
   padding: 12px;
+}
+
+.nav-group-content.audio-controls-panel {
+  padding: 10px 12px 14px 12px;
+  border-top: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.nav-group.collapsed .nav-group-content.audio-controls-panel {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  border-top-color: transparent;
+  pointer-events: none;
 }
 
 .control-label {
@@ -2943,16 +3078,15 @@ body.hide-phonetics .phonetic-text {
   align-items: center;
   justify-content: center;
   position: relative;
-  cursor: pointer;
+  cursor: default;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
 
 .katakana-box-square:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
 }
 
 .katakana-glyph {
@@ -2963,29 +3097,6 @@ body.hide-phonetics .phonetic-text {
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.katakana-audio-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--text-muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-  transition: var(--transition);
-}
-
-.katakana-audio-btn:hover {
-  background: var(--primary);
-  color: white;
-  transform: scale(1.1);
-}
 
 /* TRẠNG THÁI ĐÚNG / SAI CỦA Ô VUÔNG */
 .katakana-card-item.is-correct .katakana-box-square {
@@ -3196,14 +3307,13 @@ body.hide-phonetics .phonetic-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
+  cursor: default;
   transition: var(--transition);
 }
 
 .katakana-ref-cell:hover {
   border-color: var(--primary);
   background: rgba(99, 102, 241, 0.15);
-  transform: scale(1.05);
 }
 
 .ref-kata {

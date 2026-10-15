@@ -127,7 +127,6 @@ const KatakanaModule = (() => {
 
   const cardItems = [];
   const charGlyphs = [];
-  const audioBtns = [];
   const answerInputs = [];
   const resultBadges = [];
 
@@ -157,7 +156,6 @@ const KatakanaModule = (() => {
     for (let i = 0; i < 3; i++) {
       cardItems[i] = document.getElementById(`katakana-card-${i}`);
       charGlyphs[i] = document.querySelector(`#katakana-char-${i} .katakana-glyph`);
-      audioBtns[i] = document.getElementById(`katakana-audio-${i}`);
       answerInputs[i] = document.getElementById(`katakana-input-${i}`);
       resultBadges[i] = document.getElementById(`katakana-badge-${i}`);
     }
@@ -269,21 +267,13 @@ const KatakanaModule = (() => {
     if (scoreCorrectEl) scoreCorrectEl.textContent = sessionScore.correct;
   }
 
-  function playCharSound(idx) {
-    if (!currentChars[idx]) return;
-    const char = currentChars[idx].char;
-    if (window.AppCore && typeof window.AppCore.speakJa === 'function') {
-      window.AppCore.speakJa(char);
-    }
-  }
-
   function renderReferenceTable() {
     if (!refTableEl) return;
     const all = KATAKANA_BASIC.concat(KATAKANA_DAKUTEN);
     let html = '<div class="katakana-ref-grid">';
     all.forEach(item => {
       html += `
-        <div class="katakana-ref-cell" onclick="AppCore.speakJa('${item.char}')" title="Bấm để nghe phát âm">
+        <div class="katakana-ref-cell">
           <span class="ref-kata">${item.char}</span>
           <span class="ref-roma">${item.romaji}</span>
           <span class="ref-hira">${item.hiragana}</span>
@@ -320,22 +310,6 @@ const KatakanaModule = (() => {
       });
     }
 
-    // Sự kiện loa phát âm
-    for (let i = 0; i < 3; i++) {
-      if (audioBtns[i]) {
-        audioBtns[i].addEventListener('click', (e) => {
-          e.stopPropagation();
-          playCharSound(i);
-        });
-      }
-      const charBox = document.getElementById(`katakana-char-${i}`);
-      if (charBox) {
-        charBox.addEventListener('click', () => {
-          playCharSound(i);
-        });
-      }
-    }
-
     // Điều hướng phím Enter mượt mà giữa 3 ô nhập
     for (let i = 0; i < 3; i++) {
       if (answerInputs[i]) {
@@ -365,8 +339,7 @@ const KatakanaModule = (() => {
   return {
     init,
     startNewRound,
-    checkAnswers,
-    playCharSound
+    checkAnswers
   };
 })();
 
