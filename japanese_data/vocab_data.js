@@ -153,6 +153,89 @@ const JA_VOCAB_DATA = {
         vi: "Mét (m)"
       }
     ]
+  },
+  bai_2: {
+    title: "Bài 2: 町の生活・田舎の生活 (Minna no Nihongo)",
+    words: [
+      {
+        word: "町の生活",
+        hiragana: "まちのせいかつ",
+        romaji: "Machi no seikatsu",
+        vi: "Cuộc sống thành thị / phố thị"
+      },
+      {
+        word: "田舎の生活",
+        hiragana: "いなかのせいかつ",
+        romaji: "Inaka no seikatsu",
+        vi: "Cuộc sống thôn quê / nông thôn"
+      },
+      {
+        word: "お元気",
+        hiragana: "おげんき",
+        romaji: "Ogenki",
+        vi: "Khỏe mạnh, bình an (trong お元気ですか)"
+      },
+      {
+        word: "寒い",
+        hiragana: "さむい",
+        romaji: "Samui",
+        vi: "Lạnh, rét (thời tiết)"
+      },
+      {
+        word: "3日",
+        hiragana: "みっか",
+        romaji: "Mikka",
+        vi: "Ngày mùng 3 / 3 ngày"
+      },
+      {
+        word: "7日",
+        hiragana: "なのか",
+        romaji: "Nanoka",
+        vi: "Ngày mùng 7 / 7 ngày"
+      },
+      {
+        word: "お正月",
+        hiragana: "おしょうがつ",
+        romaji: "Oshougatsu",
+        vi: "Tết, dịp năm mới"
+      },
+      {
+        word: "今度",
+        hiragana: "こんど",
+        romaji: "Kondo",
+        vi: "Lần này / lần tới, dịp tới"
+      },
+      {
+        word: "野菜",
+        hiragana: "やさい",
+        romaji: "Yasai",
+        vi: "Rau, củ quả"
+      },
+      {
+        word: "便利",
+        hiragana: "べんり",
+        romaji: "Benri",
+        vi: "Tiện lợi, thuận tiện"
+      },
+      {
+        word: "静か",
+        hiragana: "しずか",
+        romaji: "Shizuka",
+        vi: "Yên tĩnh, thanh bình"
+      },
+      {
+        word: "大変",
+        hiragana: "たいへん",
+        romaji: "Taihen",
+        vi: "Vất vả, khó khăn, khủng khiếp"
+      },
+      {
+        word: "先週",
+        hiragana: "せんしゅう",
+        romaji: "Senshuu",
+        vi: "Tuần trước"
+      }
+    ]
   }
 };
 

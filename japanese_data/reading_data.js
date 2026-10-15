@@ -185,5 +185,123 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Ngày 7 tháng 1 - Yamakawa Ken"
       }
     ]
+  },
+  bai_3: {
+    title: "Bài 3: 日本が 好きです (Minna Dokkai)",
+    topic: "Phỏng vấn nhiếp ảnh gia Musya về cuộc sống tại Nhật",
+    icon: "📸",
+    fullText: "ムスヤさんは 写真家です。 日本の 山の 写真を たくさん 撮りました。 うちは どちらですか。 長野です。 長野で 日本の 古い うちを 買いました。 畳の 部屋は とても 便利ですから、好きです。 仕事と 食事を 同じ 部屋で します。 そして、同じ 部屋で 寝ます。 ムスヤさんの お国は タンザニアですね。 長野は 寒いですか。 ええ、とても 寒いですから、大きい こたつを 買いました。 でも、わたしは 長野の 冬が 好きです。 冬の 山は きれいです。 奥さんは 日本の 方ですね。 どんな 方ですか。 妻は いつも 元気です。 そして、料理が 上手です。 毎日 妻の おいしい 料理を 食べますから、わたしも 元気です。 日本の 生活は どうですか。 日本の 生活は おもしろいです。 わたしは 日本が とても 好きです。 ありがとう ございました。",
+    sentences: [
+      {
+        ja: "ムスヤさんは 写真家です。",
+        romaji: "Musuya-san wa shashinka desu.",
+        vi: "Anh Musya là một nhiếp ảnh gia."
+      },
+      {
+        ja: "日本の 山の 写真を たくさん 撮りました。",
+        romaji: "Nihon no yama no shashin o takusan torimashita.",
+        vi: "Anh ấy đã chụp rất nhiều bức ảnh về núi non Nhật Bản."
+      },
+      {
+        ja: "うちは どちらですか。",
+        romaji: "Uchi wa dochira desu ka.",
+        vi: "Nhà của anh ở đâu vậy?"
+      },
+      {
+        ja: "長野です。",
+        romaji: "Nagano desu.",
+        vi: "Ở Nagano."
+      },
+      {
+        ja: "長野で 日本の 古い うちを 買いました。",
+        romaji: "Nagano de Nihon no furui uchi o kaimashita.",
+        vi: "Tôi đã mua một ngôi nhà cổ của Nhật ở Nagano."
+      },
+      {
+        ja: "畳の 部屋は とても 便利ですから、好きです。",
+        romaji: "Tatami no heya wa totemo benri desu kara, suki desu.",
+        vi: "Căn phòng chiếu tatami rất tiện lợi nên tôi rất thích."
+      },
+      {
+        ja: "仕事と 食事を 同じ 部屋で します。",
+        romaji: "Shigoto to shokuji o onaji heya de shimasu.",
+        vi: "Tôi làm việc và ăn cơm trong cùng một căn phòng."
+      },
+      {
+        ja: "そして、同じ 部屋で 寝ます。",
+        romaji: "Soshite, onaji heya de nemasu.",
+        vi: "Và tôi cũng ngủ luôn trong căn phòng đó."
+      },
+      {
+        ja: "ムスヤさんの お国は タンザニアですね。",
+        romaji: "Musuya-san no okuni wa Tanzania desu ne.",
+        vi: "Đất nước của anh Musya là Tanzania đúng không ạ?"
+      },
+      {
+        ja: "長野は 寒いですか。",
+        romaji: "Nagano wa samui desu ka.",
+        vi: "Nagano có lạnh không ạ?"
+      },
+      {
+        ja: "ええ、とても 寒いですから、大きい こたつを 買いました。",
+        romaji: "Ee, totemo samui desu kara, ookii kotatsu o kaimashita.",
+        vi: "Vâng, vì rất lạnh nên tôi đã mua một chiếc bàn sưởi kotatsu lớn."
+      },
+      {
+        ja: "でも、わたしは 長野の 冬が 好きです。",
+        romaji: "Demo, watashi wa Nagano no fuyu ga suki desu.",
+        vi: "Nhưng mà tôi lại rất thích mùa đông ở Nagano."
+      },
+      {
+        ja: "冬の 山は きれいです。",
+        romaji: "Fuyu no yama wa kirei desu.",
+        vi: "Núi non vào mùa đông rất đẹp."
+      },
+      {
+        ja: "奥さんは 日本の 方ですね。",
+        romaji: "Okusan wa Nihon no kata desu ne.",
+        vi: "Vợ của anh là người Nhật đúng không ạ?"
+      },
+      {
+        ja: "どんな 方ですか。",
+        romaji: "Donna kata desu ka.",
+        vi: "Chị ấy là người như thế nào vậy?"
+      },
+      {
+        ja: "妻は いつも 元気です。",
+        romaji: "Tsuma wa itsumo genki desu.",
+        vi: "Vợ tôi lúc nào cũng tràn đầy năng lượng."
+      },
+      {
+        ja: "そして、料理が 上手です。",
+        romaji: "Soshite, ryouri ga jouzu desu.",
+        vi: "Và cô ấy nấu ăn rất giỏi."
+      },
+      {
+        ja: "毎日 妻の おいしい 料理を 食べますから、わたしも 元気です。",
+        romaji: "Mainichi tsuma no oishii ryouri o tabemasu kara, watashi mo genki desu.",
+        vi: "Hàng ngày đều được ăn các món ngon của vợ nấu nên tôi cũng luôn khỏe mạnh."
+      },
+      {
+        ja: "日本の 生活は どうですか。",
+        romaji: "Nihon no seikatsu wa dou desu ka.",
+        vi: "Cuộc sống ở Nhật Bản thì như thế nào?"
+      },
+      {
+        ja: "日本の 生活は おもしろいです。",
+        romaji: "Nihon no seikatsu wa omoshiroi desu.",
+        vi: "Cuộc sống ở Nhật rất thú vị."
+      },
+      {
+        ja: "わたしは 日本が とても 好きです。",
+        romaji: "Watashi wa Nihon ga totemo suki desu.",
+        vi: "Tôi rất yêu mến đất nước Nhật Bản."
+      },
+      {
+        ja: "ありがとう ございました。",
+        romaji: "Arigatou gozaimashita.",
+        vi: "Cảm ơn anh rất nhiều."
+      }
+    ]
   }
 };
