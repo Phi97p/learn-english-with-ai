@@ -303,5 +303,217 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Cảm ơn anh rất nhiều."
       }
     ]
+  },
+  bai_4: {
+    title: "Bài 4: 美術館 (Minna Dokkai)",
+    topic: "Miêu tả các bức tranh trong bảo tàng mỹ thuật",
+    icon: "🎨",
+    fullText: "きのう 友達と 「みんなの 美術館」へ 行きました。 おもしろい 絵が たくさん ありました。 1. 窓の 近くに 男の 人と 女の 人が います。 女の 人の うしろに 地図が あります。 ヨーロッパの 地図です。 2. 絵の 真ん中に 町が あります。 町の 左に 男の 人が、右に 女の 人が います。 町の 右の 上に 木が あります。 木の 中に 男の 人と 女の 人が います。 この 女の 人は 男の 人の 奥さんです。 3. テーブルの 上に 果物や ナイフや グラスが あります。 でも、ワインは ありません。 4. ピアノの 上に 花が あります。 ピアノの 前に 女の 人が います。 女の 人の そばに 猫が います。 猫は 目が ありますが、女の 人は 目が ありません。 5. 高い 山が あります。 山の 上に 白い 雲が あります。 山と 山の 間に 川が あります。 川の 近くに 桜の 木が たくさん あります。",
+    sentences: [
+      {
+        ja: "きのう 友達と 「みんなの 美術館」へ 行きました。",
+        romaji: "Kinou tomodachi to 'Minna no Bijutsukan' e ikimashita.",
+        vi: "Hôm qua tôi đã cùng bạn đến 'Bảo tàng mỹ thuật Mọi người'."
+      },
+      {
+        ja: "おもしろい 絵が たくさん ありました。",
+        romaji: "Omoshiroi e ga takusan arimashita.",
+        vi: "Có rất nhiều bức tranh thú vị."
+      },
+      {
+        ja: "1. 窓の 近くに 男の 人と 女の 人が います。",
+        romaji: "1. Mado no chikaku ni otoko no hito to onna no hito ga imasu.",
+        vi: "1. Ở gần cửa sổ có một người đàn ông và một người phụ nữ."
+      },
+      {
+        ja: "女の 人の うしろに 地図が あります。",
+        romaji: "Onna no hito no ushiro ni chizu ga arimasu.",
+        vi: "Phía sau người phụ nữ có một tấm bản đồ."
+      },
+      {
+        ja: "ヨーロッパの 地図です。",
+        romaji: "Yooroppa no chizu desu.",
+        vi: "Đó là bản đồ châu Âu."
+      },
+      {
+        ja: "2. 絵の 真ん中に 町が あります。",
+        romaji: "2. E no mannaka ni machi ga arimasu.",
+        vi: "2. Ở chính giữa bức tranh có một thị trấn."
+      },
+      {
+        ja: "町の 左に 男の 人が、右に 女の 人が います。",
+        romaji: "Machi no hidari ni otoko no hito ga, migi ni onna no hito ga imasu.",
+        vi: "Bên trái thị trấn có người đàn ông, bên phải có người phụ nữ."
+      },
+      {
+        ja: "町の 右の 上に 木が あります。",
+        romaji: "Machi no migi no ue ni ki ga arimasu.",
+        vi: "Phía trên bên phải thị trấn có một cái cây."
+      },
+      {
+        ja: "木の 中に 男の 人と 女の 人が います。",
+        romaji: "Ki no naka ni otoko no hito to onna no hito ga imasu.",
+        vi: "Bên trong cái cây có người đàn ông và người phụ nữ."
+      },
+      {
+        ja: "この 女の 人は 男の 人の 奥さんです。",
+        romaji: "Kono onna no hito wa otoko no hito no okusan desu.",
+        vi: "Người phụ nữ này là vợ của người đàn ông."
+      },
+      {
+        ja: "3. テーブルの 上に 果物や ナイフや グラスが あります。",
+        romaji: "3. Teeburu no ue ni kudamono ya naifu ya gurasu ga arimasu.",
+        vi: "3. Trên bàn có hoa quả, dao và ly."
+      },
+      {
+        ja: "でも、ワインは ありません。",
+        romaji: "Demo, wain wa arimasen.",
+        vi: "Nhưng không có rượu vang."
+      },
+      {
+        ja: "4. ピアノの 上に 花が あります。",
+        romaji: "4. Piano no ue ni hana ga arimasu.",
+        vi: "4. Trên cây đàn piano có hoa."
+      },
+      {
+        ja: "ピアノの 前に 女の 人が います。",
+        romaji: "Piano no mae ni onna no hito ga imasu.",
+        vi: "Phía trước đàn piano có một người phụ nữ."
+      },
+      {
+        ja: "女の 人の そばに 猫が います。",
+        romaji: "Onna no hito no soba ni neko ga imasu.",
+        vi: "Bên cạnh người phụ nữ có một con mèo."
+      },
+      {
+        ja: "猫は 目が ありますが、女の 人は 目が ありません。",
+        romaji: "Neko wa me ga arimasu ga, onna no hito wa me ga arimasen.",
+        vi: "Con mèo có mắt, nhưng người phụ nữ lại không có mắt."
+      },
+      {
+        ja: "5. 高い 山が あります。",
+        romaji: "5. Takai yama ga arimasu.",
+        vi: "5. Có một ngọn núi cao."
+      },
+      {
+        ja: "山の 上に 白い 雲が あります。",
+        romaji: "Yama no ue ni shiroi kumo ga arimasu.",
+        vi: "Phía trên núi có những đám mây trắng."
+      },
+      {
+        ja: "山と 山の 間に 川が あります。",
+        romaji: "Yama to yama no aida ni kawa ga arimasu.",
+        vi: "Ở giữa những ngọn núi có một con sông."
+      },
+      {
+        ja: "川の 近くに 桜の 木が たくさん あります。",
+        romaji: "Kawa no chikaku ni sakura no ki ga takusan arimasu.",
+        vi: "Ở gần con sông có rất nhiều cây hoa anh đào."
+      }
+    ]
+  },
+  bai_5: {
+    title: "Bài 5: お祭り (Minna Dokkai)",
+    topic: "Homestay và trải nghiệm lễ hội mùa hè Nhật Bản",
+    icon: "🏮",
+    fullText: "先週 佐藤さんの うちで １週間 ホームステイを しました。 佐藤さんの 家族は ４人です。 お父さんと お母さんと ８歳の 健太ちゃんと ５歳の みきちゃんです。 佐藤さんの うちの 近くに 大きい 神社が あります。 神社の 夏の お祭りは とても 有名です。 わたしは 佐藤さんの 家族と いっしょに 行きました。 神社に いろいろな ゲームの 店や 食べ物の 店が ありました。 健太ちゃんは ゲームを ３回 しました。 そして、おもちゃの 車を ２台 もらいました。 わたしは お祭りの Ｔシャツを 買いました。 それから たこ焼きを 食べました。 健太ちゃんは ６つ、みきちゃんは ４つ、わたしは ８つ 食べました。 お父さんは お好み焼きを ２枚 食べました。 それから おみこしを 見ました。 お祭りの 踊りも 見ました。 舞台の 上に きれいな 女の 人が １人と かわいい 女の 子が ４人 いました。 わたしは、写真を たくさん 撮りました。 日本の お祭りは おもしろいです。 そして、楽しいです。",
+    sentences: [
+      {
+        ja: "先週 佐藤さんの うちで １週間 ホームステイを しました。",
+        romaji: "Senshuu Satou-san no uchi de isshuukan hoomusutei o shimashita.",
+        vi: "Tuần trước tôi đã homestay ở nhà anh Sato trong 1 tuần."
+      },
+      {
+        ja: "佐藤さんの 家族は ４人です。",
+        romaji: "Satou-san no kazoku wa yonin desu.",
+        vi: "Gia đình anh Sato có 4 người."
+      },
+      {
+        ja: "お父さんと お母さんと ８歳の 健太ちゃんと ５歳の みきちゃんです。",
+        romaji: "Otousan to okaasan to hassai no Kenta-chan to gosai no Miki-chan desu.",
+        vi: "Gồm có bố, mẹ, bé Kenta 8 tuổi và bé Miki 5 tuổi."
+      },
+      {
+        ja: "佐藤さんの うちの 近くに 大きい 神社が あります。",
+        romaji: "Satou-san no uchi no chikaku ni ookii jinja ga arimasu.",
+        vi: "Gần nhà anh Sato có một ngôi đền lớn."
+      },
+      {
+        ja: "神社の 夏の お祭りは とても 有名です。",
+        romaji: "Jinja no natsu no omatsuri wa totemo yuumei desu.",
+        vi: "Lễ hội mùa hè của ngôi đền rất nổi tiếng."
+      },
+      {
+        ja: "わたしは 佐藤さんの 家族と いっしょに 行きました。",
+        romaji: "Watashi wa Satou-san no kazoku to issho ni ikimashita.",
+        vi: "Tôi đã đi cùng với gia đình anh Sato."
+      },
+      {
+        ja: "神社に いろいろな ゲームの 店や 食べ物の 店が ありました。",
+        romaji: "Jinja ni iroirona geemu no mise ya tabemono no mise ga arimashita.",
+        vi: "Ở đền có nhiều gian hàng trò chơi và quán ăn."
+      },
+      {
+        ja: "健太ちゃんは ゲームを ３回 しました。",
+        romaji: "Kenta-chan wa geemu o sankai shimashita.",
+        vi: "Bé Kenta đã chơi trò chơi 3 lần."
+      },
+      {
+        ja: "そして、おもちゃの 車を ２台 もらいました。",
+        romaji: "Soshite, omocha no kuruma o nidai moraimashita.",
+        vi: "Và bé nhận được 2 chiếc ô tô đồ chơi."
+      },
+      {
+        ja: "わたしは お祭りの Ｔシャツを 買いました。",
+        romaji: "Watashi wa omatsuri no tiishatsu o kaimashita.",
+        vi: "Tôi đã mua chiếc áo phông lễ hội."
+      },
+      {
+        ja: "それから たこ焼きを 食べました。",
+        romaji: "Sorekara takoyaki o tabemashita.",
+        vi: "Sau đó chúng tôi đã ăn bánh bạch tuộc takoyaki."
+      },
+      {
+        ja: "健太ちゃんは ６つ、みきちゃんは ４つ、わたしは ８つ 食べました。",
+        romaji: "Kenta-chan wa muttsu, Miki-chan wa yottsu, watashi wa yattsu tabemashita.",
+        vi: "Bé Kenta ăn 6 cái, bé Miki ăn 4 cái, tôi ăn 8 cái."
+      },
+      {
+        ja: "お父さんは お好み焼きを ２枚 食べました。",
+        romaji: "Otousan wa okonomiyaki o nimai tabemashita.",
+        vi: "Bố đã ăn 2 cái bánh xèo okonomiyaki."
+      },
+      {
+        ja: "それから おみこしを 見ました。",
+        romaji: "Sorekara omikoshi o mimashita.",
+        vi: "Sau đó chúng tôi đã xem kiệu rước omikoshi."
+      },
+      {
+        ja: "お祭りの 踊りも 見ました。",
+        romaji: "Omatsuri no odori mo mimashita.",
+        vi: "Chúng tôi cũng xem các điệu nhảy của lễ hội."
+      },
+      {
+        ja: "舞台の 上に きれいな 女の 人が １人と かわいい 女の 子が ４人 いました。",
+        romaji: "Butai no ue ni kireina onna no hito ga hitori to kawaii onna no ko ga yonin imashita.",
+        vi: "Trên sân khấu có 1 người phụ nữ xinh đẹp và 4 bé gái dễ thương."
+      },
+      {
+        ja: "わたしは、写真を たくさん 撮りました。",
+        romaji: "Watashi wa, shashin o takusan torimashita.",
+        vi: "Tôi đã chụp rất nhiều ảnh."
+      },
+      {
+        ja: "日本の お祭りは おもしろいです。",
+        romaji: "Nihon no omatsuri wa omoshiroi desu.",
+        vi: "Lễ hội của Nhật Bản thật thú vị."
+      },
+      {
+        ja: "そして、楽しいです。",
+        romaji: "Soshite, tanoshii desu.",
+        vi: "Và rất vui vẻ."
+      }
+    ]
   }
 };
+

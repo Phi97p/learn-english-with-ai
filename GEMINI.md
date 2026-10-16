@@ -32,3 +32,9 @@
 ## 6. Quy định về Tab Từ Vựng (Vocabulary)
 - **Từ vựng tiếng Nhật**: Dữ liệu từ vựng được quản lý tại file `datasss/jp/vocab/voca.txt`. Người dùng sẽ tự thêm từ mới vào file này theo từng bài học (ví dụ: `Bài 1: ク, サ, 会社員, ...`). Khi người dùng yêu cầu cập nhật hoặc có từ mới trong file, AI sẽ tự động đọc danh sách từ mới trong file này, tra cứu phát âm (hiragana, romaji, nghĩa tiếng Việt chuẩn theo Minna no Nihongo) và đồng bộ nạp vào code (`japanese_data/vocab_data.js`).
 - AI chỉ lấy từ mới tiếng Nhật từ nguồn `datasss/jp/vocab/voca.txt` này, không tự ý thêm các từ nằm ngoài danh sách người dùng đã ghi trong file.
+
+## 7. Quy định về Tab Đọc hiểu & Shadowing Nhật (Reading Comprehension)
+- Nguồn dữ liệu: Quản lý tại `datasss/jp/doc_hieu/` (file nguồn `bai_1.txt`).
+- Khi file nguồn được cập nhật: AI tự động kích hoạt kỹ năng `sync-japanese-reading`, phân tích tách câu, phiên âm Romaji, dịch nghĩa tiếng Việt và cập nhật vào `japanese_data/reading_data.js`.
+- **Bảo toàn bố cục & kích thước màn hình**: Luôn giữ nguyên kích thước màn hình giao diện hiện tại (`height: 100vh`), không để bài đọc làm tràn hoặc kéo giãn chiều dài trang. Kéo dài `.reading-passage-panel` bằng đúng tab `.speaking-challenge-card` bên cạnh (`align-items: stretch; height: 100%; min-height: 0;`), chỉ cuộn riêng nội dung đoạn văn `.reading-passage-content`, tuyệt đối không scroll thẻ `🎙️ Máy nghe được:` và `🎯 Bấm để nói & Chấm điểm`.
+
