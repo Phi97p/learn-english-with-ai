@@ -49,11 +49,6 @@
               <span>Đọc hiểu & Shadowing Anh</span>
               <span class="badge" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">Đoạn văn</span>
             </button>
-            <button class="nav-item" data-tab="dialogue-en">
-              <span class="icon">💬</span>
-              <span>Hội thoại Tiếng Anh</span>
-              <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
-            </button>
           </div>
         </div>
 
@@ -296,77 +291,6 @@
                 <button class="btn-nav" id="en-reading-next-btn">Câu tiếp theo ▶</button>
               </div>
 
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- TAB: HỘI THOẠI ĐỐI THOẠI TIẾNG ANH (2 NGƯỜI) -->
-      <section id="tab-dialogue-en" class="tab-pane">
-        <div class="dialogue-container">
-
-          <!-- TOOLBAR HEADER -->
-          <div class="speaking-header-card">
-            <div class="vocab-header-top">
-              <div class="scenario-selector vocab-selector">
-                <div class="vocab-toolbar-actions">
-                  <label for="en-dialogue-unit-select">Chọn Bài:</label>
-                  <select id="en-dialogue-unit-select">
-                    <option value="unit_1_my_new_school">💬 Unit 1: A Special Day at School</option>
-                  </select>
-
-                  <div class="dia-role-switcher">
-                    <span>🎭 Chế độ vai:</span>
-                    <select id="en-dialogue-role-mode">
-                      <option value="duo">👥 Tôi & Bạn tôi (2 người luyện)</option>
-                      <option value="role_a">👤 Tôi vai A • AI vai B</option>
-                      <option value="role_b">🧑 Tôi vai B • AI vai A</option>
-                    </select>
-                  </div>
-
-                  <button id="en-dialogue-play-all-btn" class="reading-btn-all" title="Phát toàn bộ đoạn đối thoại">
-                    🔊 Phát toàn bộ hội thoại
-                  </button>
-                  <button id="en-dialogue-reset-btn" class="btn-nav" title="Bắt đầu lại từ câu đầu tiên">
-                    🔄 Làm lại
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- MAIN CHAT WINDOW (KHUNG CHAT DUY NHẤT) -->
-          <div class="dialogue-chat-window">
-
-            <!-- DÒNG THỜI GIAN ĐỐI THOẠI (CHAT TIMELINE STREAM) -->
-            <div class="dialogue-timeline-panel">
-              <div class="dialogue-timeline-header">
-                <div class="dialogue-timeline-title">
-                  <span>💬</span>
-                  <span id="en-dialogue-chat-title">Hội thoại đối đáp giữa 2 người (Bấm mic ở câu bất kỳ để nói)</span>
-                </div>
-                <div class="dialogue-header-actions">
-                  <span class="dialogue-turn-indicator" id="en-dialogue-turn-indicator">Lượt 1 / 7</span>
-                </div>
-              </div>
-
-              <div id="en-dialogue-timeline">
-                <!-- Rendered dynamically by js/dialogue_en.js -->
-              </div>
-
-              <!-- THANH ĐIỀU KHIỂN NÓI DƯỚI CÙNG KHUNG CHAT (CHAT BAR) -->
-              <div class="dialogue-bottom-bar">
-                <button class="chat-bar-btn chat-bar-listen" id="en-dia-listen-btn" title="Nghe câu của lượt đang chọn">
-                  🔊 Nghe
-                </button>
-                <button class="chat-bar-btn chat-bar-mic" id="en-dia-record-btn" title="Bấm để nói lượt hiện tại">
-                  🎙️ <span id="en-dia-mic-label">Bấm để nói (Lượt 1)</span>
-                </button>
-                <button class="chat-bar-btn chat-bar-nav" id="en-dia-prev-btn" title="Lượt trước">◀</button>
-                <button class="chat-bar-btn chat-bar-nav" id="en-dia-next-btn" title="Lượt tiếp theo">▶</button>
-              </div>
             </div>
 
           </div>
@@ -790,7 +714,6 @@
 
   <script src="data.js"></script>
   <script src="english_data/reading_data.js"></script>
-  <script src="english_data/dialogue_data.js"></script>
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.0"></script>
   <script src="japanese_data/dialogue_data.js"></script>
@@ -798,7 +721,6 @@
   <script src="js/core.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/reading_en.js"></script>
-  <script src="js/dialogue_en.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/dialogue_ja.js?v=3.0"></script>

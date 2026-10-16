@@ -23,7 +23,6 @@
 ## 5. Nguồn dữ liệu bài học (Data Source)
 - **Tab Luyện nói & Phát âm Anh**: Lấy dữ liệu bài học từ thư mục `datasss/en/luyen_noi_eng/` để xử lý và nạp vào hệ thống (`data.js`).
 - **Tab Đọc hiểu & Shadowing Anh**: Lấy dữ liệu bài học từ thư mục `datasss/en/doc_hieu/` để xử lý và nạp vào hệ thống (`english_data/reading_data.js`).
-- **Tab Hội thoại tiếng Anh**: Lấy dữ liệu bài học từ thư mục `datasss/en/hoi_thoai/` để xử lý và nạp vào hệ thống (`english_data/dialogue_data.js`).
 - **Tab Luyện nói tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/luyen_noi_jp/` để xử lý và nạp vào hệ thống (`japanese_data/speaking_data.js`).
 - **Tab Đọc hiểu & Shadowing Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/doc_hieu/` để xử lý và nạp vào hệ thống (`japanese_data/reading_data.js`).
 - **Tab Hội thoại tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/hoi_thoai/` để xử lý và nạp vào hệ thống (`japanese_data/dialogue_data.js`).
