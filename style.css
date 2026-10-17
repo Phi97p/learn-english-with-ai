@@ -1162,7 +1162,21 @@ body.hide-phonetics .phonetic-text {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.vocab-toolbar-actions label {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vocab-toolbar-actions select {
+  flex: 0 1 auto;
+  min-width: 140px;
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-action-small {
@@ -1179,6 +1193,8 @@ body.hide-phonetics .phonetic-text {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-action-small:hover {
@@ -3136,6 +3152,50 @@ body.hide-phonetics .phonetic-text {
   text-align: center;
   line-height: 1.45;
 }
+
+/* Japanese Vocab Meaning Spoiler */
+.vocab-meaning-spoiler {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px dashed rgba(245, 158, 11, 0.5);
+  color: #fcd34d;
+  padding: 2px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.vocab-meaning-spoiler:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #f59e0b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.vocab-list-spoiler {
+  display: inline-block;
+  color: #fcd34d;
+  font-size: 0.8rem;
+  font-style: italic;
+  cursor: pointer;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px dashed rgba(245, 158, 11, 0.35);
+  padding: 1px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.vocab-list-spoiler:hover {
+  background: rgba(245, 158, 11, 0.25);
+  color: #ffffff;
+}
+
 
 
 

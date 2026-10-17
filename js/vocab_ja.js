@@ -9,11 +9,13 @@ const VocabJaModule = (() => {
   let currentIdx = 0;
 
   let isRandomMode = true;
+  let isMeaningShown = true;
   let navHistory = [];
 
   // DOM Elements
   let jaVocabUnitSelect;
   let jaVocabRandomToggle;
+  let jaVocabMeaningToggle;
   let jaVocabCount;
   let jaVocabCard, jaVocabPrevBtn, jaVocabNextBtn;
   let jaVocabCategory, jaVocabWordJa, jaVocabWordRomaji, jaVocabWordVi;
@@ -45,6 +47,7 @@ const VocabJaModule = (() => {
   function initDOM() {
     jaVocabUnitSelect = document.getElementById('ja-vocab-unit-select');
     jaVocabRandomToggle = document.getElementById('ja-vocab-random-toggle');
+    jaVocabMeaningToggle = document.getElementById('ja-vocab-meaning-toggle');
     jaVocabCount = document.getElementById('ja-vocab-count');
 
     jaVocabCard = document.getElementById('ja-vocab-card');
@@ -67,6 +70,32 @@ const VocabJaModule = (() => {
 
     jaVocabFeedback = document.getElementById('ja-vocab-feedback');
     jaVocabListWrapper = document.getElementById('ja-vocab-list-wrapper');
+
+    const savedShowMeaning = localStorage.getItem('ja_vocab_show_meaning');
+    if (savedShowMeaning !== null) {
+      isMeaningShown = savedShowMeaning === 'true';
+    }
+    updateMeaningButtonUI();
+  }
+
+  function updateMeaningButtonUI() {
+    if (!jaVocabMeaningToggle) return;
+    if (isMeaningShown) {
+      jaVocabMeaningToggle.classList.add('active-toggle');
+      jaVocabMeaningToggle.innerHTML = '📖 Nghĩa: Hiện';
+      jaVocabMeaningToggle.setAttribute('title', 'Nghĩa tiếng Việt đang hiện. Bấm để ẩn để tự đoán nghĩa');
+    } else {
+      jaVocabMeaningToggle.classList.remove('active-toggle');
+      jaVocabMeaningToggle.innerHTML = '📕 Nghĩa: Ẩn';
+      jaVocabMeaningToggle.setAttribute('title', 'Nghĩa tiếng Việt đang ẩn. Bấm để hiện lại toàn bộ');
+    }
+  }
+
+  function toggleMeaning() {
+    isMeaningShown = !isMeaningShown;
+    localStorage.setItem('ja_vocab_show_meaning', isMeaningShown ? 'true' : 'false');
+    updateMeaningButtonUI();
+    renderWord(currentIdx);
   }
 
   function populateUnitSelect() {
@@ -150,7 +179,22 @@ const VocabJaModule = (() => {
       jaVocabWordRomaji.textContent = phoneticStr;
     }
     if (jaVocabWordVi) {
-      jaVocabWordVi.textContent = item.vi ? `👉 Ý nghĩa: ${item.vi}` : '';
+      if (!item.vi) {
+        jaVocabWordVi.innerHTML = '';
+      } else if (isMeaningShown) {
+        jaVocabWordVi.innerHTML = `👉 Ý nghĩa: <span>${item.vi}</span>`;
+      } else {
+        jaVocabWordVi.innerHTML = `👉 Ý nghĩa: <span class="vocab-meaning-spoiler" title="Bấm để xem nghĩa từ này">❓ Bấm để xem nghĩa</span><span class="vocab-meaning-actual" style="display: none;">${item.vi}</span>`;
+        const spoilerEl = jaVocabWordVi.querySelector('.vocab-meaning-spoiler');
+        const actualEl = jaVocabWordVi.querySelector('.vocab-meaning-actual');
+        if (spoilerEl && actualEl) {
+          spoilerEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            spoilerEl.style.display = 'none';
+            actualEl.style.display = 'inline';
+          });
+        }
+      }
     }
 
     if (jaVocabFeedback) {
@@ -202,7 +246,9 @@ const VocabJaModule = (() => {
             <div class="spk-item-en" style="font-size: 1.15rem; font-weight: 700;">${item.word}</div>
             <div class="spk-item-vi" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
               ${(item.hiragana && item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana} (${item.romaji}) •</span>` : ((item.hiragana || item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana || item.romaji} •</span>` : '')}
-              <span>${item.vi}</span>
+              ${isMeaningShown 
+                ? `<span>${item.vi}</span>` 
+                : `<span class="vocab-list-spoiler" style="color: #fcd34d; font-style: italic; cursor: pointer; text-decoration: underline;" title="Bấm để xem nghĩa">(Bấm để xem nghĩa)</span><span class="vocab-list-actual" style="display: none;">${item.vi}</span>`}
             </div>
           </div>
         </div>
@@ -211,8 +257,18 @@ const VocabJaModule = (() => {
         </div>
       `;
 
+      const listSpoiler = itemEl.querySelector('.vocab-list-spoiler');
+      const listActual = itemEl.querySelector('.vocab-list-actual');
+      if (listSpoiler && listActual) {
+        listSpoiler.addEventListener('click', (e) => {
+          e.stopPropagation();
+          listSpoiler.style.display = 'none';
+          listActual.style.display = 'inline';
+        });
+      }
+
       itemEl.addEventListener('click', (e) => {
-        if (e.target.closest('.spk-item-audio-btn')) return;
+        if (e.target.closest('.spk-item-audio-btn') || e.target.closest('.vocab-list-spoiler')) return;
         renderWord(idx);
       });
 
@@ -378,6 +434,10 @@ const VocabJaModule = (() => {
           vocabRecognition.start();
         }
       });
+    }
+
+    if (jaVocabMeaningToggle) {
+      jaVocabMeaningToggle.addEventListener('click', toggleMeaning);
     }
 
     if (jaVocabRandomToggle) {
