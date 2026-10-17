@@ -62,11 +62,6 @@
           <span>Đọc hiểu & Shadowing Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Đoạn văn</span>
         </button>
-        <button class="nav-item" data-tab="dialogue-ja">
-          <span class="icon">💬</span>
-          <span>Hội thoại Tiếng Nhật</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">2 Người</span>
-        </button>
         <button class="nav-item" data-tab="vocab-ja">
           <span class="icon">🗂️</span>
           <span>Từ vựng Tiếng Nhật</span>
@@ -472,76 +467,6 @@
         </div>
       </section>
 
-      <!-- TAB: HỘI THOẠI ĐỐI THOẠI TIẾNG NHẬT (2 NGƯỜI) -->
-      <section id="tab-dialogue-ja" class="tab-pane">
-        <div class="dialogue-container">
-
-          <!-- TOOLBAR HEADER -->
-          <div class="speaking-header-card">
-            <div class="vocab-header-top">
-              <div class="scenario-selector vocab-selector">
-                <div class="vocab-toolbar-actions">
-                  <label for="ja-dialogue-unit-select">Chọn Bài:</label>
-                  <select id="ja-dialogue-unit-select">
-                    <option value="bai_1">💬 Bài 1: 初めまして (Minna Kaiwa)</option>
-                  </select>
-
-                  <div class="dia-role-switcher">
-                    <span>🎭 Chế độ vai:</span>
-                    <select id="ja-dialogue-role-mode">
-                      <option value="duo">👥 Tôi & Bạn tôi (2 người luyện)</option>
-                      <option value="role_a">👤 Tôi vai A (佐藤) • AI vai B</option>
-                      <option value="role_b">👱‍♂️ Tôi vai B (ミラー/山田) • AI vai A</option>
-                    </select>
-                  </div>
-
-                  <button id="ja-dialogue-play-all-btn" class="reading-btn-all" title="Phát toàn bộ đoạn đối thoại">
-                    🔊 Phát toàn bộ hội thoại
-                  </button>
-                  <button id="ja-dialogue-reset-btn" class="btn-nav" title="Bắt đầu lại từ câu đầu tiên">
-                    🔄 Làm lại
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- MAIN CHAT WINDOW (KHUNG CHAT DUY NHẤT) -->
-          <div class="dialogue-chat-window">
-
-            <!-- DÒNG THỜI GIAN ĐỐI THOẠI (CHAT TIMELINE STREAM) -->
-            <div class="dialogue-timeline-panel">
-              <div class="dialogue-timeline-header">
-                <div class="dialogue-timeline-title">
-                  <span>💬</span>
-                  <span id="ja-dialogue-chat-title">Hội thoại đối đáp giữa 2 người (Bấm mic ở câu bất kỳ để nói)</span>
-                </div>
-                <div class="dialogue-header-actions">
-                  <span class="dialogue-turn-indicator" id="ja-dialogue-turn-indicator">Lượt 1 / 6</span>
-                </div>
-              </div>
-
-              <div id="ja-dialogue-timeline">
-                <!-- Rendered dynamically by js/dialogue_ja.js -->
-              </div>
-
-              <!-- THANH ĐIỀU KHIỂN NÓI DƯỚI CÙNG KHUNG CHAT (CHAT BAR) -->
-              <div class="dialogue-bottom-bar">
-                <button class="chat-bar-btn chat-bar-listen" id="ja-dia-listen-btn" title="Nghe câu của lượt đang chọn">
-                  🔊 Nghe
-                </button>
-                <button class="chat-bar-btn chat-bar-mic" id="ja-dia-record-btn" title="Bấm để nói lượt hiện tại">
-                  🎙️ <span id="ja-dia-mic-label">Bấm để nói (Lượt 1: 佐藤)</span>
-                </button>
-                <button class="chat-bar-btn chat-bar-nav" id="ja-dia-prev-btn" title="Lượt trước">◀</button>
-                <button class="chat-bar-btn chat-bar-nav" id="ja-dia-next-btn" title="Lượt tiếp theo">▶</button>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
 
       <!-- TAB 7: TỪ VỰNG TIẾNG NHẬT (TỪ KHÓ TỰ THÊM) -->
       <section id="tab-vocab-ja" class="tab-pane">
@@ -615,13 +540,6 @@
 
           <!-- HEADER CARD -->
           <div class="speaking-header-card">
-            <div class="katakana-header-info">
-              <div class="unit-badge">🎌 LUYỆN PHẢN XẠ KATAKANA</div>
-              <h2 class="katakana-title">Nhận Diện & Đoán Chữ Katakana</h2>
-              <p class="katakana-desc">
-                Nhìn 3 chữ Katakana trong các ô vuông bên dưới, nhập Romaji hoặc Hiragana tương ứng vào 3 ô nhập rồi bấm <strong>Kiểm tra</strong> hoặc nhấn <strong>Enter</strong>!
-              </p>
-            </div>
             <div class="katakana-options">
               <label class="katakana-filter-label">
                 <span>Chế độ:</span>
@@ -716,14 +634,12 @@
   <script src="english_data/reading_data.js"></script>
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.0"></script>
-  <script src="japanese_data/dialogue_data.js"></script>
   <script src="japanese_data/vocab_data.js?v=2.0"></script>
   <script src="js/core.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/reading_en.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
-  <script src="js/dialogue_ja.js?v=3.0"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>
   <script src="js/katakana.js"></script>
   <script src="app.js"></script>

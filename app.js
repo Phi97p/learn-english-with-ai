@@ -1,6 +1,6 @@
 // ========================================================
 // APP.JS - Điểm khởi động ứng dụng chính (Application Orchestrator)
-// Kết nối các module: Core, Speaking, Japanese, Reading, Dialogue
+// Kết nối các module: Core, Speaking, Japanese, Reading, Vocab, Katakana
 // ========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   JapaneseModule.init();
   ReadingJaModule.init();
   ReadingEnModule.init();
-  DialogueJaModule.init();
   if (window.VocabJaModule) VocabJaModule.init();
   if (window.KatakanaModule) KatakanaModule.init();
 
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ReadingEnModule.renderReadingSelect();
   JapaneseModule.renderJaSpkUnitSelect();
   ReadingJaModule.renderReadingSelect();
-  DialogueJaModule.renderDialogueSelect();
 
   // 3. Tải nội dung bài học mặc định (nếu có dữ liệu)
   const firstSpkKey = Object.keys(SENTENCE_UNITS_DATA || {})[0] || '';
@@ -34,7 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const firstReadingKey = Object.keys(JA_READING_PASSAGES_DATA || {})[0] || '';
   ReadingJaModule.loadReadingPassage(firstReadingKey);
-
-  const firstDiaKey = Object.keys(JA_DIALOGUE_DATA || {})[0] || '';
-  DialogueJaModule.loadDialogue(firstDiaKey);
 });
