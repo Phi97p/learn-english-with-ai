@@ -7,4 +7,5 @@
 // 1. japanese_data/speaking_data.js  -> JA_SENTENCE_UNITS_DATA (Luyện nói câu - Minna no Nihongo)
 // 2. japanese_data/vocab_data.js     -> JA_VOCAB_SCENARIOS_DATA (Luyện từ vựng theo chủ đề)
 // 3. japanese_data/reading_data.js   -> JA_READING_PASSAGES_DATA (Đọc hiểu & Shadowing)
+// 4. japanese_data/notes_data.js     -> JA_NOTES_DATA (Kiến thức quan trọng: Từ khó & Cụm từ hay)
 // ========================================================

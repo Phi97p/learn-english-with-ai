@@ -26,6 +26,7 @@
 - **Tab Luyện nói tiếng Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/luyen_noi_jp/` để xử lý và nạp vào hệ thống (`japanese_data/speaking_data.js`).
 - **Tab Đọc hiểu & Shadowing Nhật**: Lấy dữ liệu bài học từ thư mục `datasss/jp/doc_hieu/` để xử lý và nạp vào hệ thống (`japanese_data/reading_data.js`).
 - **Tab Từ vựng tiếng Nhật**: Lấy dữ liệu từ vựng từ thư mục `datasss/jp/vocab/` (file `voca.txt`) để xử lý và nạp vào hệ thống (`japanese_data/vocab_data.js`).
+- **Tab Kiến thức quan trọng**: Dữ liệu do người dùng tự ghi chú tại `japanese_data/notes_data.js` (`JA_NOTES_DATA`), gồm 2 phần chuyển đổi: Cách đọc các từ khó (`hard_words`) và Các cụm từ hay cần học thuộc (`phrases`).
 
 ## 6. Quy định về Tab Từ Vựng (Vocabulary)
 - **Từ vựng tiếng Nhật**: Dữ liệu từ vựng được quản lý tại file `datasss/jp/vocab/voca.txt`. Người dùng sẽ tự thêm từ mới vào file này theo từng bài học (ví dụ: `Bài 1: ク, サ, 会社員, ...`). Khi người dùng yêu cầu cập nhật hoặc có từ mới trong file, AI sẽ tự động đọc danh sách từ mới trong file này, tra cứu phát âm (hiragana, romaji, nghĩa tiếng Việt chuẩn theo Minna no Nihongo) và đồng bộ nạp vào code (`japanese_data/vocab_data.js`).

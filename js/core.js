@@ -228,6 +228,9 @@ const AppCore = (() => {
     } else if (tabId === 'vocab-ja') {
       dom.pageTitle.textContent = '🗂️ Sổ Tay Từ Vựng Tiếng Nhật (Từ Khó Tự Chọn)';
       dom.pageSubtitle.textContent = 'Luyện nghe & phát âm các từ vựng bạn thấy khó nhớ do bạn tự thêm vào sổ tay';
+    } else if (tabId === 'notes-ja') {
+      dom.pageTitle.textContent = '📌 Kiến Thức & Ghi Chú Quan Trọng (Tiếng Nhật)';
+      dom.pageSubtitle.textContent = 'Sổ tay cá nhân: Cách đọc các từ khó & các cụm từ hay cần học thuộc lòng';
     } else if (tabId === 'katakana') {
       dom.pageTitle.textContent = '🈂️ Luyện Phản Xạ Bảng Chữ Cái Katakana';
       dom.pageSubtitle.textContent = 'Nhìn 3 chữ Katakana ngẫu nhiên và nhập Romaji hoặc Hiragana tương ứng để kiểm tra phản xạ';

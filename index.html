@@ -67,6 +67,11 @@
           <span>Từ vựng Tiếng Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Từ khó</span>
         </button>
+        <button class="nav-item" data-tab="notes-ja">
+          <span class="icon">📌</span>
+          <span>Kiến thức quan trọng</span>
+          <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #10b981);">Ghi chú</span>
+        </button>
         <button class="nav-item" data-tab="katakana">
           <span class="icon">🈂️</span>
           <span>Học Katakana</span>
@@ -534,6 +539,93 @@
         </div>
       </section>
 
+      <!-- TAB: KIẾN THỨC & GHI CHÚ QUAN TRỌNG (TỰ NOTE) -->
+      <section id="tab-notes-ja" class="tab-pane">
+        <div class="speaking-container">
+
+          <!-- TOOLBAR CHUYỂN ĐỔI 2 NỘI DUNG CHÍNH -->
+          <div class="speaking-header-card">
+            <div class="vocab-header-top" style="justify-content: space-between;">
+              <div class="notes-category-switcher">
+                <button class="notes-mode-btn active" data-mode="hard_words" type="button" title="Chuyển sang trang ghi chú cách đọc các từ khó">
+                  <span>🀄</span>
+                  <span>Cách đọc các từ khó</span>
+                </button>
+                <button class="notes-mode-btn" data-mode="phrases" type="button" title="Chuyển sang xem các cụm từ hay cần học thuộc">
+                  <span>💬</span>
+                  <span>Cụm từ hay cần học thuộc</span>
+                </button>
+              </div>
+
+              <!-- Nút ngẫu nhiên chỉ dùng cho phần cụm từ hay -->
+              <div class="vocab-toolbar-actions" id="ja-notes-phrases-actions" style="margin-left: auto; display: none;">
+                <button class="btn-action-small" id="ja-notes-random-toggle" type="button" title="Bật/Tắt chế độ nhảy mục ngẫu nhiên">
+                  ➡️ Tuần tự: BẬT
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 1: TRANG TĨNH GHI CHÚ CÁCH ĐỌC CÁC TỪ KHÓ (ĐƠN GIẢN, KHÔNG CẦN CHỨC NĂNG) -->
+          <div id="ja-notes-hard-words-view" class="notes-view-pane">
+            <div class="speaking-header-card notes-static-container">
+
+              <div class="notes-static-body" id="ja-hard-words-body">
+                <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 2: CÁC CỤM TỪ HAY CẦN HỌC THUỘC (STRUCTURE TƯƠNG TỰ TỪ VỰNG TIẾNG NHẬT) -->
+          <div id="ja-notes-phrases-view" class="notes-view-pane" style="display: none;">
+            <!-- CHALLENGE CARD -->
+            <div class="speaking-challenge-card" id="ja-notes-card">
+              <button class="card-corner-btn card-corner-prev" id="ja-notes-prev-btn" title="Mục trước" aria-label="Mục trước">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="card-corner-btn card-corner-next" id="ja-notes-next-btn" title="Mục tiếp theo" aria-label="Mục tiếp theo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <div class="challenge-category" id="ja-notes-category">CỤM TỪ HAY CẦN HỌC THUỘC</div>
+              <div class="challenge-phrase-en" id="ja-notes-word-ja" style="font-size: 2.2rem; letter-spacing: 0.04em;">Chưa có cụm từ nào</div>
+              <div class="challenge-phrase-ipa phonetic-text" id="ja-notes-word-romaji"></div>
+              <div class="challenge-phrase-vi" id="ja-notes-word-vi"></div>
+              <div class="challenge-phrase-note" id="ja-notes-word-note" style="display: none;"></div>
+
+              <div class="speaking-actions" id="ja-notes-actions">
+                <button class="btn-listen" id="ja-notes-listen-btn">🔊 Nghe phát âm mẫu</button>
+                <button class="btn-record" id="ja-notes-record-btn">🎯 Bấm để nói & Chấm điểm</button>
+              </div>
+
+              <!-- KẾT QUẢ NGƯỜI NÓI -->
+              <div class="spoken-result-box" id="ja-notes-spoken-box">
+                <div class="spoken-result-badge" id="ja-notes-spoken-badge">Đang chờ bạn nói...</div>
+                <span class="spoken-result-text" id="ja-notes-spoken-text">"..."</span>
+                <span class="typing-cursor" id="ja-notes-typing-cursor" style="display: none;"></span>
+              </div>
+
+              <div class="speaking-feedback" id="ja-notes-feedback">
+                <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói & Chấm điểm"</strong> nhé!</div>
+              </div>
+            </div>
+
+            <!-- DANH SÁCH TẤT CẢ CỤM TỪ TRONG SỔ TAY -->
+            <div class="speaking-header-card spk-bottom-list-card">
+              <div class="vocab-header-top" style="margin-bottom: 6px;">
+                <div class="vocab-chip-list-label" style="font-size: 0.92rem; font-weight: 700; color: var(--text-main);">
+                  📋 Toàn bộ cụm từ (<span id="ja-notes-list-count">0</span> cụm từ):
+                </div>
+              </div>
+              <div class="spk-sentences-wrapper" id="ja-notes-list-wrapper" style="margin-top: 10px;">
+                <!-- Rendered dynamically by js/notes_ja.js -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- TAB: HỌC BẢNG CHỮ CÁI KATAKANA -->
       <section id="tab-katakana" class="tab-pane">
         <div class="katakana-container">
@@ -635,12 +727,14 @@
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.0"></script>
   <script src="japanese_data/vocab_data.js?v=2.0"></script>
+  <script src="japanese_data/notes_data.js"></script>
   <script src="js/core.js"></script>
   <script src="js/speaking.js"></script>
   <script src="js/reading_en.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>
+  <script src="js/notes_ja.js"></script>
   <script src="js/katakana.js"></script>
   <script src="app.js"></script>
 </body>
