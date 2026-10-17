@@ -183,6 +183,38 @@ const GrammarJaModule = (() => {
     updateProgressUI();
   }
 
+  // Chuẩn hóa chuỗi để so sánh đáp án dạng điền từ thông minh
+  function normalizeAnswerText(str) {
+    if (!str) return '';
+    return str.toString()
+      .trim()
+      .replace(/[\s\u3000]+/g, '') // bỏ khoảng trắng ASCII & khoảng trắng tiếng Nhật
+      .replace(/[・,，、。.]/g, '') // bỏ dấu chấm ngăn cách, phẩy
+      .toLowerCase();
+  }
+
+  // Kiểm tra đáp án câu hỏi (Hỗ trợ cả Multiple Choice và Điền từ)
+  function checkQuestionAnswer(q, userAns) {
+    if (userAns === undefined || userAns === null) return false;
+    const strAns = userAns.toString().trim();
+    if (!strAns) return false;
+
+    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+    if (!isFill) {
+      return strAns === q.answer;
+    }
+
+    // Dạng điền từ
+    const normUser = normalizeAnswerText(strAns);
+    const normCorrect = normalizeAnswerText(q.answer);
+    if (normUser === normCorrect) return true;
+
+    if (Array.isArray(q.acceptable_answers)) {
+      return q.acceptable_answers.some(ans => normalizeAnswerText(ans) === normUser);
+    }
+    return false;
+  }
+
   // Render danh sách câu hỏi
   function renderQuestionsList() {
     if (!dom.questionsContainer) return;
@@ -191,17 +223,19 @@ const GrammarJaModule = (() => {
     let html = '';
     activeQuizQuestions.forEach((q, idx) => {
       const qNum = idx + 1;
-      const selectedOpt = userAnswers[q.id];
+      const userAns = userAnswers[q.id];
       const correctOpt = q.answer;
+      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+      const isCorrect = checkQuestionAnswer(q, userAns);
 
       let cardClass = 'grammar-question-card';
       let statusBadge = '';
 
       if (isSubmitted) {
-        if (!selectedOpt) {
+        if (!hasAnswered) {
           cardClass += ' q-skipped';
           statusBadge = `<span class="q-status-badge badge-skipped">⚪ Chưa làm (0đ)</span>`;
-        } else if (selectedOpt === correctOpt) {
+        } else if (isCorrect) {
           cardClass += ' q-correct';
           statusBadge = `<span class="q-status-badge badge-correct">✅ Chính xác (+1đ)</span>`;
         } else {
@@ -216,6 +250,7 @@ const GrammarJaModule = (() => {
             <div class="q-number-box">
               <span class="q-badge">Câu ${qNum} / ${total}</span>
               ${q.lessonTitle ? `<span class="q-lesson-tag">${q.lessonTitle}</span>` : ''}
+              ${(q.type === 'fill' || !q.options || Object.keys(q.options).length === 0) ? `<span class="q-lesson-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">✏️ Điền từ</span>` : ''}
             </div>
             <div class="q-header-right">
               ${statusBadge}
@@ -228,48 +263,77 @@ const GrammarJaModule = (() => {
           <div class="q-body">
             <h3 class="q-text">${escapeHtml(q.question)}</h3>
           </div>
-
-          <div class="q-options-grid">
       `;
 
-      ['A', 'B', 'C', 'D'].forEach(optKey => {
-        const optText = (q.options && q.options[optKey]) ? q.options[optKey] : '';
-        if (!optText) return;
+      const isFillQuestion = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
 
-        let optClass = 'q-option-item';
-        let optBadge = '';
+      if (isFillQuestion) {
+        // Dạng Điền từ (Fill-in-the-blank)
+        let inputClass = 'q-fill-input';
+        let resultMsg = '';
 
-        if (!isSubmitted) {
-          if (selectedOpt === optKey) {
-            optClass += ' selected';
-          }
-        } else {
-          // Khi đã nộp bài
-          optClass += ' disabled';
-          if (optKey === correctOpt) {
-            optClass += ' opt-correct';
-            optBadge = '<span class="opt-result-icon">✅ Đáp án đúng</span>';
-          }
-          if (selectedOpt === optKey) {
-            if (optKey === correctOpt) {
-              optClass += ' opt-user-correct';
-            } else {
-              optClass += ' opt-user-wrong';
-              optBadge = '<span class="opt-result-icon">❌ Bạn đã chọn</span>';
-            }
+        if (isSubmitted) {
+          if (isCorrect) {
+            inputClass += ' fill-correct';
+            resultMsg = `<div class="q-fill-result-badge correct">✅ Chính xác! Đáp án chuẩn: <span class="target-ans">${escapeHtml(q.answer)}</span></div>`;
+          } else if (!hasAnswered) {
+            inputClass += ' fill-wrong';
+            resultMsg = `<div class="q-fill-result-badge wrong">⚪ Chưa điền! Đáp án chuẩn: <span class="target-ans">${escapeHtml(q.answer)}</span></div>`;
+          } else {
+            inputClass += ' fill-wrong';
+            resultMsg = `<div class="q-fill-result-badge wrong">❌ Chưa chính xác! Đáp án chuẩn: <span class="target-ans">${escapeHtml(q.answer)}</span></div>`;
           }
         }
 
         html += `
-          <div class="${optClass}" data-qidx="${idx}" data-qid="${q.id}" data-opt="${optKey}">
-            <div class="opt-prefix">${optKey}</div>
-            <div class="opt-content">${escapeHtml(optText)}</div>
-            ${optBadge}
+          <div class="q-fill-box">
+            <div class="q-fill-input-group">
+              <input type="text" class="${inputClass}" data-qid="${q.id}" data-qidx="${idx}" placeholder="Nhập từ hoặc cụm từ cần điền..." value="${escapeHtml(userAns || '')}" ${isSubmitted ? 'disabled' : ''} autocomplete="off" spellcheck="false" />
+            </div>
+            ${resultMsg}
           </div>
         `;
-      });
+      } else {
+        // Dạng trắc nghiệm 4 lựa chọn (A, B, C, D)
+        html += `<div class="q-options-grid">`;
+        ['A', 'B', 'C', 'D'].forEach(optKey => {
+          const optText = (q.options && q.options[optKey]) ? q.options[optKey] : '';
+          if (!optText) return;
 
-      html += `</div>`;
+          let optClass = 'q-option-item';
+          let optBadge = '';
+
+          if (!isSubmitted) {
+            if (userAns === optKey) {
+              optClass += ' selected';
+            }
+          } else {
+            // Khi đã nộp bài
+            optClass += ' disabled';
+            if (optKey === correctOpt) {
+              optClass += ' opt-correct';
+              optBadge = '<span class="opt-result-icon">✅ Đáp án đúng</span>';
+            }
+            if (userAns === optKey) {
+              if (optKey === correctOpt) {
+                optClass += ' opt-user-correct';
+              } else {
+                optClass += ' opt-user-wrong';
+                optBadge = '<span class="opt-result-icon">❌ Bạn đã chọn</span>';
+              }
+            }
+          }
+
+          html += `
+            <div class="${optClass}" data-qidx="${idx}" data-qid="${q.id}" data-opt="${optKey}">
+              <div class="opt-prefix">${optKey}</div>
+              <div class="opt-content">${escapeHtml(optText)}</div>
+              ${optBadge}
+            </div>
+          `;
+        });
+        html += `</div>`;
+      }
 
       // Hộp giải thích (chỉ hiển thị sau khi nộp bài)
       if (isSubmitted && q.explanation) {
@@ -296,15 +360,16 @@ const GrammarJaModule = (() => {
     let html = '';
     for (let idx = 0; idx < total; idx++) {
       const q = activeQuizQuestions[idx];
-      const selectedOpt = userAnswers[q.id];
+      const userAns = userAnswers[q.id];
+      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
       let itemClass = 'palette-item';
 
       if (!isSubmitted) {
-        if (selectedOpt) itemClass += ' answered';
+        if (hasAnswered) itemClass += ' answered';
       } else {
-        if (!selectedOpt) {
+        if (!hasAnswered) {
           itemClass += ' skipped';
-        } else if (selectedOpt === q.answer) {
+        } else if (checkQuestionAnswer(q, userAns)) {
           itemClass += ' correct';
         } else {
           itemClass += ' wrong';
@@ -331,7 +396,11 @@ const GrammarJaModule = (() => {
       return;
     }
 
-    const answeredCount = Object.keys(userAnswers).length;
+    const answeredCount = Object.keys(userAnswers).filter(k => {
+      const val = userAnswers[k];
+      return (val !== undefined && val !== null && val.toString().trim() !== '');
+    }).length;
+
     const percent = Math.round((answeredCount / total) * 100);
 
     if (dom.progressText) {
@@ -344,7 +413,7 @@ const GrammarJaModule = (() => {
 
   // Gán sự kiện cho từng câu hỏi
   function bindQuestionEvents() {
-    // Sự kiện click chọn đáp án
+    // Sự kiện click chọn đáp án (Trắc nghiệm A, B, C, D)
     const optionEls = dom.questionsContainer.querySelectorAll('.q-option-item');
     optionEls.forEach(el => {
       el.addEventListener('click', () => {
@@ -369,6 +438,39 @@ const GrammarJaModule = (() => {
       });
     });
 
+    // Sự kiện input cho dạng điền từ
+    const fillInputs = dom.questionsContainer.querySelectorAll('.q-fill-input');
+    fillInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        if (isSubmitted) return;
+        const qid = input.dataset.qid;
+        const qidx = parseInt(input.dataset.qidx, 10);
+        const val = input.value.trim();
+        if (val) {
+          userAnswers[qid] = input.value;
+          updatePaletteItem(qidx, true);
+        } else {
+          delete userAnswers[qid];
+          updatePaletteItem(qidx, false);
+        }
+        updateProgressUI();
+      });
+
+      // Nhấn Enter chuyển nhanh sang câu tiếp theo
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const qidx = parseInt(input.dataset.qidx, 10);
+          const nextCard = document.getElementById(`grammar-q-${qidx + 1}`);
+          if (nextCard) {
+            nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const nextInput = nextCard.querySelector('.q-fill-input');
+            if (nextInput) nextInput.focus();
+          }
+        }
+      });
+    });
+
     // Sự kiện nút nghe âm thanh câu hỏi
     const audioBtns = dom.questionsContainer.querySelectorAll('.q-audio-btn');
     audioBtns.forEach(btn => {
@@ -377,8 +479,8 @@ const GrammarJaModule = (() => {
         const qidx = parseInt(btn.dataset.qidx, 10);
         const q = activeQuizQuestions[qidx];
         if (q && window.AppCore && typeof window.AppCore.speakJa === 'function') {
-          // Bỏ ký tự chỗ trống (____) khi đọc tiếng Nhật để âm thanh tự nhiên
-          const cleanText = q.question.replace(/\(____\)/g, '、').replace(/—/g, '、');
+          // Bỏ ký tự chỗ trống khi đọc tiếng Nhật để âm thanh tự nhiên
+          const cleanText = q.question.replace(/\([_ ]+\)/g, '、').replace(/（[_ ]+）/g, '、').replace(/—/g, '、');
           window.AppCore.speakJa(cleanText);
         }
       });
@@ -417,7 +519,11 @@ const GrammarJaModule = (() => {
     const total = activeQuizQuestions.length;
     if (total === 0) return;
 
-    const answeredCount = Object.keys(userAnswers).length;
+    const answeredCount = Object.keys(userAnswers).filter(k => {
+      const val = userAnswers[k];
+      return (val !== undefined && val !== null && val.toString().trim() !== '');
+    }).length;
+
     const unansweredCount = total - answeredCount;
 
     if (unansweredCount > 0) {
@@ -434,10 +540,11 @@ const GrammarJaModule = (() => {
     let skippedCount = 0;
 
     activeQuizQuestions.forEach(q => {
-      const userOpt = userAnswers[q.id];
-      if (!userOpt) {
+      const userAns = userAnswers[q.id];
+      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+      if (!hasAnswered) {
         skippedCount++;
-      } else if (userOpt === q.answer) {
+      } else if (checkQuestionAnswer(q, userAns)) {
         correctCount++;
       } else {
         wrongCount++;

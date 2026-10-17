@@ -23,8 +23,8 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiến
 - **Nguồn dữ liệu**: `datasss/jp/ngu_phap/` (file chính: `bai_1.txt`, `bai_2.txt`,...)
 - **File đích**: [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (`JA_GRAMMAR_DATA`)
 - **Nhiệm vụ chính**:
-  1. Tự động đọc dữ liệu câu hỏi trắc nghiệm tiếng Nhật từ `datasss/jp/ngu_phap/`.
-  2. Phân tích nhận diện 4 phương án A, B, C, D, đáp án đúng và phần giải thích ngữ pháp (tự động phân tích và sinh giải thích chuẩn xác nếu người dùng chưa viết).
+  1. Tự động đọc dữ liệu câu hỏi tiếng Nhật từ `datasss/jp/ngu_phap/` (mỗi file ứng với 1 chủ đề riêng biệt, tuyệt đối không lấy data ở file này gắn vào chủ đề của bài khác).
+  2. Tự động phán định dạng câu hỏi: nhận diện trắc nghiệm 4 phương án A, B, C, D hoặc dạng bài tập điền từ trực tiếp (tự động phân tích từ cần điền và sinh giải thích chuẩn xác nếu người dùng chưa viết).
   3. Cập nhật dữ liệu vào `JA_GRAMMAR_DATA` trong [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (luôn gán `window.JA_GRAMMAR_DATA`).
   4. Tuân thủ quy chuẩn đề thi: 30 câu ngẫu nhiên, mỗi câu 1 điểm, gom theo bài, chấm điểm tự động và tuyệt đối không lưu lịch sử làm bài.
 

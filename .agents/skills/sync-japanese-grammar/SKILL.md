@@ -1,6 +1,6 @@
 ---
 name: sync-japanese-grammar
-description: Use this skill whenever the user adds, updates, or modifies Japanese grammar practice files in datasss/jp/ngu_phap/ (such as bai_1.txt, bai_2.txt). Guides parsing multiple-choice questions, options A/B/C/D, answers, generating clear grammatical explanations, and syncing directly into JA_GRAMMAR_DATA in japanese_data/grammar_data.js.
+description: Use this skill whenever the user adds, updates, or modifies Japanese grammar practice files in datasss/jp/ngu_phap/ (such as 0_ngu_phap_tong_hop.txt, bai_1.txt, bai_2.txt). Guides parsing multiple-choice questions, options A/B/C/D, answers, generating clear grammatical explanations, ensuring each file maps to an isolated topic without cross-contamination, and syncing directly into JA_GRAMMAR_DATA in japanese_data/grammar_data.js.
 ---
 
 # Sync Japanese Grammar Skill (Luyện Tập Ngữ Pháp Tiếng Nhật Tổng Hợp)
@@ -13,35 +13,47 @@ Kỹ năng đồng bộ và cập nhật dữ liệu câu hỏi trắc nghiệm 
 
 > [!IMPORTANT]
 > **Quy chuẩn đề thi & Chấm điểm**:
-> 1. **Dạng câu hỏi trắc nghiệm**: Gồm 4 phương án lựa chọn A, B, C, D.
-> 2. **Chấm điểm**: Mỗi câu đúng được 1 điểm. Tổng điểm tương ứng với số câu trong đề.
-> 3. **Gom theo bài & Tổng hợp**: Hệ thống tự động gom câu hỏi theo từng bài học (`bai_1`, `bai_2`...) và cung cấp tùy chọn "🎯 Đề tổng hợp (Tất cả các bài)".
-> 4. **Ngẫu nhiên 30 câu**: Mỗi lần làm bài hệ thống sẽ xáo trộn ngẫu nhiên và rút ra tối đa 30 câu (nếu bài học có < 30 câu thì lấy toàn bộ số câu hiện có).
-> 5. **Không lưu lịch sử**: Trạng thái làm bài là phiên tạm thời (in-memory), không lưu kết quả vào `localStorage` hay ổ cứng.
+> 1. **Mỗi file = 1 Chủ đề độc lập (BẮT BUỘC)**: Mỗi một file trong thư mục `datasss/jp/ngu_phap/` (ví dụ: `0_ngu_phap_tong_hop.txt`, `1_tu_vung_tong_hop.txt`, `bai_1.txt`...) tương ứng với đúng **MỘT chủ đề / bài học riêng biệt**. **Tuyệt đối không lấy dữ liệu ở file này gắn vào chủ đề của bài/file khác**.
+> 2. **Dạng câu hỏi trắc nghiệm**: Gồm 4 phương án lựa chọn A, B, C, D.
+> 3. **Chấm điểm**: Mỗi câu đúng được 1 điểm. Tổng điểm tương ứng với số câu trong đề.
+> 4. **Gom theo bài & Tổng hợp**: Hệ thống tự động gom câu hỏi theo từng bài học/chủ đề tương ứng với từng file nguồn độc lập và cung cấp tùy chọn "🎯 Đề tổng hợp (Tất cả các bài)".
+> 5. **Ngẫu nhiên 30 câu**: Mỗi lần làm bài hệ thống sẽ xáo trộn ngẫu nhiên và rút ra tối đa 30 câu (nếu bài học có < 30 câu thì lấy toàn bộ số câu hiện có).
+> 6. **Không lưu lịch sử**: Trạng thái làm bài là phiên tạm thời (in-memory), không lưu kết quả vào `localStorage` hay ổ cứng.
 
 ---
 
-## 2. Định Dạng File Nguồn (`datasss/jp/ngu_phap/bai_x.txt`)
+## 2. Định Dạng File Nguồn & Tự Động Phán Định (`datasss/jp/ngu_phap/*.txt`)
 
-Hệ thống hỗ trợ cú pháp tự nhiên, linh hoạt trong file text:
+AI tự động phán định dạng bài tập dựa trên nội dung người dùng cung cấp:
 
+### Dạng 1: Trắc nghiệm 4 lựa chọn (A, B, C, D)
+Khi câu hỏi có các lựa chọn A, B, C, D:
 ```text
-Bai [Số]: [Tên bài học / Điểm ngữ pháp chính]
-
-Cau [Số]: [Nội dung câu hỏi tiếng Nhật có chỗ trống (____)]
+Cau [Số]: [Nội dung câu hỏi có chỗ trống (____)]
 A. [Lựa chọn A]
 B. [Lựa chọn B]
 C. [Lựa chọn C]
 D. [Lựa chọn D]
 Dap an: [A/B/C/D]
-Giai thich: [Giải thích ngữ pháp chi tiết]
+Giai thich: [Giải thích ngữ pháp]
+```
+
+### Dạng 2: Bài tập Điền từ (Fill-in-the-blank)
+Khi câu hỏi chỉ có chỗ trống `(____)` và từ cần điền (hoặc người dùng chỉ đưa câu hỏi, AI tự phân tích xác định từ cần điền):
+```text
+Cau [Số]: [Nội dung câu hỏi có chỗ trống (____)]
+Dap an: [Từ hoặc cụm từ cần điền]
+Giai thich: [Giải thích ngữ pháp]
 ```
 
 *Lưu ý:*
-- Tiêu đề bài có thể viết: `Bai 1:`, `Bài 1:`, `Bài 2 - Trợ từ...`.
+- Tiêu đề bài có thể viết: `Bai [Số]: [Tên bài]`, `Bài [Số]: [Tên bài]`.
 - Câu hỏi có thể viết: `Cau 1:`, `Câu 1:`, hoặc `1. ...`.
-- Đáp án có thể viết: `Dap an: A`, `Đáp án: A`, `Ans: A`.
-- Nếu người dùng chưa ghi phần `Giai thich:`, AI có trách nhiệm phân tích ngữ pháp theo giáo trình Minna no Nihongo để tự động bổ sung giải thích súc tích, chính xác cho câu hỏi.
+- Đáp án có thể viết: `Dap an:`, `Đáp án:`, `Ans:`.
+- **Cơ chế tự phán định của AI**:
+  - Nếu người dùng nhập dạng trắc nghiệm có 4 phương án: AI bóc tách `options: { A, B, C, D }`.
+  - Nếu người dùng nhập dạng điền từ: AI tự động gắn `type: "fill"`, trích xuất hoặc tự phán đoán `answer` chuẩn xác cùng các biến thể chấp nhận được `acceptable_answers` (Hiragana/Kanji/Romaji).
+  - Nếu người dùng chưa ghi phần `Giai thich:`, AI có trách nhiệm phân tích ngữ pháp theo giáo trình Minna no Nihongo để tự động bổ sung giải thích súc tích, chính xác cho câu hỏi.
 
 ---
 
@@ -51,27 +63,54 @@ Khi có file mới hoặc cập nhật trong thư mục `datasss/jp/ngu_phap/`:
 
 ### Bước 1: Quét và Đọc Dữ Liệu Nguồn
 - Quét toàn bộ thư mục [datasss/jp/ngu_phap/](file:///d:/phi-learning-english/learn-english-with-ai/datasss/jp/ngu_phap/).
-- Đọc từng file bài học (`bai_1.txt`, `bai_2.txt`,...).
+- Đọc từng file chủ đề / bài học (`0_ngu_phap_tong_hop.txt`, `bai_1.txt`, `bai_2.txt`,...).
+- **Xử lý độc lập theo từng file**: Mỗi file ánh xạ tới 1 object key riêng biệt trong `JA_GRAMMAR_DATA` (ví dụ: `bai_0`, `bai_1`, `topic_1`...). Toàn bộ câu hỏi trong file nào chỉ thuộc về duy nhất chủ đề của file đó, tuyệt đối không gắn lẫn sang chủ đề của file khác.
 
 ### Bước 2: Phân Tích Cú Pháp & Chuẩn Hóa Cấu Trúc
 Chuyển đổi từng câu hỏi thành object tiêu chuẩn:
+
+**1. Đối với câu hỏi Trắc nghiệm (A, B, C, D):**
 ```javascript
 {
-  id: "b1_q1", // Định danh duy nhất: b[Số bài]_q[Số câu]
-  question: "わたし (____) マイク・ミラーです。",
+  id: "b0_q1", // Định danh duy nhất: b[Số bài]_q[Số câu]
+  question: "あめ（      ）ふったら、うち（　　）います。",
   options: {
-    "A": "は",
-    "B": "が",
-    "C": "を",
-    "D": "に"
+    "A": "が ・ で",
+    "B": "が ・ に",
+    "C": "を ・ に",
+    "D": "を ・ で"
   },
-  answer: "A",
-  explanation: "Trợ từ「は」(đọc là wa) dùng sau danh từ để biểu thị chủ đề câu: N1 は N2 です."
+  answer: "B",
+  explanation: "Hiện tượng tự nhiên dùng trợ từ「が」. Động từ tồn tại「います」đi với nơi chốn dùng trợ từ「に」."
+}
+```
+
+**2. Đối với câu hỏi Điền từ (Fill-in-the-blank):**
+```javascript
+{
+  id: "b0_q3",
+  type: "fill",
+  question: "あした あめが （______）、いえに います。",
+  answer: "ふったら",
+  acceptable_answers: ["ふったら", "降ったら"],
+  explanation: "Chia động từ「ふります」sang thể điều kiện〜たら: ふったら (nếu mưa rơi)."
 }
 ```
 
 ### Bước 3: Cập Nhật File Đích `japanese_data/grammar_data.js`
-- Đưa dữ liệu vào object `const JA_GRAMMAR_DATA = { ... }`.
+- Đưa dữ liệu vào object `const JA_GRAMMAR_DATA = { ... }`, trong đó mỗi thuộc tính tương ứng với 1 file trong thư mục nguồn:
+  ```javascript
+  const JA_GRAMMAR_DATA = {
+    "bai_0": {
+      "title": "Bài 0: Ngữ pháp tổng hợp",
+      "questions": [ ... ]
+    },
+    "bai_1": {
+      "title": "Bài 1: ...",
+      "questions": [ ... ]
+    }
+  };
+  ```
 - Luôn đảm bảo dòng gán toàn cục ở cuối file:
   ```javascript
   window.JA_GRAMMAR_DATA = JA_GRAMMAR_DATA;
@@ -86,7 +125,7 @@ node -c japanese_data/grammar_data.js
 ### Bước 5: Kiểm Tra Trực Quan
 - Mở ứng dụng hoặc kiểm tra tại `http://localhost:3000`.
 - Chuyển sang tab **📝 Luyện tập Ngữ pháp**.
-- Xác nhận dropdown `Chọn bài:` hiển thị bài học mới cùng số lượng câu hỏi chính xác.
+- Xác nhận dropdown `Chọn bài:` hiển thị từng chủ đề bài học độc lập tương ứng với các file trong thư mục nguồn cùng số lượng câu hỏi chính xác.
 
 ---
 
