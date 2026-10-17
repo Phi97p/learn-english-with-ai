@@ -72,5 +72,5 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n🚀 Máy chủ ứng dụng đang chạy tại: http://localhost:${PORT}`);
-  console.log(`✨ Sẵn sàng luyện tập tiếng Anh & tiếng Nhật!\n`);
+  console.log(`✨ Sẵn sàng luyện tập Tiếng Nhật!\n`);
 });

@@ -1,14 +1,14 @@
 {
-  "name": "learn-english-ai",
+  "name": "learn-japanese-ai",
   "version": "1.0.0",
-  "description": "Ứng dụng AI học tiếng Anh giao tiếp từ con số 0",
+  "description": "Ứng dụng AI học và luyện phát âm tiếng Nhật giao tiếp",
   "main": "index.html",
   "scripts": {
     "start": "node server.js",
     "server": "node server.js",
     "serve": "npx serve ."
   },
-  "keywords": ["english", "learning", "ai", "pronunciation", "speech"],
+  "keywords": ["japanese", "learning", "ai", "pronunciation", "speech", "nihongo"],
   "author": "",
   "license": "MIT"
 }

@@ -4,10 +4,13 @@
 
 const AppCore = (() => {
   // 1. Trạng thái dùng chung (Shared State)
+  const savedTab = localStorage.getItem('currentTab');
+  const initialTab = (!savedTab || savedTab === 'speaking' || savedTab === 'reading-en') ? 'speaking-ja' : savedTab;
+
   const state = {
     speechSpeed: parseFloat(localStorage.getItem('speechSpeed') || '1.0'),
     voiceGender: localStorage.getItem('voiceGender') || 'female',
-    currentTab: 'speaking',
+    currentTab: initialTab,
     showPhonetics: localStorage.getItem('showPhonetics') !== 'false',
     wordsLearnedCount: parseInt(localStorage.getItem('wordsLearnedCount') || '0', 10),
     streakDays: parseInt(localStorage.getItem('streakDays') || '1', 10),
@@ -67,41 +70,8 @@ const AppCore = (() => {
     return englishVoices[0];
   }
 
-  function speak(text, lang = 'en-US') {
-    if (window.SpeakingModule && typeof window.SpeakingModule.stopUserAudioPlayback === 'function') {
-      window.SpeakingModule.stopUserAudioPlayback();
-    }
-    if (window.JapaneseModule && typeof window.JapaneseModule.stopJaUserAudioPlayback === 'function') {
-      window.JapaneseModule.stopJaUserAudioPlayback();
-    }
-    if (window.ReadingJaModule && typeof window.ReadingJaModule.stopReadingUserAudioPlayback === 'function') {
-      window.ReadingJaModule.stopReadingUserAudioPlayback();
-    }
-    if (window.ReadingEnModule && typeof window.ReadingEnModule.stopReadingUserAudioPlayback === 'function') {
-      window.ReadingEnModule.stopReadingUserAudioPlayback();
-    }
-    if (!('speechSynthesis' in window)) {
-      alert('Trình duyệt của bạn chưa hỗ trợ phát âm tự động.');
-      return;
-    }
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang;
-    utterance.rate = state.speechSpeed;
-
-    const chosenVoice = getPreferredVoice(state.voiceGender);
-    if (chosenVoice) {
-      utterance.voice = chosenVoice;
-    }
-
-    if (state.voiceGender === 'female') {
-      utterance.pitch = 1.08;
-    } else {
-      utterance.pitch = 0.95;
-    }
-
-    window.speechSynthesis.speak(utterance);
+  function speak(text, lang = 'ja-JP') {
+    speakJa(text);
   }
 
   function getJapaneseVoice(gender = 'female') {
@@ -187,8 +157,8 @@ const AppCore = (() => {
 
   // 5. Điều hướng Tab
   function switchTab(tabId) {
-    if (tabId !== 'speaking' && window.SpeakingModule && typeof window.SpeakingModule.clearAllTempRecordings === 'function') {
-      window.SpeakingModule.clearAllTempRecordings();
+    if (tabId === 'speaking' || tabId === 'reading-en') {
+      tabId = 'speaking-ja';
     }
     if (tabId !== 'speaking-ja' && window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
       window.JapaneseModule.clearAllJaTempRecordings();
@@ -196,10 +166,8 @@ const AppCore = (() => {
     if (tabId !== 'reading-ja' && window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
       window.ReadingJaModule.clearAllReadingTempRecordings();
     }
-    if (tabId !== 'reading-en' && window.ReadingEnModule && typeof window.ReadingEnModule.clearAllReadingTempRecordings === 'function') {
-      window.ReadingEnModule.clearAllReadingTempRecordings();
-    }
     state.currentTab = tabId;
+    localStorage.setItem('currentTab', tabId);
     dom.navItems.forEach(nav => {
       nav.classList.toggle('active', nav.dataset.tab === tabId);
     });
@@ -207,19 +175,7 @@ const AppCore = (() => {
       pane.classList.toggle('active', pane.id === `tab-${tabId}`);
     });
 
-    const isEnTab = ['speaking', 'reading-en'].includes(tabId);
-    const navGroupEn = document.getElementById('nav-group-en');
-    if (navGroupEn) {
-      navGroupEn.classList.toggle('has-active-child', isEnTab);
-    }
-
-    if (tabId === 'speaking') {
-      dom.pageTitle.textContent = 'Phòng luyện phát âm & Nhại giọng (Shadowing)';
-      dom.pageSubtitle.textContent = 'Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu';
-    } else if (tabId === 'reading-en') {
-      dom.pageTitle.textContent = '📘 Luyện Đọc Hiểu & Shadowing Đoạn Văn (Tiếng Anh)';
-      dom.pageSubtitle.textContent = 'Luyện ngữ điệu mạch lạc theo đoạn văn chuẩn SGK - Bấm vào từng câu để luyện nói, nghe toàn bài hoặc thu âm đối chiếu';
-    } else if (tabId === 'speaking-ja') {
+    if (tabId === 'speaking-ja') {
       dom.pageTitle.textContent = '🌸 Phòng Luyện Phát Âm Tiếng Nhật (Shadowing Lab)';
       dom.pageSubtitle.textContent = 'Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng';
     } else if (tabId === 'reading-ja') {
@@ -276,13 +232,11 @@ const AppCore = (() => {
       dom.phoneticToggle.classList.toggle('is-hidden', !isShown);
       dom.phoneticToggle.setAttribute('aria-pressed', isShown ? 'true' : 'false');
       dom.phoneticToggle.setAttribute('title', isShown
-        ? 'Bấm để ẩn phiên âm IPA (tiếng Anh) & Romaji (tiếng Nhật)'
-        : 'Bấm để hiện phiên âm IPA (tiếng Anh) & Romaji (tiếng Nhật)');
+        ? 'Bấm để ẩn phiên âm Romaji'
+        : 'Bấm để hiện phiên âm Romaji');
     }
     if (dom.phoneticToggleLabel) {
-      const isJa = (state.currentTab && state.currentTab.includes('ja'));
-      const langLabel = isJa ? 'Romaji' : 'IPA';
-      dom.phoneticToggleLabel.textContent = isShown ? `${langLabel}: Hiện` : `${langLabel}: Ẩn`;
+      dom.phoneticToggleLabel.textContent = isShown ? 'Romaji: Hiện' : 'Romaji: Ẩn';
     }
   }
 
@@ -348,26 +302,7 @@ const AppCore = (() => {
       });
     });
 
-    // Nhóm menu Tiếng Anh (Collapsible Group)
-    const navGroupEn = document.getElementById('nav-group-en');
-    const navGroupEnToggle = document.getElementById('nav-group-en-toggle');
-    if (navGroupEn && navGroupEnToggle) {
-      navGroupEnToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isCollapsed = navGroupEn.classList.toggle('collapsed');
-        navGroupEnToggle.setAttribute('aria-expanded', !isCollapsed);
-        localStorage.setItem('nav_en_collapsed', isCollapsed ? '1' : '0');
-      });
 
-      const savedCollapsed = localStorage.getItem('nav_en_collapsed');
-      if (savedCollapsed === '0') {
-        navGroupEn.classList.remove('collapsed');
-        navGroupEnToggle.setAttribute('aria-expanded', 'true');
-      } else {
-        navGroupEn.classList.add('collapsed');
-        navGroupEnToggle.setAttribute('aria-expanded', 'false');
-      }
-    }
 
     // Nhóm Cài đặt âm thanh (Collapsible Group)
     const navGroupSettings = document.getElementById('nav-group-settings');
@@ -429,32 +364,20 @@ const AppCore = (() => {
 
     // Dọn dẹp âm thanh khi tắt / chuyển trang
     window.addEventListener('beforeunload', () => {
-      if (window.SpeakingModule && typeof window.SpeakingModule.clearAllTempRecordings === 'function') {
-        window.SpeakingModule.clearAllTempRecordings();
-      }
       if (window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
         window.JapaneseModule.clearAllJaTempRecordings();
       }
       if (window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
         window.ReadingJaModule.clearAllReadingTempRecordings();
-      }
-      if (window.ReadingEnModule && typeof window.ReadingEnModule.clearAllReadingTempRecordings === 'function') {
-        window.ReadingEnModule.clearAllReadingTempRecordings();
       }
     });
 
     window.addEventListener('pagehide', () => {
-      if (window.SpeakingModule && typeof window.SpeakingModule.clearAllTempRecordings === 'function') {
-        window.SpeakingModule.clearAllTempRecordings();
-      }
       if (window.JapaneseModule && typeof window.JapaneseModule.clearAllJaTempRecordings === 'function') {
         window.JapaneseModule.clearAllJaTempRecordings();
       }
       if (window.ReadingJaModule && typeof window.ReadingJaModule.clearAllReadingTempRecordings === 'function') {
         window.ReadingJaModule.clearAllReadingTempRecordings();
-      }
-      if (window.ReadingEnModule && typeof window.ReadingEnModule.clearAllReadingTempRecordings === 'function') {
-        window.ReadingEnModule.clearAllReadingTempRecordings();
       }
     });
   }

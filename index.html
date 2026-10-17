@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>English AI Buddy - Học Tiếng Anh Giao Tiếp Từ Con Số 0</title>
+  <title>Japanese AI Buddy - Học Tiếng Nhật Cùng AI</title>
   <!-- Tối ưu cho iPhone / iOS (PWA & Toàn màn hình) -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,43 +19,18 @@
     <!-- Sidebar / Navigation -->
     <aside class="sidebar">
       <div class="brand">
-        <div class="brand-icon">🇬🇧</div>
+        <div class="brand-icon">🇯🇵</div>
         <div class="brand-text">
-          <h2>English AI Buddy</h2>
-          <span>Học giao tiếp từ số 0</span>
+          <h2>Japanese AI Buddy</h2>
+          <span>Luyện Tiếng Nhật Toàn Diện</span>
         </div>
       </div>
 
       <nav class="nav-menu">
-        <!-- NHÓM TIẾNG ANH (COLLAPSIBLE DROPDOWN GROUP) -->
-        <div class="nav-group collapsed" id="nav-group-en">
-          <button class="nav-group-toggle" id="nav-group-en-toggle" type="button" aria-expanded="false" title="Bấm để mở rộng / thu gọn 3 tab Tiếng Anh">
-            <div class="nav-group-title">
-              <span class="icon">🇬🇧</span>
-              <span>Học Tiếng Anh</span>
-            </div>
-            <span class="nav-group-badge">3 Tab</span>
-            <span class="nav-group-arrow">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="nav-group-content" id="nav-group-en-content">
-            <button class="nav-item active" data-tab="speaking">
-              <span class="icon">🎙️</span>
-              <span>Luyện nói & Phát âm</span>
-            </button>
-            <button class="nav-item" data-tab="reading-en">
-              <span class="icon">📘</span>
-              <span>Đọc hiểu & Shadowing Anh</span>
-              <span class="badge" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">Đoạn văn</span>
-            </button>
-          </div>
-        </div>
-
-        <button class="nav-item" data-tab="speaking-ja">
-          <span class="icon">🇯🇵</span>
+        <button class="nav-item active" data-tab="speaking-ja">
+          <span class="icon">🎙️</span>
           <span>Luyện nói Tiếng Nhật</span>
-          <span class="badge" style="background: linear-gradient(135deg, #ef4444, #f43f5e);">Mới</span>
+          <span class="badge" style="background: linear-gradient(135deg, #ef4444, #f43f5e);">Shadowing</span>
         </button>
         <button class="nav-item" data-tab="reading-ja">
           <span class="icon">📖</span>
@@ -117,194 +92,20 @@
       <!-- Top header bar -->
       <header class="top-header">
         <div class="header-left">
-          <h1 id="page-title">Phòng luyện phát âm & Nhại giọng (Shadowing)</h1>
-          <p id="page-subtitle">Nghe người bản xứ nói và nhại theo để chỉnh khẩu hình & ngữ điệu</p>
+          <h1 id="page-title">🌸 Phòng Luyện Phát Âm Tiếng Nhật (Shadowing Lab)</h1>
+          <p id="page-subtitle">Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng</p>
         </div>
         <div class="header-right">
-          <button id="phonetic-toggle" class="header-btn phonetic-toggle-btn" title="Bấm để ẩn hoặc hiện phiên âm IPA (tiếng Anh) và Romaji (tiếng Nhật)">
+          <button id="phonetic-toggle" class="header-btn phonetic-toggle-btn" title="Bấm để ẩn hoặc hiện phiên âm Romaji">
             <span class="phonetic-icon">🔤</span>
-            <span id="phonetic-toggle-label">IPA / Romaji: Hiện</span>
+            <span id="phonetic-toggle-label">Romaji: Hiện</span>
           </button>
           <button id="theme-toggle" class="header-btn" title="Đổi giao diện">🌓 Giao diện</button>
         </div>
       </header>
 
-      <!-- TAB: SPEAKING PRACTICE -->
-      <section id="tab-speaking" class="tab-pane active">
-        <div class="speaking-container">
-
-          <!-- MODULE 1: LUYỆN NÓI CẢ CÂU (SHADOWING LAB) - CHIA THEO UNIT -->
-          <div class="speaking-module-card" id="sentence-speaking-section">
-            <div class="speaking-header-card">
-              <div class="vocab-header-top">
-                <div class="scenario-selector vocab-selector">
-                  <div class="vocab-toolbar-actions">
-                    <label for="spk-unit-select">Chọn Unit:</label>
-                    <select id="spk-unit-select">
-                      <option value="">(Chưa có bài học - Chờ nạp bài)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="speaking-challenge-card" id="speaking-card">
-              <button class="card-corner-btn card-corner-prev" id="spk-prev-btn" title="Câu trước" aria-label="Câu trước">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              </button>
-              <button class="card-corner-btn card-corner-next" id="spk-next-btn" title="Câu tiếp theo" aria-label="Câu tiếp theo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-
-              <div class="challenge-category" id="spk-category">CHƯA CÓ BÀI HỌC</div>
-              <div class="challenge-phrase-en" id="spk-phrase-en">(Chưa có dữ liệu bài học)</div>
-              <div class="challenge-phrase-ipa phonetic-text" id="spk-phrase-ipa"></div>
-              <div class="challenge-phrase-vi" id="spk-phrase-vi">Ý nghĩa: Hãy nạp dữ liệu bài học để bắt đầu luyện tập.</div>
-
-              <div class="speaking-actions">
-                <button class="btn-listen" id="spk-listen-btn">🔊 Nghe phát âm mẫu</button>
-                <button class="btn-record" id="spk-record-btn">🎯 Bấm để nói & Chấm điểm</button>
-              </div>
-
-              <!-- KẾT QUẢ NGƯỜI NÓI (MODULE CẢ CÂU) -->
-              <div class="spoken-result-box" id="spk-spoken-box">
-                <div class="spoken-result-badge" id="spk-spoken-badge">Đang chờ bạn nói...</div>
-                <span class="spoken-result-text" id="spk-spoken-text">"..."</span>
-                <span class="typing-cursor" id="spk-typing-cursor" style="display: none;"></span>
-              </div>
-
-              <div class="speaking-feedback" id="spk-feedback">
-                <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>
-              </div>
-            </div>
-
-            <!-- DANH SÁCH TOÀN BỘ CÂU TRONG UNIT (DƯỚI CÙNG) -->
-            <div class="speaking-header-card spk-bottom-list-card">
-              <div class="vocab-chip-list-label" style="margin-top: 0; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
-                📋 Danh sách toàn bộ mẫu câu trong Unit (Bấm vào câu bất kỳ để chọn luyện nói):
-              </div>
-              <div class="spk-sentences-wrapper" id="spk-sentences-wrapper" style="margin-top: 10px;">
-                <!-- Injected by app.js -->
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- TAB: ĐỌC HIỂU & SHADOWING ĐOẠN VĂN TIẾNG ANH -->
-      <section id="tab-reading-en" class="tab-pane">
-        <div class="reading-container">
-
-          <!-- HEADER CARD -->
-          <div class="speaking-header-card">
-            <div class="vocab-header-top">
-              <div class="scenario-selector vocab-selector">
-                <div class="vocab-toolbar-actions">
-                  <label for="en-reading-unit-select">Chọn Bài đọc:</label>
-                  <select id="en-reading-unit-select">
-                    <option value="unit_1_my_new_school">🏫 Unit 1: My New School (SGK 6)</option>
-                  </select>
-                  <button id="en-reading-listen-all-btn" class="reading-btn-all" title="Nghe toàn bộ đoạn văn liền mạch">
-                    🔊 Nghe toàn bài
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- MAIN 2-COLUMN LAYOUT -->
-          <div class="reading-layout">
-
-            <!-- CỘT TRÁI: TOÀN BỘ ĐOẠN VĂN (FULL PASSAGE) -->
-            <div class="reading-passage-panel">
-              <div class="reading-passage-content" id="en-reading-passage-sentences">
-                <!-- Injected dynamically with interactive spans by reading_en.js -->
-              </div>
-
-              <!-- VÙNG HIỂN THỊ CÂU MÁY NGHE ĐƯỢC (TRANSCRIPT INPUT) NGAY TRÊN NÚT BẤM -->
-              <div class="passage-spoken-display" id="en-passage-spoken-display">
-                <div class="passage-spoken-header">
-                  <span class="passage-spoken-title">🎙️ Máy nghe được:</span>
-                  <span class="passage-spoken-status" id="en-passage-spoken-status">Chờ bạn đọc câu này...</span>
-                </div>
-                <div class="passage-spoken-box">
-                  <span class="passage-spoken-quote">“</span>
-                  <span class="passage-spoken-text" id="en-passage-spoken-text">Chưa có giọng nói</span>
-                  <span class="typing-cursor" id="en-passage-typing-cursor" style="display: none;"></span>
-                  <span class="passage-spoken-quote">”</span>
-                </div>
-              </div>
-
-              <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI & NÚT NEXT CÂU TIẾP THEO -->
-              <div class="reading-passage-actions">
-                <button class="spk-btn-record reading-passage-record-btn" id="en-reading-passage-record-btn" title="Bấm để nói câu đang chọn vào micro">
-                  🎯 Bấm để nói & Chấm điểm
-                </button>
-                <button class="btn-passage-next" id="en-reading-passage-next-btn" title="Chuyển sang câu tiếp theo trong bài đọc">
-                  Câu tiếp theo ⏭️
-                </button>
-              </div>
-
-            </div>
-
-            <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
-            <div class="speaking-challenge-card" id="en-reading-challenge-card" style="margin: 0;">
-              <div class="challenge-category" id="en-reading-category">UNIT 1: ĐỌC HIỂU (CÂU 1 / 9)</div>
-
-              <div class="challenge-en" id="en-reading-phrase-en" style="font-size: 1.55rem; color: var(--text-main);">
-                "Hello everyone, my name is Phong and I am in grade 6."
-              </div>
-
-              <div class="challenge-ipa phonetic-text" id="en-reading-phrase-ipa" style="font-size: 0.95rem; color: var(--accent-cyan);">
-                IPA: /həˈloʊ ˈevriwʌn, maɪ neɪm ɪz fɒŋ ænd aɪ æm ɪn ɡreɪd sɪks/
-              </div>
-
-              <div class="challenge-vi" id="en-reading-phrase-vi" style="font-size: 1rem; color: var(--text-muted);">
-                👉 Ý nghĩa: Xin chào mọi người, mình tên là Phong và mình đang học lớp 6.
-              </div>
-
-              <!-- CONTROLS -->
-              <div class="challenge-controls">
-                <button class="spk-btn-listen" id="en-reading-listen-btn" title="Nghe câu này">
-                  🔊 Nghe câu này
-                </button>
-                <button class="spk-btn-record" id="en-reading-record-btn" title="Bấm để đọc câu này vào micro">
-                  🎯 Bấm để nói & Chấm điểm
-                </button>
-              </div>
-
-              <!-- SPOKEN RESULT BOX -->
-              <div class="spoken-result-container" id="en-reading-spoken-box">
-                <div class="spoken-badge" id="en-reading-spoken-badge">Đang chờ bạn đọc câu này...</div>
-                <div class="spoken-text-wrapper">
-                  <span class="spoken-quote-mark">“</span>
-                  <span class="spoken-text-content" id="en-reading-spoken-text">"..."</span>
-                  <span class="typing-cursor" id="en-reading-typing-cursor"></span>
-                  <span class="spoken-quote-mark">”</span>
-                </div>
-              </div>
-
-              <!-- FEEDBACK -->
-              <div class="spk-feedback-box" id="en-reading-feedback">
-                <div class="feedback-status">Bấm "🔊 Nghe câu này" rồi bấm "🎯 Bấm để nói & Chấm điểm" để luyện đọc từng câu nhé!</div>
-              </div>
-
-              <!-- PREV / NEXT BUTTONS -->
-              <div class="challenge-nav">
-                <button class="btn-nav" id="en-reading-prev-btn">◀ Câu trước</button>
-                <button class="btn-nav" id="en-reading-next-btn">Câu tiếp theo ▶</button>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       <!-- TAB TIẾNG NHẬT: LUYỆN NÓI & PHÁT ÂM TIẾNG NHẬT -->
-      <section id="tab-speaking-ja" class="tab-pane">
+      <section id="tab-speaking-ja" class="tab-pane active">
         <div class="speaking-container">
 
           <!-- MODULE 1: LUYỆN NÓI CẢ CÂU (SHADOWING LAB) - CHIA THEO BÀI HỌC -->
@@ -862,16 +663,12 @@
     </main>
   </div>
 
-  <script src="data.js"></script>
-  <script src="english_data/reading_data.js"></script>
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.0"></script>
   <script src="japanese_data/vocab_data.js?v=2.0"></script>
   <script src="japanese_data/notes_data.js"></script>
   <script src="japanese_data/grammar_data.js?v=1.2"></script>
   <script src="js/core.js"></script>
-  <script src="js/speaking.js"></script>
-  <script src="js/reading_en.js"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>

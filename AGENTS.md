@@ -1,6 +1,6 @@
 # AGENTS.md - Cấu Hình & Định Tuyến Agent Dự Án
 
-Tài liệu định nghĩa các Agent chuyên trách trong dự án học ngoại ngữ **Learn English & Japanese with AI**.
+Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiếng Nhật **Learn Japanese with AI**.
 
 ---
 
