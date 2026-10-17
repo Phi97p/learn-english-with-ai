@@ -193,6 +193,12 @@ const AppCore = (() => {
     } else if (tabId === 'grammar-ja') {
       dom.pageTitle.textContent = '📝 Luyện Tập Ngữ Pháp Tổng Hợp (Tiếng Nhật)';
       dom.pageSubtitle.textContent = 'Trắc nghiệm 30 câu ngẫu nhiên - Mỗi câu 1 điểm - Tự động chấm điểm & giải thích chi tiết';
+    } else if (tabId === 'kanji-ja') {
+      dom.pageTitle.textContent = '🈸 Luyện Tập Hán Tự (Kanji Practice)';
+      dom.pageSubtitle.textContent = 'Điền Hiragana cho từ Kanji được gạch chân trong câu - Mỗi câu 1 điểm - Tự động chấm điểm';
+      if (window.KanjiJaModule && typeof window.KanjiJaModule.renderLessonSelect === 'function') {
+        window.KanjiJaModule.renderLessonSelect();
+      }
     }
     updatePhoneticDisplay();
   }

@@ -30,7 +30,18 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiến
 
 ---
 
-## 3. Quy Định Chung Toàn Dự Án
+## 3. Japanese Kanji Agent (Chuyên Viên Đồng Bộ & Quản Trị Hán Tự Tiếng Nhật)
+- **Nguồn dữ liệu**: `datasss/jp/kanji/` (file chính: `bai_1.txt`, `bai_2.txt`,...)
+- **File đích**: [japanese_data/kanji_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/kanji_data.js) (`JA_KANJI_DATA`)
+- **Nhiệm vụ chính**:
+  1. Tự động đọc dữ liệu Hán tự từ `datasss/jp/kanji/` theo từng bài học riêng biệt.
+  2. Định dạng câu: Trong câu sẽ có từ Kanji được gạch chân `<u>...</u>`, bên cạnh có dấu ngoặc `（ ）` để người dùng điền cách đọc Hiragana tương ứng. Không có câu hỏi trắc nghiệm A, B, C, D riêng biệt.
+  3. Cập nhật dữ liệu vào `JA_KANJI_DATA` trong [japanese_data/kanji_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/kanji_data.js).
+  4. Tuân thủ quy chuẩn: Tối đa 30 câu ngẫu nhiên, mỗi câu 1 điểm, chấm điểm tự động bằng cách chuẩn hóa chuỗi so sánh Hiragana, hiển thị giải thích chi tiết và tuyệt đối không lưu lịch sử làm bài.
+
+---
+
+## 4. Quy Định Chung Toàn Dự Án
 - **Không tự động commit**: Tuyệt đối không tự ý chạy `git commit` khi người dùng không yêu cầu cụ thể.
 - **Không bao giờ push**: Tuyệt đối KHÔNG BAO GIỜ thực hiện `git push` trong mọi hoàn cảnh.
 - **Lưu trữ SPA**: Trạng thái học tập lưu tại `localStorage` hoặc in-memory, không ghi log vào file ổ cứng.

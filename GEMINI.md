@@ -43,3 +43,13 @@
   - Mỗi lần tạo đề sẽ lấy ngẫu nhiên 30 câu (nếu bài học có ít hơn 30 câu thì lấy toàn bộ số câu hiện có).
   - Nộp bài xong sẽ chấm điểm tự động, hiển thị số câu đúng/sai, tỷ lệ %, thời gian làm bài, đáp án đúng và phần giải thích chi tiết.
   - **Không lưu lịch sử làm bài** vào `localStorage` hay ổ cứng theo đúng yêu cầu người dùng.
+
+## 9. Quy định về Tab Bài tập Hán tự (Kanji Practice)
+- **Nguồn dữ liệu**: Quản lý tại thư mục `datasss/jp/kanji/` (file chính `bai_1.txt`, `bai_2.txt`...).
+- **File đích**: `japanese_data/kanji_data.js` (`JA_KANJI_DATA`).
+- **Quy tắc câu hỏi & Điền từ**:
+  - Không có trắc nghiệm A, B, C, D tách riêng.
+  - Các câu đưa vào dưới dạng câu hoàn chỉnh có từ Kanji được gạch chân `<u>...</u>` và dấu ngoặc `（ ）` bên cạnh để người học điền cách đọc Hiragana tương ứng.
+  - Tối đa 30 câu ngẫu nhiên, mỗi câu 1 điểm, tự động chấm điểm với so sánh chuẩn hóa Hiragana (`normalizeAnswerText`).
+  - Nộp bài xong hiển thị số câu đúng/sai, tỷ lệ %, thời gian làm bài, đáp án đúng và phần giải thích chi tiết chữ Hán.
+  - **Không lưu lịch sử làm bài** vào `localStorage` hay ổ cứng.

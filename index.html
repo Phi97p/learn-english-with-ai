@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=3.8">
+  <link rel="stylesheet" href="style.css?v=4.7">
 </head>
 <body>
   <div class="app-container">
@@ -56,6 +56,11 @@
           <span class="icon">📝</span>
           <span>Luyện tập Ngữ pháp</span>
           <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">30 câu</span>
+        </button>
+        <button class="nav-item" data-tab="kanji-ja">
+          <span class="icon">🈸</span>
+          <span>Bài tập Kanji</span>
+          <span class="badge" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">Gạch chân</span>
         </button>
 
         <!-- NHÓM CÀI ĐẶT (COLLAPSIBLE DROPDOWN GROUP) -->
@@ -660,6 +665,138 @@
         </div>
       </section>
 
+      <!-- TAB: BÀI TẬP KANJI (HÁN TỰ) -->
+      <section id="tab-kanji-ja" class="tab-pane">
+        <div class="grammar-container">
+          
+          <!-- TOOLBAR CHỌN BÀI & ĐIỀU KHIỂN ĐỀ THI -->
+          <div class="speaking-header-card grammar-header-card">
+            <div class="grammar-toolbar">
+              <div class="grammar-toolbar-left">
+                <div class="grammar-lesson-selector">
+                  <label for="ja-kanji-lesson-select">📖 Chọn bài:</label>
+                  <select id="ja-kanji-lesson-select" class="grammar-select">
+                    <!-- Rendered by js/kanji_ja.js -->
+                  </select>
+                </div>
+                <button type="button" class="btn-grammar-action btn-new-quiz" id="ja-kanji-new-quiz-btn" title="Tạo bộ 30 câu hỏi Hán tự ngẫu nhiên mới">
+                  🎲 Đề ngẫu nhiên mới (30 câu)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- KHU VỰC CÂU HỎI HÁN TỰ -->
+          <div class="grammar-quiz-main">
+            <!-- Empty state khi chưa có câu hỏi -->
+            <div id="ja-kanji-empty-state" class="grammar-empty-state" style="display: none;">
+              <div class="empty-icon">📭</div>
+              <h3>Chưa có câu hỏi Hán tự nào trong bài này</h3>
+              <p>Bạn có thể chọn bài học khác hoặc nạp câu hỏi từ file <code>datasss/jp/kanji/bai_1.txt</code>.</p>
+            </div>
+
+            <div id="ja-kanji-questions-container" class="grammar-questions-list">
+              <!-- Rendered dynamically by js/kanji_ja.js -->
+            </div>
+          </div>
+
+          <!-- BẢNG CÂU HỎI & TIẾN ĐỘ ĐẶT Ở DƯỚI CÙNG BÀI THI -->
+          <div class="grammar-palette-card grammar-bottom-palette">
+            <div class="palette-header">
+              <div class="palette-title-group">
+                <h4>📊 Bảng câu hỏi Hán tự</h4>
+                <span class="palette-rule-badge">1 điểm / câu</span>
+              </div>
+              <div class="grammar-timer-box" title="Thời gian làm bài">
+                <span class="timer-icon">⏱️</span>
+                <span id="ja-kanji-timer" class="timer-digits">00:00</span>
+              </div>
+              <div class="palette-legend">
+                <span class="legend-item"><span class="legend-dot dot-unanswered"></span>Chưa điền</span>
+                <span class="legend-item"><span class="legend-dot dot-answered"></span>Đã điền</span>
+              </div>
+            </div>
+
+            <div class="grammar-progress-box">
+              <div class="progress-labels">
+                <span id="ja-kanji-progress-text">Đã làm 0 / 30 câu (0%)</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="ja-kanji-progress-bar" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="grammar-palette-grid" id="ja-kanji-palette-grid">
+              <!-- Rendered dynamically by js/kanji_ja.js -->
+            </div>
+
+            <div class="palette-actions">
+              <button type="button" class="btn-grammar-submit w-full" id="ja-kanji-quick-submit-btn">
+                🎯 Nộp bài & Chấm điểm
+              </button>
+            </div>
+          </div>
+
+          <!-- MODAL KẾT QUẢ CHẤM ĐIỂM -->
+          <div id="ja-kanji-score-modal" class="grammar-modal-overlay">
+            <div class="grammar-score-modal-card">
+              <button type="button" class="modal-close-icon" id="ja-kanji-close-modal-btn">&times;</button>
+              
+              <div class="score-modal-header">
+                <div class="score-result-badge badge-gold" id="ja-kanji-score-badge">🏆 KẾT QUẢ BÀI THI HÁN TỰ</div>
+                <h2 class="score-modal-title">Điểm Số Của Bạn</h2>
+                <p class="score-modal-subtitle" id="ja-kanji-score-feedback">Chúc mừng bạn đã hoàn thành bài thi Hán tự!</p>
+              </div>
+
+              <div class="score-highlight-board">
+                <div class="score-big-number">
+                  <span id="ja-kanji-score-points">0</span>
+                  <span class="score-divider">/</span>
+                  <span id="ja-kanji-score-total">30</span>
+                </div>
+                <div class="score-percent-pill" id="ja-kanji-score-percent">0%</div>
+              </div>
+
+              <div class="score-stats-grid">
+                <div class="score-stat-box stat-correct">
+                  <span class="stat-icon">✅</span>
+                  <span class="stat-val" id="ja-kanji-score-correct-count">0</span>
+                  <span class="stat-label">Số câu đúng (+1đ)</span>
+                </div>
+                <div class="score-stat-box stat-wrong">
+                  <span class="stat-icon">❌</span>
+                  <span class="stat-val" id="ja-kanji-score-wrong-count">0</span>
+                  <span class="stat-label">Số câu sai</span>
+                </div>
+                <div class="score-stat-box stat-skipped">
+                  <span class="stat-icon">⚪</span>
+                  <span class="stat-val" id="ja-kanji-score-skipped-count">0</span>
+                  <span class="stat-label">Chưa điền</span>
+                </div>
+                <div class="score-stat-box stat-time">
+                  <span class="stat-icon">⏱️</span>
+                  <span class="stat-val" id="ja-kanji-score-time">00:00</span>
+                  <span class="stat-label">Thời gian làm bài</span>
+                </div>
+              </div>
+
+              <div class="score-modal-actions">
+                <button type="button" class="btn-score-action btn-review" id="ja-kanji-review-btn">
+                  🔍 Xem lại chi tiết từng câu
+                </button>
+                <button type="button" class="btn-score-action btn-retry" id="ja-kanji-modal-retry-btn">
+                  🔄 Làm lại đề này
+                </button>
+                <button type="button" class="btn-score-action btn-next-quiz" id="ja-kanji-modal-new-quiz-btn">
+                  🎲 Làm đề mới (30 câu khác)
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -668,13 +805,15 @@
   <script src="japanese_data/vocab_data.js?v=2.0"></script>
   <script src="japanese_data/notes_data.js"></script>
   <script src="japanese_data/grammar_data.js?v=1.2"></script>
-  <script src="js/core.js"></script>
+  <script src="japanese_data/kanji_data.js?v=1.9"></script>
+  <script src="js/core.js?v=1.3"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>
   <script src="js/notes_ja.js"></script>
   <script src="js/katakana.js"></script>
   <script src="js/grammar_ja.js?v=1.4"></script>
-  <script src="app.js?v=1.4"></script>
+  <script src="js/kanji_ja.js?v=1.7"></script>
+  <script src="app.js?v=1.7"></script>
 </body>
 </html>

@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (window.GrammarJaModule && window.GrammarJaModule.init) {
     window.GrammarJaModule.init();
   }
+  if (typeof KanjiJaModule !== 'undefined' && KanjiJaModule.init) {
+    KanjiJaModule.init();
+  } else if (window.KanjiJaModule && window.KanjiJaModule.init) {
+    window.KanjiJaModule.init();
+  }
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();
@@ -23,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReadingJaModule.renderReadingSelect();
   if (window.GrammarJaModule && typeof window.GrammarJaModule.renderLessonSelect === 'function') {
     window.GrammarJaModule.renderLessonSelect();
+  }
+  if (window.KanjiJaModule && typeof window.KanjiJaModule.renderLessonSelect === 'function') {
+    window.KanjiJaModule.renderLessonSelect();
   }
 
   // 3. Tải nội dung bài học mặc định (nếu có dữ liệu)
