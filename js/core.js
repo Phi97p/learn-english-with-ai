@@ -234,6 +234,9 @@ const AppCore = (() => {
     } else if (tabId === 'katakana') {
       dom.pageTitle.textContent = '🈂️ Luyện Phản Xạ Bảng Chữ Cái Katakana';
       dom.pageSubtitle.textContent = 'Nhìn 3 chữ Katakana ngẫu nhiên và nhập Romaji hoặc Hiragana tương ứng để kiểm tra phản xạ';
+    } else if (tabId === 'grammar-ja') {
+      dom.pageTitle.textContent = '📝 Luyện Tập Ngữ Pháp Tổng Hợp (Tiếng Nhật)';
+      dom.pageSubtitle.textContent = 'Trắc nghiệm 30 câu ngẫu nhiên - Mỗi câu 1 điểm - Tự động chấm điểm & giải thích chi tiết';
     }
     updatePhoneticDisplay();
   }

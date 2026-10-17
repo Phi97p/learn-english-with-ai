@@ -17,7 +17,21 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học ngoạ
 
 ---
 
-## 2. Quy Định Chung Toàn Dự Án
+## 2. Japanese Grammar Agent (Chuyên Viên Đồng Bộ & Quản Trị Ngữ Pháp Tiếng Nhật)
+- **Tập tin quy định chi tiết**: [.agents/agents/japanese-grammar-agent.md](file:///.agents/agents/japanese-grammar-agent.md)
+- **Skill liên kết**: [sync-japanese-grammar](file:///.agents/skills/sync-japanese-grammar/SKILL.md)
+- **Nguồn dữ liệu**: `datasss/jp/ngu_phap/` (file chính: `bai_1.txt`, `bai_2.txt`,...)
+- **File đích**: [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (`JA_GRAMMAR_DATA`)
+- **Nhiệm vụ chính**:
+  1. Tự động đọc dữ liệu câu hỏi trắc nghiệm tiếng Nhật từ `datasss/jp/ngu_phap/`.
+  2. Phân tích nhận diện 4 phương án A, B, C, D, đáp án đúng và phần giải thích ngữ pháp (tự động phân tích và sinh giải thích chuẩn xác nếu người dùng chưa viết).
+  3. Cập nhật dữ liệu vào `JA_GRAMMAR_DATA` trong [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (luôn gán `window.JA_GRAMMAR_DATA`).
+  4. Tuân thủ quy chuẩn đề thi: 30 câu ngẫu nhiên, mỗi câu 1 điểm, gom theo bài, chấm điểm tự động và tuyệt đối không lưu lịch sử làm bài.
+
+---
+
+## 3. Quy Định Chung Toàn Dự Án
 - **Không tự động commit**: Tuyệt đối không tự ý chạy `git commit` khi người dùng không yêu cầu cụ thể.
 - **Không bao giờ push**: Tuyệt đối KHÔNG BAO GIỜ thực hiện `git push` trong mọi hoàn cảnh.
-- **Lưu trữ SPA**: Trạng thái học tập lưu tại `localStorage`, không ghi log vào file ổ cứng.
+- **Lưu trữ SPA**: Trạng thái học tập lưu tại `localStorage` hoặc in-memory, không ghi log vào file ổ cứng.
+

@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.VocabJaModule) VocabJaModule.init();
   if (window.NotesJaModule) NotesJaModule.init();
   if (window.KatakanaModule) KatakanaModule.init();
+  if (typeof GrammarJaModule !== 'undefined' && GrammarJaModule.init) {
+    GrammarJaModule.init();
+  } else if (window.GrammarJaModule && window.GrammarJaModule.init) {
+    window.GrammarJaModule.init();
+  }
 
   // 2. Hiển thị dữ liệu & Render giao diện ban đầu
   AppCore.updateStatsDisplay();
@@ -20,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReadingEnModule.renderReadingSelect();
   JapaneseModule.renderJaSpkUnitSelect();
   ReadingJaModule.renderReadingSelect();
+  if (window.GrammarJaModule && typeof window.GrammarJaModule.renderLessonSelect === 'function') {
+    window.GrammarJaModule.renderLessonSelect();
+  }
 
   // 3. Tải nội dung bài học mặc định (nếu có dữ liệu)
   const firstSpkKey = Object.keys(SENTENCE_UNITS_DATA || {})[0] || '';
