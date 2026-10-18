@@ -514,6 +514,105 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Và rất vui vẻ."
       }
     ]
+  },
+  bai_6: {
+    title: "Bài 6: 沖縄旅行 (Minna Dokkai)",
+    topic: "Chuyến du lịch khám phá hòn đảo Okinawa",
+    icon: "🏝️",
+    fullText: "わたしは ことしの ３月に 初めて 沖縄へ 行きました。 沖縄は 九州の 南に あります。 大阪から 船で 行きました。 ３８時間 かかりました。 それから １週間 旅行しました。 毎日 いい 天気でしたが、 少し 暑かったです。 いろいろな 所へ 行きました。 那覇は 沖縄で いちばん 大きい 町です。 旅行者が とても 多かったです。 台湾や 東南アジアの 人も たくさん いました。 店に 珍しい 物が たくさん ありました。 海は ほんとうに すばらしかったです。 珊瑚礁に きれいな 魚が たくさん いました。 時々 沖縄の ことばが わかりませんでしたが、 人は 親切でした。 沖縄の 料理は おいしかったです。 それに 沖縄の 音楽も すてきでした。 沖縄旅行は とても 楽しかったです。 わたしは 沖縄が 大好きです。",
+    sentences: [
+      {
+        ja: "わたしは ことしの ３月に 初めて 沖縄へ 行きました。",
+        romaji: "Watashi wa kotoshi no sangatsu ni hajimete Okinawa e ikimashita.",
+        vi: "Vào tháng 3 năm nay, lần đầu tiên tôi đã đi du lịch Okinawa."
+      },
+      {
+        ja: "沖縄は 九州の 南に あります。",
+        romaji: "Okinawa wa Kyuushuu no minami ni arimasu.",
+        vi: "Okinawa nằm ở phía nam của vùng Kyushu."
+      },
+      {
+        ja: "大阪から 船で 行きました。",
+        romaji: "Oosaka kara fune de ikimashita.",
+        vi: "Tôi đã đi bằng thuyền từ Osaka."
+      },
+      {
+        ja: "３８時間 かかりました。",
+        romaji: "Sanjuuhachi jikan kakarimashita.",
+        vi: "Chuyến đi mất 38 tiếng đồng hồ."
+      },
+      {
+        ja: "それから １週間 旅行しました。",
+        romaji: "Sorekara isshuukan ryokou shimashita.",
+        vi: "Sau đó tôi đã đi du lịch trong vòng 1 tuần."
+      },
+      {
+        ja: "毎日 いい 天気でしたが、 少し 暑かったです。",
+        romaji: "Mainichi ii tenki deshita ga, sukoshi atsukatta desu.",
+        vi: "Mỗi ngày thời tiết đều đẹp, nhưng hơi nóng một chút."
+      },
+      {
+        ja: "いろいろな 所へ 行きました。",
+        romaji: "Iroirona tokoro e ikimashita.",
+        vi: "Tôi đã đi tham quan nhiều nơi."
+      },
+      {
+        ja: "那覇は 沖縄で いちばん 大きい 町です。",
+        romaji: "Naha wa Okinawa de ichiban ookii machi desu.",
+        vi: "Naha là thành phố lớn nhất ở Okinawa."
+      },
+      {
+        ja: "旅行者が とても 多かったです。",
+        romaji: "Ryokousha ga totemo ookatta desu.",
+        vi: "Khách du lịch ở đó rất đông."
+      },
+      {
+        ja: "台湾や 東南アジアの 人も たくさん いました。",
+        romaji: "Taiwan ya Tounan Ajia no hito mo takusan imashita.",
+        vi: "Cũng có rất nhiều du khách đến từ Đài Loan và Đông Nam Á."
+      },
+      {
+        ja: "店に 珍しい 物が たくさん ありました。",
+        romaji: "Mise ni mezurashii mono ga takusan arimashita.",
+        vi: "Trong các cửa hàng có rất nhiều đồ độc đáo, lạ mắt."
+      },
+      {
+        ja: "海は ほんとうに すばらしかったです。",
+        romaji: "Umi wa hontou ni subarashikatta desu.",
+        vi: "Biển thì thực sự tuyệt đẹp."
+      },
+      {
+        ja: "珊瑚礁に きれいな 魚が たくさん いました。",
+        romaji: "Sangoshou ni kireina sakana ga takusan imashita.",
+        vi: "Ở rạn san hô có rất nhiều loài cá sặc sỡ, xinh đẹp."
+      },
+      {
+        ja: "時々 沖縄の ことばが わかりませんでしたが、 人は 親切でした。",
+        romaji: "Tokidoki Okinawa no kotoba ga wakarimasen deshita ga, hito wa shinsetsu deshita.",
+        vi: "Thỉnh thoảng tôi không hiểu phương ngữ Okinawa, nhưng người dân rất thân thiện, nhiệt tình."
+      },
+      {
+        ja: "沖縄の 料理は おいしかったです。",
+        romaji: "Okinawa no ryouri wa oishikatta desu.",
+        vi: "Món ăn Okinawa rất ngon."
+      },
+      {
+        ja: "それに 沖縄の 音楽も すてきでした。",
+        romaji: "Sore ni Okinawa no ongaku mo suteki deshita.",
+        vi: "Thêm vào đó, âm nhạc Okinawa cũng rất tuyệt vời."
+      },
+      {
+        ja: "沖縄旅行は とても 楽しかったです。",
+        romaji: "Okinawa ryokou wa totemo tanoshikatta desu.",
+        vi: "Chuyến du lịch Okinawa đã vô cùng vui vẻ."
+      },
+      {
+        ja: "わたしは 沖縄が 大好きです。",
+        romaji: "Watashi wa Okinawa ga daisuki desu.",
+        vi: "Tôi rất yêu thích Okinawa."
+      }
+    ]
   }
 };
+
 
