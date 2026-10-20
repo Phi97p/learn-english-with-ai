@@ -740,7 +740,124 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Tối nay tôi cũng muốn gặp lại giấc mơ đó."
       }
     ]
+  },
+  bai_8: {
+    title: "Bài 8: 大学生の一日 (Minna Dokkai)",
+    topic: "Một ngày sinh hoạt và học tập của sinh viên đại học",
+    icon: "🎓",
+    fullText: "まずは聞いて、それから語彙を学びましょう。 私は 大学生です。 毎日 朝早く 起きます。 7時に 起きて、 シャワーを 浴びて、 朝ごはんを 食べます。 朝ごはんは ご飯と みそしるが 好きです。 食べた後、 学校へ 行きます。 学校は 家から 電車で 30分ぐらいです。 電車の中で 本を 読んだり、 音楽を 聞いたりして 過ごします。 学校に着いたら、 まず 授業が 始まります。 授業は 9時からです。 最初の 授業は 日本語の 授業です。 日本語は とても 面白いですが、 むずかしいです。 先生は とても 親切で、 わからない ことが あったら、 教えてくれます。 授業中に ノートを 取ったり、 先生の 質問に 答えたりします。 授業が 終わると、 お昼休みです。 お昼は 友達と 一緒に 食べます。 大学の 食堂で ランチを 食べることが 多いです。 わたしは ラーメンが 好きです。 ラーメンを 食べながら、 友達と 楽しく 話します。 お昼を 食べたあとは また 授業が あります。 午後の 授業は 少し 疲れますが、 頑張って 聞いています。",
+    sentences: [
+      {
+        ja: "まずは聞いて、それから語彙を学びましょう。",
+        romaji: "Mazu wa kiite, sorekara goi o manabimashou.",
+        vi: "Trước tiên hãy lắng nghe, sau đó chúng ta hãy cùng học từ vựng nhé."
+      },
+      {
+        ja: "私は 大学生です。",
+        romaji: "Watashi wa daigakusei desu.",
+        vi: "Tôi là sinh viên đại học."
+      },
+      {
+        ja: "毎日 朝早く 起きます。",
+        romaji: "Mainichi asa hayaku okimasu.",
+        vi: "Mỗi ngày tôi đều thức dậy từ sáng sớm."
+      },
+      {
+        ja: "7時に 起きて、シャワーを 浴びて、朝ごはんを 食べます。",
+        romaji: "Shichiji ni okite, shawaa o abite, asagohan o tabemasu.",
+        vi: "Tôi thức dậy lúc 7 giờ, tắm vòi sen rồi ăn bữa sáng."
+      },
+      {
+        ja: "朝ごはんは ご飯と みそしるが 好きです。",
+        romaji: "Asagohan wa gohan to misoshiru ga suki desu.",
+        vi: "Bữa sáng tôi thích ăn cơm và súp miso."
+      },
+      {
+        ja: "食べた後、学校へ 行きます。",
+        romaji: "Tabeta ato, gakkou e ikimasu.",
+        vi: "Sau khi ăn xong, tôi đi đến trường."
+      },
+      {
+        ja: "学校は 家から 電車で 30分ぐらいです。",
+        romaji: "Gakkou wa ie kara densha de sanjuppun gurai desu.",
+        vi: "Trường học cách nhà tôi khoảng 30 phút đi tàu điện."
+      },
+      {
+        ja: "電車の中で 本を 読んだり、音楽を 聞いたりして 過ごします。",
+        romaji: "Densha no naka de hon o yondari, ongaku o kiitari shite sugoshimasu.",
+        vi: "Ở trên tàu điện, tôi dành thời gian đọc sách hoặc nghe nhạc."
+      },
+      {
+        ja: "学校に着いたら、まず 授業が 始まります。",
+        romaji: "Gakkou ni tsuitara, mazu jugyou ga hajimarimasu.",
+        vi: "Khi đến trường, trước tiên các tiết học sẽ bắt đầu."
+      },
+      {
+        ja: "授業は 9時からです。",
+        romaji: "Jugyou wa kuji kara desu.",
+        vi: "Tiết học bắt đầu từ 9 giờ."
+      },
+      {
+        ja: "最初の 授業は 日本語の 授業です。",
+        romaji: "Saisho no jugyou wa Nihongo no jugyou desu.",
+        vi: "Tiết học đầu tiên là tiết tiếng Nhật."
+      },
+      {
+        ja: "日本語は とても 面白いですが、むずかしいです。",
+        romaji: "Nihongo wa totemo omoshiroi desu ga, muzukashii desu.",
+        vi: "Tiếng Nhật rất thú vị nhưng cũng khó."
+      },
+      {
+        ja: "先生は とても 親切で、わからない ことが あったら、教えてくれます。",
+        romaji: "Sensei wa totemo shinsetsu de, wakaranai koto ga attara, oshiete kuremasu.",
+        vi: "Thầy cô rất nhiệt tình, nếu có điều gì không hiểu sẽ chỉ bảo cho tôi."
+      },
+      {
+        ja: "授業中に ノートを 取ったり、先生の 質問に 答えたりします。",
+        romaji: "Jugyouchuu ni nooto o tottari, sensei no shitsumon ni kotaetari shimasu.",
+        vi: "Trong giờ học, tôi ghi chép bài hoặc trả lời câu hỏi của thầy cô."
+      },
+      {
+        ja: "授業が 終わると、お昼休みです。",
+        romaji: "Jugyou ga owaru to, ohiruyasumi desu.",
+        vi: "Khi tiết học kết thúc là đến giờ nghỉ trưa."
+      },
+      {
+        ja: "お昼は 友達と 一緒に 食べます。",
+        romaji: "Ohiru wa tomodachi to issho ni tabemasu.",
+        vi: "Buổi trưa tôi ăn cơm cùng với bạn bè."
+      },
+      {
+        ja: "大学の 食堂で ランチを 食べることが 多いです。",
+        romaji: "Daigaku no shokudou de ranchi o taberu koto ga ooi desu.",
+        vi: "Tôi thường hay ăn trưa ở nhà ăn của trường đại học."
+      },
+      {
+        ja: "わたしは ラーメンが 好きです。",
+        romaji: "Watashi wa raamen ga suki desu.",
+        vi: "Tôi rất thích ăn mì ramen."
+      },
+      {
+        ja: "ラーメンを 食べながら、友達と 楽しく 話します。",
+        romaji: "Raamen o tabenagara, tomodachi to tanoshiku hanashimasu.",
+        vi: "Vừa ăn mì ramen, tôi vừa trò chuyện vui vẻ với bạn bè."
+      },
+      {
+        ja: "お昼を 食べたあとは また 授業が あります。",
+        romaji: "Ohiru o tabeta ato wa mata jugyou ga arimasu.",
+        vi: "Sau khi ăn trưa xong lại có tiết học tiếp."
+      },
+      {
+        ja: "午後の 授業は 少し 疲れますが、頑張って 聞いています。",
+        romaji: "Gogo no jugyou wa sukoshi tsukaremasu ga, ganbatte kiite imasu.",
+        vi: "Các tiết học buổi chiều có chút mệt mỏi nhưng tôi vẫn cố gắng chăm chú lắng nghe."
+      }
+    ]
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.JA_READING_PASSAGES_DATA = JA_READING_PASSAGES_DATA;
+}
 
 
