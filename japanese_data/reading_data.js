@@ -612,6 +612,134 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Tôi rất yêu thích Okinawa."
       }
     ]
+  },
+  bai_7: {
+    title: "Bài 7: 宝くじ (Minna Dokkai)",
+    topic: "Giấc mơ trúng vé số 300 triệu yên",
+    icon: "🎟️",
+    fullText: "宝くじが 当たりました。 3億円です。 信じられません。 仕事を やめます。 そして、 いろいろな 国へ 遊びに 行きたいです。 うちや 車が 欲しいです。 朝 9時に 銀行へ 3億円を もらいに 行きました。 机の 上に 新しい 一万円札が 3万枚 ありました。 銀行員は 機械で 数えました。 わたしは 自分で 数えたかったですから、 手で 数えました。 1枚、 2枚、 3枚……とても 疲れましたから、 ちょっと 休みました。 銀行の 隣の レストランへ 食事に 行きました。 そして、 また 数えました。 5時まで かかりました。 それから 警官と いっしょに うちへ 帰りました。 3万枚の 一万円札は とても 重かったです。 3億円 ありますから、 警官に 100万円 あげました。 「ありがとう ございます。 あなたは いい 人ですね。 あなたは……」 「あなた、 あなた、 7時ですよ。」 妻の 声です。 夢が 終わりました。 朝です。 楽しい 夢でした。 今晩も 同じ 夢を 見たいです。",
+    sentences: [
+      {
+        ja: "宝くじが 当たりました。",
+        romaji: "Takarakuji ga atarimashita.",
+        vi: "Tôi đã trúng vé số."
+      },
+      {
+        ja: "3億円です。",
+        romaji: "San'okuen desu.",
+        vi: "Trúng những 300 triệu yên."
+      },
+      {
+        ja: "信じられません。",
+        romaji: "Shinjiraremasen.",
+        vi: "Thật không thể tin nổi."
+      },
+      {
+        ja: "仕事を やめます。",
+        romaji: "Shigoto o yamemasu.",
+        vi: "Tôi sẽ bỏ việc."
+      },
+      {
+        ja: "そして、 いろいろな 国へ 遊びに 行きたいです。",
+        romaji: "Soshite, iroirona kuni e asobi ni ikitai desu.",
+        vi: "Và rồi, tôi muốn đi du lịch đến nhiều quốc gia."
+      },
+      {
+        ja: "うちや 車が 欲しいです。",
+        romaji: "Uchi ya kuruma ga hoshii desu.",
+        vi: "Tôi muốn có cả nhà và xe hơi."
+      },
+      {
+        ja: "朝 9時に 銀行へ 3億円を もらいに 行きました。",
+        romaji: "Asa kuji ni ginkou e san'okuen o morai ni ikimashita.",
+        vi: "Sáng 9 giờ, tôi đã đến ngân hàng để nhận 300 triệu yên."
+      },
+      {
+        ja: "机の 上に 新しい 一万円札が 3万枚 ありました。",
+        romaji: "Tsukue no ue ni atarashii ichiman'ensatsu ga sanmanmai arimashita.",
+        vi: "Ở trên bàn có sẵn 3 vạn (30.000) tờ 1 vạn yên mới tinh."
+      },
+      {
+        ja: "銀行員は 機械で 数えました。",
+        romaji: "Ginkouin wa kikai de kazoemashita.",
+        vi: "Nhân viên ngân hàng đã đếm tiền bằng máy."
+      },
+      {
+        ja: "わたしは 自分で 数えたかったですから、 手で 数えました。",
+        romaji: "Watashi wa jibun de kazoetakatta desu kara, te de kazoemashita.",
+        vi: "Vì tôi muốn tự mình đếm nên đã đếm bằng tay."
+      },
+      {
+        ja: "1枚、 2枚、 3枚……とても 疲れましたから、 ちょっと 休みました。",
+        romaji: "Ichimai, nimai, sanmai... totemo tsukaremashita kara, chotto yasumimashita.",
+        vi: "1 tờ, 2 tờ, 3 tờ... vì quá mệt nên tôi đã nghỉ ngơi một chút."
+      },
+      {
+        ja: "銀行の 隣の レストランへ 食事に 行きました。",
+        romaji: "Ginkou no tonari no resutoran e shokuji ni ikimashita.",
+        vi: "Tôi đã sang nhà hàng bên cạnh ngân hàng để dùng bữa."
+      },
+      {
+        ja: "そして、 また 数えました。",
+        romaji: "Soshite, mata kazoemashita.",
+        vi: "Sau đó, tôi lại tiếp tục đếm."
+      },
+      {
+        ja: "5時まで かかりました。",
+        romaji: "Goji made kakarimashita.",
+        vi: "Mất đến tận 5 giờ chiều."
+      },
+      {
+        ja: "それから 警官と いっしょに うちへ 帰りました。",
+        romaji: "Sorekara keikan to issho ni uchi e kaerimashita.",
+        vi: "Sau đó, tôi cùng với viên cảnh sát trở về nhà."
+      },
+      {
+        ja: "3万枚の 一万円札は とても 重かったです。",
+        romaji: "Sanmanmai no ichiman'ensatsu wa totemo omokatta desu.",
+        vi: "3 vạn tờ tiền 1 vạn yên nặng vô cùng."
+      },
+      {
+        ja: "3億円 ありますから、 警官に 100万円 あげました。",
+        romaji: "San'okuen arimasu kara, keikan ni hyakuman'en agemashita.",
+        vi: "Vì có tới 300 triệu yên nên tôi đã tặng viên cảnh sát 1 triệu yên."
+      },
+      {
+        ja: "「ありがとう ございます。 あなたは いい 人ですね。 あなたは……」",
+        romaji: "\"Arigatou gozaimasu. Anata wa ii hito desu ne. Anata wa...\"",
+        vi: "\"Xin cảm ơn anh. Anh quả là một người tốt bụng. Anh thật là...\""
+      },
+      {
+        ja: "「あなた、 あなた、 7時ですよ。」",
+        romaji: "\"Anata, anata, shichiji desu yo.\"",
+        vi: "\"Anh ơi, anh à, 7 giờ rồi đấy nhé.\""
+      },
+      {
+        ja: "妻の 声です。",
+        romaji: "Tsuma no koe desu.",
+        vi: "Đó là tiếng của vợ tôi."
+      },
+      {
+        ja: "夢が 終わりました。",
+        romaji: "Yume ga owarimashita.",
+        vi: "Giấc mơ đã khép lại."
+      },
+      {
+        ja: "朝です。",
+        romaji: "Asa desu.",
+        vi: "Trời đã sáng rồi."
+      },
+      {
+        ja: "楽しい 夢でした。",
+        romaji: "Tanoshii yume deshita.",
+        vi: "Thật là một giấc mơ vui vẻ."
+      },
+      {
+        ja: "今晩も 同じ 夢を 見たいです。",
+        romaji: "Konban mo onaji yume o mitai desu.",
+        vi: "Tối nay tôi cũng muốn gặp lại giấc mơ đó."
+      }
+    ]
   }
 };
 
