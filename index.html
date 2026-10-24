@@ -101,10 +101,6 @@
           <p id="page-subtitle">Luyện nghe & nhại giọng tiếng Nhật chuẩn Tokyo theo từng câu và từ vựng thông dụng</p>
         </div>
         <div class="header-right">
-          <button id="phonetic-toggle" class="header-btn phonetic-toggle-btn" title="Bấm để ẩn hoặc hiện phiên âm Romaji">
-            <span class="phonetic-icon">🔤</span>
-            <span id="phonetic-toggle-label">Romaji: Hiện</span>
-          </button>
           <button id="theme-toggle" class="header-btn" title="Đổi giao diện">🌓 Giao diện</button>
         </div>
       </header>
@@ -131,6 +127,10 @@
             <div class="speaking-challenge-card" id="ja-speaking-card">
               <button class="card-corner-btn card-corner-prev" id="ja-spk-prev-btn" title="Câu trước" aria-label="Câu trước">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+                <span class="phonetic-icon">🔤</span>
+                <span class="phonetic-toggle-label">Romaji: Hiện</span>
               </button>
               <button class="card-corner-btn card-corner-next" id="ja-spk-next-btn" title="Câu tiếp theo" aria-label="Câu tiếp theo">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -230,6 +230,10 @@
 
             <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
             <div class="speaking-challenge-card" id="ja-reading-challenge-card" style="margin: 0;">
+              <button class="card-phonetic-btn phonetic-toggle-btn alone-corner" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+                <span class="phonetic-icon">🔤</span>
+                <span class="phonetic-toggle-label">Romaji: Hiện</span>
+              </button>
               <div class="challenge-category" id="ja-reading-category">BÀI 1: ĐỌC HIỂU (CÂU 1 / 12)</div>
 
               <div class="challenge-en" id="ja-reading-phrase-ja" style="font-size: 1.55rem; color: var(--text-main);">
@@ -311,6 +315,10 @@
           <div class="speaking-challenge-card" id="ja-vocab-card">
             <button class="card-corner-btn card-corner-prev" id="ja-vocab-prev-btn" title="Từ trước" aria-label="Từ trước">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+              <span class="phonetic-icon">🔤</span>
+              <span class="phonetic-toggle-label">Romaji: Hiện</span>
             </button>
             <button class="card-corner-btn card-corner-next" id="ja-vocab-next-btn" title="Từ tiếp theo" aria-label="Từ tiếp theo">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -396,6 +404,10 @@
             <div class="speaking-challenge-card" id="ja-notes-card">
               <button class="card-corner-btn card-corner-prev" id="ja-notes-prev-btn" title="Mục trước" aria-label="Mục trước">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+                <span class="phonetic-icon">🔤</span>
+                <span class="phonetic-toggle-label">Romaji: Hiện</span>
               </button>
               <button class="card-corner-btn card-corner-next" id="ja-notes-next-btn" title="Mục tiếp theo" aria-label="Mục tiếp theo">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>

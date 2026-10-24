@@ -23,8 +23,7 @@ const AppCore = (() => {
   function initDOM() {
     dom = {
       themeToggle: document.getElementById('theme-toggle'),
-      phoneticToggle: document.getElementById('phonetic-toggle'),
-      phoneticToggleLabel: document.getElementById('phonetic-toggle-label'),
+      phoneticToggles: document.querySelectorAll('.phonetic-toggle-btn'),
       copySummaryBtn: document.getElementById('copy-summary-btn'),
       streakCountEl: document.getElementById('streak-count'),
       wordsLearnedEl: document.getElementById('words-learned'),
@@ -234,16 +233,20 @@ const AppCore = (() => {
   function updatePhoneticDisplay() {
     const isShown = state.showPhonetics;
     document.body.classList.toggle('hide-phonetics', !isShown);
-    if (dom.phoneticToggle) {
-      dom.phoneticToggle.classList.toggle('is-hidden', !isShown);
-      dom.phoneticToggle.setAttribute('aria-pressed', isShown ? 'true' : 'false');
-      dom.phoneticToggle.setAttribute('title', isShown
+    const btns = dom.phoneticToggles && dom.phoneticToggles.length > 0 
+      ? dom.phoneticToggles 
+      : document.querySelectorAll('.phonetic-toggle-btn');
+    btns.forEach(btn => {
+      btn.classList.toggle('is-hidden', !isShown);
+      btn.setAttribute('aria-pressed', isShown ? 'true' : 'false');
+      btn.setAttribute('title', isShown
         ? 'Bấm để ẩn phiên âm Romaji'
         : 'Bấm để hiện phiên âm Romaji');
-    }
-    if (dom.phoneticToggleLabel) {
-      dom.phoneticToggleLabel.textContent = isShown ? 'Romaji: Hiện' : 'Romaji: Ẩn';
-    }
+      const label = btn.querySelector('.phonetic-toggle-label');
+      if (label) {
+        label.textContent = isShown ? 'Romaji: Hiện' : 'Romaji: Ẩn';
+      }
+    });
   }
 
   function togglePhonetics() {
@@ -343,12 +346,16 @@ const AppCore = (() => {
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
 
-    // Phonetic toggle (Ẩn/Hiện Romaji & IPA)
-    if (dom.phoneticToggle) {
-      dom.phoneticToggle.addEventListener('click', () => {
+    // Phonetic toggle (Ẩn/Hiện Romaji trên các thẻ)
+    const phoneticBtns = dom.phoneticToggles && dom.phoneticToggles.length > 0
+      ? dom.phoneticToggles
+      : document.querySelectorAll('.phonetic-toggle-btn');
+    phoneticBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         togglePhonetics();
       });
-    }
+    });
     updatePhoneticDisplay();
 
     // Copy Summary button
