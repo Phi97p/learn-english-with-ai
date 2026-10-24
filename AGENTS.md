@@ -44,5 +44,8 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiến
 ## 4. Quy Định Chung Toàn Dự Án
 - **Không tự động commit**: Tuyệt đối không tự ý chạy `git commit` khi người dùng không yêu cầu cụ thể.
 - **Không bao giờ push**: Tuyệt đối KHÔNG BAO GIỜ thực hiện `git push` trong mọi hoàn cảnh.
-- **Lưu trữ SPA**: Trạng thái học tập lưu tại `localStorage` hoặc in-memory, không ghi log vào file ổ cứng.
+- **Quy tắc cốt lõi về localStorage**:
+  - Ưu tiên quản lý in-memory và tự động clear `localStorage` khi người dùng đóng ứng dụng hoặc tải lại trang để tránh phình dung lượng.
+  - Tuyệt đối không lưu quá nhiều dữ liệu hoặc cache dữ liệu lớn vào `localStorage`.
+  - Trong mọi trường hợp cần lưu trạng thái vào `localStorage`, AI **bắt buộc phải thông báo và giải thích cụ thể cho người dùng** trước khi tiến hành.
 

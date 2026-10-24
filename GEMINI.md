@@ -1,8 +1,10 @@
 # Hướng Dẫn & Quy Định Dự Án (Học Tiếng Nhật Toàn Diện với AI)
 
-## 1. Lưu trữ tiến độ
-- Ứng dụng hoạt động theo cơ chế Single Page Application (SPA), lưu trực tiếp trạng thái học tập (streak ngày, mẫu câu đã nạp, bài học đang chọn, từ vựng tùy chỉnh) trong `localStorage` của trình duyệt người dùng.
-- Không sử dụng file log ghi trên ổ cứng (`study_log.md`, `study_log.json` hay thư mục `logs/` đã được loại bỏ theo yêu cầu của người dùng để giữ dự án gọn nhẹ, sạch sẽ).
+## 1. Lưu trữ tiến độ & Quy tắc cốt lõi về localStorage
+- **Cơ chế SPA & Giữ nhẹ bộ nhớ**: Ứng dụng hoạt động theo cơ chế Single Page Application (SPA), ưu tiên xử lý in-memory (bộ nhớ tạm của phiên làm việc). Không sử dụng file log ghi trên ổ cứng (`study_log.md`, `study_log.json` hay thư mục `logs/` đã được loại bỏ theo yêu cầu để giữ dự án gọn nhẹ, sạch sẽ).
+- **Ưu tiên Clear khi tắt / tải lại trang**: Ưu tiên việc dọn sạch / reset hoặc không duy trì dữ liệu dư thừa trong `localStorage` khi người dùng tắt ứng dụng hoặc tải lại (reload) trang. Tránh để `localStorage` bị phình to hoặc lưu trữ rác theo thời gian.
+- **Không lưu quá nhiều dữ liệu**: Tuyệt đối không lưu các tệp dữ liệu lớn, danh sách câu hỏi hàng loạt, cache bài đọc hay lịch sử làm bài dài dòng vào `localStorage`.
+- **Bắt buộc thông báo khi cần lưu vào localStorage**: Trong bất kỳ trường hợp nào cần thiết lập hoặc bổ sung việc lưu trạng thái vào `localStorage`, AI **bắt buộc phải thông báo rõ ràng trước cho người dùng** (mục đích lưu, key lưu trữ, ước lượng dung lượng) và nhận được sự đồng thuận trước khi triển khai.
 
 ## 2. Hỗ trợ học tập
 - Khi người dùng sao chép tóm tắt tiến độ (nút "📋 Sao chép cho AI") hoặc đưa ra câu hỏi về phát âm, từ vựng, ngữ pháp Tiếng Nhật:
