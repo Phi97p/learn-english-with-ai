@@ -853,6 +853,164 @@ const JA_READING_PASSAGES_DATA = {
         vi: "Các tiết học buổi chiều có chút mệt mỏi nhưng tôi vẫn cố gắng chăm chú lắng nghe."
       }
     ]
+  },
+  bai_9: {
+    title: "Bài 9: ビデオレター (Minna Dokkai)",
+    topic: "Thư video gửi từ Osaka - Tâm sự và chuyến du lịch của bạn Mana",
+    icon: "📹",
+    fullText: "マナさんから ビデオレターを もらいました。 マナさんは 今 大阪を 旅行して います。 洋子さん、こんにちは。 お元気ですか。 大阪は とても 暑いです。 今 心斎橋に います。 大阪で いちばん にぎやかな 所です。 橋の 上で 男の 人が ギターを 弾いて います。 外国人も います。 音楽は 世界の ことばですね。 新世界へ 来ました。 ここは 有名な 串カツ屋の 前です。 人が たくさん 待って います。 初めて 串カツを 食べました。 熱かったですが、とても おいしかったです。 今 通天閣から 大阪の 町を 見て います。 あれは 大阪城です。 大阪城公園です。 広いです。 子どもが 遊んで います。 木の 下で 男の 人が 寝て います。 女の 人が 犬と 散歩して います。 これから 大阪城を 見に 行きます。 じゃ、また ビデオレターを 送ります。 【質問】 1. マナさんは だれに ビデオレターを 送りましたか。 2. 男の 人は どこで ギターを 弾いて いますか。 3. 串カツは どうでしたか。 4. 女の 人は 大阪城公園で 何を して いますか。 5. マナさんは これから 何を しますか。 あなたの 国や 町を ビデオレターや 写真で 紹介して ください。",
+    sentences: [
+      {
+        ja: "マナさんから ビデオレターを もらいました。",
+        romaji: "Mana-san kara bideo retaa o moraimashita.",
+        vi: "Tôi đã nhận được một lá thư video từ bạn Mana."
+      },
+      {
+        ja: "マナさんは 今 大阪を 旅行して います。",
+        romaji: "Mana-san wa ima Oosaka o ryokou shite imasu.",
+        vi: "Hiện tại bạn Mana đang đi du lịch ở Osaka."
+      },
+      {
+        ja: "洋子さん、こんにちは。",
+        romaji: "Youko-san, konnichiwa.",
+        vi: "Chào bạn Yoko."
+      },
+      {
+        ja: "お元気ですか。",
+        romaji: "Ogenki desu ka.",
+        vi: "Bạn có khỏe không?"
+      },
+      {
+        ja: "大阪は とても 暑いです。",
+        romaji: "Oosaka wa totemo atsui desu.",
+        vi: "Osaka rất là nóng."
+      },
+      {
+        ja: "今 心斎橋に います。",
+        romaji: "Ima Shinsaibashi ni imasu.",
+        vi: "Bây giờ mình đang ở Shinsaibashi."
+      },
+      {
+        ja: "大阪で いちばん にぎやかな 所です。",
+        romaji: "Oosaka de ichiban nigiyakana tokoro desu.",
+        vi: "Đây là nơi nhộn nhịp nhất ở Osaka."
+      },
+      {
+        ja: "橋の 上で 男の 人が ギターを 弾いて います。",
+        romaji: "Hashi no ue de otoko no hito ga gitaa o hiite imasu.",
+        vi: "Ở trên cầu có một người đàn ông đang gảy đàn guitar."
+      },
+      {
+        ja: "外国人も います。",
+        romaji: "Gaikokujin mo imasu.",
+        vi: "Cũng có cả người nước ngoài nữa."
+      },
+      {
+        ja: "音楽は 世界の ことばですね。",
+        romaji: "Ongaku wa sekai no kotoba desu ne.",
+        vi: "Âm nhạc đúng là ngôn ngữ của thế giới nhỉ."
+      },
+      {
+        ja: "新世界へ 来ました。",
+        romaji: "Shinsekai e kimashita.",
+        vi: "Mình đã đến Shinsekai rồi."
+      },
+      {
+        ja: "ここは 有名な 串カツ屋の 前です。",
+        romaji: "Koko wa yuumeina kushikatsuya no mae desu.",
+        vi: "Đây là trước cửa một quán thịt xiên chiên kushikatsu nổi tiếng."
+      },
+      {
+        ja: "人が たくさん 待って います。",
+        romaji: "Hito ga takusan matte imasu.",
+        vi: "Có rất đông người đang đứng xếp hàng chờ."
+      },
+      {
+        ja: "初めて 串カツを 食べました。",
+        romaji: "Hajimete kushikatsu o tabemashita.",
+        vi: "Lần đầu tiên mình được ăn món thịt xiên chiên kushikatsu."
+      },
+      {
+        ja: "熱かったですが、とても おいしかったです。",
+        romaji: "Atsukatta desu ga, totemo oishikatta desu.",
+        vi: "Món ăn tuy rất nóng nhưng mà ngon tuyệt vời."
+      },
+      {
+        ja: "今 通天閣から 大阪の 町を 見て います。",
+        romaji: "Ima Tsuutenkaku kara Oosaka no machi o mite imasu.",
+        vi: "Bây giờ mình đang ngắm nhìn phố phường Osaka từ tháp Tsutenkaku."
+      },
+      {
+        ja: "あれは 大阪城です。",
+        romaji: "Are wa Oosakajou desu.",
+        vi: "Kia chính là Lâu đài Osaka."
+      },
+      {
+        ja: "大阪城公園です。",
+        romaji: "Oosakajou kouen desu.",
+        vi: "Đây là công viên Lâu đài Osaka."
+      },
+      {
+        ja: "広いです。",
+        romaji: "Hiroi desu.",
+        vi: "Công viên rất rộng lớn."
+      },
+      {
+        ja: "子どもが 遊んで います。",
+        romaji: "Kodomo ga asonde imasu.",
+        vi: "Lũ trẻ con đang chơi đùa."
+      },
+      {
+        ja: "木の 下で 男の 人が 寝て います。",
+        romaji: "Ki no shita de otoko no hito ga nete imasu.",
+        vi: "Dưới gốc cây có một người đàn ông đang nằm ngủ."
+      },
+      {
+        ja: "女の 人が 犬と 散歩して います。",
+        romaji: "Onna no hito ga inu to sanpo shite imasu.",
+        vi: "Một người phụ nữ đang đi dạo cùng chú chó."
+      },
+      {
+        ja: "これから 大阪城を 見に 行きます。",
+        romaji: "Korekara Oosakajou o mi ni ikimasu.",
+        vi: "Bây giờ mình sẽ đi ngắm Lâu đài Osaka."
+      },
+      {
+        ja: "じゃ、また ビデオレターを 送ります。",
+        romaji: "Ja, mata bideo retaa o okurimasu.",
+        vi: "Thôi nhé, lần sau mình lại gửi thư video tiếp nhé."
+      },
+      {
+        ja: "1. マナさんは だれに ビデオレターを 送りましたか。",
+        romaji: "1. Mana-san wa dare ni bideo retaa o okurimashita ka.",
+        vi: "1. Bạn Mana đã gửi thư video cho ai?"
+      },
+      {
+        ja: "2. 男の 人は どこで ギターを 弾いて いますか。",
+        romaji: "2. Otoko no hito wa doko de gitaa o hiite imasu ka.",
+        vi: "2. Người đàn ông đang chơi đàn guitar ở đâu?"
+      },
+      {
+        ja: "3. 串カツは どうでしたか。",
+        romaji: "3. Kushikatsu wa dou deshita ka.",
+        vi: "3. Món thịt xiên chiên kushikatsu như thế nào?"
+      },
+      {
+        ja: "4. 女の 人は 大阪城公園で 何を して いますか。",
+        romaji: "4. Onna no hito wa Oosakajou kouen de nani o shite imasu ka.",
+        vi: "4. Người phụ nữ đang làm gì ở công viên Lâu đài Osaka?"
+      },
+      {
+        ja: "5. マナさんは これから 何を しますか。",
+        romaji: "5. Mana-san wa korekara nani o shimasu ka.",
+        vi: "5. Bạn Mana từ bây giờ sẽ làm gì?"
+      },
+      {
+        ja: "あなたの 国や 町を ビデオレターや 写真で 紹介して ください。",
+        romaji: "Anata no kuni ya machi o bideo retaa ya shashin de shoukai shite kudasai.",
+        vi: "Hãy giới thiệu về đất nước hoặc thành phố của bạn bằng thư video hoặc hình ảnh."
+      }
+    ]
   }
 };
 
