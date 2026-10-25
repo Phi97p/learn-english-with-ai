@@ -973,8 +973,8 @@
    ======================================================== */
 .grammar-interactive-text {
   font-family: var(--font-main);
-  font-size: 0.98rem;
-  line-height: 1.95;
+  font-size: 0.90rem;
+  line-height: 1.85;
   font-weight: 500;
   word-break: normal;
   color: var(--text-main);
@@ -1350,6 +1350,155 @@
 
 [data-theme="light"] .grammar-choice-letter-input {
   color: #0284c7 !important;
+}
+
+/* ========================================================
+   DẠNG BÀI TẬP: CHỌN 1 TRONG 2 TỪ (BINARY / INLINE CHOICE)
+   Mẫu: 〔この／これ〕 - Khoanh tròn / Bấm chọn từ đúng
+   ======================================================== */
+.inline-choice-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  vertical-align: middle;
+  margin: 0 3px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: var(--radius-full, 9999px);
+  padding: 1px 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+[data-theme="light"] .inline-choice-group {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.inline-choice-bracket {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.86rem;
+  user-select: none;
+  opacity: 0.7;
+}
+
+.inline-choice-divider {
+  color: var(--text-dim, #64748b);
+  font-size: 0.78rem;
+  margin: 0 1px;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.inline-choice-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 1.5px 7px;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  line-height: 1.35;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.inline-choice-btn:hover:not(:disabled) {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+[data-theme="light"] .inline-choice-btn:hover:not(:disabled) {
+  background: rgba(147, 51, 234, 0.1);
+  color: #7e22ce;
+}
+
+/* Khi người dùng click chọn */
+.inline-choice-btn.selected {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.45);
+}
+
+/* Trạng thái sau khi Nộp bài */
+.inline-choice-btn:disabled {
+  cursor: default;
+}
+
+.inline-choice-btn.choice-correct {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.35);
+}
+
+.inline-choice-btn.choice-wrong {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.inline-choice-btn.choice-target {
+  border: 1.5px dashed #10b981 !important;
+  color: #34d399 !important;
+  background: rgba(168, 85, 247, 0.12) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .inline-choice-btn.choice-target {
+  color: #059669 !important;
+  border-color: #059669 !important;
+}
+
+.inline-choice-feedback {
+  font-size: 0.82rem;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* Câu mẫu ví dụ (例) */
+.inline-choice-example {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(148, 163, 184, 0.25);
+  opacity: 0.95;
+}
+
+.inline-choice-preview {
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 1.5px 7px;
+  color: var(--text-muted);
+  border-radius: var(--radius-full, 9999px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inline-choice-preview.example-active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.32) 0%, rgba(99, 102, 241, 0.32) 100%) !important;
+  border: 1.5px solid #a855f7 !important;
+  color: #c084fc !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 6px rgba(168, 85, 247, 0.25);
+  padding: 1.5px 7px !important;
+}
+
+[data-theme="light"] .inline-choice-preview.example-active {
+  background: rgba(147, 51, 234, 0.12) !important;
+  border-color: #9333ea !important;
+  color: #7e22ce !important;
 }
 
 

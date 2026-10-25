@@ -330,8 +330,107 @@ const GrammarJaModule = (() => {
     return `<div class="grammar-interactive-text">${htmlWithBr}</div>`;
   }
 
+  // ========================================================
+  // DẠNG BÀI TẬP: CHỌN 1 TRONG 2 TỪ (BINARY / INLINE CHOICE)
+  // Ký hiệu trong câu: 〔A／B〕, 〔A、B〕 hoặc [A / B]
+  // ========================================================
+  const BINARY_CHOICE_REGEX = /〔([^〕]+)〕|\[([^\]]+)\]/g;
+
+  function countBinaryChoiceSlots(questionStr) {
+    if (!questionStr) return 0;
+    const matches = questionStr.match(BINARY_CHOICE_REGEX);
+    if (!matches) return 0;
+    return matches.filter(m => !m.includes('<u>')).length;
+  }
+
+  function formatBinaryChoiceQuestion(q, qIdx) {
+    const rawText = q.question || '';
+    let slotCounter = 0;
+    const isSubmittedState = isSubmitted;
+
+    const formatted = rawText.replace(BINARY_CHOICE_REGEX, (match, p1, p2) => {
+      const innerContent = (p1 || p2 || '').trim();
+
+      // Tách các phương án lựa chọn, tránh split '/' bên trong thẻ HTML (như </u>)
+      const splitChoices = (str) => str.split(/(?<!<)\/(?!>)|[／、,]/).map(s => s.trim());
+
+      // Nếu là câu ví dụ mẫu (có chứa thẻ <u>)
+      if (innerContent.includes('<u>')) {
+        const parts = splitChoices(innerContent);
+        const part1 = parts[0] || '';
+        const part2 = parts[1] || '';
+        const is1Active = part1.includes('<u>');
+        const is2Active = part2.includes('<u>');
+        const text1 = part1.replace(/<\/?u>/g, '');
+        const text2 = part2.replace(/<\/?u>/g, '');
+        return `<span class="inline-choice-group inline-choice-example"><span class="inline-choice-bracket">〔</span><span class="inline-choice-preview ${is1Active ? 'example-active' : ''}">${escapeHtml(text1)}</span><span class="inline-choice-divider">/</span><span class="inline-choice-preview ${is2Active ? 'example-active' : ''}">${escapeHtml(text2)}</span><span class="inline-choice-bracket">〕</span></span>`;
+      }
+
+      // Slot làm bài thực tế
+      const sIdx = slotCounter++;
+      const slotKey = `${q.id}_slot_${sIdx}`;
+      const userVal = userAnswers[slotKey] || '';
+      const rawTarget = (Array.isArray(q.answers) && q.answers[sIdx] !== undefined)
+        ? q.answers[sIdx]
+        : (q.answer || '');
+
+      const parts = splitChoices(innerContent);
+      const opt1 = parts[0] || '';
+      const opt2 = parts[1] || '';
+
+      let btn1Class = '';
+      let btn2Class = '';
+      let feedbackHtml = '';
+
+      const isSelected1 = (userVal === opt1);
+      const isSelected2 = (userVal === opt2);
+
+      if (isSubmittedState) {
+        const isOpt1Correct = checkSingleBlankAnswer(opt1, rawTarget);
+        const isOpt2Correct = checkSingleBlankAnswer(opt2, rawTarget);
+
+        if (!userVal) {
+          // Chưa chọn
+          feedbackHtml = `<span class="inline-choice-feedback skipped" title="Chưa chọn!">⚪</span>`;
+          if (isOpt1Correct) btn1Class += ' choice-target';
+          if (isOpt2Correct) btn2Class += ' choice-target';
+        } else if (checkSingleBlankAnswer(userVal, rawTarget)) {
+          // Chọn đúng
+          feedbackHtml = `<span class="inline-choice-feedback correct" title="Chính xác!">✅</span>`;
+          if (isSelected1) btn1Class += ' choice-correct';
+          if (isSelected2) btn2Class += ' choice-correct';
+        } else {
+          // Chọn sai
+          feedbackHtml = `<span class="inline-choice-feedback wrong" title="Sai rồi!">❌</span>`;
+          if (isSelected1) btn1Class += ' choice-wrong';
+          if (isSelected2) btn2Class += ' choice-wrong';
+          if (isOpt1Correct) btn1Class += ' choice-target';
+          if (isOpt2Correct) btn2Class += ' choice-target';
+        }
+      }
+
+      return `<span class="inline-choice-group" data-qid="${q.id}" data-slot-idx="${sIdx}"><span class="inline-choice-bracket">〔</span><button type="button" class="inline-choice-btn ${isSelected1 ? 'selected' : ''} ${btn1Class}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-idx="${sIdx}" data-val="${escapeHtml(opt1)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt1)}</button><span class="inline-choice-divider">/</span><button type="button" class="inline-choice-btn ${isSelected2 ? 'selected' : ''} ${btn2Class}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-idx="${sIdx}" data-val="${escapeHtml(opt2)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt2)}</button><span class="inline-choice-bracket">〕</span>${feedbackHtml}</span>`;
+    });
+
+    const htmlWithBr = formatted
+      .replace(/\r?\n\s*\r?\n/g, '<div class="grammar-para-gap"></div>')
+      .replace(/\r?\n/g, '<br>');
+    return `<div class="grammar-interactive-text">${htmlWithBr}</div>`;
+  }
+
   // Kiểm tra câu hỏi đã được làm hay chưa
   function hasQuestionAnswered(q) {
+    if (q.type === 'binary_choice') {
+      const slotCount = countBinaryChoiceSlots(q.question);
+      for (let sIdx = 0; sIdx < slotCount; sIdx++) {
+        const userVal = userAnswers[`${q.id}_slot_${sIdx}`];
+        if (userVal !== undefined && userVal !== null && userVal.toString().trim() !== '') {
+          return true;
+        }
+      }
+      return false;
+    }
+
     const isFill = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
     if (!isFill) {
       const userAns = userAnswers[q.id];
@@ -353,8 +452,23 @@ const GrammarJaModule = (() => {
     return (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
   }
 
-  // Kiểm tra đáp án câu hỏi (Hỗ trợ Multiple Choice, Điền từ inline, và Điền từ hộp)
+  // Kiểm tra đáp án câu hỏi (Hỗ trợ Multiple Choice, Điền từ inline, Điền từ hộp, và Chọn 1 trong 2 từ)
   function checkQuestionAnswer(q) {
+    if (q.type === 'binary_choice') {
+      const slotCount = countBinaryChoiceSlots(q.question);
+      if (slotCount === 0) return false;
+      for (let sIdx = 0; sIdx < slotCount; sIdx++) {
+        const userVal = userAnswers[`${q.id}_slot_${sIdx}`];
+        const targetAns = (Array.isArray(q.answers) && q.answers[sIdx] !== undefined)
+          ? q.answers[sIdx]
+          : (q.answer || '');
+        if (!checkSingleBlankAnswer(userVal, targetAns)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
     const isFill = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
     if (!isFill) {
       const userAns = userAnswers[q.id];
@@ -399,7 +513,8 @@ const GrammarJaModule = (() => {
     let html = '';
     activeQuizQuestions.forEach((q, idx) => {
       const qNum = idx + 1;
-      const isFillQuestion = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
+      const isBinaryChoice = (q.type === 'binary_choice');
+      const isFillQuestion = !isBinaryChoice && (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
       const blankCount = isFillQuestion ? countInlineBlanks(q.question) : 0;
       const useInlineBlanks = isFillQuestion && blankCount > 0;
 
@@ -426,25 +541,31 @@ const GrammarJaModule = (() => {
 
       // Xác định nhãn dạng bài tập (hỗ trợ tag tuỳ chỉnh hoặc tự nhận diện)
       let typeTagHtml = '';
-      const customTag = q.tag || (isFillQuestion ? (q.choices ? 'Chọn câu trả lời phù hợp từ các từ có sẵn' : (q.question && (q.question.includes('＿＿') || q.question.includes('___')) ? 'Hoàn thành câu dựa vào câu có sẵn' : 'Điền từ')) : '');
+      const customTag = q.tag || (isBinaryChoice ? 'Chọn 1 trong 2 từ' : (isFillQuestion ? (q.choices ? 'Chọn câu trả lời phù hợp từ các từ có sẵn' : (q.question && (q.question.includes('＿＿') || q.question.includes('___')) ? 'Hoàn thành câu dựa vào câu có sẵn' : 'Điền từ')) : ''));
       if (customTag) {
         const isCompletion = customTag.toLowerCase().includes('hoàn thành');
-        const isMatching = customTag.toLowerCase().includes('chọn') || !!(q.choices && q.choices.length > 0);
+        const isMatching = customTag.toLowerCase().includes('bảng') || !!(q.choices && q.choices.length > 0);
+        const isBinary = isBinaryChoice || customTag.toLowerCase().includes('chọn 1 trong 2') || customTag.toLowerCase().includes('2 từ');
         let icon = '✏️';
         let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        if (isCompletion) {
+        if (isBinary) {
+          icon = '⚖️';
+          colorStyle = 'background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);';
+        } else if (isCompletion) {
           icon = '✍️';
           colorStyle = 'background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3);';
         } else if (isMatching) {
           icon = '📋';
           colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
         }
-        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠)\s*/, '');
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
       }
 
       let bodyContent = '';
-      if (useInlineBlanks) {
+      if (isBinaryChoice) {
+        bodyContent = formatBinaryChoiceQuestion(q, idx);
+      } else if (useInlineBlanks) {
         if (q.choices && Array.isArray(q.choices)) {
           bodyContent = `
             <div class="grammar-matching-layout">
@@ -510,7 +631,7 @@ const GrammarJaModule = (() => {
             ${resultMsg}
           </div>
         `;
-      } else if (!isFillQuestion) {
+      } else if (!isFillQuestion && !isBinaryChoice) {
         // Dạng trắc nghiệm 4 lựa chọn (A, B, C, D)
         html += `<div class="q-options-grid">`;
         ['A', 'B', 'C', 'D'].forEach(optKey => {
@@ -782,7 +903,40 @@ const GrammarJaModule = (() => {
       });
     });
 
-    // 2. Sự kiện input cho dạng điền từ hộp ở đáy (fallback)
+    // 3. Sự kiện click chọn 1 trong 2 từ (binary / inline choice)
+    const binaryBtns = dom.questionsContainer.querySelectorAll('.inline-choice-btn');
+    binaryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (isSubmitted) return;
+        const qid = btn.dataset.qid;
+        const qidx = parseInt(btn.dataset.qidx, 10);
+        const sidx = parseInt(btn.dataset.slotIdx, 10);
+        const val = btn.dataset.val;
+
+        const slotKey = `${qid}_slot_${sidx}`;
+        if (userAnswers[slotKey] === val) {
+          // Bấm lại từ đã chọn -> hủy chọn
+          delete userAnswers[slotKey];
+        } else {
+          userAnswers[slotKey] = val;
+        }
+
+        // Cập nhật giao diện của slot group này
+        const group = btn.closest('.inline-choice-group');
+        if (group) {
+          group.querySelectorAll('.inline-choice-btn').forEach(b => {
+            b.classList.toggle('selected', !!(userAnswers[slotKey] && b.dataset.val === userAnswers[slotKey]));
+          });
+        }
+
+        const q = activeQuizQuestions[qidx];
+        const isAnswered = hasQuestionAnswered(q);
+        updatePaletteItem(qidx, isAnswered);
+        updateProgressUI();
+      });
+    });
+
+    // 4. Sự kiện input cho dạng điền từ hộp ở đáy (fallback)
     const fillInputs = dom.questionsContainer.querySelectorAll('.q-fill-input');
     fillInputs.forEach(input => {
       input.addEventListener('input', () => {
