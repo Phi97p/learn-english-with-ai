@@ -546,9 +546,13 @@ const GrammarJaModule = (() => {
         const isCompletion = customTag.toLowerCase().includes('hoàn thành');
         const isMatching = customTag.toLowerCase().includes('bảng') || !!(q.choices && q.choices.length > 0);
         const isBinary = isBinaryChoice || customTag.toLowerCase().includes('chọn 1 trong 2') || customTag.toLowerCase().includes('2 từ');
+        const isHiragana = customTag.toLowerCase().includes('hiragana') || customTag.toLowerCase().includes('cách đọc');
         let icon = '✏️';
         let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        if (isBinary) {
+        if (isHiragana) {
+          icon = '🈸';
+          colorStyle = 'background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3);';
+        } else if (isBinary) {
           icon = '⚖️';
           colorStyle = 'background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);';
         } else if (isCompletion) {
@@ -558,7 +562,7 @@ const GrammarJaModule = (() => {
           icon = '📋';
           colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
         }
-        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘)\s*/, '');
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
       }
 
