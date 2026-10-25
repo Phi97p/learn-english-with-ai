@@ -245,13 +245,13 @@ const GrammarJaModule = (() => {
         const isBlankCorrect = checkSingleBlankAnswer(userVal, rawTarget);
         if (!userVal || !userVal.trim()) {
           inputClass = 'input-skipped';
-          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
         } else if (isBlankCorrect) {
           inputClass = 'input-correct';
-          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
+          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
         } else {
           inputClass = 'input-wrong';
-          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
         }
       }
 
@@ -262,16 +262,16 @@ const GrammarJaModule = (() => {
         : Math.max((primaryAns || '').length + 2, 4);
 
       if (isUnderline) {
-        return `<span class="grammar-blank-wrapper grammar-underline-blank-wrapper"><input type="text" class="kanji-hiragana-input grammar-inline-input grammar-underline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />${feedbackHtml}</span>`;
+        return `<span class="grammar-blank-wrapper grammar-underline-blank-wrapper"><input type="text" class="grammar-inline-input grammar-underline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />${feedbackHtml}</span>`;
       }
 
-      return `<span class="kanji-bracket-wrapper grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="kanji-hiragana-input grammar-inline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
+      return `<span class="grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="grammar-inline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
     });
 
     const htmlWithBr = formatted
       .replace(/\r?\n\s*\r?\n/g, '<div class="grammar-para-gap"></div>')
       .replace(/\r?\n/g, '<br>');
-    return `<div class="kanji-interactive-sentence grammar-interactive-text">${htmlWithBr}</div>`;
+    return `<div class="grammar-interactive-text">${htmlWithBr}</div>`;
   }
 
   // Kiểm tra câu hỏi đã được làm hay chưa
@@ -368,13 +368,26 @@ const GrammarJaModule = (() => {
         }
       }
 
+      // Xác định nhãn dạng bài tập (hỗ trợ tag tuỳ chỉnh hoặc tự nhận diện)
+      let typeTagHtml = '';
+      const customTag = q.tag || (isFillQuestion ? (q.question && (q.question.includes('＿＿') || q.question.includes('___')) ? 'Hoàn thành câu dựa vào câu có sẵn' : 'Điền từ') : '');
+      if (customTag) {
+        const isCompletion = customTag.toLowerCase().includes('hoàn thành');
+        const icon = isCompletion ? '✍️' : '✏️';
+        const colorStyle = isCompletion
+          ? 'background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3);'
+          : 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
+        const cleanTag = customTag.replace(/^(✍️|✏️)\s*/, '');
+        typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
+      }
+
       html += `
         <div class="${cardClass}" id="grammar-q-${idx}" data-idx="${idx}">
           <div class="q-header">
             <div class="q-number-box">
               <span class="q-badge">Câu ${qNum} / ${total}</span>
               ${q.lessonTitle ? `<span class="q-lesson-tag">${q.lessonTitle}</span>` : ''}
-              ${isFillQuestion ? `<span class="q-lesson-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">✏️ Điền từ</span>` : ''}
+              ${typeTagHtml}
             </div>
             <div class="q-header-right">
               ${statusBadge}

@@ -28,8 +28,8 @@
   margin: 0 3px;
 }
 
-.bracket-open,
-.bracket-close {
+.kanji-bracket-wrapper .bracket-open,
+.kanji-bracket-wrapper .bracket-close {
   font-size: 1.15rem;
   color: var(--text-muted);
   user-select: none;
