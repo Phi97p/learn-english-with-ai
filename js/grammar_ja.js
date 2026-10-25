@@ -297,24 +297,32 @@ const GrammarJaModule = (() => {
       let feedbackHtml = '';
 
       if (isSubmittedState) {
-        const isBlankCorrect = checkSingleBlankAnswer(userVal, rawTarget);
-        if (!userVal || !userVal.trim()) {
-          inputClass = 'input-skipped';
-          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
-        } else if (isBlankCorrect) {
-          inputClass = 'input-correct';
-          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
+        if (q.type === 'open_ended') {
+          // Dạng câu hỏi mở: Không chấm điểm đúng sai, hiện 1 đáp án mẫu để người học tự đối chiếu
+          inputClass = (userVal && userVal.trim()) ? 'input-open-ended' : 'input-skipped';
+          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge sample-ref" title="Đáp án mẫu đối chiếu: ${escapeHtml(primaryAns)}">💡 Mẫu: <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
         } else {
-          inputClass = 'input-wrong';
-          feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          const isBlankCorrect = checkSingleBlankAnswer(userVal, rawTarget);
+          if (!userVal || !userVal.trim()) {
+            inputClass = 'input-skipped';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          } else if (isBlankCorrect) {
+            inputClass = 'input-correct';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
+          } else {
+            inputClass = 'input-wrong';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          }
         }
       }
 
       // Phân biệt: Nếu là dạng gạch dưới (không bắt đầu bằng dấu ngoặc)
       const isUnderline = !match.startsWith('（') && !match.startsWith('(');
-      const inputSize = isUnderline
-        ? Math.max((primaryAns || '').length + 4, 14)
-        : (isChoiceBlank ? 2 : Math.max((primaryAns || '').length + 2, 4));
+      const inputSize = (q.type === 'open_ended')
+        ? 22
+        : (isUnderline
+          ? Math.max((primaryAns || '').length + 4, 14)
+          : (isChoiceBlank ? 2 : Math.max((primaryAns || '').length + 2, 4)));
 
       if (isUnderline) {
         return `<span class="grammar-blank-wrapper grammar-underline-blank-wrapper"><input type="text" class="grammar-inline-input grammar-underline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />${feedbackHtml}</span>`;
@@ -527,7 +535,13 @@ const GrammarJaModule = (() => {
       let statusBadge = '';
 
       if (isSubmitted) {
-        if (!hasAnswered) {
+        if (q.type === 'open_ended') {
+          if (hasAnswered) {
+            statusBadge = `<span class="q-status-badge badge-open-done">💬 Đã điền (Tự đối chiếu)</span>`;
+          } else {
+            statusBadge = `<span class="q-status-badge badge-skipped">⚪ Chưa điền (Tự đối chiếu)</span>`;
+          }
+        } else if (!hasAnswered) {
           cardClass += ' q-skipped';
           statusBadge = `<span class="q-status-badge badge-skipped">⚪ Chưa làm (0đ)</span>`;
         } else if (isCorrect) {
@@ -547,9 +561,13 @@ const GrammarJaModule = (() => {
         const isMatching = customTag.toLowerCase().includes('bảng') || !!(q.choices && q.choices.length > 0);
         const isBinary = isBinaryChoice || customTag.toLowerCase().includes('chọn 1 trong 2') || customTag.toLowerCase().includes('2 từ');
         const isHiragana = customTag.toLowerCase().includes('hiragana') || customTag.toLowerCase().includes('cách đọc');
+        const isOpenEnded = (q.type === 'open_ended') || customTag.toLowerCase().includes('mở');
         let icon = '✏️';
         let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        if (isHiragana) {
+        if (isOpenEnded) {
+          icon = '💬';
+          colorStyle = 'background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3);';
+        } else if (isHiragana) {
           icon = '🈸';
           colorStyle = 'background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3);';
         } else if (isBinary) {
@@ -562,7 +580,7 @@ const GrammarJaModule = (() => {
           icon = '📋';
           colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
         }
-        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤)\s*/, '');
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤|💬)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
       }
 
@@ -708,7 +726,13 @@ const GrammarJaModule = (() => {
       if (!isSubmitted) {
         if (hasAnswered) itemClass += ' answered';
       } else {
-        if (!hasAnswered) {
+        if (q.type === 'open_ended') {
+          if (hasAnswered) {
+            itemClass += ' open-ended-done';
+          } else {
+            itemClass += ' skipped';
+          }
+        } else if (!hasAnswered) {
           itemClass += ' skipped';
         } else if (checkQuestionAnswer(q)) {
           itemClass += ' correct';
@@ -1036,12 +1060,15 @@ const GrammarJaModule = (() => {
     stopTimer();
     isSubmitted = true;
 
-    // Chấm điểm: Mỗi câu 1 điểm
+    // Chấm điểm: Mỗi câu 1 điểm (bỏ qua câu hỏi mở open_ended vì không tính điểm)
     let correctCount = 0;
     let wrongCount = 0;
     let skippedCount = 0;
 
-    activeQuizQuestions.forEach(q => {
+    const gradableQuestions = activeQuizQuestions.filter(q => q.type !== 'open_ended');
+    const gradableTotal = gradableQuestions.length;
+
+    gradableQuestions.forEach(q => {
       const hasAnswered = hasQuestionAnswered(q);
       if (!hasAnswered) {
         skippedCount++;
@@ -1059,7 +1086,7 @@ const GrammarJaModule = (() => {
     renderPalette();
 
     // Hiển thị Score Modal
-    showScoreModal(correctCount, total, wrongCount, skippedCount);
+    showScoreModal(correctCount, gradableTotal, wrongCount, skippedCount);
   }
 
   // Hiển thị Modal chấm điểm hoành tráng

@@ -245,6 +245,12 @@
   border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
+.badge-open-done {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
 .q-audio-btn {
   background: transparent;
   color: var(--text-muted);
@@ -647,6 +653,12 @@
   background: rgba(148, 163, 184, 0.2);
   color: #64748b;
   border-color: rgba(148, 163, 184, 0.3);
+}
+
+.palette-item.open-ended-done {
+  background: rgba(99, 102, 241, 0.25) !important;
+  color: #c7d2fe !important;
+  border-color: #818cf8 !important;
 }
 
 .grammar-bottom-palette .palette-actions {
@@ -1089,6 +1101,34 @@
   border-radius: 5px;
 }
 
+.grammar-blank-badge.sample-ref {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+[data-theme="light"] .grammar-blank-badge.sample-ref {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.25);
+}
+
+.grammar-underline-input.input-open-ended {
+  border-bottom-color: #818cf8 !important;
+  color: var(--text-main) !important;
+  background: rgba(99, 102, 241, 0.05) !important;
+}
+
+[data-theme="light"] .grammar-underline-input.input-open-ended {
+  border-bottom-color: #6366f1 !important;
+  background: rgba(99, 102, 241, 0.03) !important;
+}
+
 /* Dạng câu hỏi hoàn thành câu: đường kẻ gạch dưới __________________ */
 .grammar-underline-blank-wrapper {
   display: inline-flex;
@@ -1500,6 +1540,48 @@
   border-color: #9333ea !important;
   color: #7e22ce !important;
 }
+
+/* ========================================================
+   DẠNG BÀI TẬP: TRẢ LỜI CÂU HỎI MỞ (OPEN-ENDED)
+   ======================================================== */
+.grammar-underline-input.input-open-ended {
+  border-bottom-color: #818cf8 !important;
+  color: #c7d2fe !important;
+  background: rgba(99, 102, 241, 0.04) !important;
+}
+
+[data-theme="light"] .grammar-underline-input.input-open-ended {
+  border-bottom-color: #6366f1 !important;
+  color: #3730a3 !important;
+  background: rgba(99, 102, 241, 0.05) !important;
+}
+
+.grammar-blank-badge.sample-ref {
+  background: rgba(6, 182, 212, 0.18) !important;
+  border: 1px solid rgba(6, 182, 212, 0.38) !important;
+  color: #22d3ee !important;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: var(--radius-sm, 6px);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.grammar-blank-badge.sample-ref strong {
+  color: #67e8f9 !important;
+}
+
+[data-theme="light"] .grammar-blank-badge.sample-ref {
+  background: rgba(8, 145, 178, 0.12) !important;
+  border-color: rgba(8, 145, 178, 0.3) !important;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .grammar-blank-badge.sample-ref strong {
+  color: #0e7490 !important;
+}
+
 
 
 
