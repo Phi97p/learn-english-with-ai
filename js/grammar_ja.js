@@ -426,6 +426,98 @@ const GrammarJaModule = (() => {
     return `<div class="grammar-interactive-text">${htmlWithBr}</div>`;
   }
 
+  // ========================================================
+  // DẠNG BÀI TẬP: GHÉP CÁC TỪ THÀNH CÂU HOÀN CHỈNH (WORD ORDER / SCRAMBLE)
+  // ========================================================
+  function formatWordOrderQuestion(q, qIdx) {
+    const rawText = q.question || '';
+    let blankCounter = 0;
+    const isSubmittedState = isSubmitted;
+
+    const lines = rawText.split(/\r?\n/);
+    const resultBlocks = [];
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      // Nếu là câu ví dụ mẫu 例:
+      if (line.includes('例：') || line.includes('例:')) {
+        resultBlocks.push(`<div class="word-order-example-row">${line}</div>`);
+        continue;
+      }
+
+      // Nếu là dòng bài con có chứa từ xáo trộn (chứa ／ hoặc /)
+      if (line.includes('／') || line.includes('/')) {
+        const matchPrefix = line.match(/^(\d+\))\s*(.*)$/);
+        let prefix = '';
+        let wordsPart = line;
+        if (matchPrefix) {
+          prefix = matchPrefix[1] + ' ';
+          wordsPart = matchPrefix[2];
+        }
+
+        const words = wordsPart.split(/[\/／]/).map(w => w.trim()).filter(Boolean);
+        const subIdx = blankCounter++; // Blank index cho câu này
+
+        const blankKey = `${q.id}_blank_${subIdx}`;
+        const userVal = userAnswers[blankKey] || '';
+        const rawTarget = (Array.isArray(q.answers) && q.answers[subIdx] !== undefined)
+          ? q.answers[subIdx]
+          : (q.answer || '');
+        const primaryAns = Array.isArray(rawTarget) ? rawTarget[0] : (typeof rawTarget === 'string' ? rawTarget.split(/[\/|]/)[0].trim() : rawTarget);
+
+        const chipsHtml = words.map((w, wIdx) => {
+          return `<button type="button" class="word-chip-btn" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${subIdx}" data-word-idx="${wIdx}" data-word="${escapeHtml(w)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(w)}</button>`;
+        }).join('');
+
+        let inputClass = '';
+        let feedbackHtml = '';
+
+        if (isSubmittedState) {
+          const isCorrect = checkSingleBlankAnswer(userVal, rawTarget);
+          if (!userVal || !userVal.trim()) {
+            inputClass = 'input-skipped';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa làm! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ Đáp án: <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          } else if (isCorrect) {
+            inputClass = 'input-correct';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
+          } else {
+            inputClass = 'input-wrong';
+            feedbackHtml = `<span class="grammar-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ Đáp án: <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+          }
+        }
+
+        const blockHtml = `
+          <div class="word-order-sub-card">
+            <div class="word-order-prompt-row">
+              <span class="word-order-num">${escapeHtml(prefix)}</span>
+              <div class="word-chips-pool" data-qid="${q.id}" data-blank-idx="${subIdx}">
+                ${chipsHtml}
+              </div>
+            </div>
+            <div class="word-order-input-row">
+              <input type="text" class="grammar-inline-input grammar-underline-input grammar-order-input ${inputClass}" id="grammar-blank-${q.id}-${subIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${subIdx}" size="34" value="${escapeHtml(userVal)}" placeholder="Bấm các từ ở trên để ghép câu..." autocomplete="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />
+              <button type="button" class="word-order-clear-btn" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${subIdx}" title="Xoá làm lại dòng này" ${isSubmittedState ? 'disabled' : ''}>↺ Xếp lại</button>
+              ${feedbackHtml}
+            </div>
+          </div>
+        `;
+        resultBlocks.push(blockHtml);
+
+        // Bỏ qua dòng trống hoặc dòng đường kẻ tiếp theo nếu có
+        if (i + 1 < lines.length && (lines[i + 1].includes('＿＿') || lines[i + 1].includes('___') || lines[i + 1].trim().startsWith('…') || lines[i + 1].trim().startsWith('...'))) {
+          i++;
+        }
+        continue;
+      }
+
+      resultBlocks.push(`<div>${line}</div>`);
+    }
+
+    return `<div class="grammar-interactive-text grammar-word-order-interactive">${resultBlocks.join('')}</div>`;
+  }
+
   // Kiểm tra câu hỏi đã được làm hay chưa
   function hasQuestionAnswered(q) {
     if (q.type === 'binary_choice') {
@@ -562,9 +654,13 @@ const GrammarJaModule = (() => {
         const isBinary = isBinaryChoice || customTag.toLowerCase().includes('chọn 1 trong 2') || customTag.toLowerCase().includes('2 từ');
         const isHiragana = customTag.toLowerCase().includes('hiragana') || customTag.toLowerCase().includes('cách đọc');
         const isOpenEnded = (q.type === 'open_ended') || customTag.toLowerCase().includes('mở');
+        const isWordOrder = (q.type === 'word_order') || customTag.toLowerCase().includes('ghép') || customTag.toLowerCase().includes('sắp xếp');
         let icon = '✏️';
         let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        if (isOpenEnded) {
+        if (isWordOrder) {
+          icon = '🧩';
+          colorStyle = 'background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3);';
+        } else if (isOpenEnded) {
           icon = '💬';
           colorStyle = 'background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3);';
         } else if (isHiragana) {
@@ -580,12 +676,14 @@ const GrammarJaModule = (() => {
           icon = '📋';
           colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
         }
-        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤|💬)\s*/, '');
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤|💬|🧩)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
       }
 
       let bodyContent = '';
-      if (isBinaryChoice) {
+      if (q.type === 'word_order') {
+        bodyContent = formatWordOrderQuestion(q, idx);
+      } else if (isBinaryChoice) {
         bodyContent = formatBinaryChoiceQuestion(q, idx);
       } else if (useInlineBlanks) {
         if (q.choices && Array.isArray(q.choices)) {
@@ -994,6 +1092,60 @@ const GrammarJaModule = (() => {
             if (nextInput) nextInput.focus();
           }
         }
+      });
+    });
+
+    // 5. Sự kiện click vào thẻ từ (Word Chips) trong bài tập Ghép từ thành câu
+    const chipBtns = dom.questionsContainer.querySelectorAll('.word-chip-btn');
+    chipBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (isSubmitted) return;
+        const qid = btn.dataset.qid;
+        const qidx = parseInt(btn.dataset.qidx, 10);
+        const blankIdx = parseInt(btn.dataset.blankIdx, 10);
+        const word = btn.dataset.word;
+        if (!qid || !word) return;
+
+        const input = document.getElementById(`grammar-blank-${qid}-${blankIdx}`);
+        if (!input) return;
+
+        const currentVal = input.value || '';
+        input.value = currentVal + word;
+        userAnswers[`${qid}_blank_${blankIdx}`] = input.value;
+
+        btn.classList.add('chip-used');
+
+        const q = activeQuizQuestions[qidx];
+        const isAnswered = hasQuestionAnswered(q);
+        updatePaletteItem(qidx, isAnswered);
+        updateProgressUI();
+      });
+    });
+
+    // 6. Sự kiện bấm nút Xoá xếp lại (Reset)
+    const clearBtns = dom.questionsContainer.querySelectorAll('.word-order-clear-btn');
+    clearBtns.forEach(cBtn => {
+      cBtn.addEventListener('click', () => {
+        if (isSubmitted) return;
+        const qid = cBtn.dataset.qid;
+        const qidx = parseInt(cBtn.dataset.qidx, 10);
+        const blankIdx = parseInt(cBtn.dataset.blankIdx, 10);
+
+        const input = document.getElementById(`grammar-blank-${qid}-${blankIdx}`);
+        if (input) {
+          input.value = '';
+        }
+        delete userAnswers[`${qid}_blank_${blankIdx}`];
+
+        const pool = dom.questionsContainer.querySelector(`.word-chips-pool[data-qid="${qid}"][data-blank-idx="${blankIdx}"]`);
+        if (pool) {
+          pool.querySelectorAll('.word-chip-btn').forEach(b => b.classList.remove('chip-used'));
+        }
+
+        const q = activeQuizQuestions[qidx];
+        const isAnswered = hasQuestionAnswered(q);
+        updatePaletteItem(qidx, isAnswered);
+        updateProgressUI();
       });
     });
 

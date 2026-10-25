@@ -1582,6 +1582,119 @@
   color: #0e7490 !important;
 }
 
+/* ========================================================
+   DẠNG BÀI TẬP: GHÉP CÁC TỪ THÀNH CÂU (WORD ORDER)
+   ======================================================== */
+.word-order-example-row {
+  margin-bottom: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.word-order-sub-card {
+  margin-bottom: 14px;
+}
+
+.word-order-prompt-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.word-order-num {
+  font-weight: 700;
+  color: #38bdf8;
+  font-size: 0.95rem;
+}
+
+.word-chips-pool {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.word-chip-btn {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.15) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.word-chip-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.28) 0%, rgba(99, 102, 241, 0.3) 100%);
+  border-color: #38bdf8;
+  transform: translateY(-1.5px);
+  box-shadow: 0 3px 8px rgba(56, 189, 248, 0.2);
+}
+
+.word-chip-btn.chip-used {
+  opacity: 0.35;
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.25);
+  border-style: dashed;
+  color: #64748b;
+  pointer-events: none;
+  transform: none;
+}
+
+.word-order-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.grammar-order-input {
+  max-width: 440px !important;
+  width: 100% !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.5px;
+}
+
+.word-order-clear-btn {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  color: #fb7185;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 2.5px 8px;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.word-order-clear-btn:hover:not(:disabled) {
+  background: rgba(244, 63, 94, 0.22);
+  border-color: #f43f5e;
+  color: #fff;
+}
+
+[data-theme="light"] .word-chip-btn {
+  background: #f0fdf4;
+  border-color: #0284c7;
+  color: #0369a1;
+}
+
+[data-theme="light"] .word-chip-btn:hover:not(:disabled) {
+  background: #e0f2fe;
+}
+
+[data-theme="light"] .word-chip-btn.chip-used {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #94a3b8;
+}
+
 
 
 
