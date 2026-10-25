@@ -223,11 +223,66 @@ const GrammarJaModule = (() => {
     });
   }
 
+  // Render panel bảng phương án lựa chọn (cho dạng bài tập matching/chọn từ có sẵn)
+  function renderChoicesPanelHtml(q, qIdx) {
+    if (!q.choices || !Array.isArray(q.choices)) return '';
+    const isSubmittedState = isSubmitted;
+
+    // Tìm xem mỗi key được điền ở blank nào
+    const usedMap = {};
+    const blankCount = countInlineBlanks(q.question);
+    for (let bIdx = 0; bIdx < blankCount; bIdx++) {
+      const val = userAnswers[`${q.id}_blank_${bIdx}`];
+      if (val) {
+        const norm = normalizeAnswerText(val);
+        if (norm) {
+          usedMap[norm] = bIdx + 1;
+        }
+      }
+    }
+
+    let itemsHtml = '';
+    q.choices.forEach(ch => {
+      const isEx = !!ch.isExample;
+      const keyNorm = normalizeAnswerText(ch.key);
+      const usedSubNum = usedMap[keyNorm];
+      const isUsed = !isEx && !!usedSubNum;
+
+      let extraBadge = '';
+      if (isEx) {
+        extraBadge = '<span class="choice-example-tag">Ví dụ</span>';
+      } else if (isUsed) {
+        extraBadge = `<span class="choice-used-tag">Câu ${usedSubNum}</span>`;
+      }
+
+      itemsHtml += `
+        <div class="grammar-choice-item ${isEx ? 'is-example' : ''} ${isUsed ? 'is-used' : ''} ${isSubmittedState ? 'disabled' : ''}" data-qid="${q.id}" data-key="${escapeHtml(ch.key)}" title="${isEx ? 'Câu mẫu ví dụ' : (isSubmittedState ? '' : 'Bấm để điền nhanh vào ô trống')}">
+          <span class="choice-key-badge">${escapeHtml(ch.key)}</span>
+          <span class="choice-text">${escapeHtml(ch.text)}</span>
+          ${extraBadge}
+        </div>
+      `;
+    });
+
+    return `
+      <div class="grammar-choices-panel">
+        <div class="grammar-choices-header">
+          <span class="grammar-choices-title">📋 Bảng phương án lựa chọn</span>
+          <span class="grammar-choices-hint">${isSubmittedState ? 'Đối chiếu phương án đã chọn' : '💡 Bấm vào phương án để điền nhanh'}</span>
+        </div>
+        <div class="grammar-choices-list">
+          ${itemsHtml}
+        </div>
+      </div>
+    `;
+  }
+
   // Format câu hỏi có chỗ trống inline
   function formatGrammarQuestionWithBlanks(q, qIdx) {
     const rawText = q.question || '';
     let blankCounter = 0;
     const isSubmittedState = isSubmitted;
+    const isChoiceBlank = !!(q.choices && Array.isArray(q.choices));
 
     const formatted = rawText.replace(INLINE_BLANK_REGEX, (match) => {
       const bIdx = blankCounter++;
@@ -259,13 +314,14 @@ const GrammarJaModule = (() => {
       const isUnderline = !match.startsWith('（') && !match.startsWith('(');
       const inputSize = isUnderline
         ? Math.max((primaryAns || '').length + 4, 14)
-        : Math.max((primaryAns || '').length + 2, 4);
+        : (isChoiceBlank ? 2 : Math.max((primaryAns || '').length + 2, 4));
 
       if (isUnderline) {
         return `<span class="grammar-blank-wrapper grammar-underline-blank-wrapper"><input type="text" class="grammar-inline-input grammar-underline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />${feedbackHtml}</span>`;
       }
 
-      return `<span class="grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="grammar-inline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
+      const choiceInputClass = isChoiceBlank ? 'grammar-choice-letter-input' : '';
+      return `<span class="grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="grammar-inline-input ${choiceInputClass} ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" maxlength="${isChoiceBlank ? 20 : ''}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
     });
 
     const htmlWithBr = formatted
@@ -276,7 +332,7 @@ const GrammarJaModule = (() => {
 
   // Kiểm tra câu hỏi đã được làm hay chưa
   function hasQuestionAnswered(q) {
-    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+    const isFill = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
     if (!isFill) {
       const userAns = userAnswers[q.id];
       return (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
@@ -299,7 +355,7 @@ const GrammarJaModule = (() => {
 
   // Kiểm tra đáp án câu hỏi (Hỗ trợ Multiple Choice, Điền từ inline, và Điền từ hộp)
   function checkQuestionAnswer(q) {
-    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+    const isFill = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
     if (!isFill) {
       const userAns = userAnswers[q.id];
       return userAns === q.answer;
@@ -343,7 +399,7 @@ const GrammarJaModule = (() => {
     let html = '';
     activeQuizQuestions.forEach((q, idx) => {
       const qNum = idx + 1;
-      const isFillQuestion = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+      const isFillQuestion = (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
       const blankCount = isFillQuestion ? countInlineBlanks(q.question) : 0;
       const useInlineBlanks = isFillQuestion && blankCount > 0;
 
@@ -370,15 +426,41 @@ const GrammarJaModule = (() => {
 
       // Xác định nhãn dạng bài tập (hỗ trợ tag tuỳ chỉnh hoặc tự nhận diện)
       let typeTagHtml = '';
-      const customTag = q.tag || (isFillQuestion ? (q.question && (q.question.includes('＿＿') || q.question.includes('___')) ? 'Hoàn thành câu dựa vào câu có sẵn' : 'Điền từ') : '');
+      const customTag = q.tag || (isFillQuestion ? (q.choices ? 'Chọn câu trả lời phù hợp từ các từ có sẵn' : (q.question && (q.question.includes('＿＿') || q.question.includes('___')) ? 'Hoàn thành câu dựa vào câu có sẵn' : 'Điền từ')) : '');
       if (customTag) {
         const isCompletion = customTag.toLowerCase().includes('hoàn thành');
-        const icon = isCompletion ? '✍️' : '✏️';
-        const colorStyle = isCompletion
-          ? 'background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3);'
-          : 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        const cleanTag = customTag.replace(/^(✍️|✏️)\s*/, '');
+        const isMatching = customTag.toLowerCase().includes('chọn') || !!(q.choices && q.choices.length > 0);
+        let icon = '✏️';
+        let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
+        if (isCompletion) {
+          icon = '✍️';
+          colorStyle = 'background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3);';
+        } else if (isMatching) {
+          icon = '📋';
+          colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
+        }
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
+      }
+
+      let bodyContent = '';
+      if (useInlineBlanks) {
+        if (q.choices && Array.isArray(q.choices)) {
+          bodyContent = `
+            <div class="grammar-matching-layout">
+              <div class="grammar-matching-left">
+                ${formatGrammarQuestionWithBlanks(q, idx)}
+              </div>
+              <div class="grammar-matching-right">
+                ${renderChoicesPanelHtml(q, idx)}
+              </div>
+            </div>
+          `;
+        } else {
+          bodyContent = formatGrammarQuestionWithBlanks(q, idx);
+        }
+      } else {
+        bodyContent = `<h3 class="q-text">${escapeHtml(q.question)}</h3>`;
       }
 
       html += `
@@ -398,7 +480,7 @@ const GrammarJaModule = (() => {
           </div>
 
           <div class="q-body">
-            ${useInlineBlanks ? formatGrammarQuestionWithBlanks(q, idx) : `<h3 class="q-text">${escapeHtml(q.question)}</h3>`}
+            ${bodyContent}
           </div>
       `;
 
@@ -545,6 +627,52 @@ const GrammarJaModule = (() => {
     }
   }
 
+  // Cập nhật trạng thái đã dùng trên Bảng phương án lựa chọn (choices panel)
+  function updateChoicesPanelState(qid) {
+    if (!dom.questionsContainer) return;
+    const choiceItems = dom.questionsContainer.querySelectorAll(`.grammar-choice-item[data-qid="${qid}"]`);
+    if (choiceItems.length === 0) return;
+
+    const qCard = choiceItems[0].closest('.grammar-question-card');
+    if (!qCard) return;
+
+    const qidx = parseInt(qCard.dataset.idx, 10);
+    const q = activeQuizQuestions[qidx];
+    if (!q || !q.choices) return;
+
+    const usedMap = {};
+    const blankCount = countInlineBlanks(q.question);
+    for (let bIdx = 0; bIdx < blankCount; bIdx++) {
+      const val = userAnswers[`${qid}_blank_${bIdx}`];
+      if (val) {
+        const norm = normalizeAnswerText(val);
+        if (norm) {
+          usedMap[norm] = bIdx + 1;
+        }
+      }
+    }
+
+    choiceItems.forEach(item => {
+      if (item.classList.contains('is-example')) return;
+      const keyNorm = normalizeAnswerText(item.dataset.key);
+      const usedSubNum = usedMap[keyNorm];
+      if (usedSubNum) {
+        item.classList.add('is-used');
+        let tag = item.querySelector('.choice-used-tag');
+        if (!tag) {
+          tag = document.createElement('span');
+          tag.className = 'choice-used-tag';
+          item.appendChild(tag);
+        }
+        tag.textContent = `Câu ${usedSubNum}`;
+      } else {
+        item.classList.remove('is-used');
+        const tag = item.querySelector('.choice-used-tag');
+        if (tag) tag.remove();
+      }
+    });
+  }
+
   // Gán sự kiện cho từng câu hỏi
   function bindQuestionEvents() {
     // Sự kiện click chọn đáp án (Trắc nghiệm A, B, C, D)
@@ -580,14 +708,21 @@ const GrammarJaModule = (() => {
         const qid = input.dataset.qid;
         const qidx = parseInt(input.dataset.qidx, 10);
         const bidx = parseInt(input.dataset.blankIdx, 10);
-        const val = input.value.trim();
 
+        if (input.classList.contains('grammar-choice-letter-input')) {
+          input.value = input.value.toLowerCase();
+        }
+
+        const val = input.value.trim();
         const blankKey = `${qid}_blank_${bidx}`;
         if (val) {
           userAnswers[blankKey] = input.value;
         } else {
           delete userAnswers[blankKey];
         }
+
+        // Cập nhật bảng phương án lựa chọn
+        updateChoicesPanelState(qid);
 
         const q = activeQuizQuestions[qidx];
         const isAnswered = hasQuestionAnswered(q);
@@ -603,6 +738,45 @@ const GrammarJaModule = (() => {
             inlineInputs[inputIdx + 1].focus();
           } else {
             if (dom.submitBtn) dom.submitBtn.focus();
+          }
+        }
+      });
+    });
+
+    // 2. Sự kiện click vào thẻ phương án trong bảng choices
+    const choiceCards = dom.questionsContainer.querySelectorAll('.grammar-choice-item');
+    choiceCards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (isSubmitted) return;
+        if (card.classList.contains('is-example')) return;
+
+        const qid = card.dataset.qid;
+        const key = card.dataset.key;
+        if (!qid || !key) return;
+
+        const qCard = card.closest('.grammar-question-card');
+        if (!qCard) return;
+
+        const inputs = Array.from(qCard.querySelectorAll('.grammar-inline-input'));
+        if (inputs.length === 0) return;
+
+        // Ưu tiên ô đang focus trong câu này
+        let targetInput = inputs.find(inp => inp === document.activeElement);
+        if (!targetInput) {
+          // Nếu không có ô nào focus, chọn ô trống đầu tiên
+          targetInput = inputs.find(inp => !inp.value.trim()) || inputs[0];
+        }
+
+        if (targetInput) {
+          targetInput.value = key;
+          targetInput.dispatchEvent(new Event('input', { bubbles: true }));
+          targetInput.focus();
+
+          // Tự động chuyển con trỏ sang ô trống tiếp theo (nếu còn)
+          const currentIdx = inputs.indexOf(targetInput);
+          const nextEmpty = inputs.slice(currentIdx + 1).find(inp => !inp.value.trim());
+          if (nextEmpty) {
+            setTimeout(() => nextEmpty.focus(), 50);
           }
         }
       });
