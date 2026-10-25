@@ -1,0 +1,529 @@
+/* ========================================================
+   MODULE ĐỌC HIỂU & SHADOWING ĐOẠN VĂN TIẾNG NHẬT
+   ======================================================== */
+.reading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.reading-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 980px) {
+  .reading-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reading-passage-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.reading-passage-header {
+  display: none !important;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 14px;
+}
+
+.reading-passage-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reading-passage-topic {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.reading-btn-all {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(217, 70, 239, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.reading-btn-all:hover {
+  background: linear-gradient(135deg, #a855f7, #d946ef);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.reading-btn-all.is-playing {
+  animation: pulse-ring 1.5s infinite;
+  background: linear-gradient(135deg, #9333ea, #c026d3);
+  color: #ffffff;
+}
+
+.reading-passage-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  line-height: 2.1;
+  color: var(--text-main);
+  flex: 1 1 0px;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+}
+
+.reading-passage-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reading-passage-content::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 4px;
+}
+
+.reading-passage-content::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.4);
+  border-radius: 4px;
+}
+
+.reading-passage-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.7);
+}
+
+.reading-sentence-span {
+  display: inline;
+  padding: 3px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  margin: 0 2px;
+  border: 1px solid transparent;
+}
+
+.reading-sentence-span:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #c084fc;
+}
+
+.reading-sentence-span.active {
+  background: rgba(168, 85, 247, 0.25);
+  border: 1px solid #a855f7;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
+}
+
+.reading-sentence-span .sentence-num-badge {
+  font-size: 0.65rem;
+  background: rgba(168, 85, 247, 0.4);
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 1px 5px;
+  margin-right: 4px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+
+.reading-passage-footer-tip {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Vùng hiển thị câu máy nghe được ngay trên nút bấm */
+.passage-spoken-display {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px dashed rgba(168, 85, 247, 0.4);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.passage-spoken-display.is-recording {
+  border-color: #ef4444;
+  border-style: solid;
+  background: rgba(239, 68, 68, 0.08);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+}
+
+.passage-spoken-display.match-success {
+  border-color: #10b981;
+  border-style: solid;
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.passage-spoken-display.match-retry {
+  border-color: #f59e0b;
+  border-style: solid;
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.passage-spoken-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.passage-spoken-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.passage-spoken-status {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.passage-spoken-display.is-recording .passage-spoken-status {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.passage-spoken-display.match-success .passage-spoken-status {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.passage-spoken-display.match-retry .passage-spoken-status {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.passage-spoken-box {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  font-weight: 600;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.passage-spoken-quote {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-family: Georgia, serif;
+}
+
+.passage-spoken-text {
+  color: #f8fafc;
+}
+
+.reading-passage-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.reading-passage-record-btn {
+  flex: 1 1 auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.reading-passage-record-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.reading-passage-record-btn.recording {
+  animation: pulse 1.2s infinite;
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.btn-passage-next {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(168, 85, 247, 0.28));
+  border: 1px solid rgba(168, 85, 247, 0.55);
+  color: #e0e7ff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.22);
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-passage-next:hover {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  border-color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(168, 85, 247, 0.4);
+}
+
+.btn-passage-next:active {
+  transform: translateY(0);
+}
+
+/* ========================================================
+   MODULE ĐỌC HIỂU & SHADOWING ĐOẠN VĂN TIẾNG ANH (#tab-reading-en)
+   ======================================================== */
+#tab-reading-en .reading-btn-all {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  color: #60a5fa;
+}
+
+#tab-reading-en .reading-btn-all:hover {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff;
+}
+
+#tab-reading-en .reading-btn-all.is-playing {
+  animation: pulse-ring 1.5s infinite;
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+  color: #ffffff;
+}
+
+#tab-reading-en .reading-sentence-span:hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
+}
+
+#tab-reading-en .reading-sentence-span.active {
+  background: rgba(59, 130, 246, 0.28);
+  border: 1px solid #3b82f6;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+#tab-reading-en .reading-sentence-span .sentence-num-badge {
+  background: rgba(59, 130, 246, 0.45);
+}
+
+/* Khung hiển thị câu người đọc trong Phòng Đọc hiểu (Cả Anh & Nhật) */
+.spoken-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 580px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px dashed rgba(99, 102, 241, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 10px 16px;
+  margin: 12px auto 0 auto;
+  text-align: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.spoken-result-container.is-recording {
+  border-color: var(--accent-rose);
+  border-style: solid;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.35);
+  background: rgba(244, 63, 94, 0.08);
+}
+
+.spoken-result-container.match-success {
+  border-color: var(--accent-emerald);
+  border-style: solid;
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+}
+
+.spoken-result-container.match-retry {
+  border-color: var(--accent-amber);
+  border-style: solid;
+  background: rgba(245, 158, 11, 0.12);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.3);
+}
+
+.spoken-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
+.spoken-text-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.spoken-quote-mark {
+  color: var(--accent-cyan);
+  font-size: 1.15rem;
+  opacity: 0.8;
+  margin: 0 2px;
+}
+
+.spoken-text-content {
+  color: #ffffff;
+}
+
+/* ========================================================
+   RESPONSIVE CHO PHÒNG ĐỌC HIỂU (MOBILE & TABLET)
+   Đặt sau base styles để ghi đè chuẩn xác
+   ======================================================== */
+@media (max-width: 980px) {
+  .reading-layout {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .reading-passage-panel {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 16px 14px !important;
+    gap: 14px !important;
+    overflow: visible !important;
+  }
+
+  .reading-passage-content {
+    flex: none !important;
+    height: 240px !important;
+    min-height: 200px !important;
+    max-height: 45vh !important;
+    padding: 14px 16px !important;
+    font-size: 1.25rem !important;
+    line-height: 2.3 !important;
+    overflow-y: auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  .reading-sentence-span {
+    padding: 4px 6px !important;
+    margin: 2px 2px !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .passage-spoken-display {
+    padding: 10px 14px !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .passage-spoken-box {
+    font-size: 1rem !important;
+    min-height: 26px !important;
+  }
+
+  .reading-passage-actions {
+    gap: 8px !important;
+    margin-top: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .reading-passage-record-btn {
+    padding: 12px 14px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .btn-passage-next {
+    padding: 12px 16px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .reading-passage-panel {
+    padding: 12px 10px !important;
+    gap: 10px !important;
+  }
+
+  .reading-passage-content {
+    height: 220px !important;
+    min-height: 190px !important;
+    padding: 12px 12px !important;
+    font-size: 1.18rem !important;
+    line-height: 2.2 !important;
+  }
+
+  .reading-passage-record-btn {
+    padding: 11px 8px !important;
+    font-size: 0.85rem !important;
+    gap: 5px !important;
+  }
+
+  .btn-passage-next {
+    padding: 11px 10px !important;
+    font-size: 0.85rem !important;
+    gap: 4px !important;
+  }
+}
+
+.hidden {
+  display: none !important;
+}

@@ -40,9 +40,9 @@
 - **Nguồn dữ liệu**: Quản lý tại thư mục `datasss/jp/ngu_phap/` (mỗi file ứng với đúng 1 chủ đề độc lập, tuyệt đối không lấy data của file này gắn vào chủ đề của file/bài khác).
 - **File đích**: `japanese_data/grammar_data.js` (`JA_GRAMMAR_DATA`).
 - **Quy tắc làm bài & Chấm điểm**:
-  - Hỗ trợ cả 2 dạng câu hỏi: Trắc nghiệm A, B, C, D và Điền từ trực tiếp (AI tự động phán định), mỗi câu đúng 1 điểm.
-  - Gom các câu hỏi theo từng chủ đề bài học độc lập tương ứng với từng file và có chế độ Tổng hợp tất cả các bài.
-  - Mỗi lần tạo đề sẽ lấy ngẫu nhiên 30 câu (nếu bài học có ít hơn 30 câu thì lấy toàn bộ số câu hiện có).
+  - Hỗ trợ đa dạng nhiều loại bài tập khác nhau: Trắc nghiệm 4 lựa chọn, Điền trợ từ vào ngoặc theo chuẩn `b1_q1`, Hoàn thành câu trên đường kẻ gạch dưới theo chuẩn `b1_q2`, và các dạng bài tập mới sẽ được bổ sung skill riêng khi người dùng đưa vào. Mỗi câu đúng 1 điểm.
+  - Gom các câu hỏi theo từng chủ đề bài học độc lập tương ứng với từng file (không trộn đề tổng hợp).
+  - Hiển thị toàn bộ câu hỏi của bài học theo đúng trình tự SGK (không xáo trộn ngẫu nhiên).
   - Nộp bài xong sẽ chấm điểm tự động, hiển thị số câu đúng/sai, tỷ lệ %, thời gian làm bài, đáp án đúng và phần giải thích chi tiết.
   - **Không lưu lịch sử làm bài** vào `localStorage` hay ổ cứng theo đúng yêu cầu người dùng.
 

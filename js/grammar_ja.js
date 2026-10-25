@@ -12,7 +12,7 @@ const GrammarJaModule = (() => {
   let currentScore = 0;
   let timerInterval = null;
   let elapsedSeconds = 0;
-  let selectedLessonKey = 'all'; // 'all' | 'bai_1' | ...
+  let selectedLessonKey = ''; // 'bai_1' | 'bai_2' | ...
 
   // DOM Elements
   let dom = {};
@@ -54,17 +54,10 @@ const GrammarJaModule = (() => {
   // Thu thập danh sách câu hỏi theo bài đã chọn
   function getQuestionsForSelectedLesson() {
     const allData = getAllLessonsData();
-    if (selectedLessonKey === 'all') {
-      let pool = [];
-      Object.keys(allData).forEach(key => {
-        const lesson = allData[key];
-        if (lesson && Array.isArray(lesson.questions)) {
-          lesson.questions.forEach(q => {
-            pool.push(Object.assign({}, q, { lessonTitle: lesson.title || key }));
-          });
-        }
-      });
-      return pool;
+    const lessonKeys = Object.keys(allData);
+
+    if ((!selectedLessonKey || !allData[selectedLessonKey]) && lessonKeys.length > 0) {
+      selectedLessonKey = lessonKeys[0];
     }
 
     const lesson = allData[selectedLessonKey];
@@ -92,7 +85,11 @@ const GrammarJaModule = (() => {
     const allData = getAllLessonsData();
     const lessonKeys = Object.keys(allData);
 
-    let html = `<option value="all" ${selectedLessonKey === 'all' ? 'selected' : ''}>🎯 Đề tổng hợp (Tất cả các bài)</option>`;
+    if ((!selectedLessonKey || !allData[selectedLessonKey]) && lessonKeys.length > 0) {
+      selectedLessonKey = lessonKeys[0];
+    }
+
+    let html = '';
     lessonKeys.forEach(key => {
       const lesson = allData[key];
       const count = (lesson && Array.isArray(lesson.questions)) ? lesson.questions.length : 0;
@@ -134,7 +131,7 @@ const GrammarJaModule = (() => {
     }
   }
 
-  // Tạo đề thi mới (Chọn ngẫu nhiên 30 câu)
+  // Khởi tạo bài làm cho bài học đang chọn
   function generateNewQuiz(isRetrySame = false) {
     stopTimer();
     const pool = getQuestionsForSelectedLesson();
@@ -147,11 +144,8 @@ const GrammarJaModule = (() => {
       return;
     }
 
-    if (!isRetrySame) {
-      // Xáo trộn và cắt đúng tối đa 30 câu
-      const shuffled = shuffleArray(pool);
-      activeQuizQuestions = shuffled.slice(0, 30);
-    }
+    // Giữ nguyên toàn bộ câu hỏi của bài học theo đúng thứ tự SGK
+    activeQuizQuestions = pool.slice();
 
     // Reset trạng thái làm bài (Không lưu lịch sử)
     userAnswers = {};
@@ -189,22 +183,148 @@ const GrammarJaModule = (() => {
     return str.toString()
       .trim()
       .replace(/[\s\u3000]+/g, '') // bỏ khoảng trắng ASCII & khoảng trắng tiếng Nhật
-      .replace(/[・,，、。.]/g, '') // bỏ dấu chấm ngăn cách, phẩy
+      .replace(/[・,，、。.\\/|\-;()[\]（）：:]/g, '') // bỏ dấu chấm ngăn cách, phẩy, gạch chéo, ngoặc
       .toLowerCase();
   }
 
-  // Kiểm tra đáp án câu hỏi (Hỗ trợ cả Multiple Choice và Điền từ)
-  function checkQuestionAnswer(q, userAns) {
+  // Nhận diện ký tự chỗ trống:
+  // 1. Dạng ngoặc đơn: （____）, (____), （　）, (   )
+  // 2. Dạng đường kẻ gạch dưới: ＿＿＿＿, ____ (tối thiểu 2 dấu gạch dưới)
+  const INLINE_BLANK_REGEX = /(?:[（\(][\s\u3000_—]*[）\)]|[＿_—–]{2,})/g;
+
+  function countInlineBlanks(questionStr) {
+    if (!questionStr) return 0;
+    const matches = questionStr.match(INLINE_BLANK_REGEX);
+    return matches ? matches.length : 0;
+  }
+
+  function checkSingleBlankAnswer(userVal, targetAns) {
+    if (!userVal) return false;
+    const normUser = normalizeAnswerText(userVal);
+    if (!normUser) return false;
+
+    let targets = [];
+    if (Array.isArray(targetAns)) {
+      targets = targetAns;
+    } else if (typeof targetAns === 'string') {
+      targets = targetAns.split(/[\/|]/).map(s => s.trim());
+    } else {
+      targets = [targetAns];
+    }
+
+    return targets.some(target => {
+      const normTarget = normalizeAnswerText(target);
+      if (!normTarget) return false;
+      if (normUser === normTarget) return true;
+      if (normTarget === 'は' && (normUser === 'wa' || normUser === 'ha')) return true;
+      if (normTarget === 'へ' && (normUser === 'e' || normUser === 'he')) return true;
+      if (normTarget === 'を' && (normUser === 'o' || normUser === 'wo')) return true;
+      return false;
+    });
+  }
+
+  // Format câu hỏi có chỗ trống inline
+  function formatGrammarQuestionWithBlanks(q, qIdx) {
+    const rawText = q.question || '';
+    let blankCounter = 0;
+    const isSubmittedState = isSubmitted;
+
+    const formatted = rawText.replace(INLINE_BLANK_REGEX, (match) => {
+      const bIdx = blankCounter++;
+      const blankKey = `${q.id}_blank_${bIdx}`;
+      const userVal = userAnswers[blankKey] || '';
+      const rawTarget = (Array.isArray(q.answers) && q.answers[bIdx] !== undefined)
+        ? q.answers[bIdx]
+        : (q.answer || '');
+      const primaryAns = Array.isArray(rawTarget) ? rawTarget[0] : (typeof rawTarget === 'string' ? rawTarget.split(/[\/|]/)[0].trim() : rawTarget);
+
+      let inputClass = '';
+      let feedbackHtml = '';
+
+      if (isSubmittedState) {
+        const isBlankCorrect = checkSingleBlankAnswer(userVal, rawTarget);
+        if (!userVal || !userVal.trim()) {
+          inputClass = 'input-skipped';
+          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+        } else if (isBlankCorrect) {
+          inputClass = 'input-correct';
+          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge correct" title="Chính xác!">✅</span></span>`;
+        } else {
+          inputClass = 'input-wrong';
+          feedbackHtml = `<span class="kanji-slot-feedback"><span class="grammar-blank-badge wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span></span>`;
+        }
+      }
+
+      // Phân biệt: Nếu là dạng gạch dưới (không bắt đầu bằng dấu ngoặc)
+      const isUnderline = !match.startsWith('（') && !match.startsWith('(');
+      const inputSize = isUnderline
+        ? Math.max((primaryAns || '').length + 4, 14)
+        : Math.max((primaryAns || '').length + 2, 4);
+
+      if (isUnderline) {
+        return `<span class="grammar-blank-wrapper grammar-underline-blank-wrapper"><input type="text" class="kanji-hiragana-input grammar-inline-input grammar-underline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} />${feedbackHtml}</span>`;
+      }
+
+      return `<span class="kanji-bracket-wrapper grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="kanji-hiragana-input grammar-inline-input ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
+    });
+
+    const htmlWithBr = formatted
+      .replace(/\r?\n\s*\r?\n/g, '<div class="grammar-para-gap"></div>')
+      .replace(/\r?\n/g, '<br>');
+    return `<div class="kanji-interactive-sentence grammar-interactive-text">${htmlWithBr}</div>`;
+  }
+
+  // Kiểm tra câu hỏi đã được làm hay chưa
+  function hasQuestionAnswered(q) {
+    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+    if (!isFill) {
+      const userAns = userAnswers[q.id];
+      return (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+    }
+
+    const blankCount = countInlineBlanks(q.question);
+    if (blankCount > 0) {
+      for (let bIdx = 0; bIdx < blankCount; bIdx++) {
+        const userVal = userAnswers[`${q.id}_blank_${bIdx}`];
+        if (userVal !== undefined && userVal !== null && userVal.toString().trim() !== '') {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    const userAns = userAnswers[q.id];
+    return (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+  }
+
+  // Kiểm tra đáp án câu hỏi (Hỗ trợ Multiple Choice, Điền từ inline, và Điền từ hộp)
+  function checkQuestionAnswer(q) {
+    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+    if (!isFill) {
+      const userAns = userAnswers[q.id];
+      return userAns === q.answer;
+    }
+
+    const blankCount = countInlineBlanks(q.question);
+    if (blankCount > 0) {
+      for (let bIdx = 0; bIdx < blankCount; bIdx++) {
+        const userVal = userAnswers[`${q.id}_blank_${bIdx}`];
+        const targetAns = (Array.isArray(q.answers) && q.answers[bIdx] !== undefined)
+          ? q.answers[bIdx]
+          : (q.answer || '');
+        if (!checkSingleBlankAnswer(userVal, targetAns)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // Dạng điền từ hộp ở đáy
+    const userAns = userAnswers[q.id];
     if (userAns === undefined || userAns === null) return false;
     const strAns = userAns.toString().trim();
     if (!strAns) return false;
 
-    const isFill = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
-    if (!isFill) {
-      return strAns === q.answer;
-    }
-
-    // Dạng điền từ
     const normUser = normalizeAnswerText(strAns);
     const normCorrect = normalizeAnswerText(q.answer);
     if (normUser === normCorrect) return true;
@@ -223,10 +343,14 @@ const GrammarJaModule = (() => {
     let html = '';
     activeQuizQuestions.forEach((q, idx) => {
       const qNum = idx + 1;
+      const isFillQuestion = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
+      const blankCount = isFillQuestion ? countInlineBlanks(q.question) : 0;
+      const useInlineBlanks = isFillQuestion && blankCount > 0;
+
       const userAns = userAnswers[q.id];
       const correctOpt = q.answer;
-      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
-      const isCorrect = checkQuestionAnswer(q, userAns);
+      const hasAnswered = hasQuestionAnswered(q);
+      const isCorrect = checkQuestionAnswer(q);
 
       let cardClass = 'grammar-question-card';
       let statusBadge = '';
@@ -250,7 +374,7 @@ const GrammarJaModule = (() => {
             <div class="q-number-box">
               <span class="q-badge">Câu ${qNum} / ${total}</span>
               ${q.lessonTitle ? `<span class="q-lesson-tag">${q.lessonTitle}</span>` : ''}
-              ${(q.type === 'fill' || !q.options || Object.keys(q.options).length === 0) ? `<span class="q-lesson-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">✏️ Điền từ</span>` : ''}
+              ${isFillQuestion ? `<span class="q-lesson-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">✏️ Điền từ</span>` : ''}
             </div>
             <div class="q-header-right">
               ${statusBadge}
@@ -261,14 +385,12 @@ const GrammarJaModule = (() => {
           </div>
 
           <div class="q-body">
-            <h3 class="q-text">${escapeHtml(q.question)}</h3>
+            ${useInlineBlanks ? formatGrammarQuestionWithBlanks(q, idx) : `<h3 class="q-text">${escapeHtml(q.question)}</h3>`}
           </div>
       `;
 
-      const isFillQuestion = (q.type === 'fill' || !q.options || Object.keys(q.options).length === 0);
-
-      if (isFillQuestion) {
-        // Dạng Điền từ (Fill-in-the-blank)
+      if (isFillQuestion && !useInlineBlanks) {
+        // Dạng Điền từ hộp ở đáy (dành cho câu không có chỗ trống trong dấu ngoặc)
         let inputClass = 'q-fill-input';
         let resultMsg = '';
 
@@ -293,7 +415,7 @@ const GrammarJaModule = (() => {
             ${resultMsg}
           </div>
         `;
-      } else {
+      } else if (!isFillQuestion) {
         // Dạng trắc nghiệm 4 lựa chọn (A, B, C, D)
         html += `<div class="q-options-grid">`;
         ['A', 'B', 'C', 'D'].forEach(optKey => {
@@ -360,8 +482,7 @@ const GrammarJaModule = (() => {
     let html = '';
     for (let idx = 0; idx < total; idx++) {
       const q = activeQuizQuestions[idx];
-      const userAns = userAnswers[q.id];
-      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+      const hasAnswered = hasQuestionAnswered(q);
       let itemClass = 'palette-item';
 
       if (!isSubmitted) {
@@ -369,7 +490,7 @@ const GrammarJaModule = (() => {
       } else {
         if (!hasAnswered) {
           itemClass += ' skipped';
-        } else if (checkQuestionAnswer(q, userAns)) {
+        } else if (checkQuestionAnswer(q)) {
           itemClass += ' correct';
         } else {
           itemClass += ' wrong';
@@ -396,10 +517,10 @@ const GrammarJaModule = (() => {
       return;
     }
 
-    const answeredCount = Object.keys(userAnswers).filter(k => {
-      const val = userAnswers[k];
-      return (val !== undefined && val !== null && val.toString().trim() !== '');
-    }).length;
+    let answeredCount = 0;
+    activeQuizQuestions.forEach(q => {
+      if (hasQuestionAnswered(q)) answeredCount++;
+    });
 
     const percent = Math.round((answeredCount / total) * 100);
 
@@ -438,7 +559,43 @@ const GrammarJaModule = (() => {
       });
     });
 
-    // Sự kiện input cho dạng điền từ
+    // 1. Sự kiện input dạng điền từ trực tiếp vào từng dấu () giống sheet Kanji
+    const inlineInputs = Array.from(dom.questionsContainer.querySelectorAll('.grammar-inline-input'));
+    inlineInputs.forEach((input, inputIdx) => {
+      input.addEventListener('input', () => {
+        if (isSubmitted) return;
+        const qid = input.dataset.qid;
+        const qidx = parseInt(input.dataset.qidx, 10);
+        const bidx = parseInt(input.dataset.blankIdx, 10);
+        const val = input.value.trim();
+
+        const blankKey = `${qid}_blank_${bidx}`;
+        if (val) {
+          userAnswers[blankKey] = input.value;
+        } else {
+          delete userAnswers[blankKey];
+        }
+
+        const q = activeQuizQuestions[qidx];
+        const isAnswered = hasQuestionAnswered(q);
+        updatePaletteItem(qidx, isAnswered);
+        updateProgressUI();
+      });
+
+      // Nhấn Enter chuyển nhanh sang ô input () tiếp theo
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (inputIdx + 1 < inlineInputs.length) {
+            inlineInputs[inputIdx + 1].focus();
+          } else {
+            if (dom.submitBtn) dom.submitBtn.focus();
+          }
+        }
+      });
+    });
+
+    // 2. Sự kiện input cho dạng điền từ hộp ở đáy (fallback)
     const fillInputs = dom.questionsContainer.querySelectorAll('.q-fill-input');
     fillInputs.forEach(input => {
       input.addEventListener('input', () => {
@@ -464,7 +621,7 @@ const GrammarJaModule = (() => {
           const nextCard = document.getElementById(`grammar-q-${qidx + 1}`);
           if (nextCard) {
             nextCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            const nextInput = nextCard.querySelector('.q-fill-input');
+            const nextInput = nextCard.querySelector('.q-fill-input, .grammar-inline-input');
             if (nextInput) nextInput.focus();
           }
         }
@@ -480,7 +637,7 @@ const GrammarJaModule = (() => {
         const q = activeQuizQuestions[qidx];
         if (q && window.AppCore && typeof window.AppCore.speakJa === 'function') {
           // Bỏ ký tự chỗ trống khi đọc tiếng Nhật để âm thanh tự nhiên
-          const cleanText = q.question.replace(/\([_ ]+\)/g, '、').replace(/（[_ ]+）/g, '、').replace(/—/g, '、');
+          const cleanText = q.question.replace(/[（\(][\s\u3000_—]*[）\)]/g, '、').replace(/—/g, '、');
           window.AppCore.speakJa(cleanText);
         }
       });
@@ -519,10 +676,10 @@ const GrammarJaModule = (() => {
     const total = activeQuizQuestions.length;
     if (total === 0) return;
 
-    const answeredCount = Object.keys(userAnswers).filter(k => {
-      const val = userAnswers[k];
-      return (val !== undefined && val !== null && val.toString().trim() !== '');
-    }).length;
+    let answeredCount = 0;
+    activeQuizQuestions.forEach(q => {
+      if (hasQuestionAnswered(q)) answeredCount++;
+    });
 
     const unansweredCount = total - answeredCount;
 
@@ -540,11 +697,10 @@ const GrammarJaModule = (() => {
     let skippedCount = 0;
 
     activeQuizQuestions.forEach(q => {
-      const userAns = userAnswers[q.id];
-      const hasAnswered = (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
+      const hasAnswered = hasQuestionAnswered(q);
       if (!hasAnswered) {
         skippedCount++;
-      } else if (checkQuestionAnswer(q, userAns)) {
+      } else if (checkQuestionAnswer(q)) {
         correctCount++;
       } else {
         wrongCount++;

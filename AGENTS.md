@@ -19,14 +19,14 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiến
 
 ## 2. Japanese Grammar Agent (Chuyên Viên Đồng Bộ & Quản Trị Ngữ Pháp Tiếng Nhật)
 - **Tập tin quy định chi tiết**: [.agents/agents/japanese-grammar-agent.md](file:///.agents/agents/japanese-grammar-agent.md)
-- **Skill liên kết**: [sync-japanese-grammar](file:///.agents/skills/sync-japanese-grammar/SKILL.md)
+- **Skill liên kết**: [sync-japanese-grammar](file:///.agents/skills/sync-japanese-grammar/SKILL.md), [sync-japanese-sentence-completion](file:///.agents/skills/sync-japanese-sentence-completion/SKILL.md)
 - **Nguồn dữ liệu**: `datasss/jp/ngu_phap/` (file chính: `bai_1.txt`, `bai_2.txt`,...)
 - **File đích**: [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (`JA_GRAMMAR_DATA`)
 - **Nhiệm vụ chính**:
   1. Tự động đọc dữ liệu câu hỏi tiếng Nhật từ `datasss/jp/ngu_phap/` (mỗi file ứng với 1 chủ đề riêng biệt, tuyệt đối không lấy data ở file này gắn vào chủ đề của bài khác).
-  2. Tự động phán định dạng câu hỏi: nhận diện trắc nghiệm 4 phương án A, B, C, D hoặc dạng bài tập điền từ trực tiếp (tự động phân tích từ cần điền và sinh giải thích chuẩn xác nếu người dùng chưa viết).
+  2. Phán định dạng câu hỏi linh hoạt: Hỗ trợ đa dạng nhiều dạng bài tập (trắc nghiệm 4 phương án; bài tập điền trợ từ vào ngoặc theo chuẩn `b1_q1`; bài tập hoàn thành câu trên đường kẻ gạch dưới `＿＿＿＿＿＿＿＿＿＿` theo chuẩn `b1_q2`; cùng các dạng bài tập mới sẽ được xây dựng skill riêng khi người dùng đưa vào). Tự sinh giải thích ngữ pháp chuẩn xác theo SGK nếu người dùng chưa viết.
   3. Cập nhật dữ liệu vào `JA_GRAMMAR_DATA` trong [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (luôn gán `window.JA_GRAMMAR_DATA`).
-  4. Tuân thủ quy chuẩn đề thi: 30 câu ngẫu nhiên, mỗi câu 1 điểm, gom theo bài, chấm điểm tự động và tuyệt đối không lưu lịch sử làm bài.
+  4. Tuân thủ quy chuẩn đề thi: gom theo bài, hiển thị theo đúng thứ tự bài tập SGK (không xáo trộn ngẫu nhiên), mỗi câu 1 điểm, chấm điểm tự động và tuyệt đối không lưu lịch sử làm bài.
 
 ---
 

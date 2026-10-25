@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4.7">
+  <link rel="stylesheet" href="style.css?v=5.1">
 </head>
 <body>
   <div class="app-container">
@@ -37,6 +37,11 @@
           <span>Đọc hiểu & Shadowing Nhật</span>
           <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Đoạn văn</span>
         </button>
+        <button class="nav-item" data-tab="grammar-ja">
+          <span class="icon">📝</span>
+          <span>Luyện tập Ngữ pháp</span>
+          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">30 câu</span>
+        </button>
         <button class="nav-item" data-tab="vocab-ja">
           <span class="icon">🗂️</span>
           <span>Từ vựng Tiếng Nhật</span>
@@ -51,11 +56,6 @@
           <span class="icon">🈂️</span>
           <span>Học Katakana</span>
           <span class="badge" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">Phản xạ</span>
-        </button>
-        <button class="nav-item" data-tab="grammar-ja">
-          <span class="icon">📝</span>
-          <span>Luyện tập Ngữ pháp</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">30 câu</span>
         </button>
         <button class="nav-item" data-tab="kanji-ja">
           <span class="icon">🈸</span>
@@ -559,9 +559,6 @@
                     <!-- Rendered by js/grammar_ja.js -->
                   </select>
                 </div>
-                <button type="button" class="btn-grammar-action btn-new-quiz" id="ja-grammar-new-quiz-btn" title="Tạo bộ 30 câu hỏi ngẫu nhiên mới">
-                  🎲 Đề ngẫu nhiên mới (30 câu)
-                </button>
               </div>
             </div>
           </div>
@@ -665,10 +662,7 @@
                   🔍 Xem lại chi tiết từng câu
                 </button>
                 <button type="button" class="btn-score-action btn-retry" id="ja-grammar-modal-retry-btn">
-                  🔄 Làm lại đề này
-                </button>
-                <button type="button" class="btn-score-action btn-next-quiz" id="ja-grammar-modal-new-quiz-btn">
-                  🎲 Làm đề mới (30 câu khác)
+                  🔄 Làm lại bài này
                 </button>
               </div>
             </div>

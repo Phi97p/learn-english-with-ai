@@ -27,3 +27,7 @@ desktop.ini
 sgk/
 sgk-jp/
 datasss/
+
+# AI Agents & Skills (Không đẩy lên Git)
+.agents/
+.agent/
