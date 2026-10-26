@@ -318,6 +318,139 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu mẫu sau khi nộp bài):\n• 1):「あなたの国は今何時ですか」(Đất nước của bạn bây giờ là mấy giờ?) ➔ Trả lời bằng mốc giờ hiện tại tại nơi bạn đang sống:「午前／午後 [Số giờ] です」(Ví dụ: 午後3時です、午前10時です...).\n• 2):「きょうは何曜日ですか」(Hôm nay là thứ mấy?) ➔ Trả lời bằng thứ trong tuần của ngày bạn làm bài:「[Thứ]曜日です」(Ví dụ: 月曜日です、水曜日です、日曜日です...).\n• 3):「あなたの国の郵便局は朝何時からですか」(Bưu điện ở nước bạn buổi sáng bắt đầu từ mấy giờ?) ➔ Trả lời bằng giờ mở cửa:「朝 [Số giờ] からです」(Ví dụ: 朝8時からです、朝7時半からです...).\n• 4):「きのうの晩何時まで勉強しましたか」(Tối hôm qua bạn đã học bài đến mấy giờ?) ➔ Trả lời bằng mốc giờ kết thúc việc học:「[Số giờ] まで勉強しました」(Ví dụ: 11時まで勉強しました、10時半まで勉強しました...)."
       }
     ]
+  },
+  "bai_4": {
+    "title": "Bài 4",
+    "questions": [
+      {
+        "id": "b4_q1",
+        "type": "fill",
+        "tag": "Điền cách đọc ngày tháng",
+        "columns": 3,
+        "question": "1. 例：3／24（さんがつにじゅうよっか）\n\n1) 5／10（____）\n2) 3／3（____）\n3) 1／4（____）\n4) 12／1（____）\n5) 9／5（____）\n6) 11／7（____）\n7) 7／8（____）\n8) 10／14（____）\n9) 6／2（____）\n10) 8／20（____）\n11) 2／6（____）\n12) 4／9（____）",
+        "answers": [
+          "ごがつとおか",
+          "さんがつみっか",
+          "いちがつよっか",
+          "じゅうにがつついたち",
+          "くがついつか",
+          "じゅういちがつなのか",
+          "しちがつようか / なながつようか",
+          "じゅうがつじゅうよっか",
+          "ろくがつふつか",
+          "はちがつはつか",
+          "にがつむいか",
+          "しがつここのか"
+        ],
+        "explanation": "• Quy tắc đọc tháng: Tháng 4 đọc là「しがつ」(không đọc よんがつ), tháng 7 đọc là「しちがつ」(hoặc なながつ), tháng 9 đọc là「くがつ」(không đọc きゅうがつ).\n• Quy tắc đọc ngày đặc biệt trong tháng: 1日 (ついたち), 2日 (ふつか), 3日 (みっか), 4日 (よっか), 5日 (いつか), 6日 (むいか), 7日 (なのか), 8日 (ようか), 9日 (ここのか), 10日 (とおか), 14日 (じゅうよっか), 20日 (はつか), 24日 (にじゅうよっか).\n• 1): 5/10 ➔ Tháng 5「ごがつ」+ Ngày 10「とおか」=「ごがつとおか」.\n• 2): 3/3 ➔ Tháng 3「さんがつ」+ Ngày 3「みっか」=「さんがつみっか」.\n• 3): 1/4 ➔ Tháng 1「いちがつ」+ Ngày 4「よっか」=「いちがつよっか」.\n• 4): 12/1 ➔ Tháng 12「じゅうにがつ」+ Ngày 1「ついたち」=「じゅうにがつついたち」.\n• 5): 9/5 ➔ Tháng 9「くがつ」+ Ngày 5「いつか」=「くがついつか」.\n• 6): 11/7 ➔ Tháng 11「じゅういちがつ」+ Ngày 7「なのか」=「じゅういちがつなのか」.\n• 7): 7/8 ➔ Tháng 7「しちがつ」+ Ngày 8「ようか」=「しちがつようか」.\n• 8): 10/14 ➔ Tháng 10「じゅうがつ」+ Ngày 14「じゅうよっか」=「じゅうがつじゅうよっか」.\n• 9): 6/2 ➔ Tháng 6「ろくがつ」+ Ngày 2「ふつか」=「ろくがつふつか」.\n• 10): 8/20 ➔ Tháng 8「はちがつ」+ Ngày 20「はつか」=「はちがつはつか」.\n• 11): 2/6 ➔ Tháng 2「にがつ」+ Ngày 6「むいか」=「にがつむいか」.\n• 12): 4/9 ➔ Tháng 4「しがつ」+ Ngày 9「ここのか」=「しがつここのか」."
+      },
+      {
+        "id": "b4_q2",
+        "type": "fill",
+        "tag": "Điền từ vào bảng",
+        "table": {
+          "title": "",
+          "headers": [],
+          "rows": [
+            ["1) （____）", "きょう", "5) （____）"],
+            ["2) （____）", "今週", "来週"],
+            ["先月", "今月", "6) （____）"],
+            ["3) （____）", "4) （____）", "来年"]
+          ]
+        },
+        "question": "2.",
+        "answers": [
+          "きのう",
+          "先週 / せんしゅう",
+          "去年 / きょねん",
+          "今年 / ことし",
+          "あした",
+          "来月 / らいげつ"
+        ],
+        "explanation": "• 1): Thời điểm trước「きょう」(hôm nay) là hôm qua ➔「きのう」(kinou).\n• 2): Thời điểm trước「今週」(tuần này) là tuần trước ➔「先週」(せんしゅう - senshuu).\n• 3): Thời điểm trước「今年」(năm nay) là năm ngoái ➔「去年」(きょねん - kyonen).\n• 4): Thời điểm ở giữa「去年」(năm ngoái) và「来年」(năm sau) là năm nay ➔「今年」(ことし - kotoshi).\n• 5): Thời điểm sau「きょう」(hôm nay) là ngày mai ➔「あした」(ashita).\n• 6): Thời điểm sau「今月」(tháng này) là tháng sau ➔「来月」(らいげつ - raigetsu)."
+      },
+      {
+        "id": "b4_q3",
+        "type": "fill",
+        "tag": "Hoàn thành câu với động từ di chuyển",
+        "columns": 2,
+        "question": "3. 例：去年 京都へ <u>行きました。</u>\n\n1) 先月 日本へ ＿＿＿＿＿＿＿＿＿＿\n2) きのう 10時にうちへ ＿＿＿＿＿＿＿＿＿＿\n3) 来年の８月に国へ ＿＿＿＿＿＿＿＿＿＿\n4) 先週の土曜日 どこも ＿＿＿＿＿＿＿＿＿＿\n5) あした スーパーへ ＿＿＿＿＿＿＿＿＿＿\n6) おととい 美術館へ ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "来ました。 / 来ました / きました。 / きました / 行きました。 / 行きました / いきました。 / いきました",
+          "帰りました。 / 帰りました / かえりました。 / かえりました",
+          "帰ります。 / 帰ります / かえります。 / かえります / 行きます。 / 行きます / いきます。 / いきます",
+          "行きませんでした。 / 行きませんでした / いきませんでした。 / いきませんでした",
+          "行きます。 / 行きます / いきます。 / いきます",
+          "行きました。 / 行きました / いきました。 / いきました"
+        ],
+        "explanation": "• 例 (Ví dụ):「去年」(năm ngoái) là mốc thời gian quá khứ ➔ Động từ chia thể quá khứ khẳng định:「行きました」(đã đi).\n• 1):「先月」(tháng trước) là quá khứ. Hành động đến Nhật Bản dùng động từ:「来ました」(きました - đã đến) hoặc「行きました」(đã đi).\n• 2):「きのう」(hôm qua) là quá khứ. Hành động trở về nhà dùng động từ:「帰りました」(かえりました - đã về nhà lúc 10 giờ).\n• 3):「来年の８月」(tháng 8 năm sau) là tương lai. Hành động trở về nước dùng thì hiện tại/tương lai:「帰ります」(かえります - sẽ về nước).\n• 4):「先週の土曜日」(thứ Bảy tuần trước) là quá khứ. Cụm từ phủ định hoàn toàn「どこも」(đâu cũng không...) đi kèm động từ quá khứ phủ định:「行きませんでした」(いきませんでした - đã không đi đâu cả).\n• 5):「あした」(ngày mai) là tương lai ➔ Động từ chia thể hiện tại/tương lai khẳng định:「行きます」(いきます - sẽ đi siêu thị).\n• 6):「おととい」(hôm kia) là quá khứ ➔ Động từ chia thể quá khứ khẳng định:「行きました」(いきました - đã đi viện bảo tàng)."
+      },
+      {
+        "id": "b4_q4",
+        "type": "fill",
+        "tag": "Điền trợ từ thích hợp",
+        "question": "4. 例：毎晩（×）何時（に）寝ますか。\n\n1) A：いつ（____）日本（____）来ましたか。\n   B：3月25日（____）来ました。\n\n2) A：日曜日どこ（____）行きましたか。\n   B：どこ（____）行きませんでした。\n\n3) A：先月の25日（____）電車（____）カリナさん（____）うち（____）行きました。\n   B：一人で（____）行きましたか。\n   A：友達（____）行きました。",
+        "answers": [
+          "× / x / X",
+          "へ / に / e / he",
+          "に / ni",
+          "へ / に / e / he",
+          "へも / も / えも / hemo / mo",
+          "に / ni",
+          "で / de",
+          "の / no",
+          "へ / に / e / he",
+          "× / x / X",
+          "と / to"
+        ],
+        "explanation": "• 例 (Ví dụ):「毎晩」(mỗi tối) là từ chỉ thời gian có tính chu kỳ, lặp lại nên KHÔNG dùng trợ từ「に」(điền「×」).「何時」(mấy giờ) là mốc giờ cụ thể ➔ đi kèm trợ từ「に」.\n• 1):\n  -「いつ」(khi nào) là nghi vấn từ chỉ thời gian không đi kèm con số cụ thể, nên KHÔNG dùng trợ từ「に」(điền「×」).\n  -「日本」(Nhật Bản) là đích đến của hành động di chuyển「来ました」(đã đến) ➔ dùng trợ từ chỉ phương hướng「へ」(hoặc「に」).\n  -「3月25日」(ngày 25 tháng 3) là mốc thời gian có con số cụ thể ngày tháng ➔ bắt buộc dùng trợ từ「に」.\n• 2):\n  -「どこ」(đâu) trong câu hỏi「どこ（へ）行きましたか」chỉ phương hướng di chuyển ➔ dùng trợ từ「へ」(hoặc「に」).\n  -「どこ」kết hợp với động từ thể phủ định hoàn toàn「行きませんでした」(đã không đi đâu cả) ➔ dùng cụm trợ từ「へも」(hoặc「も」).\n• 3):\n  -「先月の25日」(ngày 25 tháng trước) có con số ngày cụ thể「25日」➔ dùng trợ từ thời gian「に」.\n  -「電車」(tàu điện) là phương tiện giao thông di chuyển ➔ dùng trợ từ phương tiện「で」.\n  -「カリナさんのうち」(nhà của Karina) là quan hệ sở hữu/liên kết giữa hai danh từ ➔ dùng trợ từ「の」.\n  -「うち」(nhà) là đích đến của hành động di chuyển「行きました」➔ dùng trợ từ phương hướng「へ」(hoặc「に」).\n  -「一人で」(một mình) bản thân đã là trạng từ chỉ phương thức thực hiện hành động, sau「一人で」KHÔNG dùng thêm bất kỳ trợ từ nào khác ➔ điền「×」.\n  -「友達」(bạn bè) là người cùng thực hiện hành động di chuyển「行きました」➔ dùng trợ từ cùng với「と」."
+      },
+      {
+        "id": "b4_q5",
+        "type": "fill",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "5. 例：これは（ だれ ）のノートですか。…カリナさんのです。\n\n1) きょうは（____）ですか。…火曜日です。\n2) （____）アメリカへ行きますか。…来月行きます。\n3) （____）と行きますか。…友達と行きます。\n4) 神戸まで（____）ですか。…570円です。\n5) （____）で行きますか。…電車で行きます。\n6) 誕生日は（____）（____）ですか。…9月15日です。\n7) あした（____）へ行きますか。…どこも行きません。",
+        "answers": [
+          "何曜日 / なんようび",
+          "いつ / 何月 / なんがつ",
+          "だれ / どなた / 誰",
+          "いくら",
+          "何 / なん / なに",
+          "何月 / なんがつ",
+          "何日 / なんにち",
+          "どこ / どちら"
+        ],
+        "explanation": "• 例 (Ví dụ): Câu trả lời nêu người sở hữu「カリナさんのです」(Của chị Karina) ➔ Câu hỏi về người dùng nghi vấn từ「だれ」(hoặc「どなた」).\n• 1): Câu trả lời nêu thứ trong tuần「火曜日です」(là thứ Ba) ➔ Câu hỏi thứ dùng nghi vấn từ「何曜日」(なんようび: thứ mấy).\n• 2): Câu trả lời nêu mốc thời gian「来月行きます」(tháng sau sẽ đi) ➔ Câu hỏi về thời điểm (khi nào) dùng nghi vấn từ「いつ」(khi nào).\n• 3): Câu trả lời nêu người cùng đi「友達と行きます」(đi cùng với bạn) ➔ Câu hỏi về người cùng thực hiện hành động dùng nghi vấn từ「だれ」(hoặc「どなた」: đi với ai).\n• 4): Câu trả lời nêu số tiền cước phí「570円です」(570 Yên) ➔ Câu hỏi về giá tiền/chi phí dùng nghi vấn từ「いくら」(bao nhiêu tiền).\n• 5): Câu trả lời nêu phương tiện giao thông「電車で行きます」(đi bằng tàu điện) ➔ Câu hỏi về phương tiện đi lại dùng nghi vấn từ「何」(đọc là「なん」: đi bằng gì).\n• 6): Câu trả lời nêu đầy đủ tháng và ngày「9月15日です」(ngày 15 tháng 9) ➔ Hai ô trống lần lượt hỏi tháng「何月」(なんがつ: tháng mấy) và hỏi ngày「何日」(なんにち: ngày mấy).\n• 7): Câu trả lời nêu phủ định hoàn toàn địa điểm đến「どこも行きません」(đâu cũng không đi) ➔ Câu hỏi về nơi chốn/địa điểm di chuyển dùng nghi vấn từ「どこ」(hoặc「どちら」: đi đâu)."
+      },
+      {
+        "id": "b4_q6",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "6. 例：おととい／新幹線／京都／行きます…おととい 新幹線で 京都へ 行きました。\n\n1) わたし／あした／佐藤さん／大阪／行きます\n＿＿＿＿＿＿＿＿＿＿\n\n2) きのうの晩／駅／歩いて／うち／帰ります\n＿＿＿＿＿＿＿＿＿＿\n\n3) 先週／土曜日／自転車／彼女のうち／行きます\n＿＿＿＿＿＿＿＿＿＿\n\n4) わたし／去年／家族／日本／来ます\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "わたしは あした 佐藤さんと 大阪へ 行きます。 / わたしは あした 佐藤さんと 大阪に行きます。 / わたしはあした佐藤さんと大阪へ行きます。 / あした 佐藤さんと 大阪へ 行きます。 / あした佐藤さんと大阪へ行きます。 / わたしは あした さとうさんと おおさかへ いきます。 / あした さとうさんと おおさかへ いきます。",
+          "きのうの晩 駅から 歩いて うちへ 帰りました。 / きのうの晩 駅から 歩いて うちに 帰りました。 / きのうのばん えきから あるいて うちへ かえりました。 / きのうの晩 駅から 歩いて 帰りました。",
+          "先週の土曜日 自転車で 彼女のうちへ 行きました。 / 先週の土曜日に 自転車で 彼女のうちへ 行きました。 / 先週 土曜日 自転車で 彼女のうちへ 行きました。 / せんしゅうのどようび じてんしゃで かのじょのうちへ いきました。 / 先週の土曜日 自転車で 彼女のうちに行きました。",
+          "わたしは 去年 家族と 日本へ 来ました。 / わたしは 去年 家族と 日本に来ました。 / 去年 家族と 日本へ 来ました。 / 去年 家族と 日本に来ました。 / わたしは きょねん かぞくと にほんへ きました。 / きょねん かぞくと にほんへ きました。"
+        ],
+        "explanation": "• 例 (Ví dụ):「おととい」(hôm kia) là quá khứ ➔ Động từ chia quá khứ「行きました」. Phương tiện「新幹線」đi với trợ từ「で」, điểm đến「京都」đi với trợ từ「へ」:「おととい 新幹線で 京都へ 行きました。」.\n• 1):「あした」(ngày mai) là tương lai ➔ Động từ giữ thì hiện tại/tương lai「行きます」. Người cùng đi「佐藤さん」+ trợ từ「と」, điểm đến「大阪」+ trợ từ「へ」(hoặc「に」):「わたしは あした 佐藤さんと 大阪へ 行きます。」.\n• 2):「きのうの晩」(tối qua) là quá khứ ➔ Động từ chia quá khứ「帰りました」. Xuất phát từ nhà ga「駅から」,「歩いて」(đi bộ) không thêm trợ từ「で」, điểm đến「うちへ」(hoặc「うちに」):「きのうの晩 駅から 歩いて うちへ 帰りました。」.\n• 3):「先週の土曜日」(thứ Bảy tuần trước) là quá khứ ➔ Động từ chia quá khứ「行きました」. Phương tiện「自転車で」, điểm đến「彼女のうちへ」(hoặc「に」):「先週の土曜日 自転車で 彼女のうちへ 行きました。」.\n• 4):「去年」(năm ngoái) là quá khứ ➔ Động từ chia quá khứ「来ました」. Người cùng đi「家族と」, điểm đến「日本へ」(hoặc「に」):「わたしは 去年 家族と 日本へ 来ました。」."
+      },
+      {
+        "id": "b4_q7",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "7. 1) 誕生日はいつですか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) いつ日本へ来ましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) きょうは何月何日ですか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 次の日曜日どこへ行きますか。\n＿＿＿＿＿＿＿＿＿＿\n\n5) いつ国へ帰りますか。\n＿＿＿＿＿＿＿＿＿＿\n\n6) きのう郵便局へ行きましたか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "6月15日です。",
+          "去年の9月に来ました。",
+          "10月26日です。",
+          "どこも行きません。",
+          "来年の8月に帰ります。",
+          "いいえ、行きませんでした。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「誕生日はいつですか」(Sinh nhật của bạn là khi nào?) ➔ Trả lời bằng tháng và ngày sinh:「[Số tháng]月 [Số ngày]日です」(Ví dụ: 6月15日です、10月20日です...).\n• 2):「いつ日本へ来ましたか」(Bạn đã đến Nhật Bản khi nào?) ➔ Trả lời mốc thời gian đã đến Nhật:「[Mốc thời gian] に来ました」(Ví dụ: 去年の9月に来ました、先月来ました...).\n• 3):「きょうは何月何日ですか」(Hôm nay là ngày mấy tháng mấy?) ➔ Trả lời ngày tháng hiện tại:「[Số tháng]月 [Số ngày]日です」(Ví dụ: 10月26日です...).\n• 4):「次の日曜日どこへ行きますか」(Chủ Nhật tới bạn sẽ đi đâu?) ➔ Trả lời địa điểm sẽ đi hoặc phủ định:「[Địa điểm] へ行きます」hoặc「どこも行きません」(Ví dụ: 京都へ行きます、どこも行きません...).\n• 5):「いつ国へ帰りますか」(Khi nào bạn sẽ về nước?) ➔ Trả lời thời điểm dự định về nước:「[Mốc thời gian] に帰ります」(Ví dụ: 来年の8月に帰ります、再来年帰ります...).\n• 6):「きのう郵便局へ行きましたか」(Hôm qua bạn có đi bưu điện không?) ➔ Trả lời xác nhận quá khứ:「はい、行きました。」hoặc「いいえ、行きませんでした。」."
+      }
+    ]
   }
 };
 

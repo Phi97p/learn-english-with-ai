@@ -321,17 +321,84 @@ const GrammarJaModule = (() => {
     `;
   }
 
-  // Render panel Bảng thông tin dữ liệu (cho dạng bài tập nhìn bảng giờ & ngày nghỉ để hoàn thành câu)
-  function renderInfoTableHtml(tbl) {
+  // Render panel Bảng thông tin dữ liệu (hỗ trợ cả bảng tĩnh và bảng có ô điền từ trực tiếp)
+  function renderInfoTableHtml(tbl, q, qIdx) {
     if (!tbl) return '';
-    const title = tbl.title || '📋 Bảng thông tin';
+    const title = (tbl.title !== undefined) ? tbl.title : '';
     const headers = tbl.headers || [];
     const rows = tbl.rows || [];
+    const isCentered = !headers || headers.length === 0;
+    const isSubmittedState = isSubmitted;
 
-    const ths = headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+    let autoBlankCounter = 0;
+
+    const ths = (headers && headers.length > 0) ? headers.map(h => `<th>${escapeHtml(h)}</th>`).join('') : '';
     const trs = rows.map((row, rIdx) => {
       const isEx = rIdx === 0 && (row[0] || '').includes('例');
-      const tds = row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('');
+      const tds = row.map(cell => {
+        const rawCell = (cell !== undefined && cell !== null) ? String(cell).trim() : '';
+
+        // Kiểm tra xem cell có chứa ô điền từ hay không
+        const hasBlank = INLINE_BLANK_REGEX.test(rawCell) || /^\d+\)\s*（[\s\u3000_—]*）$/.test(rawCell);
+        if (hasBlank && q) {
+          // Trích xuất số thứ tự câu hỏi (ví dụ 1), 5), 6)...)
+          const subMatch = rawCell.match(/^(\d+)\)/);
+          let bIdx = autoBlankCounter++;
+          let subNum = '';
+          if (subMatch) {
+            subNum = subMatch[1];
+            bIdx = parseInt(subNum, 10) - 1;
+          }
+
+          const rawTarget = (Array.isArray(q.answers) && q.answers[bIdx] !== undefined)
+            ? q.answers[bIdx]
+            : (q.answer || '');
+          const primaryAns = Array.isArray(rawTarget)
+            ? rawTarget[0]
+            : (typeof rawTarget === 'string' ? rawTarget.split(/[\/|]/)[0].trim() : rawTarget);
+
+          const userVal = userAnswers[`${q.id}_blank_${bIdx}`] || '';
+          let inputClass = '';
+          let feedbackHtml = '';
+
+          if (isSubmittedState) {
+            const isBlankCorrect = checkSingleBlankAnswer(userVal, rawTarget);
+            if (!userVal || !userVal.trim()) {
+              inputClass = 'input-skipped';
+              feedbackHtml = `<span class="table-blank-feedback skipped" title="Chưa điền! Đáp án chuẩn: ${escapeHtml(primaryAns)}">⚪ <strong>${escapeHtml(primaryAns)}</strong></span>`;
+            } else if (isBlankCorrect) {
+              inputClass = 'input-correct';
+              feedbackHtml = `<span class="table-blank-feedback correct" title="Chính xác!">✅</span>`;
+            } else {
+              inputClass = 'input-wrong';
+              feedbackHtml = `<span class="table-blank-feedback wrong" title="Sai rồi! Đáp án chuẩn: ${escapeHtml(primaryAns)}">❌ <strong>${escapeHtml(primaryAns)}</strong></span>`;
+            }
+          }
+
+          const inputSize = Math.max((primaryAns || '').length + 2, 5);
+
+          return `
+            <td class="grammar-table-blank-cell">
+              <div class="table-cell-blank-wrapper">
+                ${subNum ? `<span class="table-cell-sub-num">${escapeHtml(subNum)})</span>` : ''}
+                <span class="bracket-open">（</span><input type="text"
+                  class="grammar-inline-input grammar-table-cell-input ${inputClass}"
+                  id="grammar-blank-${q.id}-${bIdx}"
+                  data-qid="${q.id}"
+                  data-qidx="${qIdx}"
+                  data-blank-idx="${bIdx}"
+                  size="${inputSize}"
+                  value="${escapeHtml(userVal)}"
+                  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                  ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>
+                ${feedbackHtml}
+              </div>
+            </td>
+          `;
+        }
+
+        return `<td style="${isCentered ? 'text-align: center; font-size: 0.98rem; font-weight: 600; padding: 10px 16px;' : ''}">${escapeHtml(rawCell)}</td>`;
+      }).join('');
       return `<tr class="${isEx ? 'example-row' : ''}">${tds}</tr>`;
     }).join('');
 
@@ -642,7 +709,9 @@ const GrammarJaModule = (() => {
       return (userAns !== undefined && userAns !== null && userAns.toString().trim() !== '');
     }
 
-    const blankCount = countInlineBlanks(q.question);
+    const blankCount = (Array.isArray(q.answers) && q.answers.length > 0)
+      ? q.answers.length
+      : countInlineBlanks(q.question);
     if (blankCount > 0) {
       for (let bIdx = 0; bIdx < blankCount; bIdx++) {
         const userVal = userAnswers[`${q.id}_blank_${bIdx}`];
@@ -680,7 +749,9 @@ const GrammarJaModule = (() => {
       return userAns === q.answer;
     }
 
-    const blankCount = countInlineBlanks(q.question);
+    const blankCount = (Array.isArray(q.answers) && q.answers.length > 0)
+      ? q.answers.length
+      : countInlineBlanks(q.question);
     if (blankCount > 0) {
       for (let bIdx = 0; bIdx < blankCount; bIdx++) {
         const userVal = userAnswers[`${q.id}_blank_${bIdx}`];
@@ -720,8 +791,12 @@ const GrammarJaModule = (() => {
       const qNum = idx + 1;
       const isBinaryChoice = (q.type === 'binary_choice');
       const isFillQuestion = !isBinaryChoice && (q.type === 'fill' || q.type === 'matching' || !q.options || Object.keys(q.options).length === 0);
-      const blankCount = isFillQuestion ? countInlineBlanks(q.question) : 0;
-      const useInlineBlanks = isFillQuestion && blankCount > 0;
+      const blankCount = isFillQuestion
+        ? ((Array.isArray(q.answers) && q.answers.length > 0)
+            ? q.answers.length
+            : countInlineBlanks(q.question))
+        : 0;
+      const useInlineBlanks = isFillQuestion && (blankCount > 0 || !!q.table || !!q.calendar || !!q.choices);
 
       const userAns = userAnswers[q.id];
       const correctOpt = q.answer;
@@ -818,14 +893,17 @@ const GrammarJaModule = (() => {
             </div>
           `;
         } else if (q.table) {
+          const hasQuestionTextBlanks = countInlineBlanks(q.question) > 0;
           bodyContent = `
             <div class="grammar-table-layout">
+              ${q.question && q.question.trim() && !hasQuestionTextBlanks ? `<div class="grammar-table-desc"><h3 class="q-text">${escapeHtml(q.question)}</h3></div>` : ''}
               <div class="grammar-table-top">
-                ${renderInfoTableHtml(q.table)}
+                ${renderInfoTableHtml(q.table, q, idx)}
               </div>
+              ${hasQuestionTextBlanks ? `
               <div class="grammar-table-bottom">
                 ${formatGrammarQuestionWithBlanks(q, idx)}
-              </div>
+              </div>` : ''}
             </div>
           `;
         } else {
@@ -845,9 +923,6 @@ const GrammarJaModule = (() => {
             </div>
             <div class="q-header-right">
               ${statusBadge}
-              <button type="button" class="q-audio-btn" data-qidx="${idx}" title="Nghe đọc câu hỏi tiếng Nhật">
-                🔊 Nghe câu hỏi
-              </button>
             </div>
           </div>
 
@@ -1280,20 +1355,7 @@ const GrammarJaModule = (() => {
       });
     });
 
-    // Sự kiện nút nghe âm thanh câu hỏi
-    const audioBtns = dom.questionsContainer.querySelectorAll('.q-audio-btn');
-    audioBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const qidx = parseInt(btn.dataset.qidx, 10);
-        const q = activeQuizQuestions[qidx];
-        if (q && window.AppCore && typeof window.AppCore.speakJa === 'function') {
-          // Bỏ ký tự chỗ trống khi đọc tiếng Nhật để âm thanh tự nhiên
-          const cleanText = q.question.replace(/[（\(][\s\u3000_—]*[）\)]/g, '、').replace(/—/g, '、');
-          window.AppCore.speakJa(cleanText);
-        }
-      });
-    });
+    // (Đã loại bỏ nút nghe âm thanh câu hỏi theo yêu cầu)
   }
 
   // Gán sự kiện cho Question Palette (Cuộn tới câu hỏi)

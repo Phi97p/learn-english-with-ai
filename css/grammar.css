@@ -1236,8 +1236,71 @@
   color: #b45309;
 }
 
+/* Dạng điền từ trực tiếp vào bảng */
+.grammar-table-blank-cell {
+  text-align: center;
+  padding: 8px 10px !important;
+}
 
+.table-cell-blank-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  vertical-align: middle;
+  flex-wrap: wrap;
+}
 
+.table-cell-sub-num {
+  font-weight: 700;
+  color: #38bdf8;
+  font-size: 0.92rem;
+  margin-right: 2px;
+}
+
+[data-theme="light"] .table-cell-sub-num {
+  color: #0284c7;
+}
+
+.grammar-table-cell-input {
+  min-width: 60px !important;
+  max-width: 140px !important;
+  height: 28px !important;
+  text-align: center !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+}
+
+.table-blank-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.table-blank-feedback.correct {
+  color: #10b981;
+}
+
+.table-blank-feedback.wrong {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.14);
+  padding: 1.5px 6px;
+  border-radius: 4px;
+}
+
+.table-blank-feedback.skipped {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.14);
+  padding: 1.5px 6px;
+  border-radius: 4px;
+}
+
+.grammar-table-desc {
+  margin-bottom: 8px;
+}
 
 .grammar-blank-wrapper {
   display: inline-flex;
