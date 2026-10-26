@@ -184,6 +184,7 @@ const GrammarJaModule = (() => {
       .trim()
       .replace(/[\s\u3000]+/g, '') // bỏ khoảng trắng ASCII & khoảng trắng tiếng Nhật
       .replace(/[・,，、。.\\/|\-;()[\]（）：:]/g, '') // bỏ dấu chấm ngăn cách, phẩy, gạch chéo, ngoặc
+      .replace(/[×✕✖✗]/g, 'x') // chuẩn hóa các ký tự dấu x/nhân thành 'x'
       .toLowerCase();
   }
 
@@ -277,6 +278,74 @@ const GrammarJaModule = (() => {
     `;
   }
 
+  // Render panel Bảng lịch (cho dạng bài tập nhìn lịch nói thứ ngày)
+  function renderCalendarHtml(cal) {
+    if (!cal) return '';
+    const title = cal.title || cal.month || '3月';
+    const headers = cal.headers || ['日', '月', '火', '水', '木', '金', '土'];
+    const days = cal.days || cal.weeks || [];
+
+    const ths = headers.map((h, i) => {
+      let cls = '';
+      if (i === 0) cls = 'cal-sun';
+      else if (i === 6) cls = 'cal-sat';
+      return `<th class="${cls}">${escapeHtml(h)}</th>`;
+    }).join('');
+
+    const trs = days.map(week => {
+      const tds = week.map((d, i) => {
+        let cls = '';
+        if (i === 0) cls = 'cal-sun';
+        else if (i === 6) cls = 'cal-sat';
+        const dStr = (d !== null && d !== undefined) ? String(d) : '';
+        return `<td class="${cls}">${escapeHtml(dStr)}</td>`;
+      }).join('');
+      return `<tr>${tds}</tr>`;
+    }).join('');
+
+    return `
+      <div class="grammar-calendar-card">
+        <div class="grammar-calendar-header">
+          <span class="grammar-calendar-icon">📅</span>
+          <span class="grammar-calendar-title">${escapeHtml(title)}</span>
+        </div>
+        <table class="grammar-calendar-table">
+          <thead>
+            <tr>${ths}</tr>
+          </thead>
+          <tbody>
+            ${trs}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Render panel Bảng thông tin dữ liệu (cho dạng bài tập nhìn bảng giờ & ngày nghỉ để hoàn thành câu)
+  function renderInfoTableHtml(tbl) {
+    if (!tbl) return '';
+    const title = tbl.title || '📋 Bảng thông tin';
+    const headers = tbl.headers || [];
+    const rows = tbl.rows || [];
+
+    const ths = headers.map(h => `<th>${escapeHtml(h)}</th>`).join('');
+    const trs = rows.map((row, rIdx) => {
+      const isEx = rIdx === 0 && (row[0] || '').includes('例');
+      const tds = row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('');
+      return `<tr class="${isEx ? 'example-row' : ''}">${tds}</tr>`;
+    }).join('');
+
+    return `
+      <div class="grammar-info-table-card">
+        ${title ? `<div class="grammar-info-table-title">${escapeHtml(title)}</div>` : ''}
+        <table class="grammar-info-table">
+          ${ths ? `<thead><tr>${ths}</tr></thead>` : ''}
+          <tbody>${trs}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
   // Format câu hỏi có chỗ trống inline
   function formatGrammarQuestionWithBlanks(q, qIdx) {
     const rawText = q.question || '';
@@ -331,6 +400,42 @@ const GrammarJaModule = (() => {
       const choiceInputClass = isChoiceBlank ? 'grammar-choice-letter-input' : '';
       return `<span class="grammar-blank-wrapper"><span class="bracket-open">（</span><input type="text" class="grammar-inline-input ${choiceInputClass} ${inputClass}" id="grammar-blank-${q.id}-${bIdx}" data-qid="${q.id}" data-qidx="${qIdx}" data-blank-idx="${bIdx}" size="${inputSize}" maxlength="${isChoiceBlank ? 20 : ''}" value="${escapeHtml(userVal)}" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ${isSubmittedState ? 'disabled' : ''} /><span class="bracket-close">）</span>${feedbackHtml}</span>`;
     });
+
+    if (q.columns && q.columns > 1) {
+      const lines = formatted.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+      const headerLines = [];
+      const itemBlocks = [];
+      let currentItemLines = null;
+
+      lines.forEach(line => {
+        if (/^\d+\)/.test(line)) {
+          if (currentItemLines) {
+            itemBlocks.push(currentItemLines.join('<br>'));
+          }
+          currentItemLines = [line];
+        } else if (currentItemLines) {
+          currentItemLines.push(line);
+        } else {
+          headerLines.push(line);
+        }
+      });
+      if (currentItemLines) {
+        itemBlocks.push(currentItemLines.join('<br>'));
+      }
+
+      if (itemBlocks.length > 0) {
+        const headerHtml = headerLines.join('<br>');
+        const itemsHtml = itemBlocks.map(item => `<div class="grammar-grid-item">${item}</div>`).join('');
+        return `
+          <div class="grammar-interactive-text grammar-has-grid">
+            ${headerHtml ? `<div class="grammar-grid-header">${headerHtml}</div>` : ''}
+            <div class="grammar-items-grid grammar-grid-cols-${q.columns}">
+              ${itemsHtml}
+            </div>
+          </div>
+        `;
+      }
+    }
 
     const htmlWithBr = formatted
       .replace(/\r?\n\s*\r?\n/g, '<div class="grammar-para-gap"></div>')
@@ -651,13 +756,17 @@ const GrammarJaModule = (() => {
       if (customTag) {
         const isCompletion = customTag.toLowerCase().includes('hoàn thành');
         const isMatching = customTag.toLowerCase().includes('bảng') || !!(q.choices && q.choices.length > 0);
+        const isCalendar = customTag.toLowerCase().includes('lịch') || !!q.calendar;
         const isBinary = isBinaryChoice || customTag.toLowerCase().includes('chọn 1 trong 2') || customTag.toLowerCase().includes('2 từ');
         const isHiragana = customTag.toLowerCase().includes('hiragana') || customTag.toLowerCase().includes('cách đọc');
         const isOpenEnded = (q.type === 'open_ended') || customTag.toLowerCase().includes('mở');
         const isWordOrder = (q.type === 'word_order') || customTag.toLowerCase().includes('ghép') || customTag.toLowerCase().includes('sắp xếp');
         let icon = '✏️';
         let colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);';
-        if (isWordOrder) {
+        if (isCalendar) {
+          icon = '📅';
+          colorStyle = 'background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35);';
+        } else if (isWordOrder) {
           icon = '🧩';
           colorStyle = 'background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3);';
         } else if (isOpenEnded) {
@@ -676,7 +785,7 @@ const GrammarJaModule = (() => {
           icon = '📋';
           colorStyle = 'background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);';
         }
-        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤|💬|🧩)\s*/, '');
+        const cleanTag = customTag.replace(/^(✍️|✏️|📋|🔠|⚖️|🔘|🈸|🔤|💬|🧩|📅)\s*/, '');
         typeTagHtml = `<span class="q-lesson-tag" style="${colorStyle}">${icon} ${escapeHtml(cleanTag)}</span>`;
       }
 
@@ -694,6 +803,28 @@ const GrammarJaModule = (() => {
               </div>
               <div class="grammar-matching-right">
                 ${renderChoicesPanelHtml(q, idx)}
+              </div>
+            </div>
+          `;
+        } else if (q.calendar) {
+          bodyContent = `
+            <div class="grammar-calendar-layout">
+              <div class="grammar-calendar-left">
+                ${renderCalendarHtml(q.calendar)}
+              </div>
+              <div class="grammar-calendar-right">
+                ${formatGrammarQuestionWithBlanks(q, idx)}
+              </div>
+            </div>
+          `;
+        } else if (q.table) {
+          bodyContent = `
+            <div class="grammar-table-layout">
+              <div class="grammar-table-top">
+                ${renderInfoTableHtml(q.table)}
+              </div>
+              <div class="grammar-table-bottom">
+                ${formatGrammarQuestionWithBlanks(q, idx)}
               </div>
             </div>
           `;

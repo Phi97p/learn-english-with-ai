@@ -998,6 +998,247 @@
   height: 8px;
 }
 
+/* ========================================================
+   GRAMMAR GRID COLUMNS (Xếp 2, 3, 4 cột tận dụng không gian)
+   ======================================================== */
+.grammar-has-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grammar-grid-header {
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.8;
+  margin-bottom: 2px;
+}
+
+.grammar-items-grid {
+  display: grid;
+  gap: 14px 24px;
+  align-items: center;
+}
+
+.grammar-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grammar-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grammar-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grammar-grid-item {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  line-height: 2;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .grammar-grid-cols-3,
+  .grammar-grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grammar-grid-cols-2,
+  .grammar-grid-cols-3,
+  .grammar-grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================================
+   GRAMMAR CALENDAR LAYOUT (Bảng lịch & Câu hỏi thứ ngày)
+   ======================================================== */
+.grammar-calendar-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.grammar-calendar-left {
+  flex: 0 0 auto;
+}
+
+.grammar-calendar-right {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.grammar-calendar-card {
+  background: var(--bg-card, rgba(30, 41, 59, 0.7));
+  border: 1.5px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  padding: 8px 12px 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  min-width: 190px;
+  max-width: 220px;
+}
+
+[data-theme="light"] .grammar-calendar-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.grammar-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--border-color, rgba(255, 255, 255, 0.12));
+}
+
+.grammar-calendar-icon {
+  font-size: 0.95rem;
+}
+
+.grammar-calendar-title {
+  font-size: 1.0rem;
+  font-weight: 700;
+  color: var(--accent-cyan, #06b6d4);
+  letter-spacing: 0.04em;
+}
+
+.grammar-calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  text-align: center;
+}
+
+.grammar-calendar-table th {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 4px;
+  color: var(--text-main);
+  border-bottom: 1.5px solid var(--border-color, rgba(255, 255, 255, 0.15));
+}
+
+.grammar-calendar-table td {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 3px 4px;
+  color: var(--text-main);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.grammar-calendar-table td:not(:empty):hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.grammar-calendar-table .cal-sun {
+  color: #ef4444 !important;
+}
+
+.grammar-calendar-table .cal-sat {
+  color: #38bdf8 !important;
+}
+
+[data-theme="light"] .grammar-calendar-table .cal-sat {
+  color: #0284c7 !important;
+}
+
+@media (max-width: 768px) {
+  .grammar-calendar-layout {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .grammar-calendar-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ========================================================
+   GRAMMAR INFO TABLE (Bảng thông tin dữ liệu bài tập)
+   ======================================================== */
+.grammar-table-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grammar-info-table-card {
+  background: var(--bg-card, rgba(30, 41, 59, 0.7));
+  border: 1.5px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  max-width: 620px;
+}
+
+[data-theme="light"] .grammar-info-table-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.grammar-info-table-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-cyan, #06b6d4);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.grammar-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.grammar-info-table th {
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 7px 12px;
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+}
+
+.grammar-info-table td {
+  padding: 6px 12px;
+  color: var(--text-main);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  font-weight: 500;
+}
+
+.grammar-info-table tr.example-row td {
+  background: rgba(245, 158, 11, 0.09);
+  color: var(--accent-amber, #fbbf24);
+  font-weight: 600;
+}
+
+[data-theme="light"] .grammar-info-table th {
+  background: #f1f5f9;
+}
+
+[data-theme="light"] .grammar-info-table tr.example-row td {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+
+
+
 .grammar-blank-wrapper {
   display: inline-flex;
   align-items: center;
