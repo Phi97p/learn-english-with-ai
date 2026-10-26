@@ -579,6 +579,103 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「けさ新聞を読みましたか」(Sáng nay bạn có đọc báo không?) ➔ Trả lời xác nhận hành động trong quá khứ:「はい、読みました。」(Vâng, tôi đã đọc) hoặc「いいえ、読みませんでした。」(Không, tôi đã không đọc).\n• 2):「いつも何時に朝ごはんを食べますか」(Bạn thường ăn sáng lúc mấy giờ?) ➔ Trả lời mốc giờ ăn sáng:「[Số giờ] 時に食べます。」(Ví dụ: 7時に食べます、7時半に食べます...).\n• 3):「お酒を飲みますか」(Bạn có uống rượu không?) ➔ Trả lời thói quen hiện tại:「はい、飲みます。」(Vâng, tôi có uống) hoặc「いいえ、飲みません。」(Không, tôi không uống).\n• 4):「国で日本語を勉強しましたか」(Bạn đã học tiếng Nhật ở trong nước phải không?) ➔ Trả lời xác nhận quá khứ:「はい、勉強しました。」(Vâng, tôi đã học) hoặc「いいえ、勉強しませんでした。」(Không, tôi đã không học)."
       }
     ]
+  },
+  "bai_6": {
+    "title": "Bài 6",
+    "questions": [
+      {
+        "id": "b6_q1",
+        "type": "fill",
+        "tag": "Điền trợ từ thích hợp",
+        "question": "1. 例：ミラーさんは毎朝コーヒー（ を ）飲みます。\n\n1) 日本語（____）レポート（____）書きますか、英語（____）書きますか。\n2) わたしは誕生日（____）友達（____）プレゼント（____）もらいました。\n3) 何（____）この魚（____）切りますか。\n4) わたしは家族（____）日本（____）写真（____）送りました。\n5) 「ありがとう」（____）英語（____）何ですか。\n6) わたしは田中先生（____）日本語（____）習いました。",
+        "answers": [
+          "で / de",
+          "を / o / wo",
+          "で / de",
+          "に / ni",
+          "に / から / ni / kara",
+          "を / o / wo",
+          "で / de",
+          "を / o / wo",
+          "に / ni",
+          "の / no",
+          "を / o / wo",
+          "は / wa / ha",
+          "で / de",
+          "に / から / ni / kara",
+          "を / o / wo"
+        ],
+        "explanation": "• 例 (Ví dụ): Trợ từ「を」xác định tân ngữ chịu tác động của hành động:「コーヒー を 飲みます」(uống cà phê).\n• 1): Phương tiện ngôn ngữ đi với trợ từ「で」:「日本語 で」(bằng tiếng Nhật),「英語 で」(bằng tiếng Anh). Tân ngữ báo cáo đi với「を」:「レポート を 書きます」.\n• 2): Mốc thời gian cụ thể「誕生日 に」(vào ngày sinh nhật). Người tặng quà đi với trợ từ「に」(hoặc「から」: nhận từ ai):「友達 に / から」(từ bạn bè). Tân ngữ món quà:「プレゼント を もらいました」.\n• 3): Công cụ/phương tiện cắt dùng nghi vấn từ「何 で」(bằng cái gì). Tân ngữ con cá đi với trợ từ「を」:「この魚 を 切ります」.\n• 4): Đối tượng tiếp nhận hành động gửi đi với trợ từ「に」:「家族 に」(cho gia đình). Nối hai danh từ sở thuộc dùng「の」:「日本 の 写真」(ảnh về Nhật Bản). Tân ngữ bức ảnh đi với trợ từ「を」:「写真 を 送りました」.\n• 5): Từ ngữ được đưa ra làm chủ đề câu đi với trợ từ「は」:「ありがとう は」. Phương tiện ngôn ngữ đi với trợ từ「で」:「英語 で」(bằng tiếng Anh).\n• 6): Người truyền thụ kiến thức / người mà mình học hỏi đi với trợ từ「に」(hoặc「から」):「田中先生 に / から」(từ thầy Tanaka). Tân ngữ môn học:「日本語 を 習いました」(học tiếng Nhật)."
+      },
+      {
+        "id": "b6_q2",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "2. 例１：スプーンで<u>ごはんを食べます。</u>\n例２：<u>はしで</u>ごはんを食べます。\n\n1) はさみで ＿＿＿＿＿＿＿＿＿＿\n2) 日本語で ＿＿＿＿＿＿＿＿＿＿\n3) ＿＿＿＿＿＿＿＿＿＿ で肉を切ります。\n4) ＿＿＿＿＿＿＿＿＿＿ でメールを送ります。",
+        "answers": [
+          "紙を切ります。 / 紙を切ります / かみをきります。 / かみをきります / 切ります。 / 切ります",
+          "レポートを書きます。 / レポートを書きます / 手紙を書きます。 / 手紙を書きます / てがみをかきます。 / てがみをかきます / レポートをかきます。 / レポートをかきます / 話します。 / はなします。",
+          "ナイフ / ないふ / ナイフで / 包丁 / ほうちょう",
+          "パソコン / ぱそこん / パソコンで / コンピューター / ケータイ / スマホ"
+        ],
+        "explanation": "• 例1 (Ví dụ 1): Cho trước công cụ「スプーンで」(bằng thìa) ➔ Điền hành động tương ứng:「ごはんを食べます。」(ăn cơm).\n• 例2 (Ví dụ 2): Cho trước hành động「ごはんを食べます。」➔ Điền công cụ tương ứng:「はしで」(bằng đũa).\n• 1): Cho trước công cụ kéo「はさみで」(bằng kéo) ➔ Hành động tương ứng là cắt giấy:「紙を切ります。」(cắt giấy) hoặc「切ります。」.\n• 2): Cho trước phương tiện ngôn ngữ「日本語で」(bằng tiếng Nhật) ➔ Hành động tương ứng là viết báo cáo/thư từ:「レポートを書きます。」(viết báo cáo) hoặc「手紙を書きます。」(viết thư).\n• 3): Cho trước hành động cắt thịt「で肉を切ります」➔ Công cụ cắt thịt là con dao:「ナイフ」(hoặc「ナイフで」).\n• 4): Cho trước hành động gửi thư điện tử「でメールを送ります」➔ Công cụ gửi email là máy tính/điện thoại:「パソコン」(hoặc「パソコンで」/「コンピューター」/「スマホ」)."
+      },
+      {
+        "id": "b6_q3",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "3. 例：サントスさんはマリアさんに花をあげました。\n   マリアさんは<u>サントスさんに花をもらいました。</u>\n\n1) 山田さんはタワポンさんに日本語を教えました。\n   タワポンさんは ＿＿＿＿＿＿＿＿＿＿\n2) ミラーさんはワンさんにお金を借りました。\n   ワンさんは ＿＿＿＿＿＿＿＿＿＿\n3) 松本さんはマイクさんにネクタイをもらいました。\n   マイクさんは ＿＿＿＿＿＿＿＿＿＿\n4) カリナさんはイーさんにCDを貸しました。\n   イーさんは ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "山田さんに日本語を習いました。 / 山田さんに日本語を習いました / 山田さんから日本語を習いました。 / 山田さんから日本語を習いました / 山田さんに日本語をならいました。 / 山田さんに日本語をならいました / やまださんににほんごをならいました。 / やまださんににほんごをならいました",
+          "ミラーさんにお金を貸しました。 / ミラーさんにお金を貸しました / ミラーさんにおかねをかしました。 / ミラーさんにおかねをかしました / みらーさんにおかねをかしました。 / みらーさんにおかねをかしました",
+          "松本さんにネクタイをあげました。 / 松本さんにネクタイをあげました / まつもとさんにネクタイをあげました。 / まつもとさんにネクタイをあげました / まつもとさんにねくたいをあげました。 / まつもとさんにねくたいをあげました",
+          "カリナさんにCDを借りました。 / カリナさんにCDを借りました / カリナさんからCDを借りました。 / カリナさんからCDを借りました / カリナさんにCDをかりました。 / カリナさんにCDをかりました / かりなさんにCDをかりました。 / かりなさんにCDをかりました"
+        ],
+        "explanation": "• Cặp động từ đối ứng cho và nhận / dạy và học / cho mượn và mượn:\n  - あげました (cho/tặng) ⟷ もらいました (nhận)\n  - 教えました (dạy) ⟷ 習いました (học từ ai)\n  - 貸しました (cho mượn) ⟷ 借りました (mượn từ ai)\n• 例 (Ví dụ): Anh Santos tặng hoa cho chị Maria「サントスさんはマリアさんに花をあげました」➔ Chị Maria nhận hoa từ anh Santos「マリアさんはサントスさんに花をもらいました。」.\n• 1): Anh Yamada dạy tiếng Nhật cho anh Thawaphon「山田さんはタワポンさんに日本語を教えました」➔ Anh Thawaphon học tiếng Nhật từ anh Yamada:「山田さんに日本語を習いました。」(Có thể dùng trợ từ「に」hoặc「から」).\n• 2): Anh Miller mượn tiền của anh Wang「ミラーさんはワンさんにお金を借りました」➔ Anh Wang cho anh Miller mượn tiền:「ミラーさんにお金を貸しました。」.\n• 3): Anh Matsumoto nhận cà vạt từ anh Mike「松本さんはマイクさんにネクタイをもらいました」➔ Anh Mike tặng cà vạt cho anh Matsumoto:「松本さんにネクタイをあげました。」.\n• 4): Chị Karina cho anh Lee mượn đĩa CD「カリナさんはイーさんにCDを貸しました」➔ Anh Lee mượn đĩa CD từ chị Karina:「カリナさんにCDを借りました。」(Có thể dùng trợ từ「に」hoặc「から」)."
+      },
+      {
+        "id": "b6_q4",
+        "type": "fill",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "4. 例：〔だれ〕にその時計をもらいましたか。…父にもらいました。\n\n1) イーさんは（____）でごはんを食べますか。…はしとスプーンで食べます。\n2) （____）で日本語を習いましたか。…中国の大学で習いました。\n3) （____）に年賀状を書きましたか。…先生と友達に書きました。\n4) ミラーさんは（____）にお金を借りましたか。…松本さんに借りました。\n5) （____）レポートを送りましたか。…きのうの夜送りました。\n6) これは日本語で（____）ですか。…「ホッチキス」です。",
+        "answers": [
+          "何 / なん",
+          "どこ",
+          "だれ",
+          "だれ",
+          "いつ",
+          "何 / なん"
+        ],
+        "explanation": "• 例 (Ví dụ): Câu trả lời「父にもらいました」(nhận từ bố) là đối tượng người cho/tặng ➔ Câu hỏi về người dùng nghi vấn từ「だれ」.\n• 1): Câu trả lời「はしとスプーンで食べます」(ăn bằng đũa và thìa) là công cụ/phương tiện ➔ Từ để hỏi phương tiện/công cụ dùng「何」(なん: bằng cái gì).\n• 2): Câu trả lời「中国の大学で習いました」(học ở trường đại học Trung Quốc) là nơi chốn diễn ra hành động ➔ Câu hỏi nơi chốn dùng nghi vấn từ「どこ」.\n• 3): Câu trả lời「先生と友達に書きました」(viết cho thầy cô và bạn bè) là đối tượng tiếp nhận ➔ Câu hỏi về người dùng nghi vấn từ「だれ」.\n• 4): Câu trả lời「松本さんに借りました」(mượn của anh Matsumoto) là người cho mượn ➔ Câu hỏi về người dùng nghi vấn từ「だれ」.\n• 5): Câu trả lời「きのうの夜送りました」(gửi vào tối qua) là thời điểm không có con số cụ thể ➔ Câu hỏi về thời gian dùng nghi vấn từ「いつ」(khi nào / bao giờ).\n• 6): Câu trả lời「「ホッチキス」です」(là cái dập ghim) là tên gọi/đồ vật ➔ Câu hỏi cách gọi/tên vật dùng nghi vấn từ「何」(なん: cái gì)."
+      },
+      {
+        "id": "b6_q5",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "5. 例：もう昼ごはんを食べましたか。…はい、<u>もう食べました。</u>\n                                …いいえ、<u>まだです。これから食べます。</u>\n\n1) もう荷物を送りましたか。\n   …はい、＿＿＿＿＿＿＿＿＿＿\n2) もう新幹線の切符を買いましたか。\n   …いいえ、＿＿＿＿＿＿＿＿＿＿\n3) もう年賀状を書きましたか。\n   …はい、＿＿＿＿＿＿＿＿＿＿\n4) もう宿題をしましたか。\n   …いいえ、＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "もう送りました。 / もう送りました / もうおくりました。 / もうおくりました / 送りました。 / 送りました",
+          "まだです。これから買います。 / まだです。これから買います / まだです。これからかいます。 / まだです。これからかいます / まだです。 / まだです",
+          "もう書きました。 / もう書きました / もうかきました。 / もうかきました / 書きました。 / 書きました",
+          "まだです。これからします。 / まだです。これからします / まだです。 / まだです"
+        ],
+        "explanation": "• Cấu trúc câu hỏi hoàn thành hành động:「もう V-ましたか」(Đã làm V chưa?):\n  - Trả lời khẳng định:「はい、もう V-ました。」(Vâng, tôi đã làm rồi.)\n  - Trả lời phủ định:「いいえ、まだです。これから V-ます。」(Chưa, tôi chưa làm. Từ bây giờ tôi sẽ làm.)\n• 1): Khẳng định đã gửi hành lý:「はい、もう送りました。」(Vâng, tôi đã gửi rồi).\n• 2): Phủ định chưa mua vé tàu Shinkansen:「いいえ、まだです。これから買います。」(Chưa, tôi chưa mua. Từ bây giờ tôi sẽ đi mua).\n• 3): Khẳng định đã viết thiệp chúc Tết:「はい、もう書きました。」(Vâng, tôi đã viết rồi).\n• 4): Phủ định chưa làm bài tập:「いいえ、まだです。これからします。」(Chưa, tôi chưa làm. Từ bây giờ tôi sẽ làm)."
+      },
+      {
+        "id": "b6_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) もう第6課の勉強は終わりましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) きのう友達に電話をかけましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) \"Good morning.\" は日本語で何ですか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 日本語で手紙を書きますか。\n＿＿＿＿＿＿＿＿＿＿\n\n5) どこで本を借りますか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はい、終わりました。",
+          "はい、かけました。",
+          "「おはようございます」です。",
+          "はい、書きます。",
+          "図書館で借ります。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「もう第6課の勉強は終わりましたか」(Việc học Bài 6 đã kết thúc chưa?) ➔ Khẳng định:「はい、終わりました。」; Phủ định:「いいえ、まだです。」.\n• 2):「きのう友達に電話をかけましたか」(Hôm qua bạn có gọi điện cho bạn bè không?) ➔ Khẳng định quá khứ:「はい、かけました。」; Phủ định quá khứ:「いいえ、かけませんでした。」.\n• 3):「\"Good morning.\" は日本語で何ですか」(Good morning trong tiếng Nhật là gì?) ➔ Trả lời:「「おはようございます」です。」.\n• 4):「日本語で手紙を書きますか」(Bạn có viết thư bằng tiếng Nhật không?) ➔ Khẳng định hiện tại:「はい、書きます。」; Phủ định hiện tại:「いいえ、書きません。」.\n• 5):「どこで本を借りますか」(Bạn mượn sách ở đâu?) ➔ Trả lời địa điểm mượn sách dùng trợ từ「で」:「図書館で借ります。」(hoặc「学校の図書館で借ります」)."
+      }
+    ]
   }
 };
 
