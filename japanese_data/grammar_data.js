@@ -451,6 +451,134 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「誕生日はいつですか」(Sinh nhật của bạn là khi nào?) ➔ Trả lời bằng tháng và ngày sinh:「[Số tháng]月 [Số ngày]日です」(Ví dụ: 6月15日です、10月20日です...).\n• 2):「いつ日本へ来ましたか」(Bạn đã đến Nhật Bản khi nào?) ➔ Trả lời mốc thời gian đã đến Nhật:「[Mốc thời gian] に来ました」(Ví dụ: 去年の9月に来ました、先月来ました...).\n• 3):「きょうは何月何日ですか」(Hôm nay là ngày mấy tháng mấy?) ➔ Trả lời ngày tháng hiện tại:「[Số tháng]月 [Số ngày]日です」(Ví dụ: 10月26日です...).\n• 4):「次の日曜日どこへ行きますか」(Chủ Nhật tới bạn sẽ đi đâu?) ➔ Trả lời địa điểm sẽ đi hoặc phủ định:「[Địa điểm] へ行きます」hoặc「どこも行きません」(Ví dụ: 京都へ行きます、どこも行きません...).\n• 5):「いつ国へ帰りますか」(Khi nào bạn sẽ về nước?) ➔ Trả lời thời điểm dự định về nước:「[Mốc thời gian] に帰ります」(Ví dụ: 来年の8月に帰ります、再来年帰ります...).\n• 6):「きのう郵便局へ行きましたか」(Hôm qua bạn có đi bưu điện không?) ➔ Trả lời xác nhận quá khứ:「はい、行きました。」hoặc「いいえ、行きませんでした。」."
       }
     ]
+  },
+  "bai_5": {
+    "title": "Bài 5",
+    "questions": [
+      {
+        "id": "b5_q1",
+        "type": "fill",
+        "tag": "Điền trợ từ và động từ thích hợp",
+        "columns": 2,
+        "question": "1. ［ 買います　見ます　聞きます　飲みます　撮ります ］\n［ 会います　勉強します　吸います　します ］\n\n例：ワイン（ を ）<u>買います。</u>\n\n1) たばこ（____）＿＿＿＿＿＿＿＿＿＿\n2) ビール（____）＿＿＿＿＿＿＿＿＿＿\n3) 映画（____）＿＿＿＿＿＿＿＿＿＿\n4) 日本語（____）＿＿＿＿＿＿＿＿＿＿\n5) ＣＤ（____）＿＿＿＿＿＿＿＿＿＿\n6) テニス（____）＿＿＿＿＿＿＿＿＿＿\n7) 写真（____）＿＿＿＿＿＿＿＿＿＿\n8) 友達（____）＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "を / o / wo",
+          "吸います。 / 吸います / すいます。 / すいます",
+          "を / o / wo",
+          "飲みます。 / 飲みます / のみます。 / のみます",
+          "を / o / wo",
+          "見ます。 / 見ます / みます。 / みます",
+          "を / o / wo",
+          "勉強します。 / 勉強します / べんきょうします。 / べんきょうします",
+          "を / o / wo",
+          "聞きます。 / 聞きます / ききます。 / ききます",
+          "を / o / wo",
+          "します。 / します",
+          "を / o / wo",
+          "撮ります。 / 撮ります / とります。 / とります",
+          "に / ni",
+          "会います。 / 会います / あいます。 / あいます"
+        ],
+        "explanation": "• 例 (Ví dụ): Rượu vang「ワイン」➔ đi với động từ mua「買います」và trợ từ tân ngữ「を」:「ワインを買います」(mua rượu vang).\n• 1): Thuốc lá「たばこ」➔ đi với động từ hút「吸います」(すいます) và trợ từ tân ngữ「を」:「たばこを吸います」(hút thuốc lá).\n• 2): Bia「ビール」➔ đi với động từ uống「飲みます」(のみます) và trợ từ tân ngữ「を」:「ビールを飲みます」(uống bia).\n• 3): Phim ảnh「映画」➔ đi với động từ xem「見ます」(みます) và trợ từ tân ngữ「を」:「映画を見ます」(xem phim).\n• 4): Tiếng Nhật「日本語」➔ đi với động từ học「勉強します」(べんきょうします) và trợ từ tân ngữ「を」:「日本語を勉強します」(học tiếng Nhật).\n• 5): Đĩa CD「ＣＤ」➔ đi với động từ nghe「聞きます」(ききます) và trợ từ tân ngữ「を」:「ＣＤを聞きます」(nghe đĩa CD).\n• 6): Quần vợt/Tennis「テニス」➔ đi với động từ chơi thể thao「します」và trợ từ tân ngữ「を」:「テニスをします」(chơi tennis).\n• 7): Bức ảnh「写真」➔ đi với động từ chụp ảnh「撮ります」(とります) và trợ từ tân ngữ「を」:「写真を撮ります」(chụp ảnh).\n• 8): Bạn bè「友達」➔ đi với động từ gặp gỡ「会います」(あいます). ĐẶC BIỆT LƯU Ý: Hành động gặp ai đó luôn đi kèm trợ từ「に」, KHÔNG dùng trợ từ「を」:「友達に会います」(gặp bạn bè)."
+      },
+      {
+        "id": "b5_q2",
+        "type": "fill",
+        "tag": "Điền trợ từ thích hợp",
+        "question": "2. 例：毎朝７時（ に ）起きます。\n\n1) わたしは毎朝パン（____）卵（____）食べます。\n\n2) どこ（____）お花見（____）しますか。…大学（____）庭です。\n\n3) けさ何（____）食べませんでした。\n\n4) きのう（____）午後うち（____）手紙（____）書きました。\n\n5) きょう３時（____）教室（____）日本語（____）先生（____）会います。\n\n6) きのう自転車（____）スーパー（____）行きました。スーパー（____）牛乳（____）果物（____）買いました。",
+        "answers": [
+          "と / to",
+          "を / o / wo",
+          "で / de",
+          "を / o / wo",
+          "の / no",
+          "も / mo",
+          "の / no / × / x / X",
+          "で / de",
+          "を / o / wo",
+          "に / ni",
+          "で / de",
+          "の / no",
+          "に / ni",
+          "で / de",
+          "へ / に / e / he",
+          "で / de",
+          "と / to",
+          "を / o / wo"
+        ],
+        "explanation": "• 例 (Ví dụ): Mốc giờ cụ thể「７時」đi với trợ từ「に」:「７時に起きます」(thức dậy lúc 7 giờ).\n• 1): Trợ từ「と」liên kết/liệt kê danh từ đồ ăn「パン と 卵」(bánh mì và trứng). Trợ từ「を」chỉ tân ngữ bị tác động:「パンと卵 を 食べます」(ăn bánh mì và trứng).\n• 2): Trợ từ「で」chỉ địa điểm diễn ra hành động「どこ で」(ở đâu).「お花見 を します」(ngắm hoa). Trợ từ「の」nối 2 danh từ sở thuộc:「大学 の 庭」(vườn của trường đại học).\n• 3): Từ để hỏi「何」(cái gì) đi với trợ từ「も」kết hợp động từ thể phủ định hoàn toàn:「何 も 食べませんでした」(sáng nay đã không ăn bất cứ thứ gì).\n• 4):「きのう の 午後」(chiều hôm qua) dùng「の」(hoặc có thể không cần trợ từ「×」). Trợ từ「で」chỉ nơi chốn diễn ra hành động:「うち で」(tại nhà). Trợ từ「を」chỉ tân ngữ:「手紙 を 書きました」(viết thư).\n• 5): Mốc giờ「３時 に」(vào lúc 3 giờ). Địa điểm cuộc gặp「教室 で」(tại phòng học). Trợ từ「の」nối chuyên môn và chức danh:「日本語 の 先生」(giáo viên tiếng Nhật). Động từ「会います」(gặp gỡ) bắt buộc đi kèm trợ từ「に」đối với người được gặp:「先生 に 会います」(gặp thầy giáo).\n• 6): Phương tiện di chuyển xe đạp đi với trợ từ「で」:「自転車 で」. Đích đến của「行きました」dùng trợ từ chỉ phương hướng「へ」(hoặc「に」):「スーパー へ」. Nơi diễn ra hành động mua sắm dùng trợ từ「で」:「スーパー で」(tại siêu thị). Liệt kê sữa VÀ hoa quả dùng trợ từ「と」:「牛乳 と 果物」, tân ngữ của mua đi với trợ từ「を」:「果物 を 買いました」."
+      },
+      {
+        "id": "b5_q3",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "3. 例：きのう手紙を書きましたか。…いいえ、<u>書きませんでした。</u>\n\n1) たばこを吸いますか。\n…いいえ、＿＿＿＿＿＿＿＿＿＿\n\n2) きのうの晩勉強しましたか。\n…いいえ、＿＿＿＿＿＿＿＿＿＿\n\n3) 土曜日の午後＿＿＿＿＿＿＿＿＿＿\n…宿題をしました。それからサッカーをしました。\n\n4) いっしょにテニスをしませんか。\n…ええ、＿＿＿＿＿＿＿＿＿＿\n\n5) ちょっと＿＿＿＿＿＿＿＿＿＿\n…ええ、休みましょう。",
+        "answers": [
+          "吸いません。 / 吸いません / すいません。 / すいません",
+          "勉強しませんでした。 / 勉強しませんでした / べんきょうしませんでした。 / べんきょうしませんでした",
+          "何をしましたか。 / 何をしましたか / 何を しましたか。 / 何を しましたか / なにをしましたか。 / なにをしましたか",
+          "しましょう。 / しましょう / テニスをしましょう。 / テニスをしましょう",
+          "休みませんか。 / 休みませんか / やすみませんか。 / やすみませんか / 休みましょう。 / 休みましょう / やすみましょう。 / やすみましょう"
+        ],
+        "explanation": "• 例 (Ví dụ): Câu hỏi thời quá khứ「書きましたか」➔ Trả lời phủ định quá khứ:「いいえ、書きませんでした。」(Không, tôi đã không viết).\n• 1): Câu hỏi thời hiện tại/thói quen「吸いますか」(Bạn có hút thuốc không?) ➔ Trả lời phủ định thời hiện tại:「いいえ、吸いません。」(Không, tôi không hút).\n• 2): Câu hỏi về hành động trong quá khứ「きのうの晩勉強しましたか」(Tối qua bạn đã học bài không?) ➔ Trả lời phủ định thời quá khứ:「いいえ、勉強しませんでした。」(Không, tôi đã không học bài).\n• 3): Câu trả lời nêu các hành động đã làm trong quá khứ「宿題をしました。それからサッカーをしました。」(Tôi đã làm bài tập. Sau đó đã đá bóng) ➔ Câu hỏi hành động đã làm dùng:「何をしましたか。」(Bạn đã làm gì?).\n• 4): Lời mời/rủ rê「～ませんか」(Cùng chơi tennis với tôi không?) ➔ Trả lời đồng ý tán thành bằng mẫu「～ましょう」:「ええ、しましょう。」(Vâng, chúng ta cùng chơi nhé / Vâng, được đấy).\n• 5): Câu trả lời đồng ý「ええ、休みましょう。」(Vâng, cùng nghỉ thôi) ➔ Người nói trước đưa ra lời rủ rê, đề xuất:「ちょっと 休みませんか。」(Chúng ta cùng nghỉ một chút không?)."
+      },
+      {
+        "id": "b5_q4",
+        "type": "fill",
+        "tag": "Điền trợ từ và động từ thích hợp",
+        "question": "4. ［ Gợi ý động từ: 飲みます　食べます　買います　読みます　見ます ］\n例：きのう電車（ で ）会社（ へ ）<u>行きました。</u>\n\n1) きのうの午後友達（____）レストラン（____）コーヒー（____）＿＿＿＿＿＿＿＿＿＿\n2) 毎日12時（____）食堂（____）昼ごはん（____）＿＿＿＿＿＿＿＿＿＿\n3) きのうデパート（____）ネクタイ（____）＿＿＿＿＿＿＿＿＿＿\n4) 毎朝ロビー（____）新聞（____）＿＿＿＿＿＿＿＿＿＿\n5) 毎晩部屋（____）８時（____）９時（____）テレビ（____）＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "と / to",
+          "で / de",
+          "を / o / wo",
+          "飲みました。 / 飲みました / のみました。 / のみました",
+          "に / ni",
+          "で / de",
+          "を / o / wo",
+          "食べます。 / 食べます / たべます。 / たべます",
+          "で / de",
+          "を / o / wo",
+          "買いました。 / 買いました / かいました。 / かいました",
+          "で / de",
+          "を / o / wo",
+          "読みます。 / 読みます / よみます。 / よみます",
+          "で / de",
+          "から / kara",
+          "まで / made",
+          "を / o / wo",
+          "見ます。 / 見ます / みます。 / みます"
+        ],
+        "explanation": "• 例 (Ví dụ): Mốc thời gian「きのう」(hôm qua) là quá khứ ➔ Động từ chia quá khứ「行きました」. Phương tiện「電車 で」, hướng đi「会社 へ」:「きのう電車で会社へ行きました。」.\n• 1):「きのうの午後」(chiều hôm qua) là quá khứ ➔ Động từ chia thì quá khứ:「飲みました」(đã uống). Người cùng đi「友達 と」, nơi chốn diễn ra hành động「レストラン で」, tân ngữ「コーヒー を」.\n• 2):「毎日12時」(mỗi ngày lúc 12 giờ) là thói quen hiện tại ➔ Động từ chia thì hiện tại:「食べます」(ăn). Mốc giờ「12時 に」, địa điểm ăn「食堂 で」, tân ngữ đồ ăn「昼ごはん を」.\n• 3):「きのう」(hôm qua) là quá khứ ➔ Động từ chia thì quá khứ:「買いました」(đã mua). Nơi chốn mua sắm「デパート で」, tân ngữ món hàng「ネクタイ を」.\n• 4):「毎朝」(mỗi sáng) là thói quen hiện tại ➔ Động từ chia thì hiện tại:「読みます」(đọc). Nơi chốn đọc báo「ロビー で」, tân ngữ「新聞 を」.\n• 5):「毎晩」(mỗi tối) là thói quen hiện tại ➔ Động từ chia thì hiện tại:「見ます」(xem). Nơi chốn xem tivi「部屋 で」, khoảng thời gian từ mấy giờ đến mấy giờ「８時 から ９時 まで」, tân ngữ「テレビ を」."
+      },
+      {
+        "id": "b5_q5",
+        "type": "fill",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "5. ［ だれ　いつ　なん　なに　どこ ］\n例：A：あれは（ なん ）ですか。…B：美術館です。\n\n1) A：（____）で新聞を読みますか。\n   B：会社で読みます。\n\n2) A：昼休みに（____）をしますか。\n   B：テニスをします。\n\n3) A：きのう（____）時にうちへ帰りましたか。\n   B：８時に帰りました。\n\n4) A：（____）で京都へ行きましたか。\n   B：タクシーで行きました。\n\n5) A：（____）テレビを見ますか。\n   B：夜見ます。\n   A：（____）と見ますか。\n   B：家族と見ます。",
+        "answers": [
+          "どこ",
+          "なに / 何",
+          "なん / 何",
+          "なん / なに / 何",
+          "いつ",
+          "だれ / 誰"
+        ],
+        "explanation": "• 例 (Ví dụ): B trả lời về tên công trình/sự vật「美術館です」(Bảo tàng mỹ thuật) ➔ Câu hỏi về sự vật kết hợp với「ですか」dùng nghi vấn từ「なん」(đọc là nan).\n• 1): B trả lời địa điểm nơi diễn ra hành động「会社で読みます」(Đọc ở công ty) ➔ Câu hỏi nơi chốn dùng nghi vấn từ「どこ」(ở đâu):「どこ で新聞を読みますか」.\n• 2): B trả lời hoạt động「テニスをします」(Chơi tennis). Đứng trước trợ từ「を」, chữ 何 đọc là「なに」:「なに をしますか」(Làm cái gì?).\n• 3): B trả lời mốc giờ「８時に帰りました」(Về lúc 8 giờ). Đứng trước đơn vị đo thời gian「時」(giờ), chữ 何 đọc là「なん」:「なん 時に」(mấy giờ).\n• 4): B trả lời phương tiện giao thông「タクシーで行きました」(Đi bằng taxi) ➔ Câu hỏi phương tiện đi lại dùng nghi vấn từ「なん」(hoặc「なに」):「なん で行きましたか」(Đi bằng gì?).\n• 5):\n  - Lượt 1: B trả lời mốc thời gian「夜見ます」(Xem vào buổi tối) ➔ Câu hỏi thời điểm dùng nghi vấn từ「いつ」(khi nào).\n  - Lượt 2: B trả lời người cùng xem「家族と見ます」(Xem cùng với gia đình) ➔ Câu hỏi người cùng làm việc gì đi với trợ từ「と」dùng nghi vấn từ「だれ」(hoặc「誰」: xem với ai)."
+      },
+      {
+        "id": "b5_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) けさ新聞を読みましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) いつも何時に朝ごはんを食べますか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) お酒を飲みますか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 国で日本語を勉強しましたか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はい、読みました。",
+          "7時に食べます。",
+          "はい、飲みます。",
+          "はい、勉強しました。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「けさ新聞を読みましたか」(Sáng nay bạn có đọc báo không?) ➔ Trả lời xác nhận hành động trong quá khứ:「はい、読みました。」(Vâng, tôi đã đọc) hoặc「いいえ、読みませんでした。」(Không, tôi đã không đọc).\n• 2):「いつも何時に朝ごはんを食べますか」(Bạn thường ăn sáng lúc mấy giờ?) ➔ Trả lời mốc giờ ăn sáng:「[Số giờ] 時に食べます。」(Ví dụ: 7時に食べます、7時半に食べます...).\n• 3):「お酒を飲みますか」(Bạn có uống rượu không?) ➔ Trả lời thói quen hiện tại:「はい、飲みます。」(Vâng, tôi có uống) hoặc「いいえ、飲みません。」(Không, tôi không uống).\n• 4):「国で日本語を勉強しましたか」(Bạn đã học tiếng Nhật ở trong nước phải không?) ➔ Trả lời xác nhận quá khứ:「はい、勉強しました。」(Vâng, tôi đã học) hoặc「いいえ、勉強しませんでした。」(Không, tôi đã không học)."
+      }
+    ]
   }
 };
 
