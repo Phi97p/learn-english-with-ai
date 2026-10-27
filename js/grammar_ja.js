@@ -20,6 +20,7 @@ const GrammarJaModule = (() => {
   function initDOM() {
     dom = {
       lessonSelect: document.getElementById('ja-grammar-lesson-select'),
+      lessonStatusBadge: document.getElementById('ja-grammar-lesson-status-badge'),
       newQuizBtn: document.getElementById('ja-grammar-new-quiz-btn'),
       timerDisplay: document.getElementById('ja-grammar-timer'),
       progressText: document.getElementById('ja-grammar-progress-text'),
@@ -79,6 +80,23 @@ const GrammarJaModule = (() => {
     return clone;
   }
 
+  // Cập nhật tag / badge trạng thái hoàn thành của bài học đang chọn
+  function updateLessonStatusBadge() {
+    const badgeEl = dom.lessonStatusBadge || document.getElementById('ja-grammar-lesson-status-badge');
+    if (!badgeEl) return;
+    const allData = getAllLessonsData();
+    const lesson = allData[selectedLessonKey];
+    const isCompleted = lesson && (lesson.completed === true || lesson.status === 'completed' || lesson.tag === 'Hoàn thành' || ['bai_1', 'bai_2', 'bai_3', 'bai_4'].includes(selectedLessonKey));
+
+    if (isCompleted) {
+      badgeEl.innerHTML = `✓ Hoàn thành`;
+      badgeEl.className = 'grammar-lesson-status-badge badge-lesson-completed';
+      badgeEl.style.display = 'inline-flex';
+    } else {
+      badgeEl.style.display = 'none';
+    }
+  }
+
   // Render danh sách Bài học vào Dropdown
   function renderLessonSelect() {
     if (!dom.lessonSelect) return;
@@ -95,10 +113,13 @@ const GrammarJaModule = (() => {
       const count = (lesson && Array.isArray(lesson.questions)) ? lesson.questions.length : 0;
       const title = (lesson && lesson.title) ? lesson.title : key;
       const isSelected = selectedLessonKey === key ? 'selected' : '';
-      html += `<option value="${key}" ${isSelected}>${title} (${count} câu)</option>`;
+      const isCompleted = lesson && (lesson.completed === true || lesson.status === 'completed' || lesson.tag === 'Hoàn thành' || ['bai_1', 'bai_2', 'bai_3', 'bai_4'].includes(key));
+      const completionTag = isCompleted ? ' [Hoàn thành]' : '';
+      html += `<option value="${key}" ${isSelected}>${title} (${count} câu)${completionTag}</option>`;
     });
 
     dom.lessonSelect.innerHTML = html;
+    updateLessonStatusBadge();
   }
 
   // Bắt đầu / Dừng đồng hồ đếm giờ
@@ -134,6 +155,7 @@ const GrammarJaModule = (() => {
   // Khởi tạo bài làm cho bài học đang chọn
   function generateNewQuiz(isRetrySame = false) {
     stopTimer();
+    updateLessonStatusBadge();
     const pool = getQuestionsForSelectedLesson();
 
     if (pool.length === 0) {
@@ -537,13 +559,12 @@ const GrammarJaModule = (() => {
       // Nếu là câu ví dụ mẫu (có chứa thẻ <u>)
       if (innerContent.includes('<u>')) {
         const parts = splitChoices(innerContent);
-        const part1 = parts[0] || '';
-        const part2 = parts[1] || '';
-        const is1Active = part1.includes('<u>');
-        const is2Active = part2.includes('<u>');
-        const text1 = part1.replace(/<\/?u>/g, '');
-        const text2 = part2.replace(/<\/?u>/g, '');
-        return `<span class="inline-choice-group inline-choice-example"><span class="inline-choice-bracket">〔</span><span class="inline-choice-preview ${is1Active ? 'example-active' : ''}">${escapeHtml(text1)}</span><span class="inline-choice-divider">/</span><span class="inline-choice-preview ${is2Active ? 'example-active' : ''}">${escapeHtml(text2)}</span><span class="inline-choice-bracket">〕</span></span>`;
+        const previews = parts.map(part => {
+          const isActive = part.includes('<u>');
+          const text = part.replace(/<\/?u>/g, '');
+          return `<span class="inline-choice-preview ${isActive ? 'example-active' : ''}">${escapeHtml(text)}</span>`;
+        }).join('<span class="inline-choice-divider">/</span>');
+        return `<span class="inline-choice-group inline-choice-example"><span class="inline-choice-bracket">〔</span>${previews}<span class="inline-choice-bracket">〕</span></span>`;
       }
 
       // Slot làm bài thực tế
@@ -555,41 +576,39 @@ const GrammarJaModule = (() => {
         : (q.answer || '');
 
       const parts = splitChoices(innerContent);
-      const opt1 = parts[0] || '';
-      const opt2 = parts[1] || '';
-
-      let btn1Class = '';
-      let btn2Class = '';
       let feedbackHtml = '';
 
-      const isSelected1 = (userVal === opt1);
-      const isSelected2 = (userVal === opt2);
-
       if (isSubmittedState) {
-        const isOpt1Correct = checkSingleBlankAnswer(opt1, rawTarget);
-        const isOpt2Correct = checkSingleBlankAnswer(opt2, rawTarget);
-
         if (!userVal) {
           // Chưa chọn
           feedbackHtml = `<span class="inline-choice-feedback skipped" title="Chưa chọn!">⚪</span>`;
-          if (isOpt1Correct) btn1Class += ' choice-target';
-          if (isOpt2Correct) btn2Class += ' choice-target';
         } else if (checkSingleBlankAnswer(userVal, rawTarget)) {
           // Chọn đúng
           feedbackHtml = `<span class="inline-choice-feedback correct" title="Chính xác!">✅</span>`;
-          if (isSelected1) btn1Class += ' choice-correct';
-          if (isSelected2) btn2Class += ' choice-correct';
         } else {
           // Chọn sai
           feedbackHtml = `<span class="inline-choice-feedback wrong" title="Sai rồi!">❌</span>`;
-          if (isSelected1) btn1Class += ' choice-wrong';
-          if (isSelected2) btn2Class += ' choice-wrong';
-          if (isOpt1Correct) btn1Class += ' choice-target';
-          if (isOpt2Correct) btn2Class += ' choice-target';
         }
       }
 
-      return `<span class="inline-choice-group" data-qid="${q.id}" data-slot-idx="${sIdx}"><span class="inline-choice-bracket">〔</span><button type="button" class="inline-choice-btn ${isSelected1 ? 'selected' : ''} ${btn1Class}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-idx="${sIdx}" data-val="${escapeHtml(opt1)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt1)}</button><span class="inline-choice-divider">/</span><button type="button" class="inline-choice-btn ${isSelected2 ? 'selected' : ''} ${btn2Class}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-idx="${sIdx}" data-val="${escapeHtml(opt2)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt2)}</button><span class="inline-choice-bracket">〕</span>${feedbackHtml}</span>`;
+      const buttonsHtml = parts.map(opt => {
+        const isSelected = (userVal === opt);
+        let btnClass = '';
+        if (isSubmittedState) {
+          const isCorrectOpt = checkSingleBlankAnswer(opt, rawTarget);
+          if (!userVal) {
+            if (isCorrectOpt) btnClass += ' choice-target';
+          } else if (checkSingleBlankAnswer(userVal, rawTarget)) {
+            if (isSelected) btnClass += ' choice-correct';
+          } else {
+            if (isSelected) btnClass += ' choice-wrong';
+            if (isCorrectOpt) btnClass += ' choice-target';
+          }
+        }
+        return `<button type="button" class="inline-choice-btn ${isSelected ? 'selected' : ''} ${btnClass}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-idx="${sIdx}" data-val="${escapeHtml(opt)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt)}</button>`;
+      }).join('<span class="inline-choice-divider">/</span>');
+
+      return `<span class="inline-choice-group" data-qid="${q.id}" data-slot-idx="${sIdx}"><span class="inline-choice-bracket">〔</span>${buttonsHtml}<span class="inline-choice-bracket">〕</span>${feedbackHtml}</span>`;
     });
 
     const htmlWithBr = formatted
@@ -1499,6 +1518,7 @@ const GrammarJaModule = (() => {
     if (dom.lessonSelect) {
       dom.lessonSelect.addEventListener('change', (e) => {
         selectedLessonKey = e.target.value;
+        updateLessonStatusBadge();
         generateNewQuiz(false);
       });
     }

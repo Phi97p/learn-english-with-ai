@@ -65,6 +65,32 @@
   box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
+.grammar-lesson-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.grammar-lesson-status-badge.badge-lesson-completed {
+  background: rgba(16, 185, 129, 0.16);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.12);
+}
+
+[data-theme="light"] .grammar-lesson-status-badge.badge-lesson-completed {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
 .btn-grammar-action {
   background: rgba(99, 102, 241, 0.12);
   color: #818cf8;

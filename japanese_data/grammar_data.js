@@ -7,6 +7,7 @@
 const JA_GRAMMAR_DATA = {
   "bai_1": {
     "title": "Bài 1",
+    "completed": true,
     "questions": [
       {
         "id": "b1_q1",
@@ -108,6 +109,7 @@ const JA_GRAMMAR_DATA = {
   },
   bai_2: {
     title: "Bài 2: Đồ vật, Sở hữu & Số đếm giá tiền",
+    completed: true,
     questions: [
       {
         id: "b2_q1",
@@ -192,6 +194,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_3": {
     "title": "Bài 3",
+    "completed": true,
     "questions": [
       {
         "id": "b3_q1",
@@ -351,6 +354,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_4": {
     "title": "Bài 4",
+    "completed": true,
     "questions": [
       {
         "id": "b4_q1",
@@ -708,7 +712,312 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「もう第6課の勉強は終わりましたか」(Việc học Bài 6 đã kết thúc chưa?) ➔ Khẳng định:「はい、終わりました。」; Phủ định:「いいえ、まだです。」.\n• 2):「きのう友達に電話をかけましたか」(Hôm qua bạn có gọi điện cho bạn bè không?) ➔ Khẳng định quá khứ:「はい、かけました。」; Phủ định quá khứ:「いいえ、かけませんでした。」.\n• 3):「\"Good morning.\" は日本語で何ですか」(Good morning trong tiếng Nhật là gì?) ➔ Trả lời:「「おはようございます」です。」.\n• 4):「日本語で手紙を書きますか」(Bạn có viết thư bằng tiếng Nhật không?) ➔ Khẳng định hiện tại:「はい、書きます。」; Phủ định hiện tại:「いいえ、書きません。」.\n• 5):「どこで本を借りますか」(Bạn mượn sách ở đâu?) ➔ Trả lời địa điểm mượn sách dùng trợ từ「で」:「図書館で借ります。」(hoặc「学校の図書館で借ります」)."
       }
     ]
+  },
+  "bai_7": {
+    "title": "Bài 7",
+    "questions": [
+      {
+        "id": "b7_q1",
+        "type": "fill",
+        "tag": "Tìm từ trái nghĩa",
+        "columns": 2,
+        "question": "1. 例：大きい机 ⇔ <u>小さい机</u>\n\n1) 新しいうち ⇔ ＿＿＿＿＿＿＿＿＿＿\n2) いい人 ⇔ ＿＿＿＿＿＿＿＿＿＿\n3) 難しい仕事 ⇔ ＿＿＿＿＿＿＿＿＿＿\n4) 安い車 ⇔ ＿＿＿＿＿＿＿＿＿＿\n5) 高い山 ⇔ ＿＿＿＿＿＿＿＿＿＿\n6) 忙しい日曜日 ⇔ ＿＿＿＿＿＿＿＿＿＿\n7) 静かな町 ⇔ ＿＿＿＿＿＿＿＿＿＿\n8) 冷たいお茶 ⇔ ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "古いうち / 古い家 / ふるいうち / ふるいいえ / 古い / ふるい",
+          "悪い人 / わるいひと / 悪い / わるい",
+          "易しい仕事 / やさしい仕事 / やさしいしごと / 簡単な仕事 / かんたんな仕事 / かんたんなしごと / 易しい / やさしい / 簡単な / かんたんな",
+          "高い車 / たかい車 / たかいくるま / 高い / たかい",
+          "低い山 / ひくい山 / ひくいやま / 低い / ひくい",
+          "暇な日曜日 / ひまな日曜日 / ひまなにちようび / 暇な / ひまな / 暇 / ひま",
+          "にぎやかな町 / 賑やかな町 / にぎやかなまち / にぎやか / にぎやかな / 賑やか / 賑やかな",
+          "熱いお茶 / あついお茶 / あついおちゃ / 温かいお茶 / あたたかいお茶 / あたたかいおちゃ / 熱い / あつい / 温かい / あたたかい"
+        ],
+        "explanation": "• 例 (Ví dụ): Cặp tính từ trái nghĩa:「大きい」(to, lớn) ⇔「小さい」(nhỏ, bé) ➔「大きい机」(bàn lớn) ⇔「小さい机」(bàn nhỏ).\n• 1): Trái nghĩa với「新しい」(mới) là「古い」(cũ) ➔「新しいうち」(nhà mới) ⇔「古いうち」(nhà cũ - hoặc「古い家」).\n• 2): Trái nghĩa với「いい」(tốt) là「悪い」(xấu, tồi) ➔「いい人」(người tốt) ⇔「悪い人」(người xấu).\n• 3): Trái nghĩa với「難しい」(khó) là「易しい」(dễ) hoặc「簡単な」(đơn giản) ➔「難しい仕事」(công việc khó) ⇔「易しい仕事」(công việc dễ - hoặc「簡単な仕事」).\n• 4): Trái nghĩa với「安い」(rẻ) là「高い」(đắt) ➔「安い車」(xe hơi rẻ tiền) ⇔「高い車」(xe hơi đắt tiền).\n• 5): Trái nghĩa với「高い」(cao - chỉ độ cao của vật thể như núi, toà nhà) là「低い」(thấp) ➔「高い山」(núi cao) ⇔「低い山」(núi thấp).\n• 6): Trái nghĩa với「忙しい」(bận rộn) là tính từ đuôi な「暇な」(rảnh rỗi). Khi bổ nghĩa cho danh từ cần giữ「な」➔「忙しい日曜日」(Chủ nhật bận rộn) ⇔「暇な日曜日」(Chủ nhật rảnh rỗi).\n• 7): Trái nghĩa với「静かな」(yên tĩnh) là tính từ đuôi な「にぎやかな」(náo nhiệt, nhộn nhịp, sôi động) ➔「静かな町」(thị trấn yên tĩnh) ⇔「にぎやかな町」(thị trấn nhộn nhịp/náo nhiệt).\n• 8): Trái nghĩa với「冷たい」(lạnh - cảm nhận nhiệt độ đồ uống/tiếp xúc) là「熱い」(nóng) ➔「冷たいお茶」(trà lạnh) ⇔「熱いお茶」(trà nóng - hoặc「温かいお茶」: trà ấm)."
+      },
+      {
+        "id": "b7_q2",
+        "type": "fill",
+        "tag": "Hoàn thành câu với tính từ bổ nghĩa cho danh từ",
+        "question": "2. 例1：＜映画・おもしろい＞\n   <u>おもしろい映画</u>を見ました。\n   例2：＜大学・有名＞\n   さくら大学は<u>有名な大学</u>です。\n\n1) ＜ケータイ・新しい＞\n   ＿＿＿＿＿＿＿＿＿＿を買いました。\n\n2) ＜レストラン・静か＞\n   ＿＿＿＿＿＿＿＿＿＿で昼ごはんを食べました。\n\n3) ＜先生・親切＞\n   ワットさんは＿＿＿＿＿＿＿＿＿＿です。\n\n4) ＜チョコレート・おいしい＞\n   ミラーさんに＿＿＿＿＿＿＿＿＿＿をもらいました。\n\n5) ＜花・きれい＞\n   彼女の誕生日に＿＿＿＿＿＿＿＿＿＿をあげました。",
+        "answers": [
+          "新しいケータイ / あたらしいケータイ / 新しい携帯 / あたらしいけいたい / 新しい携帯電話 / あたらしいけいたいでんわ",
+          "静かなレストラン / しずかなレストラン",
+          "親切な先生 / しんせつな先生 / しんせつなせんせい",
+          "おいしいチョコレート / 美味しいチョコレート / おいしいチョコ / 美味しいチョコ",
+          "きれいな花 / 綺麗な花 / きれいなはな / きれいなお花 / きれいなおはな"
+        ],
+        "explanation": "• Cấu trúc tính từ bổ nghĩa cho danh từ:\n  • Tính từ đuôi い: Giữ nguyên「い」rồi ghép trực tiếp với danh từ:「A-い + N」(Ví dụ: おもしろい映画, 新しいケータイ, おいしいチョコレート).\n  • Tính từ đuôi な: Giữ nguyên trợ từ「な」rồi ghép với danh từ:「A-な + N」(Ví dụ: 有名な大学, 静かなレストラン, 親切な先生, きれいな花).\n• 例1: Ghép tính từ đuôi い「おもしろい」(hay) với danh từ「映画」(phim) ➔「おもしろい映画を見ました」(Tôi đã xem một bộ phim hay).\n• 例2: Ghép tính từ đuôi な「有名」(nổi tiếng) với danh từ「大学」(trường đại học) ➔ Thêm「な」:「さくら大学は有名な大学です」(Đại học Sakura là một trường đại học nổi tiếng).\n• 1): Ghép tính từ đuôi い「新しい」(mới) với danh từ「ケータイ」(điện thoại di động) ➔ Giữ nguyên「い」:「新しいケータイ を買いました」(Tôi đã mua điện thoại mới).\n• 2): Ghép tính từ đuôi な「静か」(yên tĩnh) với danh từ「レストラン」(nhà hàng) ➔ Thêm「な」:「静かなレストラン で昼ごはんを食べました」(Tôi đã ăn trưa ở một nhà hàng yên tĩnh).\n• 3): Ghép tính từ đuôi な「親切」(thân thiện, tốt bụng) với danh từ「先生」(thầy giáo) ➔ Thêm「な」:「ワットさんは 親切な先生 です」(Thầy Watt là một người thầy rất tốt bụng).\n• 4): Ghép tính từ đuôi い「おいしい」(ngon) với danh từ「チョコレート」(sô-cô-la) ➔ Giữ nguyên「い」:「ミラーさんに おいしいチョコレート をもらいました」(Tôi đã nhận được sô-cô-la ngon từ anh Miller).\n• 5): Ghép tính từ đuôi な「きれい」(đẹp) với danh từ「花」(hoa) ➔ Lưu ý「きれい」là tính từ đuôi な (mặc dù tận cùng phát âm là i) nên bắt buộc thêm「な」:「彼女の誕生日に きれいな花 をあげました」(Tôi đã tặng hoa đẹp vào sinh nhật của cô ấy)."
+      },
+      {
+        "id": "b7_q3",
+        "type": "fill",
+        "tag": "Trả lời câu hỏi với とても và あまり",
+        "question": "3. 例：日本語は難しいですか。\n   …はい、とても<u>難しいです。</u>\n   …いいえ、あまり<u>難しくないです。</u>\n\n1) 日本の地下鉄は便利ですか。…はい、とても ＿＿＿＿＿＿＿＿＿＿\n2) シャンハイは寒いですか。…いいえ、あまり ＿＿＿＿＿＿＿＿＿＿\n3) その辞書はいいですか。…いいえ、あまり ＿＿＿＿＿＿＿＿＿＿\n4) 日本の生活は楽しいですか。…はい、とても ＿＿＿＿＿＿＿＿＿＿\n5) あなたの町はにぎやかですか。…いいえ、あまり ＿＿＿＿＿＿＿＿＿＿\n6) この店のコーヒーはおいしいですか。…はい、とても ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "便利です / べんりです / 便利です。 / べんりです。",
+          "寒くないです / さむくないです / 寒くありません / さむくありません / 寒くないです。 / さむくないです。 / 寒くありません。 / さむくありません。",
+          "よくないです / よくありません / よくないです。 / よくありません。",
+          "楽しいです / たのしいです / 楽しいです。 / たのしいです。",
+          "にぎやかじゃありません / にぎやかではありません / 賑やかじゃありません / 賑やかではありません / にぎやかじゃないです / 賑やかじゃないです / にぎやかじゃありません。 / にぎやかではありません。 / 賑やかじゃありません。 / 賑やかではありません。",
+          "おいしいです / 美味しいです / おいしいです。 / 美味しいです。"
+        ],
+        "explanation": "• Cấu trúc ngữ pháp trả lời câu hỏi mức độ với tính từ:\n  • Khẳng định「はい、とても + [Tính từ] です」(Vâng, rất...):\n    - Tính từ đuôi い:「A-い です」(Ví dụ: 楽しいです, おいしいです).\n    - Tính từ đuôi な:「A です」(Ví dụ: 便利です).\n  • Phủ định「いいえ、あまり + [Tính từ phủ định]」(Không, không... lắm):\n    - Tính từ đuôi い: Đổi đuôi「い」thành「くないです」(hoặc「くありません」). Riêng trường hợp đặc biệt「いい」(tốt) đổi thành「よくないです」(hoặc「よくありません」).\n    - Tính từ đuôi な: Đổi đuôi「な」thành「じゃありません」(hoặc「ではありません」).\n• 例 (Ví dụ):「日本語は難しいですか」(Tiếng Nhật có khó không?):\n  - Khẳng định:「はい、とても難しいです」(Vâng, rất khó).\n  - Phủ định:「いいえ、あまり難しくないです」(Không, không khó lắm).\n• 1):「便利」(tiện lợi) là tính từ đuôi な. Trả lời khẳng định với とても:「はい、とても便利です」(Vâng, rất tiện lợi).\n• 2):「寒い」(lạnh) là tính từ đuôi い. Trả lời phủ định với あまり: đổi đuôi い thành くない:「いいえ、あまり寒くないです」(Không, không lạnh lắm).\n• 3):「いい」(tốt) là tính từ đuôi い ĐẶC BIỆT. Dạng phủ định của いい là よくない:「いいえ、あまりよくないです」(Không, không tốt lắm - hoặc「よくありません」).\n• 4):「楽しい」(vui vẻ) là tính từ đuôi い. Trả lời khẳng định với とても:「はい、とても楽しいです」(Vâng, rất vui).\n• 5):「にぎやか」(náo nhiệt) là tính từ đuôi な. Trả lời phủ định với あまり: thêm じゃありません:「いいえ、あまりにぎやかじゃありません」(Không, không náo nhiệt lắm - hoặc「にぎやかではありません」).\n• 6):「おいしい」(ngon) là tính từ đuôi い. Trả lời khẳng định với とても:「はい、とてもおいしいです」(Vâng, rất ngon)."
+      },
+      {
+        "id": "b7_q4",
+        "type": "fill",
+        "tag": "Nối tính từ với liên từ が và そして",
+        "question": "4. 例1：会社の寮は（古い・きれい…<u>古いですが、きれいです。</u>）\n   例2：カリナさんは（きれい・親切…<u>きれいです。そして、親切です。</u>）\n\n1) このレストランは（小さい・有名…＿＿＿＿＿＿＿＿＿＿）\n2) 日本の生活は（忙しい・楽しい…＿＿＿＿＿＿＿＿＿＿）\n3) サントスさんは（ハンサム・おもしろい…＿＿＿＿＿＿＿＿＿＿）\n4) 日本語の勉強は（難しい・おもしろい…＿＿＿＿＿＿＿＿＿＿）\n5) 松本さんのうちは（新しい・とても大きい…＿＿＿＿＿＿＿＿＿＿）",
+        "answers": [
+          "小さいですが、有名です。 / 小さいですが、有名です / 小さいですが有名です。 / 小さいですが有名です / ちいさいですが、ゆうめいです。 / ちいさいですが、ゆうめいです",
+          "忙しいですが、楽しいです。 / 忙しいですが、楽しいです / 忙しいですが楽しいです。 / 忙しいですが楽しいです / いそがしいですが、たのしいです。 / いそがしいですが、たのしいです",
+          "ハンサムです。そして、おもしろいです。 / ハンサムです。そして、おもしろいです / ハンサムです。そしておもしろいです。 / ハンサムです。そしておもしろいです / ハンサムです。そして、面白いです。 / ハンサムです。そして、面白いです",
+          "難しいですが、おもしろいです。 / 難しいですが、おもしろいです / 難しいですがおもしろいです。 / 難しいですがおもしろいです / むずかしいですが、おもしろいです。 / むずかしいですが、おもしろいです / 難しいですが、面白いです。 / 難しいですが、面白いです",
+          "新しいです。そして、とても大きいです。 / 新しいです。そして、とても大きいです / 新しいです。そしてとても大きいです。 / 新しいです。そしてとても大きいです / あたらしいです。そして、とてもおおきいです。 / あたらしいです。そして、とてもおおきいです"
+        ],
+        "explanation": "• Cấu trúc nối 2 tính từ trong tiếng Nhật:\n  • Nối 2 ý trái ngược/tương phản nhau: dùng liên từ「が」(nhưng) ➔「[Mệnh đề 1] ですが、[Mệnh đề 2] です。」.\n  • Nối 2 ý cùng chiều/bổ sung tích cực cho nhau: dùng liên từ「そして」(và, thêm vào đó) ➔「[Mệnh đề 1] です。そして、[Mệnh đề 2] です。」.\n• 例1:「古い」(cũ) là điểm hạn chế,「きれい」(sạch đẹp) là điểm cộng ➔ Ý tương phản:「古いですが、きれいです。」(Ký túc xá công ty cũ nhưng mà sạch đẹp).\n• 例2:「きれい」(xinh đẹp) và「親切」(tốt bụng) đều là 2 điểm tốt cùng chiều ➔ Ý bổ sung:「きれいです。そして、親切です。」(Chị Karina xinh đẹp. Và chị ấy cũng rất tốt bụng).\n• 1):「小さい」(nhỏ) và「有名」(nổi tiếng) mang ý tương phản (quán tuy nhỏ nhưng nổi tiếng) ➔ Dùng「が」:「小さいですが、有名です。」(Nhà hàng này nhỏ nhưng mà nổi tiếng).\n• 2):「忙しい」(bận rộn, vất vả) và「楽しい」(vui vẻ) mang ý tương phản ➔ Dùng「が」:「忙しいですが、楽しいです。」(Cuộc sống ở Nhật bận rộn nhưng mà vui).\n• 3):「ハンサム」(đẹp trai) và「おもしろい」(thú vị/hài hước) là 2 đặc điểm tốt cùng chiều của anh Santos ➔ Dùng「そして」:「ハンサムです。そして、おもしろいです。」(Anh Santos đẹp trai. Và anh ấy còn rất thú vị).\n• 4):「難しい」(khó) và「おもしろい」(thú vị) mang ý tương phản ➔ Dùng「が」:「難しいですが、おもしろいです。」(Việc học tiếng Nhật khó nhưng mà thú vị).\n• 5):「新しい」(mới) và「とても大きい」(rất to lớn) là 2 đặc điểm tích cực cùng chiều của ngôi nhà ➔ Dùng「そして」:「新しいです。そして、とても大きいです。」(Nhà anh Matsumoto mới. Và lại còn rất to lớn nữa)."
+      },
+      {
+        "id": "b7_q5",
+        "type": "matching",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "5. ［ どう　どんな　なん　なに　どこ ］\n例：奈良は（ どんな ）所ですか。…いい所ですよ。\n\n1) 会社の仕事は（____）ですか。…おもしろいです。\n2) シュミットさんは（____）人ですか。…すてきな人です。\n3) その手帳は（____）ですか。…とても便利です。\n4) 寮の部屋は（____）ですか。…小さいですが、きれいです。\n5) あれは（____）ですか。…病院です。\n6) （____）を飲みますか。…コーヒーを飲みます。\n7) （____）でコーヒーを飲みますか。…あそこで飲みましょう。\n8) （____）靴を買いましたか。…黒い靴を買いました。",
+        "choices": [
+          { "key": "どう", "text": "どう" },
+          { "key": "どんな", "text": "どんな" },
+          { "key": "なん", "text": "なん" },
+          { "key": "なに", "text": "なに" },
+          { "key": "どこ", "text": "どこ" }
+        ],
+        "answers": [
+          "どう",
+          "どんな",
+          "どう",
+          "どう",
+          "なん / 何",
+          "なに / 何",
+          "どこ",
+          "どんな"
+        ],
+        "explanation": "• Phân biệt các nghi vấn từ:\n  •「どう」: Hỏi về cảm nhận, ấn tượng, tính chất của sự vật/hiện tượng:「N は どうですか」.\n  •「どんな + N」: Hỏi về đặc điểm, tính chất, chủng loại cụ thể của danh từ đi sau:「どんな N ですか」.\n  •「なん / なに」(何): Hỏi về sự vật, cái gì. Đứng trước「ですか」hoặc âm hàng t, d, n đọc là「なん」; đứng trước trợ từ「を」đọc là「なに」.\n  •「どこ」: Hỏi về nơi chốn, địa điểm.\n• 例: Hỏi tính chất của địa danh kèm danh từ「所」(nơi chốn) ➔ Dùng「どんな + N」:「奈良はどんな所ですか」(Nara là nơi như thế nào?).\n• 1): Hỏi cảm nhận về công việc công ty「会社の仕事」➔ Dùng「どう」:「会社の仕事はどうですか」(Công việc ở công ty thế nào?).\n• 2): Hỏi đặc điểm người kèm danh từ「人」➔ Dùng「どんな + N」:「シュミットさんはどんな人ですか」(Anh Schmidt là người như thế nào?).\n• 3): Hỏi cảm nhận/đánh giá về cuốn sổ tay「その手帳」➔ Dùng「どう」:「その手帳はどうですか」(Cuốn sổ tay đó thế nào?).\n• 4): Hỏi cảm nhận về căn phòng ký túc xá「寮の部屋」➔ Dùng「どう」:「寮の部屋はどうですか」(Phòng ở ký túc xá thế nào?).\n• 5): Hỏi vật/tòa nhà đằng kia là cái gì「あれは [何] ですか」➔ Đứng trước「ですか」chữ 何 đọc là「なん」:「あれはなんですか」(Cái đằng kia là cái gì thế?).\n• 6): Hỏi tân ngữ đồ uống đi với trợ từ「を」➔ Đứng trước「を」chữ 何 đọc là「なに」:「なにを飲みますか」(Bạn uống gì?).\n• 7): Câu trả lời nêu nơi chốn「あそこで」(ở đằng kia) ➔ Câu hỏi nơi chốn hành động dùng「どこで」:「どこでコーヒーを飲みますか」(Chúng ta uống cà phê ở đâu?).\n• 8): Câu trả lời nêu màu sắc bổ nghĩa cho danh từ đôi giày「黒い靴」➔ Câu hỏi chủng loại/đặc điểm danh từ dùng「どんな + N」:「どんな靴を買いましたか」(Bạn đã mua đôi giày như thế nào?)."
+      },
+      {
+        "id": "b7_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) あなたの部屋はどんな部屋ですか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 日本の食べ物はどうですか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) お母さんはお元気ですか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 今寒いですか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "狭いですが、きれいです。",
+          "おいしいですが、高いです。",
+          "はい、元気です。",
+          "はい、とても寒いです。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về bản thân bạn để tự luyện tập đối thoại (tự đối chiếu với câu trả lời mẫu sau khi nộp bài):\n• 1):「あなたの部屋はどんな部屋ですか」(Căn phòng của bạn là căn phòng như thế nào?) ➔ Trả lời bằng tính từ mô tả phòng:「[Tính từ] 部屋です」(hoặc「[Tính từ 1] ですが、[Tính từ 2] です」. Ví dụ:「狭いですが、きれいです。」,「小さい部屋です。」,「静かな部屋です。」...). \n• 2):「日本の食べ物はどうですか」(Đồ ăn Nhật Bản thế nào?) ➔ Trả lời nêu cảm nhận:「おいしいですが、高いです。」(Ngon nhưng mà đắt) hoặc「とてもおいしいです。」(Rất ngon)... \n• 3):「お母さんはお元気ですか」(Mẹ của bạn có khỏe không?) ➔ Khẳng định:「はい、元気です。」(Vâng, mẹ tôi khỏe); Phủ định:「いいえ、あまり元気じゃありません。」(Không, mẹ tôi không được khỏe lắm). (Lưu ý: Không dùng chữ「お」khi nói về mẹ mình). \n• 4):「今寒いですか」(Bây giờ trời có lạnh không?) ➔ Khẳng định:「はい、寒いです。」/「はい、とても寒いです。」; Phủ định:「いいえ、あまり寒くないです。」."
+      }
+    ]
+  },
+  "bai_8": {
+    "title": "Bài 8 (Ôn tập 1-7)",
+    "questions": [
+      {
+        "id": "b8_q1",
+        "type": "fill",
+        "tag": "Điền Hiragana cho từ/số gạch chân",
+        "question": "1. 例：イーさんは <u>35歳</u> です。（さんじゅうごさい）\n\n1) <u>318</u>の木村です。（____）\n2) このケータイは <u>23,800円</u> です。（____）\n3) ニューヨークは今午前 <u>0時10分</u> です。（____）\n4) 去年の <u>4月20日</u> に日本へ来ました。（____）\n5) わたしの誕生日は <u>9月1日</u> です。（____）\n6) 会社は <u>9時15分</u> から <u>5時50分</u> までです。（____）\n   （____）\n7) <u>4月8日</u> に京都へ行きます。（____）\n8) 大阪駅まで <u>630円</u> です。（____）\n9) <u>35,000円</u> のカメラを買いました。（____）",
+        "answers": [
+          "さんびゃくじゅうはち / さんいちはち",
+          "にまんさんぜんはっぴゃくえん / にまんさんぜんはっぴゃく",
+          "れいじじゅっぷん / れいじじっぷん",
+          "しがつはつか / しがつにじゅうにち",
+          "くがつついたち",
+          "くじじゅうごふん",
+          "ごじごじゅっぷん / ごじごじっぷん",
+          "しがつようか",
+          "ろっぴゃくさんじゅうえん / ろっぴゃくさんじゅう",
+          "さんまんごせんえん / さんまんごせん"
+        ],
+        "explanation": "• Quy tắc đọc số đếm, tuổi, giờ phút, ngày tháng và tiền tệ (Ôn tập Bài 1 - 7):\n• 例 (Ví dụ): Số tuổi「35歳」đọc là「さんじゅうごさい」(sanjūgosai).\n• 1): Số「318」đọc là「さんびゃくじゅうはち」(sanbyaku-jūhachi) - lưu ý 300 biến âm「さんびゃく」. Cũng chấp nhận cách đọc từng chữ số phòng「さんいちはち」.\n• 2):「23,800円」đọc là「にまんさんぜんはっぴゃくえん」- lưu ý 3,000 biến âm「さんぜん」và 800 biến âm âm ngắt「はっぴゃく」.\n• 3):「0時10分」đọc là「れいじじゅっぷん」(hoặc「れいじじっぷん」) - 0 giờ đọc là「れいじ」, 10 phút là âm ngắt「じゅっぷん / じっぷん」.\n• 4):「4月20日」đọc là「しがつはつか」- lưu ý Tháng 4 đọc đặc biệt là「しがつ」(không đọc là よんがつ), ngày 20 là ngày đặc biệt đọc là「はつか」.\n• 5):「9月1日」đọc là「くがつついたち」- lưu ý Tháng 9 đọc đặc biệt là「くがつ」(không đọc là きゅうがつ), ngày mồng 1 là ngày đặc biệt đọc là「ついたち」.\n• 6):\n  - 9時15分: 9 giờ đọc đặc biệt là「くじ」(không đọc là きゅうじ), 15 phút đọc là「じゅうごふん」➔「くじじゅうごふん」.\n  - 5時50分: 5 giờ đọc là「ごじ」, 50 phút đọc là「ごじゅっぷん」(hoặc「ごじっぷん」) ➔「ごじごじゅっぷん」.\n• 7):「4月8日」đọc là「しがつようか」- lưu ý Tháng 4 là「しがつ」, ngày mồng 8 là ngày đặc biệt có trường âm「ようか」(tránh nhầm với mồng 4 là よっか).\n• 8):「630円」đọc là「ろっぴゃくさんじゅうえん」- lưu ý 600 biến âm âm ngắt「ろっぴゃく」.\n• 9):「35,000円」đọc là「さんまんごせんえん」- gồm 3 vạn (30,000)「さんまん」+ 5 nghìn (5,000)「ごせん」+「えん」."
+      },
+      {
+        "id": "b8_q2",
+        "type": "fill",
+        "tag": "Điền trợ từ tổng hợp vào ngoặc",
+        "question": "2. 例：わたし（ は ）マイク・ミラーです。\n\n1) これはだれ（____）手帳ですか。…カリナさん（____）です。\n2) シュミットさん（____）お国（____）ドイツです。\n3) イーさんは韓国（____）来ました。\n4) 毎朝６時半（____）起きます。\n5) 図書館は10時（____）６時（____）です。\n6) 去年（____）４月（____）日本（____）来ました。\n7) わたしはあした会社の人（____）新幹線（____）広島（____）行きます。\n8) デパート（____）パン（____）イタリア（____）ワイン（____）買いました。\n9) 日曜日はどこ（____）行きません。\n10) ケータイ（____）メール（____）送ります。\n11) これは日本語（____）何ですか。…「セロテープ」です。\n12) わたしは誕生日（____）父（____）時計（____）もらいました。\n13) わたしは今晩家族（____）電話（____）かけます。\n14) 会社の寮は古いです（____）、きれいです。\n15) テレビ（____）中国語（____）勉強しました。",
+        "answers": [
+          "の",
+          "の",
+          "の",
+          "は",
+          "から",
+          "に",
+          "から",
+          "まで",
+          "の",
+          "に",
+          "へ / に",
+          "と",
+          "で",
+          "へ / に",
+          "で",
+          "と",
+          "の",
+          "を",
+          "も",
+          "で",
+          "を",
+          "で",
+          "に",
+          "に / から",
+          "を",
+          "に",
+          "を",
+          "が",
+          "で",
+          "を"
+        ],
+        "explanation": "• Ôn tập tổng hợp cách dùng trợ từ trong Minna no Nihongo (Bài 1 - 7):\n• 例 (Ví dụ): Trợ từ「は」xác định chủ đề câu:「わたしはマイク・ミラーです」.\n• 1): Vị trí 1:「だれの 手帳」(trợ từ「の」chỉ sở hữu). Vị trí 2:「カリナさんの です」(trợ từ「の」thay thế danh từ sổ tay đã nhắc trước đó).\n• 2): Vị trí 1:「シュミットさんの お国」(trợ từ「の」chỉ quan hệ thuộc về). Vị trí 2:「お国は ドイツです」(trợ từ「は」xác định chủ đề câu).\n• 3): Trợ từ「から」chỉ nơi xuất phát / quê hương:「韓国から 来ました」(đến từ Hàn Quốc).\n• 4): Trợ từ「に」chỉ mốc thời gian cụ thể:「６時半に 起きます」(thức dậy lúc 6 rưỡi).\n• 5): Cặp trợ từ「から〜まで」chỉ khoảng thời gian từ mấy giờ đến mấy giờ:「10時から ６時まで」(từ 10 giờ đến 6 giờ).\n• 6): Vị trí 1:「去年の ４月」(nối 2 danh từ thời gian). Vị trí 2:「４月に」(mốc thời gian cụ thể). Vị trí 3:「日本へ / に 来ました」(đích đến di chuyển).\n• 7): Vị trí 1:「会社の人と」(người cùng hành động). Vị trí 2:「新幹線で」(phương tiện di chuyển). Vị trí 3:「広島へ / に 行きます」(đích đến).\n• 8): Vị trí 1:「デパートで」(nơi mua sắm). Vị trí 2:「パンと」(liệt kê bánh mì VÀ rượu vang). Vị trí 3:「イタリアの ワイン」(xuất xứ rượu vang Ý). Vị trí 4:「ワインを 買いました」(tân ngữ mua).\n• 9):「どこも 行きません」(từ để hỏi +「も」+ phủ định: hoàn toàn không đi đâu cả).\n• 10): Vị trí 1:「ケータイで」(công cụ gửi). Vị trí 2:「メールを 送ります」(tân ngữ gửi).\n• 11):「日本語で」(phương tiện ngôn ngữ: Trong tiếng Nhật cái này gọi là gì?).\n• 12): Vị trí 1:「誕生日に」(dịp nhận quà). Vị trí 2:「父に / から」(người trao tặng). Vị trí 3:「時計を もらいました」(tân ngữ món quà).\n• 13): Vị trí 1:「家族に」(đối tượng nhận cuộc gọi). Vị trí 2:「電話を かけます」(tân ngữ cuộc gọi).\n• 14):「古いです が 、きれいです」(liên từ「が」nối 2 vế tính từ tương phản: cũ nhưng sạch).\n• 15): Vị trí 1:「テレビで」(công cụ học qua tivi). Vị trí 2:「中国語を 勉強しました」(tân ngữ nội dung học)."
+      },
+      {
+        "id": "b8_q3",
+        "type": "fill",
+        "tag": "Chia dạng thích hợp của tính từ",
+        "question": "3. 例：東京は（便利…<u>便利な</u>）町です。\n\n1) （冷たい…＿＿＿＿＿＿＿＿＿＿）お茶を飲みましょう。\n2) （静か…＿＿＿＿＿＿＿＿＿＿）部屋で勉強します。\n3) この辞書はあまり（いい…＿＿＿＿＿＿＿＿＿＿）。\n4) あの病院はとても（有名…＿＿＿＿＿＿＿＿＿＿）。\n5) わたしの部屋はあまり（きれい…＿＿＿＿＿＿＿＿＿＿）。",
+        "answers": [
+          "冷たい / つめたい",
+          "静かな / しずかな",
+          "よくないです / よくありません / よくない",
+          "有名です / ゆうめいです",
+          "きれいじゃありません / きれいではありません / 綺麗じゃありません / 綺麗ではありません / きれいじゃないです"
+        ],
+        "explanation": "• Quy tắc biến đổi dạng thức của tính từ (bổ nghĩa danh từ và kết hợp とても / あまり):\n• 例 (Ví dụ):「便利」(tiện lợi) là tính từ đuôi な, khi đứng trước bổ nghĩa cho danh từ「町」(thị trấn, thành phố) phải thêm「な」➔「便利な町」.\n• 1):「冷たい」(lạnh) là tính từ đuôi い, khi bổ nghĩa cho danh từ「お茶」(trà) giữ nguyên đuôi「い」➔「冷たいお茶を飲みましょう」(Chúng ta cùng uống trà lạnh nhé).\n• 2):「静か」(yên tĩnh) là tính từ đuôi な, khi bổ nghĩa cho danh từ「部屋」(căn phòng) phải thêm「な」➔「静かな部屋で勉強します」(Tôi học bài ở phòng yên tĩnh).\n• 3): Đi sau phó từ phủ định「あまり」(không... lắm), tính từ bất quy tắc「いい」(tốt) chia phủ định thành「よくないです」(hoặc「よくありません」) ➔「この辞書はあまりよくないです」(Cuốn từ điển này không được tốt lắm).\n• 4): Đi sau phó từ mức độ「とても」(rất), tính từ đuôi な「有名」(nổi tiếng) ở vị trí vị ngữ cuối câu khẳng định lịch sự kết hợp với「です」➔「あの病院はとても有名です」(Bệnh viện đằng kia rất nổi tiếng).\n• 5): Đi sau phó từ phủ định「あまり」(không... lắm), tính từ đuôi な「きれい」(sạch đẹp) chia phủ định thành「きれいじゃありません」(hoặc「きれいではありません」) ➔「わたしの部屋はあまりきれいじゃありません」(Phòng của tôi không được sạch sẽ/đẹp lắm)."
+      },
+      {
+        "id": "b8_q4",
+        "type": "fill",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "4. 例：あの方は（ どなた ）ですか。…佐藤さんです。\n\n1) あなたのお母さんは（____）ですか。…54歳です。\n2) あれは（____）ですか。…いすです。\n3) それは（____）の雑誌ですか。…コンピューターの雑誌です。\n4) これは（____）のノートですか。…カリナさんのです。\n5) これは（____）の車ですか。…アメリカのです。\n6) このネクタイは（____）ですか。…8,400円です。\n7) 今（____）ですか。…8時20分です。\n8) きょうは（____）ですか。…水曜日です。\n9) 会社の電話番号は（____）ですか。…5275の2725です。\n10) （____）国へ帰りますか。…来年帰ります。\n11) 先週の日曜日（____）へ行きましたか。…美術館へ行きました。\n12) （____）で学校へ行きますか。…歩いて行きます。\n13) （____）と京都へ行きましたか。…一人で行きました。\n14) 仕事は（____）ですか。…おもしろいです。\n15) タイは（____）国ですか。…暑い国です。",
+        "answers": [
+          "おいくつ / 何歳 / なんさい",
+          "なん / 何",
+          "なん / 何",
+          "だれ / 誰 / どなた",
+          "どこ / どちら",
+          "いくら",
+          "何時 / なんじ",
+          "何曜日 / なんようび",
+          "何番 / なんばん",
+          "いつ",
+          "どこ / どちら",
+          "なん / 何 / なに",
+          "だれ / 誰 / どなた",
+          "どう",
+          "どんな"
+        ],
+        "explanation": "• Ôn tập tổng hợp toàn bộ các nghi vấn từ (từ để hỏi) trong Minna no Nihongo (Bài 1 - 7):\n• 例 (Ví dụ): Hỏi danh tính người lịch sự với「あの方」(vị kia) dùng「どなた」(hoặc「だれ」):「あの方はどなたですか」(Vị kia là vị nào vậy?).\n• 1): Câu trả lời nêu số tuổi「54歳です」(54 tuổi) ➔ Hỏi tuổi lịch sự với「お母さん」dùng「おいくつ」(hoặc「何歳」).\n• 2): Câu trả lời nêu đồ vật「いすです」(là cái ghế) ➔ Hỏi sự vật đứng trước「ですか」dùng「なん」(hoặc「何」).\n• 3): Câu trả lời nêu thể loại tạp chí「コンピューターの雑誌」➔ Hỏi thể loại, nội dung danh từ đứng trước trợ từ「の」dùng「なん」(hoặc「何」).\n• 4): Câu trả lời chỉ quyền sở hữu「カリナさんのです」(Của chị Karina) ➔ Hỏi sở hữu người dùng「だれの」(hoặc「どなたの」: cuốn vở của ai).\n• 5): Câu trả lời chỉ nơi xuất xứ sản xuất「アメリカのです」(Của Mỹ) ➔ Hỏi nguồn gốc, xuất xứ dùng「どこの」(hoặc「どちらの」: xe của nước nào).\n• 6): Câu trả lời nêu giá tiền「8,400円です」➔ Hỏi giá tiền dùng「いくら」.\n• 7): Câu trả lời nêu mốc giờ phút「8時20分です」➔ Hỏi thời điểm giờ dùng「何時」(なんじ).\n• 8): Câu trả lời nêu thứ trong tuần「水曜日です」➔ Hỏi thứ trong tuần dùng「何曜日」(なんようび).\n• 9): Câu trả lời nêu dãy số điện thoại「5275の2725です」➔ Hỏi số hiệu/số điện thoại dùng「何番」(なんばん).\n• 10): Câu trả lời nêu mốc thời gian tương lai「来年帰ります」(năm sau tôi về) ➔ Hỏi thời điểm khi nào dùng「いつ」.\n• 11): Câu trả lời nêu địa điểm di chuyển「美術館へ行きました」➔ Hỏi đi đâu đi kèm trợ từ hướng đi「へ」dùng「どこ」(hoặc「どちら」).\n• 12): Câu trả lời nêu cách thức đi lại「歩いて行きます」(đi bộ) ➔ Hỏi phương tiện đi lại đi với trợ từ「で」dùng「なんで」(bằng phương tiện gì).\n• 13): Câu trả lời nêu đối tượng cùng đi「一人で行きました」(đi một mình) ➔ Hỏi đi với ai kết hợp trợ từ「と」dùng「だれと」(hoặc「どなたと」).\n• 14): Câu trả lời nêu cảm nhận, ấn tượng「おもしろいです」(thú vị) ➔ Hỏi cảm nhận dùng「どう」:「仕事はどうですか」(Công việc thế nào?).\n• 15): Câu trả lời nêu tính từ bổ nghĩa cho danh từ「暑い国です」(nước nóng) ➔ Hỏi tính chất, đặc điểm của danh từ đi sau dùng「どんな + N」:「タイはどんな国ですか」(Thái Lan là đất nước như thế nào?)."
+      },
+      {
+        "id": "b8_q5",
+        "type": "fill",
+        "tag": "Hoàn thành câu hỏi và câu trả lời",
+        "question": "5. 例1：ミラーさんは銀行員ですか。…いいえ、<u>銀行員じゃありません</u>。\n   例2：これは<u>何ですか</u>。…コーヒーです。\n\n1) あの方は＿＿＿＿＿＿＿＿＿＿ …佐藤さんです。\n2) 日本語の新聞を読みますか。…いいえ、＿＿＿＿＿＿＿＿＿＿\n3) あの方はミラーさんですか。…いいえ、＿＿＿＿＿＿＿＿＿＿\n4) ミラーさんはきのう来ましたか。…いいえ、＿＿＿＿＿＿＿＿＿＿\n5) もう昼ごはんを食べましたか。…いいえ、＿＿＿＿＿＿＿＿＿＿\n6) いっしょに昼ごはんを食べませんか。…ええ、＿＿＿＿＿＿＿＿＿＿\n7) 日本の生活は＿＿＿＿＿＿＿＿＿＿ …楽しいです。\n8) この水はきれいですか。…いいえ、＿＿＿＿＿＿＿＿＿＿\n9) 佐藤さんは＿＿＿＿＿＿＿＿＿＿ …とても親切な人です。\n10) 日本語の勉強は難しいですか。…いいえ、あまり＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "どなたですか / だれですか",
+          "読みません / よみません",
+          "ミラーさんじゃありません / ミラーさんではありません / ミラーさんじゃないです / ちがいます",
+          "来ませんでした / きませんでした",
+          "まだです / まだ食べていません / まだたべていません",
+          "食べましょう / たべましょう",
+          "どうですか",
+          "きれいじゃありません / きれいではありません / 綺麗じゃありません / 綺麗ではありません / きれいじゃないです",
+          "どんな人ですか / どんなひとですか",
+          "難しくないです / むずかしくないです / 難しくありません / むずかしくありません"
+        ],
+        "explanation": "• Ôn tập tổng hợp cách đặt câu hỏi và câu trả lời hoàn chỉnh trong Minna no Nihongo (Bài 1 - 8):\n• 例1: Câu hỏi danh từ「〜ですか」, trả lời phủ định lịch sự danh từ「〜じゃありません」(hoặc「〜ではありません」).\n• 例2: Đặt câu hỏi với nghi vấn từ「何ですか」dựa vào câu trả lời đồ vật「コーヒーです」.\n• 1): Câu trả lời là tên người「佐藤さんです」(Là chị Sato) ➔ Đặt câu hỏi lịch sự về danh tính「あの方はどなたですか」(hoặc「だれですか」: Vị kia là vị nào vậy?).\n• 2): Câu hỏi động từ khẳng định hiện tại「読みますか」(Bạn có đọc không?), trả lời phủ định với「いいえ」➔「読みません」(hoặc「よみません」: Không, tôi không đọc).\n• 3): Câu hỏi xác nhận danh tính「あの方はミラーさんですか」(Vị kia là anh Miller phải không?), trả lời phủ định tương tự 例1 ➔「ミラーさんじゃありません」(hoặc「ミラーさんではありません」: Không, không phải anh Miller).\n• 4): Câu hỏi quá khứ「きのう来ましたか」(Hôm qua anh ấy có đến không?), trả lời phủ định thì quá khứ của động từ「来ます」(きます) ➔「来ませんでした」(hoặc「きませんでした」: Không, hôm qua anh ấy đã không đến).\n• 5): Câu hỏi xác nhận đã làm gì chưa「もう〜ましたか」(Đã ăn cơm trưa chưa?), trả lời chưa làm trong Bài 7 theo mẫu cố định ➔「いいえ、まだです」(hoặc「まだ食べていません」: Chưa, tôi chưa ăn). Tuyệt đối không dùng「食べませんでした」vì sẽ mang ý nghĩa cả buổi trưa hôm đó đã không ăn.\n• 6): Lời mời / rủ rê cùng làm gì「いっしょに〜ませんか」(Cùng ăn trưa nhé?), trả lời đồng ý nhiệt tình với「ええ」theo cấu trúc Bài 6 ➔「ええ、食べましょう」(hoặc「たべましょう」: Vâng, cùng ăn nhé).\n• 7): Câu trả lời nêu cảm nhận, ấn tượng「楽しいです」(Vui vẻ) ➔ Đặt câu hỏi cảm nhận về cuộc sống ở Nhật「日本の生活はどうですか」(Cuộc sống ở Nhật thế nào?).\n• 8):「きれい」là tính từ đuôi な. Trả lời phủ định hiện tại của tính từ đuôi な kết hợp với「じゃありません」➔「きれいじゃありません」(hoặc「きれいではありません」: Nước này có sạch không? - Không, không sạch).\n• 9): Câu trả lời nêu tính từ bổ nghĩa cho danh từ chỉ người「とても親切な人です」(Là người rất tốt bụng) ➔ Đặt câu hỏi về tính cách, đặc điểm của người「佐藤さんはどんな人ですか」(Chị Sato là người như thế nào?).\n• 10): Đi sau phó từ phủ định「あまり」(không... lắm), tính từ đuôi い「難しい」(khó) chia phủ định「難しくないです」(hoặc「難しくありません」) ➔「いいえ、あまり難しくないです」(Không, không khó lắm)."
+      },
+      {
+        "id": "b8_q6",
+        "type": "matching",
+        "tag": "Chọn câu trả lời phù hợp từ các từ có sẵn",
+        "question": "6. 例：あのう、これ、お土産です。どうぞ。…（ a ）。\n\n1) 日本の生活はとても楽しいです。…（____）。\n2) いらっしゃい。どうぞお上がりください。…（____）。\n3) いっしょにお花見をしませんか。…（____）。\n4) 日本語の勉強はどうですか。…（____）。\n5) コーヒーです。どうぞ。…（____）。\n6) （____）。…いいえ、けっこうです。\n7) （____）。…じゃ、またいらっしゃってください。\n8) （____）。…ええ。わかりました。\n9) （____）。…はい、どうぞ。\n10) （____）。…大変ですね。",
+        "choices": [
+          { "key": "a", "text": "ありがとうございます", "isExample": true },
+          { "key": "b", "text": "ええ、いいですね" },
+          { "key": "c", "text": "いただきます" },
+          { "key": "d", "text": "そうですか" },
+          { "key": "e", "text": "失礼します" },
+          { "key": "f", "text": "難しいですが、おもしろいです" },
+          { "key": "g", "text": "どういたしまして" },
+          { "key": "h", "text": "毎晩9時まで働きます" },
+          { "key": "i", "text": "電話はどこですか" },
+          { "key": "j", "text": "お茶、もう一杯いかがですか" },
+          { "key": "k", "text": "そろそろ失礼します" },
+          { "key": "l", "text": "あした10時に会いましょう" },
+          { "key": "m", "text": "それを見せてください" }
+        ],
+        "answers": [
+          "d / そうですか",
+          "e / 失礼します / しつれいします",
+          "b / ええ、いいですね / ええいいですね",
+          "f / 難しいですが、おもしろいです / むずかしいですがおもしろいです / 難しいですがおもしろいです",
+          "c / いただきます",
+          "j / お茶、もう一杯いかがですか / おちゃもういっぱいかがですか / お茶もう一杯いかがですか",
+          "k / そろそろ失礼します / そろそろしつれいします",
+          "l / あした10時に会いましょう / あした10じにあいましょう / 明日10時に会いましょう",
+          "m / それを見せてください / それをみせてください",
+          "h / 毎晩9時まで働きます / まいばん9じまではたらきます / 毎晩９時まで働きます"
+        ],
+        "explanation": "• Ôn tập tổng hợp các mẫu câu giao tiếp và hội thoại thực tế trong Minna no Nihongo (Bài 1 - 8):\n• 例 (Ví dụ): Khi người khác tặng quà cho mình「あのう、これ、お土産です。どうぞ」(À, đây là chút quà lưu niệm/đặc sản, xin mời nhận), người nhận cảm ơn lịch sự ➔ a:「ありがとうございます」(Xin cảm ơn rất nhiều).\n• 1): Khi đối phương chia sẻ thông tin về cuộc sống「日本の生活はとても楽しいです」(Cuộc sống ở Nhật rất vui), người nghe tiếp nhận và bày tỏ sự quan tâm ➔ d:「そうですか」(Thế à / Vậy à).\n• 2): Khi chủ nhà niềm nở mời khách vào nhà「いらっしゃい。どうぞお上がりください」(Chào mừng bạn đến chơi! Xin mời vào nhà), khách đáp lại khi bước vào ➔ e:「失礼します」(Tôi xin phép làm phiền ạ).\n• 3): Lời rủ rê đi ngắm hoa anh đào「いっしょにお花見をしませんか」(Cùng đi ngắm hoa với tôi nhé?), người nghe vui vẻ đồng ý nhiệt tình ➔ b:「ええ、いいですね」(Vâng, hay quá / Được đấy nhỉ!).\n• 4): Câu hỏi thăm dò cảm nhận「日本語の勉強はどうですか」(Việc học tiếng Nhật thế nào?), người học nối 2 tính từ tương phản bằng「が」➔ f:「難しいですが、おもしろいです」(Khó nhưng mà thú vị).\n• 5): Khi người khác mời đồ uống「コーヒーです。どうぞ」(Cà phê đây ạ, xin mời), người nhận nói lời cảm ơn trước khi dùng bữa/uống ➔ c:「いただきます」(Tôi xin phép dùng ạ).\n• 6): Câu trả lời từ chối lịch sự「いいえ、けっこうです」(Dạ thôi, tôi đủ rồi ạ) phù hợp nhất với lời mời dùng thêm đồ uống ➔ j:「お茶、もう一杯いかがですか」(Anh/chị dùng thêm một tách trà nữa nhé?).\n• 7): Lời tiễn khách ra về của chủ nhà「じゃ、またいらっしゃってください」(Vậy lần sau lại đến chơi nữa nhé) đáp lại khi khách xin phép về ➔ k:「そろそろ失礼します」(Cũng sắp đến lúc tôi phải xin phép về rồi ạ).\n• 8): Lời đáp đồng thuận, hiểu rõ「ええ。わかりました」(Vâng, tôi hiểu rồi) ứng với câu hẹn gặp cụ thể ➔ l:「あした10時に会いましょう」(Ngày mai 10 giờ chúng ta gặp nhau nhé!).\n• 9): Người nói đưa đồ ra với「はい、どうぞ」(Vâng, xin mời) ứng với câu nhờ cho xem đồ vật ➔ m:「それを見せてください」(Xin hãy cho tôi xem cái đó). (Lưu ý: Không chọn i vì câu hỏi vị trí điện thoại sẽ trả lời nơi chốn, không đưa đồ với はい、どうぞ).\n• 10): Lời đồng cảm, chia sẻ sự vất vả「大変ですね」(Vất vả quá nhỉ!) ứng với câu kể về việc làm việc muộn ➔ h:「毎晩9時まで働きます」(Hàng tối tôi làm việc đến tận 9 giờ).\n(Lưu ý: Phương án g:「どういたしまして」và i:「電話はどこですか」là các đáp án dư/bẫy)."
+      },
+      {
+        "id": "b8_q7",
+        "type": "binary_choice",
+        "tag": "Chọn từ đúng trong ngoặc",
+        "question": "7. 例：〔<u>牛乳</u>／果物／野菜〕を飲みます。\n\n1) 〔先週／来月／去年〕メキシコへ行きます。\n2) 〔スーパー／セロテープ／エレベーター〕で卵を買います。\n3) 富士山は〔親切な／暇な／きれいな〕山です。\n4) 山田さんはワンさんに中国語を〔もらいました／習いました／借りました〕。\n5) きのう駅で友達に〔見ました／かけました／会いました〕。\n6) 日本のカメラは〔低い／安い／にぎやか〕ですか。\n7) お母さんの誕生日に何を〔もらいます／あげます／貸します〕か。\n8) 父の誕生日に〔ロビー／スーパー／プレゼント〕を送りました。\n9) ワットさんは大学で英語を教えます。ワットさんは〔先生／学生／会社員〕です。\n10) 暑いですね。あそこで〔ちょっと／とても／まだ〕休みましょう。",
+        "answers": [
+          "来月 / らいげつ",
+          "スーパー",
+          "きれいな / 綺麗な",
+          "習いました / ならいました",
+          "会いました / あいました",
+          "安い / やすい",
+          "あげます",
+          "プレゼント",
+          "先生 / せんせい",
+          "ちょっと"
+        ],
+        "explanation": "• Ôn tập tổng hợp cách dùng từ vựng, tính từ và động từ tương thích ngữ cảnh trong Minna no Nihongo (Bài 1 - 8):\n• 例 (Ví dụ): Động từ「飲みます」(uống) chỉ đi với đồ uống dạng lỏng ➔ Chọn「牛乳」(sữa bò).「果物」(hoa quả) và「野菜」(rau củ) là đồ ăn.\n• 1): Động từ ở thì hiện tại/tương lai「行きます」(sẽ đi) ➔ Chỉ chọn danh từ thời gian tương lai「来月」(tháng sau).「先週」(tuần trước) và「去年」(năm ngoái) là quá khứ (phải dùng 行きました).\n• 2): Hành động mua trứng「卵を買います」diễn ra tại siêu thị ➔ Chọn nơi chốn mua hàng「スーパー」.「セロテープ」(băng dính),「エレベーター」(thang máy).\n• 3): Bổ nghĩa cho danh từ chỉ ngọn núi「山」➔ Chọn tính từ「きれいな」(núi đẹp).「親切な」(tốt bụng) dùng cho người;「暇な」(rảnh rỗi) dùng cho thời gian/người.\n• 4): Tiếp nhận ngôn ngữ/kiến thức từ người khác (ワンさんに) ➔ Dùng động từ「習いました」(được dạy / đã học từ ai).「もらいました」(nhận đồ vật),「借りました」(vay/mượn đồ vật).\n• 5): Đi với trợ từ「に」chỉ đối tượng gặp gỡ「友達に」➔ Dùng động từ「会いました」(đã gặp bạn). (Động từ 見ました đi với trợ từ を; động từ かけました dùng trong cụm 電話をかけました).\n• 6): Hỏi về giá cả máy ảnh Nhật Bản ➔ Dùng tính từ「安い」(rẻ) để hỏi「日本のカメラは安いですか」(Máy ảnh của Nhật có rẻ không?).「低い」(thấp - độ cao/nhiệt độ),「にぎやか」(náo nhiệt - phố xá).\n• 7): Vào ngày sinh nhật của mẹ, mình làm gì tặng mẹ ➔ Dùng động từ hướng tặng cho người khác「あげます」(tặng quà cho mẹ). (Nếu dùng もらいます thì phải là お母さんにもらいました - nhận quà từ mẹ, nhưng đây là sinh nhật mẹ; 貸します là cho mượn).\n• 8): Tân ngữ của hành động gửi quà「〜を送りました」(đã gửi) ➔ Chọn danh từ món quà「プレゼント」.「ロビー」(tiền sảnh),「スーパー」(siêu thị).\n• 9): Mệnh đề trước nêu rõ「大学で英語を教えます」(dạy tiếng Anh ở trường đại học) ➔ Nghề nghiệp tương ứng là「先生」(giáo viên).「学生」(học sinh),「会社員」(nhân viên công ty).\n• 10): Lời rủ rê nghỉ ngơi giải lao một lát vì trời nóng ➔ Dùng phó từ「ちょっと」(một chút / một lát):「あそこでちょっと休みましょう」(Chúng ta hãy nghỉ ở đằng kia một lát nhé).「とても」(rất - bổ nghĩa tính từ),「まだ」(vẫn còn / chưa)."
+      },
+      {
+        "id": "b8_q8",
+        "type": "fill",
+        "tag": "Chia dạng thích hợp của động từ",
+        "question": "8. 例：いっしょに昼ごはんを<u>食べませんか</u>。\n\n[Từ trong khung: 働きます，会います，撮ります，行きます，書きます，食べます，来ます]\n\n1) 先週の土曜日、どこも＿＿＿＿＿＿＿＿＿＿。\n2) じゃ、6時に駅で＿＿＿＿＿＿＿＿＿＿。…わかりました。\n3) いっしょに庭で写真を＿＿＿＿＿＿＿＿＿＿か。…いいですね。\n4) 毎晩彼女に手紙を＿＿＿＿＿＿＿＿＿＿。\n5) 毎日9時から5時まで会社で＿＿＿＿＿＿＿＿＿＿。",
+        "answers": [
+          "行きませんでした / いきませんでした",
+          "会いましょう / あいましょう",
+          "撮りませんか / とりませんか / 撮りましょうか / とりましょうか",
+          "書きます / かきます",
+          "働きます / はたらきます"
+        ],
+        "explanation": "• Ôn tập tổng hợp cách chia thì và thể của động từ theo ngữ cảnh trong Minna no Nihongo (Bài 1 - 8):\n• 例 (Ví dụ): Lời rủ rê cùng ăn trưa「いっしょに〜」dùng thể mời mọc「食べませんか」(Cùng ăn trưa nhé?).\n• 1): Mốc thời gian quá khứ「先週の土曜日」(Thứ Bảy tuần trước) đi với mẫu câu phủ định hoàn toàn「どこも + Động từ phủ định quá khứ」➔ Động từ「行きます」chia thành「行きませんでした」(Thứ Bảy tuần trước tôi chẳng đi đâu cả).\n• 2): Lời đề nghị, hẹn gặp mặt nhau「じゃ、6時に駅で〜」(Vậy 6 giờ ở nhà ga...) ➔ Động từ「会います」(gặp gỡ) chia sang thể đề nghị「会いましょう」(Chúng ta cùng gặp nhau lúc 6 giờ ở ga nhé).\n• 3): Lời mời rủ đi kèm「いっしょに〜か」(Cùng... nhé?) và câu nhận lời「いいですね」(Được đấy nhỉ) ➔ Động từ「撮ります」(chụp ảnh) chia thể rủ rê「撮りませんか」(Cùng chụp ảnh ở sân vườn nhé?).\n• 4): Trạng từ tần suất thói quen hằng ngày「毎晩」(mỗi tối) ➔ Động từ「書きます」(viết) giữ ở thì hiện tại biểu thị thói quen:「書きます」(Mỗi tối tôi đều viết thư cho bạn gái).\n• 5): Khoảng thời gian biểu thị giờ làm việc「毎日9時から5時まで」(từ 9 giờ đến 5 giờ mỗi ngày) tại công ty「会社で」➔ Động từ「働きます」(làm việc) ở thì hiện tại biểu thị công việc đều đặn:「働きます」(Mỗi ngày tôi làm việc ở công ty từ 9 giờ đến 5 giờ).\n(Lưu ý: Động từ「来ます」là đáp án bẫy/dư)."
+      },
+      {
+        "id": "b8_q9",
+        "type": "fill",
+        "tag": "Đặt câu hoàn chỉnh dựa vào từ gợi ý",
+        "question": "9. 例：帰ります／きのう／8時／うち\n   … <u>きのう 8時に うちへ 帰りました。</u>\n\n1) かけます／電話／ミラーさんの会社／これから\n   … ＿＿＿＿＿＿＿＿＿＿\n2) おいしいです／レストラン／コーヒー／この／とても\n   … ＿＿＿＿＿＿＿＿＿＿\n3) 食べます／スプーン／フォーク／インドネシア人／ごはん\n   … ＿＿＿＿＿＿＿＿＿＿\n4) 買います／デパート／チョコレート／おいしい／おととい\n   … ＿＿＿＿＿＿＿＿＿＿\n5) 行きます／バス／会社／毎朝\n   … ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "これからミラーさんの会社に電話をかけます。 / これからミラーさんの会社へ電話をかけます。 / これからミラーさんの会社に電話をかけます / これからミラーさんの会社へ電話をかけます / これから ミラーさんの会社に 電話を かけます。 / ミラーさんの会社にこれから電話をかけます。",
+          "このレストランのコーヒーはとてもおいしいです。 / このレストランのコーヒーはとてもおいしいです / この レストランの コーヒーは とても おいしいです。 / このレストランのコーヒーはとても美味しいです。",
+          "インドネシア人はスプーンとフォークでごはんを食べます。 / インドネシア人はスプーンとフォークでご飯を食べます。 / インドネシア人はフォークとスプーンでごはんを食べます。 / インドネシア人はフォークとスプーンでご飯を食べます。 / インドネシア人はスプーンとフォークでごはんを食べます / インドネシア人は スプーンと フォークで ごはんを 食べます。",
+          "おとといデパートでおいしいチョコレートを買いました。 / おとといデパートでおいしいチョコレートを買いました / おとといデパートで美味しいチョコレートを買いました。 / おととい デパートで おいしい チョコレートを 買いました。",
+          "毎朝バスで会社へ行きます。 / 毎朝バスで会社に行きます。 / 毎朝バスで会社へ行きます / 毎朝バスで会社に行きます / 毎朝 バスで 会社へ 行きます。 / 毎朝会社へバスで行きます。"
+        ],
+        "explanation": "• Ôn tập tổng hợp cách đặt câu hoàn chỉnh kết hợp chia động từ và thêm trợ từ thích hợp trong Minna no Nihongo (Bài 1 - 8):\n• 例 (Ví dụ): Dựa vào mốc thời gian quá khứ「きのう」(hôm qua), động từ「帰ります」chia thành「帰りました」; mốc giờ cụ thể「8時」đi với trợ từ「に」; điểm đến「うち」đi với trợ từ hướng đến「へ」(hoặc「に」) ➔「きのう 8時に うちへ 帰りました。」(Hôm qua lúc 8 giờ tôi đã về nhà).\n• 1): Mốc thời gian「これから」(ngay từ bây giờ / từ bây giờ) dùng thì hiện tại/tương lai; gọi điện thoại đến công ty của anh Miller đi với trợ từ hướng đối tượng「に」(hoặc「へ」); cụm gọi điện thoại là「電話をかけます」➔「これからミラーさんの会社に電話をかけます。」(Ngay bây giờ tôi sẽ gọi điện thoại đến công ty của anh Miller).\n• 2): Chỉ thị từ「この」bổ nghĩa danh từ「レストラン」; quan hệ sở hữu/thuộc về nối bởi trợ từ「の」➔「このレストランのコーヒーは」(Cà phê của nhà hàng này); phó từ mức độ「とても」(rất) bổ nghĩa cho tính từ「おいしいです」➔「このレストランのコーヒーはとてもおいしいです。」(Cà phê của nhà hàng này rất ngon).\n• 3): Chủ đề người「インドネシア人は」(Người Indonesia); công cụ dụng cụ ăn uống đi với trợ từ「で」kết hợp liên từ nối danh từ「と」➔「スプーンとフォークで」(bằng thìa và nĩa); tân ngữ ăn cơm「ごはんを食べます」➔「インドネシア人はスプーンとフォークでごはんを食べます。」(Người Indonesia ăn cơm bằng thìa và nĩa).\n• 4): Mốc thời gian quá khứ「おととい」(hôm kia) ➔ động từ「買います」chia quá khứ「買いました」; nơi diễn ra hành động mua hàng đi với trợ từ「で」➔「デパートで」; tính từ đuôi い「おいしい」bổ nghĩa trực tiếp cho danh từ「チョコレート」làm tân ngữ「おいしいチョコレートを」➔「おとといデパートでおいしいチョコレートを買いました。」(Hôm kia tôi đã mua sô-cô-la ngon ở cửa hàng bách hóa).\n• 5): Trạng từ chỉ thói quen đều đặn「毎朝」(mỗi sáng) giữ động từ ở thì hiện tại「行きます」; phương tiện di chuyển đi với trợ từ「で」➔「バスで」; đích đến di chuyển đi với trợ từ「へ」(hoặc「に」) ➔「会社へ」➔「毎朝バスで会社へ行きます。」(Mỗi sáng tôi đi đến công ty bằng xe buýt)."
+      }
+    ]
   }
 };
 
 window.JA_GRAMMAR_DATA = JA_GRAMMAR_DATA;
+
