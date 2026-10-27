@@ -36,11 +36,25 @@ const JA_NOTES_DATA = {
     ]
   },
 
-  // 2. CÁC CỤM TỪ HAY CẦN HỌC THUỘC (Mẫu câu giao tiếp, chào hỏi, cửa miệng)
+  // 2. NGỮ PHÁP HAY (Mẫu câu giao tiếp, ngữ pháp trọng tâm)
   phrases: {
-    title: "Cụm từ hay cần học thuộc",
-    badge: "💬 CỤM TỪ HAY",
-    description: "Các mẫu câu giao tiếp cửa miệng, chào hỏi chuẩn văn phong người bản xứ",
-    items: []
+    title: "Ngữ pháp hay",
+    badge: "💬 NGỮ PHÁP HAY",
+    description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
+    notice: "Minna no Nihongo - Bài 5: Trợ từ chỉ phương tiện di chuyển (で) và người đồng hành (と)",
+    items: [
+      {
+        title: "1. Phương tiện di chuyển: [Phương tiện] + で",
+        meaning: "Đi đâu bằng phương tiện gì dùng trợ từ で",
+        example: "バスで　だいがくへ　きます。(Tôi đến trường đại học bằng xe buýt.)",
+        note: "⚠️ Tuy nhiên đi bộ thì KHÔNG dùng で mà dùng あるいて: えきから　あるいて　かえりました。(Tôi đã đi bộ từ nhà ga về nhà.)"
+      },
+      {
+        title: "2. Cùng đi với ai: [Người] + と",
+        meaning: "Đi đâu cùng với ai thì dùng trợ từ と (với / cùng với)",
+        example: "かぞくと　ベトナムへ　きました。(Tôi đã đến Việt Nam cùng với gia đình.)",
+        note: "⚠️ Đi một mình thì dùng ひとりで (KHÔNG dùng trợ từ と): ひとりで　とうきょうへ　いきます。(Tôi đi Tokyo một mình.)"
+      }
+    ]
   }
 };
