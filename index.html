@@ -369,13 +369,21 @@
           <div class="speaking-header-card">
             <div class="vocab-header-top" style="justify-content: space-between;">
               <div class="notes-category-switcher">
-                <button class="notes-mode-btn active" data-mode="hard_words" type="button" title="Chuyển sang trang ghi chú cách đọc các từ khó">
+                <button class="notes-mode-btn active" data-mode="hard_words" type="button" title="Chuyển sang trang ghi chú cách đọc">
                   <span>🀄</span>
-                  <span>Cách đọc các từ khó</span>
+                  <span>Cách đọc</span>
                 </button>
-                <button class="notes-mode-btn" data-mode="phrases" type="button" title="Chuyển sang xem ngữ pháp hay">
+                <button class="notes-mode-btn" data-mode="phrases" type="button" title="Chuyển sang xem ngữ pháp">
                   <span>💬</span>
-                  <span>Ngữ pháp hay</span>
+                  <span>Ngữ pháp</span>
+                </button>
+                <button class="notes-mode-btn" data-mode="particles" type="button" title="Chuyển sang xem trợ từ">
+                  <span>🔖</span>
+                  <span>Trợ từ</span>
+                </button>
+                <button class="notes-mode-btn" data-mode="connectors" type="button" title="Chuyển sang xem từ nối">
+                  <span>🔗</span>
+                  <span>Từ nối</span>
                 </button>
               </div>
             </div>
@@ -391,10 +399,28 @@
             </div>
           </div>
 
-          <!-- NỘI DUNG 2: NGỮ PHÁP HAY (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
+          <!-- NỘI DUNG 2: NGỮ PHÁP (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
           <div id="ja-notes-phrases-view" class="notes-view-pane" style="display: none;">
             <div class="speaking-header-card notes-static-container">
               <div class="notes-static-body" id="ja-phrases-body">
+                <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 3: TRỢ TỪ (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
+          <div id="ja-notes-particles-view" class="notes-view-pane" style="display: none;">
+            <div class="speaking-header-card notes-static-container">
+              <div class="notes-static-body" id="ja-particles-body">
+                <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 4: TỪ NỐI (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
+          <div id="ja-notes-connectors-view" class="notes-view-pane" style="display: none;">
+            <div class="speaking-header-card notes-static-container">
+              <div class="notes-static-body" id="ja-connectors-body">
                 <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
               </div>
             </div>

@@ -101,7 +101,11 @@ const VocabJaModule = (() => {
   function populateUnitSelect() {
     if (!jaVocabUnitSelect || typeof JA_VOCAB_DATA === 'undefined') return;
     jaVocabUnitSelect.innerHTML = '';
-    const keys = Object.keys(JA_VOCAB_DATA);
+    const keys = Object.keys(JA_VOCAB_DATA).sort((a, b) => {
+      const numA = parseInt((String(a).match(/\d+/) || [9999])[0], 10);
+      const numB = parseInt((String(b).match(/\d+/) || [9999])[0], 10);
+      return numA - numB;
+    });
 
     if (keys.length === 0) {
       const opt = document.createElement('option');

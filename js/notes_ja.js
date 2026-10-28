@@ -5,14 +5,18 @@
 // ========================================================
 
 const NotesJaModule = (() => {
-  let currentMode = 'hard_words'; // 'hard_words' | 'phrases'
+  let currentMode = 'hard_words'; // 'hard_words' | 'phrases' | 'particles' | 'connectors'
 
   // DOM Elements
   let modeBtns = [];
   let hardWordsViewEl = null;
   let phrasesViewEl = null;
+  let particlesViewEl = null;
+  let connectorsViewEl = null;
   let hardWordsBodyEl = null;
   let phrasesBodyEl = null;
+  let particlesBodyEl = null;
+  let connectorsBodyEl = null;
 
   function getHardWordsList() {
     if (typeof JA_NOTES_DATA === 'undefined') return [];
@@ -27,16 +31,30 @@ const NotesJaModule = (() => {
     return JA_NOTES_DATA.phrases || null;
   }
 
+  function getParticlesData() {
+    if (typeof JA_NOTES_DATA === 'undefined') return null;
+    return JA_NOTES_DATA.particles || null;
+  }
+
+  function getConnectorsData() {
+    if (typeof JA_NOTES_DATA === 'undefined') return null;
+    return JA_NOTES_DATA.connectors || null;
+  }
+
   function initDOM() {
     modeBtns = Array.from(document.querySelectorAll('.notes-mode-btn'));
     hardWordsViewEl = document.getElementById('ja-notes-hard-words-view');
     phrasesViewEl = document.getElementById('ja-notes-phrases-view');
+    particlesViewEl = document.getElementById('ja-notes-particles-view');
+    connectorsViewEl = document.getElementById('ja-notes-connectors-view');
     hardWordsBodyEl = document.getElementById('ja-hard-words-body');
     phrasesBodyEl = document.getElementById('ja-phrases-body');
+    particlesBodyEl = document.getElementById('ja-particles-body');
+    connectorsBodyEl = document.getElementById('ja-connectors-body');
 
     try {
       const savedMode = localStorage.getItem('ja_notes_mode');
-      if (savedMode && (savedMode === 'hard_words' || savedMode === 'phrases')) {
+      if (savedMode && ['hard_words', 'phrases', 'particles', 'connectors'].includes(savedMode)) {
         currentMode = savedMode;
       }
     } catch (e) {}
@@ -168,9 +186,9 @@ const NotesJaModule = (() => {
           itemsHtml += `
             <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
               <div style="font-size: 1.05rem; font-weight: 700; color: #f59e0b; margin-bottom: 6px;">${title}</div>
-              ${meaning ? `<div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 4px; line-height: 1.5;"><strong>👉 Ý nghĩa:</strong> ${meaning}</div>` : ''}
-              ${example ? `<div style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 4px; line-height: 1.5;"><strong>📝 Ví dụ:</strong> ${example}</div>` : ''}
-              ${note ? `<div style="font-size: 0.88rem; color: #38bdf8; margin-top: 4px; line-height: 1.5;">💡 <em>${note}</em></div>` : ''}
+              ${meaning ? `<div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>👉 Nội dung:</strong>\n${meaning}</div>` : ''}
+              ${example ? `<div style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>📝 Ví dụ:</strong>\n${example}</div>` : ''}
+              ${note ? `<div style="font-size: 0.88rem; color: #38bdf8; margin-top: 6px; line-height: 1.6; white-space: pre-wrap;">💡 <em>${note}</em></div>` : ''}
             </div>
           `;
         }
@@ -192,10 +210,166 @@ const NotesJaModule = (() => {
   }
 
   // ==========================================
-  // 3. ĐIỀU HƯỚNG & KHỞI TẠO
+  // 3. TRANG TĨNH: TRỢ TỪ (STATIC NOTE CLONE TỪ NGỮ PHÁP)
+  // ==========================================
+  function renderParticlesStatic() {
+    if (!particlesBodyEl) return;
+    const particlesData = getParticlesData();
+
+    if (!particlesData) {
+      particlesBodyEl.innerHTML = `
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0;">
+          Chưa có dữ liệu trợ từ. Mở file <code>japanese_data/notes_data.js</code> (mục <code>particles</code>) để thêm.
+        </div>
+      `;
+      return;
+    }
+
+    let noticeHtml = '';
+    if (particlesData.notice) {
+      noticeHtml = `
+        <div style="margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; padding: 10px 14px; border-radius: 4px;">
+          <strong>🔖 Chú ý:</strong> ${particlesData.notice}
+        </div>
+      `;
+    }
+
+    let contentHtml = '';
+    if (particlesData.content) {
+      contentHtml = `
+        <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); white-space: pre-wrap; margin-bottom: 16px;">
+          ${particlesData.content}
+        </div>
+      `;
+    }
+
+    const items = Array.isArray(particlesData.items) ? particlesData.items : [];
+    let itemsHtml = '';
+
+    if (items.length > 0) {
+      itemsHtml += '<div style="display: flex; flex-direction: column; gap: 14px;">';
+      items.forEach((item, idx) => {
+        if (typeof item === 'string') {
+          itemsHtml += `
+            <div style="padding: 12px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+              ${item}
+            </div>
+          `;
+        } else {
+          const title = item.title || item.pattern || item.particle || item.word || `Mục #${idx + 1}`;
+          const meaning = item.meaning || item.vi || '';
+          const example = item.example || '';
+          const note = item.note || item.tip || '';
+
+          itemsHtml += `
+            <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <div style="font-size: 1.05rem; font-weight: 700; color: #10b981; margin-bottom: 6px;">${title}</div>
+              ${meaning ? `<div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>👉 Nội dung:</strong>\n${meaning}</div>` : ''}
+              ${example ? `<div style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>📝 Ví dụ:</strong>\n${example}</div>` : ''}
+              ${note ? `<div style="font-size: 0.88rem; color: #38bdf8; margin-top: 6px; line-height: 1.6; white-space: pre-wrap;">💡 <em>${note}</em></div>` : ''}
+            </div>
+          `;
+        }
+      });
+      itemsHtml += '</div>';
+    }
+
+    if (!contentHtml && items.length === 0) {
+      particlesBodyEl.innerHTML = `
+        ${noticeHtml}
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0; line-height: 1.7;">
+          Chưa có ghi chú trợ từ nào. Mở file <code>japanese_data/notes_data.js</code> (mục <code>particles</code>) để thêm ghi chú trợ từ của bạn.
+        </div>
+      `;
+      return;
+    }
+
+    particlesBodyEl.innerHTML = `${noticeHtml}${contentHtml}${itemsHtml}`;
+  }
+
+  // ==========================================
+  // 4. TRANG TĨNH: TỪ NỐI (STATIC NOTE CLONE TỪ TRỢ TỪ)
+  // ==========================================
+  function renderConnectorsStatic() {
+    if (!connectorsBodyEl) return;
+    const connectorsData = getConnectorsData();
+
+    if (!connectorsData) {
+      connectorsBodyEl.innerHTML = `
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0;">
+          Chưa có dữ liệu từ nối. Mở file <code>japanese_data/notes_data.js</code> (mục <code>connectors</code>) để thêm.
+        </div>
+      `;
+      return;
+    }
+
+    let noticeHtml = '';
+    if (connectorsData.notice) {
+      noticeHtml = `
+        <div style="margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8b5cf6; padding: 10px 14px; border-radius: 4px;">
+          <strong>🔗 Chú ý:</strong> ${connectorsData.notice}
+        </div>
+      `;
+    }
+
+    let contentHtml = '';
+    if (connectorsData.content) {
+      contentHtml = `
+        <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); white-space: pre-wrap; margin-bottom: 16px;">
+          ${connectorsData.content}
+        </div>
+      `;
+    }
+
+    const items = Array.isArray(connectorsData.items) ? connectorsData.items : [];
+    let itemsHtml = '';
+
+    if (items.length > 0) {
+      itemsHtml += '<div style="display: flex; flex-direction: column; gap: 14px;">';
+      items.forEach((item, idx) => {
+        if (typeof item === 'string') {
+          itemsHtml += `
+            <div style="padding: 12px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+              ${item}
+            </div>
+          `;
+        } else {
+          const title = item.title || item.pattern || item.connector || item.word || `Mục #${idx + 1}`;
+          const meaning = item.meaning || item.vi || '';
+          const example = item.example || '';
+          const note = item.note || item.tip || '';
+
+          itemsHtml += `
+            <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <div style="font-size: 1.05rem; font-weight: 700; color: #8b5cf6; margin-bottom: 6px;">${title}</div>
+              ${meaning ? `<div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>👉 Nội dung:</strong>\n${meaning}</div>` : ''}
+              ${example ? `<div style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>📝 Ví dụ:</strong>\n${example}</div>` : ''}
+              ${note ? `<div style="font-size: 0.88rem; color: #38bdf8; margin-top: 6px; line-height: 1.6; white-space: pre-wrap;">💡 <em>${note}</em></div>` : ''}
+            </div>
+          `;
+        }
+      });
+      itemsHtml += '</div>';
+    }
+
+    if (!contentHtml && items.length === 0) {
+      connectorsBodyEl.innerHTML = `
+        ${noticeHtml}
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0; line-height: 1.7;">
+          Chưa có ghi chú từ nối nào. Mở file <code>japanese_data/notes_data.js</code> (mục <code>connectors</code>) để thêm ghi chú từ nối của bạn.
+        </div>
+      `;
+      return;
+    }
+
+    connectorsBodyEl.innerHTML = `${noticeHtml}${contentHtml}${itemsHtml}`;
+  }
+
+  // ==========================================
+  // 5. ĐIỀU HƯỚNG & KHỞI TẠO
   // ==========================================
   function setMode(newMode) {
-    if (newMode !== 'hard_words' && newMode !== 'phrases') return;
+    if (!['hard_words', 'phrases', 'particles', 'connectors'].includes(newMode)) return;
     currentMode = newMode;
     try {
       localStorage.setItem('ja_notes_mode', currentMode);
@@ -206,14 +380,19 @@ const NotesJaModule = (() => {
   }
 
   function applyActiveModeView() {
+    if (hardWordsViewEl) hardWordsViewEl.style.display = currentMode === 'hard_words' ? 'block' : 'none';
+    if (phrasesViewEl) phrasesViewEl.style.display = currentMode === 'phrases' ? 'block' : 'none';
+    if (particlesViewEl) particlesViewEl.style.display = currentMode === 'particles' ? 'block' : 'none';
+    if (connectorsViewEl) connectorsViewEl.style.display = currentMode === 'connectors' ? 'block' : 'none';
+
     if (currentMode === 'hard_words') {
-      if (hardWordsViewEl) hardWordsViewEl.style.display = 'block';
-      if (phrasesViewEl) phrasesViewEl.style.display = 'none';
       renderHardWordsStatic();
-    } else {
-      if (hardWordsViewEl) hardWordsViewEl.style.display = 'none';
-      if (phrasesViewEl) phrasesViewEl.style.display = 'block';
+    } else if (currentMode === 'phrases') {
       renderPhrasesStatic();
+    } else if (currentMode === 'particles') {
+      renderParticlesStatic();
+    } else if (currentMode === 'connectors') {
+      renderConnectorsStatic();
     }
   }
 
@@ -234,7 +413,9 @@ const NotesJaModule = (() => {
     init,
     setMode,
     renderHardWordsStatic,
-    renderPhrasesStatic
+    renderPhrasesStatic,
+    renderParticlesStatic,
+    renderConnectorsStatic
   };
 })();
 

@@ -108,7 +108,7 @@ const JA_GRAMMAR_DATA = {
     ]
   },
   bai_2: {
-    title: "Bài 2: Đồ vật, Sở hữu & Số đếm giá tiền",
+    title: "Bài 2",
     completed: true,
     questions: [
       {
@@ -201,7 +201,7 @@ const JA_GRAMMAR_DATA = {
         "type": "fill",
         "tag": "Điền Hiragana cho từ/số",
         "columns": 3,
-        "question": "7. 例：1:05（いちじごふん）\n\n1) 7:15（____）\n2) 4:20（____）\n3) 9:30（____）\n4) 8:45（____）\n5) 11:40（____）\n6) 6:55（____）\n7) 12:00（____）\n8) 2:10（____）\n9) 3:01（____）\n10) 10:03（____）\n11) 4:04（____）\n12) 1:06（____）\n13) 9:08（____）\n14) 5:24（____）",
+        "question": "7. 例：1:05（いちじごふん）\n\n1) 7:15（____）\n2) 4:20（____）\n3) 9:30（____）\n4) 8:45（____）\n5) 11:40（____）\n6) 6:55（____）\n7) 12:00（____）\n8) 2:10（____）\n9) 3:01（____）\n10) 10:03（____）\n11) 4:04（____）\n12) 1:06（____）\n13) 9:08（____）\n14) 5:24（____）\n15) 8:02（____）\n16) 5:07（____）\n17) 2:09（____）",
         "answers": [
           "しちじじゅうごふん / ななじじゅうごふん",
           "よじにじゅっぷん / よじにじっぷん",
@@ -216,9 +216,12 @@ const JA_GRAMMAR_DATA = {
           "よじよんぷん",
           "いちじろっぷん",
           "くじはっぷん / くじはちふん",
-          "ごじにじゅうよんぷん"
+          "ごじにじゅうよんぷん",
+          "はちじにふん",
+          "ごじななふん / ごじしちふん",
+          "にじきゅうふん"
         ],
-        "explanation": "• 例 (Ví dụ): 1:05 gồm 1 giờ「いちじ」(ichiji) + 5 phút「ごふん」(gofun) ➔「いちじごふん」.\n• 1): 7:15 gồm 7 giờ「しちじ」(shichiji - chuẩn SGK Minna, hoặc ななじ) + 15 phút「じゅうごふん」(jūgofun) ➔「しちじじゅうごふん」(hoặc「ななじじゅうごふん」).\n• 2): 4:20 gồm 4 giờ là trường hợp đặc biệt phát âm「よじ」(yoji - chú ý không đọc là よんじ hay しじ) + 20 phút「にじゅっぷん」(nijuppun - hoặc にじっぷん nijippun) ➔「よじにじゅっぷん」(hoặc「よじにじっぷん」).\n• 3): 9:30 gồm 9 giờ là trường hợp đặc biệt phát âm「くじ」(kuji - không đọc là きゅうじ) + 30 phút「さんじゅっぷん」(sanjuppun) hoặc nói cách rưỡi「くじはん」(kujihan) ➔「くじさんじゅっぷん」(hoặc「くじさんじっぷん」,「くじはん」).\n• 4): 8:45 gồm 8 giờ「はちじ」(hachiji) + 45 phút gồm 40「よんじゅう」và 5 phút「ごふん」➔「はちじよんじゅうごふん」(hachiji yonjūgofun).\n• 5): 11:40 gồm 11 giờ「じゅういちじ」(jūichiji) + 40 phút「よんじゅっぷん」(yonjuppun - hoặc よんじっぷん yonjippun) ➔「じゅういちじよんじゅっぷん」(hoặc「じゅういちじよんじっぷん」).\n• 6): 6:55 gồm 6 giờ「ろくじ」(rokuji) + 55 phút gồm 50「ごじゅう」và 5 phút「ごふん」➔「ろくじごじゅうごふん」(rokuji gojūgofun).\n• 7): 12:00 là 12 giờ đúng ➔「じゅうにじ」(jūniji - hoặc nói rõ giờ đúng「じゅうにじちょうど」).\n• 8): 2:10 gồm 2 giờ「にじ」(niji) + 10 phút là âm ngắt biến âm「じゅっぷん」(juppun - hoặc じっぷん jippun) ➔「にじじゅっぷん」(hoặc「にじじっぷん」).\n• 9): 3:01 gồm 3 giờ「さんじ」+ 1 phút đặc biệt âm ngắt「いっぷん」(ippun) ➔「さんじいっぷん」.\n• 10): 10:03 gồm 10 giờ「じゅうじ」+ 3 phút đặc biệt bán đục「さんぷん」(sanpun) ➔「じゅうじさんぷん」.\n• 11): 4:04 gồm 4 giờ đặc biệt「よじ」(yoji) + 4 phút đặc biệt bán đục「よんぷん」(yonpun) ➔「よじよんぷん」.\n• 12): 1:06 gồm 1 giờ「いちじ」+ 6 phút đặc biệt âm ngắt「ろっぷん」(roppun) ➔「いちじろっぷん」.\n• 13): 9:08 gồm 9 giờ đặc biệt「くじ」(kuji) + 8 phút đặc biệt âm ngắt「はっぷん」(happun - hoặc「はちふん」) ➔「くじはっぷん」(hoặc「くじはちふん」).\n• 14): 5:24 gồm 5 giờ「ごじ」+ 24 phút「にじゅうよんぷん」(nijūyonpun) ➔「ごじにじゅうよんぷん」.\n* Bảng tổng kết giờ & phút đặc biệt:\n  - Giờ đặc biệt: 4 giờ (よじ), 7 giờ (しちじ), 9 giờ (くじ).\n  - Phút đặc biệt đi kèm「ぷん」(âm ngắt/bán đục): 1 phút (いっぷん), 3 phút (さんぷん), 4 phút (よんぷん), 6 phút (ろっぷん), 8 phút (はっぷん), 10 phút (じゅっぷん/じっぷん), 20 phút (にじゅっぷん), 30 phút (さんじゅっぷん/はん), 40 phút (よんじゅっぷん)."
+        "explanation": "• 例 (Ví dụ): 1:05 gồm 1 giờ「いちじ」(ichiji) + 5 phút「ごふん」(gofun) ➔「いちじごふん」.\n• 1): 7:15 gồm 7 giờ「しちじ」(shichiji - chuẩn SGK Minna, hoặc ななじ) + 15 phút「じゅうごふん」(jūgofun) ➔「しちじじゅうごふん」(hoặc「ななじじゅうごふん」).\n• 2): 4:20 gồm 4 giờ là trường hợp đặc biệt phát âm「よじ」(yoji - chú ý không đọc là よんじ hay しじ) + 20 phút「にじゅっぷん」(nijuppun - hoặc にじっぷん nijippun) ➔「よじにじゅっぷん」(hoặc「よじにじっぷん」).\n• 3): 9:30 gồm 9 giờ là trường hợp đặc biệt phát âm「くじ」(kuji - không đọc là きゅうじ) + 30 phút「さんじゅっぷん」(sanjuppun) hoặc nói cách rưỡi「くじはん」(kujihan) ➔「くじさんじゅっぷん」(hoặc「くじさんじっぷん」,「くじはん」).\n• 4): 8:45 gồm 8 giờ「はちじ」(hachiji) + 45 phút gồm 40「よんじゅう」và 5 phút「ごふん」➔「はちじよんじゅうごふん」(hachiji yonjūgofun).\n• 5): 11:40 gồm 11 giờ「じゅういちじ」(jūichiji) + 40 phút「よんじゅっぷん」(yonjuppun - hoặc よんじっぷん yonjippun) ➔「じゅういちじよんじゅっぷん」(hoặc「じゅういちじよんじっぷん」).\n• 6): 6:55 gồm 6 giờ「ろくじ」(rokuji) + 55 phút gồm 50「ごじゅう」và 5 phút「ごふん」➔「ろくじごじゅうごふん」(rokuji gojūgofun).\n• 7): 12:00 là 12 giờ đúng ➔「じゅうにじ」(jūniji - hoặc nói rõ giờ đúng「じゅうにじちょうど」).\n• 8): 2:10 gồm 2 giờ「にじ」(niji) + 10 phút là âm ngắt biến âm「じゅっぷん」(juppun - hoặc じっぷん jippun) ➔「にじじゅっぷん」(hoặc「にじじっぷん」).\n• 9): 3:01 gồm 3 giờ「さんじ」+ 1 phút đặc biệt âm ngắt「いっぷん」(ippun) ➔「さんじいっぷん」.\n• 10): 10:03 gồm 10 giờ「じゅうじ」+ 3 phút đặc biệt bán đục「さんぷん」(sanpun) ➔「じゅうじさんぷん」.\n• 11): 4:04 gồm 4 giờ đặc biệt「よじ」(yoji) + 4 phút đặc biệt bán đục「よんぷん」(yonpun) ➔「よじよんぷん」.\n• 12): 1:06 gồm 1 giờ「いちじ」+ 6 phút đặc biệt âm ngắt「ろっぷん」(roppun) ➔「いちじろっぷん」.\n• 13): 9:08 gồm 9 giờ đặc biệt「くじ」(kuji) + 8 phút đặc biệt âm ngắt「はっぷん」(happun - hoặc「はちふん」) ➔「くじはっぷん」(hoặc「くじはちふん」).\n• 14): 5:24 gồm 5 giờ「ごじ」+ 24 phút「にじゅうよんぷん」(nijūyonpun) ➔「ごじにじゅうよんぷん」.\n• 15): 8:02 gồm 8 giờ「はちじ」(hachiji) + 2 phút「にふん」(nifun - đi với ふん, không biến âm) ➔「はちじにふん」.\n• 16): 5:07 gồm 5 giờ「ごじ」(goji) + 7 phút「ななふん」(nanafun - hoặc「しちふん」, đi với ふん) ➔「ごじななふん」(hoặc「ごじしちふん」).\n• 17): 2:09 gồm 2 giờ「にじ」(niji) + 9 phút「きゅうふん」(kyūfun - đi với ふん, không biến âm) ➔「にじきゅうふん」.\n* Bảng tổng kết giờ & phút đặc biệt:\n  - Giờ đặc biệt: 4 giờ (よじ), 7 giờ (しちじ), 9 giờ (くじ).\n  - Phút đi với「ふん」(fun): 2 phút (にふん), 5 phút (ごふん), 7 phút (ななふん/しちふん), 9 phút (きゅうふん).\n  - Phút đặc biệt đi kèm「ぷん」(âm ngắt/bán đục): 1 phút (いっぷん), 3 phút (さんぷん), 4 phút (よんぷん), 6 phút (ろっぷん), 8 phút (はっぷん), 10 phút (じゅっぷん/じっぷん), 20 phút (にじゅっぷん), 30 phút (さんじゅっぷん/はん), 40 phút (よんじゅっぷん)."
       },
       {
         "id": "b3_q2",
@@ -817,7 +820,7 @@ const JA_GRAMMAR_DATA = {
     ]
   },
   "bai_8": {
-    "title": "Bài 8 (Ôn tập 1-7)",
+    "title": "Bài 8",
     "questions": [
       {
         "id": "b8_q1",

@@ -97,7 +97,11 @@ const KanjiJaModule = (() => {
   function renderLessonSelect() {
     if (!dom.lessonSelect) return;
     const allData = getAllLessonsData();
-    const lessonKeys = Object.keys(allData);
+    const lessonKeys = Object.keys(allData).sort((a, b) => {
+      const numA = parseInt((String(a).match(/\d+/) || [9999])[0], 10);
+      const numB = parseInt((String(b).match(/\d+/) || [9999])[0], 10);
+      return numA - numB;
+    });
 
     let html = `<option value="all" ${selectedLessonKey === 'all' ? 'selected' : ''}>🎯 Đề tổng hợp (Tất cả các bài Hán tự)</option>`;
     lessonKeys.forEach(key => {

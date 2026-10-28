@@ -52,10 +52,42 @@ const GrammarJaModule = (() => {
     return (typeof JA_GRAMMAR_DATA !== 'undefined') ? JA_GRAMMAR_DATA : {};
   }
 
+  // Kiểm tra bài học đã hoàn thành hay chưa
+  function isLessonCompleted(key, lesson) {
+    if (!lesson) return false;
+    return lesson.completed === true || lesson.status === 'completed' || lesson.tag === 'Hoàn thành' || ['bai_1', 'bai_2', 'bai_3', 'bai_4'].includes(key);
+  }
+
+  // Sắp xếp danh sách bài học:
+  // 1. Bài chưa hoàn thành ở trên, bài có chữ [Hoàn thành] ở dưới cùng
+  // 2. Trong mỗi nhóm, sắp xếp tăng dần từ nhỏ đến lớn: Bài 1, Bài 2, Bài 3,...
+  function getSortedLessonKeys(allData) {
+    function extractLessonNumber(key, lesson) {
+      if (lesson && lesson.title) {
+        const m = String(lesson.title).match(/\d+/);
+        if (m) return parseInt(m[0], 10);
+      }
+      const km = String(key).match(/\d+/);
+      if (km) return parseInt(km[0], 10);
+      return 9999;
+    }
+
+    return Object.keys(allData).sort((a, b) => {
+      const compA = isLessonCompleted(a, allData[a]) ? 1 : 0;
+      const compB = isLessonCompleted(b, allData[b]) ? 1 : 0;
+      if (compA !== compB) return compA - compB; // Chưa hoàn thành (0) lên trước, Hoàn thành (1) ở dưới cùng
+
+      const numA = extractLessonNumber(a, allData[a]);
+      const numB = extractLessonNumber(b, allData[b]);
+      if (numA !== numB) return numA - numB;
+      return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+    });
+  }
+
   // Thu thập danh sách câu hỏi theo bài đã chọn
   function getQuestionsForSelectedLesson() {
     const allData = getAllLessonsData();
-    const lessonKeys = Object.keys(allData);
+    const lessonKeys = getSortedLessonKeys(allData);
 
     if ((!selectedLessonKey || !allData[selectedLessonKey]) && lessonKeys.length > 0) {
       selectedLessonKey = lessonKeys[0];
@@ -86,7 +118,7 @@ const GrammarJaModule = (() => {
     if (!badgeEl) return;
     const allData = getAllLessonsData();
     const lesson = allData[selectedLessonKey];
-    const isCompleted = lesson && (lesson.completed === true || lesson.status === 'completed' || lesson.tag === 'Hoàn thành' || ['bai_1', 'bai_2', 'bai_3', 'bai_4'].includes(selectedLessonKey));
+    const isCompleted = isLessonCompleted(selectedLessonKey, lesson);
 
     if (isCompleted) {
       badgeEl.innerHTML = `✓ Hoàn thành`;
@@ -101,7 +133,7 @@ const GrammarJaModule = (() => {
   function renderLessonSelect() {
     if (!dom.lessonSelect) return;
     const allData = getAllLessonsData();
-    const lessonKeys = Object.keys(allData);
+    const lessonKeys = getSortedLessonKeys(allData);
 
     if ((!selectedLessonKey || !allData[selectedLessonKey]) && lessonKeys.length > 0) {
       selectedLessonKey = lessonKeys[0];
@@ -110,12 +142,13 @@ const GrammarJaModule = (() => {
     let html = '';
     lessonKeys.forEach(key => {
       const lesson = allData[key];
-      const count = (lesson && Array.isArray(lesson.questions)) ? lesson.questions.length : 0;
-      const title = (lesson && lesson.title) ? lesson.title : key;
+      const rawTitle = (lesson && lesson.title) ? lesson.title : key;
+      const match = rawTitle.match(/^(Bài\s*\d+)/i);
+      const title = match ? match[1].replace(/^(bài)/i, 'Bài') : rawTitle;
       const isSelected = selectedLessonKey === key ? 'selected' : '';
-      const isCompleted = lesson && (lesson.completed === true || lesson.status === 'completed' || lesson.tag === 'Hoàn thành' || ['bai_1', 'bai_2', 'bai_3', 'bai_4'].includes(key));
+      const isCompleted = isLessonCompleted(key, lesson);
       const completionTag = isCompleted ? ' [Hoàn thành]' : '';
-      html += `<option value="${key}" ${isSelected}>${title} (${count} câu)${completionTag}</option>`;
+      html += `<option value="${key}" ${isSelected}>${title}${completionTag}</option>`;
     });
 
     dom.lessonSelect.innerHTML = html;
