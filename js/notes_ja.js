@@ -5,7 +5,7 @@
 // ========================================================
 
 const NotesJaModule = (() => {
-  let currentMode = 'hard_words'; // 'hard_words' | 'phrases' | 'particles' | 'connectors'
+  let currentMode = 'hard_words'; // 'hard_words' | 'phrases' | 'particles' | 'connectors' | 'counting'
 
   // DOM Elements
   let modeBtns = [];
@@ -13,10 +13,12 @@ const NotesJaModule = (() => {
   let phrasesViewEl = null;
   let particlesViewEl = null;
   let connectorsViewEl = null;
+  let countingViewEl = null;
   let hardWordsBodyEl = null;
   let phrasesBodyEl = null;
   let particlesBodyEl = null;
   let connectorsBodyEl = null;
+  let countingBodyEl = null;
 
   function getHardWordsList() {
     if (typeof JA_NOTES_DATA === 'undefined') return [];
@@ -41,20 +43,27 @@ const NotesJaModule = (() => {
     return JA_NOTES_DATA.connectors || null;
   }
 
+  function getCountingData() {
+    if (typeof JA_NOTES_DATA === 'undefined') return null;
+    return JA_NOTES_DATA.counting || null;
+  }
+
   function initDOM() {
     modeBtns = Array.from(document.querySelectorAll('.notes-mode-btn'));
     hardWordsViewEl = document.getElementById('ja-notes-hard-words-view');
     phrasesViewEl = document.getElementById('ja-notes-phrases-view');
     particlesViewEl = document.getElementById('ja-notes-particles-view');
     connectorsViewEl = document.getElementById('ja-notes-connectors-view');
+    countingViewEl = document.getElementById('ja-notes-counting-view');
     hardWordsBodyEl = document.getElementById('ja-hard-words-body');
     phrasesBodyEl = document.getElementById('ja-phrases-body');
     particlesBodyEl = document.getElementById('ja-particles-body');
     connectorsBodyEl = document.getElementById('ja-connectors-body');
+    countingBodyEl = document.getElementById('ja-counting-body');
 
     try {
       const savedMode = localStorage.getItem('ja_notes_mode');
-      if (savedMode && ['hard_words', 'phrases', 'particles', 'connectors'].includes(savedMode)) {
+      if (savedMode && ['hard_words', 'phrases', 'particles', 'connectors', 'counting'].includes(savedMode)) {
         currentMode = savedMode;
       }
     } catch (e) {}
@@ -366,10 +375,73 @@ const NotesJaModule = (() => {
   }
 
   // ==========================================
-  // 5. ĐIỀU HƯỚNG & KHỞI TẠO
+  // 5. TRANG TĨNH: HỌC ĐẾM (TEXT THUẦN TÚY)
+  // ==========================================
+  function renderCountingStatic() {
+    if (!countingBodyEl) return;
+    const countingData = getCountingData();
+
+    if (!countingData) {
+      countingBodyEl.innerHTML = `
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0;">
+          Chưa có dữ liệu học đếm. Mở file <code>japanese_data/notes_data.js</code> (mục <code>counting</code>) để thêm.
+        </div>
+      `;
+      return;
+    }
+
+    if (Array.isArray(countingData.sections) && countingData.sections.length > 0) {
+      let cardsHtml = '<div style="display: flex; flex-direction: column; gap: 14px;">';
+      countingData.sections.forEach((sec, sIdx) => {
+        const secTitle = sec.title || `Mục #${sIdx + 1}`;
+        const secItems = Array.isArray(sec.items) ? sec.items : [];
+
+        let itemsHtml = '';
+        if (secItems.length > 0) {
+          itemsHtml += '<div style="font-size: 0.95rem; line-height: 1.8; color: var(--text-main);">';
+          secItems.forEach(item => {
+            const text = typeof item === 'string' ? item : (item.title || item.text || '');
+            itemsHtml += `<div>${text}</div>`;
+          });
+          itemsHtml += '</div>';
+        }
+
+        cardsHtml += `
+          <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+            <div style="font-size: 1.05rem; font-weight: 700; color: #8b5cf6; margin-bottom: 8px;">${secTitle}</div>
+            ${itemsHtml}
+          </div>
+        `;
+      });
+      cardsHtml += '</div>';
+      countingBodyEl.innerHTML = cardsHtml;
+      return;
+    }
+
+    const items = Array.isArray(countingData.items) ? countingData.items : [];
+    let fallbackHtml = '';
+    if (items.length > 0) {
+      fallbackHtml += `
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+            <div style="font-size: 1.05rem; font-weight: 700; color: #8b5cf6; margin-bottom: 8px;">${countingData.title || 'Học đếm'}</div>
+            <div style="font-size: 0.95rem; line-height: 1.8; color: var(--text-main);">
+      `;
+      items.forEach(item => {
+        const text = typeof item === 'string' ? item : (item.title || item.text || '');
+        fallbackHtml += `<div>${text}</div>`;
+      });
+      fallbackHtml += '</div></div></div>';
+    }
+
+    countingBodyEl.innerHTML = fallbackHtml;
+  }
+
+  // ==========================================
+  // 6. ĐIỀU HƯỚNG & KHỞI TẠO
   // ==========================================
   function setMode(newMode) {
-    if (!['hard_words', 'phrases', 'particles', 'connectors'].includes(newMode)) return;
+    if (!['hard_words', 'phrases', 'particles', 'connectors', 'counting'].includes(newMode)) return;
     currentMode = newMode;
     try {
       localStorage.setItem('ja_notes_mode', currentMode);
@@ -384,6 +456,7 @@ const NotesJaModule = (() => {
     if (phrasesViewEl) phrasesViewEl.style.display = currentMode === 'phrases' ? 'block' : 'none';
     if (particlesViewEl) particlesViewEl.style.display = currentMode === 'particles' ? 'block' : 'none';
     if (connectorsViewEl) connectorsViewEl.style.display = currentMode === 'connectors' ? 'block' : 'none';
+    if (countingViewEl) countingViewEl.style.display = currentMode === 'counting' ? 'block' : 'none';
 
     if (currentMode === 'hard_words') {
       renderHardWordsStatic();
@@ -393,6 +466,8 @@ const NotesJaModule = (() => {
       renderParticlesStatic();
     } else if (currentMode === 'connectors') {
       renderConnectorsStatic();
+    } else if (currentMode === 'counting') {
+      renderCountingStatic();
     }
   }
 
@@ -415,7 +490,8 @@ const NotesJaModule = (() => {
     renderHardWordsStatic,
     renderPhrasesStatic,
     renderParticlesStatic,
-    renderConnectorsStatic
+    renderConnectorsStatic,
+    renderCountingStatic
   };
 })();
 

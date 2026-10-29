@@ -56,19 +56,25 @@ const JA_NOTES_DATA = {
         note: "⚠️ Đi một mình thì dùng ひとりで (KHÔNG dùng trợ từ と): ひとりで　とうきょうへ　いきます。(Tôi đi Tokyo một mình.)"
       },
       {
-        title: "3. [Bài 6] Hỏi bạn làm gì: 何をしましたか。",
+        title: "3. [Bài 5] Xuất phát / Đến từ đâu: [Địa điểm] + から + きました",
+        meaning: "Chú ý: Động từ「きました」(kimashita) còn được dùng để nói xuất phát từ đâu, đến từ nước nào / nơi nào với cấu trúc: [Địa điểm] + から + きました.",
+        example: "ベトナムから　きました。(Betonamu kara kimashita - Tôi đến từ Việt Nam / Tôi xuất phát từ Việt Nam.)",
+        note: "💡 Khi tự giới thiệu bản thân, quê hương xuất thân dùng mẫu câu quen thuộc: [Tên quốc gia/quê quán] + から きました."
+      },
+      {
+        title: "4. [Bài 6] Hỏi bạn làm gì: 何をしましたか。",
         meaning: "Dùng để hỏi ai đó đã làm gì (thường kết hợp với các mốc thời gian quá khứ như: きのう - hôm qua, おととい - hôm kia, 先週 - tuần trước...)",
         example: "A：きのう 何をしましたか。(Hôm qua bạn đã làm gì?)\nB：日本語を勉強しました。(Tôi đã học tiếng Nhật.)",
         note: "💡 Lưu ý: Chữ「何」đứng trước trợ từ「を」được phát âm là「なに」(nani): 何を (nani o)."
       },
       {
-        title: "4. [Bài 6] Mời, đề nghị ai làm gì một cách lịch sự: ～ませんか。",
+        title: "5. [Bài 6] Mời, đề nghị ai làm gì một cách lịch sự: ～ませんか。",
         meaning: "Mẫu câu rủ rê, mời mọc hoặc đề nghị đối phương cùng thực hiện một hành động nào đó một cách lịch sự, nhã nhặn (thường đi kèm phó từ いっしょに - cùng nhau).",
         example: "• いっしょに テニスを しませんか。(Cùng chơi tennis với tôi nhé?)\n• ちょっと やすみませんか。(Nghỉ một lát nhé?)",
         note: "💡 Mẹo nhớ: Trong tiếng Nhật, ～ませんか không chỉ là câu phủ định nghi vấn mà còn là mẫu câu mời ai đó làm gì nhé!"
       },
       {
-        title: "5. [Bài 7] Tính từ bổ nghĩa cho danh từ: [Tính từ い / な] + Danh từ",
+        title: "6. [Bài 7] Tính từ bổ nghĩa cho danh từ: [Tính từ い / な] + Danh từ",
         meaning: "• Tính từ đuôi「い」: Giữ nguyên「い」rồi ghép trực tiếp với danh từ ➔ [Tính từ-い] + Danh từ.\n• Tính từ đuôi「な」: Bắt buộc phải thêm「な」trước danh từ ➔ [Tính từ-な] + な + Danh từ.",
         example: "• 大きい机 (おおきいつくえ): Cái bàn lớn (tính từ đuôi い: 大きい + 机)\n• 静かな町 (しずかなまち): Thị trấn yên tĩnh (tính từ đuôi な: 静か + な + 町)",
         note: "💡 Ghi nhớ quy tắc vàng: Đuôi い giữ nguyên い + N (大きい机); Đuôi な bắt buộc phải có「な」+ N (静かな町, きれいな部屋, 親切な人)."
@@ -80,12 +86,12 @@ const JA_NOTES_DATA = {
   particles: {
     title: "Trợ từ",
     badge: "🔖 TRỢ TỪ",
-    description: "Note về trợ từ: で, に, へ, の",
+    description: "Note về trợ từ: で, に, へ, の, と",
     notice: "Ghi nhớ quy tắc phân biệt trợ từ khi nói về Ở đâu, Thời gian và bảng Tổng kết.",
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ)",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -155,6 +161,108 @@ const JA_NOTES_DATA = {
         meaning: "Dùng để nhấn mạnh một đối tượng, sự vật nổi bật nhất trong một tập hợp hoặc phạm vi.",
         example: "スポーツが　すきです。とくに　サッカーが　すきです。(Tôi thích thể thao. Đặc biệt là rất thích bóng đá.)",
         note: "💡 Chữ Hán: 特 (ĐẶC) đọc là とく. Dùng nhấn mạnh cá nhân/sự vật nổi bật."
+      }
+    ]
+  },
+
+  // 5. HỌC ĐẾM (Quy tắc đếm số lượng, thời gian, đồ vật...)
+  counting: {
+    title: "Học đếm",
+    badge: "🔢 HỌC ĐẾM",
+    description: "Tổng hợp các quy tắc đếm đặc biệt trong tiếng Nhật",
+    sections: [
+      {
+        title: "1. Đếm ngày",
+        items: [
+          "Ngày 1 (1日) : ついたち",
+          "Ngày 2 (2日) : ふつか",
+          "Ngày 3 (3日) : みっか",
+          "Ngày 4 (4日) : よっか",
+          "Ngày 5 (5日) : いつか",
+          "Ngày 6 (6日) : むいか",
+          "Ngày 7 (7日) : なのか",
+          "Ngày 8 (8日) : ようか",
+          "Ngày 9 (9日) : ここのか",
+          "Ngày 10 (10日) : とおか",
+          "Ngày 14 (14日) : じゅうよっか",
+          "Ngày 20 (20日) : はつか",
+          "Ngày 24 (24日) : にじゅうよっか"
+        ]
+      },
+      {
+        title: "2. Đếm vật chung",
+        items: [
+          "1 cái (1つ) : ひとつ",
+          "2 cái (2つ) : ふたつ",
+          "3 cái (3つ) : みっつ",
+          "4 cái (4つ) : よっつ",
+          "5 cái (5つ) : いつつ",
+          "6 cái (6つ) : むっつ",
+          "7 cái (7つ) : ななつ",
+          "8 cái (8つ) : やっつ",
+          "9 cái (9つ) : ここのつ",
+          "10 cái (10) : とお"
+        ]
+      },
+      {
+        title: "3. Đếm tháng",
+        items: [
+          "Tháng 4 (4月) : しがつ",
+          "Tháng 7 (7月) : しちがつ",
+          "Tháng 9 (9月) : くがつ"
+        ]
+      },
+      {
+        title: "4. Đếm giờ",
+        items: [
+          "4 giờ (4時) : よじ",
+          "7 giờ (7時) : しちじ",
+          "9 giờ (9時) : くじ"
+        ]
+      },
+      {
+        title: "5. Đếm phút",
+        items: [
+          "1 phút (1分) : いっぷん",
+          "3 phút (3分) : さんぷん",
+          "4 phút (4分) : よんぷん",
+          "6 phút (6分) : ろっぷん",
+          "8 phút (8分) : はっぷん",
+          "10 phút (10分) : じゅっぷん (hoặc じっぷん)"
+        ]
+      },
+      {
+        title: "6. Đếm tiền",
+        items: [
+          "300 yên (300円) : さんびゃくえん",
+          "600 yên (600円) : ろっぴゃくえん",
+          "800 yên (800円) : はっぴゃくえん",
+          "3,000 yên (3,000円) : さんぜんえん",
+          "8,000 yên (8,000円) : はっせんえん",
+          "10,000 yên (10,000円) : いちまんえん"
+        ]
+      },
+      {
+        title: "7. Đếm tuổi",
+        items: [
+          "1 tuổi (1歳) : いっさい",
+          "8 tuổi (8歳) : はっさい",
+          "10 tuổi (10歳) : じゅっさい (hoặc じっさい)",
+          "20 tuổi (20歳) : はたち"
+        ]
+      },
+      {
+        title: "8. Đếm tầng",
+        items: [
+          "Tầng 1 (1階) : いっかい",
+          "Tầng 3 (3階) : さんがい",
+          "Tầng 6 (6階) : ろっかい",
+          "Tầng 8 (8階) : はっかい",
+          "Tầng 10 (10階) : じゅっかい (hoặc じっかい)",
+          "Tầng hầm (地下) : ちか",
+          "Tầng hầm 1 (B1 / 地下1階) : ちかいっかい",
+          "Tầng mấy (何階) : なんがい (hoặc なんかい)"
+        ]
       }
     ]
   }
