@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--text-muted);
 }
@@ -52,7 +52,7 @@
   border: 1px solid var(--border-color);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 600;
   cursor: pointer;
   outline: none;
@@ -69,7 +69,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--radius-full);
@@ -97,7 +97,7 @@
   border: 1px solid rgba(99, 102, 241, 0.3);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
@@ -122,7 +122,7 @@
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #38bdf8;
 }
@@ -133,7 +133,7 @@
   border: none;
   padding: 9px 18px;
   border-radius: var(--radius-sm);
-  font-size: 0.94rem;
+  font-size: 1.02rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
@@ -227,7 +227,7 @@
   background: rgba(99, 102, 241, 0.18);
   color: #a5b4fc;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   padding: 3px 10px;
   border-radius: var(--radius-full);
   border: 1px solid rgba(99, 102, 241, 0.35);
@@ -236,7 +236,7 @@
 
 .q-lesson-tag {
   color: var(--text-dim);
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   font-weight: 500;
 }
 
@@ -247,7 +247,7 @@
 }
 
 .q-status-badge {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 700;
   padding: 3px 10px;
   border-radius: var(--radius-full);
@@ -283,7 +283,7 @@
   border: 1px solid var(--border-color);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -299,9 +299,9 @@
 }
 
 .q-text {
-  font-size: 1.0rem;
+  font-size: 1.12rem;
   font-weight: 600;
-  line-height: 1.85;
+  line-height: 1.95;
   color: var(--text-main);
   letter-spacing: 0.01em;
   white-space: pre-line;
@@ -335,8 +335,8 @@
 }
 
 .opt-prefix {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: rgba(148, 163, 184, 0.12);
   color: var(--text-muted);
@@ -344,14 +344,15 @@
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   flex-shrink: 0;
   transition: var(--transition);
 }
 
 .opt-content {
-  font-size: 0.94rem;
+  font-size: 1.05rem;
   font-weight: 500;
+  line-height: 1.5;
   color: var(--text-main);
   flex: 1;
   word-break: break-word;
@@ -397,7 +398,7 @@
 }
 
 .opt-result-icon {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
@@ -436,7 +437,7 @@
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 600;
   color: var(--text-main);
   outline: none;
@@ -470,7 +471,7 @@
 }
 
 .q-fill-result-badge {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -508,16 +509,16 @@
 }
 
 .explanation-title {
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   font-weight: 700;
   color: #38bdf8;
   margin-bottom: 4px;
 }
 
 .explanation-content {
-  font-size: 0.94rem;
+  font-size: 1.02rem;
   color: var(--text-main);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Question Palette Card (Được đặt ở đáy bài thi, trải rộng 100%) */
@@ -557,13 +558,13 @@
 }
 
 .palette-header h4 {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: var(--text-main);
 }
 
 .palette-rule-badge {
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #f59e0b;
   background: rgba(245, 158, 11, 0.12);
@@ -580,7 +581,7 @@
 .progress-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   font-weight: 600;
   color: var(--text-muted);
 }
@@ -603,7 +604,7 @@
 .palette-legend {
   display: flex;
   gap: 14px;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
 }
 
@@ -640,7 +641,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 700;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -697,7 +698,7 @@
   max-width: 420px;
   width: 100%;
   padding: 12px 24px;
-  font-size: 1rem;
+  font-size: 1.06rem;
 }
 
 
@@ -1011,8 +1012,8 @@
    ======================================================== */
 .grammar-interactive-text {
   font-family: var(--font-main);
-  font-size: 0.90rem;
-  line-height: 1.85;
+  font-size: 1.06rem;
+  line-height: 2.0;
   font-weight: 500;
   word-break: normal;
   color: var(--text-main);
@@ -1034,6 +1035,7 @@
 }
 
 .grammar-grid-header {
+  font-size: 1.04rem;
   font-weight: 600;
   color: var(--text-main);
   line-height: 1.8;
@@ -1129,11 +1131,11 @@
 }
 
 .grammar-calendar-icon {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
 }
 
 .grammar-calendar-title {
-  font-size: 1.0rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--accent-cyan, #06b6d4);
   letter-spacing: 0.04em;
@@ -1147,7 +1149,7 @@
 }
 
 .grammar-calendar-table th {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 700;
   padding: 3px 4px;
   color: var(--text-main);
@@ -1155,7 +1157,7 @@
 }
 
 .grammar-calendar-table td {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 600;
   padding: 3px 4px;
   color: var(--text-main);
@@ -1216,7 +1218,7 @@
 }
 
 .grammar-info-table-title {
-  font-size: 0.95rem;
+  font-size: 1.04rem;
   font-weight: 700;
   color: var(--accent-cyan, #06b6d4);
   margin-bottom: 8px;
@@ -1228,7 +1230,7 @@
 .grammar-info-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: 0.96rem;
   text-align: left;
 }
 
@@ -1280,7 +1282,7 @@
 .table-cell-sub-num {
   font-weight: 700;
   color: #38bdf8;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   margin-right: 2px;
 }
 
@@ -1291,9 +1293,9 @@
 .grammar-table-cell-input {
   min-width: 60px !important;
   max-width: 140px !important;
-  height: 28px !important;
+  height: 30px !important;
   text-align: center !important;
-  font-size: 0.95rem !important;
+  font-size: 1.02rem !important;
   font-weight: 600 !important;
 }
 
@@ -1301,7 +1303,7 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   font-weight: 700;
   margin-left: 4px;
 }
@@ -1339,7 +1341,7 @@
 .grammar-blank-wrapper .bracket-open,
 .grammar-blank-wrapper .bracket-close {
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   line-height: 1;
   color: var(--text-muted);
   user-select: none;
@@ -1347,15 +1349,15 @@
 
 .grammar-inline-input {
   width: auto;
-  min-width: 42px;
-  max-width: 200px;
-  height: 27px;
-  padding: 1px 6px;
+  min-width: 44px;
+  max-width: 220px;
+  height: 30px;
+  padding: 2px 7px;
   background: var(--bg-primary);
   border: 1.5px solid var(--border-color);
   border-radius: 5px;
   color: var(--text-main);
-  font-size: 0.94rem;
+  font-size: 1.04rem;
   font-weight: 600;
   text-align: center;
   outline: none;
@@ -1407,7 +1409,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   margin-left: 6px;
   font-weight: 700;
   vertical-align: middle;
@@ -1437,7 +1439,7 @@
   border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 2px 8px;
   border-radius: 6px;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   margin-left: 8px;
   font-weight: 600;
 }
@@ -1474,10 +1476,10 @@
   border-radius: 0 !important;
   background: rgba(255, 255, 255, 0.03) !important;
   min-width: 140px !important;
-  max-width: 300px !important;
-  height: 27px !important;
-  padding: 1px 6px !important;
-  font-size: 0.95rem !important;
+  max-width: 320px !important;
+  height: 30px !important;
+  padding: 2px 7px !important;
+  font-size: 1.04rem !important;
   text-align: left !important;
   color: var(--text-main) !important;
   box-shadow: none !important;
@@ -1577,7 +1579,7 @@
 }
 
 .grammar-choices-title {
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--text-main);
   display: flex;
@@ -1586,7 +1588,7 @@
 }
 
 .grammar-choices-hint {
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 
@@ -1653,13 +1655,13 @@
 }
 
 .choice-key-badge {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
   font-weight: 800;
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1674,14 +1676,14 @@
 }
 
 .choice-text {
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   font-weight: 500;
   color: var(--text-main);
   flex: 1;
 }
 
 .choice-example-tag {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #94a3b8;
   background: rgba(148, 163, 184, 0.15);
@@ -1691,7 +1693,7 @@
 }
 
 .choice-used-tag {
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: #a5b4fc;
   background: rgba(99, 102, 241, 0.22);
@@ -1708,12 +1710,13 @@
 }
 
 .grammar-choice-letter-input {
-  width: 44px !important;
-  min-width: 44px !important;
-  max-width: 44px !important;
+  width: 46px !important;
+  min-width: 46px !important;
+  max-width: 46px !important;
+  height: 30px !important;
   text-align: center !important;
   font-weight: 700 !important;
-  font-size: 1.05rem !important;
+  font-size: 1.12rem !important;
   color: #38bdf8 !important;
   letter-spacing: 0.02em;
 }
@@ -1750,14 +1753,14 @@
 .inline-choice-bracket {
   color: var(--text-muted);
   font-weight: 700;
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   user-select: none;
   opacity: 0.7;
 }
 
 .inline-choice-divider {
   color: var(--text-dim, #64748b);
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   margin: 0 1px;
   user-select: none;
   opacity: 0.5;
@@ -1768,9 +1771,9 @@
   border: 1px solid transparent;
   color: var(--text-main);
   font-family: inherit;
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   font-weight: 600;
-  padding: 1.5px 7px;
+  padding: 2px 8px;
   border-radius: var(--radius-full, 9999px);
   cursor: pointer;
   transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1833,7 +1836,7 @@
 }
 
 .inline-choice-feedback {
-  font-size: 0.82rem;
+  font-size: 0.90rem;
   margin-left: 2px;
   vertical-align: middle;
 }
@@ -1846,9 +1849,9 @@
 }
 
 .inline-choice-preview {
-  font-size: 0.86rem;
+  font-size: 0.96rem;
   font-weight: 600;
-  padding: 1.5px 7px;
+  padding: 2px 8px;
   color: var(--text-muted);
   border-radius: var(--radius-full, 9999px);
   display: inline-flex;
@@ -1918,7 +1921,8 @@
 .word-order-example-row {
   margin-bottom: 12px;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-size: 1.04rem;
 }
 
 .word-order-sub-card {
@@ -1936,7 +1940,7 @@
 .word-order-num {
   font-weight: 700;
   color: #38bdf8;
-  font-size: 0.95rem;
+  font-size: 1.04rem;
 }
 
 .word-chips-pool {
@@ -1950,9 +1954,9 @@
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.15) 100%);
   border: 1.5px solid rgba(56, 189, 248, 0.35);
   color: #38bdf8;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 4px 11px;
   border-radius: var(--radius-full, 9999px);
   cursor: pointer;
   transition: all 0.18s ease;
@@ -1984,9 +1988,10 @@
 }
 
 .grammar-order-input {
-  max-width: 440px !important;
+  max-width: 460px !important;
   width: 100% !important;
-  font-size: 0.95rem !important;
+  height: 30px !important;
+  font-size: 1.04rem !important;
   letter-spacing: 0.5px;
 }
 
@@ -1994,9 +1999,9 @@
   background: rgba(244, 63, 94, 0.1);
   border: 1px solid rgba(244, 63, 94, 0.28);
   color: #fb7185;
-  font-size: 0.74rem;
+  font-size: 0.80rem;
   font-weight: 600;
-  padding: 2.5px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full, 9999px);
   cursor: pointer;
   transition: all 0.18s ease;

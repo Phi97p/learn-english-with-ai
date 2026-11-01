@@ -452,7 +452,7 @@ const GrammarJaModule = (() => {
           `;
         }
 
-        return `<td style="${isCentered ? 'text-align: center; font-size: 0.98rem; font-weight: 600; padding: 10px 16px;' : ''}">${escapeHtml(rawCell)}</td>`;
+        return `<td style="${isCentered ? 'text-align: center; font-size: 1.04rem; font-weight: 600; padding: 10px 16px;' : ''}">${escapeHtml(rawCell)}</td>`;
       }).join('');
       return `<tr class="${isEx ? 'example-row' : ''}">${tds}</tr>`;
     }).join('');

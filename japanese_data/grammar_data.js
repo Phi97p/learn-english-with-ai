@@ -1022,7 +1022,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_9": {
     "title": "Bài 9",
-    "completed": true,
+    "completed": false,
     "questions": [
       {
         "id": "b9_q1",
@@ -1160,6 +1160,120 @@ const JA_GRAMMAR_DATA = {
           "どうして旅行へ行きませんか。"
         ],
         "explanation": "• Dạng câu hỏi mở luyện tập cấu trúc hỏi nguyên nhân「どうして〜か」(Tại sao...?) và trả lời giải thích lý do「〜から」(Vì...):\n• 例 (Ví dụ):「どうして日本語を勉強しますか」(Tại sao bạn học tiếng Nhật?) ➔ Trả lời lý do:「日本の会社で働きますから。」(Vì tôi sẽ làm việc tại công ty Nhật).\n• 1):「どうして朝ごはんを食べませんでしたか」(Tại sao sáng nay bạn không ăn sáng?) ➔ Trả lời lý do quá khứ:「時間がありませんでしたから。」(Vì tôi không có thời gian) hoặc「忙しかったですから。」(Vì tôi bận).\n• 2):「どうしていつもこのスーパーへ来ますか」(Tại sao bạn luôn đến siêu thị này?) ➔ Trả lời lý do tính chất:「安いですから。」(Vì rẻ) hoặc「近いですから。」(Vì gần).\n• 3):「どうしてダンスをしませんか」(Tại sao bạn không khiêu vũ/nhảy?) ➔ Trả lời lý do sở thích/năng lực:「あまり好きじゃありませんから。」(Vì tôi không thích lắm) hoặc「下手ですから。」(Vì tôi dở/kém).\n• 4): Cho trước câu trả lời nguyên nhân:「…日本語がわかりませんから。」(Vì tôi không hiểu tiếng Nhật) ➔ Đặt câu hỏi lý do tương ứng:「どうして日本の新聞を読みませんか。」(Tại sao bạn không đọc báo Nhật?) hoặc「どうして日本語を勉強しますか。」(Tại sao bạn lại học tiếng Nhật?).\n• 5): Cho trước câu trả lời nguyên nhân:「…お金がありませんから。」(Vì tôi không có tiền) ➔ Đặt câu hỏi lý do tương ứng:「どうして旅行へ行きませんか。」(Tại sao bạn không đi du lịch?) hoặc「どうして車を買いませんか。」(Tại sao bạn không mua ô tô?)."
+      },
+      {
+        "id": "b9_q6",
+        "type": "fill",
+        "tag": "Điền nghi vấn từ thích hợp",
+        "question": "6. 例：［ どんな ］音楽が好きですか。…クラシックが好きです。\n\n1) ［____］魚を食べませんか。…嫌いですから。\n\n2) ［____］映画が好きですか。…楽しい映画が好きです。\n\n3) 日本語の勉強は［____］ですか。…難しいですが、おもしろいです。\n\n4) あの黒いかばんは［____］のですか。…松本さんのです。\n\n5) \"Thank you.\" は日本語で［____］ですか。…「ありがとう」です。",
+        "answers": [
+          "どうして",
+          "どんな",
+          "どう",
+          "だれ / どなた",
+          "何 / なん"
+        ],
+        "explanation": "• Ôn tập cách dùng các từ nghi vấn trong Minna no Nihongo (Bài 1 - 9):\n• 例 (Ví dụ): Hỏi về thể loại/tính chất của âm nhạc mà người nghe yêu thích, dùng nghi vấn từ「どんな」➔「どんな音楽が好きですか」(Bạn thích thể loại âm nhạc nào?).\n• 1): Vế trả lời nêu lý do có「〜から」(嫌いですから: vì tôi ghét cá), nên câu hỏi phải hỏi về lý do「どうして」(Tại sao) ➔「どうして魚を食べませんか」(Tại sao bạn lại không ăn cá?).\n• 2): Vế trả lời là danh từ kèm tính từ bổ nghĩa「楽しい映画」(bộ phim vui nhộn), nên câu hỏi dùng「どんな」(như thế nào / thể loại nào) ➔「どんな映画が好きですか」(Bạn thích thể loại phim như thế nào?).\n• 3): Vế trả lời nêu lên nhận xét/cảm nghĩ「難しいですが、おもしろいです」(khó nhưng thú vị), câu hỏi về cảm nhận/tính chất của sự vật/việc học dùng nghi vấn từ「どう」(thế nào / ra sao) ➔「日本語の勉強はどうですか」(Việc học tiếng Nhật thế nào?).\n• 4): Vế trả lời chỉ người sở hữu「松本さんのです」(là của anh Matsumoto), nên câu hỏi về chủ sở hữu dùng từ để hỏi người「だれ」(hoặc lịch sự là「どなた」) ➔「あの黒いかばんはだれのですか」(Chiếc cặp màu đen kia là của ai vậy?).\n• 5): Hỏi cách diễn đạt một từ ngữ/câu bằng tiếng Nhật, dùng từ để hỏi「何」(hoặc「なん」) ➔「\"Thank you.\" は日本語で何ですか」(Từ \"Thank you\" trong tiếng Nhật là gì vậy?)."
+      },
+      {
+        "id": "b9_q7",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "7. 1) 魚が好きですか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) あしたの晩用事がありますか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) どうして日本へ来ましたか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はい、好きです。 / いいえ、好きじゃありません。",
+          "はい、あります。 / いいえ、ありません。",
+          "日本語を勉強しますから。 / 日本の会社で働きますから。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về bản thân người học để tự luyện tập đối thoại (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「魚が好きですか」(Bạn có thích cá không?) ➔ Trả lời khẳng định:「はい、好きです」; phủ định:「いいえ、好きじゃありません」.\n• 2):「あしたの晩用事がありますか」(Tối mai bạn có việc bận không?) ➔ Trả lời khẳng định:「はい、あります」(Có việc bận); phủ định:「いいえ、ありません」(Không có việc bận).\n• 3):「どうして日本へ来ましたか」(Tại sao bạn lại đến Nhật Bản?) ➔ Trả lời nêu nguyên nhân có kết thúc bằng「〜から」:「日本語を勉強しますから」(Vì tôi học tiếng Nhật) hoặc「日本の会社で働きますから」(Vì tôi làm việc ở công ty Nhật)."
+      }
+    ]
+  }
+,
+  "bai_10": {
+    "title": "Bài 10",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b10_q1",
+        "type": "binary_choice",
+        "tag": "Chọn từ đúng trong ngoặc",
+        "question": "1. 例：学校の前にポストが〔<u>あります</u>／います〕。\n\n1) 紅茶売り場は地下に〔あります／います〕。\n\n2) 今公園にだれも〔います／いません〕。\n\n3) バス乗り場はどこに〔あります／います〕か。\n\n4) 本屋は郵便局と喫茶店の間に〔あります／います〕。\n\n5) 箱の中に何も〔あります／ありません〕。\n\n6) 木の下に犬が〔あります／います〕。",
+        "answers": [
+          "あります",
+          "いません",
+          "あります",
+          "あります",
+          "ありません",
+          "います"
+        ],
+        "explanation": "• Phân biệt động từ tồn tại「あります」và「います」(Minna no Nihongo Bài 10):\n  •「あります」: Dùng cho đồ vật vô tri vô giác, thực vật, sự kiện, địa điểm... (không có tri giác, không tự chuyển động).\n  •「います」: Dùng cho người, động vật (sinh vật sống có tri giác, tự di chuyển).\n  • Dạng phủ định hoàn toàn:「だれも + V phủ định」(hoàn toàn không có ai),「なにも + V phủ định」(hoàn toàn không có gì).\n• 例 (Ví dụ): Hòm thư「ポスト」là đồ vật vô tri nên dùng「あります」➔「学校の前にポストがあります」(Trước trường học có hòm thư).\n• 1): Quầy bán trà「紅茶売り場」là nơi bán / sự vật vô tri, dùng「あります」➔「紅茶売り場は地下にあります」(Quầy bán hồng trà ở dưới tầng hầm).\n• 2): Đi kèm với từ phủ định hoàn toàn「だれも」(không có ai cả) là thể phủ định của động từ chỉ người/động vật「いません」➔「今公園にだれもいません」(Bây giờ trong công viên không có ai cả).\n• 3): Điểm đón xe buýt「バス乗り場」là địa điểm/công trình vô tri, dùng「あります」➔「バス乗り場はどこにありますか」(Điểm đón xe buýt ở đâu vậy?).\n• 4): Hiệu sách「本屋」là cửa tiệm/địa điểm, dùng「あります」➔「本屋は郵便局と喫茶店の間にあります」(Hiệu sách ở giữa bưu điện và quán cà phê).\n• 5): Đi kèm với từ phủ định hoàn toàn「何も」(không có gì cả) là thể phủ định của động từ chỉ đồ vật「ありません」➔「箱の中に何もありません」(Trong hộp không có gì cả).\n• 6): Con chó「犬」là động vật có tri giác, dùng「います」➔「木の下に犬がいます」(Dưới gốc cây có con chó)."
+      },
+      {
+        "id": "b10_q2",
+        "type": "fill",
+        "tag": "Điền trợ từ vào ngoặc",
+        "question": "2. 例：わたし（ は ）コーヒーが好きです。\n\n1) このビル（____）喫茶店（____）ありますか。\n…はい、地下１階（____）あります。\n\n2) 牛乳（____）どこ（____）ありますか。\n…冷蔵庫（____）あります。\n\n3) あそこ（____）高いビル（____）ありますね。あれ（____）何ですか。\n\n4) 佐藤さんの隣（____）人（____）だれですか。\n\n5) 車の中（____）だれ（____）いますか。\n…だれ（____）いません。\n\n6) 駅の前（____）イーさん（____）会いました。",
+        "answers": [
+          "に",
+          "が",
+          "に",
+          "は",
+          "に",
+          "に",
+          "に",
+          "が",
+          "は",
+          "の",
+          "は",
+          "に",
+          "が",
+          "も",
+          "で",
+          "に"
+        ],
+        "explanation": "• Ôn tập và vận dụng các trợ từ trong Minna no Nihongo Bài 10 (Chỉ vị trí tồn tại, chủ thể, hành động):\n  • Trợ từ「に」: Chỉ nơi chốn tồn tại của sự vật/người (khi đi với あります/います).\n  • Trợ từ「が」: Chỉ chủ thể của sự tồn tại「N が あります／います」, hoặc tân ngữ của tính từ biểu thị sở thích「好きです」.\n  • Trợ từ「は」: Xác định chủ đề của câu văn.\n  • Trợ từ「の」: Nối hai danh từ chỉ mối quan hệ vị trí/sở hữu.\n  • Trợ từ「も」: Kết hợp với nghi vấn từ tạo thành câu phủ định hoàn toàn「だれも〜ません」(không có ai cả).\n  • Trợ từ「で」: Chỉ nơi chốn diễn ra hành động (động từ hành động như 会います).\n• 例 (Ví dụ): Trợ từ「は」xác định chủ đề「わたしは」(Tôi thì...). Cấu trúc nêu sở thích「N が 好きです」(thích cà phê) dùng trợ từ「が」.\n• 1): Vị trí 1:「このビルに」: Trợ từ「に」chỉ địa điểm tồn tại (ở tòa nhà này). Vị trí 2:「喫茶店が ありますか」: Trợ từ「が」chỉ chủ thể tồn tại đi với động từ「あります」. Vị trí 3:「地下１階に あります」: Trợ từ「に」chỉ địa điểm tồn tại (ở tầng hầm 1).\n• 2): Vị trí 1:「牛乳は」: Đưa danh từ「牛乳」(sữa) lên làm chủ đề của câu, dùng trợ từ「は」. Vị trí 2:「どこに ありますか」: Từ để hỏi địa điểm đi với trợ từ「に」để hỏi nơi tồn tại (ở đâu). Vị trí 3:「冷蔵庫に あります」: Trợ từ「に」chỉ nơi tồn tại (trong tủ lạnh).\n• 3): Vị trí 1:「あそこに」: Trợ từ「に」chỉ nơi chốn tồn tại (ở đằng kia). Vị trí 2:「高いビルが ありますね」: Trợ từ「が」chỉ sự vật tồn tại「高いビル」(tòa nhà cao). Vị trí 3:「あれは 何ですか」: Đại từ chỉ thị「あれ」làm chủ đề câu, dùng trợ từ「は」(Cái kia là cái gì vậy?).\n• 4): Vị trí 1:「佐藤さんの隣の人」: Trợ từ「の」nối vị trí và danh từ chỉ người (người ở bên cạnh anh Sato). Vị trí 2:「人は だれですか」: Cụm「佐藤さんの隣の人は」làm chủ đề câu, dùng trợ từ「は」(Người bên cạnh anh Sato là ai vậy?).\n• 5): Vị trí 1:「車の中に」: Trợ từ「に」chỉ nơi chốn tồn tại (trong xe ô tô). Vị trí 2:「だれが いますか」: Từ để hỏi「だれ」làm chủ ngữ trong câu tồn tại đi với trợ từ「が」(có ai ở trong đó vậy?). Vị trí 3:「だれも いません」: Cấu trúc phủ định hoàn toàn「だれも〜ません」(không có ai cả) dùng trợ từ「も」.\n• 6): Vị trí 1:「駅の前で」: Trợ từ「で」chỉ nơi chốn diễn ra hành động gặp gỡ「会いました」(đã gặp ở trước nhà ga). Vị trí 2:「イーさんに 会いました」: Trợ từ「に」chỉ đối tượng hướng đến của hành động gặp gỡ (đã gặp anh Lee)."
+      },
+      {
+        "id": "b10_q4",
+        "type": "fill",
+        "tag": "Hoàn thành câu hỏi dựa vào câu trả lời",
+        "question": "4. 例：教室にだれがいますか。\n…カリナさんがいます。\n\n1) ミラーさんは＿＿＿＿＿＿＿＿＿＿\n…エレベーターの前にいます。\n\n2) スイッチは＿＿＿＿＿＿＿＿＿＿\n…ドアの右にあります。\n\n3) 事務所に＿＿＿＿＿＿＿＿＿＿\n…ミラーさんと佐藤さんがいます。\n\n4) 卵は＿＿＿＿＿＿＿＿＿＿\n…あの棚の上にあります。\n\n5) 庭に＿＿＿＿＿＿＿＿＿＿\n…だれもいません。",
+        "answers": [
+          "どこにいますか。 / どこにいますか / どこですか。 / どこですか",
+          "どこにありますか。 / どこにありますか / どこですか。 / どこですか",
+          "だれがいますか。 / だれがいますか / 誰がいますか。 / 誰がいますか",
+          "どこにありますか。 / どこにありますか / どこですか。 / どこですか",
+          "だれがいますか。 / だれがいますか / だれかいますか。 / だれかいますか / 誰がいますか。 / 誰がいますか"
+        ],
+        "explanation": "• Cấu trúc hỏi vị trí tồn tại và hỏi người/vật tồn tại (Minna no Nihongo Bài 10):\n• 例 (Ví dụ): Hỏi có ai ở trong phòng học:「教室にだれがいますか」(Ở phòng học có ai vậy?) ➔「カリナさんがいます」(Có bạn Karina).\n• 1): Vế trả lời là vị trí của người (thang máy):「エレベーターの前にいます」(ở trước thang máy), nên câu hỏi vị trí người dùng「どこにいますか」(đang ở đâu vậy?) ➔「ミラーさんはどこにいますか」(Anh Miller ở đâu vậy?).\n• 2): Vế trả lời là vị trí của đồ vật (công tắc):「ドアの右にあります」(ở bên phải cửa ra vào), nên câu hỏi vị trí đồ vật dùng「どこにありますか」(ở đâu vậy?) ➔「スイッチはどこにありますか」(Công tắc ở đâu vậy?).\n• 3): Vế trả lời nêu người có mặt ở văn phòng:「ミラーさんと佐藤さんがいます」(có anh Miller và anh Sato), nên câu hỏi có ai ở văn phòng dùng từ để hỏi người「だれがいますか」➔「事務所にだれがいますか」(Ở văn phòng có ai vậy?).\n• 4): Vế trả lời là vị trí của đồ vật (trứng):「あの棚の上にあります」(ở trên cái kệ kia), câu hỏi vị trí đồ vật dùng「どこにありますか」➔「卵はどこにありますか」(Trứng ở đâu vậy?).\n• 5): Vế trả lời phủ định hoàn toàn:「だれもいません」(không có ai cả), câu hỏi ai có mặt ở trong sân dùng「だれがいますか」(hoặc「だれかいますか」) ➔「庭にだれがいますか」(Trong sân có ai vậy?)."
+      },
+      {
+        "id": "b10_q5",
+        "type": "fill",
+        "tag": "Đặt câu hoàn chỉnh dựa vào từ gợi ý",
+        "question": "5. 例１：はさみ／箱／中…はさみは箱の中にあります。\n   例２：冷蔵庫／中／いろいろな物…冷蔵庫の中にいろいろな物があります。\n\n1) 犬／男の人／女の人／間…犬＿＿＿＿＿＿＿＿＿＿\n\n2) ATM／飲み物の棚／前…ATM＿＿＿＿＿＿＿＿＿＿\n\n3) 庭／男の子／女の子…庭＿＿＿＿＿＿＿＿＿＿\n\n4) いす／下／猫…いす＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "は男の人と女の人の間にいます。 / は男の人と女の人の間にいます / はおとこのひととおんなのひとのあいだにいます。 / はおとこのひととおんなのひとのあいだにいます / 犬は男の人と女の人の間にいます。 / 犬は男の人と女の人の間にいます / いぬはおとこのひととおんなのひとのあいだにいます。 / いぬはおとこのひととおんなのひとのあいだにいます",
+          "は飲み物の棚の前にあります。 / は飲み物の棚の前にあります / はのみもののたなのまえにあります。 / はのみもののたなのまえにあります / ATMは飲み物の棚の前にあります。 / ATMは飲み物の棚の前にあります / ATMはのみもののたなのまえにあります。 / ATMはのみもののたなのまえにあります",
+          "に男の子と女の子がいます。 / に男の子と女の子がいます / におとこのことおんなのこがいます。 / におとこのことおんなのこがいます / 庭に男の子と女の子がいます。 / 庭に男の子と女の子がいます / にわにおとこのことおんなのこがいます。 / にわにおとこのことおんなのこがいます",
+          "の下に猫がいます。 / の下に猫がいます / のしたにねこがいます。 / のしたにねこがいます / いすの下に猫がいます。 / いすの下に猫がいます / いすのしたにねこがいます。 / いすのしたにねこがいます / 椅子の下に猫がいます。 / 椅子の下に猫がいます"
+        ],
+        "explanation": "• Luyện tập 2 mẫu câu tồn tại trong Minna no Nihongo Bài 10:\n  • Mẫu 1:「N1 は N2 の [Vị trí] に あります／います」(N1 thì ở vị trí của N2).\n  • Mẫu 2:「[Địa điểm] の [Vị trí] に N が あります／います」(Ở địa điểm có N).\n• 例 1: Đưa đồ vật lên làm chủ đề:「はさみは箱の中にあります」(Kéo thì ở trong hộp).\n• 例 2: Đưa địa điểm lên đầu:「冷蔵庫の中にいろいろな物があります」(Trong tủ lạnh có nhiều thứ đồ).\n• 1): Theo mẫu 1: Con chó là động vật (dùng います), nằm ở giữa người đàn ông và người phụ nữ (dùng trợ từ と nối 2 danh từ và từ chỉ vị trí 間):「犬は男の人と女の人の間にいます」(Con chó ở giữa người đàn ông và người phụ nữ).\n• 2): Theo mẫu 1: Cây ATM là vật (dùng あります), nằm ở phía trước kệ nước uống:「ATMは飲み物の棚の前にあります」(Cây ATM ở phía trước kệ nước uống).\n• 3): Theo mẫu 2: Ở ngoài sân có bé trai và bé gái (người dùng います):「庭に男の子と女の子がいます」(Ở ngoài sân có bé trai và bé gái).\n• 4): Theo mẫu 2: Dưới ghế có con mèo (động vật dùng います):「いすの下に猫がいます」(Ở dưới ghế có con mèo)."
+      },
+      {
+        "id": "b10_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) 近くにおいしいパン屋がありますか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) あなたの家族は今どこにいますか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) あなたのかばんはどこにありますか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) かばんの中に何がありますか。\n＿＿＿＿＿＿＿＿＿＿\n\n5) 机の下に何がありますか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はい、あります。 / いいえ、ありません。",
+          "ベトナムにいます。 / ハノイにいます。",
+          "机の上にあります。 / 机の下にあります。",
+          "本やノートがあります。 / 何もありません。",
+          "ごみ箱があります。 / 何もありません。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân và môi trường xung quanh (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「近くにおいしいパン屋がありますか」(Ở gần đây có tiệm bánh mì ngon không?) ➔ Khẳng định:「はい、あります」; Phủ định:「いいえ、ありません」.\n• 2):「あなたの家族は今どこにいますか」(Gia đình bạn bây giờ đang ở đâu?) ➔ Người trong gia đình dùng「います」kèm địa điểm「〜にいます」(Ví dụ:「ベトナムにいます」,「ハノイにいます」...).\n• 3):「あなたのかばんはどこにありますか」(Cặp sách của bạn ở đâu?) ➔ Đồ vật dùng「あります」(Ví dụ:「机の上にあります」: ở trên bàn,「いすの上にあります」: ở trên ghế...).\n• 4):「かばんの中に何がありますか」(Trong cặp có cái gì?) ➔ Nêu các đồ vật trong cặp「N や N が あります」(Ví dụ:「本やノートがあります」: có sách và vở; Nếu không có gì:「何もありません」).\n• 5):「机の下に何がありますか」(Dưới gầm bàn có cái gì?) ➔ Nêu đồ vật dưới bàn (Ví dụ:「ごみ箱があります」: có thùng rác;「かばんがあります」: có chiếc cặp; Nếu trống:「何もありません」)."
       }
     ]
   }

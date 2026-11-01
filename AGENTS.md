@@ -22,11 +22,14 @@ Tài liệu định nghĩa các Agent chuyên trách trong dự án học tiến
 - **Skill liên kết**: [sync-japanese-grammar](file:///.agents/skills/sync-japanese-grammar/SKILL.md), [sync-japanese-sentence-completion](file:///.agents/skills/sync-japanese-sentence-completion/SKILL.md), [sync-japanese-choice-selection](file:///.agents/skills/sync-japanese-choice-selection/SKILL.md), [sync-japanese-binary-choice](file:///.agents/skills/sync-japanese-binary-choice/SKILL.md), [sync-japanese-hiragana-reading](file:///.agents/skills/sync-japanese-hiragana-reading/SKILL.md), [sync-japanese-open-ended](file:///.agents/skills/sync-japanese-open-ended/SKILL.md), [sync-japanese-word-order](file:///.agents/skills/sync-japanese-word-order/SKILL.md), [sync-japanese-table-completion](file:///.agents/skills/sync-japanese-table-completion/SKILL.md)
 - **Nguồn dữ liệu**: `datasss/jp/ngu_phap/` (file chính: `bai_1.txt`, `bai_2.txt`,...)
 - **File đích**: [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (`JA_GRAMMAR_DATA`)
-- **Nhiệm vụ chính**:
-  1. Tự động đọc dữ liệu câu hỏi tiếng Nhật từ `datasss/jp/ngu_phap/` (mỗi file ứng với 1 chủ đề riêng biệt, tuyệt đối không lấy data ở file này gắn vào chủ đề của bài khác).
-  2. Phán định dạng câu hỏi linh hoạt: Hỗ trợ đa dạng nhiều dạng bài tập (trắc nghiệm 4 phương án; bài tập điền trợ từ vào ngoặc theo chuẩn `b1_q1`; bài tập hoàn thành câu trên đường kẻ gạch dưới `＿＿＿＿＿＿＿＿＿＿` theo chuẩn `b1_q2`; bài tập chọn câu trả lời phù hợp từ bảng có sẵn theo chuẩn `b1_q3`; bài tập chọn 1 trong 2 từ trực tiếp trong câu theo chuẩn `b1_q4`; bài tập điền cách đọc Hiragana cho từ/số gạch chân theo chuẩn `b1_q5`; bài tập trả lời câu hỏi mở tự đối chiếu theo chuẩn `b1_q6`; bài tập ghép các từ thành câu hoàn chỉnh theo chuẩn `b2_q3`; cùng các dạng bài tập mới sẽ được xây dựng skill riêng khi người dùng đưa vào). Tự sinh giải thích ngữ pháp chuẩn xác theo SGK nếu người dùng chưa viết.
-  3. Cập nhật dữ liệu vào `JA_GRAMMAR_DATA` trong [japanese_data/grammar_data.js](file:///d:/phi-learning-english/learn-english-with-ai/japanese_data/grammar_data.js) (luôn gán `window.JA_GRAMMAR_DATA`).
-  4. Tuân thủ quy chuẩn đề thi: gom theo bài, hiển thị theo đúng thứ tự bài tập SGK (không xáo trộn ngẫu nhiên), mỗi câu tính điểm đúng 1 điểm (câu hỏi mở không tính vào điểm thi), chấm điểm tự động và tuyệt đối không lưu lịch sử làm bài.
+- **Nhiệm vụ & Quy trình kích hoạt**:
+  1. **Quy trình khi người dùng gửi ảnh + số bài, số câu**:
+     - **Tập trung xử lý ảnh người dùng gửi**: Bóc tách trực tiếp câu hỏi từ hình ảnh được cung cấp; tuyệt đối không tự tra cứu lan man ngoài lề.
+     - **Hỏi ít thôi / Không hỏi rườm rà**: Tự động nhận diện dạng bài và xử lý linh hoạt (dạng câu hỏi mở thì tự sinh câu trả lời mẫu đối chiếu), không hỏi lại khi ảnh đã rõ nội dung.
+     - **Tự sinh đáp án & giải thích**: Soạn đáp án với đầy đủ biến thể và giải thích chi tiết từng câu (`• 例:`, `• 1):`, `• 2):`...).
+     - **Ghi file nguồn & đồng bộ 2 bước**: Ghi vào `datasss/jp/ngu_phap/bai_[X].txt`, đồng bộ vào `JA_GRAMMAR_DATA` trong `japanese_data/grammar_data.js` (`b[X]_q[Y]`), đặt `"completed": false` và tăng version cache buster trong `index.html`.
+  2. **Phán định dạng câu hỏi linh hoạt**: Trắc nghiệm 4 phương án; Điền trợ từ vào ngoặc (`b1_q1`); Hoàn thành câu trên đường kẻ gạch dưới (`b1_q2`); Chọn câu trả lời từ bảng có sẵn (`b1_q3`); Chọn 1 trong 2 từ trực tiếp trong câu (`b1_q4`); Điền Hiragana cho từ/số gạch chân (`b1_q5`); Trả lời câu hỏi mở tự đối chiếu (`b1_q6`); Ghép từ thành câu (`b2_q3`); Bảng điền từ (`b4_q2`).
+  3. **Tuân thủ quy chuẩn đề thi & Kỷ luật**: Gom theo bài, hiển thị theo đúng thứ tự SGK, mỗi câu 1 điểm (câu hỏi mở không tính điểm), chấm điểm tự động, không lưu lịch sử làm bài. Tuyệt đối không tự ý commit và không bao giờ push.
 
 ---
 
