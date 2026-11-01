@@ -1019,8 +1019,150 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Ôn tập tổng hợp cách đặt câu hoàn chỉnh kết hợp chia động từ và thêm trợ từ thích hợp trong Minna no Nihongo (Bài 1 - 8):\n• 例 (Ví dụ): Dựa vào mốc thời gian quá khứ「きのう」(hôm qua), động từ「帰ります」chia thành「帰りました」; mốc giờ cụ thể「8時」đi với trợ từ「に」; điểm đến「うち」đi với trợ từ hướng đến「へ」(hoặc「に」) ➔「きのう 8時に うちへ 帰りました。」(Hôm qua lúc 8 giờ tôi đã về nhà).\n• 1): Mốc thời gian「これから」(ngay từ bây giờ / từ bây giờ) dùng thì hiện tại/tương lai; gọi điện thoại đến công ty của anh Miller đi với trợ từ hướng đối tượng「に」(hoặc「へ」); cụm gọi điện thoại là「電話をかけます」➔「これからミラーさんの会社に電話をかけます。」(Ngay bây giờ tôi sẽ gọi điện thoại đến công ty của anh Miller).\n• 2): Chỉ thị từ「この」bổ nghĩa danh từ「レストラン」; quan hệ sở hữu/thuộc về nối bởi trợ từ「の」➔「このレストランのコーヒーは」(Cà phê của nhà hàng này); phó từ mức độ「とても」(rất) bổ nghĩa cho tính từ「おいしいです」➔「このレストランのコーヒーはとてもおいしいです。」(Cà phê của nhà hàng này rất ngon).\n• 3): Chủ đề người「インドネシア人は」(Người Indonesia); công cụ dụng cụ ăn uống đi với trợ từ「で」kết hợp liên từ nối danh từ「と」➔「スプーンとフォークで」(bằng thìa và nĩa); tân ngữ ăn cơm「ごはんを食べます」➔「インドネシア人はスプーンとフォークでごはんを食べます。」(Người Indonesia ăn cơm bằng thìa và nĩa).\n• 4): Mốc thời gian quá khứ「おととい」(hôm kia) ➔ động từ「買います」chia quá khứ「買いました」; nơi diễn ra hành động mua hàng đi với trợ từ「で」➔「デパートで」; tính từ đuôi い「おいしい」bổ nghĩa trực tiếp cho danh từ「チョコレート」làm tân ngữ「おいしいチョコレートを」➔「おとといデパートでおいしいチョコレートを買いました。」(Hôm kia tôi đã mua sô-cô-la ngon ở cửa hàng bách hóa).\n• 5): Trạng từ chỉ thói quen đều đặn「毎朝」(mỗi sáng) giữ động từ ở thì hiện tại「行きます」; phương tiện di chuyển đi với trợ từ「で」➔「バスで」; đích đến di chuyển đi với trợ từ「へ」(hoặc「に」) ➔「会社へ」➔「毎朝バスで会社へ行きます。」(Mỗi sáng tôi đi đến công ty bằng xe buýt)."
       }
     ]
+  },
+  "bai_9": {
+    "title": "Bài 9",
+    "completed": true,
+    "questions": [
+      {
+        "id": "b9_q1",
+        "type": "fill",
+        "tag": "Điền trợ từ vào ngoặc",
+        "question": "1. 例：きのう おもしろい（ × ）映画（ を ）見ました。\n\n1) 松本さんの奥さん（____）料理（____）上手です。\n\n2) どんな（____）スポーツ（____）好きですか。\n…野球（____）好きです。\n\n3) タイ語（____）わかりますか。\n…いいえ、全然（____）わかりません。\n\n4) あした いっしょに 花見（____）しませんか。\n…すみません。友達（____）約束（____）ありますから。\n\n5) 細かいお金（____）ありませんでした（____）、佐藤さん（____）借りました。",
+        "answers": [
+          "は",
+          "が",
+          "× / x",
+          "が",
+          "が",
+          "が",
+          "× / x",
+          "を",
+          "と",
+          "が",
+          "が",
+          "から",
+          "に / から"
+        ],
+        "explanation": "• Ôn tập trợ từ ngữ pháp Minna no Nihongo Bài 9:\n• 例 (Ví dụ): Tính từ đuôi い「おもしろい」bổ nghĩa trực tiếp cho danh từ「映画」(bộ phim thú vị) nên không dùng trợ từ, điền「×」. Tân ngữ của hành động xem「映画を見ました」dùng trợ từ「を」.\n• 1): Vị trí 1: Trợ từ「は」xác định chủ đề câu:「松本さんの奥さんは」(Vợ của anh Matsumoto thì...). Vị trí 2: Cấu trúc biểu thị năng lực/sở trường「N が 上手です」(giỏi nấu ăn) dùng trợ từ「が」.\n• 2): Vị trí 1: Nghi vấn từ「どんな」(như thế nào / nào) bổ nghĩa trực tiếp cho danh từ「スポーツ」, không dùng trợ từ, điền「×」. Vị trí 2: Cấu trúc hỏi sở thích「どんなスポーツが 好きですか」(thích môn thể thao nào?) dùng trợ từ「が」. Vị trí 3: Cấu trúc nêu sở thích「野球が 好きです」(tôi thích môn bóng chày) dùng trợ từ「が」.\n• 3): Vị trí 1: Cấu trúc biểu thị sự hiểu biết / khả năng「N が わかります」dùng trợ từ「が」:「タイ語が わかりますか」(Bạn có hiểu tiếng Thái không?). Vị trí 2: Phó từ mức độ「全然」(hoàn toàn / hẳn) bổ nghĩa trực tiếp cho thể phủ định phía sau「全然わかりません」(hoàn toàn không hiểu), không dùng trợ từ, điền「×」.\n• 4): Vị trí 1: Cụm từ rủ rê ngắm hoa「花見を しませんか」(Cùng đi ngắm hoa không?) dùng trợ từ「を」. Vị trí 2: Trợ từ「と」chỉ đối tượng cùng thực hiện / giao ước:「友達と」(với bạn bè). Vị trí 3: Cấu trúc biểu thị có cuộc hẹn「約束が あります」(có hẹn) dùng trợ từ「が」, kết hợp liên từ giải thích nguyên nhân「〜から」(vì có cuộc hẹn với bạn).\n• 5): Vị trí 1: Cấu trúc biểu thị có/không có tiền bạc「細かいお金が ありませんでした」(đã không có tiền lẻ) dùng trợ từ「が」. Vị trí 2: Liên từ nối mệnh đề chỉ nguyên nhân - kết quả:「〜ありませんでしたから」(vì đã không có...). Vị trí 3: Động từ vay mượn từ ai「佐藤さんに / から 借りました」(đã mượn từ anh Sato) dùng trợ từ「に」(hoặc「から」) chỉ nguồn tiếp nhận."
+      },
+      {
+        "id": "b9_q2",
+        "type": "binary_choice",
+        "tag": "Chọn từ đúng trong ngoặc",
+        "question": "2. 例：マリアさんは ダンスが〔たくさん／よく／<u>とても</u>〕上手です。\n\n1) きのうの晩〔あまり／よく／全然〕寝ました。\n\n2) 毎晩ワインを〔少し／あまり／とても〕飲みます。\n\n3) かたかなが〔全然／だいたい／たくさん〕わかります。\n\n4) きのうの晩〔とても／全然／だいたい〕勉強しませんでした。\n\n5) 京都で写真を〔だいたい／とても／たくさん〕撮りました。\n\n6) サントスさんはきのう〔少し／全然／早く〕帰りました。",
+        "answers": [
+          "よく",
+          "少し / すこし",
+          "だいたい",
+          "全然 / ぜんぜん",
+          "たくさん",
+          "早く / はやく"
+        ],
+        "explanation": "• Cách dùng phó từ chỉ mức độ và số lượng trong Minna no Nihongo Bài 9:\n• 例 (Ví dụ): Bổ nghĩa cho tính từ chỉ năng lực「上手です」(giỏi) chỉ dùng phó từ mức độ「とても」(rất giỏi).「たくさん」(nhiều) và「よく」(rõ, tốt) không bổ nghĩa cho tính từ 上手.\n• 1): Động từ ở dạng khẳng định「寝ました」(đã ngủ). Phó từ「あまり」(không... lắm) và「全然」(hoàn toàn không...) chỉ đi kèm với thể phủ định (〜ない / 〜ません). Do đó chọn「よく」➔「よく 寝ました」(đã ngủ rất ngon / say giấc).\n• 2): Động từ「飲みます」(uống) đi với lượng từ chỉ số lượng ít là「少し」(uống một chút).「あまり」chỉ đi với phủ định;「とても」là phó từ chỉ mức độ bổ nghĩa cho tính từ/phó từ khác, không bổ nghĩa trực tiếp cho động từ uống rượu.\n• 3): Biểu thị mức độ hiểu biết với「わかります」(hiểu).「全然」chỉ đi với phủ định; tiếng Nhật không dùng「たくさん わかります」(sai ngữ pháp). Để biểu thị mức độ hiểu thì dùng「よく」(rõ),「だいたい」(đại khái),「少し」(một chút). Do đó chọn「だいたい」➔「かたかなが だいたい わかります」(tôi hiểu đại khái chữ Katakana).\n• 4): Động từ chia ở thể phủ định quá khứ「勉強しませんでした」(đã không học).「とても」(rất) và「だいたい」(đại khái) chỉ đi với câu khẳng định. Đi với phủ định hoàn toàn là phó từ「全然」➔「全然 勉強しませんでした」(tối qua tôi hoàn toàn không học bài).\n• 5): Hành động chụp nhiều ảnh「写真を〜撮りました」. Để biểu thị số lượng nhiều của sự vật/sản phẩm tạo ra, ta dùng phó từ chỉ số lượng「たくさん」➔「写真を たくさん 撮りました」(đã chụp rất nhiều ảnh). Không dùng「とても」với 撮りました;「だいたい」dùng cho hiểu biết/thời gian.\n• 6): Diễn tả hành động về sớm「帰りました」. Chọn phó từ chỉ thời gian「早く」(sớm - chuyển từ tính từ 早い) ➔「早く 帰りました」(hôm qua anh Santos đã về sớm).「全然」chỉ đi với phủ định;「少し 帰りました」sai về ngữ nghĩa."
+      },
+      {
+        "id": "b9_q3",
+        "type": "matching",
+        "tag": "Chọn câu trả lời phù hợp từ các từ có sẵn",
+        "question": "3. 木村：はい。\n山田：（ a ）。山田です。\n木村：ああ、山田さん、こんにちは。\n山田：（____）木村さん、カラオケ、いっしょにいかがですか。\n木村：（____）。いつですか。\n山田：土曜日の晩です。\n木村：土曜日の晩は（____）……。\n用事がありますから。\n山田：そうですか。\n木村：（____）。",
+        "choices": [
+          {
+            "key": "a",
+            "text": "木村さんですか",
+            "isExample": true
+          },
+          {
+            "key": "b",
+            "text": "あのう"
+          },
+          {
+            "key": "c",
+            "text": "また今度お願いします"
+          },
+          {
+            "key": "d",
+            "text": "ちょっと"
+          },
+          {
+            "key": "e",
+            "text": "いいですね"
+          }
+        ],
+        "answers": [
+          "b / あのう",
+          "e / いいですね",
+          "d / ちょっと",
+          "c / また今度お願いします"
+        ],
+        "explanation": "• Hội thoại rủ rê và từ chối khéo trong tiếng Nhật (Minna no Nihongo Bài 9):\n• 例 (Ví dụ): Sau khi người nghe nhấc máy「はい」(Alo / Vâng), người gọi xác nhận người nghe: a:「木村さんですか」(Có phải anh Kimura không?) rồi tự xưng tên mình:「山田です」(Tôi là Yamada).\n• 1): Thán từ đệm lịch sự, tế nhị mở đầu câu rủ rê/đề nghị: b:「あのう」(À / Này...) ➔「あのう、木村さん、カラオケ、いっしょにいかがですか」(À anh Kimura này, cùng đi hát Karaoke với tôi nhé?).\n• 2): Lời hưởng ứng nhiệt tình khi nhận lời mời: e:「いいですね」(Hay quá / Được đấy nhỉ!) ➔「いいですね。いつですか」(Hay quá nhỉ. Khi nào vậy?).\n• 3): Cách từ chối khéo, tế nhị trong tiếng Nhật: d:「ちょっと」(Hơi kẹt / Hơi khó...) ➔「土曜日の晩はちょっと……。用事がありますから」(Tối thứ Bảy thì hơi khó ạ... Vì tôi có việc bận mất rồi).\n• 4): Lời hẹn lịch sự sau khi từ chối để giữ mối quan hệ: c:「また今度お願いします」(Hẹn anh lần sau nhé / Để dịp khác nhờ anh rủ nhé!)."
+      },
+      {
+        "id": "b9_q4",
+        "type": "matching",
+        "tag": "Chọn câu trả lời phù hợp từ các từ có sẵn",
+        "question": "4. 例：子どもの誕生日ですから、（ d ）。\n\n1) 大きい荷物がありますから、（____）。\n2) 音楽が好きですから、（____）。\n3) 暑いですから、（____）。\n4) （____）から、わたしは今お金がありません。\n5) 野菜が好きじゃありませんから、（____）。\n6) （____）から、ひらがなで書きます。",
+        "choices": [
+          {
+            "key": "a",
+            "text": "あまり食べません"
+          },
+          {
+            "key": "b",
+            "text": "友達にお金を貸しました"
+          },
+          {
+            "key": "c",
+            "text": "漢字がわかりません"
+          },
+          {
+            "key": "d",
+            "text": "早く帰ります",
+            "isExample": true
+          },
+          {
+            "key": "e",
+            "text": "冷たい飲み物を飲みます"
+          },
+          {
+            "key": "f",
+            "text": "CDがたくさんあります"
+          },
+          {
+            "key": "g",
+            "text": "タクシーで行きます"
+          },
+          {
+            "key": "h",
+            "text": "スポーツが嫌いです"
+          }
+        ],
+        "answers": [
+          "g / タクシーで行きます",
+          "f / CDがたくさんあります",
+          "e / 冷たい飲み物を飲みます",
+          "b / 友達にお金を貸しました",
+          "a / あまり食べません",
+          "c / 漢字がわかりません"
+        ],
+        "explanation": "• Cấu trúc mệnh đề nguyên nhân「〜から」(vì... nên...) trong Minna no Nihongo Bài 9:\n• 例 (Ví dụ):「子どもの誕生日ですから」(Vì là sinh nhật của con) ➔ Kết quả phù hợp: d:「早く帰ります」(Tôi sẽ về sớm).\n• 1):「大きい荷物がありますから」(Vì có hành lý cồng kềnh) ➔ Phương thức di chuyển phù hợp: g:「タクシーで行きます」(Tôi đi bằng taxi).\n• 2):「音楽が好きですから」(Vì thích âm nhạc) ➔ Kết quả tương ứng: f:「CDがたくさんあります」(Tôi có nhiều đĩa CD).\n• 3):「暑いですから」(Vì trời nóng) ➔ Hành động giải nhiệt: e:「冷たい飲み物を飲みます」(Tôi uống đồ uống lạnh).\n• 4): Kết quả「わたしは今お金がありません」(Bây giờ tôi không có tiền) ➔ Nguyên nhân phù hợp: b:「友達にお金を貸しました」(Vì tôi đã cho bạn vay tiền).\n• 5):「野菜が好きじゃありませんから」(Vì tôi không thích rau) ➔ Thói quen ăn uống: a:「あまり食べません」(Tôi ít khi ăn).\n• 6): Kết quả「ひらがなで書きます」(Tôi viết bằng chữ Hiragana) ➔ Nguyên nhân: c:「漢字がわかりません」(Vì tôi không biết/không hiểu chữ Hán).\n(Lưu ý: Phương án h:「スポーツが嫌いです」là đáp án bẫy/dư)."
+      },
+      {
+        "id": "b9_q5",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "5. 例：どうして日本語を勉強しますか。…<u>日本の会社で働きますから。</u>\n\n1) どうして朝ごはんを食べませんでしたか。\n…＿＿＿＿＿＿＿＿＿＿\n\n2) どうしていつもこのスーパーへ来ますか。\n…＿＿＿＿＿＿＿＿＿＿\n\n3) どうしてダンスをしませんか。\n…＿＿＿＿＿＿＿＿＿＿\n\n4) ＿＿＿＿＿＿＿＿＿＿\n…日本語がわかりませんから。\n\n5) ＿＿＿＿＿＿＿＿＿＿\n…お金がありませんから。",
+        "answers": [
+          "時間がありませんでしたから。",
+          "安いですから。",
+          "あまり好きじゃありませんから。",
+          "どうして日本の新聞を読みませんか。",
+          "どうして旅行へ行きませんか。"
+        ],
+        "explanation": "• Dạng câu hỏi mở luyện tập cấu trúc hỏi nguyên nhân「どうして〜か」(Tại sao...?) và trả lời giải thích lý do「〜から」(Vì...):\n• 例 (Ví dụ):「どうして日本語を勉強しますか」(Tại sao bạn học tiếng Nhật?) ➔ Trả lời lý do:「日本の会社で働きますから。」(Vì tôi sẽ làm việc tại công ty Nhật).\n• 1):「どうして朝ごはんを食べませんでしたか」(Tại sao sáng nay bạn không ăn sáng?) ➔ Trả lời lý do quá khứ:「時間がありませんでしたから。」(Vì tôi không có thời gian) hoặc「忙しかったですから。」(Vì tôi bận).\n• 2):「どうしていつもこのスーパーへ来ますか」(Tại sao bạn luôn đến siêu thị này?) ➔ Trả lời lý do tính chất:「安いですから。」(Vì rẻ) hoặc「近いですから。」(Vì gần).\n• 3):「どうしてダンスをしませんか」(Tại sao bạn không khiêu vũ/nhảy?) ➔ Trả lời lý do sở thích/năng lực:「あまり好きじゃありませんから。」(Vì tôi không thích lắm) hoặc「下手ですから。」(Vì tôi dở/kém).\n• 4): Cho trước câu trả lời nguyên nhân:「…日本語がわかりませんから。」(Vì tôi không hiểu tiếng Nhật) ➔ Đặt câu hỏi lý do tương ứng:「どうして日本の新聞を読みませんか。」(Tại sao bạn không đọc báo Nhật?) hoặc「どうして日本語を勉強しますか。」(Tại sao bạn lại học tiếng Nhật?).\n• 5): Cho trước câu trả lời nguyên nhân:「…お金がありませんから。」(Vì tôi không có tiền) ➔ Đặt câu hỏi lý do tương ứng:「どうして旅行へ行きませんか。」(Tại sao bạn không đi du lịch?) hoặc「どうして車を買いませんか。」(Tại sao bạn không mua ô tô?)."
+      }
+    ]
   }
 };
 
 window.JA_GRAMMAR_DATA = JA_GRAMMAR_DATA;
-
