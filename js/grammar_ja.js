@@ -393,8 +393,8 @@ const GrammarJaModule = (() => {
       const tds = row.map(cell => {
         const rawCell = (cell !== undefined && cell !== null) ? String(cell).trim() : '';
 
-        // Kiểm tra xem cell có chứa ô điền từ hay không
-        const hasBlank = INLINE_BLANK_REGEX.test(rawCell) || /^\d+\)\s*（[\s\u3000_—]*）$/.test(rawCell);
+        // Kiểm tra xem cell có chứa ô điền từ hay không (dùng regex không có cờ g để tránh lỗi stateful lastIndex)
+        const hasBlank = /(?:[（\(][\s\u3000_—]*[）\)]|[＿_—–]{2,})/.test(rawCell) || /^\d+\)\s*（[\s\u3000_—]*）$/.test(rawCell);
         if (hasBlank && q) {
           // Trích xuất số thứ tự câu hỏi (ví dụ 1), 5), 6)...)
           const subMatch = rawCell.match(/^(\d+)\)/);

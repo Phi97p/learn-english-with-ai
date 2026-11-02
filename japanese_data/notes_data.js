@@ -78,6 +78,16 @@ const JA_NOTES_DATA = {
         meaning: "• Tính từ đuôi「い」: Giữ nguyên「い」rồi ghép trực tiếp với danh từ ➔ [Tính từ-い] + Danh từ.\n• Tính từ đuôi「な」: Bắt buộc phải thêm「な」trước danh từ ➔ [Tính từ-な] + な + Danh từ.",
         example: "• 大きい机 (おおきいつくえ): Cái bàn lớn (tính từ đuôi い: 大きい + 机)\n• 静かな町 (しずかなまち): Thị trấn yên tĩnh (tính từ đuôi な: 静か + な + 町)",
         note: "💡 Ghi nhớ quy tắc vàng: Đuôi い giữ nguyên い + N (大きい机); Đuôi な bắt buộc phải có「な」+ N (静かな町, きれいな部屋, 親切な人)."
+      },
+      {
+        title: "7. [Bài 9] Ngữ pháp bài 9: N が あります／わかります・N が すきです／きらいです／じょうずです／へたです",
+        meaning: "Đối tượng luôn đi với trợ từ「が」(không dùng を):\n• N が あります: Có N (sở hữu)\n• N が わかります: Hiểu / biết N\n• N が すきです / きらいです: Thích / ghét N\n• N が じょうずです / へたです: Giỏi / kém N",
+        note: "💡 Ghi nhớ: [あります / わかります / すき / きらい / じょうず / へた] luôn dùng trợ từ が!"
+      },
+      {
+        title: "8. [Bài 10] Ngữ pháp bài 10: Mẫu câu tồn tại (あります／います)",
+        meaning: "• Ở đâu có cái gì/ai: N1 (địa điểm) に N2 が あります／います\n• Cái gì/ai ở đâu: N2 は N1 (địa điểm) に あります／います\n  (あります: đồ vật, thực vật | います: người, động vật)",
+        note: "⚠️ Chú ý: Trước あります/います chưa chắc 100% là が! Khi chuyển が thành は để đưa vật/người lên làm chủ đề (N2 は), thì đứng ngay trước あります/います sẽ là [địa điểm] に."
       }
     ]
   },
@@ -86,12 +96,12 @@ const JA_NOTES_DATA = {
   particles: {
     title: "Trợ từ",
     badge: "🔖 TRỢ TỪ",
-    description: "Note về trợ từ: で, に, へ, の, と",
+    description: "Note về trợ từ: は, が, で, に, へ, の, と",
     notice: "Ghi nhớ quy tắc phân biệt trợ từ khi nói về Ở đâu, Thời gian và bảng Tổng kết.",
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ)",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch, trong mẫu câu có, hiểu, thích, ghét, giỏi, kém",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -172,7 +182,26 @@ const JA_NOTES_DATA = {
     description: "Tổng hợp các quy tắc đếm đặc biệt trong tiếng Nhật",
     sections: [
       {
-        title: "1. Đếm ngày",
+        title: "1. Thể hiện mức độ",
+        items: [
+          ".. Rõ : よく",
+          ".. gần hết, khá... : だいたい",
+          "Một chút... : すこし",
+          "Không lắm : あまり",
+          "Hoàn toàn không : ぜんぜん"
+        ]
+      },
+      {
+        title: "2. Thể hiện số lượng",
+        items: [
+          "Nhiều : たくさん",
+          "Một chút : すこし",
+          "Không có mấy : あまり",
+          "Chẳng có gì : ぜんぜん"
+        ]
+      },
+      {
+        title: "3. Đếm ngày",
         items: [
           "Ngày 1 (1日) : ついたち",
           "Ngày 2 (2日) : ふつか",
@@ -190,7 +219,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "2. Đếm vật chung",
+        title: "4. Đếm vật chung",
         items: [
           "1 cái (1つ) : ひとつ",
           "2 cái (2つ) : ふたつ",
@@ -205,7 +234,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "3. Đếm tháng",
+        title: "5. Đếm tháng",
         items: [
           "Tháng 4 (4月) : しがつ",
           "Tháng 7 (7月) : しちがつ",
@@ -213,7 +242,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "4. Đếm giờ",
+        title: "6. Đếm giờ",
         items: [
           "4 giờ (4時) : よじ",
           "7 giờ (7時) : しちじ",
@@ -221,7 +250,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "5. Đếm phút",
+        title: "7. Đếm phút",
         items: [
           "1 phút (1分) : いっぷん",
           "3 phút (3分) : さんぷん",
@@ -232,7 +261,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "6. Đếm tiền",
+        title: "8. Đếm tiền",
         items: [
           "300 yên (300円) : さんびゃくえん",
           "600 yên (600円) : ろっぴゃくえん",
@@ -243,7 +272,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "7. Đếm tuổi",
+        title: "9. Đếm tuổi",
         items: [
           "1 tuổi (1歳) : いっさい",
           "8 tuổi (8歳) : はっさい",
@@ -252,7 +281,7 @@ const JA_NOTES_DATA = {
         ]
       },
       {
-        title: "8. Đếm tầng",
+        title: "10. Đếm tầng",
         items: [
           "Tầng 1 (1階) : いっかい",
           "Tầng 3 (3階) : さんがい",

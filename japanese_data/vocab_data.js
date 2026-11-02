@@ -620,6 +620,294 @@ const JA_VOCAB_DATA = {
       }
     ]
   }
+,
+  bai_4: {
+    "title": "Bài 4: Từ vựng tổng hợp (Minna no Nihongo)",
+    "words": [
+      {
+        "word": "地下鉄",
+        "hiragana": "ちかてつ",
+        "romaji": "Chikatetsu",
+        "vi": "Tàu điện ngầm"
+      },
+      {
+        "word": "地下",
+        "hiragana": "ちか",
+        "romaji": "Chika",
+        "vi": "Tầng hầm, dưới mặt đất (địa + dưới)"
+      },
+      {
+        "word": "地図",
+        "hiragana": "ちず",
+        "romaji": "Chizu",
+        "vi": "Bản đồ, địa đồ"
+      },
+      {
+        "word": "辞書",
+        "hiragana": "じしょ",
+        "romaji": "Jisho",
+        "vi": "Từ điển"
+      },
+      {
+        "word": "寮",
+        "hiragana": "りょう",
+        "romaji": "Ryou",
+        "vi": "Ký túc xá"
+      },
+      {
+        "word": "手帳",
+        "hiragana": "てちょう",
+        "romaji": "Techou",
+        "vi": "Sổ tay"
+      },
+      {
+        "word": "靴",
+        "hiragana": "くつ",
+        "romaji": "Kutsu",
+        "vi": "Giày"
+      },
+      {
+        "word": "黒い",
+        "hiragana": "くろい",
+        "romaji": "Kuroi",
+        "vi": "Màu đen (tính từ đuôi い)"
+      },
+      {
+        "word": "韓国",
+        "hiragana": "かんこく",
+        "romaji": "Kankoku",
+        "vi": "Hàn Quốc"
+      },
+      {
+        "word": "ドイツ",
+        "hiragana": "ドイツ (どいつ)",
+        "romaji": "Doitsu",
+        "vi": "Nước Đức"
+      },
+      {
+        "word": "広島",
+        "hiragana": "ひろしま",
+        "romaji": "Hiroshima",
+        "vi": "Hiroshima (tỉnh/thành phố ở Nhật)"
+      },
+      {
+        "word": "セロテープ",
+        "hiragana": "セロテープ (せろてーぷ)",
+        "romaji": "Seroteepu",
+        "vi": "Băng dính trong, băng keo trong"
+      },
+      {
+        "word": "調査",
+        "hiragana": "ちょうさ",
+        "romaji": "Chousa",
+        "vi": "Điều tra, khảo sát"
+      },
+      {
+        "word": "楽しみます",
+        "hiragana": "たのしみます",
+        "romaji": "Tanoshimimasu",
+        "vi": "Vui chơi, tận hưởng, thưởng thức"
+      },
+      {
+        "word": "もう",
+        "hiragana": "もう",
+        "romaji": "Mou",
+        "vi": "Đã, rồi (dùng trong câu hỏi: đã... chưa?)"
+      },
+      {
+        "word": "いかがですか",
+        "hiragana": "いかがですか",
+        "romaji": "Ikaga desu ka",
+        "vi": "Bạn thấy thế nào? / Như thế nào ạ?"
+      },
+      {
+        "word": "木村",
+        "hiragana": "きむら",
+        "romaji": "Kimura",
+        "vi": "Kimura (họ người Nhật, thường gọi 木村さん)"
+      },
+      {
+        "word": "いいですね",
+        "hiragana": "いいですね",
+        "romaji": "Ii desu ne",
+        "vi": "Được đấy nhỉ! / Hay quá!"
+      },
+      {
+        "word": "用事",
+        "hiragana": "ようじ",
+        "romaji": "Youji",
+        "vi": "Việc bận, công chuyện"
+      },
+      {
+        "word": "ちょっと",
+        "hiragana": "ちょっと",
+        "romaji": "Chotto",
+        "vi": "Một chút (từ chối khéo: hơi khó, hơi kẹt...)"
+      },
+      {
+        "word": "今度",
+        "hiragana": "こんど",
+        "romaji": "Kondo",
+        "vi": "Lần tới, lần này"
+      },
+      {
+        "word": "お願いします",
+        "hiragana": "おねがいします",
+        "romaji": "Onegaishimasu",
+        "vi": "Làm ơn, xin vui lòng (nhờ vả / chào hỏi lịch sự)"
+      },
+      {
+        "word": "子ども",
+        "hiragana": "こども",
+        "romaji": "Kodomo",
+        "vi": "Trẻ con, con cái"
+      },
+      {
+        "word": "どうぞ",
+        "hiragana": "どうぞ",
+        "romaji": "Douzo",
+        "vi": "Xin mời (mời bạn, xin mời vào / ăn / dùng)"
+      },
+      {
+        "word": "大変",
+        "hiragana": "たいへん",
+        "romaji": "Taihen",
+        "vi": "Vất vả, khó khăn, nghiêm trọng (hoặc: rất)"
+      },
+      {
+        "word": "嫌い",
+        "hiragana": "きらい",
+        "romaji": "Kirai",
+        "vi": "Ghét, không thích (tính từ đuôi な)"
+      },
+      {
+        "word": "下手",
+        "hiragana": "へた",
+        "romaji": "Heta",
+        "vi": "Kém, dở (tính từ đuôi な)"
+      },
+      {
+        "word": "上手",
+        "hiragana": "じょうず",
+        "romaji": "Jouzu",
+        "vi": "Giỏi, khéo (tính từ đuôi な)"
+      },
+      {
+        "word": "ポスト",
+        "hiragana": "ポスト (ぽすと)",
+        "romaji": "Posuto",
+        "vi": "Hòm thư, hộp thư bưu điện"
+      },
+      {
+        "word": "紅茶",
+        "hiragana": "こうちゃ",
+        "romaji": "Koucha",
+        "vi": "Hồng trà, trà đen"
+      },
+      {
+        "word": "郵便局",
+        "hiragana": "ゆうびんきょく",
+        "romaji": "Yuubinkyoku",
+        "vi": "Bưu điện"
+      },
+      {
+        "word": "箱",
+        "hiragana": "はこ",
+        "romaji": "Hako",
+        "vi": "Cái hộp, cái thùng"
+      },
+      {
+        "word": "喫茶店",
+        "hiragana": "きっさてん",
+        "romaji": "Kissaten",
+        "vi": "Quán cà phê, quán giải khát"
+      },
+      {
+        "word": "隣",
+        "hiragana": "となり",
+        "romaji": "Tonari",
+        "vi": "Bên cạnh, sát cạnh"
+      },
+      {
+        "word": "ビル",
+        "hiragana": "ビル (びる)",
+        "romaji": "Biru",
+        "vi": "Tòa nhà cao tầng, cao ốc"
+      },
+      {
+        "word": "ビール",
+        "hiragana": "ビール (びーる)",
+        "romaji": "Biiru",
+        "vi": "Bia (đồ uống)"
+      },
+      {
+        "word": "野球",
+        "hiragana": "やきゅう",
+        "romaji": "Yakyuu",
+        "vi": "Môn bóng chày"
+      },
+      {
+        "word": "全然",
+        "hiragana": "ぜんぜん",
+        "romaji": "Zenzen",
+        "vi": "Hoàn toàn không (đi với câu phủ định)"
+      },
+      {
+        "word": "約束",
+        "hiragana": "やくそく",
+        "romaji": "Yakusoku",
+        "vi": "Lời hứa, cuộc hẹn"
+      },
+      {
+        "word": "細かい",
+        "hiragana": "こまかい",
+        "romaji": "Komakai",
+        "vi": "Nhỏ, lẻ, chi tiết (tiền lẻ)"
+      },
+      {
+        "word": "よく",
+        "hiragana": "よく",
+        "romaji": "Yoku",
+        "vi": "Ngon, tốt, rõ, nhiều (đi với câu khẳng định)"
+      },
+      {
+        "word": "あまり",
+        "hiragana": "あまり",
+        "romaji": "Amari",
+        "vi": "Không... lắm (đi với câu phủ định)"
+      },
+      {
+        "word": "少し",
+        "hiragana": "すこし",
+        "romaji": "Sukoshi",
+        "vi": "Một ít, một chút"
+      },
+      {
+        "word": "とても",
+        "hiragana": "とても",
+        "romaji": "Totemo",
+        "vi": "Rất (bổ nghĩa cho tính từ)"
+      },
+      {
+        "word": "だいたい",
+        "hiragana": "だいたい",
+        "romaji": "Daitai",
+        "vi": "Đại khái, phần lớn"
+      },
+      {
+        "word": "たくさん",
+        "hiragana": "たくさん",
+        "romaji": "Takusan",
+        "vi": "Nhiều (chỉ số lượng)"
+      },
+      {
+        "word": "ご主人",
+        "hiragana": "ごしゅじん",
+        "romaji": "Goshujin",
+        "vi": "Chồng (của người khác - cách gọi lịch sự)"
+      }
+    ]
+  }
 };
 
 // Khả năng tương thích ngược

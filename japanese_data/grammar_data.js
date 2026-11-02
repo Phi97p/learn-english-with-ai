@@ -1276,6 +1276,157 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân và môi trường xung quanh (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「近くにおいしいパン屋がありますか」(Ở gần đây có tiệm bánh mì ngon không?) ➔ Khẳng định:「はい、あります」; Phủ định:「いいえ、ありません」.\n• 2):「あなたの家族は今どこにいますか」(Gia đình bạn bây giờ đang ở đâu?) ➔ Người trong gia đình dùng「います」kèm địa điểm「〜にいます」(Ví dụ:「ベトナムにいます」,「ハノイにいます」...).\n• 3):「あなたのかばんはどこにありますか」(Cặp sách của bạn ở đâu?) ➔ Đồ vật dùng「あります」(Ví dụ:「机の上にあります」: ở trên bàn,「いすの上にあります」: ở trên ghế...).\n• 4):「かばんの中に何がありますか」(Trong cặp có cái gì?) ➔ Nêu các đồ vật trong cặp「N や N が あります」(Ví dụ:「本やノートがあります」: có sách và vở; Nếu không có gì:「何もありません」).\n• 5):「机の下に何がありますか」(Dưới gầm bàn có cái gì?) ➔ Nêu đồ vật dưới bàn (Ví dụ:「ごみ箱があります」: có thùng rác;「かばんがあります」: có chiếc cặp; Nếu trống:「何もありません」)."
       }
     ]
+  },
+  "bai_11": {
+    "title": "Bài 11",
+    "completed": true,
+    "questions": [
+      {
+        "id": "b11_q1",
+        "type": "fill",
+        "tag": "Điền từ vào bảng",
+        "table": {
+          "title": "Bảng số đếm đồ vật & người (助数詞)",
+          "headers": ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "?"],
+          "rows": [
+            ["1) 人", "（____）", "（____）", "（____）", "（____）", "ごにん", "（____）", "（____）", "はちにん", "（____）", "（____）", "（____）"],
+            ["2) 切手", "（____）", "にまい", "（____）", "（____）", "（____）", "（____）", "ななまい", "（____）", "（____）", "（____）", "なんまい"],
+            ["3) 車", "いちだい", "（____）", "（____）", "（____）", "（____）", "ろくだい", "（____）", "（____）", "（____）", "（____）", "（____）"],
+            ["4) 卵", "（____）", "ふたつ", "（____）", "（____）", "いつつ", "（____）", "（____）", "（____）", "（____）", "（____）", "（____）"]
+          ]
+        },
+        "question": "1.",
+        "answers": [
+          "ひとり / 1人 / 一人",
+          "ふたり / 2人 / 二人",
+          "さんにん / 3人 / 三人",
+          "よにん / 4人 / 四人",
+          "ろくにん / 6人 / 六人",
+          "ななにん / しちにん / 7人 / 七人",
+          "きゅうにん / くにん / 9人 / 九人",
+          "じゅうにん / 10人 / 十人",
+          "なんにん / 何人",
+          "いちまい / 1枚 / 一枚",
+          "さんまい / 3枚 / 三枚",
+          "よんまい / 4枚 / 四枚",
+          "ごまい / 5枚 / 五枚",
+          "ろくまい / 6枚 / 六枚",
+          "はちまい / 8枚 / 八枚",
+          "きゅうまい / 9枚 / 九枚",
+          "じゅうまい / 10枚 / 十枚",
+          "にだい / 2台 / 二台",
+          "さんだい / 3台 / 三台",
+          "よんだい / 4台 / 四台",
+          "ごだい / 5台 / 五台",
+          "ななだい / しちだい / 7台 / 七台",
+          "はちだい / 8台 / 八台",
+          "きゅうだい / くだい / 9台 / 九台",
+          "じゅうだい / 10台 / 十台",
+          "なんだい / 何台",
+          "ひとつ / 1つ / 一つ",
+          "みっつ / 3つ / 三つ",
+          "よっつ / 4つ / 四つ",
+          "むっつ / 6つ / 六つ",
+          "ななつ / 7つ / 七つ",
+          "やっつ / 8つ / 八つ",
+          "ここのつ / 9つ / 九つ",
+          "とお / 10 / 十",
+          "いくつ / 何個 / 何つ"
+        ],
+        "explanation": "• Ôn tập các lượng từ / trợ số từ đếm đồ vật, người, máy móc trong Minna no Nihongo Bài 11:\n• 1) Đếm người (人 - にん):\n  - 1 người:「ひとり」(一人)\n  - 2 người:「ふたり」(二人)\n  - 4 người:「よにん」(四人 - chú ý: không đọc là よんにん hay しにん)\n  - 7 người:「ななにん」(七人 - hoặc しちにん)\n  - 9 người:「きゅうにん」(九人 - hoặc くにん)\n  - Nghi vấn từ (mấy người):「なんにん」(何人)\n  - Các số còn lại đếm đều: Số + にん: 3人 (さんにん), 5人 (ごにん), 6人 (ろくにん), 8人 (はちにん), 10人 (じゅうにん).\n• 2) Đếm vật mỏng, phẳng (枚 - まい):\n  - Áp dụng đếm tem (切手), vé (切符), áo sơ mi, giấy, đĩa CD...\n  - Quy tắc đều đặn: Số + まい: 1枚 (いちまい), 2枚 (にまい), 3枚 (さんまい), 4枚 (よんまい), 5枚 (ごまい), 6枚 (ろくまい), 7枚 (ななまい), 8枚 (はちまい), 9枚 (きゅうまい), 10枚 (じゅうまい).\n  - Nghi vấn từ:「なんまい」(何枚 - mấy tờ/mấy tấm).\n• 3) Đếm máy móc, xe cộ (台 - だい):\n  - Áp dụng đếm xe ô tô (車), xe đạp (自転車), máy tính, TV...\n  - Quy tắc đều đặn: Số + だい: 1台 (いちだい), 2台 (にだい), 3台 (さんだい), 4台 (よんだい), 5台 (ごだい), 6台 (ろくだい), 7台 (ななだい / しちだい), 8台 (はちだい), 9台 (きゅうだい / くだい), 10台 (じゅうだい).\n  - Nghi vấn từ:「なんだい」(何台 - mấy chiếc).\n• 4) Đếm đồ vật nói chung (số đếm thuần Nhật 〜つ):\n  - Đếm đồ vật nói chung từ 1 đến 10 cái (trứng, quả táo, ghế, bánh, ý tưởng...):\n    + 1:「ひとつ」(一つ)\n    + 2:「ふたつ」(二つ)\n    + 3:「みっつ」(三つ - âm ngắt っ)\n    + 4:「よっつ」(四つ - âm ngắt っ)\n    + 5:「いつつ」(五つ)\n    + 6:「むっつ」(六つ - âm ngắt っ)\n    + 7:「ななつ」(七つ)\n    + 8:「やっつ」(八つ - âm ngắt っ)\n    + 9:「ここのつ」(九つ)\n    + 10:「とお」(十 - đặc biệt KHÔNG có đuôi つ)\n    + Nghi vấn từ:「いくつ」(mấy cái / bao nhiêu cái). Từ 11 trở lên dùng số đếm thông thường không có 〜つ."
+      },
+      {
+        "id": "b11_q2",
+        "type": "fill",
+        "tag": "Điền từ",
+        "question": "2. 例：郵便局はどこ（ に ）ありますか。…駅の近く（ × ）です。\n\n1) りんご（____）4つ（____）買いました。\n2) 80円の切手を5枚（____）はがき（____）3枚（____）ください。\n3) 店（____）前（____）自転車（____）20台ぐらい（____）あります。\n4) 1週間（____）1回（____）両親（____）電話（____）かけます。\n5) 大阪（____）東京（____）新幹線（____）2時間半ぐらい（____）かかります。\n6) わたしの家族は5人です。両親（____）弟（____）2人（____）います。\n7) 先月1週間（____）会社（____）休みました。\n8) この荷物、航空便（____）お願いします。",
+        "answers": [
+          "を / o / wo",
+          "x / × / X",
+          "と / to",
+          "を / o / wo",
+          "x / × / X",
+          "の / no",
+          "に / ni",
+          "が / ga",
+          "x / × / X",
+          "に / ni",
+          "x / × / X",
+          "に / ni",
+          "を / o / wo",
+          "から / kara",
+          "まで / made",
+          "で / de",
+          "x / × / X",
+          "と / to",
+          "が / ga",
+          "x / × / X",
+          "x / × / X",
+          "を / o / wo",
+          "で / de"
+        ],
+        "explanation": "• Ôn tập trợ từ và số từ trong Minna no Nihongo Bài 11:\n• 例 (Ví dụ): Vị trí tồn tại của địa điểm/vật「郵便局」đi với động từ「あります」dùng trợ từ「に」:「どこ に ありますか」. Sau danh từ vị ngữ「駅の近く」đứng trước「です」không dùng trợ từ, điền「×」.\n• 1): Vị trí 1: Trợ từ「を」đánh dấu tân ngữ của động từ「買いました」(mua táo:「りんご を」). Vị trí 2: Số từ「4つ」(4 quả) đứng ngay trước động từ và bổ nghĩa trực tiếp cho「買いました」, KHÔNG dùng trợ từ đi kèm, nên điền「×」.\n• 2): Vị trí 1: Dùng trợ từ「と」(và) để liên kết 2 món đồ cần mua:「80円の切手を5枚 と はがきを3枚」(5 con tem 80 yên VÀ 3 tấm bưu thiếp). Vị trí 2: Trợ từ「を」đánh dấu tân ngữ thứ hai「はがき を」. Vị trí 3: Sau số từ「3枚」trước「ください」không dùng trợ từ, điền「×」.\n• 3): Vị trí 1: Trợ từ「の」nối 2 danh từ chỉ nơi chốn:「店 の 前」(trước cửa tiệm). Vị trí 2: Trợ từ「に」chỉ vị trí tồn tại:「前 に」. Vị trí 3: Trợ từ「が」đánh dấu chủ ngữ tồn tại của vật:「自転車 が あります」. Vị trí 4: Cụm số lượng ước lượng「20台ぐらい」(khoảng 20 chiếc) bổ nghĩa cho「あります」, không cần trợ từ, điền「×」.\n• 4): Vị trí 1: Cấu trúc biểu thị tần suất「[Khoảng thời gian] に [Số lần]」(1週間に1回: 1 tuần 1 lần) bắt buộc dùng trợ từ「に」sau khoảng thời gian. Vị trí 2: Sau số lần「1回」không dùng trợ từ, điền「×」. Vị trí 3: Đối tượng tiếp nhận cuộc gọi (bố mẹ) dùng trợ từ「に」:「両親 に」. Vị trí 4: Tân ngữ của động từ gọi điện thoại「かけます」dùng trợ từ「を」:「電話 を かけます」.\n• 5): Vị trí 1 & 2: Cặp trợ từ「から」và「まで」biểu thị điểm xuất phát và đích đến trong không gian:「大阪 から 東京 まで」(từ Osaka đến Tokyo). Vị trí 3: Trợ từ「で」chỉ phương tiện di chuyển:「新幹線 で」(bằng tàu Shinkansen). Vị trí 4: Cụm thời gian「2時間半ぐらい」(khoảng 2 tiếng rưỡi) bổ nghĩa trực tiếp cho động từ tiêu tốn thời gian「かかります」, không dùng trợ từ, điền「×」.\n• 6): Vị trí 1: Trợ từ liên kết「と」(và) nối các thành viên gia đình:「両親 と 弟」(bố mẹ VÀ em trai). Vị trí 2: Trợ từ「が」đánh dấu chủ ngữ người tồn tại đi với「います」:「弟 が 2人 います」. Vị trí 3: Sau số lượng người「2人」đứng trước「います」không dùng trợ từ, điền「×」. (Tổng số: tôi (1) + bố mẹ (2) + 2 em trai (2) = 5 người).\n• 7): Vị trí 1: Cụm「先月1週間」(1 tuần tháng trước) là khoảng thời gian kéo dài, bổ nghĩa trực tiếp cho động từ nên không dùng trợ từ「に」, điền「×」. Vị trí 2: Động từ「休みます」(nghỉ làm / nghỉ học) mang tính chất rời khỏi địa điểm nên đi kèm trợ từ「を」với nơi chốn:「会社 を 休みました」(đã nghỉ làm ở công ty).\n• 8): Trợ từ「で」chỉ phương thức/phương tiện vận chuyển:「航空便 で お願いします」(làm ơn gửi bằng đường hàng không)."
+      },
+      {
+        "id": "b11_q3",
+        "type": "fill",
+        "tag": "Hoàn thành câu dựa vào câu có sẵn",
+        "question": "3. 例：<u>お父さん</u>は何歳ですか。…<u>父</u>は50歳です。\n\n1) お母さんはどこにいますか。…＿＿＿＿＿＿＿＿＿＿はアメリカにいます。\n2) ＿＿＿＿＿＿＿＿＿＿はどんなスポーツが好きですか。…兄はサッカーが好きです。\n3) お姉さんはどのくらい日本にいますか。…＿＿＿＿＿＿＿＿＿＿は3か月日本にいます。\n4) 妹さんはどこへ行きましたか。…＿＿＿＿＿＿＿＿＿＿は郵便局へ行きました。\n5) ＿＿＿＿＿＿＿＿＿＿はお元気ですか。…ええ、弟はとても元気です。\n6) 奥さんはどのくらい日本語を勉強しましたか。…＿＿＿＿＿＿＿＿＿＿は3か月勉強しました。\n7) ＿＿＿＿＿＿＿＿＿＿は会社員ですか。…いいえ、夫は教師です。",
+        "answers": [
+          "母 / はは / 母は / ははは",
+          "お兄さん / おにいさん / お兄さんは / おにいさんは",
+          "姉 / あね / 姉は / あねは",
+          "妹 / いもうと / 妹は / いもうとは",
+          "弟さん / おとうとさん / 弟さんは / おとうとさんは",
+          "妻 / つま / 家内 / かない / 妻は / つまは / 家内は / かないは",
+          "ご主人 / ごしゅじん / ご主人は / ごしゅじんは"
+        ],
+        "explanation": "• Quy tắc xưng hô các thành viên gia đình (Gia đình mình vs Gia đình người khác) trong Minna no Nihongo Bài 11:\n  • Khi nói về gia đình mình (Khiêm nhường ngữ):「父」(bố),「母」(mẹ),「兄」(anh),「姉」(chị),「弟」(em trai),「妹」(em gái),「妻」/「家内」(vợ),「夫」/「主人」(chồng).\n  • Khi nói/hỏi về gia đình người khác (Kính ngữ/Lịch sự):「お父さん」,「お母さん」,「お兄さん」,「お姉さん」,「弟さん」,「妹さん」,「奥さん」,「ご主人」.\n• 例 (Ví dụ): Hỏi về bố người khác dùng「お父さん」➔ Trả lời về bố mình dùng「父」:「お父さんは何歳ですか。…父は50歳です」.\n• 1): Hỏi về mẹ bạn「お母さん」➔ Trả lời về mẹ mình dùng「母」(はは):「母はアメリカにいます」(Mẹ tôi ở Mỹ).\n• 2): Trả lời về anh trai mình「兄」➔ Câu hỏi hỏi về anh trai của người đối diện dùng「お兄さん」(おにいさん):「お兄さんはどんなスポーツが好きですか」(Anh trai bạn thích môn thể thao nào?).\n• 3): Hỏi về chị bạn「お姉さん」➔ Trả lời về chị mình dùng「姉」(あね):「姉は3か月日本にいます」(Chị tôi ở Nhật 3 tháng rồi).\n• 4): Hỏi về em gái bạn「妹さん」➔ Trả lời về em gái mình dùng「妹」(いもうと):「妹は郵便局へ行きました」(Em gái tôi đã đi bưu điện).\n• 5): Trả lời về em trai mình「弟」➔ Câu hỏi hỏi về em trai bạn dùng「弟さん」(おとうとさん):「弟さんはお元気ですか」(Em trai bạn có khỏe không?).\n• 6): Hỏi về vợ bạn「奥さん」➔ Trả lời về vợ mình dùng「妻」(つま) hoặc「家内」(かない):「妻は3か月勉強しました」(Vợ tôi đã học 3 tháng).\n• 7): Trả lời về chồng mình「夫」➔ Câu hỏi hỏi về chồng bạn dùng「ご主人」(ごしゅじん):「ご主人は会社員ですか」(Chồng bạn là nhân viên công ty phải không?)."
+      },
+      {
+        "id": "b11_q4",
+        "type": "fill",
+        "tag": "Điền từ để hỏi số lượng",
+        "question": "4. 例：テーブルが [ いくつ ] ありますか。…2つあります。\n\n1) 教室に男の人が [ ＿＿＿＿＿＿＿＿＿＿ ] いますか。…4人います。\n2) 1年に [ ＿＿＿＿＿＿＿＿＿＿ ] 映画を見ますか。…5回ぐらい見ます。\n3) 国で [ ＿＿＿＿＿＿＿＿＿＿ ] 日本語を勉強しましたか。…6か月ぐらい勉強しました。\n4) はがきを [ ＿＿＿＿＿＿＿＿＿＿ ] 買いますか。…10枚買います。\n5) この荷物、船便で [ ＿＿＿＿＿＿＿＿＿＿ ] ですか。…2,900円です。",
+        "answers": [
+          "何人 / なんにん",
+          "何回 / なんかい",
+          "どのくらい / どのぐらい / どれくらい / 何か月 / なんかげつ",
+          "何枚 / なんまい",
+          "いくら"
+        ],
+        "explanation": "• Ôn tập các từ nghi vấn hỏi về số lượng, thời gian, tần suất, tiền bạc trong Minna no Nihongo Bài 11:\n• 例 (Ví dụ): Vế trả lời là số lượng đồ vật「2つあります」(có 2 cái), nên câu hỏi dùng từ để hỏi số lượng đồ vật「いくつ」(mấy cái):「テーブルがいくつありますか」(Có mấy cái bàn?).\n• 1): Vế trả lời là số lượng người「4人います」(có 4 người), nên câu hỏi dùng từ để hỏi số lượng người「何人」(なんにん - mấy người):「教室に男の人が何人いますか」(Trong lớp học có mấy người nam vậy?).\n• 2): Vế trả lời là số lần / tần suất thực hiện hành động「5回ぐらい見ます」(xem khoảng 5 lần), nên câu hỏi dùng từ để hỏi số lần「何回」(なんかい - mấy lần):「1年に何回映画を見ますか」(Một năm bạn xem phim mấy lần?).\n• 3): Vế trả lời là khoảng thời gian kéo dài「6か月ぐらい勉強しました」(đã học khoảng 6 tháng), nên câu hỏi dùng từ để hỏi khoảng thời gian「どのくらい」(bao lâu - hoặc どれくらい / どのぐらい / 何か月):「国でどのくらい日本語を勉強しましたか」(Bạn đã học tiếng Nhật ở trong nước bao lâu rồi?).\n• 4): Vế trả lời là số lượng vật mỏng, phẳng (tờ, tấm)「10枚買います」(mua 10 tờ), nên câu hỏi dùng từ để hỏi lượng từ mỏng phẳng「何枚」(なんまい - mấy tờ/tấm):「はがきを何枚買いますか」(Bạn mua mấy tấm bưu thiếp?).\n• 5): Vế trả lời là giá tiền / cước phí bưu điện「2,900円です」(2,900 yên), nên câu hỏi về giá tiền dùng từ để hỏi「いくら」(bao nhiêu tiền):「この荷物、船便でいくらですか」(Gói hàng này gửi bằng đường biển thì bao nhiêu tiền?)."
+      },
+      {
+        "id": "b11_q5",
+        "type": "fill",
+        "tag": "Đặt câu hoàn chỉnh dựa vào từ gợi ý",
+        "question": "5. 例：テーブルの上／みかん／3／卵／5／あります\n…<u>テーブルの上にみかんが3つと卵が5つあります。</u>\n\n1) 庭／男の子／3／女の子／2／います…＿＿＿＿＿＿＿＿＿＿\n2) 90円の切手／1／はがき／2／ください…＿＿＿＿＿＿＿＿＿＿\n3) 事務所／コンピューター／5／あります…＿＿＿＿＿＿＿＿＿＿\n4) 3か月／日本語／勉強しました…＿＿＿＿＿＿＿＿＿＿\n5) 1週間／2／テニス／します…＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "庭に男の子が3人と女の子が2人います。 / 庭に男の子が3人と女の子が2人います / 庭に男の子が三人と女の子が二人います。 / 庭に男の子が三人と女の子が二人います / にわにおとこのこが3にんとおんなのこが2にんいます。 / にわにおとこのこが3にんとおんなのこが2にんいます / にわにおとこのこがさんにんとおんなのこがふたりいます。 / にわにおとこのこがさんにんとおんなのこがふたりいます",
+          "90円の切手を1枚とはがきを2枚ください。 / 90円の切手を1枚とはがきを2枚ください / 90円の切手を1枚とはがき2枚ください。 / 90円の切手を1枚とはがき2枚ください / 90円の切手1枚とはがき2枚ください。 / 90円の切手1枚とはがき2枚ください / 90えんのきってを1まいとはがきを2まいください。 / 90えんのきってを1まいとはがきを2まいください / 90円の切手を一枚とはがきを二枚ください。 / 90円の切手を一枚とはがきを二枚ください",
+          "事務所にコンピューターが5台あります。 / 事務所にコンピューターが5台あります / じむしょにコンピューターが5だいあります。 / じむしょにコンピューターが5だいあります / 事務所にコンピューターが五台あります。 / 事務所にコンピューターが五台あります / じむしょにコンピューターがごだいあります。 / じむしょにコンピューターがごだいあります",
+          "3か月日本語を勉強しました。 / 3か月日本語を勉強しました / 3か月間日本語を勉強しました。 / 3か月間日本語を勉強しました / 日本語を3か月勉強しました。 / 日本語を3か月勉強しました / 日本語を3か月間勉強しました。 / 日本語を3か月間勉強しました / 3かげつにほんごをべんきょうしました。 / 3かげつにほんごをべんきょうしました / 三か月日本語を勉強しました。 / 三か月日本語を勉強しました",
+          "1週間に2回テニスをします。 / 1週間に2回テニスをします / 1週間に2回テニスをします。 / 1週間に二回テニスをします / 1しゅうかんに2かいてにすをします。 / 1しゅうかんに2かいてにすをします / 1しゅうかんににかいてにすをします。 / 1しゅうかんににかいてにすをします / テニスを1週間に2回します。 / テニスを1週間に2回します"
+        ],
+        "explanation": "• Luyện tập đặt câu hoàn chỉnh kết hợp số từ, lượng từ và trợ từ (Minna no Nihongo Bài 11):\n• 例 (Ví dụ):「テーブルの上／みかん／3／卵／5／あります」➔ Liệt kê hai đồ vật trên bàn bằng「と」và lượng từ số đếm thuần Nhật「〜つ」:「テーブルの上にみかんが3つと卵が5つあります」(Ở trên bàn có 3 quả quýt và 5 quả trứng).\n• 1):「庭／男の子／3／女の子／2／います」➔ Ở trong sân (庭に) có người (dùng います), đếm người dùng lượng từ「人」(にん): 3 bé trai (男の子が3人) và 2 bé gái (女の子が2人) nối bằng「と」➔「庭に男の子が3人と女の子が2人います」(Ở ngoài sân có 3 bé trai và 2 bé gái).\n• 2):「90円の切手／1／はがき／2／ください」➔ Xin/mua 2 món đồ nối bằng「と」, tem và bưu thiếp đếm bằng lượng từ vật mỏng phẳng「枚」(まい): tem 90 yên 1 con (90円の切手を1枚) và bưu thiếp 2 tấm (はがきを2枚) ➔「90円の切手を1枚とはがきを2枚ください」(Cho tôi 1 con tem 90 yên và 2 tấm bưu thiếp).\n• 3):「事務所／コンピューター／5／あります」➔ Ở văn phòng (事務所に) có đồ vật (dùng あります), máy vi tính là thiết bị máy móc nên đếm bằng lượng từ「台」(だい): 5 chiếc (5台) ➔「事務所にコンピューターが5台あります」(Ở văn phòng có 5 chiếc máy vi tính).\n• 4):「3か月／日本語／勉強しました」➔ Khoảng thời gian kéo dài「3か月」(3 tháng) bổ nghĩa trực tiếp cho động từ, tân ngữ tiếng Nhật đi với「日本語を」➔「3か月日本語を勉強しました」(Tôi đã học tiếng Nhật trong 3 tháng).\n• 5):「1週間／2／テニス／します」➔ Mẫu câu biểu thị tần suất「[Khoảng thời gian] に [Số lần]」: 1 tuần 2 lần (1週間に2回), chơi tennis (テニスをします) ➔「1週間に2回テニスをします」(Một tuần tôi chơi tennis 2 lần)."
+      },
+      {
+        "id": "b11_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) 毎日何時間ぐらい寝ますか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 国でどのくらい日本語を勉強しましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) うちから駅までどのくらいかかりますか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 手紙はあなたの国までエアメールでいくらですか。\n＿＿＿＿＿＿＿＿＿＿\n\n5) 1か月に何回ぐらい国に電話をかけますか。\n＿＿＿＿＿＿＿＿＿＿\n\n6) 毎日どのくらいテレビを見ますか。\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "7時間ぐらい寝ます。 / 8時間寝ます。",
+          "6か月ぐらい勉強しました。 / 1年勉強しました。",
+          "歩いて15分ぐらいかかります。 / バスで20分ぐらいかかります。",
+          "120円です。 / 140円です。",
+          "2回ぐらいかけます。 / 4回ぐらいかけます。",
+          "1時間ぐらい見ます。 / 2時間見ます。 / ぜんぜん見ません。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về thông tin bản thân người học để tự luyện tập đối thoại (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「毎日何時間ぐらい寝ますか」(Mỗi ngày bạn ngủ khoảng mấy tiếng?) ➔ Nêu số tiếng ngủ:「[Số tiếng] 時間ぐらい寝ます」(Ví dụ:「7時間ぐらい寝ます」: ngủ khoảng 7 tiếng;「8時間寝ます」: ngủ 8 tiếng...).\n• 2):「国でどのくらい日本語を勉強しましたか」(Ở trong nước bạn đã học tiếng Nhật bao lâu?) ➔ Nêu khoảng thời gian:「[Khoảng thời gian] 勉強しました」(Ví dụ:「6か月ぐらい勉強しました」: học khoảng 6 tháng;「1年勉強しました」: học 1 năm...).\n• 3):「うちから駅までどのくらいかかりますか」(Từ nhà đến ga mất bao lâu?) ➔ Nêu thời gian và cách di chuyển:「[Phương tiện] で [Thời gian] かかります」hoặc「歩いて [Thời gian] かかります」(Ví dụ:「歩いて15分ぐらいかかります」: đi bộ mất khoảng 15 phút;「自転車で10分かかります」: đi xe đạp mất 10 phút...).\n• 4):「手紙はあなたの国までエアメールでいくらですか」(Gửi thư bằng đường bay về nước bạn hết bao nhiêu tiền?) ➔ Nêu giá tiền:「[Giá tiền] 円です」(Ví dụ:「120円です」: 120 yên;「140円です」: 140 yên...).\n• 5):「1か月に何回ぐらい国に電話をかけますか」(Một tháng bạn gọi điện về nước khoảng mấy lần?) ➔ Nêu số lần gọi:「[Số lần] 回ぐらいかけます」(Ví dụ:「2回ぐらいかけます」: gọi khoảng 2 lần;「4回かけます」: gọi 4 lần...).\n• 6):「毎日どのくらいテレビを見ますか」(Mỗi ngày bạn xem tivi khoảng bao lâu?) ➔ Nêu thời lượng xem:「[Thời gian] ぐらい見ます」(Ví dụ:「1時間ぐらい見ます」: xem khoảng 1 tiếng; Nếu không xem:「ぜんぜん見ません」: hoàn toàn không xem...)."
+      }
+    ]
   }
 };
 

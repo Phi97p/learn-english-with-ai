@@ -1208,7 +1208,7 @@
   padding: 10px 14px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
-  max-width: 620px;
+  max-width: 100%;
 }
 
 [data-theme="light"] .grammar-info-table-card {
@@ -1267,7 +1267,8 @@
 /* Dạng điền từ trực tiếp vào bảng */
 .grammar-table-blank-cell {
   text-align: center;
-  padding: 8px 10px !important;
+  padding: 6px 4px !important;
+  white-space: nowrap;
 }
 
 .table-cell-blank-wrapper {
