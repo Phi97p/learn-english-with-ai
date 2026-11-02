@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -11,9 +12,12 @@
   <meta name="theme-color" content="#0f172a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=6.5">
 </head>
+
 <body>
   <div class="app-container">
     <!-- Sidebar / Navigation -->
@@ -65,14 +69,18 @@
 
         <!-- NHÓM CÀI ĐẶT (COLLAPSIBLE DROPDOWN GROUP) -->
         <div class="nav-group collapsed" id="nav-group-settings">
-          <button class="nav-group-toggle" id="nav-group-settings-toggle" type="button" aria-expanded="false" title="Bấm để mở rộng / thu gọn Cài đặt">
+          <button class="nav-group-toggle" id="nav-group-settings-toggle" type="button" aria-expanded="false"
+            title="Bấm để mở rộng / thu gọn Cài đặt">
             <div class="nav-group-title">
               <span class="icon">⚙️</span>
               <span>Cài đặt</span>
             </div>
             <span class="nav-group-badge">Âm thanh</span>
             <span class="nav-group-arrow">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </span>
           </button>
           <div class="nav-group-content audio-controls-panel" id="nav-group-settings-content">
@@ -125,20 +133,31 @@
             </div>
 
             <div class="speaking-challenge-card" id="ja-speaking-card">
-              <button class="card-corner-btn card-corner-prev" id="ja-spk-prev-btn" title="Câu trước" aria-label="Câu trước">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <button class="card-corner-btn card-corner-prev" id="ja-spk-prev-btn" title="Câu trước"
+                aria-label="Câu trước">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
               </button>
-              <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+              <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji"
+                aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
                 <span class="phonetic-icon">🔤</span>
                 <span class="phonetic-toggle-label">Romaji: Hiện</span>
               </button>
-              <button class="card-corner-btn card-corner-next" id="ja-spk-next-btn" title="Câu tiếp theo" aria-label="Câu tiếp theo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <button class="card-corner-btn card-corner-next" id="ja-spk-next-btn" title="Câu tiếp theo"
+                aria-label="Câu tiếp theo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
               </button>
 
               <div class="challenge-category" id="ja-spk-category">BÀI 1: MẪU CÂU CỐT LÕI (CÂU 1 / 32)</div>
-              <div class="challenge-phrase-en" id="ja-spk-phrase-ja" style="font-size: 1.85rem; letter-spacing: 0.03em;">"わたしは マイク・ミラーです。"</div>
-              <div class="challenge-phrase-ipa phonetic-text" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa desu.</div>
+              <div class="challenge-phrase-en" id="ja-spk-phrase-ja"
+                style="font-size: 1.85rem; letter-spacing: 0.03em;">"わたしは マイク・ミラーです。"</div>
+              <div class="challenge-phrase-ipa phonetic-text" id="ja-spk-phrase-romaji">Romaji: Watashi wa Maiku Miraa
+                desu.</div>
               <div class="challenge-phrase-vi" id="ja-spk-phrase-vi">👉 Ý nghĩa: Tôi là Mike Miller.</div>
 
               <div class="speaking-actions">
@@ -154,13 +173,15 @@
               </div>
 
               <div class="speaking-feedback" id="ja-spk-feedback">
-                <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói thử"</strong> nhé!</div>
+                <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để
+                    nói thử"</strong> nhé!</div>
               </div>
             </div>
 
             <!-- DANH SÁCH TOÀN BỘ CÂU TRONG BÀI (DƯỚI CÙNG) -->
             <div class="speaking-header-card spk-bottom-list-card">
-              <div class="vocab-chip-list-label" style="margin-top: 0; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
+              <div class="vocab-chip-list-label"
+                style="margin-top: 0; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
                 📋 Danh sách toàn bộ mẫu câu trong Bài học (Bấm vào câu bất kỳ để chọn luyện nói):
               </div>
               <div class="spk-sentences-wrapper" id="ja-spk-sentences-wrapper" style="margin-top: 10px;">
@@ -185,7 +206,8 @@
                   <select id="ja-reading-unit-select">
                     <option value="bai_1">📖 Bài 1: もらいました・あげました (Minna Dokkai)</option>
                   </select>
-                  <button id="ja-reading-listen-all-btn" class="reading-btn-all" title="Nghe toàn bộ đoạn văn liền mạch">
+                  <button id="ja-reading-listen-all-btn" class="reading-btn-all"
+                    title="Nghe toàn bộ đoạn văn liền mạch">
                     🔊 Nghe toàn bài
                   </button>
                 </div>
@@ -218,10 +240,12 @@
 
               <!-- NÚT BẤM ĐỂ NÓI THUẬN TIỆN TRÊN ĐIỆN THOẠI & NÚT NEXT CÂU TIẾP THEO -->
               <div class="reading-passage-actions">
-                <button class="spk-btn-record reading-passage-record-btn" id="ja-reading-passage-record-btn" title="Bấm để nói câu đang chọn vào micro">
+                <button class="spk-btn-record reading-passage-record-btn" id="ja-reading-passage-record-btn"
+                  title="Bấm để nói câu đang chọn vào micro">
                   🎯 Bấm để nói & Chấm điểm
                 </button>
-                <button class="btn-passage-next" id="ja-reading-passage-next-btn" title="Chuyển sang câu tiếp theo trong bài đọc">
+                <button class="btn-passage-next" id="ja-reading-passage-next-btn"
+                  title="Chuyển sang câu tiếp theo trong bài đọc">
                   Câu tiếp theo ⏭️
                 </button>
               </div>
@@ -230,7 +254,8 @@
 
             <!-- CỘT PHẢI: PHÒNG LUYỆN SHADOWING CÂU ĐANG CHỌN (ACTIVE SENTENCE LAB) -->
             <div class="speaking-challenge-card" id="ja-reading-challenge-card" style="margin: 0;">
-              <button class="card-phonetic-btn phonetic-toggle-btn alone-corner" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+              <button class="card-phonetic-btn phonetic-toggle-btn alone-corner" title="Bấm để ẩn phiên âm Romaji"
+                aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
                 <span class="phonetic-icon">🔤</span>
                 <span class="phonetic-toggle-label">Romaji: Hiện</span>
               </button>
@@ -240,7 +265,8 @@
                 わたしは 去年 ベトナムから 日本へ 来ました。
               </div>
 
-              <div class="challenge-ipa phonetic-text" id="ja-reading-phrase-romaji" style="font-size: 0.95rem; color: var(--accent-cyan);">
+              <div class="challenge-ipa phonetic-text" id="ja-reading-phrase-romaji"
+                style="font-size: 0.95rem; color: var(--accent-cyan);">
                 Romaji: Watashi wa kyonen Betonamu kara Nihon e kimashita.
               </div>
 
@@ -271,7 +297,8 @@
 
               <!-- FEEDBACK -->
               <div class="spk-feedback-box" id="ja-reading-feedback">
-                <div class="feedback-status">Bấm "🔊 Nghe câu này" rồi bấm "🎙️ Bấm để nói thử" để luyện đọc từng câu nhé!</div>
+                <div class="feedback-status">Bấm "🔊 Nghe câu này" rồi bấm "🎙️ Bấm để nói thử" để luyện đọc từng câu
+                  nhé!</div>
               </div>
 
               <!-- PREV / NEXT BUTTONS -->
@@ -302,10 +329,12 @@
                   <select id="ja-vocab-unit-select">
                     <option value="bai_1">🌸 Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)</option>
                   </select>
-                  <button class="btn-action-small active-toggle" id="ja-vocab-meaning-toggle" title="Bấm để ẩn hoặc hiện nghĩa tiếng Việt để đoán nghĩa">
+                  <button class="btn-action-small active-toggle" id="ja-vocab-meaning-toggle"
+                    title="Bấm để ẩn hoặc hiện nghĩa tiếng Việt để đoán nghĩa">
                     📖 Nghĩa: Hiện
                   </button>
-                  <button class="btn-action-small active-toggle" id="ja-vocab-random-toggle" title="Bật/Tắt chế độ nhảy từ ngẫu nhiên khi bấm Next">
+                  <button class="btn-action-small active-toggle" id="ja-vocab-random-toggle"
+                    title="Bật/Tắt chế độ nhảy từ ngẫu nhiên khi bấm Next">
                     🔀 Ngẫu nhiên: BẬT
                   </button>
                 </div>
@@ -313,21 +342,32 @@
             </div>
           </div>
           <div class="speaking-challenge-card" id="ja-vocab-card">
-            <button class="card-corner-btn card-corner-prev" id="ja-vocab-prev-btn" title="Từ trước" aria-label="Từ trước">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <button class="card-corner-btn card-corner-prev" id="ja-vocab-prev-btn" title="Từ trước"
+              aria-label="Từ trước">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
             </button>
-            <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji" aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
+            <button class="card-phonetic-btn phonetic-toggle-btn with-corner-next" title="Bấm để ẩn phiên âm Romaji"
+              aria-label="Bấm để ẩn hoặc hiện phiên âm Romaji">
               <span class="phonetic-icon">🔤</span>
               <span class="phonetic-toggle-label">Romaji: Hiện</span>
             </button>
-            <button class="card-corner-btn card-corner-next" id="ja-vocab-next-btn" title="Từ tiếp theo" aria-label="Từ tiếp theo">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <button class="card-corner-btn card-corner-next" id="ja-vocab-next-btn" title="Từ tiếp theo"
+              aria-label="Từ tiếp theo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </button>
 
             <div class="challenge-category" id="ja-vocab-category">SỔ TAY TỪ VỰNG (TRỐNG)</div>
-            <div class="challenge-phrase-en" id="ja-vocab-word-ja" style="font-size: 2.2rem; letter-spacing: 0.04em;">Chưa có từ nào</div>
+            <div class="challenge-phrase-en" id="ja-vocab-word-ja" style="font-size: 2.2rem; letter-spacing: 0.04em;">
+              Chưa có từ nào</div>
             <div class="challenge-phrase-ipa phonetic-text" id="ja-vocab-word-romaji"></div>
-            <div class="challenge-phrase-vi" id="ja-vocab-word-vi">Mở file japanese_data/vocab_data.js để thêm từ bạn muốn học vào code nhé!</div>
+            <div class="challenge-phrase-vi" id="ja-vocab-word-vi">Mở file japanese_data/vocab_data.js để thêm từ bạn
+              muốn học vào code nhé!</div>
 
             <div class="speaking-actions" id="ja-vocab-actions">
               <button class="btn-listen" id="ja-vocab-listen-btn">🔊 Nghe phát âm mẫu</button>
@@ -342,7 +382,8 @@
             </div>
 
             <div class="speaking-feedback" id="ja-vocab-feedback">
-              <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói & Chấm điểm"</strong> nhé!</div>
+              <div class="feedback-status">Bấm <strong>"Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"Bấm để nói
+                  & Chấm điểm"</strong> nhé!</div>
             </div>
           </div>
 
@@ -369,7 +410,8 @@
           <div class="speaking-header-card">
             <div class="vocab-header-top" style="justify-content: space-between;">
               <div class="notes-category-switcher">
-                <button class="notes-mode-btn active" data-mode="hard_words" type="button" title="Chuyển sang trang ghi chú cách đọc">
+                <button class="notes-mode-btn active" data-mode="hard_words" type="button"
+                  title="Chuyển sang trang ghi chú cách đọc">
                   <span>🀄</span>
                   <span>Cách đọc</span>
                 </button>
@@ -474,7 +516,8 @@
                   <span class="katakana-glyph">?</span>
                 </div>
                 <div class="katakana-input-wrapper">
-                  <input type="text" class="katakana-answer-input" id="katakana-input-0" placeholder="Đáp án 1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-0" placeholder="Đáp án 1"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </div>
                 <div class="katakana-result-badge" id="katakana-badge-0"></div>
               </div>
@@ -485,7 +528,8 @@
                   <span class="katakana-glyph">?</span>
                 </div>
                 <div class="katakana-input-wrapper">
-                  <input type="text" class="katakana-answer-input" id="katakana-input-1" placeholder="Đáp án 2" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-1" placeholder="Đáp án 2"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </div>
                 <div class="katakana-result-badge" id="katakana-badge-1"></div>
               </div>
@@ -496,7 +540,8 @@
                   <span class="katakana-glyph">?</span>
                 </div>
                 <div class="katakana-input-wrapper">
-                  <input type="text" class="katakana-answer-input" id="katakana-input-2" placeholder="Đáp án 3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                  <input type="text" class="katakana-answer-input" id="katakana-input-2" placeholder="Đáp án 3"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                 </div>
                 <div class="katakana-result-badge" id="katakana-badge-2"></div>
               </div>
@@ -538,7 +583,7 @@
       <!-- TAB: LUYỆN TẬP NGỮ PHÁP TỔNG HỢP (TIẾNG NHẬT) -->
       <section id="tab-grammar-ja" class="tab-pane">
         <div class="grammar-container">
-          
+
           <!-- TOOLBAR CHỌN BÀI & ĐIỀU KHIỂN ĐỀ THI -->
           <div class="speaking-header-card grammar-header-card">
             <div class="grammar-toolbar">
@@ -548,7 +593,8 @@
                   <select id="ja-grammar-lesson-select" class="grammar-select">
                     <!-- Rendered by js/grammar_ja.js -->
                   </select>
-                  <span id="ja-grammar-lesson-status-badge" class="grammar-lesson-status-badge" style="display: none;"></span>
+                  <span id="ja-grammar-lesson-status-badge" class="grammar-lesson-status-badge"
+                    style="display: none;"></span>
                 </div>
               </div>
             </div>
@@ -609,11 +655,12 @@
           <div id="ja-grammar-score-modal" class="grammar-modal-overlay">
             <div class="grammar-score-modal-card">
               <button type="button" class="modal-close-icon" id="ja-grammar-close-modal-btn">&times;</button>
-              
+
               <div class="score-modal-header">
                 <div class="score-result-badge badge-gold" id="ja-grammar-score-badge">🏆 KẾT QUẢ BÀI THI</div>
                 <h2 class="score-modal-title">Điểm Số Của Bạn</h2>
-                <p class="score-modal-subtitle" id="ja-grammar-score-feedback">Chúc mừng bạn đã hoàn thành bài thi ngữ pháp!</p>
+                <p class="score-modal-subtitle" id="ja-grammar-score-feedback">Chúc mừng bạn đã hoàn thành bài thi ngữ
+                  pháp!</p>
               </div>
 
               <div class="score-highlight-board">
@@ -665,7 +712,7 @@
       <!-- TAB: BÀI TẬP KANJI (HÁN TỰ) -->
       <section id="tab-kanji-ja" class="tab-pane">
         <div class="grammar-container">
-          
+
           <!-- TOOLBAR CHỌN BÀI & ĐIỀU KHIỂN ĐỀ THI -->
           <div class="speaking-header-card grammar-header-card">
             <div class="grammar-toolbar">
@@ -676,7 +723,8 @@
                     <!-- Rendered by js/kanji_ja.js -->
                   </select>
                 </div>
-                <button type="button" class="btn-grammar-action btn-new-quiz" id="ja-kanji-new-quiz-btn" title="Tạo bộ 30 câu hỏi Hán tự ngẫu nhiên mới">
+                <button type="button" class="btn-grammar-action btn-new-quiz" id="ja-kanji-new-quiz-btn"
+                  title="Tạo bộ 30 câu hỏi Hán tự ngẫu nhiên mới">
                   🎲 Đề ngẫu nhiên mới (30 câu)
                 </button>
               </div>
@@ -738,11 +786,12 @@
           <div id="ja-kanji-score-modal" class="grammar-modal-overlay">
             <div class="grammar-score-modal-card">
               <button type="button" class="modal-close-icon" id="ja-kanji-close-modal-btn">&times;</button>
-              
+
               <div class="score-modal-header">
                 <div class="score-result-badge badge-gold" id="ja-kanji-score-badge">🏆 KẾT QUẢ BÀI THI HÁN TỰ</div>
                 <h2 class="score-modal-title">Điểm Số Của Bạn</h2>
-                <p class="score-modal-subtitle" id="ja-kanji-score-feedback">Chúc mừng bạn đã hoàn thành bài thi Hán tự!</p>
+                <p class="score-modal-subtitle" id="ja-kanji-score-feedback">Chúc mừng bạn đã hoàn thành bài thi Hán tự!
+                </p>
               </div>
 
               <div class="score-highlight-board">
@@ -813,4 +862,5 @@
   <script src="js/kanji_ja.js?v=1.7"></script>
   <script src="app.js?v=1.7"></script>
 </body>
+
 </html>

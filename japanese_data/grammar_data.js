@@ -1279,7 +1279,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_11": {
     "title": "Bài 11",
-    "completed": true,
+    "completed": false,
     "questions": [
       {
         "id": "b11_q1",
