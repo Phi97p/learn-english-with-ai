@@ -5,7 +5,7 @@
 // ========================================================
 
 const NotesJaModule = (() => {
-  let currentMode = 'hard_words'; // 'hard_words' | 'phrases' | 'particles' | 'connectors' | 'counting'
+  let currentMode = 'hard_words'; // 'hard_words' | 'phrases' | 'particles' | 'connectors' | 'counting' | 'question_words'
 
   // DOM Elements
   let modeBtns = [];
@@ -14,11 +14,13 @@ const NotesJaModule = (() => {
   let particlesViewEl = null;
   let connectorsViewEl = null;
   let countingViewEl = null;
+  let questionWordsViewEl = null;
   let hardWordsBodyEl = null;
   let phrasesBodyEl = null;
   let particlesBodyEl = null;
   let connectorsBodyEl = null;
   let countingBodyEl = null;
+  let questionWordsBodyEl = null;
 
   function getHardWordsList() {
     if (typeof JA_NOTES_DATA === 'undefined') return [];
@@ -48,6 +50,11 @@ const NotesJaModule = (() => {
     return JA_NOTES_DATA.counting || null;
   }
 
+  function getQuestionWordsData() {
+    if (typeof JA_NOTES_DATA === 'undefined') return null;
+    return JA_NOTES_DATA.question_words || null;
+  }
+
   function initDOM() {
     modeBtns = Array.from(document.querySelectorAll('.notes-mode-btn'));
     hardWordsViewEl = document.getElementById('ja-notes-hard-words-view');
@@ -55,15 +62,17 @@ const NotesJaModule = (() => {
     particlesViewEl = document.getElementById('ja-notes-particles-view');
     connectorsViewEl = document.getElementById('ja-notes-connectors-view');
     countingViewEl = document.getElementById('ja-notes-counting-view');
+    questionWordsViewEl = document.getElementById('ja-notes-question-words-view');
     hardWordsBodyEl = document.getElementById('ja-hard-words-body');
     phrasesBodyEl = document.getElementById('ja-phrases-body');
     particlesBodyEl = document.getElementById('ja-particles-body');
     connectorsBodyEl = document.getElementById('ja-connectors-body');
     countingBodyEl = document.getElementById('ja-counting-body');
+    questionWordsBodyEl = document.getElementById('ja-question-words-body');
 
     try {
       const savedMode = localStorage.getItem('ja_notes_mode');
-      if (savedMode && ['hard_words', 'phrases', 'particles', 'connectors', 'counting'].includes(savedMode)) {
+      if (savedMode && ['hard_words', 'phrases', 'particles', 'connectors', 'counting', 'question_words'].includes(savedMode)) {
         currentMode = savedMode;
       }
     } catch (e) {}
@@ -438,10 +447,88 @@ const NotesJaModule = (() => {
   }
 
   // ==========================================
-  // 6. ĐIỀU HƯỚNG & KHỞI TẠO
+  // 6. TRANG TĨNH: TỪ ĐỂ HỎI
+  // ==========================================
+  function renderQuestionWordsStatic() {
+    if (!questionWordsBodyEl) return;
+    const qData = getQuestionWordsData();
+
+    if (!qData) {
+      questionWordsBodyEl.innerHTML = `
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0;">
+          Chưa có dữ liệu từ để hỏi. Mở file <code>japanese_data/notes_data.js</code> (mục <code>question_words</code>) để thêm.
+        </div>
+      `;
+      return;
+    }
+
+    let noticeHtml = '';
+    if (qData.notice) {
+      noticeHtml = `
+        <div style="margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; color: var(--text-main); background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; padding: 10px 14px; border-radius: 4px;">
+          <strong>❓ Chú ý:</strong> ${qData.notice}
+        </div>
+      `;
+    }
+
+    let contentHtml = '';
+    if (qData.content) {
+      contentHtml = `
+        <div style="font-size: 0.95rem; line-height: 1.7; color: var(--text-main); white-space: pre-wrap; margin-bottom: 16px;">
+          ${qData.content}
+        </div>
+      `;
+    }
+
+    const items = Array.isArray(qData.items) ? qData.items : [];
+    let itemsHtml = '';
+
+    if (items.length > 0) {
+      itemsHtml += '<div style="display: flex; flex-direction: column; gap: 14px;">';
+      items.forEach((item, idx) => {
+        if (typeof item === 'string') {
+          itemsHtml += `
+            <div style="padding: 12px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+              ${item}
+            </div>
+          `;
+        } else {
+          const title = item.title || item.pattern || item.word || `Mục #${idx + 1}`;
+          const meaning = item.meaning || item.vi || '';
+          const example = item.example || '';
+          const note = item.note || item.tip || '';
+
+          itemsHtml += `
+            <div style="padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <div style="font-size: 1.05rem; font-weight: 700; color: #06b6d4; margin-bottom: 6px;">${title}</div>
+              ${meaning ? `<div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>👉 Ý nghĩa & Cách dùng:</strong>\n${meaning}</div>` : ''}
+              ${example ? `<div style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 6px; line-height: 1.6; white-space: pre-wrap;"><strong>📝 Ví dụ:</strong>\n${example}</div>` : ''}
+              ${note ? `<div style="font-size: 0.88rem; color: #38bdf8; margin-top: 6px; line-height: 1.6; white-space: pre-wrap;">💡 <em>${note}</em></div>` : ''}
+            </div>
+          `;
+        }
+      });
+      itemsHtml += '</div>';
+    }
+
+    if (!contentHtml && items.length === 0) {
+      questionWordsBodyEl.innerHTML = `
+        ${noticeHtml}
+        <div style="color: var(--text-muted); font-size: 0.95rem; padding: 20px 0; line-height: 1.7;">
+          Chưa có ghi chú từ để hỏi nào. Mở file <code>japanese_data/notes_data.js</code> (mục <code>question_words</code>) để thêm.
+        </div>
+      `;
+      return;
+    }
+
+    questionWordsBodyEl.innerHTML = `${noticeHtml}${contentHtml}${itemsHtml}`;
+  }
+
+  // ==========================================
+  // 7. ĐIỀU HƯỚNG & KHỞI TẠO
   // ==========================================
   function setMode(newMode) {
-    if (!['hard_words', 'phrases', 'particles', 'connectors', 'counting'].includes(newMode)) return;
+    if (!['hard_words', 'phrases', 'particles', 'connectors', 'counting', 'question_words'].includes(newMode)) return;
     currentMode = newMode;
     try {
       localStorage.setItem('ja_notes_mode', currentMode);
@@ -457,6 +544,7 @@ const NotesJaModule = (() => {
     if (particlesViewEl) particlesViewEl.style.display = currentMode === 'particles' ? 'block' : 'none';
     if (connectorsViewEl) connectorsViewEl.style.display = currentMode === 'connectors' ? 'block' : 'none';
     if (countingViewEl) countingViewEl.style.display = currentMode === 'counting' ? 'block' : 'none';
+    if (questionWordsViewEl) questionWordsViewEl.style.display = currentMode === 'question_words' ? 'block' : 'none';
 
     if (currentMode === 'hard_words') {
       renderHardWordsStatic();
@@ -468,6 +556,8 @@ const NotesJaModule = (() => {
       renderConnectorsStatic();
     } else if (currentMode === 'counting') {
       renderCountingStatic();
+    } else if (currentMode === 'question_words') {
+      renderQuestionWordsStatic();
     }
   }
 
@@ -491,7 +581,8 @@ const NotesJaModule = (() => {
     renderPhrasesStatic,
     renderParticlesStatic,
     renderConnectorsStatic,
-    renderCountingStatic
+    renderCountingStatic,
+    renderQuestionWordsStatic
   };
 })();
 

@@ -1,8 +1,12 @@
 // ========================================================
 // JAPANESE_DATA/NOTES_DATA.JS - Sổ Tay Kiến Thức Quan Trọng
 // Người dùng tự note nội dung cá nhân:
-// 1. hard_words: Cách đọc các từ khó (Bảng: Chữ | Cách phát âm | Mẹo phân biệt)
-// 2. phrases: Các cụm từ hay cần học thuộc
+// 1. hard_words: Cách đọc các từ khó
+// 2. phrases: Ngữ pháp trọng tâm
+// 3. particles: Trợ từ
+// 4. connectors: Từ nối
+// 5. counting: Học đếm
+// 6. question_words: Từ để hỏi
 // ========================================================
 
 const JA_NOTES_DATA = {
@@ -41,7 +45,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5, Bài 6, Bài 7...)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5, Bài 6, Bài 7, Bài 9, Bài 10, Bài 11, Bài 12, Bài 13)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -88,6 +92,60 @@ const JA_NOTES_DATA = {
         title: "8. [Bài 10] Ngữ pháp bài 10: Mẫu câu tồn tại (あります／います)",
         meaning: "• Ở đâu có cái gì/ai: N1 (địa điểm) に N2 が あります／います\n• Cái gì/ai ở đâu: N2 は N1 (địa điểm) に あります／います\n  (あります: đồ vật, thực vật | います: người, động vật)",
         note: "⚠️ Chú ý: Trước あります/います chưa chắc 100% là が! Khi chuyển が thành は để đưa vật/người lên làm chủ đề (N2 は), thì đứng ngay trước あります/います sẽ là [địa điểm] に."
+      },
+      {
+        title: "9. [Bài 11] Vị trí của số từ: [Danh từ] + を/が/で + [Số lượng] + [Động từ]",
+        meaning: "Số lượng từ thường đứng ngay TRƯỚC động từ mà nó bổ nghĩa. Trợ từ (を, が, で...) đi liền sau danh từ tùy thuộc vào động từ (ngoại trừ số từ chỉ thời gian có ngoại lệ).",
+        example: "切手を 5枚 買います。(Tôi mua 5 con tem.)\nりんごを 4つ 食べました。(Tôi đã ăn 4 quả táo.)",
+        note: "⚠️ Chú ý: Trợ từ を hay が phụ thuộc vào động từ. Số lượng đặt sát ngay trước động từ, không thêm trợ từ vào sau số lượng."
+      },
+      {
+        title: "10. [Bài 11] Số lượng bổ nghĩa cho danh từ: [Số lượng] + の + [Danh từ]",
+        meaning: "Khi số lượng trực tiếp bổ nghĩa cho danh từ, ta dùng cấu trúc: [Số lượng] + の + [Danh từ].\n• Cùng chiều với tiếng Việt: 4 quả táo ➔「4つのりんご」.\n• Cách dùng này cùng nghĩa với cấu trúc: [Danh từ] + を/が + [Số lượng] + [Động từ].",
+        example: "• 4つのりんごを 買いました。(Tôi đã mua 4 quả táo - dạng Số lượng + の + N)\n• りんごを 4つ 買いました。(Tôi đã mua 4 quả táo - dạng thông thường)",
+        note: "💡 Mẹo nhớ: Trước số lượng KHÔNG có の (không nói りんご の 4つ mà phải là 4つの りんご). Cùng chiều tư duy với tiếng Việt: 4 quả táo ➔ 4つの りんご."
+      },
+      {
+        title: "11. [Bài 11] Tần suất: [Số đếm thời gian] + に + [Số lần]",
+        meaning: "Biểu thị tần suất thực hiện hành động trong một khoảng thời gian nhất định.",
+        example: "• 1週間に 1回 テニスを します。(1 tuần tôi chơi tennis 1 lần.)\n• 1か月に 2回 えいがを 見ます。(1 tháng tôi xem phim 2 lần.)",
+        note: "💡 Dùng trợ từ「に」đứng ngay sau khoảng thời gian để biểu thị tần suất thực hiện."
+      },
+      {
+        title: "12. [Bài 12] So sánh lựa chọn: A と B と どちらが [Tính từ] ですか",
+        meaning: "Dùng để hỏi và trả lời khi so sánh chọn lựa giữa 2 đối tượng A và B:\n• Câu hỏi: A と B と どちらが [Tính từ] ですか。(A và B thì cái nào ... hơn?)\n• Trả lời: A の ほうが [Tính từ] です。(A ... hơn.)",
+        example: "A：サッカーと 野球と どちらが 面白いですか。(Bóng đá và bóng chày môn nào thú vị hơn?)\nB：サッカーの ほうが 面白いです。(Bóng đá thú vị hơn.)",
+        note: "💡 どちら là từ để hỏi giữa 2 đối tượng ('bên nào/cái nào'). Câu trả lời luôn dùng mẫu「～の ほうが」."
+      },
+      {
+        title: "13. [Bài 12] So sánh hơn: A は B より [Tính từ] です",
+        meaning: "Dùng để so sánh hơn giữa 2 đối tượng: A hơn B về một đặc điểm tính chất nào đó (A thì ... hơn B).",
+        example: "• この車は あの車より 速いです。(Chiếc xe này chạy nhanh hơn chiếc xe kia.)\n• 日本は ベトナムより 寒いです。(Nhật Bản lạnh hơn Việt Nam.)",
+        note: "💡 Mẹo nhớ: Đứng ngay trước「より」là mốc so sánh (hơn cái gì thì cái đó + より)."
+      },
+      {
+        title: "14. [Bài 12] So sánh nhất: S (の中) で [Từ để hỏi] が いちばん [Tính từ] ですか",
+        meaning: "Hỏi và trả lời đối tượng nào nổi trội nhất trong một nhóm, phạm vi S:\n• Câu hỏi: S (の中) で [なに／どこ／だれ／いつ] が いちばん [Tính từ] ですか。(Trong nhóm S thì cái gì/ở đâu/ai/khi nào ... nhất?)\n• Trả lời: [Đối tượng] が いちばん [Tính từ] です。",
+        example: "A：スポーツ(の中)で 何が いちばん 面白いですか。(Trong các môn thể thao thì môn nào thú vị nhất?)\nB：サッカーが いちばん 面白いです。(Bóng đá thú vị nhất.)",
+        note: "⚠️ Chú ý cấu trúc: Thông thường sau chủ thể là は, nhưng ở đây chủ thể là TỪ ĐỂ HỎI (なに, どこ, だれ, いつ) nên BẮT BUỘC dùng trợ từ「が」(ví dụ: なにが, だれが)."
+      },
+      {
+        title: "15. [Bài 13] Bày tỏ mong muốn: N が ほしいです & V-たいです",
+        meaning: "• Muốn có cái gì (sở hữu danh từ): N が ほしいです。(Tôi muốn có N.)\n• Muốn làm gì (hành động): [V-bỏ ます] + たいです。(Tôi muốn làm V.)\n  (Trợ từ を trước động từ có thể chuyển thành が: 水を 飲みたい ➔ 水が 飲みたい).",
+        example: "• 新しい パソコンが ほしいです。(Tôi muốn có máy tính mới.)\n• 日本へ 行きたいです。(Tôi muốn đi Nhật Bản.)\n• 水が/水を 飲みたいです。(Tôi muốn uống nước.)",
+        note: "⚠️ QUY TẮC CỰC KỲ QUAN TRỌNG: 2 mẫu câu này KHÔNG DÙNG CHO NGÔI THỨ 3 (không nói trực tiếp ý muốn của người thứ ba bằng ほしい/たい). Chỉ dùng cho bản thân (ngôi 1) hoặc hỏi trực tiếp đối phương (ngôi 2)."
+      },
+      {
+        title: "16. [Bài 13] Mục đích di chuyển: [Địa điểm] へ [N / V-bỏ-ます] に [行きます／来ます／帰ります]",
+        meaning: "Đi / đến / về một nơi nào đó ĐỂ thực hiện một mục đích nào đó:\n• Cấu trúc: [Địa điểm] へ + [N (danh từ chỉ hành vi) / V (động từ bỏ ます)] + に + 行きます／来ます／帰ります.",
+        example: "• デパートへ 買い物に 行きます。(Tôi đi đến trung tâm thương mại để mua sắm. - 買い物 là N)\n• レストランへ ごはんを 食べに 行きます。(Tôi đến nhà hàng để ăn cơm. - 食べます bỏ ます)",
+        note: "💡 Động từ bỏ ます hoặc danh từ hành vi kết hợp với「に」biểu thị mục đích của hành động di chuyển."
+      },
+      {
+        title: "17. [Bài 13] Động từ Vào - Ra, Lên - Xuống: 'Vào に, Ra を'",
+        meaning: "Quy tắc trợ từ với các động từ di chuyển ra/vào địa điểm hoặc lên/xuống phương tiện:\n• VÀO / LÊN ➔ dùng に: 入ります (vào), 乗ります (lên xe/tàu).\n• RA / XUỐNG ➔ dùng を: 出ます (ra khỏi), 降ります (xuống xe/tàu).",
+        example: "• [Vào]: きょうしつに 入ります。(Đi vào lớp học.)\n• [Ra]: きょうしつを 出ます。(Rời khỏi / đi ra khỏi lớp học.)\n• [Lên]: 電車に 乗ります。(Lên tàu điện.)\n• [Xuống]: 電車を 降ります。(Xuống tàu điện.)",
+        note: "💡 Khẩu quyết dễ nhớ: 'VÀO に, RA を' - Nơi/Phương tiện bước vào, leo lên dùng に; Nơi/Phương tiện rời khỏi, bước xuống dùng を."
       }
     ]
   },
@@ -101,7 +159,7 @@ const JA_NOTES_DATA = {
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch, trong mẫu câu có, hiểu, thích, ghét, giỏi, kém",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ], hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -292,6 +350,100 @@ const JA_NOTES_DATA = {
           "Tầng hầm 1 (B1 / 地下1階) : ちかいっかい",
           "Tầng mấy (何階) : なんがい (hoặc なんかい)"
         ]
+      }
+    ]
+  },
+
+  // 6. TỪ ĐỂ HỎI (Tổng hợp các nghi vấn từ thông dụng)
+  question_words: {
+    title: "Từ để hỏi",
+    badge: "❓ TỪ ĐỂ HỎI",
+    description: "Tổng hợp các từ để hỏi (nghi vấn từ) thông dụng và quy tắc sử dụng trong tiếng Nhật",
+    notice: "Nắm vững các từ để hỏi và phân biệt các cặp từ dễ nhầm lẫn (なに / なん, どう / どんな, どこ / どちら...).",
+    items: [
+      {
+        title: "1. いくつ : Bao nhiêu cái / Mấy tuổi",
+        meaning: "• Hỏi số lượng đồ vật (đếm theo hệ thuần Nhật: ひとつ, ふたつ...).\n• Hỏi tuổi của trẻ em (hoặc hỏi thân mật thay cho なんさい).",
+        example: "• りんごを いくつ 買いましたか。(Bạn đã mua bao nhiêu quả táo?)\n• お子さんは いくつですか。(Bé nhà bạn mấy tuổi rồi?)",
+        note: "💡 Phân biệt:「いくつ」hỏi số lượng đồ vật (bao nhiêu cái);「いくら」hỏi giá tiền."
+      },
+      {
+        title: "2. いくら : Bao nhiêu tiền",
+        meaning: "Dùng để hỏi giá cả của hàng hóa, đồ vật, dịch vụ.",
+        example: "• これは いくらですか。(Cái này bao nhiêu tiền?)\n• このシャツは 3,000円です。(Chiếc áo này 3.000 yên.)",
+        note: "💡 Mẹo nhớ: Đi mua sắm luôn hỏi: [Đồ vật] は いくらですか。"
+      },
+      {
+        title: "3. どこ : Ở đâu, Công ty nào, Nước nào, Trường nào",
+        meaning: "• Hỏi địa điểm, nơi chốn (Ở đâu?).\n• Hỏi cơ quan, công ty, tổ chức, trường học, đất nước xuất thân của một người.",
+        example: "• トイレは どこですか。(Nhà vệ sinh ở đâu?)\n• 会社は どこですか。(Công ty của bạn là công ty nào?)\n• 国は どこですか。(Bạn là người nước nào / Đất nước của bạn ở đâu?)",
+        note: "⚠️ Lưu ý: Khi hỏi tên cơ quan, trường học hay quốc tịch/quê quán của ai đó, dùng「どこ」(không dùng なに hay だれ)."
+      },
+      {
+        title: "4. どんな : Như thế nào (Bổ nghĩa cho danh từ)",
+        meaning: "Dùng để hỏi về tính chất, đặc điểm hoặc chủng loại của người/sự vật.\n• Đóng vai trò bổ nghĩa giống tính từ: どんな + [Danh từ].",
+        example: "• ハノイは どんな町ですか。(Hà Nội là thành phố như thế nào?)\n• どんな音楽が 好きですか。(Bạn thích thể loại âm nhạc như thế nào?)",
+        note: "💡 Phân biệt:「どんな」bắt buộc đi liền với Danh từ (どんな + N); còn「どう」làm vị ngữ độc lập (どうですか)."
+      },
+      {
+        title: "5. なに (何) : Cái gì",
+        meaning: "Từ để hỏi 'Cái gì'.\n• Phát âm là「なに」khi đứng độc lập hoặc đứng trước các trợ từ: が (なにが), を (なにを), も (なにも), と (なにと)...",
+        example: "• 何を 食べますか。(Bạn ăn cái gì? - đọc là なにを)\n• 何が ありますか。(Có cái gì vậy? - đọc là なにが)",
+        note: "💡 Ghi nhớ: Đứng trước が, を, も, と thì đọc là「なに」."
+      },
+      {
+        title: "6. なん (何) : Cái gì",
+        meaning: "Từ để hỏi 'Cái gì'.\n• Phát âm là「なん」khi:\n  1) Đứng trước từ có phụ âm đầu thuộc hàng d, t, n (như です, で, の...)\n  2) Đứng trước các từ chỉ số đếm hoặc đơn vị đếm (何時, 何曜日, 何歳, 何人, 何枚...).",
+        example: "• これは 何ですか。(Cái này là cái gì? - đọc là なんですか vì đứng trước d)\n• 何時ですか。(Mấy giờ? - なんじ)\n• 何枚ですか。(Mấy tờ? - なんまい)",
+        note: "💡 Mẹo nhớ: Đứng trước hàng [d, t, n] và trước số đếm/đơn vị đếm ➔ đọc là「なん」."
+      },
+      {
+        title: "7. どう : Như thế nào (Làm vị ngữ)",
+        meaning: "Dùng để hỏi về cảm nhận, ý kiến, tình trạng của sự vật/sự việc (làm vị ngữ trong câu: どうですか).",
+        example: "• 日本の生活は どうですか。(Cuộc sống ở Nhật thế nào?)\n• お茶は どうですか。(Uống một tách trà nhé? / Mời dùng trà.)",
+        note: "💡 Phân biệt:「どうですか」(thế nào - làm vị ngữ);「どんな + N」(N như thế nào - bổ nghĩa cho N)."
+      },
+      {
+        title: "8. いつ : Khi nào, bao giờ",
+        meaning: "Dùng để hỏi về thời gian (ngày, tháng, năm, thời điểm).\n• Sau「いつ」KHÔNG DÙNG trợ từ「に」.",
+        example: "• いつ 日本へ 来ましたか。(Bạn đã đến Nhật khi nào?)\n• 誕生日は いつですか。(Sinh nhật của bạn là khi nào?)",
+        note: "⚠️ Tuyệt đối không nói「いつに」, luôn dùng「いつ」trực tiếp."
+      },
+      {
+        title: "9. どうして : Tại sao (Why)",
+        meaning: "Dùng để hỏi nguyên nhân, lý do của một sự việc hoặc hành động.\n• Cuối câu trả lời thường kết thúc bằng「～から」(vì...).",
+        example: "A：どうして 昨日 休みましたか。(Tại sao hôm qua bạn nghỉ học?)\nB：熱が ありましたから。(Vì tôi bị sốt.)",
+        note: "💡 Mẫu câu hỏi - đáp kinh điển:「どうして ～か」➔「～から。」"
+      },
+      {
+        title: "10. どのぐらい (どのくらい) : Khoảng bao lâu (Thời gian)",
+        meaning: "Dùng để hỏi về độ dài thời gian (mất khoảng bao lâu), khoảng cách hoặc mức độ.",
+        example: "• ここから 東京駅まで どのぐらい かかりますか。(Từ đây đến ga Tokyo mất khoảng bao lâu?)\n• 日本語を どのぐらい 勉強しましたか。(Bạn đã học tiếng Nhật khoảng bao lâu?)",
+        note: "💡 Dùng để hỏi thời lượng/chi phí, có thể nói どのぐらい hoặc どのくらい."
+      },
+      {
+        title: "11. なんかい (何回 / 何階) : Mấy lần / Tầng mấy",
+        meaning: "• 何回 (なんかい): Hỏi số lần thực hiện hành động (Mấy lần?).\n• 何階 (なんがい / なんかい): Hỏi vị trí tầng nhà (Tầng mấy?).",
+        example: "• 1週間に 何回 テニスを しますか。(1 tuần bạn chơi tennis mấy lần?)\n• 会議室は 何階ですか。(Phòng họp ở tầng mấy vậy?)",
+        note: "💡 Chữ Hán: 回 (HỒI - số lần: なんかい); 階 (GIAI - tầng: なんがい / なんかい)."
+      },
+      {
+        title: "12. なんにん (何人) : Mấy người, bao nhiêu người",
+        meaning: "Dùng để hỏi về số lượng người.",
+        example: "• 家族は 何人ですか。(Gia đình bạn có mấy người?)\n• 教室に 学生が 何人 いますか。(Trong lớp có bao nhiêu học sinh?)",
+        note: "💡 Đếm người bất quy tắc: 1 người (ひとり), 2 người (ふたり), từ 3 người: [số] + にん (さんにん, よにん...). Từ để hỏi: なんにん."
+      },
+      {
+        title: "13. なんかがつ (何か月 / 何カ月) : Mấy tháng, bao nhiêu tháng",
+        meaning: "Dùng để hỏi về khoảng thời gian kéo dài bao nhiêu tháng (thời lượng, khác với mốc tháng 何月 - なんがつ).",
+        example: "• 何か月 日本に いますか。(Bạn ở Nhật trong bao nhiêu tháng?)\n• 3か月 勉強しました。(Tôi đã học trong 3 tháng.)",
+        note: "💡 Phân biệt: 何月 (なんがつ - tháng 1, tháng 2... mốc tháng); 何か月 (なんかがつ - 1 tháng, 2 tháng... thời lượng số tháng)."
+      },
+      {
+        title: "14. どちら : Phía nào, hướng nào / Cái nào / Ở đâu (Lịch sự)",
+        meaning: "• Hỏi phương hướng: Phía nào, hướng nào (lịch sự của どっち / どこ).\n• Hỏi lựa chọn giữa 2 đối tượng: Cái nào, bên nào (A と B と どちらが...).\n• Hỏi nơi chốn, công ty, quốc gia một cách lịch sự, trang trọng (thay cho どこ).",
+        example: "• お国は どちらですか。(Đất nước của bạn ở đâu / Bạn là người nước nào? - cách hỏi lịch sự của どこ)\n• 日本と ベトナムと どちらが 寒いですか。(Nhật Bản và Việt Nam thì nước nào lạnh hơn?)",
+        note: "💡 Mẹo nhớ:「どちら」vừa hỏi lựa chọn giữa 2 cái, vừa là thể lịch sự của「どこ」."
       }
     ]
   }

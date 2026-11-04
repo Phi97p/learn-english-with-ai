@@ -907,6 +907,287 @@ const JA_VOCAB_DATA = {
         "vi": "Chồng (của người khác - cách gọi lịch sự)"
       }
     ]
+  },
+  bai_5: {
+    title: "Bài 5: Từ vựng tổng hợp (Minna no Nihongo)",
+    words: [
+      {
+        word: "本屋",
+        hiragana: "ほんや",
+        romaji: "Honya",
+        vi: "Hiệu sách, tiệm sách (屋: ~ya là cửa hàng chuyên về gì đó)"
+      },
+      {
+        word: "店",
+        hiragana: "みせ",
+        romaji: "Mise",
+        vi: "Cửa hàng, tiệm (nói chung)"
+      },
+      {
+        word: "部屋",
+        hiragana: "へや",
+        romaji: "Heya",
+        vi: "Căn phòng, phòng"
+      },
+      {
+        word: "串",
+        hiragana: "くし",
+        romaji: "Kushi",
+        vi: "Xiên, que xiên (thịt xiên) (mẹo: nhớ từ はし - đôi đũa)"
+      },
+      {
+        word: "走ります",
+        hiragana: "はしります",
+        romaji: "Hashirimasu",
+        vi: "Chạy"
+      },
+      {
+        word: "広い",
+        hiragana: "ひろい",
+        romaji: "Hiroi",
+        vi: "Rộng, rộng rãi"
+      },
+      {
+        word: "狭い",
+        hiragana: "せまい",
+        romaji: "Semai",
+        vi: "Hẹp, chật hẹp"
+      },
+      {
+        word: "切手",
+        hiragana: "きって",
+        romaji: "Kitte",
+        vi: "Tem thư, con tem"
+      },
+      {
+        word: "全部",
+        hiragana: "ぜんぶ",
+        romaji: "Zenbu",
+        vi: "Tất cả, toàn bộ"
+      },
+      {
+        word: "全然",
+        hiragana: "ぜんぜん",
+        romaji: "Zenzen",
+        vi: "Hoàn toàn không (đi với câu phủ định)"
+      },
+      {
+        word: "はがき",
+        hiragana: "はがき",
+        romaji: "Hagaki",
+        vi: "Bưu thiếp, bưu ảnh"
+      },
+      {
+        word: "ください",
+        hiragana: "ください",
+        romaji: "Kudasai",
+        vi: "Cho tôi, xin hãy đưa cho tôi (đứng một mình mang nghĩa 'cho tôi')"
+      },
+      {
+        word: "両親",
+        hiragana: "りょうしん",
+        romaji: "Ryoushin",
+        vi: "Bố mẹ, cha mẹ, phụ huynh"
+      },
+      {
+        word: "航空便",
+        hiragana: "こうくうびん",
+        romaji: "Koukuubin",
+        vi: "Gửi bằng đường hàng không, thư máy bay"
+      },
+      {
+        word: "船便",
+        hiragana: "ふなびん",
+        romaji: "Funabin",
+        vi: "Gửi bằng đường biển, thư tàu thủy"
+      },
+      {
+        word: "弟",
+        hiragana: "おとうと",
+        romaji: "Otouto",
+        vi: "Em trai (của mình) (mẹo: trẻ con thích cái xiên kẹo)"
+      },
+      {
+        word: "兄",
+        hiragana: "あに",
+        romaji: "Ani",
+        vi: "Anh trai (của mình)"
+      },
+      {
+        word: "姉",
+        hiragana: "あね",
+        romaji: "Ane",
+        vi: "Chị gái (của mình)"
+      },
+      {
+        word: "妹",
+        hiragana: "いもうと",
+        romaji: "Imouto",
+        vi: "Em gái (của mình)"
+      },
+      {
+        word: "お姉さん",
+        hiragana: "おねえさん",
+        romaji: "Oneesan",
+        vi: "Chị gái (của người khác / xưng hô lịch sự)"
+      },
+      {
+        word: "お兄さん",
+        hiragana: "おにいさん",
+        romaji: "Oniisan",
+        vi: "Anh trai (của người khác / xưng hô lịch sự)"
+      },
+      {
+        word: "夫",
+        hiragana: "おっと",
+        romaji: "Otto",
+        vi: "Chồng (của mình)"
+      },
+      {
+        word: "お母さん",
+        hiragana: "おかあさん",
+        romaji: "Okaasan",
+        vi: "Mẹ (của người khác / xưng hô lịch sự)"
+      },
+      {
+        word: "お父さん",
+        hiragana: "おとうさん",
+        romaji: "Otousan",
+        vi: "Bố, cha (của người khác / xưng hô lịch sự)"
+      },
+      {
+        word: "テーブル",
+        hiragana: "テーブル (てーぶる)",
+        romaji: "Teeburu",
+        vi: "Cái bàn (bàn ăn, bàn trà)"
+      },
+      {
+        word: "みかん",
+        hiragana: "みかん",
+        romaji: "Mikan",
+        vi: "Quả quýt"
+      },
+      {
+        word: "庭",
+        hiragana: "にわ",
+        romaji: "Niwa",
+        vi: "Sân, vườn (mẹo: ngồi ngoài sân - Kanji 庭 gần giống từ ngồi 座)"
+      },
+      {
+        word: "座ります",
+        hiragana: "すわります",
+        romaji: "Suwarimasu",
+        vi: "Ngồi, ngồi xuống"
+      },
+      {
+        word: "隣のうちの人",
+        hiragana: "となりのうちのひと",
+        romaji: "Tonari no uchi no hito",
+        vi: "Người nhà bên cạnh, người hàng xóm"
+      },
+      {
+        word: "手帳",
+        hiragana: "てちょう",
+        romaji: "Techou",
+        vi: "Sổ tay (mẹo nhớ: te + shinchou 身長)"
+      },
+      {
+        word: "海",
+        hiragana: "うみ",
+        romaji: "Umi",
+        vi: "Biển, bãi biển"
+      },
+      {
+        word: "簡単",
+        hiragana: "かんたん",
+        romaji: "Kantan",
+        vi: "Đơn giản, dễ dàng (tính từ đuôi な)"
+      },
+      {
+        word: "遠い",
+        hiragana: "とおい",
+        romaji: "Tooi",
+        vi: "Xa (khoảng cách)"
+      },
+      {
+        word: "遅い",
+        hiragana: "おそい",
+        romaji: "Osoi",
+        vi: "Chậm, muộn"
+      },
+      {
+        word: "少ない",
+        hiragana: "すくない",
+        romaji: "Sukunai",
+        vi: "Ít (số lượng) (mẹo: gần giống 少し - すこし)"
+      },
+      {
+        word: "暖かい",
+        hiragana: "あたたかい",
+        romaji: "Atatakai",
+        vi: "Ấm áp (thời tiết)"
+      },
+      {
+        word: "涼しい",
+        hiragana: "すずしい",
+        romaji: "Suzushii",
+        vi: "Mát mẻ (thời tiết)"
+      },
+      {
+        word: "甘い",
+        hiragana: "あまい",
+        romaji: "Amai",
+        vi: "Ngọt (vị)"
+      },
+      {
+        word: "辛い",
+        hiragana: "からい",
+        romaji: "Karai",
+        vi: "Cay (vị)"
+      },
+      {
+        word: "重い",
+        hiragana: "おもい",
+        romaji: "Omoi",
+        vi: "Nặng (trọng lượng)"
+      },
+      {
+        word: "軽い",
+        hiragana: "かるい",
+        romaji: "Karui",
+        vi: "Nhẹ (trọng lượng)"
+      },
+      {
+        word: "秋",
+        hiragana: "あき",
+        romaji: "Aki",
+        vi: "Mùa thu"
+      },
+      {
+        word: "曇り",
+        hiragana: "くもり",
+        romaji: "Kumori",
+        vi: "Có mây, trời nhiều mây, u ám"
+      },
+      {
+        word: "試験",
+        hiragana: "しけん",
+        romaji: "Shiken",
+        vi: "Kỳ thi, bài kiểm tra"
+      },
+      {
+        word: "紅葉",
+        hiragana: "こうよう",
+        romaji: "Kouyou",
+        vi: "Lá đỏ, lá phong mùa thu (có thể đọc là もみじ)"
+      },
+      {
+        word: "用事",
+        hiragana: "ようじ",
+        romaji: "Youji",
+        vi: "Việc bận, công chuyện"
+      }
+    ]
   }
 };
 

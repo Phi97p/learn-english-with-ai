@@ -431,6 +431,10 @@
                   <span>🔢</span>
                   <span>Học đếm</span>
                 </button>
+                <button class="notes-mode-btn" data-mode="question_words" type="button" title="Chuyển sang xem từ để hỏi">
+                  <span>❓</span>
+                  <span>Từ để hỏi</span>
+                </button>
               </div>
             </div>
           </div>
@@ -476,6 +480,15 @@
           <div id="ja-notes-counting-view" class="notes-view-pane" style="display: none;">
             <div class="speaking-header-card notes-static-container">
               <div class="notes-static-body" id="ja-counting-body">
+                <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 6: TỪ ĐỂ HỎI (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
+          <div id="ja-notes-question-words-view" class="notes-view-pane" style="display: none;">
+            <div class="speaking-header-card notes-static-container">
+              <div class="notes-static-body" id="ja-question-words-body">
                 <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
               </div>
             </div>
@@ -849,14 +862,14 @@
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.1"></script>
   <script src="japanese_data/vocab_data.js?v=2.1"></script>
-  <script src="japanese_data/notes_data.js?v=1.6"></script>
-  <script src="japanese_data/grammar_data.js?v=3.0"></script>
+  <script src="japanese_data/notes_data.js?v=1.9"></script>
+  <script src="japanese_data/grammar_data.js?v=4.2"></script>
   <script src="japanese_data/kanji_data.js?v=1.9"></script>
   <script src="js/core.js?v=1.3"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/vocab_ja.js?v=2.0"></script>
-  <script src="js/notes_ja.js"></script>
+  <script src="js/notes_ja.js?v=1.1"></script>
   <script src="js/katakana.js"></script>
   <script src="js/grammar_ja.js?v=2.9"></script>
   <script src="js/kanji_ja.js?v=1.7"></script>
