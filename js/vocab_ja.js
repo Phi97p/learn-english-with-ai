@@ -12,14 +12,19 @@ const VocabJaModule = (() => {
   let isMeaningShown = true;
   let navHistory = [];
 
+  // Set lưu trữ các từ đã thuộc trong phiên làm việc (in-memory, reset khi reload)
+  // Định dạng key: `${currentUnitKey}#${item.word}`
+  const masteredSet = new Set();
+
   // DOM Elements
   let jaVocabUnitSelect;
   let jaVocabRandomToggle;
   let jaVocabMeaningToggle;
   let jaVocabCount;
+  let jaVocabMasteredCount;
   let jaVocabCard, jaVocabPrevBtn, jaVocabNextBtn;
   let jaVocabCategory, jaVocabWordJa, jaVocabWordRomaji, jaVocabWordVi;
-  let jaVocabActions, jaVocabListenBtn, jaVocabRecordBtn;
+  let jaVocabActions, jaVocabListenBtn, jaVocabRecordBtn, jaVocabMasteredBtn;
   let jaVocabSpokenBox, jaVocabSpokenBadge, jaVocabSpokenText, jaVocabTypingCursor;
   let jaVocabFeedback, jaVocabListWrapper;
 
@@ -38,10 +43,14 @@ const VocabJaModule = (() => {
   }
 
   function getCurrentUnitTitle() {
+    const numMatch = String(currentUnitKey).match(/\d+/);
+    if (numMatch) {
+      return `Bài ${numMatch[0]}`;
+    }
     if (typeof JA_VOCAB_DATA !== 'undefined' && JA_VOCAB_DATA[currentUnitKey]) {
       return JA_VOCAB_DATA[currentUnitKey].title || currentUnitKey;
     }
-    return 'BÀI 1: TỪ VỰNG TIẾNG NHẬT';
+    return 'Bài 1';
   }
 
   function initDOM() {
@@ -49,6 +58,7 @@ const VocabJaModule = (() => {
     jaVocabRandomToggle = document.getElementById('ja-vocab-random-toggle');
     jaVocabMeaningToggle = document.getElementById('ja-vocab-meaning-toggle');
     jaVocabCount = document.getElementById('ja-vocab-count');
+    jaVocabMasteredCount = document.getElementById('ja-vocab-mastered-count');
 
     jaVocabCard = document.getElementById('ja-vocab-card');
     jaVocabPrevBtn = document.getElementById('ja-vocab-prev-btn');
@@ -62,6 +72,7 @@ const VocabJaModule = (() => {
     jaVocabActions = document.getElementById('ja-vocab-actions');
     jaVocabListenBtn = document.getElementById('ja-vocab-listen-btn');
     jaVocabRecordBtn = document.getElementById('ja-vocab-record-btn');
+    jaVocabMasteredBtn = document.getElementById('ja-vocab-mastered-btn');
 
     jaVocabSpokenBox = document.getElementById('ja-vocab-spoken-box');
     jaVocabSpokenBadge = document.getElementById('ja-vocab-spoken-badge');
@@ -76,6 +87,125 @@ const VocabJaModule = (() => {
       isMeaningShown = savedShowMeaning === 'true';
     }
     updateMeaningButtonUI();
+  }
+
+  function isWordMastered(item) {
+    if (!item || !item.word) return false;
+    return masteredSet.has(`${currentUnitKey}#${item.word}`);
+  }
+
+  function getMasteredCountForCurrentUnit() {
+    const list = getVocabList();
+    return list.filter(item => isWordMastered(item)).length;
+  }
+
+  function updateMasteredCountUI() {
+    if (jaVocabMasteredCount) {
+      const list = getVocabList();
+      const masteredCount = getMasteredCountForCurrentUnit();
+      if (list.length > 0 && masteredCount > 0) {
+        jaVocabMasteredCount.innerHTML = ` • <span style="color: #34d399; font-weight: 700;">Đã thuộc: ${masteredCount}/${list.length}</span>`;
+      } else {
+        jaVocabMasteredCount.innerHTML = '';
+      }
+    }
+  }
+
+  function updateMasteredButtonUI() {
+    if (!jaVocabMasteredBtn) return;
+    const list = getVocabList();
+    if (list.length === 0 || !list[currentIdx]) {
+      jaVocabMasteredBtn.style.display = 'none';
+      return;
+    }
+    jaVocabMasteredBtn.style.display = 'inline-flex';
+    const item = list[currentIdx];
+    const isMastered = isWordMastered(item);
+
+    if (isMastered) {
+      jaVocabMasteredBtn.classList.add('is-mastered');
+      jaVocabMasteredBtn.innerHTML = '✨ Đã thuộc (Bấm để hủy)';
+      jaVocabMasteredBtn.setAttribute('title', 'Từ này đã thuộc và sẽ không xuất hiện khi random. Bấm lại để học lại từ này');
+    } else {
+      jaVocabMasteredBtn.classList.remove('is-mastered');
+      jaVocabMasteredBtn.innerHTML = '✅ Đã thuộc';
+      jaVocabMasteredBtn.setAttribute('title', 'Đánh dấu đã thuộc - lần random sau sẽ không ra từ này nữa');
+    }
+    updateMasteredCountUI();
+  }
+
+  function handleMasteredToggle() {
+    const list = getVocabList();
+    if (list.length === 0 || !list[currentIdx]) return;
+
+    const item = list[currentIdx];
+    const key = `${currentUnitKey}#${item.word}`;
+    const wasMastered = masteredSet.has(key);
+
+    if (wasMastered) {
+      masteredSet.delete(key);
+      updateMasteredButtonUI();
+      renderWord(currentIdx);
+      if (jaVocabFeedback) {
+        jaVocabFeedback.innerHTML = `<div class="feedback-status">🔄 Đã chuyển từ "<strong>${item.word}</strong>" về danh sách ôn luyện. Từ này sẽ xuất hiện lại khi random.</div>`;
+      }
+    } else {
+      masteredSet.add(key);
+      updateMasteredButtonUI();
+
+      const unmasteredCount = list.filter(w => !isWordMastered(w)).length;
+
+      if (unmasteredCount === 0) {
+        renderWord(currentIdx);
+        if (jaVocabFeedback) {
+          jaVocabFeedback.innerHTML = `
+            <div class="feedback-success">
+              🎉 <strong>XUẤT SẮC!</strong> Bạn đã đánh dấu thuộc toàn bộ <strong>${list.length}</strong> từ vựng của bài này!<br>
+              <button id="ja-vocab-reset-mastered-btn" class="btn-action-small" style="margin-top: 8px; background: #10b981; color: white; cursor: pointer; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700;">🔄 Ôn tập lại từ đầu bài này</button>
+            </div>
+          `;
+          const resetBtn = document.getElementById('ja-vocab-reset-mastered-btn');
+          if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+              resetMasteredForCurrentUnit();
+            });
+          }
+        }
+      } else {
+        if (jaVocabFeedback) {
+          jaVocabFeedback.innerHTML = `
+            <div class="feedback-success">
+              ✅ Đã đánh dấu thuộc từ "<strong>${item.word}</strong>"! Từ này sẽ <strong>không xuất hiện lại</strong> khi random.<br>
+              <small>Còn lại <strong>${unmasteredCount}</strong> từ chưa thuộc.</small>
+            </div>
+          `;
+        }
+
+        // Tự động chuyển ngay sang từ ngẫu nhiên tiếp theo nếu đang bật random mode
+        if (isRandomMode) {
+          navHistory.push(currentIdx);
+          if (navHistory.length > 50) navHistory.shift();
+          const nextIdx = getRandomIndex(list.length, currentIdx);
+          setTimeout(() => {
+            renderWord(nextIdx);
+          }, 350);
+        } else {
+          renderWord(currentIdx);
+        }
+      }
+    }
+  }
+
+  function resetMasteredForCurrentUnit() {
+    const list = getVocabList();
+    list.forEach(item => {
+      masteredSet.delete(`${currentUnitKey}#${item.word}`);
+    });
+    updateMasteredButtonUI();
+    renderWord(currentIdx);
+    if (jaVocabFeedback) {
+      jaVocabFeedback.innerHTML = `<div class="feedback-status">🔄 Đã làm mới danh sách bài học. Tất cả từ sẽ xuất hiện lại khi random.</div>`;
+    }
   }
 
   function updateMeaningButtonUI() {
@@ -125,7 +255,8 @@ const VocabJaModule = (() => {
     keys.forEach(k => {
       const opt = document.createElement('option');
       opt.value = k;
-      opt.textContent = `🌸 ${JA_VOCAB_DATA[k].title || k}`;
+      const numMatch = String(k).match(/\d+/);
+      opt.textContent = numMatch ? `Bài ${numMatch[0]}` : (JA_VOCAB_DATA[k].title || k);
       if (k === currentUnitKey) opt.selected = true;
       jaVocabUnitSelect.appendChild(opt);
     });
@@ -148,6 +279,7 @@ const VocabJaModule = (() => {
       }
       if (jaVocabListenBtn) jaVocabListenBtn.style.display = 'none';
       if (jaVocabRecordBtn) jaVocabRecordBtn.style.display = 'none';
+      if (jaVocabMasteredBtn) jaVocabMasteredBtn.style.display = 'none';
       if (jaVocabPrevBtn) jaVocabPrevBtn.style.display = 'none';
       if (jaVocabNextBtn) jaVocabNextBtn.style.display = 'none';
       if (jaVocabFeedback) {
@@ -155,6 +287,7 @@ const VocabJaModule = (() => {
       }
       resetSpokenBox();
       renderList();
+      updateMasteredCountUI();
       return;
     }
 
@@ -163,13 +296,18 @@ const VocabJaModule = (() => {
     currentIdx = idx;
 
     const item = list[idx];
+    const isMastered = isWordMastered(item);
 
     if (jaVocabPrevBtn) jaVocabPrevBtn.style.display = 'flex';
     if (jaVocabNextBtn) jaVocabNextBtn.style.display = 'flex';
     if (jaVocabListenBtn) jaVocabListenBtn.style.display = 'inline-block';
     if (jaVocabRecordBtn) jaVocabRecordBtn.style.display = 'inline-block';
+    if (jaVocabMasteredBtn) jaVocabMasteredBtn.style.display = 'inline-flex';
 
-    if (jaVocabCategory) jaVocabCategory.textContent = `${getCurrentUnitTitle().toUpperCase()} (TỪ ${idx + 1} / ${list.length})`;
+    if (jaVocabCategory) {
+      const masteredTag = isMastered ? ' • <span style="color:#34d399;font-weight:700;">✓ ĐÃ THUỘC</span>' : '';
+      jaVocabCategory.innerHTML = `${getCurrentUnitTitle().toUpperCase()} (TỪ ${idx + 1} / ${list.length})${masteredTag}`;
+    }
     if (jaVocabWordJa) jaVocabWordJa.textContent = item.word;
     if (jaVocabWordRomaji) {
       let phoneticStr = '';
@@ -205,19 +343,46 @@ const VocabJaModule = (() => {
       jaVocabFeedback.innerHTML = '<div class="feedback-status">Bấm <strong>"🔊 Nghe phát âm mẫu"</strong> trước, sau đó bấm <strong>"🎯 Bấm để nói & Chấm điểm"</strong> nhé!</div>';
     }
 
+    updateMasteredButtonUI();
     resetSpokenBox();
     renderList();
   }
 
   function getRandomIndex(listLength, current) {
+    const list = getVocabList();
     if (listLength <= 1) return 0;
-    let next = current;
-    let attempts = 0;
-    while (next === current && attempts < 20) {
-      next = Math.floor(Math.random() * listLength);
-      attempts++;
+
+    // Lọc ra các vị trí từ CHƯA thuộc
+    const unmasteredIndices = [];
+    for (let i = 0; i < listLength; i++) {
+      if (list[i] && !isWordMastered(list[i])) {
+        unmasteredIndices.push(i);
+      }
     }
-    return next;
+
+    // Nếu đã thuộc hết toàn bộ danh sách, cho phép random trong toàn bộ để ôn lại
+    if (unmasteredIndices.length === 0) {
+      let next = current;
+      let attempts = 0;
+      while (next === current && attempts < 20) {
+        next = Math.floor(Math.random() * listLength);
+        attempts++;
+      }
+      return next;
+    }
+
+    // Nếu chỉ còn 1 từ chưa thuộc
+    if (unmasteredIndices.length === 1) {
+      return unmasteredIndices[0];
+    }
+
+    // Nếu còn nhiều từ chưa thuộc, ưu tiên chọn từ khác với từ hiện tại
+    const candidates = unmasteredIndices.filter(i => i !== current);
+    if (candidates.length > 0) {
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    return unmasteredIndices[0];
   }
 
   function resetSpokenBox() {
@@ -240,14 +405,18 @@ const VocabJaModule = (() => {
     }
 
     list.forEach((item, idx) => {
+      const isMastered = isWordMastered(item);
       const itemEl = document.createElement('div');
-      itemEl.className = `spk-sentence-item ${idx === currentIdx ? 'active' : ''}`;
+      itemEl.className = `spk-sentence-item ${idx === currentIdx ? 'active' : ''} ${isMastered ? 'item-mastered' : ''}`;
 
       itemEl.innerHTML = `
         <div class="spk-item-left">
           <span class="spk-item-num">Từ ${idx + 1}</span>
           <div class="spk-item-text">
-            <div class="spk-item-en" style="font-size: 1.15rem; font-weight: 700;">${item.word}</div>
+            <div class="spk-item-en" style="font-size: 1.15rem; font-weight: 700;">
+              ${item.word}
+              ${isMastered ? '<span class="vocab-badge-mastered">✓ Đã thuộc</span>' : ''}
+            </div>
             <div class="spk-item-vi" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
               ${(item.hiragana && item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana} (${item.romaji}) •</span>` : ((item.hiragana || item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana || item.romaji} •</span>` : '')}
               ${isMeaningShown 
@@ -438,6 +607,10 @@ const VocabJaModule = (() => {
           vocabRecognition.start();
         }
       });
+    }
+
+    if (jaVocabMasteredBtn) {
+      jaVocabMasteredBtn.addEventListener('click', handleMasteredToggle);
     }
 
     if (jaVocabMeaningToggle) {

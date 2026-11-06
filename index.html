@@ -15,7 +15,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6.5">
+  <link rel="stylesheet" href="style.css?v=6.6">
 </head>
 
 <body>
@@ -31,40 +31,26 @@
       </div>
 
       <nav class="nav-menu">
-        <button class="nav-item active" data-tab="speaking-ja">
-          <span class="icon">🎙️</span>
-          <span>Luyện nói Tiếng Nhật</span>
-          <span class="badge" style="background: linear-gradient(135deg, #ef4444, #f43f5e);">Shadowing</span>
-        </button>
         <button class="nav-item" data-tab="reading-ja">
-          <span class="icon">📖</span>
-          <span>Đọc hiểu & Shadowing Nhật</span>
-          <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Đoạn văn</span>
+          <span>Đọc Hiểu</span>
         </button>
         <button class="nav-item" data-tab="grammar-ja">
-          <span class="icon">📝</span>
-          <span>Luyện tập Ngữ pháp</span>
-          <span class="badge" style="background: linear-gradient(135deg, #10b981, #06b6d4);">30 câu</span>
+          <span>Luyện tập</span>
         </button>
         <button class="nav-item" data-tab="notes-ja">
-          <span class="icon">📌</span>
-          <span>Kiến thức quan trọng</span>
-          <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #10b981);">Ghi chú</span>
+          <span>Note</span>
         </button>
         <button class="nav-item" data-tab="vocab-ja">
-          <span class="icon">🗂️</span>
-          <span>Từ vựng Tiếng Nhật</span>
-          <span class="badge" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">Từ khó</span>
+          <span>Từ Vựng</span>
+        </button>
+        <button class="nav-item active" data-tab="speaking-ja">
+          <span>Luyện nói</span>
         </button>
         <button class="nav-item" data-tab="katakana">
-          <span class="icon">🈂️</span>
-          <span>Học Katakana</span>
-          <span class="badge" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">Phản xạ</span>
+          <span>Katakana</span>
         </button>
         <button class="nav-item" data-tab="kanji-ja">
-          <span class="icon">🈸</span>
-          <span>Bài tập Kanji</span>
-          <span class="badge" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">Gạch chân</span>
+          <span>Kanji</span>
         </button>
 
         <!-- NHÓM CÀI ĐẶT (COLLAPSIBLE DROPDOWN GROUP) -->
@@ -125,7 +111,7 @@
                   <div class="vocab-toolbar-actions">
                     <label for="ja-spk-unit-select">Chọn Bài học:</label>
                     <select id="ja-spk-unit-select">
-                      <option value="bai_1">🌸 Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)</option>
+                      <option value="bai_1">Bài 1</option>
                     </select>
                   </div>
                 </div>
@@ -327,7 +313,7 @@
                 <div class="vocab-toolbar-actions">
                   <label for="ja-vocab-unit-select">Chọn Bài học:</label>
                   <select id="ja-vocab-unit-select">
-                    <option value="bai_1">🌸 Bài 1: わたしは マイク・ミラーです (Minna no Nihongo)</option>
+                    <option value="bai_1">Bài 1</option>
                   </select>
                   <button class="btn-action-small active-toggle" id="ja-vocab-meaning-toggle"
                     title="Bấm để ẩn hoặc hiện nghĩa tiếng Việt để đoán nghĩa">
@@ -372,6 +358,8 @@
             <div class="speaking-actions" id="ja-vocab-actions">
               <button class="btn-listen" id="ja-vocab-listen-btn">🔊 Nghe phát âm mẫu</button>
               <button class="btn-record" id="ja-vocab-record-btn">🎯 Bấm để nói & Chấm điểm</button>
+              <button class="btn-mastered" id="ja-vocab-mastered-btn"
+                title="Đánh dấu đã thuộc - lần random sau sẽ không ra từ này nữa">✅ Đã thuộc</button>
             </div>
 
             <!-- KẾT QUẢ NGƯỜI NÓI -->
@@ -391,7 +379,8 @@
           <div class="speaking-header-card spk-bottom-list-card">
             <div class="vocab-header-top" style="margin-bottom: 6px;">
               <div class="vocab-chip-list-label" style="font-size: 0.92rem; font-weight: 700; color: var(--text-main);">
-                📋 Toàn bộ từ vựng trong sổ tay (<span id="ja-vocab-count">0</span> từ):
+                📋 Toàn bộ từ vựng trong sổ tay (<span id="ja-vocab-count">0</span> từ<span
+                  id="ja-vocab-mastered-count"></span>):
               </div>
             </div>
             <div class="spk-sentences-wrapper" id="ja-vocab-list-wrapper" style="margin-top: 10px;">
@@ -431,7 +420,8 @@
                   <span>🔢</span>
                   <span>Học đếm</span>
                 </button>
-                <button class="notes-mode-btn" data-mode="question_words" type="button" title="Chuyển sang xem từ để hỏi">
+                <button class="notes-mode-btn" data-mode="question_words" type="button"
+                  title="Chuyển sang xem từ để hỏi">
                   <span>❓</span>
                   <span>Từ để hỏi</span>
                 </button>
@@ -861,14 +851,14 @@
 
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.1"></script>
-  <script src="japanese_data/vocab_data.js?v=2.1"></script>
-  <script src="japanese_data/notes_data.js?v=1.9"></script>
+  <script src="japanese_data/vocab_data.js?v=2.3"></script>
+  <script src="japanese_data/notes_data.js?v=2.2"></script>
   <script src="japanese_data/grammar_data.js?v=4.2"></script>
   <script src="japanese_data/kanji_data.js?v=1.9"></script>
   <script src="js/core.js?v=1.3"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
-  <script src="js/vocab_ja.js?v=2.0"></script>
+  <script src="js/vocab_ja.js?v=2.2"></script>
   <script src="js/notes_ja.js?v=1.1"></script>
   <script src="js/katakana.js"></script>
   <script src="js/grammar_ja.js?v=2.9"></script>

@@ -112,37 +112,49 @@ const JA_NOTES_DATA = {
         note: "💡 Dùng trợ từ「に」đứng ngay sau khoảng thời gian để biểu thị tần suất thực hiện."
       },
       {
-        title: "12. [Bài 12] So sánh lựa chọn: A と B と どちらが [Tính từ] ですか",
-        meaning: "Dùng để hỏi và trả lời khi so sánh chọn lựa giữa 2 đối tượng A và B:\n• Câu hỏi: A と B と どちらが [Tính từ] ですか。(A và B thì cái nào ... hơn?)\n• Trả lời: A の ほうが [Tính từ] です。(A ... hơn.)",
-        example: "A：サッカーと 野球と どちらが 面白いですか。(Bóng đá và bóng chày môn nào thú vị hơn?)\nB：サッカーの ほうが 面白いです。(Bóng đá thú vị hơn.)",
-        note: "💡 どちら là từ để hỏi giữa 2 đối tượng ('bên nào/cái nào'). Câu trả lời luôn dùng mẫu「～の ほうが」."
+        title: "12. [Bài 12] Biến đổi tính từ đuôi「い」:「くない」(Phủ định) &「かった」(Quá khứ)",
+        meaning: "Quy tắc chia thì và thể của tính từ đuôi「い」:\n•「くない」: là PHỦ ĐỊNH (hiện tại) ➔ bỏ「い」thêm「くない」(không...)\n•「かった」: là QUÁ KHỨ (khẳng định) ➔ bỏ「い」thêm「かった」(đã...)\n•「くなかった」: là PHỦ ĐỊNH QUÁ KHỨ ➔ bỏ「い」thêm「くなかった」(đã không...)",
+        example: "• [Hiện tại]: あつい (Nóng) ➔ あつくない (Không nóng)\n• [Quá khứ]: あつかった (Đã từng nóng) ➔ あつくなかった (Đã không nóng)\n• Ngoại lệ với từ「いい」(Tốt): いい ➔ よくない (không tốt) ➔ よかった (đã tốt) ➔ よくなかった (đã không tốt)",
+        note: "💡 Mẹo nhớ nhanh: Cứ thấy đuôi「くない」là PHỦ ĐỊNH; thấy đuôi「かった」là QUÁ KHỨ."
       },
       {
-        title: "13. [Bài 12] So sánh hơn: A は B より [Tính từ] です",
-        meaning: "Dùng để so sánh hơn giữa 2 đối tượng: A hơn B về một đặc điểm tính chất nào đó (A thì ... hơn B).",
+        title: "13. [Bài 12] So sánh lựa chọn: A と B と どちらが [Tính từ] ですか",
+        meaning: "Dùng để hỏi và trả lời khi so sánh chọn lựa giữa 2 đối tượng A và B:\n• Câu hỏi: A と B と どちらが [Tính từ] ですか。(A và B thì cái nào / ai ... hơn?)\n• Trả lời khi chọn 1 bên: A の ほうが [Tính từ] です。(A ... hơn.)\n• Trả lời khi 2 người / 2 vật như nhau: どちらも [Tính từ] です。(Cả hai đều ...)",
+        example: "A：サッカーと 野球と どちらが 面白いですか。(Bóng đá và bóng chày môn nào thú vị hơn?)\n➔ Chọn 1 bên: サッカーの ほうが 面白いです。(Bóng đá thú vị hơn.)\n➔ 2 bên như nhau: どちらも 面白いです。(Cả hai môn đều thú vị / như nhau.)\n\nA：ミラーさんと サントスさんと どちらが テニスが 上手ですか。(Anh Miller và anh Santos ai chơi tennis giỏi hơn?)\n➔ 2 người như nhau: どちらも 上手です。(Cả hai người đều giỏi như nhau.)",
+        note: "💡 Nhớ 2 cách trả lời: Chọn 1 bên dùng「～の ほうが」; Nếu 2 người/vật ngang nhau dùng「どちらも [Tính từ] です」."
+      },
+      {
+        title: "14. [Bài 12] So sánh hơn: A は B より [Tính từ] です",
+        meaning: "Dùng để so sánh hơn giữa 2 đối tượng: A hơn B về một đặc điểm tính chất nào đó (A thì ... hơn B).\n• Cứ có「より」➔ A hơn B (từ đứng ngay trước より là mốc để so sánh).",
         example: "• この車は あの車より 速いです。(Chiếc xe này chạy nhanh hơn chiếc xe kia.)\n• 日本は ベトナムより 寒いです。(Nhật Bản lạnh hơn Việt Nam.)",
-        note: "💡 Mẹo nhớ: Đứng ngay trước「より」là mốc so sánh (hơn cái gì thì cái đó + より)."
+        note: "💡 Mẹo nhớ: Cứ thấy「より」là so sánh A HƠN B (đối tượng trước より là vật bị đem ra làm mốc so sánh)."
       },
       {
-        title: "14. [Bài 12] So sánh nhất: S (の中) で [Từ để hỏi] が いちばん [Tính từ] ですか",
-        meaning: "Hỏi và trả lời đối tượng nào nổi trội nhất trong một nhóm, phạm vi S:\n• Câu hỏi: S (の中) で [なに／どこ／だれ／いつ] が いちばん [Tính từ] ですか。(Trong nhóm S thì cái gì/ở đâu/ai/khi nào ... nhất?)\n• Trả lời: [Đối tượng] が いちばん [Tính từ] です。",
-        example: "A：スポーツ(の中)で 何が いちばん 面白いですか。(Trong các môn thể thao thì môn nào thú vị nhất?)\nB：サッカーが いちばん 面白いです。(Bóng đá thú vị nhất.)",
-        note: "⚠️ Chú ý cấu trúc: Thông thường sau chủ thể là は, nhưng ở đây chủ thể là TỪ ĐỂ HỎI (なに, どこ, だれ, いつ) nên BẮT BUỘC dùng trợ từ「が」(ví dụ: なにが, だれが)."
+        title: "15. [Bài 12] So sánh nhất: S (の中) で [Từ để hỏi] が いちばん [Tính từ] ですか",
+        meaning: "Hỏi và trả lời đối tượng nào nổi trội nhất trong một nhóm, phạm vi S:\n• Câu hỏi: S (の中) で [なに／どこ／だれ／いつ] が いちばん [Tính từ] ですか。\n• Trả lời thuận (nhóm trước): [Đối tượng] が いちばん [Tính từ] です。\n• Viết ngược lại (đưa đối tượng lên làm chủ đề ở đầu câu): [Đối tượng] は S (の中) で いちばん [Tính từ] です。",
+        example: "Ví dụ: 'Đá bóng trong các môn thể thao là thú vị nhất':\n• Dạng thuận (nhóm S trước): スポーツ(の中)で サッカーが いちばん 面白いです。\n• Dạng viết ngược lại (đưa đá bóng lên đầu): サッカーは スポーツ(の中)で いちばん 面白いです。\n\n(Hỏi ai giỏi nhất: クラスの中で だれが いちばん 上手ですか ➔ ナムさんが いちばん 上手です)",
+        note: "⚠️ Chú ý đổi trợ từ khi viết ngược lại: Khi đứng sau phạm vi S thì dùng trợ từ「が」(サッカーが); nhưng khi đảo đối tượng ra đầu câu làm chủ đề thì bắt buộc chuyển thành「は」(サッカーは スポーツの中で いちばん 面白いです)."
       },
       {
-        title: "15. [Bài 13] Bày tỏ mong muốn: N が ほしいです & V-たいです",
-        meaning: "• Muốn có cái gì (sở hữu danh từ): N が ほしいです。(Tôi muốn có N.)\n• Muốn làm gì (hành động): [V-bỏ ます] + たいです。(Tôi muốn làm V.)\n  (Trợ từ を trước động từ có thể chuyển thành が: 水を 飲みたい ➔ 水が 飲みたい).",
-        example: "• 新しい パソコンが ほしいです。(Tôi muốn có máy tính mới.)\n• 日本へ 行きたいです。(Tôi muốn đi Nhật Bản.)\n• 水が/水を 飲みたいです。(Tôi muốn uống nước.)",
-        note: "⚠️ QUY TẮC CỰC KỲ QUAN TRỌNG: 2 mẫu câu này KHÔNG DÙNG CHO NGÔI THỨ 3 (không nói trực tiếp ý muốn của người thứ ba bằng ほしい/たい). Chỉ dùng cho bản thân (ngôi 1) hoặc hỏi trực tiếp đối phương (ngôi 2)."
+        title: "16. [Bài 12] 📌 TỔNG KẾT 3 MẪU CÂU SO SÁNH TRỌNG TÂM",
+        meaning: "Tóm gọn 3 mẫu câu so sánh cốt lõi trong tiếng Nhật:\n1. Có「より」➔ A HƠN B: A は B より [Tính từ] です。\n2. Có「どちらが」➔ A VÀ B CÁI NÀO HƠN: A と B と どちらが [Tính từ] ですか (Chọn 1: Aのほうが... | Cả 2 như nhau: どちらも...).\n3. Có「いちばん」➔ SO SÁNH NHẤT: S の中で [Đối tượng] が いちばん [Tính từ] です (hoặc viết ngược lại: [Đối tượng] は S の中で いちばん...).",
+        example: "• [Có より]: 新幹線は バスより 速いです。(Tàu Shinkansen nhanh hơn xe buýt.)\n• [Có どちらが]: りんごと みかんと どちらが 好きですか。(Táo và quýt bạn thích quả nào hơn?)\n• [Có いちばん]: 1年で いつが いちばん 寒いですか。(Trong 1 năm khi nào lạnh nhất?)",
+        note: "⚡ Khẩu quyết ghi nhớ nhanh:\n• Thấy より ➔ A hơn B.\n• Thấy どちらが ➔ A và B cái nào hơn (chọn 1 bên hay cả hai như nhau).\n• Thấy いちばん ➔ So sánh nhất trong một nhóm/tập hợp."
       },
       {
-        title: "16. [Bài 13] Mục đích di chuyển: [Địa điểm] へ [N / V-bỏ-ます] に [行きます／来ます／帰ります]",
+        title: "17. [Bài 13] Bày tỏ mong muốn: N が ほしいです & V-たいです (Kèm phủ định 'Không muốn')",
+        meaning: "• Muốn có cái gì (sở hữu danh từ): N が ほしいです。(Tôi muốn có N.)\n  ➔ Phủ định (Không muốn có): N は/が ほしくないです (欲しくないです)。\n• Muốn làm gì (hành động): [V-bỏ ます] + たいです。(Tôi muốn làm V.)\n  ➔ Phủ định (Không muốn làm): [V-bỏ ます] + たくないです。\n  (Trợ từ を trước động từ có thể chuyển thành が: 水を 飲みたい ➔ 水が 飲みたい).",
+        example: "• [Muốn có]: 新しい パソコンが ほしいです。(Tôi muốn có máy tính mới.)\n• [Không muốn có]: 今は 何も ほしくないです (欲しくないです)。(Bây giờ tôi không muốn có thứ gì cả.)\n• [Muốn làm]: ごはんを たべたいです。(Tôi muốn ăn cơm.)\n• [Không muốn làm]: 今は 何も たべたくないです。(Bây giờ tôi không muốn ăn gì cả.)",
+        note: "⚠️ CÁC LƯU Ý QUAN TRỌNG:\n1. V-たい được coi như tính từ đuôi「い」: Động từ thêm たい sẽ biến đổi đuôi giống hệt tính từ đuôi い (thêm です ở đằng sau cho lịch sự: たべたいです ➔ phủ định là たべたくないです; quá khứ là たべたかったです).\n2. Không dùng cho ngôi thứ 3: Cả ほしい/たい đều KHÔNG DÙNG CHO NGÔI THỨ 3 (không nói trực tiếp ý muốn của người khác). Chỉ dùng cho bản thân (ngôi 1) hoặc hỏi trực tiếp đối phương (ngôi 2)."
+      },
+      {
+        title: "18. [Bài 13] Mục đích di chuyển: [Địa điểm] へ [N / V-bỏ-ます] に [行きます／来ます／帰ります]",
         meaning: "Đi / đến / về một nơi nào đó ĐỂ thực hiện một mục đích nào đó:\n• Cấu trúc: [Địa điểm] へ + [N (danh từ chỉ hành vi) / V (động từ bỏ ます)] + に + 行きます／来ます／帰ります.",
         example: "• デパートへ 買い物に 行きます。(Tôi đi đến trung tâm thương mại để mua sắm. - 買い物 là N)\n• レストランへ ごはんを 食べに 行きます。(Tôi đến nhà hàng để ăn cơm. - 食べます bỏ ます)",
         note: "💡 Động từ bỏ ます hoặc danh từ hành vi kết hợp với「に」biểu thị mục đích của hành động di chuyển."
       },
       {
-        title: "17. [Bài 13] Động từ Vào - Ra, Lên - Xuống: 'Vào に, Ra を'",
+        title: "19. [Bài 13] Động từ Vào - Ra, Lên - Xuống: 'Vào に, Ra を'",
         meaning: "Quy tắc trợ từ với các động từ di chuyển ra/vào địa điểm hoặc lên/xuống phương tiện:\n• VÀO / LÊN ➔ dùng に: 入ります (vào), 乗ります (lên xe/tàu).\n• RA / XUỐNG ➔ dùng を: 出ます (ra khỏi), 降ります (xuống xe/tàu).",
         example: "• [Vào]: きょうしつに 入ります。(Đi vào lớp học.)\n• [Ra]: きょうしつを 出ます。(Rời khỏi / đi ra khỏi lớp học.)\n• [Lên]: 電車に 乗ります。(Lên tàu điện.)\n• [Xuống]: 電車を 降ります。(Xuống tàu điện.)",
         note: "💡 Khẩu quyết dễ nhớ: 'VÀO に, RA を' - Nơi/Phương tiện bước vào, leo lên dùng に; Nơi/Phương tiện rời khỏi, bước xuống dùng を."
@@ -155,11 +167,11 @@ const JA_NOTES_DATA = {
     title: "Trợ từ",
     badge: "🔖 TRỢ TỪ",
     description: "Note về trợ từ: は, が, で, に, へ, の, と",
-    notice: "Ghi nhớ quy tắc phân biệt trợ từ khi nói về Ở đâu, Thời gian và bảng Tổng kết.",
+    notice: "Ghi nhớ quy tắc phân biệt trợ từ khi nói về Ở đâu, Thời gian, Tần suất, Tập cha và [N が Tính từ].",
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ], hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• に + thời gian: chỉ tần suất làm việc / hành động (1週間に 1回: 1 tuần 1 lần)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• で：trong - đứng sau danh từ là tập cha của chủ thể (ví dụ: スポーツの中で, クラスで)\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ] (tính từ mô tả đặc điểm của N; muốn bổ nghĩa phải đặt tính từ đứng trước N); hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -168,9 +180,21 @@ const JA_NOTES_DATA = {
         note: "💡 Nhớ mẹo: Tồn tại/ở có mặt người hay vật dùng に, diễn ra hành động dùng で, nhấn mạnh hướng di chuyển dùng へ."
       },
       {
-        title: "3. で、に khi nói về thời gian",
-        meaning: "• で、に khi nói về thời gian chủ yếu là に\n• に: lúc, vào ngày\n• で : thời gian hoàn thành việc gì",
-        note: "💡 Mốc thời gian cụ thể dùng に; Giới hạn/khoảng thời gian hoàn thành dùng で."
+        title: "3. で、に khi nói về thời gian & tần suất",
+        meaning: "• で、に khi nói về thời gian chủ yếu là に\n• に: lúc, vào ngày (mốc thời gian cụ thể)\n• に + tần suất: số đếm thời gian + に + số lần (ví dụ: 1週間に 1回: 1 tuần 1 lần, 1か月に 2回...)\n• で : thời gian/khoảng thời gian hoàn thành việc gì",
+        note: "💡 Mốc thời gian cụ thể hoặc tần suất dùng に; Giới hạn/khoảng thời gian hoàn thành dùng で."
+      },
+      {
+        title: "4. で : 'Trong' - Đứng sau danh từ là tập cha của chủ thể",
+        meaning: "Trợ từ「で」hoặc「の中で」đứng sau danh từ đóng vai trò là TẬP HỢP CHA của chủ thể (phạm vi bao hàm các đối tượng bên trong trong câu so sánh nhất).\n• Cấu trúc: [Tập hợp cha] (の中) で [Chủ thể] が いちばん [Tính từ] です。",
+        example: "• スポーツ(の中)で サッカーが いちばん 面白いです。(Trong thể thao - tập cha, thì bóng đá - chủ thể, là thú vị nhất.)\n• 1年(の中)で 2月が いちばん 寒いです。(Trong 1 năm - tập cha, thì tháng 2 là lạnh nhất.)\n• クラスで ナムさんが いちばん 背が高いです。(Trong lớp học - tập cha, bạn Nam là cao nhất.)",
+        note: "💡 Ghi nhớ: Cứ khi nào danh từ là một tập hợp lớn (tập cha) bao chứa các phần tử con bên trong thì dùng trợ từ「で」hoặc「の中で」."
+      },
+      {
+        title: "5. Phân biệt [Danh từ が Tính từ] & [Tính từ + Danh từ]",
+        meaning: "• [Danh từ が Tính từ]: Tính từ đứng sau が dùng để MÔ TẢ ĐẶC ĐIỂM, thuộc tính của danh từ đó (thường là một bộ phận, khía cạnh của một chủ thể).\n• [Tính từ + Danh từ]: Khi muốn BỔ NGHĨA trực tiếp cho danh từ thì tính từ BẮT BUỘC phải đứng TRƯỚC danh từ (Tính từ đuôi い giữ nguyên い + N; Tính từ đuôi な + な + N).\n• Chú ý câu nêu chủ đề chung: Ví dụ câu 'Mùa đông không lạnh' ➔ Mùa đông là chủ đề của cả câu nên dùng「は」(冬は 寒くないです), KHÔNG NÊN dùng「冬が 寒くないです」.",
+        example: "• Mô tả đặc điểm (N が Tính từ):\n  - ゾウは 鼻が 長いです。(Con voi thì mũi dài - 'mũi dài' mô tả đặc điểm của con voi).\n  - マリアさんは 目が きれいです。(Bạn Maria thì mắt đẹp).\n  - 頭が 痛いです。(Tôi bị đau đầu).\n• Bổ nghĩa trực tiếp (Tính từ + N):\n  - 冷たい水 (Nước lạnh - tính từ 冷たい bổ nghĩa cho danh từ 水).\n  - 静かな町 (Thị trấn yên tĩnh - tính từ đuôi な thêm な bổ nghĩa cho 町).\n• Chủ đề câu dùng「は」:\n  - 冬は 寒くないです。(Mùa đông thì không lạnh - dùng は làm chủ đề, không dùng が).",
+        note: "💡 Khẩu quyết: Tính từ đứng sau が ➔ mô tả đặc điểm; Tính từ đứng trước N ➔ bổ nghĩa cho N; Nhắc đến chủ đề/trạng thái chung (như thời tiết, mùa màng) ➔ dùng は (冬は 寒くないです)."
       }
     ]
   },
