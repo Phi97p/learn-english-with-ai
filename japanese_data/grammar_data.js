@@ -1889,6 +1889,622 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở luyện đối thoại về bản thân (không tính điểm, tự đối chiếu với đáp án mẫu sau khi nộp bài):\n• 1):「今音楽を聞いていますか」(Bây giờ bạn có đang nghe nhạc không?) ➔ Nếu có:「はい、聞いています。」; nếu không:「いいえ、聞いていません。」.\n• 2):「「定食」の読み方を書いてください」(Hãy viết cách đọc của từ 「定食」) ➔ Chữ Hán 定食 đọc theo Hiragana là「ていしょく」(cơm suất / phần ăn định sẵn)."
       }
     ]
+  },
+  "bai_15": {
+    "title": "Bài 15",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b15_q1",
+        "type": "fill",
+        "tag": "Điền trợ từ vào ngoặc",
+        "question": "1. 例：ケータイ（ で ）桜（ の ）写真（ を ）撮りました。\n\n1) 時々高校の友達（____）思い出します。\n2) 静かな所（____）住みたいです。\n3) あの棚（____）上（____）カタログ（____）もらってもいいですか。\n4) 机（____）上（____）資料（____）置きました。\n5) ご家族（____）どちら（____）いらっしゃいますか。",
+        "answers": [
+          "を / o / wo",
+          "に / ni",
+          "の / no",
+          "の / から / no / kara",
+          "を / o / wo",
+          "の / no",
+          "に / ni",
+          "を / o / wo",
+          "は / が / wa / ga",
+          "に / ni"
+        ],
+        "explanation": "• Ôn tập cách dùng trợ từ trong các mẫu câu của Minna no Nihongo Bài 15:\n• 例: Dùng điện thoại chụp ảnh hoa anh đào:「ケータイ で」(phương tiện/công cụ),「桜 の 写真」(ảnh hoa anh đào - nối danh từ),「写真 を 撮りました」(tân ngữ của hành động chụp ảnh).\n• 1): Cấu trúc biểu thị nhớ về ai đó「[Đối tượng] を 思い出します」➔「高校の友達 を 思い出します」(thỉnh thoảng nhớ về bạn bè cấp ba).\n• 2): Cấu trúc chỉ nơi sinh sống lâu dài định cư「[Địa điểm] に 住みます／住みたいです」dùng trợ từ「に」chỉ sự tồn tại ➔「静かな所 に 住みたいです」(muốn sống ở nơi yên tĩnh).\n• 3): Vị trí 1:「あの棚 の 上」(trên giá kia - nối vị trí). Vị trí 2:「上 の カタログ」(cuốn catalogue ở trên) hoặc「上 から」(từ trên giá). Vị trí 3: Tân ngữ của hành động nhận「カタログ を もらってもいいですか」(tôi có thể nhận cuốn catalogue được không?).\n• 4): Vị trí 1:「机 の 上」(trên bàn - nối vị trí). Vị trí 2: Đích đến/vị trí đặt để của hành động đặt「机の上に 資料 を 置きました」(đặt tài liệu lên trên bàn dùng trợ từ「に」). Vị trí 3: Tân ngữ「資料 を」(đặt tài liệu).\n• 5): Vị trí 1: Trợ từ「は」(hoặc「が」) xác định chủ ngữ「ご家族 は」(Gia đình bạn thì...). Vị trí 2: Đi kèm kính ngữ tồn tại「いらっしゃいます」(ở đâu) dùng trợ từ「に」➔「どちら に いらっしゃいますか」(Gia đình bạn đang ở đâu thế ạ?)."
+      },
+      {
+        "id": "b15_q2",
+        "type": "fill",
+        "tag": "Chia thể て và điền từ thích hợp",
+        "question": "2. ［ 泳ぎます　書きます　飲みます　使います　もらいます ］\n［ 吸います　作ります　開けます　つけます ］\n\n例：このはさみを（ 使って ）もいいですか。\n\n1) エアコンを（____）もいいですか。\n2) 鉛筆で（____）もいいですか。\n3) 窓を（____）もいいですか。\n4) このカタログを（____）もいいですか。\n5) この川で（____）はいけません。\n6) 子どもはたばこを（____）はいけません。\n7) 教室でお酒を（____）はいけません。",
+        "answers": [
+          "つけて / tsukete",
+          "書いて / かいて / kaite",
+          "開けて / あけて / akete",
+          "もらって / moratte",
+          "泳いで / およいで / oyoide",
+          "吸って / すって / sutte",
+          "飲んで / のんで / nonde"
+        ],
+        "explanation": "• Ôn tập hai mẫu câu trọng tâm của Bài 15:\n  - Xin phép:「V-て + もいいですか」(Tôi làm V có được không?)\n  - Cấm đoán:「V-て + はいけません」(Không được làm V / Cấm làm V)\n• 1): Bật máy lạnh「エアコンを」➔ Động từ「つけます」(nhóm 2) chuyển sang thể て là「つけて」➔「エアコンをつけてもいいですか」(Tôi bật máy lạnh có được không?).\n• 2): Viết bằng bút chì「鉛筆で」➔ Động từ「書きます」(nhóm 1) chuyển sang thể て là「書いて」➔「鉛筆で書いてもいいですか」(Tôi viết bằng bút chì có được không?).\n• 3): Mở cửa sổ「窓を」➔ Động từ「開けます」(nhóm 2) chuyển sang thể て là「開けて」➔「窓を開けてもいいですか」(Tôi mở cửa sổ có được không?).\n• 4): Nhận cuốn catalogue「このカタログを」➔ Động từ「もらいます」(nhóm 1) chuyển sang thể て là「もらって」➔「このカタログをもらってもいいですか」(Tôi lấy cuốn catalogue này có được không?).\n• 5): Bơi ở dòng sông này「この川で」➔ Động từ「泳ぎます」(nhóm 1) chuyển sang thể て là「泳いで」➔「この川で泳いではいけません」(Không được bơi ở dòng sông này).\n• 6): Trẻ em hút thuốc「子どもはたばこを」➔ Động từ「吸います」(nhóm 1) chuyển sang thể て là「吸って」➔「子どもはたばこを吸ってはいけません」(Trẻ em không được hút thuốc).\n• 7): Uống rượu trong lớp học「教室でお酒を」➔ Động từ「飲みます」(nhóm 1) chuyển sang thể て là「飲んで」➔「教室でお酒を飲んではいけません」(Không được uống rượu trong lớp học).\n(Lưu ý: Động từ「作ります」là từ đánh lừa)."
+      },
+      {
+        "id": "b15_q3",
+        "type": "fill",
+        "tag": "Chia thể て và điền từ thích hợp",
+        "question": "3. ［ 住みます　作ります　立ちます　持ちます　売ります ］\n［ 知ります　働きます　結婚します　研究します ］\n\n例：兄の会社は電気製品を（ 作って ）います。\n\n1) タワポンさんは学校の近くに（____）います。\n2) 弟は（____）いません。独身です。\n3) カリナさんは日本の古い美術を（____）います。\n4) タワポンさんは（____）いません。学生です。\n5) どこで電子辞書を（____）いますか。\n6) サントスさんの住所を（____）いますか。\n7) テレーザちゃんは自転車を（____）います。",
+        "answers": [
+          "住んで / すんで / sunde",
+          "結婚して / けっこんして / kekkon shite / kekkonshite",
+          "研究して / けんきゅうして / kenkyuu shite / kenkyuushite",
+          "働いて / はたらいて / hataraite",
+          "売って / うって / utte",
+          "知って / しって / shitte",
+          "持って / もって / motte"
+        ],
+        "explanation": "• Ôn tập mẫu câu biểu thị trạng thái kéo dài, nghề nghiệp, kết quả hoặc thói quen của hành động:「V-て + います / いません」(Đang / Có...):\n• 例: Sản xuất đồ điện tử:「電気製品を 作っています」(công ty anh trai tôi sản xuất đồ điện tử).\n• 1): Cư trú, sinh sống lâu dài tại đâu「[Địa điểm] に 住んでいます」➔「学校の近くに 住んでいます」(Tawapon sống ở gần trường học).\n• 2): Trạng thái hôn nhân: chưa kết hôn, còn độc thân「独身です」➔ dùng phủ định「結婚していません」(em trai tôi chưa kết hôn).\n• 3): Nghiên cứu lĩnh vực nghệ thuật「日本の古い美術を 研究しています」(Karina đang nghiên cứu mỹ thuật cổ Nhật Bản).\n• 4): Nghề nghiệp: chưa đi làm, đang là học sinh/sinh viên「学生です」➔ dùng phủ định「働いていません」(Tawapon không đi làm).\n• 5): Nơi buôn bán, kinh doanh một mặt hàng「どこで電子辞書を 売っていますか」(Ở đâu có bán từ điển điện tử thế?).\n• 6): Trạng thái biết một thông tin (địa chỉ, số điện thoại)「[Thông tin] を 知っていますか」➔「サントスさんの住所を 知っていますか」(Bạn có biết địa chỉ của anh Santos không?).\n• 7): Sở hữu đồ vật (xe cộ, nhà cửa)「[Đồ vật] を 持っています」➔「自転車を 持っています」(Bé Teresa có một chiếc xe đạp).\n(Lưu ý: Động từ「立ちます」là từ đánh lừa)."
+      },
+      {
+        "id": "b15_q4",
+        "type": "fill",
+        "tag": "Chia dạng thích hợp của động từ",
+        "question": "4. 例：A：旅行の写真を（見ます…見て）もいいですか。\n　　B：ええ。いっしょに（見ます…見）ましょう。\n\n1) A：ここに荷物を（置きます…____）もいいですか。\n　 B：ここはちょっと……。\n　 すみませんが、あちらに（置きます…____）ください。\n\n2) A：疲れました。ちょっと（休みます…____）もいいですか。\n　 B：ええ。わたしも疲れましたから、（休みます…____）ましょう。\n\n3) A：失礼ですが、お仕事は？\n　 B：教師です。高校で美術を（教えます…____）います。\n　 A：あなたは？\n　 C：学生です。日本語学校で日本語を（勉強します…____）います。\n　 来年から日本の会社で（働きます…____）たいです。\n\n4) A：日曜日に美術館へ絵を（見ます…____）に行きます。\n　 B：わたしも（行きます…____）たいです。\n　 いっしょに（行きます…____）もいいですか。\n　 A：ええ。いっしょに（行きます…____）ましょう。\n　 B：美術館で写真を（撮ります…____）もいいですか。\n　 A：いいえ、いけません。",
+        "answers": [
+          "置いて / おいて / oite",
+          "置いて / おいて / oite",
+          "休んで / やすんで / yasunde",
+          "休み / やすみ / yasumi",
+          "教えて / おしえて / oshiete",
+          "勉強して / べんきょうして / benkyou shite / benkyoushite",
+          "働き / はたらき / hataraki",
+          "見 / み / mi",
+          "行き / いき / iki",
+          "行って / いって / itte",
+          "行き / いき / iki",
+          "撮って / とって / totte"
+        ],
+        "explanation": "• Ôn tập tổng hợp biến đổi thể của động từ kết hợp với các mẫu câu ngữ pháp đã học (Bài 13, Bài 14, Bài 15):\n  - V-て + もいいですか (Xin phép làm gì: Được làm... không?)\n  - V-て + ください (Yêu cầu, nhờ vả: Xin hãy...)\n  - V-て + います (Diễn tả nghề nghiệp, trạng thái tiếp diễn: Đang...)\n  - V(bỏ ます) + ましょう (Rủ rê, đề nghị cùng làm: Cùng làm... nhé)\n  - V(bỏ ます) + たいです (Diễn tả ý muốn: Muốn làm...)\n  - V(bỏ ます) + に行きます (Mục đích di chuyển: Đi để làm...)\n• 1):\n  - Blank 1: Xin phép để hành lý「ここに荷物を 置いてもいいですか」(Tôi để hành lý ở đây có được không?) ➔ Động từ「置きます」(nhóm 1) đổi sang thể て là「置いて」.\n  - Blank 2: Hướng dẫn/nhờ vả để đằng kia「あちらに 置いてください」(Xin vui lòng để đằng kia) ➔ Động từ「置きます」đổi sang thể て là「置いて」.\n• 2):\n  - Blank 3: Xin phép nghỉ ngơi「ちょっと 休んでもいいですか」(Tôi nghỉ ngơi một chút có được không?) ➔ Động từ「休みます」(nhóm 1) đổi sang thể て là「休んで」.\n  - Blank 4: Rủ cùng nghỉ ngơi「いっしょに 休みましょう」(Chúng ta cùng nghỉ ngơi nhé) ➔ Động từ「休みます」bỏ ます là「休み」.\n• 3):\n  - Blank 5: Nghề nghiệp/giảng dạy「高校で美術を 教えています」(Tôi đang dạy môn mỹ thuật ở trường cấp ba) ➔ Động từ「教えます」(nhóm 2) đổi sang thể て là「教えて」.\n  - Blank 6: Hành động đang theo học「日本語学校で日本語を 勉強しています」(Tôi đang học tiếng Nhật ở trường tiếng Nhật) ➔ Động từ「勉強します」(nhóm 3) đổi sang thể て là「勉強して」.\n  - Blank 7: Diễn tả mong muốn làm việc「来年から日本の会社で 働きたいです」(Từ năm sau tôi muốn làm việc tại một công ty Nhật Bản) ➔ Động từ「働きます」(nhóm 1) bỏ ます là「働き」.\n• 4):\n  - Blank 8: Mục đích di chuyển「美術館へ絵を 見に行きます」(Chủ nhật tôi đi đến bảo tàng mỹ thuật để xem tranh) ➔ Động từ「見ます」(nhóm 2) bỏ ます là「見」.\n  - Blank 9: Diễn tả mong muốn「わたしも 行きたいです」(Tôi cũng muốn đi) ➔ Động từ「行きます」(nhóm 1) bỏ ます là「行き」.\n  - Blank 10: Xin phép đi cùng「いっしょに 行ってもいいですか」(Tôi đi cùng có được không?) ➔ Động từ「行きます」(nhóm 1 đặc biệt) đổi sang thể て là「行って」.\n  - Blank 11: Rủ cùng đi「ええ。いっしょに 行きましょう」(Được chứ. Chúng ta cùng đi nào) ➔ Động từ「行きます」bỏ ます là「行き」.\n  - Blank 12: Xin phép chụp ảnh「美術館で写真を 撮ってもいいですか」(Chụp ảnh ở bảo tàng mỹ thuật có được không?) ➔ Động từ「撮ります」(nhóm 1) đổi sang thể て là「撮って」(Trả lời:「いいえ、いけません」- cấm chụp)."
+      },
+      {
+        "id": "b15_q5",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "5. 1) 電子辞書を持っていますか。＿＿＿＿＿＿＿＿＿＿\n\n2) 今だれと住んでいますか。＿＿＿＿＿＿＿＿＿＿\n\n3) 働いていますか。＿＿＿＿＿＿＿＿＿＿\n\n4) てんぷらの作り方を知っていますか。＿＿＿＿＿＿＿＿＿＿\n\n5) 教室でたばこを吸ってもいいですか。＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はい、持っています。 / いいえ、持っていません。 / はい、もっています。 / いいえ、もっていません。 / hai, motte imasu / iie, motte imasen",
+          "家族と住んでいます。 / 一人で住んでいます。 / 友達と住んでいます。 / かぞくとすんでいます。 / ひとりですんでいます。 / ともだちとすんでいます。",
+          "はい、働いています。 / いいえ、働いていません。学生です。 / いいえ、働いていません。 / はい、はたらいています。 / いいえ、はたらいていません。",
+          "はい、知っています。 / いいえ、知りません。 / はい、しっています。 / いいえ、しりません。 / hai, shitte imasu / iie, shirimasen",
+          "いいえ、吸ってはいけません。 / いいえ、いけません。 / いいえ、すってはいけません。 / いいえ、たばこを吸ってはいけません。 / iie, sutte wa ikemasen"
+        ],
+        "explanation": "• Dạng câu hỏi mở luyện đối thoại về bản thân (không tính điểm, tự đối chiếu với đáp án mẫu sau khi nộp bài):\n• 1):「電子辞書を持っていますか」(Bạn có từ điển điện tử không?) ➔ Nếu có:「はい、持っています。」; nếu không:「いいえ、持っていません。」.\n• 2):「今だれと住んでいますか」(Bây giờ bạn đang sống cùng với ai?) ➔ Sống cùng gia đình:「家族と住んでいます。」; sống một mình:「一人で住んでいます。」; sống cùng bạn bè:「友達と住んでいます。」.\n• 3):「働いていますか」(Bạn có đang đi làm không?) ➔ Đang đi làm:「はい、働いています。」; không đi làm (là học sinh/sinh viên):「いいえ、働いていません。学生です。」.\n• 4):「てんぷらの作り方を知っていますか」(Bạn có biết cách làm món Tempura không?) ➔ Chú ý ngữ pháp trọng tâm Bài 15: Phủ định của「知っています」bắt buộc phải là「知りません」(không dùng「知っていません」). Nếu biết:「はい、知っています。」; nếu không biết:「いいえ、知りません。」.\n• 5):「教室でたばこを吸ってもいいですか」(Hút thuốc trong lớp học có được không?) ➔ Đây là hành vi bị cấm trong lớp học, trả lời cấm đoán:「いいえ、吸ってはいけません。」(hoặc ngắn gọn:「いいえ、いけません。」)."
+      }
+    ]
+  },
+  "bai_16": {
+    "title": "Bài 16",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b16_q1",
+        "type": "fill",
+        "tag": "Tìm từ trái nghĩa",
+        "columns": 2,
+        "question": "1. 例1：安い ⇔ 高い\n例2：喫茶店に入ります ⇔ 喫茶店を出ます\n\n1) 多い ⇔（____）\n2) 近い ⇔（____）\n3) 軽い ⇔（____）\n4) 速い ⇔（____）\n5) 広い ⇔（____）\n6) 暗い ⇔（____）\n7) 古い ⇔（____）\n8) 低い ⇔（____）\n9) 長い ⇔（____）\n10) 暇 ⇔（____）\n11) 消します ⇔（____）\n12) 閉めます ⇔（____）\n13) 入れます ⇔（____）\n14) 座ります ⇔（____）\n15) 電車に乗ります ⇔（____）\n16) 大学を出ます ⇔（____）",
+        "answers": [
+          "少ない / すくない / sukunai",
+          "遠い / とおい / tooi",
+          "重い / おもい / omoi",
+          "遅い / おそい / osoi",
+          "狭い / せまい / semai",
+          "明るい / あかるい / akarui",
+          "新しい / あたらしい / atarashii",
+          "高い / たかい / takai",
+          "短い / みじかい / mijikai",
+          "忙しい / いそがしい / isogashii",
+          "つけます / 点けます / tsukemasu",
+          "開けます / あけます / akemasu",
+          "出します / だします / dashimasu",
+          "立ちます / たちます / tachimasu",
+          "電車を降ります / 電車をおります / 降ります / おります / densha o orimasu / densha wo orimasu / orimasu",
+          "大学に入ります / 大学にはいります / 入ります / はいります / daigaku ni hairimasu / hairimasu"
+        ],
+        "explanation": "• Ôn tập các cặp từ (tính từ, động từ) và cụm động từ trái nghĩa trong tiếng Nhật (Bài 16 và các bài trước):\n• 例1:「安い」(rẻ) ⇔「高い」(đắt/cao).\n• 例2:「喫茶店に入ります」(vào quán giải khát - trợ từ に) ⇔「喫茶店を出ます」(ra khỏi quán giải khát - trợ từ を).\n• 1):「多い」(nhiều) ⇔「少ない」(ít, すくない).\n• 2):「近い」(gần) ⇔「遠い」(xa, とおい).\n• 3):「軽い」(nhẹ) ⇔「重い」(nặng, おもい).\n• 4):「速い」(nhanh) ⇔「遅い」(chậm, おそい).\n• 5):「広い」(rộng) ⇔「狭い」(hẹp, せまい).\n• 6):「暗い」(tối) ⇔「明るい」(sáng, あかるい).\n• 7):「古い」(cũ) ⇔「新しい」(mới, あたらしい).\n• 8):「低い」(thấp) ⇔「高い」(cao, たかい).\n• 9):「長い」(dài) ⇔「短い」(ngắn, みじかい).\n• 10):「暇」(rảnh rỗi) ⇔「忙しい」(bận rộn, いそがしい).\n• 11):「消します」(tắt đèn/thiết bị) ⇔「つけます / 点けます」(bật).\n• 12):「閉めます」(đóng cửa) ⇔「開けます」(mở, あけます).\n• 13):「入れます」(cho vào) ⇔「出します」(lấy ra, だします).\n• 14):「座ります」(ngồi xuống) ⇔「立ちます」(đứng lên, たちます).\n• 15):「電車に乗ります」(lên tàu điện - trợ từ に) ⇔「電車を降ります」(xuống tàu điện - trợ từ を, おります).\n• 16):「大学を出ます」(ra trường/tốt nghiệp đại học - trợ từ を) ⇔「大学に入ります」(nhập học/vào đại học - trợ từ に, はいります)."
+      },
+      {
+        "id": "b16_q2",
+        "type": "fill",
+        "tag": "Nối câu bằng thể て và V-てから",
+        "question": "2. 例：窓を（閉めました…閉めて）、電気を（消しました…消して）から、事務所を出ました。\n\n1) 地下鉄で大阪まで（行きます…____）、JRに乗り換えてください。\n2) 毎朝駅で新聞を（買います…____）、電車で読みます。\n3) バスを（降りました…____）から、田中さんのうちまで歩いて行きました。\n4) 昼ごはんを（食べます…____）、少し（休みます…____）から、テニスをしに行きます。\n5) 大学を（出ました…____）から、コンピューターの会社に（入りました…____）、3年働きました。\n6) 仕事が（終わります…____）から、1時間ぐらいプールで（泳ぎます…____）、帰ります。\n7) きのう友達と野球を（見ました…____）、食事を（しました…____）、それから11時ごろまで喫茶店で話しました。\n8) ここにキャッシュカードを（入れます…____）、暗証番号を押してください。それから金額を（押します…____）、（確認します…____）から、確認ボタンを押してください。",
+        "answers": [
+          "行って / いって / itte",
+          "買って / かって / katte",
+          "降りて / おりて / orite",
+          "食べて / たべて / tabete",
+          "休んで / やすんで / yasunde",
+          "出て / でて / dete",
+          "入って / はいって / haitte",
+          "終わって / おわって / owatte",
+          "泳いで / およいで / oyoide",
+          "見て / みて / mite",
+          "して / shite",
+          "入れて / いれて / irete",
+          "押して / おして / oshite",
+          "確認して / かくにんして / kakunin shite / kakuninshite"
+        ],
+        "explanation": "• Ôn tập hai mẫu ngữ pháp trọng tâm của Bài 16 Minna no Nihongo:\n  - Nối chuỗi hành động theo thứ tự thời gian:「V1-て、V2-て、... V-n」(Làm V1, rồi làm V2, rồi...)\n  - Diễn tả hành động sau khi hoàn tất hành động trước:「V1-て + から、V2」(Sau khi làm V1 thì làm V2)\n• 1):「行きます」(nhóm 1 đặc biệt) đổi sang thể て là「行って」➔「地下鉄で大阪まで 行って、JRに乗り換えてください」(Hãy đi tàu điện ngầm đến Osaka rồi chuyển sang tuyến JR).\n• 2):「買います」(nhóm 1) đổi sang thể て là「買って」➔「毎朝駅で新聞を 買って、電車で読みます」(Mỗi sáng mua báo ở nhà ga rồi đọc trên tàu điện).\n• 3):「降ります」(nhóm 2) đổi sang thể て là「降りて」➔「バスを 降りてから、田中さんのうちまで歩いて行きました」(Sau khi xuống xe buýt, tôi đã đi bộ đến nhà anh Tanaka).\n• 4):「食べます」(nhóm 2) ➔「食べて」;「休みます」(nhóm 1) ➔「休んで」➔「昼ごはんを 食べて、少し 休んでから、テニスをしに行きます」(Ăn trưa rồi nghỉ ngơi một chút, sau đó đi chơi tennis).\n• 5):「出ます」(nhóm 2) ➔「出て」;「入ります」(nhóm 1) ➔「入って」➔「大学を 出てから、コンピューターの会社に 入って、3年働きました」(Sau khi ra trường, tôi vào công ty máy tính và đã làm việc ở đó 3 năm).\n• 6):「終わります」(nhóm 1) ➔「終わって」;「泳ぎます」(nhóm 1) ➔「泳いで」➔「仕事が 終わってから、1時間ぐらいプールで 泳いで、帰ります」(Sau khi xong việc, tôi bơi khoảng 1 tiếng ở hồ bơi rồi về nhà).\n• 7):「見ます」(nhóm 2) ➔「見て」;「します」(nhóm 3) ➔「して」➔「きのう友達と野球を 見て、食事を して、それから11時ごろまで喫茶店で話しました」(Hôm qua tôi xem bóng chày với bạn, ăn cơm, sau đó nói chuyện ở quán cà phê đến khoảng 11 giờ).\n• 8):「入れます」(nhóm 2) ➔「入れて」;「押します」(nhóm 1) ➔「押して」;「確認します」(nhóm 3) ➔「確認して」➔ Các bước rút tiền tại cây ATM:「ここにキャッシュカードを 入れて、暗証番号を押してください。それから金額を 押して、確認してから、確認ボタンを押してください」(Cho thẻ ATM vào đây rồi bấm mã pin. Tiếp theo bấm số tiền, sau khi xác nhận thì bấm nút xác nhận)."
+      },
+      {
+        "id": "b16_q3",
+        "type": "fill",
+        "tag": "Mẫu câu N1 は N2 が Tính từ です",
+        "question": "3. 例：漢字／読み方／難しい…<u>漢字は読み方が難しいです。</u>\n\n1) マリアさん／髪／長い…＿＿＿＿＿＿＿＿＿＿\n2) この料理／作り方／簡単…＿＿＿＿＿＿＿＿＿＿\n3) 日本／山／多い…＿＿＿＿＿＿＿＿＿＿\n4) 北海道／雪の季節／きれい…＿＿＿＿＿＿＿＿＿＿\n5) この喫茶店／紅茶／おいしい…＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "マリアさんは髪が長いです。 / マリアさんは髪が長いです / マリアさんはかみがながいです。 / マリアさんはかみがながいです / maria-san wa kami ga nagai desu",
+          "この料理は作り方が簡単です。 / この料理は作り方が簡単です / このりょうりはつくりかたがかんたんです。 / このりょうりはつくりかたがかんたんです / kono ryouri wa tsukurikata ga kantan desu",
+          "日本は山が多いです。 / 日本は山が多いです / にほんはやまがおおいです。 / にほんはやまがおおいです / nihon wa yama ga ooi desu",
+          "北海道は雪の季節がきれいです。 / 北海道は雪の季節がきれいです / ほっかいどうはゆきのきせつがきれいです。 / ほっかいどうはゆきのきせつがきれいです / hokkaidou wa yuki no kisetsu ga kirei desu",
+          "この喫茶店は紅茶がおいしいです。 / この喫茶店は紅茶がおいしいです / このきっさてんはこうちゃがおいしいです。 / このきっさてんはこうちゃがおいしいです / kono kissaten wa koucha ga oishii desu"
+        ],
+        "explanation": "• Cấu trúc biểu thị thuộc tính, đặc điểm của chủ thể:「N1 は N2 が A です」(Chủ thể N1 thì có bộ phận/thuộc tính N2 mang tính chất A):\n• 例: Chữ Hán thì cách đọc khó:「漢字は 読み方が 難しいです」.\n• 1): Maria thì tóc dài:「マリアさんは 髪が 長いです」.\n• 2): Món ăn này thì cách làm đơn giản (tính từ đuôi な「簡単」kết thúc bằng です):「この料理は 作り方が 簡単です」.\n• 3): Nhật Bản thì nhiều núi:「日本は 山が 多いです」.\n• 4): Hokkaido thì mùa tuyết đẹp (tính từ đuôi な「きれい」kết thúc bằng です):「北海道は 雪の季節が きれいです」.\n• 5): Quán giải khát này thì hồng trà ngon:「この喫茶店は 紅茶が おいしいです」."
+      },
+      {
+        "id": "b16_q4",
+        "type": "fill",
+        "tag": "Nối tính từ và danh từ",
+        "question": "4. 例：佐藤さんのかばんはどれですか。（黒い／大きい）\n　 …<u>あの黒くて、大きいかばんです。</u>\n\n1) ミラーさんはどの人ですか。（目が青い／背が高い）\n　 …あの ＿＿＿＿＿＿＿＿＿＿\n2) イーさんはどんな人ですか。（若い／頭がいい／すてき）\n　 … ＿＿＿＿＿＿＿＿＿＿\n3) 天気はどうでしたか。（曇り／寒い）\n　 … ＿＿＿＿＿＿＿＿＿＿\n4) どんなパソコンが欲しいですか。（小さい／使い方が簡単）\n　 … ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "目が青くて、背が高い人です。 / 目が青くて、背が高い人です / 目があおくて、せがたかいひとです。 / 目があおくて、せがたかいひとです / あの目が青くて、背が高い人です。 / あの目が青くて、背が高い人です / 目が青くて、背が高い人 / me ga aokute se ga takai hito desu",
+          "若くて、頭がよくて、すてきな人です。 / 若くて、頭がよくて、すてきな人です / 若くて、頭がよくて、すてきです。 / 若くて、頭がよくて、すてきです / わかくて、あたまがよくて、すてきなひとです。 / わかくて、あたまがよくて、すてきなひとです / wakakute atama ga yokute suteki na hito desu",
+          "曇りで、寒かったです。 / 曇りで、寒かったです / くもりで、さむかったです。 / くもりで、さむかったです / kumori de samukatta desu",
+          "小さくて、使い方が簡単なパソコンです。 / 小さくて、使い方が簡単なパソコンです / 小さくて、使い方が簡単なパソコンが欲しいです。 / 小さくて、使い方が簡単なパソコンが欲しいです / 小さくて、使い方が簡単です。 / 小さくて、使い方が簡単です / 小さくて、使い方が簡単なパソコン / ちいさくて、つかいかたがかんたんなパソコンです / chiisakute tsukaikata ga kantan na pasokon desu"
+        ],
+        "explanation": "• Ôn tập cách nối các tính từ và danh từ trong câu:\n  - Tính từ đuôi い: bỏ「い」thay bằng「〜くて」(Ví dụ: 黒い ➔ 黒くて; 若い ➔ 若くて; いい ➔ よくて; 寒い ➔ 寒くて)\n  - Tính từ đuôi な: bỏ「な」thay bằng「〜で」(Ví dụ: すてきな ➔ すてきで; 簡単な ➔ 簡単で). Khi bổ nghĩa trực tiếp cho danh từ thì giữ nguyên「〜な N」(すてきな人, 簡単なパソコン).\n  - Danh từ: thêm「〜で」(Ví dụ: 曇り ➔ 曇りで)\n• 例: Túi xách của anh Sato: màu đen và to ➔「あの黒くて、大きいかばんです」.\n• 1): Anh Miller là người nào? Mắt xanh và dáng người cao ➔ Sau chữ「…あの」điền:「目が青くて、背が高い人です」(người mắt xanh và cao ráo).\n• 2): Chị Lee là người như thế nào? Trẻ, thông minh và tuyệt vời ➔ Nối 3 tính từ:「若くて、頭がよくて、すてきな人です」(Người vừa trẻ trung, thông minh lại rất tuyệt vời). Chú ý: tính từ「いい」đổi thành「よくて」.\n• 3): Thời tiết đã như thế nào? (câu hỏi quá khứ「どうでしたか」) Trời nhiều mây và lạnh ➔ Danh từ「曇り」nối bằng「で」, tính từ「寒い」chuyển sang quá khứ là「寒かったです」➔「曇りで、寒かったです」(Trời nhiều mây và lạnh).\n• 4): Bạn muốn máy tính như thế nào? Nhỏ gọn và cách dùng đơn giản ➔「小さくて、使い方が簡単なパソコンです」(hoặc「使い方が簡単なパソコンが欲しいです」)."
+      },
+      {
+        "id": "b16_q5",
+        "type": "fill",
+        "tag": "Nối câu cùng chiều (〜て／〜で) và tương phản (〜が)",
+        "question": "5. 例1：仕事は（大変・おもしろい…大変ですが、おもしろいです）。\n   例2：地下鉄は（速い・安い…速くて、安いです）。\n\n1) この手帳は（便利・ちょっと重い…____）。\n2) ここは（有名なお寺・庭がきれい…____）。\n3) このホテルは（安い・サービスがよくない…____）。\n4) ここは（緑が多い・静か…____）。\n5) ワットさんは（イギリス人・英語の先生…____）。",
+        "answers": [
+          "便利ですが、ちょっと重いです / 便利ですがちょっと重いです / べんりですが、ちょっとおもいです / べんりですがちょっとおもいです / benri desu ga, chotto omoi desu",
+          "有名なお寺で、庭がきれいです / 有名なお寺で庭がきれいです / ゆうめいなおてらで、にわがきれいです / ゆうめいなおてらでにわがきれいです / yuumei na otera de, niwa ga kirei desu",
+          "安いですが、サービスがよくないです / 安いですがサービスがよくないです / やすいですが、さーびすがよくないです / やすいですがさーびすがよくないです / yasui desu ga, sa-bisu ga yokunai desu",
+          "緑が多くて、静かです / 緑が多くて静かです / みどりがおおくて、しずかです / みどりがおおくてしずかです / midori ga ookute, shizuka desu / midori ga ooi kute",
+          "イギリス人で、英語の先生です / イギリス人で英語の先生です / いぎりすじんで、えいごのせんせいです / いぎりすじんでえいごのせんせいです / igirisujin de, eigo no sensei desu"
+        ],
+        "explanation": "• Phân biệt nối câu cùng chiều (thuận ý / bổ sung) và nối câu tương phản (ngược nghĩa / đối lập):\n  - Tương phản (1 tích cực, 1 tiêu cực): dùng trợ từ「〜が」(nhưng) để nối hai vế độc lập có です.\n  - Cùng chiều (cùng khen hoặc cùng chê): dùng thể nối「〜て／〜で」(vừa... vừa... / và):\n    + Tính từ đuôi い: bỏ「い」➔「〜くて」\n    + Tính từ đuôi な và Danh từ: ➔「〜で」\n• 例1: Công việc vất vả (tiêu cực) nhưng thú vị (tích cực) ➔ Tương phản:「大変ですが、おもしろいです」.\n• 例2: Tàu điện ngầm nhanh (tích cực) và rẻ (tích cực) ➔ Cùng chiều:「速くて、安いです」.\n• 1): Sổ tay này tiện lợi (tích cực) nhưng hơi nặng (tiêu cực) ➔ Tương phản:「便利ですが、ちょっと重いです」.\n• 2): Nơi này là ngôi chùa nổi tiếng (danh từ) và có vườn đẹp (tích cực) ➔ Cùng chiều, danh từ nối bằng「で」:「有名なお寺で、庭がきれいです」.\n• 3): Khách sạn này rẻ (tích cực) nhưng dịch vụ không tốt (tiêu cực) ➔ Tương phản:「安いですが、サービスがよくないです」.\n• 4): Nơi này nhiều cây xanh (tích cực) và yên tĩnh (tích cực) ➔ Cùng chiều,「多い」đổi thành「多くて」:「緑が多くて、静かです」.\n• 5): Thầy Watt là người Anh (danh từ) và là giáo viên tiếng Anh (danh từ) ➔ Cùng chiều, danh từ nối bằng「で」:「イギリス人で、英語の先生です」."
+      },
+      {
+        "id": "b16_q6",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "6. 1) 日本へ来てから、どのくらい日本語を勉強しましたか。＿＿＿＿＿＿＿＿＿＿\n\n2) あなたの部屋はどんな部屋ですか。＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "6か月勉強しました。 / 1年勉強しました。 / 3か月勉強しました。 / 6か月です。 / 1年です。 / 6kagetsu benkyou shimashita",
+          "広くて、明るい部屋です。 / 狭いですが、きれいです。 / きれいで、静かな部屋です。 / hirokute akarui heya desu"
+        ],
+        "explanation": "• Dạng câu hỏi mở luyện đối thoại về bản thân (không tính điểm, tự đối chiếu với đáp án mẫu sau khi nộp bài):\n• 1):「日本へ来てから、どのくらい日本語を勉強しましたか」(Kể từ sau khi đến Nhật, bạn đã học tiếng Nhật được bao lâu rồi?) ➔ Trả lời thời lượng học kèm mẫu câu「[Khoảng thời gian] 勉強しました」(Ví dụ:「6か月勉強しました。」- Đã học 6 tháng,「1年勉強しました。」- Đã học 1 năm).\n• 2):「あなたの部屋はどんな部屋ですか」(Phòng của bạn là căn phòng như thế nào?) ➔ Dùng cấu trúc nối tính từ/danh từ đã học trong bài để miêu tả phòng của mình (Ví dụ:「広くて、明るい部屋です。」- Phòng rộng và sáng sủa;「狭いですが、きれいです。」- Phòng hẹp nhưng sạch sẽ/đẹp)."
+      }
+    ]
+  },
+  "bai_17": {
+    "title": "Bài 17",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b17_q1",
+        "type": "fill",
+        "tag": "Điền từ vào bảng chia thể ない",
+        "table": {
+          "title": "Bảng chuyển đổi Động từ (〜ます ⇔ 〜て ⇔ 〜ない)",
+          "headers": ["〜ます (Thể lịch sự)", "〜て (Thể て)", "〜ない (Thể phủ định ngắn)"],
+          "rows": [
+            ["例：飲みます", "飲んで", "飲まない"],
+            ["1) （____）", "行って", "2) （____）"],
+            ["払います", "3) （____）", "4) （____）"],
+            ["5) （____）", "覚えて", "6) （____）"],
+            ["7) （____）", "8) （____）", "立たない"],
+            ["9) （____）", "借りて", "10) （____）"],
+            ["入ります", "11) （____）", "12) （____）"],
+            ["13) （____）", "14) （____）", "出張しない"],
+            ["15) （____）", "なくして", "16) （____）"],
+            ["来ます", "17) （____）", "18) （____）"]
+          ]
+        },
+        "question": "1. Hoàn thành bảng chuyển đổi 3 thể của động từ:",
+        "answers": [
+          "行きます / いきます / ikimasu",
+          "行かない / いかない / ikanai",
+          "払って / はらって / haratte",
+          "払わない / はらわない / harawanai",
+          "覚えます / おぼえます / oboemasu",
+          "覚えない / おぼえない / oboenai",
+          "立ちます / たちます / tachimasu",
+          "立って / たって / tatte",
+          "借ります / かります / karimasu",
+          "借りない / かりない / karinai",
+          "入って / はいって / haitte",
+          "入らない / はいらない / hairanai",
+          "出張します / しゅっちょうします / shucchou shimasu / shucchoushimasu",
+          "出張して / しゅっちょうして / shucchou shite / shucchoushite",
+          "なくします / nakushimasu",
+          "なくさない / nakusanai",
+          "来て / きて / kite",
+          "来ない / こない / konai"
+        ],
+        "explanation": "• Ôn tập quy tắc chia động từ sang thể ない (thể phủ định ngắn) trọng tâm Bài 17:\n  - Nhóm 1: Chuyển hàng「い」trước ます sang hàng「あ」rồi thêm「ない」(chú ý: âm い chuyển thành わ: 払います ➔ 払わない).\n  - Nhóm 2: Bỏ「ます」thêm「ない」(覚えます ➔ 覚えない; 借ります ➔ 借りない).\n  - Nhóm 3: Bất quy tắc (します ➔ しない; 出張します ➔ 出張しない; 来ます ➔ こない).\n• 1):「行きます」(nhóm 1) ➔「行かない」.\n• 2):「払います」(nhóm 1) ➔「払って」(thể て) /「払わない」(thể ない).\n• 3):「覚えます」(nhóm 2) ➔「覚えない」.\n• 4):「立ちます」(nhóm 1) ➔「立って」(thể て) /「立たない」(thể ない).\n• 5):「借ります」(nhóm 2 đặc biệt) ➔「借りて」(thể て) /「借りない」(thể ない).\n• 6):「入ります」(nhóm 1) ➔「入って」(thể て) /「入らない」(thể ない).\n• 7):「出張します」(nhóm 3) ➔「出張して」(thể て) /「出張しない」(thể ない).\n• 8):「なくします」(nhóm 1) ➔「なくさない」.\n• 9):「来ます」(nhóm 3) ➔「来て」(thể て: きて) /「来ない」(thể ない: đọc là こない)."
+      },
+      {
+        "id": "b17_q2",
+        "type": "fill",
+        "tag": "Điền trợ từ vào ngoặc",
+        "question": "2. 例：駅の前でタクシー（ を ）降りました。\n\n1) 毎晩おふろ（____）入ります。\n2) 来週中国（____）出張します。\n3) 1日（____）3回薬（____）飲みます。\n4) ちょっとのど（____）痛いです。\n5) 松本さんのうち（____）お土産（____）持って行きましょう。",
+        "answers": [
+          "に / ni",
+          "へ / に / e / he / ni",
+          "に / ni",
+          "を / o / wo",
+          "が / は / ga / wa",
+          "へ / に / e / he / ni",
+          "を / o / wo"
+        ],
+        "explanation": "• Ôn tập cách sử dụng trợ từ trong các ngữ cảnh của Bài 17:\n• 例: Rời khỏi/xuống xe taxi dùng trợ từ「を」:「タクシーを 降りました」.\n• 1): Bước vào bồn tắm dùng trợ từ「に」chỉ điểm đến của hành động vào:「おふろに 入ります」(tắm bồn).\n• 2): Đi công tác tới Trung Quốc (chỉ phương hướng/đích đến):「中国へ (hoặc に) 出張します」.\n• 3): Vị trí 1: Biểu thị tần suất「[Khoảng thời gian] に [Số lần]」➔「1日に 3回」(1 ngày 3 lần). Vị trí 2: Tân ngữ của hành động uống thuốc「薬を 飲みます」.\n• 4): Biểu thị đau ở bộ phận cơ thể「[Bộ phận] が 痛いです」➔「のどが 痛いです」(đau họng).\n• 5): Vị trí 1: Đích đến của việc mang quà tới nhà anh Matsumoto「松本さんのうちへ (hoặc に)」. Vị trí 2: Tân ngữ của việc mang quà「お土産を 持って行きましょう」."
+      },
+      {
+        "id": "b17_q3",
+        "type": "binary_choice",
+        "tag": "Chọn 1 trong 2 từ",
+        "question": "3. 例：あさって〔まで／<u>までに</u>〕レポートを出さなければなりません。\n\n1) きのうの晩9時〔まで／までに〕残業しました。\n2) 次の会議〔まで／までに〕この資料を読まなければなりません。\n3) この本、来週の火曜日〔まで／までに〕借りてもいいですか。\n4) 今月の30日〔まで／までに〕お金を払ってください。",
+        "answers": [
+          "まで / made",
+          "までに / madeni",
+          "まで / made",
+          "までに / madeni"
+        ],
+        "explanation": "• Phân biệt cách dùng giữa trợ từ「まで」và「までに」:\n  -「〜まで」(cho đến / đến tận): Biểu thị hành động hoặc trạng thái diễn ra liên tục, kéo dài cho đến một thời điểm (động từ thường là 残業します, 働きます, 待ちます, 借ります...).\n  -「〜までに」(trước / muộn nhất là): Biểu thị một hành động có tính thời điểm phải được hoàn thành trước hoặc chậm nhất tại một thời điểm hạn chót (động từ thường là 出します, 払います, 終わります, 読みます...).\n• 例: Nộp báo cáo trước ngày kia ➔ Hạn chót hoàn thành hành động: chọn「までに」.\n• 1): Tối qua làm thêm giờ liên tục kéo dài đến tận 9 giờ: chọn「まで」.\n• 2): Phải đọc xong tài liệu này trước cuộc họp tiếp theo ➔ Hạn chót hoàn thành: chọn「までに」.\n• 3): Mượn sách liên tục giữ sách đến tận thứ Ba tuần sau: chọn「まで」.\n• 4): Hãy thanh toán tiền muộn nhất vào ngày 30 tháng này ➔ Hạn chót nộp tiền: chọn「までに」."
+      },
+      {
+        "id": "b17_q4",
+        "type": "fill",
+        "tag": "Chia thể てください và ないでください",
+        "question": "4. 例1：あしたまた（来ます…来てください）。\n   例2：ここは禁煙ですから、たばこを（吸います…吸わないでください）。\n\n1) すみませんが、ちょっと（手伝います…____）。\n2) 暗証番号は大切ですから、（忘れます…____）。\n3) 危ないですから、うしろから（押します…____）。\n4) 時間がありませんから、（急ぎます…____）。\n5) エアコンをつけましたから、窓を（開けます…____）。\n6) 漢字がわかりませんから、ひらがなで（書きます…____）。",
+        "answers": [
+          "手伝ってください / てつだってください / tetsudatte kudasai",
+          "忘れないでください / わすれないでください / wasurenai de kudasai / wasurenaide kudasai",
+          "押さないでください / おさないでください / osanai de kudasai / osanaide kudasai",
+          "急いでください / いそいでください / isoide kudasai",
+          "開けないでください / あけないでください / akenai de kudasai / akenaide kudasai",
+          "書いてください / かいてください / kaite kudasai"
+        ],
+        "explanation": "• Phân biệt hai mẫu câu yêu cầu / nhờ vả và khuyên can:\n  - Yêu cầu làm V:「V-て + ください」(Xin hãy làm V).\n  - Yêu cầu KHÔNG làm V (khuyên can / cấm lịch sự):「V-ない + でください」(Xin đừng làm V).\n• 例1: Ngày mai hãy lại đến nhé:「来てください」.\n• 例2: Vì ở đây cấm hút thuốc, xin đừng hút thuốc:「吸わないでください」.\n• 1): Nhờ giúp một tay:「すみませんが、ちょっと 手伝ってください」(Xin lỗi, hãy giúp tôi một chút).\n• 2): Vì mã số pin quan trọng:「暗証番号は大切ですから、忘れないでください」(Xin đừng quên mã số pin).\n• 3): Vì nguy hiểm:「危ないですから、うしろから 押さないでください」(Vì nguy hiểm, xin đừng xô đẩy từ phía sau).\n• 4): Vì không có thời gian:「時間がありませんから、急いでください」(Vì không có thời gian, xin hãy khẩn trương/nhanh lên).\n• 5): Vì đã bật máy lạnh:「エアコンをつけましたから、窓を 開けないでください」(Vì đã bật máy lạnh, xin đừng mở cửa sổ).\n• 6): Vì không hiểu chữ Hán:「漢字がわかりませんから、ひらがなで 書いてください」(Vì không hiểu chữ Hán, xin hãy viết bằng chữ Hiragana)."
+      },
+      {
+        "id": "b17_q5",
+        "type": "fill",
+        "tag": "Chia thể なければなりません và なくてもいいです",
+        "question": "5. 例1：試験がありますから、（勉強します…勉強しなければなりません）。\n   例2：時間がありますから、（急ぎます…急がなくてもいいです）。\n\n1) 試験は簡単ですから、（心配します…____）。\n2) 子どもが病気ですから、早く（帰ります…____）。\n3) 今晩はレストランで食べますから、食事を（作ります…____）。\n4) 両親が来ますから、空港へ迎えに（行きます…____）。\n5) 1か月旅行に行きますから、大きいかばんを（買います…____）。\n6) 忙しい仕事が終わりましたから、きょうは（残業します…____）。",
+        "answers": [
+          "心配しなくてもいいです / しんぱいしなくてもいいです / shinpai shinakute mo ii desu",
+          "帰らなければなりません / かえらなければなりません / kaeranakereba narimasen",
+          "作らなくてもいいです / つくらなくてもいいです / tsukuranakute mo ii desu",
+          "行かなければなりません / いかなければなりません / ikanakereba narimasen",
+          "買わなければなりません / かわなければなりません / kawanakereba narimasen",
+          "残業しなくてもいいです / ざんぎょうしなくてもいいです / zangyou shinakute mo ii desu"
+        ],
+        "explanation": "• Phân biệt hai mẫu câu biểu thị nghĩa vụ và không bắt buộc:\n  -「V-なければなりません」(Phải làm V): Biểu thị một hành động có tính bắt buộc, nghĩa vụ hoặc cần thiết phải làm (đổi sang thể ない ➔ bỏ「い」➔ thêm「〜なければなりません」).\n  -「V-なくてもいいです」(Không phải / Không cần làm V): Biểu thị hành động không có tính bắt buộc, không làm cũng không sao (đổi sang thể ない ➔ bỏ「い」➔ thêm「〜なくてもいいです」).\n• 例1: Vì có kỳ thi ➔ Phải học bài:「勉強しなければなりません」.\n• 例2: Vì có nhiều thời gian ➔ Không cần phải vội:「急がなくてもいいです」.\n• 1): Vì kỳ thi đơn giản/dễ ➔ Không cần phải lo lắng:「心配しなくてもいいです」.\n• 2): Vì con bị ốm ➔ Phải về nhà sớm:「早く 帰らなければなりません」.\n• 3): Vì tối nay đi ăn nhà hàng ➔ Không cần nấu cơm:「食事を 作らなくてもいいです」.\n• 4): Vì bố mẹ đến chơi ➔ Phải đi đón ở sân bay:「空港へ迎えに 行かなければなりません」.\n• 5): Vì đi du lịch tận 1 tháng ➔ Phải mua một chiếc vali to:「大きいかばんを 買わなければなりません」.\n• 6): Vì công việc bận rộn đã xong ➔ Hôm nay không cần phải làm thêm giờ:「きょうは 残業しなくてもいいです」."
+      },
+      {
+        "id": "b17_q6",
+        "type": "fill",
+        "tag": "Đưa tân ngữ lên làm chủ đề câu (〜は)",
+        "question": "6. 例：あした<u>この仕事</u>をします。 ➔ （この仕事はあしたします。）\n\n1) ここで<u>靴</u>を脱いでください。 ➔ （____）\n2) <u>ビールとジュース</u>を冷蔵庫に入れてください。 ➔ （____）\n3) 2、3日<u>スポーツ</u>をしないでください。 ➔ （____）\n4) あさってまでに<u>資料</u>を送らなければなりません。 ➔ （____）\n5) どうやって<u>漢字</u>を覚えますか。 ➔ （____）",
+        "answers": [
+          "靴はここで脱いでください。 / 靴はここで脱いでください / くつはここでぬいでください。 / くつはここでぬいでください / 靴は、ここで脱いでください。 / 靴は、ここで脱いでください / kutsu wa koko de nuide kudasai",
+          "ビールとジュースは冷蔵庫に入れてください。 / ビールとジュースは冷蔵庫に入れてください / ビールとジュースは、冷蔵庫に入れてください。 / ビールとジュースは、冷蔵庫に入れてください / bi-ru to ju-su wa reizouko ni irete kudasai",
+          "スポーツは2、3日しないでください。 / スポーツは2、3日しないでください / スポーツは2, 3日しないでください。 / スポーツは2, 3日しないでください / スポーツは２、３日しないでください。 / スポーツは２、３日しないでください / スポーツは、2、3日しないでください。 / スポーツは、2、3日しないでください / supo-tsu wa 2 3 nichi shinai de kudasai",
+          "資料はあさってまでに送らなければなりません。 / 資料はあさってまでに送らなければなりません / しりょうはあさってまでにおくらなければなりません。 / しりょうはあさってまでにおくらなければなりません / 資料は、あさってまでに送らなければなりません。 / 資料は、あさってまでに送らなければなりません / shiryou wa asatte made ni okuranakereba narimasen",
+          "漢字はどうやって覚えますか。 / 漢字はどうやって覚えますか / かんじはどうやっておぼえますか。 / かんじはどうやっておぼえますか / 漢字はどうやって覚えますか？ / 漢字はどうやって覚えますか / 漢字は、どうやって覚えますか。 / 漢字は、どうやって覚えますか / kanji wa dou yatte oboemasu ka"
+        ],
+        "explanation": "• Mẫu câu nhấn mạnh chủ đề (Topic Marker): Đưa tân ngữ trực tiếp (đang đi với trợ từ を) lên đầu câu để biến thành chủ đề của câu, thay trợ từ「を」bằng trợ từ「は」:\n• 例:「あした この仕事 をします」➔ Đưa tân ngữ「この仕事」lên đầu câu:「この仕事は あした します」(Công việc này thì ngày mai tôi sẽ làm).\n• 1): Đưa tân ngữ「靴」lên đầu câu ➔「靴は ここで 脱いでください」(Giày thì xin hãy cởi ở đây).\n• 2): Đưa cụm tân ngữ「ビールとジュース」lên đầu câu ➔「ビールとジュースは 冷蔵庫に入れてください」(Bia và nước ngọt thì xin hãy cho vào tủ lạnh).\n• 3): Đưa tân ngữ「スポーツ」lên đầu câu ➔「スポーツは 2、3日 しないでください」(Thể thao thì xin đừng chơi trong vòng 2-3 ngày).\n• 4): Đưa tân ngữ「資料」lên đầu câu ➔「資料は あさってまでに 送らなければなりません」(Tài liệu thì phải gửi muộn nhất vào ngày kia).\n• 5): Đưa tân ngữ「漢字」lên đầu câu ➔「漢字は どうやって 覚えますか」(Chữ Hán thì bạn nhớ bằng cách nào?)."
+      },
+      {
+        "id": "b17_q7",
+        "type": "fill",
+        "tag": "Chia động từ theo mẫu hội thoại",
+        "question": "7. 例：（送ります）\n　 A：この荷物はいつまでに（送ら）なければなりませんか。\n　 B：金曜日までに（送って）ください。\n\n1) （返します）\n　 A：この本はいつまでに（____）なければなりませんか。\n　 B：来週の木曜日までに（____）ください。\n\n2) （書きます）\n　 A：名前と住所を（____）ください。\n　 B：電話番号も（____）なければなりませんか。\n　 A：いいえ、電話番号は（____）なくてもいいです。\n\n3) （持って来ます）\n　 A：あしたも保険証を（____）なければなりませんか。\n　 B：いいえ、保険証は（____）なくてもいいです。\n　 このカードだけ（____）ください。",
+        "answers": [
+          "返さ / かえさ / kaesa / 返さない / かえさない",
+          "返して / かえして / kaeshite",
+          "書いて / かいて / kaite",
+          "書か / かか / kaka / 書かない / かかない",
+          "書か / かか / kaka / 書かない / かかない",
+          "持って来 / もってこ / motte ko / motteko / 持って来ない / もってこない",
+          "持って来 / もってこ / motte ko / motteko / 持って来ない / もってこない",
+          "持って来て / もってきて / motte kite / mottekite"
+        ],
+        "explanation": "• Ôn tập kết hợp biến đổi động từ vào các mẫu câu giao tiếp trọng tâm Bài 17:\n  -「V(thể ない bỏ ない) + なければなりませんか」(Có phải làm V không?)\n  -「V(thể ない bỏ ない) + なくてもいいです」(Không phải / Không cần làm V)\n  -「V-て + ください」(Xin hãy làm V)\n• 例: Động từ「送ります」(gửi) ➔ A:「送ら なければなりませんか」(phải gửi trước khi nào?); B:「送って ください」(hãy gửi trước thứ Sáu).\n• 1): Động từ「返します」(trả lại, nhóm 1):\n  - Blank 1: Trước「なければなりませんか」điền「返さ」(かえさ) ➔「いつまでに 返さなければなりませんか」(phải trả trước khi nào?).\n  - Blank 2: Trước「ください」điền「返して」(かえして) ➔「来週の木曜日までに 返してください」(xin hãy trả trước thứ Năm tuần sau).\n• 2): Động từ「書きます」(viết, nhóm 1):\n  - Blank 3: Trước「ください」điền「書いて」(かいて) ➔「名前と住所を 書いてください」(xin hãy viết tên và địa chỉ).\n  - Blank 4: Trước「なければなりませんか」điền「書か」(かか) ➔「電話番号も 書かなければなりませんか」(cả số điện thoại cũng phải viết à?).\n  - Blank 5: Trước「なくてもいいです」điền「書か」(かか) ➔「電話番号は 書かなくてもいいです」(số điện thoại thì không cần viết cũng được).\n• 3): Động từ「持って来ます」(mang đến, nhóm 3 bất quy tắc):\n  - Blank 6: Trước「なければなりませんか」điền「持って来」(đọc là もってこ) ➔「あしたも保険証を 持って来なければなりませんか」(ngày mai cũng phải mang thẻ bảo hiểm đến à?).\n  - Blank 7: Trước「なくてもいいです」điền「持って来」(đọc là もってこ) ➔「保険証は 持って来なくてもいいです」(thẻ bảo hiểm thì không cần mang theo cũng được).\n  - Blank 8: Trước「ください」điền「持って来て」(もってきて) ➔「このカードだけ 持って来てください」(chỉ cần mang theo thẻ này thôi)."
+      },
+      {
+        "id": "b17_q8",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "8. 1) 日曜日も早く起きなければなりませんか。＿＿＿＿＿＿＿＿＿＿\n\n2) 毎日宿題をしなければなりませんか。＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "いいえ、早く起きなくてもいいです。 / いいえ、起きなくてもいいです。 / はい、早く起きなければなりません。 / はい、起きなければなりません。 / iie, hayaku okinakute mo ii desu",
+          "はい、しなければなりません。 / いいえ、しなくてもいいです。 / はい、毎日しなければなりません。 / いいえ、毎日しなくてもいいです。 / hai, shinakereba narimasen / iie, shinakute mo ii desu"
+        ],
+        "explanation": "• Dạng câu hỏi mở luyện đối thoại về bản thân (không tính điểm, tự đối chiếu với đáp án mẫu sau khi nộp bài):\n• 1):「日曜日も早く起きなければなりませんか」(Chủ nhật bạn cũng phải thức dậy sớm à?) ➔ Nếu không phải dậy sớm, dùng mẫu「〜なくてもいいです」:「いいえ、早く起きなくてもいいです。」(Không, không cần phải dậy sớm); nếu phải dậy sớm, dùng mẫu「〜なければなりません」:「はい、早く起きなければなりません。」.\n• 2):「毎日宿題をしなければなりませんか」(Ngày nào bạn cũng phải làm bài tập về nhà à?) ➔ Nếu có:「はい、しなければなりません。」(hoặc「はい、毎日しなければなりません。」); nếu không:「いいえ、しなくてもいいです。」."
+      }
+    ]
+  },
+  "bai_18": {
+    "title": "Bài 18",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b18_q1",
+        "type": "fill",
+        "tag": "Lượng từ và đơn vị đếm (〜枚、〜人、〜台、〜つ、〜回)",
+        "question": "1. 例：会議室／テーブル／7／あります … 会議室にテーブルが 7つ あります。\n\n1) はがき／10／80円の切手／2／ください … ＿＿＿＿＿＿＿＿＿＿\n2) 教室／男の人／3／います … ＿＿＿＿＿＿＿＿＿＿\n3) 学校の前／自転車／6／あります … ＿＿＿＿＿＿＿＿＿＿\n4) みかん／5／食べました … ＿＿＿＿＿＿＿＿＿＿\n5) 1週間／2／病院／行かなければなりません … ＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "はがきを10枚と80円の切手を2枚ください。 / はがきを 10枚と 80円の切手を 2枚 ください。 / はがきを 10枚と 80円の切手を 2枚 ください / はがきを10枚と80円の切手を2枚ください / はがきを10枚、80円の切手を2枚ください。 / はがきを 10枚、80円の切手を 2枚 ください。 / はがきを10枚、80円の切手を2枚ください / はがきを 10枚、80円の切手を 2枚 ください / はがきを 10まいと 80えんのきってを 2まい ください。 / hagaki o 10mai to 80en no kitte o 2mai kudasai",
+          "教室に男の人が3人います。 / 教室に 男の人が 3人 います。 / 教室に 男の人が 3人 います / 教室に男の人が3人います / きょうしつにおとこのひとが3にんいます。 / きょうしつにおとこのひとが 3にん います。 / きょうしつにおとこのひとが 3にん います / kyoushitsu ni otoko no hito ga 3nin imasu",
+          "学校の前に自転車が6台あります。 / 学校の前に 自転車が 6台 あります。 / 学校の前に 自転車が 6台 あります / 学校の前に自転車が6台あります / がっこうのまえにじてんしゃが6だいあります。 / がっこうのまえにじてんしゃが 6だい あります。 / がっこうのまえにじてんしゃが 6だい あります / gakkou no mae ni jitensha ga 6dai arimasu",
+          "みかんを5つ食べました。 / みかんを 5つ 食べました。 / みかんを 5つ 食べました / みかんを5つ食べました / みかんを5つたべました。 / みかんを 5つ たべました。 / みかんを 5つ たべました / みかんをいつつたべました。 / みかんを いつつ 食べました。 / みかんを5個食べました。 / みかんを 5個 食べました。 / mikan o itsutsu tabemashita",
+          "1週間に2回病院へ行かなければなりません。 / 1週間に 2回 病院へ行かなければなりません。 / 1週間に2回病院に行かなければなりません。 / 1週間に 2回 病院に行かなければなりません。 / 1週間に 2回 病院へ行かなければなりません / 1週間に 2回 病院に行かなければなりません / 1しゅうかんに2かいびょういんへいかなければなりません。 / 1しゅうかんに 2かい びょういんへいかなければなりません。 / 1しゅうかんに2かいびょういんにいかなければなりません。 / 1しゅうかんに 2かい びょういんにいかなければなりません。 / １週間に２回病院へ行かなければなりません。 / １週間に２回病院に行かなければなりません。 / 1shuukan ni 2kai byouin e ikanakereba narimasen"
+        ],
+        "explanation": "• Cấu trúc sử dụng lượng từ và số từ trong tiếng Nhật:\n  - Vị trí lượng từ thường đứng ngay trước động từ hoặc sau trợ từ「が」,「を」.\n  - Đơn vị đếm tương ứng:\n    + Vật mỏng phẳng (bưu thiếp, tem...):「〜枚」(まい).\n    + Người:「〜人」(にん) - (chú ý: 1人 ひとり, 2人 ふたり, 3人 さんにん...).\n    + Máy móc, xe cộ:「〜台」(だい).\n    + Đồ vật đếm chung:「〜つ」(1つ ひとつ, 2つ ふたつ, 3つ みっつ, 4つ よっつ, 5つ いつつ, 6つ むっつ, 7つ ななつ...).\n    + Tần suất thời gian:「[Khoảng thời gian] に [Số lần] 回」(かい).\n• 例: 会議室 / テーブル / 7 / あります ➔「会議室に テーブルが 7つ あります」(Trong phòng họp có 7 cái bàn).\n• 1): はがき (10枚) + 80円の切手 (2枚) + ください ➔「はがきを 10枚と 80円の切手を 2枚 ください」(Cho tôi 10 bưu thiếp và 2 con tem 80 yên).\n• 2): 教室 (ở đâu に) + 男の人 (3人) + います ➔「教室に 男の人が 3人 います」(Trong phòng học có 3 người đàn ông).\n• 3): 学校の前 (ở đâu に) + 自転車 (6台) + あります ➔「学校の前に 自転車が 6台 あります」(Ở trước trường học có 6 chiếc xe đạp).\n• 4): みかん (5つ) + 食べました ➔「みかんを 5つ 食べました」(Tôi đã ăn 5 quả quýt).\n• 5): 1週間 (1週間に) + 2 (2回) + 病院 (病院へ / に) + 行かなければなりません ➔「1週間に 2回 病院へ行かなければなりません」(Một tuần tôi phải đi bệnh viện 2 lần)."
+      },
+      {
+        "id": "b18_q2",
+        "type": "fill",
+        "tag": "Khoảng thời gian (〜分、〜時間、〜週間、〜か月、〜年)",
+        "question": "2. 例：8:00〜12:00（4時間）\n\n1) 9:10〜9:50（____）\n2) 10:00〜11:30（____）\n3) 月曜日〜日曜日（____）\n4) 1月1日〜1月31日（____）\n5) 1月〜12月（____）",
+        "answers": [
+          "40分 / 40ふん / ４０分 / よんじゅっぷん / よんじっぷん / 40 pun / 40fun",
+          "1時間半 / 1時間30分 / 1じかんはん / 1じかん30ぷん / １時間半 / １時間３０分 / ichijikanhan / 1 jikan han",
+          "1週間 / 1しゅうかん / １週間 / 7日間 / 7日 / 7にちかん / なのかかん / isshuukan / 1 shuukan",
+          "1か月 / 1か月間 / 1ヶ月 / 1ヵ月 / 1カ月 / 1箇月 / いっかげつ / １か月 / １ヶ月 / 31日間 / 31日 / 31にちかん / ikkagetsu / 1 kagetsu",
+          "1年 / 1年間 / 1ねん / 1ねんかん / １年 / １年間 / 12か月 / 12ヶ月 / ichinen / 1 nen"
+        ],
+        "explanation": "• Ôn tập cách biểu thị khoảng thời gian:\n  - Phút:「〜分」(ふん / ぷん). Chú ý: 40分 (よんじゅっぷん / よんじっぷん).\n  - Giờ:「〜時間」(じかん). 1 tiếng rưỡi:「1時間半」(いちじかんはん) hoặc「1時間30分」(いちじかんさんじゅっぷん).\n  - Tuần:「〜週間」(しゅうかん). 1 tuần:「1週間」(いっしゅうかん) (từ Thứ Hai đến Chủ Nhật).\n  - Tháng:「〜か月 / 〜か月間」(いっかげつ). 1 tháng:「1か月」(いっかげつ) (từ ngày 1 đến ngày 31).\n  - Năm:「〜年 / 〜年間」(ねん / ねんかん). 1 năm:「1年」(いちねん) (từ tháng 1 đến tháng 12).\n• 例: 8:00〜12:00 ➔ 4 tiếng:「4時間」(4じかん).\n• 1): 9:10〜9:50 ➔ Cách nhau 40 phút:「40分」(40ふん / よんじゅっぷん).\n• 2): 10:00〜11:30 ➔ Cách nhau 1 tiếng 30 phút (1 tiếng rưỡi):「1時間半」(1じかんはん) hoặc「1時間30分」(1じかん30ぷん).\n• 3): 月曜日〜日曜日 ➔ Từ thứ Hai đến Chủ Nhật là 1 tuần:「1週間」(1しゅうかん / いっしゅうかん).\n• 4): 1月1日〜1月31日 ➔ Từ 1/1 đến 31/1 là 1 tháng:「1か月」(1かげつ / いっかげつ) hoặc「1ヶ月」.\n• 5): 1月〜12月 ➔ Từ tháng 1 đến tháng 12 là 1 năm:「1年」(1ねん / いちねん) hoặc「1年間」."
+      },
+      {
+        "id": "b18_q3",
+        "type": "fill",
+        "tag": "Điền trợ từ tổng hợp (の、が、と、に、は、より、で、へ、から、も、を)",
+        "question": "3. 例：わたしはきのう11時（に）寝ました。\n\n1) この漢字（____）読み方（____）わかりますか。\n2) 金曜日の晩は友達（____）約束（____）あります。\n3) エレベーターの前（____）女の人（____）いますね。\n   あの人（____）だれですか。\n4) イーさんはわたし（____）ずっと料理（____）上手です。\n5) 午前（____）午後（____）どちら（____）暇ですか。\n   …午前（____）ほう（____）暇です。\n6) 果物（____）みかん（____）いちばん好きです。\n7) 友達のうち（____）遊び（____）行きました。\n8) おなか（____）痛いです（____）、何（____）食べたくないです。\n9) 8時にうち（____）出て、バス（____）大阪駅まで行って、大阪駅（____）JR（____）乗り換えます。\n10) この紙（____）あなたの住所（____）書いてください。\n11) あの神社（____）緑（____）多くて、静かです。\n12) 新しい世界地図（____）欲しいです。",
+        "answers": [
+          "の / no",
+          "が / ga",
+          "と / to",
+          "が / ga",
+          "に / ni",
+          "が / ga",
+          "は / wa / ha",
+          "より / yori",
+          "が / ga",
+          "と / to",
+          "と / to",
+          "が / ga",
+          "の / no",
+          "が / ga",
+          "で / の中で / のなかで / de",
+          "が / ga",
+          "へ / に / he / ni",
+          "に / ni",
+          "が / ga",
+          "から / kara",
+          "も / mo",
+          "を / o / wo",
+          "で / de",
+          "で / de",
+          "に / ni",
+          "に / ni",
+          "を / o / wo",
+          "は / wa / ha",
+          "が / ga",
+          "が / ga"
+        ],
+        "explanation": "• Ôn tập tổng hợp toàn bộ các trợ từ trọng tâm đã học:\n• 例:「11時 に 寝ました」➔ Điểm mốc thời gian xác định có số cụ thể đi với trợ từ「に」.\n• 1):\n  - Blank 1:「この漢字 の 読み方」➔ Bổ nghĩa sở thuộc, cách đọc của chữ Hán này dùng「の」.\n  - Blank 2:「読み方 が わかりますか」➔ Đối tượng của động từ năng lực / nhận thức「わかります」đi với trợ từ「が」.\n• 2):\n  - Blank 3:「友達 と 約束があります」➔ Đối tác cùng thực hiện cuộc hẹn, có hẹn với bạn bè dùng「と」.\n  - Blank 4:「約束 が あります」➔ Biểu thị sự tồn tại / có cái gì đó đi với「あります」dùng trợ từ「が」.\n• 3):\n  - Blank 5:「エレベーターの前 に」➔ Nơi chốn có sự tồn tại của người / động vật (います) đi với trợ từ「に」.\n  - Blank 6:「女の人 が いますね」➔ Chủ thể tồn tại đi với「います」dùng trợ từ「が」.\n  - Blank 7:「あの人 は だれですか」➔ Đưa đối tượng lên làm chủ đề để hỏi danh tính dùng trợ từ「は」.\n• 4):\n  - Blank 8:「わたし より ずっと」➔ Cấu trúc so sánh hơn「A は B より...」(A hơn B...), đi sau đối tượng so sánh dùng「より」.\n  - Blank 9:「料理 が 上手です」➔ Tính từ chỉ sở trường / năng khiếu「上手です」đi với trợ từ「が」.\n• 5):\n  - Blank 10 & 11:「午前 と 午後 と」➔ Liệt kê hai đối tượng trong câu hỏi so sánh lựa chọn「A と B と どちらが...」dùng trợ từ「と」.\n  - Blank 12:「どちら が 暇ですか」➔ Từ để hỏi đứng làm chủ ngữ trong câu so sánh lựa chọn đi với trợ từ「が」.\n  - Blank 13:「午前 の ほう」➔ Cụm「Danh từ + の + ほう」(phía...), bổ nghĩa cho danh từ「ほう」dùng「の」.\n  - Blank 14:「午前のほう が 暇です」➔ Chủ ngữ của câu trả lời so sánh hơn đi với trợ từ「が」.\n• 6):\n  - Blank 15:「果物 で」(hoặc「果物の中で」)➔ Phạm vi của câu so sánh cao nhất「[Phạm vi] で / の中で ... が いちばん」dùng「で」.\n  - Blank 16:「みかん が いちばん好きです」➔ Đối tượng được yêu thích nhất đi với「いちばん好きです」dùng trợ từ「が」.\n• 7):\n  - Blank 17:「友達のうち へ」(hoặc「に」)➔ Phương hướng / đích đến của chuyển động đi với「行きました」dùng trợ từ「へ」hoặc「に」.\n  - Blank 18:「遊び に 行きました」➔ Mục đích của chuyển động「V(thể ます bỏ ます) + に + 行きます」(đi để làm gì) dùng trợ từ「に」.\n• 8):\n  - Blank 19:「おなか が 痛いです」➔ Triệu chứng cơ thể bị đau dùng trợ từ「が」.\n  - Blank 20:「痛いです から」➔ Liên từ chỉ lý do / nguyên nhân (vì đau bụng nên...) dùng trợ từ「から」.\n  - Blank 21:「何 も 食べたくないです」➔ Phủ định hoàn toàn「Từ để hỏi + も + Thể phủ định」(không muốn ăn cái gì cả) dùng trợ từ「も」.\n• 9):\n  - Blank 22:「うち を 出て」➔ Rời khỏi một địa điểm xuất phát đi với「出ます」dùng trợ từ「を」.\n  - Blank 23:「バス で」➔ Phương tiện giao thông dùng trợ từ「で」.\n  - Blank 24:「大阪駅 で」➔ Địa điểm diễn ra hành động đổi tàu dùng trợ từ「で」.\n  - Blank 25:「JR に 乗り換えます」➔ Phương tiện / tuyến xe mới chuyển sang dùng trợ từ「に」.\n• 10):\n  - Blank 26:「この紙 に」➔ Nơi tiếp nhận thông tin (viết lên đâu, ghi vào đâu) đi với「書きます」dùng trợ từ「に」.\n  - Blank 27:「住所 を 書いてください」➔ Tân ngữ trực tiếp bị tác động đi với「書きます」dùng trợ từ「を」.\n• 11):\n  - Blank 28:「あの神社 は」➔ Đưa ngôi đền lên làm chủ đề chính của câu dùng trợ từ「は」.\n  - Blank 29:「緑 が 多くて」➔ Biểu thị thuộc tính, đặc điểm của chủ thể「[Chủ đề] は [Bộ phận/Đặc điểm] が A です」dùng trợ từ「が」.\n• 12):「世界地図 が 欲しいです」➔ Cấu trúc biểu thị mong muốn sở hữu một vật「N が 欲しいです」dùng trợ từ「が」."
+      },
+      {
+        "id": "b18_q4",
+        "type": "fill",
+        "tag": "Điền từ vào bảng chia 4 thể (Khẳng định/Phủ định × Hiện tại/Quá khứ)",
+        "table": {
+          "title": "Bảng chuyển đổi 4 thể (Khẳng định / Phủ định × Hiện tại / Quá khứ)",
+          "headers": [
+            "Khẳng định (Hiện tại/Tương lai)",
+            "Phủ định (Hiện tại/Tương lai)",
+            "Khẳng định (Quá khứ)",
+            "Phủ định (Quá khứ)"
+          ],
+          "rows": [
+            [
+              "例：呼びます",
+              "呼びません",
+              "呼びました",
+              "呼びませんでした"
+            ],
+            [
+              "1) （____）",
+              "返しません",
+              "2) （____）",
+              "3) （____）"
+            ],
+            [
+              "病気です",
+              "4) （____）",
+              "5) （____）",
+              "6) （____）"
+            ],
+            [
+              "7) （____）",
+              "8) （____）",
+              "9) （____）",
+              "簡単じゃありませんでした"
+            ],
+            [
+              "10) （____）",
+              "11) （____）",
+              "出かけました",
+              "12) （____）"
+            ],
+            [
+              "いいです",
+              "13) （____）",
+              "14) （____）",
+              "15) （____）"
+            ],
+            [
+              "欲しいです",
+              "16) （____）",
+              "欲しかったです",
+              "17) （____）"
+            ]
+          ]
+        },
+        "question": "4. Hoàn thành bảng chuyển đổi 4 thể của động từ, danh từ và tính từ:",
+        "answers": [
+          "返します / かえします / kaeshimasu",
+          "返しました / かえしました / kaeshimashita",
+          "返しませんでした / かえしませんでした / kaeshimasen deshita / kaeshimasendeshita",
+          "病気じゃありません / びょうきじゃありません / 病気ではありません / びょうきではありません / byouki ja arimasen / byouki dewa arimasen",
+          "病気でした / びょうきでした / byouki deshita",
+          "病気じゃありませんでした / びょうきじゃありませんでした / 病気ではありませんでした / びょうきではありませんでした / byouki ja arimasen deshita / byouki ja arimasendeshita",
+          "簡単です / かんたんです / kantan desu",
+          "簡単じゃありません / かんたんじゃありません / 簡単ではありません / かんたんではありません / kantan ja arimasen / kantan dewa arimasen",
+          "簡単でした / かんたんでした / kantan deshita",
+          "出かけます / でかけます / dekakemasu",
+          "出かけません / でかけません / dekakemasen",
+          "出かけませんでした / でかけませんでした / dekakemasen deshita / dekakemasendeshita",
+          "よくないです / よくありません / よくない / yokunai desu / yoku arimasen",
+          "よかったです / よかった / yokatta desu / yokatta",
+          "よくなかったです / よくありませんでした / よくなかった / yokunakatta desu / yoku arimasen deshita",
+          "欲しくないです / ほしくないです / 欲しくありません / ほしくありません / hoshikunai desu / hoshiku arimasen",
+          "欲しくなかったです / ほしくなかったです / 欲しくありませんでした / ほしくありませんでした / hoshikunakatta desu / hoshiku arimasen deshita"
+        ],
+        "explanation": "• Ôn tập bảng biến đổi 4 thể (Khẳng định/Phủ định × Hiện tại/Quá khứ) của Động từ, Danh từ, Tính từ đuôi な và Tính từ đuôi い:\n• Động từ:\n  - Khẳng định hiện tại: 〜ます\n  - Phủ định hiện tại: 〜ません\n  - Khẳng định quá khứ: 〜ました\n  - Phủ định quá khứ: 〜ませんでした\n• Danh từ / Tính từ đuôi な:\n  - Khẳng định hiện tại: 〜です\n  - Phủ định hiện tại: 〜じゃありません (hoặc 〜ではありません)\n  - Khẳng định quá khứ: 〜でした\n  - Phủ định quá khứ: 〜じゃありませんでした (hoặc 〜ではありませんでした)\n• Tính từ đuôi い:\n  - Khẳng định hiện tại: 〜いです\n  - Phủ định hiện tại: bỏ い + 〜くないです (hoặc 〜くありません)\n  - Khẳng định quá khứ: bỏ い + 〜かったです\n  - Phủ định quá khứ: bỏ い + 〜くなかったです (hoặc 〜くありませんでした)\n  - Chú ý đặc biệt với「いいです」(tốt): biến đổi theo gốc「よい」➔「よくないです」➔「よかったです」➔「よくなかったです」.\n• 1), 2), 3): Động từ「返します」(trả lại, nhóm 1):\n  - Blank 1: Khẳng định hiện tại ➔「返します」(かえします).\n  - Blank 2: Khẳng định quá khứ ➔「返しました」(かえしました).\n  - Blank 3: Phủ định quá khứ ➔「返しませんでした」(かえしませんでした).\n• 4), 5), 6): Danh từ「病気です」(ốm, bị bệnh):\n  - Blank 4: Phủ định hiện tại ➔「病気じゃありません」(びょうきじゃありません / 病気ではありません).\n  - Blank 5: Khẳng định quá khứ ➔「病気でした」(びょうきでした).\n  - Blank 6: Phủ định quá khứ ➔「病気じゃありませんでした」(びょうきじゃありませんでした / 病気ではありませんでした).\n• 7), 8), 9): Tính từ đuôi な「簡単」(đơn giản):\n  - Blank 7: Khẳng định hiện tại ➔「簡単です」(かんたんです).\n  - Blank 8: Phủ định hiện tại ➔「簡単じゃありません」(かんたんじゃありません / 簡単ではありません).\n  - Blank 9: Khẳng định quá khứ ➔「簡単でした」(かんたんでした).\n• 10), 11), 12): Động từ「出かけます」(đi ra ngoài, nhóm 2):\n  - Blank 10: Khẳng định hiện tại ➔「出かけます」(でかけます).\n  - Blank 11: Phủ định hiện tại ➔「出かけません」(でかけません).\n  - Blank 12: Phủ định quá khứ ➔「出かけませんでした」(でかけませんでした).\n• 13), 14), 15): Tính từ đuôi い đặc biệt「いいです」(tốt, biến đổi theo gốc「よい」):\n  - Blank 13: Phủ định hiện tại ➔「よくないです」(hoặc「よくありません」).\n  - Blank 14: Khẳng định quá khứ ➔「よかったです」.\n  - Blank 15: Phủ định quá khứ ➔「よくなかったです」(hoặc「よくありませんでした」).\n• 16), 17): Tính từ đuôi い「欲しいです」(muốn có):\n  - Blank 16: Phủ định hiện tại ➔「欲しくないです」(ほしくないです / 欲しくありません).\n  - Blank 17: Phủ định quá khứ ➔「欲しくなかったです」(ほしくなかったです / 欲しくありませんでした)."
+      },
+      {
+        "id": "b18_q5",
+        "type": "fill",
+        "tag": "Chia động từ theo mẫu câu ngữ pháp (〜て、〜ない、〜たい、〜ます bỏ ます)",
+        "question": "5. 例：ここでたばこを（吸います…吸って）もいいですか。\n\n1) 仕事がたくさんありますから、（残業します…____）なければなりません。\n2) ここで靴を（脱ぎます…____）ください。\n3) 今お金を（払います…____）なくてもいいです。\n4) パスポートを（なくします…____）ないでください。\n5) ここに自転車を（置きます…____）はいけません。\n6) 電話を（かけます…____）から、友達のうちへ行きます。\n7) きのうは雨が（降ります…____）いました。\n8) 来年大学に（入ります…____）たいです。\n9) 図書館へ本を（返します…____）に行きます。\n10) 寒いですから、どこも（行きます…____）たくないです。\n11) うちへ（帰ります…____）もいいですか。\n12) シャワーを（浴びます…____）、11時ごろ寝ました。\n13) わたしはパソコンを（持ちます…____）いません。\n14) 松本さんの電話番号を（知ります…____）いますか。",
+        "answers": [
+          "残業し / ざんぎょうし / 残業しない / ざんぎょうしない / zangyoushi / zangyou shi",
+          "脱いで / ぬいで / nuide",
+          "払わ / はらわ / 払わない / はらわない / harawa",
+          "なくさ / なくさない / nakusa",
+          "置いて / おいて / oite",
+          "かけて / kakete",
+          "降って / ふって / futte",
+          "入り / はいり / hairi",
+          "返し / かえし / kaeshi",
+          "行き / いき / iki",
+          "帰って / かえって / kaette",
+          "浴びて / あびて / abite",
+          "持って / もって / motte",
+          "知って / しって / shitte"
+        ],
+        "explanation": "• Ôn tập toàn diện các dạng chia động từ theo mẫu câu ngữ pháp:\n• 例:「V-て + もいいですか」(xin phép làm gì) ➔「吸います」biến đổi thể て thành「吸って」.\n• 1):「V(bỏ ない) + なければなりません」(phải làm gì) ➔「残業します」(nhóm 3) thể ない là「残業しない」, bỏ ない còn「残業し」(ざんぎょうし).\n• 2):「V-て + ください」(xin hãy làm gì) ➔「脱ぎます」(nhóm 1, đuôi ぎ) biến đổi thể て thành「脱いで」(ぬいで).\n• 3):「V(bỏ ない) + なくてもいいです」(không cần phải làm gì) ➔「払います」(nhóm 1) thể ない là「払わない」, bỏ ない còn「払わ」(はらわ).\n• 4):「V(bỏ ない) + ないでください」(xin đừng làm gì) ➔「なくします」(nhóm 1) thể ない là「なくさない」, bỏ ない còn「なくさ」.\n• 5):「V-て + はいけません」(cấm làm gì) ➔「置きます」(nhóm 1, đuôi き) biến đổi thể て thành「置いて」(おいて).\n• 6):「V1-て + から、V2」(sau khi làm V1 thì làm V2) ➔「かけます」(nhóm 2) biến đổi thể て thành「かけて」.\n• 7):「V-て + いました」(đang diễn ra trong quá khứ) ➔「降ります」(nhóm 1, đuôi り) biến đổi thể て thành「降って」(ふって).\n• 8):「V(thể ます bỏ ます) + たいです」(muốn làm gì) ➔「入ります」bỏ ます còn「入り」(はいり).\n• 9):「V(thể ます bỏ ます) + に行きます」(đi để làm gì - mục đích) ➔「返します」bỏ ます còn「返し」(かえし).\n• 10):「V(thể ます bỏ ます) + たくないです」(không muốn làm gì) ➔「行きます」bỏ ます còn「行き」(いき).\n• 11):「V-て + もいいですか」(xin phép làm gì) ➔「帰ります」(nhóm 1, đuôi り) biến đổi thể て thành「帰って」(かえって).\n• 12):「V1-て、V2」(nối tiếp hành động) ➔「浴びます」(nhóm 2 đặc biệt) biến đổi thể て thành「浴びて」(あびて).\n• 13):「V-て + いません」(không sở hữu / chưa làm) ➔「持ちます」(nhóm 1, đuôi ち) biến đổi thể て thành「持って」(もって).\n• 14):「V-て + いますか」(biết thông tin - trạng thái) ➔「知ります」(nhóm 1, đuôi り) biến đổi thể て thành「知って」(しって)."
+      },
+      {
+        "id": "b18_q6",
+        "type": "fill",
+        "tag": "Điền từ để hỏi / nghi vấn từ thích hợp (どうして、いくつ、どうやって、どの、どちら)",
+        "question": "6. 例：あなたの国から日本まで [ どのくらい ] かかりますか。\n   …飛行機で4時間半かかります。\n\n1) [ ＿＿＿＿＿＿＿＿＿＿ ] きのう学校を休みましたか。\n   …頭が痛かったですから。\n2) 教室に机が [ ＿＿＿＿＿＿＿＿＿＿ ] ありますか。\n   …20あります。\n3) [ ＿＿＿＿＿＿＿＿＿＿ ] 美術館まで行きましたか。\n   …地下鉄で東京駅まで行って、東京駅からバスで行きました。\n4) マリアさんは [ ＿＿＿＿＿＿＿＿＿＿ ] 人ですか。\n   …あの人です。\n5) 肉と魚と [ ＿＿＿＿＿＿＿＿＿＿ ] がいいですか。\n   …魚のほうがいいです。",
+        "answers": [
+          "どうして / なぜ / doushite / naze",
+          "いくつ / 何台 / なんだい / 何個 / なんこ / ikutsu",
+          "どうやって / どう / dou yatte / douyatte",
+          "どの / dono",
+          "どちら / どっち / dochira / docchi"
+        ],
+        "explanation": "• Ôn tập cách sử dụng các từ để hỏi (nghi vấn từ) theo ngữ cảnh đối thoại:\n• 例: Câu trả lời là khoảng thời gian「飛行機で4時間半かかります」(Đi máy bay mất 4 tiếng rưỡi) ➔ Từ để hỏi về thời gian/chi phí là「どのくらい」(hoặc「どのぐらい」).\n• 1): Câu trả lời nêu lý do có「〜ですから」(Vì bị đau đầu) ➔ Từ để hỏi lý do \"Tại sao\" là「どうして」(hoặc「なぜ」).\n• 2): Câu trả lời là số lượng「20あります」(Có 20 cái) ➔ Từ để hỏi số lượng đồ vật đếm chung bằng 〜つ là「いくつ」(hoặc hỏi theo đơn vị bàn ghế「何台」).\n• 3): Câu trả lời chỉ dẫn lộ trình và phương tiện di chuyển「地下鉄で東京駅まで行って、東京駅からバスで行きました」(Đi tàu điện ngầm đến ga Tokyo, rồi từ ga Tokyo đi bằng xe buýt) ➔ Từ để hỏi cách thức, phương tiện đi lại \"Bằng cách nào / Như thế nào\" là「どうやって」(hoặc「どう」).\n• 4): Câu trả lời là「あの人です」(Là người đằng kia) để chỉ định rõ một người cụ thể trong nhóm người ➔ Từ bổ nghĩa cho danh từ「人」để hỏi \"người nào\" là「どの」(どの人ですか). (Lưu ý:「どんな人」dùng để hỏi về tính cách, đặc điểm ngoại hình).\n• 5): Câu trả lời so sánh lựa chọn giữa 2 đối tượng「魚のほうがいいです」(Cá thì được/tốt hơn) ➔ Từ để hỏi trong câu so sánh lựa chọn giữa 2 đối tượng「A と B と」là「どちら」(hoặc cách nói thân mật「どっち」)."
+      },
+      {
+        "id": "b18_q7",
+        "type": "fill",
+        "tag": "Nối tính từ và danh từ (〜くて、〜で)",
+        "question": "7. 例：ミラーさんは（若い…若くて）、（元気…元気な）人です。\n\n1) サントスさんは髪が（黒い…____）、（すてき…____）人です。\n2) このパソコンは使い方が（簡単…____）、とても（便利…____）です。\n3) 弟は（24歳…____）、（銀行員…____）です。\n4) きのうは天気が（いい…____）、（暖かい…____）です。\n5) このレストランは料理が（おいしい…____）、サービスが（いい…____）です。",
+        "answers": [
+          "黒くて / くろくて / kurokute",
+          "すてきな / sutekina / suteki na",
+          "簡単で / かんたんで / kantande / kantan de",
+          "便利 / べんり / benri",
+          "24歳で / 24さいで / にじゅうよんさいで / ２４歳で / 24sai de",
+          "銀行員 / ぎんこういん / ginkouin",
+          "よくて / yokute",
+          "暖かかった / あたたかかった / 暖かかったです / あたたかかったです / atatakakatta",
+          "おいしくて / oishikute",
+          "いい / ii"
+        ],
+        "explanation": "• Ôn tập quy tắc nối tính từ và danh từ trong câu:\n• Tính từ đuôi い: Bỏ「い」thêm「〜くて」để nối câu.\n• Tính từ đuôi な / Danh từ: Thêm「〜で」để nối câu.\n• Đứng trước danh từ: Tính từ đuôi な giữ nguyên「な」, tính từ đuôi い giữ nguyên「い」.\n• Đứng ở cuối câu: Tính từ đuôi な / Danh từ đi với「〜です」; tính từ đuôi い giữ nguyên「〜いです」(quá khứ là「〜かったです」).\n• 例:「若い」nối câu thành「若くて」;「元気」đứng trước danh từ「人」thành「元気な」(Anh Miller trẻ và là người khỏe mạnh).\n• 1):「黒い」(đuôi い) nối câu thành「黒くて」;「すてき」(đuôi な) đứng trước danh từ「人」thành「すてきな」(Anh Santos tóc đen và là người tuyệt vời).\n• 2):「簡単」(đuôi な) nối câu thành「簡単で」;「便利」(đuôi な) đứng trước です ở cuối câu giữ nguyên「便利」(Máy tính này cách dùng đơn giản và rất tiện lợi).\n• 3):「24歳」(danh từ) nối câu thành「24歳で」;「銀行員」(danh từ) đứng trước です ở cuối câu giữ nguyên「銀行員」(Em trai tôi 24 tuổi và là nhân viên ngân hàng).\n• 4): Câu diễn tả thời tiết quá khứ「きのう」(hôm qua):「いい」đứng trước nối câu thành「よくて」;「暖かい」ở cuối câu chia quá khứ ghép với です thành「暖かかった」(Hôm qua thời tiết đẹp và ấm áp).\n• 5):「おいしい」(đuôi い) nối câu thành「おいしくて」;「いい」(đuôi い) đứng trước です ở cuối câu giữ nguyên「いい」(Nhà hàng này món ăn ngon và dịch vụ tốt)."
+      },
+      {
+        "id": "b18_q8",
+        "type": "binary_choice",
+        "tag": "Chọn từ đúng trong câu",
+        "question": "8. 例：郵便局は銀行の〔間／中／<u>前</u>〕にあります。\n\n1) 電気の〔チケット／スイッチ／エアコン〕はどこですか。\n2) ちょっと〔病気／熱／痛い〕があります。\n3) 全部で1,800円ですから、200円の〔金額／お釣り／お土産〕です。ありがとうございました。\n4) キャッシュカードをここに入れて、〔電話番号／保険証番号／暗証番号〕を押してください。",
+        "answers": [
+          "スイッチ / suicchi",
+          "熱 / ねつ / netsu",
+          "お釣り / おつり / otsuri",
+          "暗証番号 / あんしょうばんごう / anshoubangou"
+        ],
+        "explanation": "• Ôn tập lựa chọn từ vựng chính xác theo ngữ cảnh câu:\n• 例: Bưu điện ở trước ngân hàng「銀行の 前 にあります」➔ Chọn「前」.\n• 1): Công tắc đèn「電気の スイッチ」➔ Chọn「スイッチ」(công tắc).「チケット」(vé),「エアコン」(máy điều hòa).\n• 2): Cụm từ chỉ triệu chứng bị sốt「熱があります」➔ Chọn danh từ「熱」(sốt).「病気」dùng với「病気です」(bị ốm);「痛い」là tính từ (ví dụ:「頭が痛いです」).\n• 3): Trong giao dịch thanh toán mua hàng, số tiền gửi lại cho khách là tiền thừa / tiền thối lại ➔ Chọn「お釣り」(tiền thừa).「金額」(số tiền),「お土産」(quà lưu niệm).\n• 4): Khi sử dụng thẻ ATM (キャッシュカード), thao tác bấm mã PIN / mã số bí mật dùng cụm「暗証番号を押してください」➔ Chọn「暗証番号」(mã PIN/mã bảo mật).「電話番号」(số điện thoại),「保険証番号」(số thẻ bảo hiểm)."
+      },
+      {
+        "id": "b18_q9",
+        "type": "fill",
+        "tag": "Điền liên từ nối câu thích hợp (それから、ですから、じゃ、そして、まず)",
+        "question": "9. ［ それから　ですから　じゃ　そして　まず　これから ］\n\n例：もうレポートを書きましたか。…いいえ、まだです。（ これから ）書きます。\n\n1) 父は今いません。…（____）また電話します。\n2) 1年日本語を勉強します。（____）大学に入ります。\n3) わたしの部屋は明るいです。（____）きれいです。\n4) （____）これを押して、次にここにカードを入れてください。\n5) 日本の会社で働きたいです。（____）今日本語を勉強しています。",
+        "choices": [
+          { "key": "それから", "text": "それから" },
+          { "key": "ですから", "text": "ですから" },
+          { "key": "じゃ", "text": "じゃ" },
+          { "key": "そして", "text": "そして" },
+          { "key": "まず", "text": "まず" },
+          { "key": "これから", "text": "これから", "isExample": true }
+        ],
+        "answers": [
+          "じゃ / ja / じゃ、",
+          "それから / sorekara",
+          "そして / soshite",
+          "まず / mazu",
+          "ですから / desukara"
+        ],
+        "explanation": "• Ôn tập cách sử dụng các liên từ nối câu trong tiếng Nhật:\n• 例: Chưa viết báo cáo, sắp sửa viết「これから書きます」(Từ bây giờ tôi sẽ viết).\n• 1): Khi nghe tin bố không có nhà, chuyển hướng hội thoại「じゃ、また電話します」(Vậy thì lát nữa tôi sẽ gọi lại).\n• 2): Nối tiếp hai hành động theo trình tự thời gian「1年日本語を勉強します。それから大学に入ります」(Học tiếng Nhật 1 năm, sau đó sẽ vào đại học) ➔ Dùng「それから」(sau đó).\n• 3): Bổ sung tính chất cùng chiều tích cực「明るいです。そしてきれいです」(Phòng sáng sủa và đẹp nữa) ➔ Dùng「そして」(và/thêm vào đó).\n• 4): Hướng dẫn trình tự các bước thao tác, đi kèm với「次に」(tiếp theo) là「まず」(trước tiên/đầu tiên) ➔「まずこれを押して、次にここにカードを入れてください」(Trước tiên hãy nhấn nút này, tiếp theo cho thẻ vào đây).\n• 5): Mệnh đề trước là lý do, mệnh đề sau là kết quả hành động ➔ Dùng「ですから」(vì vậy/do đó):「日本の会社で働きたいです。ですから今日本語を勉強しています」(Tôi muốn làm việc cho công ty Nhật Bản, vì vậy bây giờ tôi đang học tiếng Nhật)."
+      },
+      {
+        "id": "b18_q10",
+        "type": "matching",
+        "tag": "Chọn câu đối thoại giao tiếp phù hợp",
+        "question": "10. 例：寒いですね。エアコンをつけましょうか。…（ h ）。\n\n1) すみません。ちょっと手伝ってください。…（____）。\n2) 日本の生活はどうですか。…（____）。大変ですが、楽しいです。\n3) 土曜日の夜ジャズのコンサート、いっしょにいかがですか。\n   …土曜日の夜は（____）……。すみません。また今度お願いします。\n4) 電池はあの棚のいちばん下にありますよ。…（____）。どうも。\n5) 日本語が上手ですね。…いいえ、（____）。",
+        "choices": [
+          { "key": "a", "text": "まだまだです" },
+          { "key": "b", "text": "そうですね" },
+          { "key": "c", "text": "そうですか" },
+          { "key": "d", "text": "そうしましょう" },
+          { "key": "e", "text": "はい、どうぞ" },
+          { "key": "f", "text": "いいですよ" },
+          { "key": "g", "text": "ちょっと" },
+          { "key": "h", "text": "お願いします", "isExample": true }
+        ],
+        "answers": [
+          "f / いいですよ",
+          "b / そうですね",
+          "g / ちょっと",
+          "c / そうですか",
+          "a / まだまだです"
+        ],
+        "explanation": "• Ôn tập các mẫu câu giao tiếp và văn hóa ứng xử hàng ngày:\n• 例: Khi đối phương đề nghị giúp đỡ bật điều hòa「エアコンをつけましょうか」➔ Đồng ý nhờ vả: h「お願いします」(Nhờ bạn nhé).\n• 1): Khi được nhờ giúp đỡ「手伝ってください」(Hãy giúp tôi một chút) ➔ Vui vẻ nhận lời: f「いいですよ」(Được chứ / Sẵn lòng thôi).\n• 2): Khi được hỏi cảm nhận về cuộc sống「日本の生活はどうですか」➔ Dùng từ đệm suy nghĩ trước khi trả lời: b「そうですね」(À/Để xem nào... Vất vả nhưng vui).\n• 3): Khi từ chối khéo một lời mời rủ rê đi xem hòa nhạc mà không làm mất lòng đối phương ➔ Dùng cụm từ bỏ lửng kinh điển: g「ちょっと」(Tối thứ Bảy thì hơi kẹt... Xin lỗi bạn, hẹn lần sau).\n• 4): Khi tiếp nhận một thông tin mới do người khác chỉ dẫn (vị trí để pin) ➔ Dùng: c「そうですか」(Thế à / Vậy à. Cảm ơn nhé).\n• 5): Khi được khen ngợi「日本語が上手ですね」(Tiếng Nhật của bạn giỏi quá) ➔ Nét văn hóa khiêm tốn của người Nhật: a「まだまだです」(Dạ không, tôi vẫn còn kém lắm)."
+      }
+    ]
   }
 };
 
