@@ -401,29 +401,27 @@
               <div class="notes-category-switcher">
                 <button class="notes-mode-btn active" data-mode="hard_words" type="button"
                   title="Chuyển sang trang ghi chú cách đọc">
-                  <span>🀄</span>
                   <span>Cách đọc</span>
                 </button>
                 <button class="notes-mode-btn" data-mode="phrases" type="button" title="Chuyển sang xem ngữ pháp">
-                  <span>💬</span>
                   <span>Ngữ pháp</span>
                 </button>
                 <button class="notes-mode-btn" data-mode="particles" type="button" title="Chuyển sang xem trợ từ">
-                  <span>🔖</span>
                   <span>Trợ từ</span>
                 </button>
                 <button class="notes-mode-btn" data-mode="connectors" type="button" title="Chuyển sang xem từ nối">
-                  <span>🔗</span>
                   <span>Từ nối</span>
                 </button>
                 <button class="notes-mode-btn" data-mode="counting" type="button" title="Chuyển sang xem học đếm">
-                  <span>🔢</span>
                   <span>Học đếm</span>
                 </button>
                 <button class="notes-mode-btn" data-mode="question_words" type="button"
                   title="Chuyển sang xem từ để hỏi">
-                  <span>❓</span>
                   <span>Từ để hỏi</span>
+                </button>
+                <button class="notes-mode-btn" data-mode="adverbs" type="button"
+                  title="Chuyển sang xem phó từ">
+                  <span>Phó từ</span>
                 </button>
               </div>
             </div>
@@ -479,6 +477,15 @@
           <div id="ja-notes-question-words-view" class="notes-view-pane" style="display: none;">
             <div class="speaking-header-card notes-static-container">
               <div class="notes-static-body" id="ja-question-words-body">
+                <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- NỘI DUNG 7: PHÓ TỪ (TRANG TEXT ĐƠN GIẢN, GỌN NHẸ) -->
+          <div id="ja-notes-adverbs-view" class="notes-view-pane" style="display: none;">
+            <div class="speaking-header-card notes-static-container">
+              <div class="notes-static-body" id="ja-adverbs-body">
                 <!-- Nội dung tĩnh tự động hiển thị từ japanese_data/notes_data.js -->
               </div>
             </div>
@@ -852,14 +859,14 @@
   <script src="japanese_data/speaking_data.js?v=2.0"></script>
   <script src="japanese_data/reading_data.js?v=2.1"></script>
   <script src="japanese_data/vocab_data.js?v=2.3"></script>
-  <script src="japanese_data/notes_data.js?v=2.2"></script>
-  <script src="japanese_data/grammar_data.js?v=4.2"></script>
+  <script src="japanese_data/notes_data.js?v=2.4"></script>
+  <script src="japanese_data/grammar_data.js?v=4.3"></script>
   <script src="japanese_data/kanji_data.js?v=1.9"></script>
   <script src="js/core.js?v=1.3"></script>
   <script src="js/japanese.js"></script>
   <script src="js/reading_ja.js"></script>
   <script src="js/vocab_ja.js?v=2.2"></script>
-  <script src="js/notes_ja.js?v=1.1"></script>
+  <script src="js/notes_ja.js?v=1.2"></script>
   <script src="js/katakana.js"></script>
   <script src="js/grammar_ja.js?v=2.9"></script>
   <script src="js/kanji_ja.js?v=1.7"></script>

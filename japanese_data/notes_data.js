@@ -7,6 +7,7 @@
 // 4. connectors: Từ nối
 // 5. counting: Học đếm
 // 6. question_words: Từ để hỏi
+// 7. adverbs: Phó từ
 // ========================================================
 
 const JA_NOTES_DATA = {
@@ -45,7 +46,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5, Bài 6, Bài 7, Bài 9, Bài 10, Bài 11, Bài 12, Bài 13)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 14)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -158,6 +159,36 @@ const JA_NOTES_DATA = {
         meaning: "Quy tắc trợ từ với các động từ di chuyển ra/vào địa điểm hoặc lên/xuống phương tiện:\n• VÀO / LÊN ➔ dùng に: 入ります (vào), 乗ります (lên xe/tàu).\n• RA / XUỐNG ➔ dùng を: 出ます (ra khỏi), 降ります (xuống xe/tàu).",
         example: "• [Vào]: きょうしつに 入ります。(Đi vào lớp học.)\n• [Ra]: きょうしつを 出ます。(Rời khỏi / đi ra khỏi lớp học.)\n• [Lên]: 電車に 乗ります。(Lên tàu điện.)\n• [Xuống]: 電車を 降ります。(Xuống tàu điện.)",
         note: "💡 Khẩu quyết dễ nhớ: 'VÀO に, RA を' - Nơi/Phương tiện bước vào, leo lên dùng に; Nơi/Phương tiện rời khỏi, bước xuống dùng を."
+      },
+      {
+        title: "20. [Bài 14] Phân loại 3 nhóm động từ & Các động từ bất quy tắc (ngoại lệ nhóm 2)",
+        meaning: "Quy tắc nhận diện 3 nhóm động từ ở thể ます:\n• V Nhóm 1: Kết thúc bằng âm cột「い」trước ます (ví dụ: かきます, のみます, かいます, あいます...). Mẹo: Nhóm 1 ➔「い」.\n• V Nhóm 2: Kết thúc bằng âm cột「え」trước ます (ví dụ: たべます, みせます, ねます...). Mẹo: Nhóm 2 ➔「え」 (Nhớ cặp 1-2 là「い - え」).\n• V Nhóm 3: Động từ bất quy tắc chỉ gồm 2 từ:「します」(làm) và「来（き）ます」(đến). Đi kèm các danh động từ: N + します (勉強します, 散歩します...). Tạm thời chú ý: Các từ chỉ có 1 Kanji + します (như 話します - はなします: nói chuyện) thì thuộc Nhóm 1!\n\n⚠️ BẤT QUY TẮC NHÓM 1 & 2 (Đứng trước ます là âm cột い nhưng thuộc NHÓM 2):\n1. Thức dậy: 起きます (おきます)\n2. Nhìn / xem: 見ます (みます)\n3. Tắm (vòi sen): 浴びます (あびます - シャワーを浴びます)\n4. Xuống xe / Rơi: 降ります (おります - xuống xe/tàu) / 落ちます (おちます - rơi, rụng)\n5. Mượn: 借ります (かります)\n(Ngoài ra còn có: います - có/ở, できます - có thể, きます - mặc).",
+        example: "• Nhóm 1 (cột い): 買い・ます (mua), 立ち・ます (đứng), 読み・ます (đọc), 話し・ます (nói)\n• Nhóm 2 chuẩn (cột え): 食べ・ます (ăn), 教え・ます (dạy), 寝・ます (ngủ)\n• Nhóm 2 ngoại lệ (cột い): 起きます (thức dậy), 見ます (nhìn), 浴びます (tắm), 降ります (xuống tàu), 借ります (mượn)\n• Nhóm 3: します (勉強します), 来ます (きます)",
+        note: "💡 Mẹo nhớ vàng: '1 là い, 2 là え' (cặp 1-2 いえ). Thuộc lòng 5 động từ ngoại lệ hay gặp: Thức dậy (おきます), Nhìn (みます), Tắm (あびます), Xuống xe (おります), Mượn (かります)."
+      },
+      {
+        title: "21. [Bài 14] Quy tắc chia thể「て」(V-て) của 3 nhóm động từ (6 ý nhóm 1)",
+        meaning: "Quy tắc biến đổi động từ sang thể「て」:\n\n1. NHÓM 1 (Căn cứ vào âm trước ます chia làm 6 ý):\n• [い, ち, り] ➔ って (Mẹo đọc: 'i, chi rít tê' - liên tưởng số 1 いち): 買います ➔ 買って, 待ちます ➔ 待って, 帰ります ➔ 帰って.\n• [み, び, に] ➔ んで (Mẹo đọc: 'mi, bi, nin đê'): 飲みます ➔ 飲んで, 呼びます ➔ 呼んで, 死にます ➔ 死んで.\n• [き] ➔ いて: 書きます ➔ 書いて, 聞きます ➔ 聞いて.\n• [ぎ] ➔ いで: 急ぎます ➔ 急いで, 泳ぎます ➔ 泳いで.\n• [し (します)] ➔ して: 話します ➔ 話して, 貸します ➔ 貸して.\n• ★ NGOẠI LỆ ĐẶC BIỆT DUY NHẤT: 行きます (いきます) ➔ 行って (いって) [không chia là いいて].\n\n2. NHÓM 2: Thay「ます」thành「て」:\n• 食べます ➔ 食べて, 見ます ➔ 見て, 起きます ➔ 起きて, 降ります ➔ 降りて, 借ります ➔ 借りて.\n\n3. NHÓM 3: Bất quy tắc học thuộc:\n• します ➔ して (勉強します ➔ 勉強して)\n• 来ます (きます) ➔ 来て (きて)",
+        example: "• [い・ち・り ➔ って]: 会います ➔ 会って; 取ります ➔ 取って\n• [み・び・に ➔ んで]: 読みます ➔ 読んで; 遊びます ➔ 遊んで\n• [き ➔ いて / ぎ ➔ いで]: 働きます ➔ 働いて; 急ぎます ➔ 急いで\n• [し ➔ して]: 出します ➔ 出して\n• [Đặc biệt]: 行きます ➔ 行って (いって)\n• [Nhóm 2]: 食べます ➔ 食べて\n• [Nhóm 3]: 散歩します ➔ 散歩して; 来ます ➔ 来て",
+        note: "⚡ Thần chú thể て Nhóm 1: 'i, chi, ri ➔ tte', 'mi, bi, ni ➔ nde', 'ki ➔ ite', 'gi ➔ ide', 'shi ➔ shite', riêng 'ikimasu ➔ itte'."
+      },
+      {
+        title: "22. [Bài 14] Phân biệt câu rủ rê, đề nghị: V-ませんか & V-ましょうか",
+        meaning: "• V-ませんか (Rủ rê, mời mọc lịch sự): Mang ý nghĩa 'Cùng làm V với tôi nhé?' (thường đi kèm với phó từ いっしょに). Rất ít khi mang nghĩa là câu hỏi phủ định, trừ khi có từ ngữ chỉ thời gian hoặc phủ định rõ ràng trong ngữ cảnh (ví dụ: 'Ngày mai bạn không đi học à?').\n• V-ましょうか (Đề nghị giúp đỡ / rủ cùng làm): Mang ý nghĩa 'Tôi làm V giúp bạn nhé?' (người nói chủ động đề nghị giúp đỡ) hoặc 'Chúng ta cùng làm V nhé?'.",
+        example: "• [V-ませんか - Rủ rê, mời mọc]:\n  - いっしょに ごはんを 食べませんか。(Cùng đi ăn cơm với tôi nhé?)\n  - (Câu hỏi phủ định rõ ràng): 明日 学校へ 行きませんか。(Ngày mai bạn không đi học à?)\n• [V-ましょうか - Đề nghị giúp đỡ]:\n  - タクシーを 呼びましょうか。(Tôi gọi taxi giúp bạn nhé?)\n  - 傘を 貸しましょうか。(Tôi cho bạn mượn ô nhé?)\n  - 写真を 撮りましょうか。(Tôi chụp ảnh giúp bạn nhé?)",
+        note: "💡 Phân biệt ngắn gọn:「～ませんか」dùng để MỜI / RỦ đối phương cùng làm; còn「～ましょうか」dùng để ĐỀ NGHỊ GIÚP ĐỠ đối phương một việc gì đó."
+      },
+      {
+        title: "23. [Bài 14] Cấu trúc hành động đang diễn ra: V-て います (Đang làm gì)",
+        meaning: "Dùng để diễn tả một hành động ĐANG DIỄN RA tại thời điểm nói (tương tự như thì hiện tại tiếp diễn 'to be V-ing' trong tiếng Anh).\n• Cấu trúc: [Chủ ngữ は] + [Tân ngữ を] + V-て います。",
+        example: "• 今 日本語を 勉強して います。(Bây giờ tôi đang học tiếng Nhật.)\n• ミラーさんは 今 電話を かけて います。(Anh Miller bây giờ đang gọi điện thoại.)\n• A：今 何を して いますか。(Bây giờ bạn đang làm gì đấy?)\n  B：テレビを 見て います。(Tôi đang xem tivi.)",
+        note: "💡 Động từ thể て kết hợp với います (V-て います) để diễn tả trạng thái đang làm việc gì đó."
+      },
+      {
+        title: "24. [Bài 14] Cấu trúc diễn tả hiện tượng tự nhiên: N が V (Mưa đang rơi...)",
+        meaning: "Khi diễn tả một hiện tượng tự nhiên (thời tiết, thiên nhiên diễn ra khách quan trước mắt người nói) thì chủ thể của hiện tượng luôn đi với trợ từ「が」(tương tự như mẫu [N が Tính từ] để mô tả đặc điểm, thuộc tính khách quan).\n• Cấu trúc: [Hiện tượng tự nhiên] が + V-て います。",
+        example: "• 雨が 降って います。(Trời đang mưa / mưa đang rơi.)\n• 雪が 降って います。(Tuyết đang rơi.)\n• 風が 吹いて います。(Gió đang thổi.)\n• 花が 咲いて います。(Hoa đang nở.)",
+        note: "💡 Ghi nhớ quy tắc trợ từ: Diễn tả hiện tượng tự nhiên khách quan đang xảy ra trước mắt luôn dùng trợ từ「が」(雨が 降っています), tuyệt đối không dùng は."
       }
     ]
   },
@@ -468,6 +499,93 @@ const JA_NOTES_DATA = {
         meaning: "• Hỏi phương hướng: Phía nào, hướng nào (lịch sự của どっち / どこ).\n• Hỏi lựa chọn giữa 2 đối tượng: Cái nào, bên nào (A と B と どちらが...).\n• Hỏi nơi chốn, công ty, quốc gia một cách lịch sự, trang trọng (thay cho どこ).",
         example: "• お国は どちらですか。(Đất nước của bạn ở đâu / Bạn là người nước nào? - cách hỏi lịch sự của どこ)\n• 日本と ベトナムと どちらが 寒いですか。(Nhật Bản và Việt Nam thì nước nào lạnh hơn?)",
         note: "💡 Mẹo nhớ:「どちら」vừa hỏi lựa chọn giữa 2 cái, vừa là thể lịch sự của「どこ」."
+      }
+    ]
+  },
+
+  // 7. PHÓ TỪ (Tổng hợp các phó từ quan trọng bổ nghĩa cho động từ, tính từ)
+  adverbs: {
+    title: "Phó từ",
+    badge: "PHÓ TỪ",
+    description: "Tổng hợp các phó từ thường gặp bổ nghĩa cho động từ và tính từ trong tiếng Nhật",
+    notice: "Phó từ (副詞) trong tiếng Nhật dùng để bổ nghĩa cho động từ, tính từ hoặc trạng thái câu, thường đứng ngay trước từ mà nó bổ nghĩa.",
+    items: [
+      {
+        title: "1. もう + [Số lượng] : Thêm ... nữa",
+        meaning: "Đứng trước từ chỉ số lượng để biểu thị ý nghĩa 'thêm một lượng nữa'.",
+        example: "• もう 1杯 いかがですか。(Uống thêm 1 cốc/chén nữa nhé?)\n• もう 1回 言って ください。(Xin hãy nói lại thêm 1 lần nữa.)\n• もう 1人 来ます。(Sẽ có thêm 1 người nữa đến.)",
+        note: "💡 Cấu trúc:「もう + Số lượng」nghĩa là thêm chừng đó nữa (thêm 1 cái, thêm 1 lần...)."
+      },
+      {
+        title: "2. もう : Đã ... rồi",
+        meaning: "Đứng trước động từ (thường ở thể quá khứ hoặc khẳng định V-ました) diễn tả hành động đã hoàn tất hoặc trạng thái đã xảy ra.",
+        example: "• もう 昼ごはんを 食べましたか。(Bạn đã ăn cơm trưa rồi chưa?)\n  ➔ はい、もう 食べました。(Vâng, tôi đã ăn rồi.)\n• もう 12時です。(Đã 12 giờ rồi.)",
+        note: "💡 Phân biệt:「もう + Động từ」(đã... rồi) khác hoàn toàn với「もう + Số lượng」(thêm... nữa)."
+      },
+      {
+        title: "3. だいたい : Khoảng (ước chừng) / Hầu hết, phần lớn",
+        meaning: "Có 2 nét nghĩa chính tùy theo ngữ cảnh:\n1) Ước chừng khoảng (thời gian, tiền bạc, số lượng): khoảng chừng, xấp xỉ.\n2) Mức độ: đại khái, hầu hết, phần lớn (hiểu hoặc làm được phần lớn).",
+        example: "• [Khoảng/xấp xỉ]: 駅から うちまで だいたい 15分 かかります。(Từ ga về nhà mất khoảng 15 phút.)\n• [Hầu hết/đại khái]: 今日の 授業は だいたい 分かりました。(Bài học hôm nay tôi đã hiểu hầu hết / đại khái.)",
+        note: "💡 Vừa mang nghĩa ước lượng số lượng/thời gian ('khoảng'), vừa chỉ mức độ hiểu/biết ('đại khái, phần lớn')."
+      },
+      {
+        title: "4. ずっと : Suốt, liên tục / Hơn hẳn (so sánh)",
+        meaning: "Có 2 cách dùng quan trọng:\n1) Thời gian/Hành động: suốt, liên tục không ngừng nghỉ.\n2) So sánh hơn: hơn hẳn, hơn rất nhiều (ずっと + Tính từ).",
+        example: "• [Suốt, liên tục]: 朝から ずっと 待って いました。(Tôi đã đợi suốt từ sáng đến giờ.)\n• [Hơn hẳn]: 日本は ベトナムより ずっと 寒いです。(Nhật Bản lạnh hơn Việt Nam rất nhiều / hơn hẳn.)",
+        note: "💡 Ghi nhớ: Khi đi với tính từ so sánh,「ずっと」nhấn mạnh sự cách biệt vượt trội (hơn hẳn)."
+      },
+      {
+        title: "5. もう少し (もうすこし) : Thêm một chút nữa",
+        meaning: "Kết hợp giữa「もう」(thêm) và「少し」(một chút) ➔ Dùng để yêu cầu hoặc diễn tả muốn thêm một ít nữa (về số lượng, tốc độ, kích thước...).",
+        example: "• もう少し ゆっくり 話して ください。(Xin hãy nói chậm lại thêm một chút nữa.)\n• もう少し 大きい声で 話して ください。(Xin hãy nói to hơn thêm một chút nữa.)\n• もう少し 食べませんか。(Ăn thêm một chút nữa nhé?)",
+        note: "💡 Cụm từ thông dụng:「もう少し + Tính từ/Động từ」(thêm một chút nữa)."
+      },
+      {
+        title: "6. よく : Thường xuyên / Rõ, tốt / Giỏi",
+        meaning: "Phó từ đa năng với 3 ý nghĩa thông dụng:\n1) Tần suất: thường xuyên (làm việc gì nhiều lần).\n2) Mức độ hiểu/thấy: rõ, tốt (hiểu rõ, nhìn rõ, nghe rõ).\n3) Khen ngợi/đánh giá: giỏi, tốt.",
+        example: "• [Thường xuyên]: 休みの日、よく 映画を 見ます。(Vào ngày nghỉ, tôi thường xuyên xem phim.)\n• [Rõ, tốt]: 日本語が よく 分かります。(Tôi hiểu rất rõ tiếng Nhật.)\n• [Giỏi, tốt]: よく できました！(Bạn đã làm rất giỏi / rất tốt!)",
+        note: "💡 Tùy ngữ cảnh: Đi với tần suất = thường xuyên; đi với hiểu/thấy = rõ; đi với đánh giá = giỏi/tốt."
+      },
+      {
+        title: "7. すぐ : Ngay lập tức, ngay bây giờ (いま)",
+        meaning: "Diễn tả hành động được thực hiện ngay lập tức, không chậm trễ (tương đương 'ngay bây giờ').",
+        example: "• すぐ 行きます。(Tôi đi ngay bây giờ đây.)\n• ごはんを 食べたら、すぐ 薬を 飲んで ください。(Ăn cơm xong thì hãy uống thuốc ngay nhé.)",
+        note: "💡 Nhấn mạnh hành động diễn ra tức thì, không chần chừ."
+      },
+      {
+        title: "8. ゆっくり : Từ từ, thong thả, chậm rãi",
+        meaning: "Diễn tả hành động diễn ra chậm rãi, thong thả hoặc nghỉ ngơi thư giãn thoải mái.",
+        example: "• ゆっくり 休んで ください。(Xin hãy nghỉ ngơi thong thả nhé.)\n• 日本語を ゆっくり 話して ください。(Xin hãy nói tiếng Nhật từ từ / chậm rãi.)\n• 週末は うちで ゆっくり しました。(Cuối tuần tôi đã nghỉ ngơi thong thả ở nhà.)",
+        note: "💡 Thường dùng khi nhờ người khác nói chậm lại hoặc chúc người khác nghỉ ngơi thoải mái."
+      },
+      {
+        title: "9. あとで : Lát nữa, sau đó (sau 1 sự việc)",
+        meaning: "Diễn tả một hành động sẽ làm sau một khoảng thời gian ngắn hoặc sau khi kết thúc một sự việc nào đó (nhớ chữ「あと」nghĩa là sau).",
+        example: "• あとで 電話を かけます。(Lát nữa tôi sẽ gọi lại.)\n• ごはんを 食べた あとで、散歩します。(Sau khi ăn cơm xong, tôi đi dạo.)",
+        note: "💡 Mẹo nhớ:「あと」là sau,「あとで」nghĩa là lát nữa / sau đó mới làm."
+      },
+      {
+        title: "10. また : Lại, một lần nữa",
+        meaning: "Diễn tả hành động tái diễn, lặp lại thêm một lần nữa hoặc dùng khi chào hẹn gặp lại.",
+        example: "• また 明日。(Hẹn gặp lại ngày mai.)\n• また 来て ください。(Lần sau lại đến chơi nhé.)\n• また 間違えました。(Tôi lại làm sai nữa rồi.)",
+        note: "💡 Cực kỳ quen thuộc trong giao tiếp: またね (hẹn gặp lại), また来週 (hẹn tuần sau)."
+      },
+      {
+        title: "11. 初めて (はじめて) : Lần đầu tiên",
+        meaning: "Diễn tả một trải nghiệm hoặc hành động lần đầu tiên trong đời / lần đầu tiên làm việc gì đó.",
+        example: "• 初めて 日本へ 来ました。(Lần đầu tiên tôi đến Nhật Bản.)\n• 刺身を 初めて 食べました。(Lần đầu tiên tôi ăn món sashimi.)\n• 富士山に 初めて 登りました。(Lần đầu tiên tôi leo núi Phú Sĩ.)",
+        note: "💡 Chữ Hán: 初 (SƠ - ban đầu/lần đầu), phát âm là はじめて."
+      },
+      {
+        title: "12. まっすぐ : Đi thẳng, thẳng tắp",
+        meaning: "Chỉ phương hướng đi thẳng một mạch (không rẽ trái/phải) hoặc đường đi thẳng tắp.",
+        example: "• この道を まっすぐ 行って ください。(Xin hãy đi thẳng theo con đường này.)\n• まっすぐ 行くと、右に 郵便局が あります。(Đi thẳng là sẽ thấy bưu điện ở phía bên phải.)",
+        note: "💡 Thường dùng nhất trong mẫu câu chỉ đường: まっすぐ行きます (đi thẳng)."
+      },
+      {
+        title: "13. 📌 VAI TRÒ BỔ NGHĨA CỦA PHÓ TỪ",
+        meaning: "• Khái niệm: Phó từ (副詞) dùng để BỔ NGHĨA cho ĐỘNG TỪ, TÍNH TỪ hoặc cả câu.\n• Vị trí: Phó từ thường đứng NGAY TRƯỚC từ mà nó bổ nghĩa.\n• Bổ nghĩa cho Động từ:\n  - よく 勉強します (học chăm/nhiều)\n  - すぐ 行きます (đi ngay)\n  - ゆっくり 話します (nói từ từ)\n• Bổ nghĩa cho Tính từ:\n  - とても 暑い (rất nóng)\n  - もう少し 大きい (lớn hơn một chút)\n  - ずっと 速い (nhanh hơn hẳn)\n• Bổ nghĩa cho Số lượng:\n  - だいたい 15分 (khoảng 15 phút)\n  - もう 1杯 (thêm 1 chén/cốc)",
+        note: "💡 Phó từ KHÔNG biến đổi đuôi (không chia thì), chỉ cần đặt trực tiếp trước từ cần bổ nghĩa."
       }
     ]
   }
