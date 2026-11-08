@@ -824,6 +824,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_8": {
     "title": "Bài 8",
+    "completed": true,
     "questions": [
       {
         "id": "b8_q1",
@@ -1025,7 +1026,7 @@ const JA_GRAMMAR_DATA = {
   },
   "bai_9": {
     "title": "Bài 9",
-    "completed": false,
+    "completed": true,
     "questions": [
       {
         "id": "b9_q1",
@@ -1195,7 +1196,7 @@ const JA_GRAMMAR_DATA = {
 ,
   "bai_10": {
     "title": "Bài 10",
-    "completed": false,
+    "completed": true,
     "questions": [
       {
         "id": "b10_q1",
@@ -2240,7 +2241,7 @@ const JA_GRAMMAR_DATA = {
     ]
   },
   "bai_18": {
-    "title": "Bài 18",
+    "title": "Bài Luyện Tập 2",
     "completed": false,
     "questions": [
       {

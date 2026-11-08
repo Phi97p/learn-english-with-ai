@@ -46,7 +46,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 14)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 16)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -189,6 +189,54 @@ const JA_NOTES_DATA = {
         meaning: "Khi diễn tả một hiện tượng tự nhiên (thời tiết, thiên nhiên diễn ra khách quan trước mắt người nói) thì chủ thể của hiện tượng luôn đi với trợ từ「が」(tương tự như mẫu [N が Tính từ] để mô tả đặc điểm, thuộc tính khách quan).\n• Cấu trúc: [Hiện tượng tự nhiên] が + V-て います。",
         example: "• 雨が 降って います。(Trời đang mưa / mưa đang rơi.)\n• 雪が 降って います。(Tuyết đang rơi.)\n• 風が 吹いて います。(Gió đang thổi.)\n• 花が 咲いて います。(Hoa đang nở.)",
         note: "💡 Ghi nhớ quy tắc trợ từ: Diễn tả hiện tượng tự nhiên khách quan đang xảy ra trước mắt luôn dùng trợ từ「が」(雨が 降っています), tuyệt đối không dùng は."
+      },
+      {
+        title: "25. [Bài 15] Cho phép làm gì: V-ても いいです (Kèm câu hỏi xin phép)",
+        meaning: "• Khẳng định: V-ても いいです。(Được phép làm V / Làm V cũng được).\n• Câu hỏi xin phép: V-ても いいですか。(Tôi làm V có được không?)\n  ➔ Đồng ý: ええ、いいですよ。／ どうぞ。(Vâng, được chứ / Xin mời).\n  ➔ Từ chối lịch sự: すみません、ちょっと... (Xin lỗi, có chút không tiện...).",
+        example: "• ここで 写真を 撮っても いいですか。(Tôi chụp ảnh ở đây có được không?)\n  ➔ ええ、いいですよ。(Vâng, được chứ.)\n• タバコを 吸っても いいですか。(Tôi hút thuốc có được không?)\n• このカタログを もらっても いいですか。(Tôi lấy cuốn catalog này có được không?)",
+        note: "💡 Động từ chia thể て kết hợp với「も いいです」dùng để cho phép hoặc xin phép đối phương làm gì."
+      },
+      {
+        title: "26. [Bài 15] Cấm đoán: V-ては いけません (Không được làm gì)",
+        meaning: "Dùng để biểu thị sự CẤM ĐOÁN hoặc quy định không được phép thực hiện hành động (mang sắc thái nghiêm khắc, hay dùng trong biển báo, nội quy hoặc người trên nhắc nhở người dưới).",
+        example: "• ここで 車を 止めては いけません。(Không được đỗ xe ở đây.)\n• 美術館の中で 写真を 撮っては いけません。(Trong bảo tàng mỹ thuật không được chụp ảnh.)\n• テスト中、辞書を 見ては いけません。(Trong giờ kiểm tra không được xem từ điển.)\n• ここに ゴミを 捨てては いけません。(Không được vứt rác ở đây.)",
+        note: "⚠️ Khẩu quyết phân biệt:\n• V-ても いいです: ĐƯỢC PHÉP làm.\n• V-ては いけません: CẤM / KHÔNG ĐƯỢC LÀM."
+      },
+      {
+        title: "27. [Bài 15] Trạng thái kết quả & Thói quen lặp lại: V-て います",
+        meaning: "Ngoài nghĩa 'đang diễn ra' (Bài 14), mẫu「V-て います」còn có 2 cách dùng rất phổ biến:\n1) Trạng thái kết quả: Hành động đã xảy ra trong quá khứ, hiện tại và tương lai VẪN ĐANG DUY TRÌ kết quả đó:\n   - 結婚して います (Đã kết hôn và đang duy trì cuộc sống hôn nhân)\n   - [Địa điểm] に 住んで います (Đang sinh sống và cư trú ở đâu)\n   - 持って います (Có / sở hữu đồ vật gì)\n   - [Công ty] で 働いて います (Đang làm việc tại công ty nào)\n2) Thói quen, nghề nghiệp, tập quán: Hành động diễn ra lặp đi lặp lại thường xuyên trong thời gian dài (kinh doanh buôn bán, thói quen sinh hoạt...).",
+        example: "• わたしは ハノイに 住んで います。(Tôi đang sống ở Hà Nội.)\n• 兄は 結婚して います。(Anh trai tôi đã kết hôn.)\n• 車を 持って いますか。(Bạn có ô tô không?)\n• IMCで 働いて います。(Tôi đang làm việc tại công ty IMC.)\n• スーパーで 野菜を 売って います。(Siêu thị có bán rau củ - trạng thái kinh doanh buôn bán lặp lại).",
+        note: "💡 Ghi nhớ: Hành động diễn ra từ quá khứ, hiện tại và tương lai vẫn duy trì trạng thái ➔ luôn dùng「V-て います」."
+      },
+      {
+        title: "28. [Bài 15] Phủ định đặc biệt của 'Biết': 知っています ➔ 知りません",
+        meaning: "Động từ「知ります」(biết) có quy tắc khẳng định và phủ định BẤT QUY TẮC cần học thuộc lòng:\n• Khẳng định: 知って います。(Tôi biết).\n• Phủ định: 知りません。(Tôi không biết) ➔ TUYỆT ĐỐI KHÔNG DÙNG「知っていません」!",
+        example: "A：ミラーさんの 電話番号を 知って いますか。(Bạn có biết số điện thoại của anh Miller không?)\nB1 (Biết): はい、知って います。(Vâng, tôi biết.)\nB2 (Không biết): いいえ、知りません。(Không, tôi không biết - TUYỆT ĐỐI KHÔNG NÓI: 知っていません).",
+        note: "⚠️ LỖI SAI KINH ĐIỂN CẦN TRÁNH: Không bao giờ nói「知っていません」! Phủ định của「知っています」bắt buộc phải là「知りません」."
+      },
+      {
+        title: "29. [Bài 16] Nối chuỗi hành động liên tiếp: V1-て、V2-て、V3",
+        meaning: "Dùng thể「て」để liệt kê các hành động xảy ra tuần tự theo trình tự thời gian (hành động nào làm trước thì nói trước). Tất cả hành động đều của CÙNG MỘT CHỦ THỂ.\n• Cấu trúc: [Chủ ngữ は] + V1-て、V2-て、... V-thì của câu.\n• Thì của cả câu (quá khứ, hiện tại, tương lai) do ĐỘNG TỪ CUỐI CÙNG quyết định.",
+        example: "• 朝 6時に 起きて、シャワーを 浴びて、朝ごはんを 食べました。(Buổi sáng tôi thức dậy lúc 6 giờ, tắm vòi sen, rồi ăn sáng.)\n• 銀座へ 行って、映画を 見て、お茶を 飲みます。(Tôi sẽ đi Ginza, xem phim, rồi uống trà.)",
+        note: "💡 Trình tự thời gian: V1 làm trước ➔ làm tiếp V2 ➔ cuối cùng làm V3. Động từ cuối câu chia thì gì thì cả câu mang thì đó."
+      },
+      {
+        title: "30. [Bài 16] Sau khi làm xong V1 thì làm V2: V1-てから、V2",
+        meaning: "Nhấn mạnh: Sau khi KẾT THÚC HOÀN TOÀN hành động V1 thì mới làm tiếp hành động V2 (V2 diễn ra ngay sau khi V1 hoàn tất).\n• Cấu trúc: V1-てから、V2。\n• ⚠️ QUY TẮC BẮT BUỘC: Trong 1 câu chỉ dùng「V-てから」ĐÚNG 1 LẦN (không nói V1てから、V2てから...).",
+        example: "• 仕事が 終わってから、泳ぎに 行きます。(Sau khi xong công việc, tôi sẽ đi bơi.)\n• お金を 入れてから、ボタンを 押して ください。(Sau khi bỏ tiền vào, xin hãy bấm nút.)\n• もう一杯 飲んでから、帰りましょう。(Uống thêm một ly nữa rồi về nhé.)",
+        note: "💡 Phân biệt:「V1-て、V2」chỉ đơn thuần kể chuỗi hành động theo thứ tự; còn「V1-てから、V2」nhấn mạnh V1 xong xuôi thì V2 mới diễn ra. Lưu ý chỉ dùng てから 1 lần trong câu."
+      },
+      {
+        title: "31. [Bài 16] Nối Tính từ & Danh từ: くて (đuôi い) & で (đuôi な / Danh từ)",
+        meaning: "Dùng để liên kết 2 hay nhiều đặc điểm/tính chất của cùng một sự vật, sự việc hoặc liên kết câu:\n• Tính từ đuôi「い」: Bỏ「い」thêm「くて」(Rẻ mà ngon: 安くて おいしい).\n  (Ngoại lệ: いい ➔「よくて」).\n• Tính từ đuôi「な」: Bỏ「な」thêm「で」(Yên tĩnh và đẹp: 静かで きれい).\n• Danh từ: Thêm「で」(Là người Việt Nam và là kỹ sư: ベトナム人で、エンジニアです).\n• ⚠️ Lưu ý: Khi nối các tính từ cùng loại (cùng khen hoặc cùng chê); nếu 1 vế khen 1 vế chê (đối lập) thì dùng liên từ「が」(おいしいですが、高いです).",
+        example: "• [Tính từ đuôi い - くて]:\n  - この部屋は 広くて、明るいです。(Căn phòng này vừa rộng vừa sáng sủa.)\n  - ミラーさんは 若くて、親切です。(Anh Miller vừa trẻ vừa tốt bụng.)\n  - 天気が よくて、気持ちがいいです。(Thời tiết đẹp và dễ chịu - いい ➔ よくて).\n• [Tính từ đuôi な - で]:\n  - サントスさんは 親切で、面白いです。(Anh Santos tốt bụng và thú vị.)\n• [Danh từ - で]:\n  - ナムさんは 28歳で、独身です。(Anh Nam 28 tuổi và còn độc thân).",
+        note: "💡 Công thức vàng: Đuôi い ➔ bỏ い + くて; Đuôi な ➔ thêm で; Danh từ ➔ thêm で."
+      },
+      {
+        title: "32. [Bài 16] Miêu tả đặc điểm: A は B が [Tính từ] & Phân biệt với So sánh nhất",
+        meaning: "Dùng để miêu tả đối tượng A có đặc điểm/thuộc tính B như thế nào (B thường là một bộ phận cơ thể hoặc một thuộc tính của A):\n• Cấu trúc: A は B が [Tính từ] です。(A thì B [tính từ]).\n\n📌 SO SÁNH & PHÂN BIỆT 2 MẪU CÂU DỄ NHẦM:\n1) Mẫu miêu tả đặc điểm:「A は B が [Tính từ] です」\n   ➔ Chủ thể A đi với「は」; bộ phận/thuộc tính B đi với「が」.\n2) Mẫu so sánh nhất (Bài 12):「S (の中) で [Đối tượng] が いちばん [Tính từ] です」\n   ➔ Tập hợp cha S đi với「で」; đối tượng so sánh đi với「が」.\n\n⚡ ĐIỂM GIỐNG & KHÁC NHAU:\n• Giống nhau: Vế sau đều dùng trợ từ「が」(B が tính từ / Đối tượng が いちばん tính từ).\n• Khác nhau ở vế đầu: Miêu tả đặc điểm của đối tượng thì dùng「は」(A は); còn so sánh trong một nhóm/tập hợp thì dùng「で」(S の中で).",
+        example: "• [Miêu tả đặc điểm - A は B が Tính từ]:\n  - 象は 鼻が 長いです。(Con voi thì mũi dài - A = con voi, B = mũi).\n  - マリアさんは 髪が 長くて、きれいです。(Bạn Maria thì tóc dài và đẹp).\n  - 大阪は 食べ物が おいしいです。(Osaka thì đồ ăn rất ngon).\n• [So sánh nhất - S で Đối tượng が いちばん]:\n  - 動物の中で 象が いちばん 大きいです。(Trong các loài động vật thì voi là to nhất - S = động vật, dùng で).",
+        note: "💡 Khẩu quyết: Miêu tả đặc điểm ➔「A は B が Tính từ」; So sánh trong nhóm ➔「S で Đối tượng が いちばん」. Vế sau đều là が, vế đầu khác nhau giữa は và で!"
       }
     ]
   },
@@ -198,11 +246,11 @@ const JA_NOTES_DATA = {
     title: "Trợ từ",
     badge: "🔖 TRỢ TỪ",
     description: "Note về trợ từ: は, が, で, に, へ, の, と",
-    notice: "Ghi nhớ quy tắc phân biệt trợ từ khi nói về Ở đâu, Thời gian, Tần suất, Tập cha và [N が Tính từ].",
+    notice: "Ghi nhớ quy tắc trợ từ khi nói về Ở đâu, Thời gian, Tần suất, Tập cha, Đặt lên (に), [Vị trí + の + N] và [N を 持っています].",
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• に + thời gian: chỉ tần suất làm việc / hành động (1週間に 1回: 1 tuần 1 lần)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• で：trong - đứng sau danh từ là tập cha của chủ thể (ví dụ: スポーツの中で, クラスで)\n• の：của, về, thuộc\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ] (tính từ mô tả đặc điểm của N; muốn bổ nghĩa phải đặt tính từ đứng trước N); hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• に + thời gian: chỉ tần suất làm việc / hành động (1週間に 1回: 1 tuần 1 lần)\n• に + vị trí/bề mặt: lên, vào - chỉ điểm đến & kết quả hiện diện của hành động (đặt gì lên đâu đó: 机の上に 置きます)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• で：trong - đứng sau danh từ là tập cha của chủ thể (ví dụ: スポーツの中で, クラスで)\n• の：của, về, thuộc; và [Vị trí: 上/下/中...] + の + Danh từ để bổ nghĩa xác định vị trí cho danh từ phía sau (机の上の本)\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ] (tính từ mô tả đặc điểm của N; muốn bổ nghĩa phải đặt tính từ đứng trước N); hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)\n• を + 持っています：Có, sở hữu, mang theo [đồ vật] (車を 持っています, 傘を 持っています)",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -226,6 +274,18 @@ const JA_NOTES_DATA = {
         meaning: "• [Danh từ が Tính từ]: Tính từ đứng sau が dùng để MÔ TẢ ĐẶC ĐIỂM, thuộc tính của danh từ đó (thường là một bộ phận, khía cạnh của một chủ thể).\n• [Tính từ + Danh từ]: Khi muốn BỔ NGHĨA trực tiếp cho danh từ thì tính từ BẮT BUỘC phải đứng TRƯỚC danh từ (Tính từ đuôi い giữ nguyên い + N; Tính từ đuôi な + な + N).\n• Chú ý câu nêu chủ đề chung: Ví dụ câu 'Mùa đông không lạnh' ➔ Mùa đông là chủ đề của cả câu nên dùng「は」(冬は 寒くないです), KHÔNG NÊN dùng「冬が 寒くないです」.",
         example: "• Mô tả đặc điểm (N が Tính từ):\n  - ゾウは 鼻が 長いです。(Con voi thì mũi dài - 'mũi dài' mô tả đặc điểm của con voi).\n  - マリアさんは 目が きれいです。(Bạn Maria thì mắt đẹp).\n  - 頭が 痛いです。(Tôi bị đau đầu).\n• Bổ nghĩa trực tiếp (Tính từ + N):\n  - 冷たい水 (Nước lạnh - tính từ 冷たい bổ nghĩa cho danh từ 水).\n  - 静かな町 (Thị trấn yên tĩnh - tính từ đuôi な thêm な bổ nghĩa cho 町).\n• Chủ đề câu dùng「は」:\n  - 冬は 寒くないです。(Mùa đông thì không lạnh - dùng は làm chủ đề, không dùng が).",
         note: "💡 Khẩu quyết: Tính từ đứng sau が ➔ mô tả đặc điểm; Tính từ đứng trước N ➔ bổ nghĩa cho N; Nhắc đến chủ đề/trạng thái chung (như thời tiết, mùa màng) ➔ dùng は (冬は 寒くないです)."
+      },
+      {
+        title: "6. に : 'Lên / Vào' - Điểm đến & Kết quả hiện diện (Đặt gì lên đâu đó)",
+        meaning: "Trợ từ「に」dùng để chỉ ĐIỂM ĐẾN hoặc KẾT QUẢ HIỆN DIỆN của hành động (sau khi làm xong hành động thì vật nằm cố định, hiện diện tại vị trí đó: đặt lên, dán lên, viết vào, để vào...).\n• Cấu trúc: [Vị trí / Nơi chốn] に + [Vật] を + [Động từ: 置きます / 書きます / 貼ります / 止めます / 入れます].",
+        example: "• 机の 上に 本を 置きます。(Đặt quyển sách lên trên bàn - đặt xong sách hiện diện trên mặt bàn).\n• ここに 名前を 書いて ください。(Xin hãy viết tên vào đây).\n• カレンダーに 予定を 書きます。(Viết dự định vào lịch).\n• ここに 車を 止めます。(Đỗ xe vào chỗ này).",
+        note: "💡 Phân biệt「で」và「に」khi có hành động:\n• で: Nơi DIỄN RA hành động (ví dụ: 部屋で 勉強します - học trong phòng).\n• に: Nơi KẾT QUẢ HIỆN DIỆN / ĐẶT LÊN của hành động (ví dụ: 机の上に 置きます - đặt lên bàn)."
+      },
+      {
+        title: "7. [Vị trí] の + Danh từ & Cấu trúc: [Đồ vật] を 持っています (Có, sở hữu)",
+        meaning: "1) [Vị trí: 上, 下, 前, 後ろ, 中...] + の + Danh từ:\n   ➔ Dùng từ chỉ vị trí +「の」để BỔ NGHĨA trực tiếp cho danh từ phía sau, nhằm xác định chính xác đối tượng đó đang ở đâu (Ví dụ: 上の + N = N ở phía trên).\n2) [Đồ vật] を 持って います (もっています):\n   ➔ Biểu thị: CÓ, SỞ HỮU hoặc MANG THEO một đồ vật nào đó (chú ý đi với trợ từ「を」, khác với mẫu「N が あります」).",
+        example: "• [Vị trí: 上の + Danh từ]:\n  - 机の 上の 本 (Quyển sách ở trên bàn - 上の bổ nghĩa cho 本).\n  - テーブルの 上の りんご (Quả táo ở trên bàn).\n  - かばんの 中の 財布 (Ví tiền ở trong cặp).\n• [[Đồ vật] を 持っています - Có / Sở hữu / Mang theo]:\n  - わたしは 車を 持って います。(Tôi có / sở hữu xe ô tô).\n  - パソコンを 持って いますか。(Bạn có máy tính không?)\n  - 傘を 持って います。(Tôi có mang theo ô).",
+        note: "💡 Mẹo nhớ:\n• Cụm「上の + Danh từ」bổ nghĩa vị trí cho danh từ sau.\n•「N を 持っています」mang 3 nghĩa: CÓ, SỞ HỮU, MANG THEO (dùng trợ từ を)."
       }
     ]
   },
@@ -280,10 +340,16 @@ const JA_NOTES_DATA = {
         note: "💡 Thường đứng tách biệt ở đầu câu mới (sau dấu chấm câu)."
       },
       {
-        title: "8. 特に (とくに) : Đặc biệt là, nhất là",
+        title: "8. Đặc biệt là, nhất là : 特に (とくに)",
         meaning: "Dùng để nhấn mạnh một đối tượng, sự vật nổi bật nhất trong một tập hợp hoặc phạm vi.",
         example: "スポーツが　すきです。とくに　サッカーが　すきです。(Tôi thích thể thao. Đặc biệt là rất thích bóng đá.)",
         note: "💡 Chữ Hán: 特 (ĐẶC) đọc là とく. Dùng nhấn mạnh cá nhân/sự vật nổi bật."
+      },
+      {
+        title: "9. Sau khi : V-てから、V2",
+        meaning: "Dùng để liên kết 2 mệnh đề diễn tả hai hành động liên tiếp nhau: Sau khi KẾT THÚC hoàn toàn hành động V1 thì mới bắt đầu thực hiện hành động V2.\n• Cấu trúc: [V1-てから]、[V2]。\n• ⚠️ Lưu ý: Trong 1 câu chỉ dùng「V-てから」đúng 1 lần.",
+        example: "• 仕事が 終わってから、泳ぎに 行きます。(Sau khi kết thúc công việc, tôi đi bơi.)\n• お金を 入れてから、ボタンを 押して ください。(Sau khi bỏ tiền vào, xin hãy bấm nút.)\n• 国へ 帰ってから、父の 会社で 働きます。(Sau khi về nước, tôi sẽ làm việc ở công ty của bố.)",
+        note: "💡 Phân biệt:「から」đứng sau mệnh đề giải thích nghĩa là 'Vì, bởi vì'; còn khi đi trực tiếp sau động từ thể て (V-てから) thì mang nghĩa 'Sau khi kết thúc V1 thì làm V2'."
       }
     ]
   },
@@ -414,7 +480,7 @@ const JA_NOTES_DATA = {
     title: "Từ để hỏi",
     badge: "❓ TỪ ĐỂ HỎI",
     description: "Tổng hợp các từ để hỏi (nghi vấn từ) thông dụng và quy tắc sử dụng trong tiếng Nhật",
-    notice: "Nắm vững các từ để hỏi và phân biệt các cặp từ dễ nhầm lẫn (なに / なん, どう / どんな, どこ / どちら...).",
+    notice: "Nắm vững các từ để hỏi và phân biệt các cặp từ dễ nhầm lẫn (なに / なん, どう / どんな / どうやって, どこ / どちら / どの...).",
     items: [
       {
         title: "1. いくつ : Bao nhiêu cái / Mấy tuổi",
@@ -499,6 +565,18 @@ const JA_NOTES_DATA = {
         meaning: "• Hỏi phương hướng: Phía nào, hướng nào (lịch sự của どっち / どこ).\n• Hỏi lựa chọn giữa 2 đối tượng: Cái nào, bên nào (A と B と どちらが...).\n• Hỏi nơi chốn, công ty, quốc gia một cách lịch sự, trang trọng (thay cho どこ).",
         example: "• お国は どちらですか。(Đất nước của bạn ở đâu / Bạn là người nước nào? - cách hỏi lịch sự của どこ)\n• 日本と ベトナムと どちらが 寒いですか。(Nhật Bản và Việt Nam thì nước nào lạnh hơn?)",
         note: "💡 Mẹo nhớ:「どちら」vừa hỏi lựa chọn giữa 2 cái, vừa là thể lịch sự của「どこ」."
+      },
+      {
+        title: "15. どうやって : Làm thế nào, bằng cách nào",
+        meaning: "Dùng để hỏi về cách thức, trình tự, phương pháp làm một việc gì đó hoặc cách đi từ điểm A đến điểm B.\n• Cấu trúc: [Địa điểm] まで どうやって 行きますか。(Đi đến [địa điểm] bằng cách nào?)\n• Trả lời: Nêu phương tiện di chuyển hoặc các bước hành động (V1-て、V2-て...).",
+        example: "• 大学まで どうやって 行きますか。(Đi đến trường đại học bằng cách nào?)\n  ➔ 京都駅から 16番の バスに 乗って、大学前で 降ります。(Từ ga Kyoto đi xe buýt số 16 rồi xuống ở trước trường đại học.)\n• これは どうやって 食べますか。(Món này ăn như thế nào vậy?)\n• どうやって 現金を 引き出しますか。(Làm thế nào để rút tiền mặt?)",
+        note: "💡 Phân biệt:「どう」(thế nào - hỏi cảm nhận/ý kiến: どうですか); còn「どうやって」(làm thế nào/bằng cách nào - hỏi cách thức, phương pháp, cách đi)."
+      },
+      {
+        title: "16. どの : Cái nào, người nào (Bổ nghĩa cho danh từ)",
+        meaning: "Từ chỉ định nghi vấn dùng để hỏi khi muốn xác định / lựa chọn 1 đối tượng trong MỘT NHÓM TỪ 3 ĐỐI TƯỢNG TRỞ LÊN.\n• Cấu trúc: どの + [Danh từ] (bắt buộc phải đi liền trước một danh từ, không đứng độc lập).\n• Phân biệt lựa chọn:\n  - 2 đối tượng ➔ dùng「どちら」(どちらが 好きですか).\n  - Từ 3 đối tượng trở lên ➔ dùng「どの + N」(どの傘が あなたのですか / どれ).",
+        example: "• サントスさんは どの人ですか。(Anh Santos là người nào?)\n  ➔ あの 背が 高くて、髪が 黒い人です。(Là người cao và tóc đen kia kìa.)\n• あなたの 傘は どの傘ですか。(Cái ô của bạn là cái ô nào?)\n• どの パソコンが いちばん 新しいですか。(Chiếc máy tính nào mới nhất?)",
+        note: "💡 Mẹo nhớ:「どの」luôn phải đi liền với Danh từ (どの + N). Chọn giữa 2 cái dùng「どちら」; chọn trong 3 cái trở lên dùng「どの + N」(hoặc đứng độc lập dùng「どれ」)."
       }
     ]
   },

@@ -1535,6 +1535,371 @@ const JA_VOCAB_DATA = {
         vi: "Kéo (cửa), tra (từ điển: 辞書を引きます)"
       }
     ]
+  },
+  bai_7: {
+    title: "Bài 7",
+    words: [
+      {
+        word: "呼びます",
+        hiragana: "よびます",
+        romaji: "Yobimasu",
+        vi: "Gọi (gọi taxi, gọi tên)"
+      },
+      {
+        word: "降ります",
+        hiragana: "ふります／おります",
+        romaji: "Furimasu / Orimasu",
+        vi: "Rơi (mưa, tuyết: ふります) / Xuống (tàu xe: おります) (cùng 1 kanji 降 tuỳ ngữ cảnh)"
+      },
+      {
+        word: "使います",
+        hiragana: "つかいます",
+        romaji: "Tsukaimasu",
+        vi: "Dùng, sử dụng"
+      },
+      {
+        word: "置きます",
+        hiragana: "おきます",
+        romaji: "Okimasu",
+        vi: "Đặt, để (đồ vật)"
+      },
+      {
+        word: "作ります",
+        hiragana: "つくります",
+        romaji: "Tsukurimasu",
+        vi: "Làm, chế tạo, nấu (đồ ăn)"
+      },
+      {
+        word: "売ります",
+        hiragana: "うります",
+        romaji: "Urimasu",
+        vi: "Bán"
+      },
+      {
+        word: "知ります",
+        hiragana: "しります",
+        romaji: "Shirimasu",
+        vi: "Biết (thường dùng dạng 知っています / 知りません)"
+      },
+      {
+        word: "住みます",
+        hiragana: "すみます",
+        romaji: "Sumimasu",
+        vi: "Sống, cư trú, định cư (ở đâu dùng に: ...に住みます)"
+      },
+      {
+        word: "研究します",
+        hiragana: "けんきゅうします",
+        romaji: "Kenkyuushimasu",
+        vi: "Nghiên cứu"
+      },
+      {
+        word: "住んでいます",
+        hiragana: "すんでいます",
+        romaji: "Sunde imasu",
+        vi: "Đang sống, đang cư trú (ở đâu + に住んでいます)"
+      },
+      {
+        word: "知っています",
+        hiragana: "しっています",
+        romaji: "Shitte imasu",
+        vi: "Đang biết, biết (phủ định là 知りません - không biết)"
+      },
+      {
+        word: "資料",
+        hiragana: "しりょう",
+        romaji: "Shiryou",
+        vi: "Tài liệu, tư liệu"
+      },
+      {
+        word: "服",
+        hiragana: "ふく",
+        romaji: "Fuku",
+        vi: "Quần áo, y phục"
+      },
+      {
+        word: "製品",
+        hiragana: "せいひん",
+        romaji: "Seihin",
+        vi: "Sản phẩm, hàng hóa chế tạo"
+      },
+      {
+        word: "専門",
+        hiragana: "せんもん",
+        romaji: "Senmon",
+        vi: "Chuyên môn, chuyên ngành"
+      },
+      {
+        word: "歯医者",
+        hiragana: "はいしゃ",
+        romaji: "Haisha",
+        vi: "Nha sĩ, bác sĩ nha khoa (歯: răng, 医者: bác sĩ)"
+      },
+      {
+        word: "床屋",
+        hiragana: "とこや",
+        romaji: "Tokoya",
+        vi: "Tiệm cắt tóc (nam)"
+      },
+      {
+        word: "独身",
+        hiragana: "どくしん",
+        romaji: "Dokushin",
+        vi: "Độc thân (mẹo: 身 trong 身長 - shinchou chiều cao)"
+      },
+      {
+        word: "特に",
+        hiragana: "とくに",
+        romaji: "Tokuni",
+        vi: "Đặc biệt là, nhất là"
+      },
+      {
+        word: "高校",
+        hiragana: "こうこう",
+        romaji: "Koukou",
+        vi: "Trường cấp 3, trường THPT (viết tắt của 高等学校)"
+      },
+      {
+        word: "思い",
+        hiragana: "おもい",
+        romaji: "Omoi",
+        vi: "Suy nghĩ, tâm tư, cảm xúc"
+      },
+      {
+        word: "桜",
+        hiragana: "さくら",
+        romaji: "Sakura",
+        vi: "Hoa anh đào"
+      },
+      {
+        word: "出します",
+        hiragana: "だします",
+        romaji: "Dashimasu",
+        vi: "Gửi (thư), nộp (báo cáo, bài tập), lấy ra"
+      },
+      {
+        word: "思い出します",
+        hiragana: "おもいだします",
+        romaji: "Omoidashimasu",
+        vi: "Nhớ lại, hồi tưởng (đi với trợ từ を)"
+      },
+      {
+        word: "棚",
+        hiragana: "たな",
+        romaji: "Tana",
+        vi: "Cái kệ, cái giá (giá sách, kệ đồ)"
+      },
+      {
+        word: "いらっしゃい",
+        hiragana: "いらっしゃい",
+        romaji: "Irasshai",
+        vi: "Chào mừng (kính ngữ chào đón khách, hoặc trong いらっしゃいませ)"
+      },
+      {
+        word: "お酒",
+        hiragana: "おさけ",
+        romaji: "Osake",
+        vi: "Rượu, rượu sake"
+      },
+      {
+        word: "鉛筆",
+        hiragana: "えんぴつ",
+        romaji: "Enpitsu",
+        vi: "Bút chì"
+      },
+      {
+        word: "結婚",
+        hiragana: "けっこん",
+        romaji: "Kekkon",
+        vi: "Kết hôn (結婚します: kết hôn)"
+      },
+      {
+        word: "研究",
+        hiragana: "けんきゅう",
+        romaji: "Kenkyuu",
+        vi: "Sự nghiên cứu"
+      },
+      {
+        word: "第",
+        hiragana: "だい",
+        romaji: "Dai",
+        vi: "Thứ..., bài... (tiền tố số thứ tự: 第1課 - bài 1; mẹo phân biệt với 弟 おとうと em trai)"
+      },
+      {
+        word: "持ちます",
+        hiragana: "もちます",
+        romaji: "Mochimasu",
+        vi: "Cầm, mang theo, nắm giữ"
+      },
+      {
+        word: "場所",
+        hiragana: "ばしょ",
+        romaji: "Basho",
+        vi: "Địa điểm, nơi chốn (giống ところ nhưng thiên về vị trí cụ thể hơn; 所: chỗ, nơi)"
+      },
+      {
+        word: "失礼",
+        hiragana: "しつれい",
+        romaji: "Shitsurei",
+        vi: "Thất lễ, bất lịch sự (hoặc dùng trong 失礼します: xin phép)"
+      },
+      {
+        word: "教師",
+        hiragana: "きょうし",
+        romaji: "Kyoushi",
+        vi: "Giáo viên, giảng viên (nghề nghiệp xưng cho bản thân)"
+      },
+      {
+        word: "学校",
+        hiragana: "がっこう",
+        romaji: "Gakkou",
+        vi: "Trường học"
+      },
+      {
+        word: "乗り換えます",
+        hiragana: "のりかえます",
+        romaji: "Norikaemasu",
+        vi: "Đổi tàu, chuyển xe (chuyển tuyến)"
+      },
+      {
+        word: "入れます",
+        hiragana: "いれます",
+        romaji: "Iremasu",
+        vi: "Cho vào, bỏ vào, đút vào (ví dụ: cho tiền vào máy)"
+      },
+      {
+        word: "入ります",
+        hiragana: "はいります",
+        romaji: "Hairimasu",
+        vi: "Vào, đi vào (vào bồn tắm, vào quán)"
+      },
+      {
+        word: "出ます",
+        hiragana: "でます",
+        romaji: "Demasu",
+        vi: "Ra, đi ra, rời khỏi (rời khỏi phòng, tốt nghiệp đại học)"
+      },
+      {
+        word: "押します",
+        hiragana: "おします",
+        romaji: "Oshimasu",
+        vi: "Ấn, bấm (nút), đẩy"
+      },
+      {
+        word: "若い",
+        hiragana: "わかい",
+        romaji: "Wakai",
+        vi: "Trẻ, trẻ trung"
+      },
+      {
+        word: "長い",
+        hiragana: "ながい",
+        romaji: "Nagai",
+        vi: "Dài (chiều dài, thời gian)"
+      },
+      {
+        word: "短い",
+        hiragana: "みじかい",
+        romaji: "Mijikai",
+        vi: "Ngắn (chiều dài, thời gian)"
+      },
+      {
+        word: "明るい",
+        hiragana: "あかるい",
+        romaji: "Akarui",
+        vi: "Sáng, sáng sủa / tươi vui, hoạt bát"
+      },
+      {
+        word: "暗い",
+        hiragana: "くらい",
+        romaji: "Kurai",
+        vi: "Tối, u ám / trầm, ủ rũ"
+      },
+      {
+        word: "頭がいい",
+        hiragana: "あたまがいい",
+        romaji: "Atama ga ii",
+        vi: "Thông minh, sáng dạ (đầu óc tốt)"
+      },
+      {
+        word: "体",
+        hiragana: "からだ",
+        romaji: "Karada",
+        vi: "Cơ thể, thân thể, sức khỏe"
+      },
+      {
+        word: "頭",
+        hiragana: "あたま",
+        romaji: "Atama",
+        vi: "Đầu, đầu óc"
+      },
+      {
+        word: "髪",
+        hiragana: "かみ",
+        romaji: "Kami",
+        vi: "Tóc, mái tóc"
+      },
+      {
+        word: "顔",
+        hiragana: "かお",
+        romaji: "Kao",
+        vi: "Khuôn mặt, mặt"
+      },
+      {
+        word: "耳",
+        hiragana: "みみ",
+        romaji: "Mimi",
+        vi: "Tai, lỗ tai"
+      },
+      {
+        word: "歯",
+        hiragana: "は",
+        romaji: "Ha",
+        vi: "Răng"
+      },
+      {
+        word: "足",
+        hiragana: "あし",
+        romaji: "Ashi",
+        vi: "Chân, bàn chân"
+      },
+      {
+        word: "緑",
+        hiragana: "みどり",
+        romaji: "Midori",
+        vi: "Màu xanh lá cây, cây xanh"
+      },
+      {
+        word: "お寺",
+        hiragana: "おてら",
+        romaji: "Otera",
+        vi: "Chùa, ngôi chùa (Phật giáo)"
+      },
+      {
+        word: "神社",
+        hiragana: "じんじゃ",
+        romaji: "Jinja",
+        vi: "Đền, đền thờ thần đạo (Shinto)"
+      },
+      {
+        word: "次に",
+        hiragana: "つぎに",
+        romaji: "Tsugini",
+        vi: "Tiếp theo, sau đó"
+      },
+      {
+        word: "確認",
+        hiragana: "かくにん",
+        romaji: "Kakunin",
+        vi: "Xác nhận (確認します: xác nhận, kiểm tra lại)"
+      },
+      {
+        word: "金額",
+        hiragana: "きんがく",
+        romaji: "Kingaku",
+        vi: "Số tiền, khoản tiền"
+      }
+    ]
   }
 };
 

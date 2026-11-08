@@ -63,12 +63,12 @@ const GrammarJaModule = (() => {
   // 2. Trong mỗi nhóm, sắp xếp tăng dần từ nhỏ đến lớn: Bài 1, Bài 2, Bài 3,...
   function getSortedLessonKeys(allData) {
     function extractLessonNumber(key, lesson) {
+      const km = String(key).match(/\d+/);
+      if (km) return parseInt(km[0], 10);
       if (lesson && lesson.title) {
         const m = String(lesson.title).match(/\d+/);
         if (m) return parseInt(m[0], 10);
       }
-      const km = String(key).match(/\d+/);
-      if (km) return parseInt(km[0], 10);
       return 9999;
     }
 
