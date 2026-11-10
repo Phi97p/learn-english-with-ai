@@ -2347,6 +2347,18 @@ const JA_VOCAB_DATA = {
         hiragana: "りょうしん",
         romaji: "Ryoushin",
         vi: "Bố mẹ, cha mẹ, phụ huynh"
+      },
+      {
+        word: "なくてもいいです",
+        hiragana: "なくてもいいです",
+        romaji: "Nakutemo ii desu",
+        vi: "Không cần làm V (cấu trúc: Vない bỏ い + くてもいいです)"
+      },
+      {
+        word: "なければなりません",
+        hiragana: "なければなりません",
+        romaji: "Nakereba narimasen",
+        vi: "Phải làm V (cấu trúc: Vない bỏ い + ければなりません)"
       }
     ]
   }
