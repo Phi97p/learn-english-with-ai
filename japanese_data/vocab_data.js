@@ -1900,6 +1900,455 @@ const JA_VOCAB_DATA = {
         vi: "Số tiền, khoản tiền"
       }
     ]
+  },
+  bai_8: {
+    title: "Bài 8",
+    words: [
+      {
+        word: "明るい",
+        hiragana: "あかるい",
+        romaji: "Akarui",
+        vi: "Sáng, sáng sủa (mẹo: sáng nên rất nhẹ かるい)"
+      },
+      {
+        word: "軽い",
+        hiragana: "かるい",
+        romaji: "Karui",
+        vi: "Nhẹ (trái nghĩa: 重い - nặng; mẹo: nhớ đến từ sáng あかるい)"
+      },
+      {
+        word: "重い",
+        hiragana: "おもい",
+        romaji: "Omoi",
+        vi: "Nặng (trái nghĩa: 軽い - nhẹ)"
+      },
+      {
+        word: "安い",
+        hiragana: "やすい",
+        romaji: "Yasui",
+        vi: "Rẻ (trái nghĩa: 高い - đắt)"
+      },
+      {
+        word: "高い",
+        hiragana: "たかい",
+        romaji: "Takai",
+        vi: "Đắt, cao (trái nghĩa: 安い - rẻ / 低い - thấp)"
+      },
+      {
+        word: "低い",
+        hiragana: "ひくい",
+        romaji: "Hikui",
+        vi: "Thấp (trái nghĩa: 高い - cao)"
+      },
+      {
+        word: "入ります",
+        hiragana: "はいります",
+        romaji: "Hairimasu",
+        vi: "Vào, bước vào (trái nghĩa: 出ます - đi ra)"
+      },
+      {
+        word: "出ます",
+        hiragana: "でます",
+        romaji: "Demasu",
+        vi: "Ra, đi ra (trái nghĩa: 入ります - đi vào)"
+      },
+      {
+        word: "入れます",
+        hiragana: "いれます",
+        romaji: "Iremasu",
+        vi: "Cho vào, bỏ vào (trái nghĩa: 出します - lấy ra)"
+      },
+      {
+        word: "出します",
+        hiragana: "だします",
+        romaji: "Dashimasu",
+        vi: "Lấy ra, gửi, nộp (báo cáo, bài tập) (trái nghĩa: 入れます - cho vào)"
+      },
+      {
+        word: "多い",
+        hiragana: "おおい",
+        romaji: "Ooi",
+        vi: "Nhiều (số lượng, người) (trái nghĩa: 少ない - ít)"
+      },
+      {
+        word: "少ない",
+        hiragana: "すくない",
+        romaji: "Sukunai",
+        vi: "Ít (số lượng) (trái nghĩa: 多い - nhiều)"
+      },
+      {
+        word: "近い",
+        hiragana: "ちかい",
+        romaji: "Chikai",
+        vi: "Gần (trái nghĩa: 遠い - xa; lưu ý phân biệt với 小さい ちいさい - nhỏ)"
+      },
+      {
+        word: "遠い",
+        hiragana: "とおい",
+        romaji: "Tooi",
+        vi: "Xa (khoảng cách) (trái nghĩa: 近い - gần)"
+      },
+      {
+        word: "速い",
+        hiragana: "はやい",
+        romaji: "Hayai",
+        vi: "Nhanh (tốc độ) (trái nghĩa: 遅い - chậm)"
+      },
+      {
+        word: "遅い",
+        hiragana: "おそい",
+        romaji: "Osoi",
+        vi: "Chậm, muộn (trái nghĩa: 速い - nhanh; mẹo: chậm như con dê)"
+      },
+      {
+        word: "狭い",
+        hiragana: "せまい",
+        romaji: "Semai",
+        vi: "Hẹp, chật hẹp (trái nghĩa: 広い - rộng)"
+      },
+      {
+        word: "広い",
+        hiragana: "ひろい",
+        romaji: "Hiroi",
+        vi: "Rộng, rộng rãi (trái nghĩa: 狭い - hẹp)"
+      },
+      {
+        word: "長い",
+        hiragana: "ながい",
+        romaji: "Nagai",
+        vi: "Dài (trái nghĩa: 短い - ngắn)"
+      },
+      {
+        word: "短い",
+        hiragana: "みじかい",
+        romaji: "Mijikai",
+        vi: "Ngắn (trái nghĩa: 長い - dài)"
+      },
+      {
+        word: "事務所",
+        hiragana: "じむしょ",
+        romaji: "Jimusho",
+        vi: "Văn phòng, phòng làm việc"
+      },
+      {
+        word: "野球",
+        hiragana: "やきゅう",
+        romaji: "Yakyuu",
+        vi: "Môn bóng chày"
+      },
+      {
+        word: "若い",
+        hiragana: "わかい",
+        romaji: "Wakai",
+        vi: "Trẻ, trẻ trung (mẹo: tay phải 右 ăn thảo mộc 艹 nên trẻ ra)"
+      },
+      {
+        word: "確認",
+        hiragana: "かくにん",
+        romaji: "Kakunin",
+        vi: "Xác nhận, kiểm tra (ví dụ: チケットを確認してください - Xin hãy kiểm tra vé)"
+      },
+      {
+        word: "暗証",
+        hiragana: "あんしょう",
+        romaji: "Anshou",
+        vi: "Mật mã, mã số bí mật (mẹo: ấn số / answer)"
+      },
+      {
+        word: "暗証番号",
+        hiragana: "あんしょうばんごう",
+        romaji: "Anshou bangou",
+        vi: "Mã PIN, số mật mã (mẹo: ấn số + bangou số)"
+      },
+      {
+        word: "頃",
+        hiragana: "ごろ",
+        romaji: "Goro",
+        vi: "Khoảng, vào khoảng (thời điểm: 3時ごろ)"
+      },
+      {
+        word: "お願いします",
+        hiragana: "おねがいします",
+        romaji: "Onegaishimasu",
+        vi: "Làm ơn, xin vui lòng (nhờ vả, nhờ giúp)"
+      },
+      {
+        word: "ボタン",
+        hiragana: "ボタン (ぼたん)",
+        romaji: "Botan",
+        vi: "Cái nút, nút bấm"
+      },
+      {
+        word: "キャッシュカード",
+        hiragana: "キャッシュカード (きゃっしゅかーど)",
+        romaji: "Kyasshu kaado",
+        vi: "Thẻ rút tiền ATM (cash card)"
+      },
+      {
+        word: "金額",
+        hiragana: "きんがく",
+        romaji: "Kingaku",
+        vi: "Số tiền, khoản tiền (金 trong 金曜日)"
+      },
+      {
+        word: "金",
+        hiragana: "きん",
+        romaji: "Kin",
+        vi: "Vàng, tiền bạc (âm đọc きん như trong 金曜日, 金額)"
+      },
+      {
+        word: "便",
+        hiragana: "びん",
+        romaji: "Bin",
+        vi: "Chuyến bay, chuyến xe / phương tiện vận chuyển"
+      },
+      {
+        word: "お茶",
+        hiragana: "おちゃ",
+        romaji: "Ocha",
+        vi: "Trà xanh, nước chè (mẹo: ô chà)"
+      },
+      {
+        word: "紅茶",
+        hiragana: "こうちゃ",
+        romaji: "Koucha",
+        vi: "Hồng trà, trà đen (mẹo: cô chà)"
+      },
+      {
+        word: "青い",
+        hiragana: "あおい",
+        romaji: "Aoi",
+        vi: "Màu xanh dương, xanh da trời"
+      },
+      {
+        word: "背",
+        hiragana: "せ",
+        romaji: "Se",
+        vi: "Lưng / Chiều cao, vóc dáng (背が高い: cao ráo)"
+      },
+      {
+        word: "曇り",
+        hiragana: "くもり",
+        romaji: "Kumori",
+        vi: "Nhiều mây, trời râm u ám"
+      },
+      {
+        word: "パソコン",
+        hiragana: "パソコン (ぱそこん)",
+        romaji: "Pasokon",
+        vi: "Máy tính cá nhân, laptop"
+      },
+      {
+        word: "小さい",
+        hiragana: "ちいさい",
+        romaji: "Chiisai",
+        vi: "Nhỏ, bé (lưu ý phân biệt với 近い ちかい - gần)"
+      },
+      {
+        word: "緑",
+        hiragana: "みどり",
+        romaji: "Midori",
+        vi: "Màu xanh lá cây, cây xanh"
+      },
+      {
+        word: "覚えます",
+        hiragana: "おぼえます",
+        romaji: "Oboemasu",
+        vi: "Nhớ, ghi nhớ, học thuộc"
+      },
+      {
+        word: "忘れます",
+        hiragana: "わすれます",
+        romaji: "Wasuremasu",
+        vi: "Quên"
+      },
+      {
+        word: "払います",
+        hiragana: "はらいます",
+        romaji: "Haraimasu",
+        vi: "Trả tiền, thanh toán"
+      },
+      {
+        word: "返します",
+        hiragana: "かえします",
+        romaji: "Kaeshimasu",
+        vi: "Trả lại (đồ vật, tiền, sách đã mượn)"
+      },
+      {
+        word: "出かけます",
+        hiragana: "でかけます",
+        romaji: "Dekakemasu",
+        vi: "Đi ra ngoài (ra khỏi nhà)"
+      },
+      {
+        word: "脱ぎます",
+        hiragana: "ぬぎます",
+        romaji: "Nugimasu",
+        vi: "Cởi (quần áo, giày dép, mũ)"
+      },
+      {
+        word: "持って行きます",
+        hiragana: "もっていきます",
+        romaji: "Motte ikimasu",
+        vi: "Mang đi, đem theo (từ chỗ mình đến chỗ khác)"
+      },
+      {
+        word: "持ってきます",
+        hiragana: "もってきます",
+        romaji: "Motte kimasu",
+        vi: "Mang đến, đem lại (tới chỗ mình)"
+      },
+      {
+        word: "心配します",
+        hiragana: "しんぱいします",
+        romaji: "Shinpaishimasu",
+        vi: "Lo lắng, bận tâm (mẹo: từ 心 tim + 配 phân phối/rượu)"
+      },
+      {
+        word: "残業します",
+        hiragana: "ざんぎょうします",
+        romaji: "Zangyoushimasu",
+        vi: "Làm thêm giờ, tăng ca"
+      },
+      {
+        word: "出張します",
+        hiragana: "しゅっちょうします",
+        romaji: "Shucchoushimasu",
+        vi: "Đi công tác (đến đâu dùng trợ từ に hoặc へ)"
+      },
+      {
+        word: "出張",
+        hiragana: "しゅっちょう",
+        romaji: "Shucchou",
+        vi: "Chuyến công tác, sự đi công tác (mẹo: 出 đi ra ngoài + 張 giống 身長 dài)"
+      },
+      {
+        word: "おふろに入ります",
+        hiragana: "おふろにはいります",
+        romaji: "Ofuro ni hairimasu",
+        vi: "Tắm bồn, đi tắm"
+      },
+      {
+        word: "大切",
+        hiragana: "たいせつ",
+        romaji: "Taisetsu",
+        vi: "Quan trọng, quý giá (tính từ đuôi な)"
+      },
+      {
+        word: "大丈夫",
+        hiragana: "だいじょうぶ",
+        romaji: "Daijoubu",
+        vi: "Không sao, ổn, an tâm (tính từ đuôi な)"
+      },
+      {
+        word: "危ない",
+        hiragana: "あぶない",
+        romaji: "Abunai",
+        vi: "Nguy hiểm"
+      },
+      {
+        word: "問題",
+        hiragana: "もんだい",
+        romaji: "Mondai",
+        vi: "Vấn đề, câu hỏi (trong bài thi)"
+      },
+      {
+        word: "答え",
+        hiragana: "こたえ",
+        romaji: "Kotae",
+        vi: "Câu trả lời, đáp án"
+      },
+      {
+        word: "禁煙",
+        hiragana: "きんえん",
+        romaji: "Kinen",
+        vi: "Cấm hút thuốc (mẹo: chữ 禁 có 2 cái cây 木 き -> phát âm bắt đầu là きんえん)"
+      },
+      {
+        word: "風",
+        hiragana: "かぜ",
+        romaji: "Kaze",
+        vi: "Gió / Cảm cúm (đồng âm かぜ với 風邪 - cảm cúm)"
+      },
+      {
+        word: "熱",
+        hiragana: "ねつ",
+        romaji: "Netsu",
+        vi: "Sốt, cơn sốt (熱があります: bị sốt)"
+      },
+      {
+        word: "病気",
+        hiragana: "びょうき",
+        romaji: "Byouki",
+        vi: "Bệnh, ốm đau (phân biệt với 病院 びょういん: bệnh viện)"
+      },
+      {
+        word: "薬",
+        hiragana: "くすり",
+        romaji: "Kusuri",
+        vi: "Thuốc (uống thuốc: 薬を飲みます)"
+      },
+      {
+        word: "上着",
+        hiragana: "うわぎ",
+        romaji: "Uwagi",
+        vi: "Áo khoác, áo mặc ngoài"
+      },
+      {
+        word: "下着",
+        hiragana: "したぎ",
+        romaji: "Shitagi",
+        vi: "Đồ lót, quần áo lót"
+      },
+      {
+        word: "のど",
+        hiragana: "のど",
+        romaji: "Nodo",
+        vi: "Cổ họng"
+      },
+      {
+        word: "までに",
+        hiragana: "までに",
+        romaji: "Made ni",
+        vi: "Trước (một mốc thời gian - hạn chót: 5時までに)"
+      },
+      {
+        word: "痛い",
+        hiragana: "いたい",
+        romaji: "Itai",
+        vi: "Đau, nhức"
+      },
+      {
+        word: "お土産",
+        hiragana: "おみやげ",
+        romaji: "Omiyage",
+        vi: "Quà lưu niệm, đặc sản"
+      },
+      {
+        word: "会議",
+        hiragana: "かいぎ",
+        romaji: "Kaigi",
+        vi: "Cuộc họp, hội nghị"
+      },
+      {
+        word: "押します",
+        hiragana: "おします",
+        romaji: "Oshimasu",
+        vi: "Ấn, bấm (nút), đẩy (chú ý nghĩa ấn/nhấn)"
+      },
+      {
+        word: "後ろから",
+        hiragana: "うしろから",
+        romaji: "Ushiro kara",
+        vi: "Từ phía sau"
+      },
+      {
+        word: "両親",
+        hiragana: "りょうしん",
+        romaji: "Ryoushin",
+        vi: "Bố mẹ, cha mẹ, phụ huynh"
+      }
+    ]
   }
 };
 
