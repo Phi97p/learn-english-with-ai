@@ -63,6 +63,8 @@ const GrammarJaModule = (() => {
   // 2. Trong mỗi nhóm, sắp xếp tăng dần từ nhỏ đến lớn: Bài 1, Bài 2, Bài 3,...
   function getSortedLessonKeys(allData) {
     function extractLessonNumber(key, lesson) {
+      if (String(key).includes('luyen_tap_2')) return 17.5;
+      if (String(key).includes('luyen_tap_1')) return 8.5;
       const km = String(key).match(/\d+/);
       if (km) return parseInt(km[0], 10);
       if (lesson && lesson.title) {
@@ -247,11 +249,13 @@ const GrammarJaModule = (() => {
   // 1. Dạng ngoặc đơn: （____）, (____), （　）, (   )
   // 2. Dạng đường kẻ gạch dưới: ＿＿＿＿, ____ (tối thiểu 2 dấu gạch dưới)
   const INLINE_BLANK_REGEX = /(?:[（\(][\s\u3000_—]*[）\)]|[＿_—–]{2,})/g;
+  const COMBINED_SLOT_REGEX = /(?:〔([^〕]+)〕|([（\(][\s\u3000_—]*[）\)]|[＿_—–]{2,}))/g;
 
   function countInlineBlanks(questionStr) {
     if (!questionStr) return 0;
-    const matches = questionStr.match(INLINE_BLANK_REGEX);
-    return matches ? matches.length : 0;
+    const matches = questionStr.match(COMBINED_SLOT_REGEX);
+    if (!matches) return 0;
+    return matches.filter(m => !m.includes('<u>')).length;
   }
 
   function checkSingleBlankAnswer(userVal, targetAns) {
@@ -286,13 +290,24 @@ const GrammarJaModule = (() => {
 
     // Tìm xem mỗi key được điền ở blank nào
     const usedMap = {};
-    const blankCount = countInlineBlanks(q.question);
-    for (let bIdx = 0; bIdx < blankCount; bIdx++) {
+    const rawQuestion = q.question || '';
+    const blankMatches = [];
+    let bMatch;
+    const bRegex = new RegExp(INLINE_BLANK_REGEX.source, 'g');
+    while ((bMatch = bRegex.exec(rawQuestion)) !== null) {
+      blankMatches.push(bMatch);
+    }
+
+    for (let bIdx = 0; bIdx < blankMatches.length; bIdx++) {
       const val = userAnswers[`${q.id}_blank_${bIdx}`];
       if (val) {
         const norm = normalizeAnswerText(val);
         if (norm) {
-          usedMap[norm] = bIdx + 1;
+          const matchObj = blankMatches[bIdx];
+          const precedingText = rawQuestion.slice(0, matchObj.index);
+          const numMatch = precedingText.match(/(\d+)\)[^\d\)]*$/);
+          const subNum = numMatch ? parseInt(numMatch[1], 10) : bIdx + 1;
+          usedMap[norm] = subNum;
         }
       }
     }
@@ -468,14 +483,68 @@ const GrammarJaModule = (() => {
     `;
   }
 
-  // Format câu hỏi có chỗ trống inline
+  // Format câu hỏi có chỗ trống inline (hỗ trợ cả ô điền từ và nút lựa chọn inline 〔A／B〕)
   function formatGrammarQuestionWithBlanks(q, qIdx) {
     const rawText = q.question || '';
     let blankCounter = 0;
     const isSubmittedState = isSubmitted;
     const isChoiceBlank = !!(q.choices && Array.isArray(q.choices));
+    const splitChoices = (str) => str.split(/(?<!<)\/(?!>)|[／、,]/).map(s => s.trim());
 
-    const formatted = rawText.replace(INLINE_BLANK_REGEX, (match) => {
+    const formatted = rawText.replace(COMBINED_SLOT_REGEX, (match, choiceInner, blankMatch) => {
+      // 1. Nếu là nhóm lựa chọn inline 〔 ... 〕
+      if (choiceInner !== undefined) {
+        if (choiceInner.includes('<u>')) {
+          const parts = splitChoices(choiceInner);
+          const previews = parts.map(part => {
+            const isActive = part.includes('<u>');
+            const text = part.replace(/<\/?u>/g, '');
+            return `<span class="inline-choice-preview ${isActive ? 'example-active' : ''}">${escapeHtml(text)}</span>`;
+          }).join('<span class="inline-choice-divider">/</span>');
+          return `<span class="inline-choice-group inline-choice-example"><span class="inline-choice-bracket">〔</span>${previews}<span class="inline-choice-bracket">〕</span></span>`;
+        }
+
+        const bIdx = blankCounter++;
+        const blankKey = `${q.id}_blank_${bIdx}`;
+        const userVal = userAnswers[blankKey] || '';
+        const rawTarget = (Array.isArray(q.answers) && q.answers[bIdx] !== undefined)
+          ? q.answers[bIdx]
+          : (q.answer || '');
+
+        const parts = splitChoices(choiceInner);
+        let feedbackHtml = '';
+
+        if (isSubmittedState) {
+          if (!userVal) {
+            feedbackHtml = `<span class="inline-choice-feedback skipped" title="Chưa chọn!">⚪</span>`;
+          } else if (checkSingleBlankAnswer(userVal, rawTarget)) {
+            feedbackHtml = `<span class="inline-choice-feedback correct" title="Chính xác!">✅</span>`;
+          } else {
+            feedbackHtml = `<span class="inline-choice-feedback wrong" title="Sai rồi!">❌</span>`;
+          }
+        }
+
+        const buttonsHtml = parts.map(opt => {
+          const isSelected = (userVal === opt);
+          let btnClass = '';
+          if (isSubmittedState) {
+            const isCorrectOpt = checkSingleBlankAnswer(opt, rawTarget);
+            if (!userVal) {
+              if (isCorrectOpt) btnClass += ' choice-target';
+            } else if (checkSingleBlankAnswer(userVal, rawTarget)) {
+              if (isSelected) btnClass += ' choice-correct';
+            } else {
+              if (isSelected) btnClass += ' choice-wrong';
+              if (isCorrectOpt) btnClass += ' choice-target';
+            }
+          }
+          return `<button type="button" class="inline-choice-btn ${isSelected ? 'selected' : ''} ${btnClass}" data-qid="${q.id}" data-qidx="${qIdx}" data-slot-key="${blankKey}" data-val="${escapeHtml(opt)}" ${isSubmittedState ? 'disabled' : ''}>${escapeHtml(opt)}</button>`;
+        }).join('<span class="inline-choice-divider">/</span>');
+
+        return `<span class="inline-choice-group" data-qid="${q.id}" data-slot-key="${blankKey}"><span class="inline-choice-bracket">〔</span>${buttonsHtml}<span class="inline-choice-bracket">〕</span>${feedbackHtml}</span>`;
+      }
+
+      // 2. Nếu là ô input chỗ trống thông thường
       const bIdx = blankCounter++;
       const blankKey = `${q.id}_blank_${bIdx}`;
       const userVal = userAnswers[blankKey] || '';
@@ -1265,11 +1334,14 @@ const GrammarJaModule = (() => {
         const inputs = Array.from(qCard.querySelectorAll('.grammar-inline-input'));
         if (inputs.length === 0) return;
 
-        // Ưu tiên ô đang focus trong câu này
-        let targetInput = inputs.find(inp => inp === document.activeElement);
+        // Ưu tiên ô đang focus trong câu này (nếu là ô choice blank)
+        let targetInput = inputs.find(inp => inp === document.activeElement && inp.classList.contains('grammar-choice-letter-input'));
         if (!targetInput) {
-          // Nếu không có ô nào focus, chọn ô trống đầu tiên
-          targetInput = inputs.find(inp => !inp.value.trim()) || inputs[0];
+          // Nếu ô đang focus không phải choice blank (hoặc chưa focus), tìm ô choice blank trống đầu tiên
+          targetInput = inputs.find(inp => inp.classList.contains('grammar-choice-letter-input') && !inp.value.trim());
+          if (!targetInput) {
+            targetInput = inputs.find(inp => inp.classList.contains('grammar-choice-letter-input')) || inputs.find(inp => !inp.value.trim()) || inputs[0];
+          }
         }
 
         if (targetInput) {
@@ -1279,7 +1351,7 @@ const GrammarJaModule = (() => {
 
           // Tự động chuyển con trỏ sang ô trống tiếp theo (nếu còn)
           const currentIdx = inputs.indexOf(targetInput);
-          const nextEmpty = inputs.slice(currentIdx + 1).find(inp => !inp.value.trim());
+          const nextEmpty = inputs.slice(currentIdx + 1).find(inp => inp.classList.contains('grammar-choice-letter-input') && !inp.value.trim()) || inputs.slice(currentIdx + 1).find(inp => !inp.value.trim());
           if (nextEmpty) {
             setTimeout(() => nextEmpty.focus(), 50);
           }
@@ -1297,7 +1369,7 @@ const GrammarJaModule = (() => {
         const sidx = parseInt(btn.dataset.slotIdx, 10);
         const val = btn.dataset.val;
 
-        const slotKey = `${qid}_slot_${sidx}`;
+        const slotKey = btn.dataset.slotKey || `${qid}_slot_${sidx}`;
         if (userAnswers[slotKey] === val) {
           // Bấm lại từ đã chọn -> hủy chọn
           delete userAnswers[slotKey];

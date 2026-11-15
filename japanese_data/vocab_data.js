@@ -2361,6 +2361,239 @@ const JA_VOCAB_DATA = {
         vi: "Phải làm V (cấu trúc: Vない bỏ い + ければなりません)"
       }
     ]
+  },
+  bai_9: {
+    title: "Bài 9",
+    words: [
+      {
+        word: "脱ぎます",
+        hiragana: "ぬぎます",
+        romaji: "Nugimasu",
+        vi: "Cởi (quần áo, giày dép)"
+      },
+      {
+        word: "保険証",
+        hiragana: "ほけんしょう",
+        romaji: "Hokenshou",
+        vi: "Thẻ bảo hiểm (y tế)"
+      },
+      {
+        word: "熱",
+        hiragana: "ねつ",
+        romaji: "Netsu",
+        vi: "Cơn sốt, sốt (熱があります: bị sốt)"
+      },
+      {
+        word: "熱い",
+        hiragana: "あつい",
+        romaji: "Atsui",
+        vi: "Nóng (đồ ăn, thức uống, nhiệt độ chạm tay; phân biệt với 暑い thời tiết nóng)"
+      },
+      {
+        word: "着ます",
+        hiragana: "きます",
+        romaji: "Kimasu",
+        vi: "Mặc (áo sơ mi, áo khoác, quần áo từ vai trở xuống; mẹo: ki đến 来ます hoặc ki mặc 着ます)"
+      },
+      {
+        word: "会議室",
+        hiragana: "かいぎしつ",
+        romaji: "Kaigishitsu",
+        vi: "Phòng họp, phòng hội nghị (会議: cuộc họp + 室: phòng)"
+      },
+      {
+        word: "教室",
+        hiragana: "きょうしつ",
+        romaji: "Kyoushitsu",
+        vi: "Phòng học, lớp học (教: dạy + 室: phòng)"
+      },
+      {
+        word: "はがき",
+        hiragana: "はがき",
+        romaji: "Hagaki",
+        vi: "Bưu thiếp, thiệp chúc"
+      },
+      {
+        word: "切手",
+        hiragana: "きって",
+        romaji: "Kitte",
+        vi: "Tem thư, con tem"
+      },
+      {
+        word: "教",
+        hiragana: "きょう",
+        romaji: "Kyou",
+        vi: "Dạy, giáo (chữ Hán Giáo trong 教室, 教育; đọc là きょう)"
+      },
+      {
+        word: "室",
+        hiragana: "しつ",
+        romaji: "Shitsu",
+        vi: "Phòng (chữ Hán Thất trong 教室, 会議室; đọc là しつ)"
+      },
+      {
+        word: "学校",
+        hiragana: "がっこう",
+        romaji: "Gakkou",
+        vi: "Trường học"
+      },
+      {
+        word: "おなか",
+        hiragana: "おなか",
+        romaji: "Onaka",
+        vi: "Bụng (おなかがすきました: đói bụng)"
+      },
+      {
+        word: "元気",
+        hiragana: "げんき",
+        romaji: "Genki",
+        vi: "Khỏe mạnh, tràn đầy năng lượng (tính từ đuôi な)"
+      },
+      {
+        word: "お釣り",
+        hiragana: "おつり",
+        romaji: "Otsuri",
+        vi: "Tiền lẻ, tiền thừa thối lại"
+      },
+      {
+        word: "社",
+        hiragana: "しゃ",
+        romaji: "Sha",
+        vi: "Công ty, xã (chữ Hán Xã trong 会社, 社長; đọc là しゃ)"
+      },
+      {
+        word: "長",
+        hiragana: "ちょう",
+        romaji: "Chou",
+        vi: "Trưởng, người đứng đầu (chữ Hán Trưởng trong 社長, 部長; đọc là ちょう)"
+      },
+      {
+        word: "社長",
+        hiragana: "しゃちょう",
+        romaji: "Shachou",
+        vi: "Giám đốc công ty (mẹo: 社 công ty + 長 người đứng đầu = Trưởng công ty)"
+      },
+      {
+        word: "部長",
+        hiragana: "ぶちょう",
+        romaji: "Buchou",
+        vi: "Trưởng phòng, trưởng ban"
+      },
+      {
+        word: "第二課",
+        hiragana: "だいにか",
+        romaji: "Dai ni ka",
+        vi: "Bài 2 (tiết 2, bài số 2)"
+      },
+      {
+        word: "動物",
+        hiragana: "どうぶつ",
+        romaji: "Doubutsu",
+        vi: "Động vật (mẹo: 動 động + 物 vật)"
+      },
+      {
+        word: "動",
+        hiragana: "どう",
+        romaji: "Dou",
+        vi: "Động (chữ Hán Động trong 自動 - tự động, 動物 - động vật; đọc là どう)"
+      },
+      {
+        word: "物",
+        hiragana: "もの／ぶつ",
+        romaji: "Mono / Butsu",
+        vi: "Vật, đồ vật (âm thuần もの trong 食べ物, 飲み物; âm Hán ぶつ trong 動物)"
+      },
+      {
+        word: "日記",
+        hiragana: "にっき",
+        romaji: "Nikki",
+        vi: "Nhật ký (mẹo: 日 trong ngày + 記 ghi chép)"
+      },
+      {
+        word: "記",
+        hiragana: "き",
+        romaji: "Ki",
+        vi: "Ghi chép (chữ Hán Kí trong 日記, 記事; đọc là き, chữ gần giống 起 trong 起きます)"
+      },
+      {
+        word: "園",
+        hiragana: "えん",
+        romaji: "En",
+        vi: "Vườn (chữ Hán Viên trong 公園 - công viên, 動物園 - sở thú; đọc là えん)"
+      },
+      {
+        word: "趣味",
+        hiragana: "しゅみ",
+        romaji: "Shumi",
+        vi: "Sở thích (mẹo nhớ: 趣 gồm dậy 起 + cầm 取; 味 gồm miệng 口 + chưa 未)"
+      },
+      {
+        word: "未",
+        hiragana: "み",
+        romaji: "Mi",
+        vi: "Chưa (chữ Hán Vị tượng hình cây non chưa trưởng thành, đọc là み trong 未成年, 意味, 趣味)"
+      },
+      {
+        word: "学",
+        hiragana: "がく",
+        romaji: "Gaku",
+        vi: "Học (chữ Hán Học trong 学校, 見学, 学生; đọc là がく)"
+      },
+      {
+        word: "見学します",
+        hiragana: "けんがくします",
+        romaji: "Kengakushimasu",
+        vi: "Tham quan học hỏi, kiến tập (mẹo: 見 nhìn thấy + 学 học hỏi)"
+      },
+      {
+        word: "運転します",
+        hiragana: "うんてんします",
+        romaji: "Untenshimasu",
+        vi: "Lái xe (ô tô, tàu...)"
+      },
+      {
+        word: "牧場",
+        hiragana: "ぼくじょう",
+        romaji: "Bokujou",
+        vi: "Trang trại chăn nuôi, đồng cỏ (nơi chăn nuôi gia súc)"
+      },
+      {
+        word: "どうぞ",
+        hiragana: "どうぞ",
+        romaji: "Douzo",
+        vi: "Xin mời (mời vào, mời ngồi, mời dùng)"
+      },
+      {
+        word: "どうも",
+        hiragana: "どうも",
+        romaji: "Doumo",
+        vi: "Cảm ơn (cách nói ngắn gọn) / Rất, dường như"
+      },
+      {
+        word: "いただきます",
+        hiragana: "いただきます",
+        romaji: "Itadakimasu",
+        vi: "Xin mời / Mời ăn (nói trước khi ăn/uống, nghĩa là nhận lấy với sự biết ơn)"
+      },
+      {
+        word: "なかなか",
+        hiragana: "なかなか",
+        romaji: "Nakanaka",
+        vi: "Mãi mà không... (đi với phủ định: なかなかできません); hoặc khá là (đi với khẳng định)"
+      },
+      {
+        word: "ぜひ",
+        hiragana: "ぜひ",
+        romaji: "Zehi",
+        vi: "Nhất định (thể hiện nguyện vọng mạnh mẽ: ぜひ来てください - nhất định hãy đến nhé)"
+      },
+      {
+        word: "そうですね",
+        hiragana: "そうですね",
+        romaji: "Sou desu ne",
+        vi: "Đúng vậy nhỉ / Để xem nào... (đồng tình hoặc câu đệm suy nghĩ)"
+      }
+    ]
   }
 };
 

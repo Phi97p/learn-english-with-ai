@@ -46,7 +46,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 16)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 19)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -216,15 +216,15 @@ const JA_NOTES_DATA = {
       },
       {
         title: "29. [Bài 16] Nối chuỗi hành động liên tiếp: V1-て、V2-て、V3",
-        meaning: "Dùng thể「て」để liệt kê các hành động xảy ra tuần tự theo trình tự thời gian (hành động nào làm trước thì nói trước). Tất cả hành động đều của CÙNG MỘT CHỦ THỂ.\n• Cấu trúc: [Chủ ngữ は] + V1-て、V2-て、... V-thì của câu.\n• Thì của cả câu (quá khứ, hiện tại, tương lai) do ĐỘNG TỪ CUỐI CÙNG quyết định.",
-        example: "• 朝 6時に 起きて、シャワーを 浴びて、朝ごはんを 食べました。(Buổi sáng tôi thức dậy lúc 6 giờ, tắm vòi sen, rồi ăn sáng.)\n• 銀座へ 行って、映画を 見て、お茶を 飲みます。(Tôi sẽ đi Ginza, xem phim, rồi uống trà.)",
-        note: "💡 Trình tự thời gian: V1 làm trước ➔ làm tiếp V2 ➔ cuối cùng làm V3. Động từ cuối câu chia thì gì thì cả câu mang thì đó."
+        meaning: "Dùng thể「て」để liệt kê các hành động xảy ra tuần tự theo trình tự thời gian (hành động nào làm trước thì nói trước). Tất cả hành động đều của CÙNG MỘT CHỦ THỂ.\n• Cấu trúc: [Chủ ngữ は] + V1-て、V2-て、... V-thì của câu.\n• Các trường hợp đặc trưng:\n  1) Chuỗi thói quen sinh hoạt mỗi ngày (毎朝、毎日...): Dùng V1-て, V2-て để kể trình tự các việc làm lặp lại hàng ngày.\n  2) Hướng dẫn người khác thao tác hoặc chỉ đường: Dùng V-て để chỉ dẫn từng bước theo thứ tự.",
+        example: "• [Thói quen mỗi ngày - 毎朝]: 毎朝 6時に 起きて、シャワーを 浴びて、朝ごはんを 食べます。(Mỗi sáng tôi dậy lúc 6h, tắm rồi ăn sáng).\n• [Chỉ đường / Hướng dẫn]: 信号を 右へ 曲がって、まっすぐ 行って ください。(Rẽ phải ở đèn tín hiệu rồi hãy đi thẳng).\n• [Rút tiền ATM]: ここを 押して、カードを 入れて ください。(Bấm vào đây rồi hãy đưa thẻ vào).",
+        note: "💡 Trình tự thời gian: V1 làm trước ➔ làm tiếp V2 ➔ cuối cùng làm V3. Động từ cuối câu chia thì gì thì cả câu mang thì đó. Khi hướng dẫn người khác hoặc kể thói quen mỗi ngày đều dùng V-て."
       },
       {
         title: "30. [Bài 16] Sau khi làm xong V1 thì làm V2: V1-てから、V2",
         meaning: "Nhấn mạnh: Sau khi KẾT THÚC HOÀN TOÀN hành động V1 thì mới làm tiếp hành động V2 (V2 diễn ra ngay sau khi V1 hoàn tất).\n• Cấu trúc: V1-てから、V2。\n• ⚠️ QUY TẮC BẮT BUỘC: Trong 1 câu chỉ dùng「V-てから」ĐÚNG 1 LẦN (không nói V1てから、V2てから...).",
-        example: "• 仕事が 終わってから、泳ぎに 行きます。(Sau khi xong công việc, tôi sẽ đi bơi.)\n• お金を 入れてから、ボタンを 押して ください。(Sau khi bỏ tiền vào, xin hãy bấm nút.)\n• もう一杯 飲んでから、帰りましょう。(Uống thêm một ly nữa rồi về nhé.)",
-        note: "💡 Phân biệt:「V1-て、V2」chỉ đơn thuần kể chuỗi hành động theo thứ tự; còn「V1-てから、V2」nhấn mạnh V1 xong xuôi thì V2 mới diễn ra. Lưu ý chỉ dùng てから 1 lần trong câu."
+        example: "• 仕事が 終わってから、泳ぎに 行きます。(Sau khi xong công việc, tôi sẽ đi bơi.)\n• お金を 入れてから、ボタンを 押して ください。(Sau khi bỏ tiền vào, xin hãy bấm nút.)\n• 手を 洗ってから、ごはんを 食べます。(Sau khi rửa tay, tôi ăn cơm.)",
+        note: "💡 Mẹo kiểm tra & dịch câu: Có thể thử đảo ngược 2 động từ và dịch nghĩa với 'sau khi...' xem có xuôi tai và hợp lý không. Nếu hành động V1 bắt buộc phải kết thúc hoàn toàn thì V2 mới xảy ra (bỏ tiền rồi mới bấm nút, rửa tay rồi mới ăn) thì chắc chắn dùng「V-てから」."
       },
       {
         title: "31. [Bài 16] Nối Tính từ & Danh từ: くて (đuôi い) & で (đuôi な / Danh từ)",
@@ -237,6 +237,84 @@ const JA_NOTES_DATA = {
         meaning: "Dùng để miêu tả đối tượng A có đặc điểm/thuộc tính B như thế nào (B thường là một bộ phận cơ thể hoặc một thuộc tính của A):\n• Cấu trúc: A は B が [Tính từ] です。(A thì B [tính từ]).\n\n📌 SO SÁNH & PHÂN BIỆT 2 MẪU CÂU DỄ NHẦM:\n1) Mẫu miêu tả đặc điểm:「A は B が [Tính từ] です」\n   ➔ Chủ thể A đi với「は」; bộ phận/thuộc tính B đi với「が」.\n2) Mẫu so sánh nhất (Bài 12):「S (の中) で [Đối tượng] が いちばん [Tính từ] です」\n   ➔ Tập hợp cha S đi với「で」; đối tượng so sánh đi với「が」.\n\n⚡ ĐIỂM GIỐNG & KHÁC NHAU:\n• Giống nhau: Vế sau đều dùng trợ từ「が」(B が tính từ / Đối tượng が いちばん tính từ).\n• Khác nhau ở vế đầu: Miêu tả đặc điểm của đối tượng thì dùng「は」(A は); còn so sánh trong một nhóm/tập hợp thì dùng「で」(S の中で).",
         example: "• [Miêu tả đặc điểm - A は B が Tính từ]:\n  - 象は 鼻が 長いです。(Con voi thì mũi dài - A = con voi, B = mũi).\n  - マリアさんは 髪が 長くて、きれいです。(Bạn Maria thì tóc dài và đẹp).\n  - 大阪は 食べ物が おいしいです。(Osaka thì đồ ăn rất ngon).\n• [So sánh nhất - S で Đối tượng が いちばん]:\n  - 動物の中で 象が いちばん 大きいです。(Trong các loài động vật thì voi là to nhất - S = động vật, dùng で).",
         note: "💡 Khẩu quyết: Miêu tả đặc điểm ➔「A は B が Tính từ」; So sánh trong nhóm ➔「S で Đối tượng が いちばん」. Vế sau đều là が, vế đầu khác nhau giữa は và で!"
+      },
+      {
+        title: "33. [Bài 17] Quy tắc chia thể phủ định「ない」(V-ない)",
+        meaning: "Quy tắc biến đổi động từ sang thể phủ định ngắn「ない」:\n\n1. NHÓM 1: Chuyển âm cột「い」đứng trước ます thành âm cột「あ」+「ない」:\n• かき・ます ➔ かか・ない (書かない)\n• のみ・ます ➔ のま・ない (飲まない)\n• まち・ます ➔ また・ない (待たない)\n• ★ ĐẶC BIỆT NHÓM 1: Động từ có nguyên âm「い」đứng trước ます (đuôi います) ➔ chuyển thành「わ」+「ない」(わない):\n  - かい・ます (買います) ➔ かわ・ない (買わない)\n  - あい・ます (会います) ➔ あわ・ない (会わない)\n  - すい・ます (吸います) ➔ すわ・ない (吸わない)\n  - いい・ます (言います) ➔ いわ・ない (言わない)\n• (Ngoại lệ riêng: あります ➔ ない).\n\n2. NHÓM 2: Bỏ「ます」thêm「ない」:\n• たべます ➔ たべない, みます ➔ みない, おきます ➔ おきない.\n\n3. NHÓM 3: Bất quy tắc học thuộc lòng:\n• します ➔ しない (勉強します ➔ 勉強しない)\n• 来（き）ます ➔ こない (★ ĐẶC BIỆT: đọc là 'ko-nai', chữ 来 đọc thành こ).\n\n⚡ CHỐT 2 TỪ ĐẶC BIỆT CỦA THỂ NÀY:\n1) Đuôi nguyên âm い nhóm 1 (います) ➔ chuyển thành「わない」(買わない, 会わない).\n2) 来ます (きます) ➔ chuyển thành「こない」.",
+        example: "• [Cột い ➔ cột あ + ない]: 行きます ➔ 行かない; 読みます ➔ 読まない; 話します ➔ 話さない\n• [Đuôi い ➔ わ + ない]: 買います ➔ 買わない; 会います ➔ 会わない; 吸います ➔ 吸わない\n• [Nhóm 2]: 食べます ➔ 食べない; 見ます ➔ 見ない; 寝ます ➔ 寝ない\n• [Nhóm 3]: 散歩します ➔ 散歩しない; 来ます ➔ こない",
+        note: "💡 Thần chú thể ない: Nhóm 1 đổi 'i sang a + nai' (riêng đuôi nguyên âm 'i' đổi thành 'wa + nai'); Nhóm 2 bỏ masu thêm nai; Nhóm 3 'shimasu ➔ shinai', 'kimasu ➔ konai'."
+      },
+      {
+        title: "34. [Bài 17] Yêu cầu / Khuyên ngăn: V-ないで ください (Đừng làm gì)",
+        meaning: "Dùng để yêu cầu hoặc khuyên bảo đối phương ĐỪNG LÀM / KHÔNG ĐƯỢC LÀM một việc gì đó (sắc thái lịch sự, ngược nghĩa trực tiếp với「V-て ください」: hãy làm gì).\n• Cấu trúc: [Động từ thể ない] + で ください。(Xin đừng làm V).",
+        example: "• ここで 写真を 撮らないで ください。(Xin đừng chụp ảnh ở đây - ngược với 撮ってください).\n• タバコを 吸わないで ください。(Xin đừng hút thuốc).\n• パスワードを 忘れないで ください。(Xin đừng quên mật khẩu).\n• 無理を しないで ください。(Xin đừng làm việc quá sức).",
+        note: "💡 Cặp đối lập cơ bản:「V-て ください」(Hãy làm...) ⮂「V-ないで ください」(Đừng làm...)."
+      },
+      {
+        title: "35. [Bài 17] Không cần làm gì: V-なくても いいです",
+        meaning: "Dùng để biểu thị một hành động KHÔNG CẦN THIẾT PHẢI LÀM, không làm cũng chẳng sao (ngược nghĩa trực tiếp với「V-ても いいです」: được phép làm gì).\n• Cấu trúc: [Động từ thể ない bỏ「い」] + くても いいです。(Không cần làm V cũng được).",
+        example: "• 明日 来なくても いいです。(Ngày mai bạn không cần đến cũng được - ngược với 来てもいいです).\n• 靴を 脱がなくても いいです。(Không cần cởi giày cũng được).\n• 今日 お金を 払わなくても いいです。(Hôm nay không cần trả tiền cũng được).",
+        note: "💡 Công thức: Thể ない bỏ い + くても いいです (Không cần làm gì, ngược với V-てもいいです)."
+      },
+      {
+        title: "36. [Bài 17] Bắt buộc phải làm: V-なければ なりません",
+        meaning: "Diễn tả một hành động BẮT BUỘC PHẢI LÀM, là nghĩa vụ hoặc bổn phận cần thực hiện (mang nghĩa 'Phải làm gì').\n• Cấu trúc: [Động từ thể ない bỏ「い」] + ければ なりません。(Phải làm V).\n• ⚠️ Chú ý: Phân biệt rõ ràng với「V-ては いけません」(Cấm / Không được làm gì).",
+        example: "• 毎日 薬を 飲まなければ なりません。(Mỗi ngày tôi phải uống thuốc).\n• 今晩 勉強しなければ なりません。(Tối nay tôi phải học bài).\n• パスポートを 見せなければ なりません。(Phải xuất trình hộ chiếu).",
+        note: "💡 Công thức: Thể ない bỏ い + ければなりません = Phải làm gì (nghĩa vụ bắt buộc)."
+      },
+      {
+        title: "37. [Bài 17] 📌 Tổng kết thể ない, Hạn chót「までに」& Đưa tân ngữ làm chủ đề",
+        meaning: "1) BỘ 3 MẪU CÂU CỐT LÕI THỂ「ない」:\n  • V-ないで ください : Đừng làm gì (khuyên ngăn/yêu cầu).\n  • V-なくても いいです : Không cần làm gì (không có nghĩa vụ).\n  • V-なければ なりません : Phải làm gì (nghĩa vụ bắt buộc).\n\n2) HẠN CHÓT「までに」(Trước thời hạn):\n  • Cấu trúc: [Mốc thời gian / Hạn chót] + までに + Động từ.\n  • Biểu thị hành động phải được hoàn tất TRƯỚC mốc thời gian đó (Phân biệt với「まで」nghĩa là làm liên tục cho tới khi).\n\n3) ĐƯA TÂN NGỮ LÊN LÀM CHỦ ĐỀ CỦA CÂU:\n  • Khi muốn nhấn mạnh tân ngữ của câu, ta chuyển trợ từ「を」thành「は」và đưa tân ngữ ra đầu câu làm chủ đề.",
+        example: "• [Hạn chót までに]:\n  - 金曜日までに レポートを 出さなければ なりません。(Phải nộp báo cáo trước thứ Sáu).\n  - 5時までに 帰らなければ なりません。(Phải về trước 5 giờ).\n• [Đưa tân ngữ lên làm chủ đề]:\n  - Câu gốc: ここに 荷物を 置かないで ください。\n  ➔ Đưa tân ngữ lên đầu: 荷物は ここに 置かないで ください。(Hành lý thì xin đừng đặt ở đây).\n  - Câu gốc: 薬を 飲まなければ なりません。\n  ➔ Đưa tân ngữ lên đầu: 薬は 毎日 飲まなければ なりません。(Thuốc thì mỗi ngày đều phải uống).",
+        note: "⚡ Ghi nhớ nhanh:\n• ないで ください = Đừng làm.\n• なくても いいです = Không cần làm.\n• なければ なりません = Phải làm.\n• までに = Trước thời hạn.\n• Chuyển を ➔ は để đưa vật lên làm chủ đề."
+      },
+      {
+        title: "38. [Bài 18] Quy tắc chia thể từ điển「辞書形」(V-る)",
+        meaning: "Thể từ điển (辞書形 - Jishokei) là thể nguyên mẫu của động từ trong từ điển:\n\n1. NHÓM 1: Thay âm cột「い」đứng trước ます bằng âm cột「う」tương ứng:\n• かき・ます ➔ かく (書く)\n• のみ・ます ➔ のむ (飲む)\n• かい・ます ➔ かう (買う)\n• まち・ます ➔ まつ (待つ)\n• はなし・ます ➔ はなす (話す)\n• とり・ます ➔ とる (取る)\n\n2. NHÓM 2: Bỏ「ます」thêm「る」:\n• たべます ➔ たべる, みます ➔ みる, おきます ➔ おきる.\n\n3. NHÓM 3: Bất quy tắc học thuộc lòng (chỉ có 2 từ):\n• 来（き）ます ➔ くる (★ ĐẶC BIỆT: chữ 来 đọc thành くる)\n• します ➔ する (N + します ➔ N する, ví dụ: 勉強する, 散歩する).\n\n⚡ CHỐT THỂ TỪ ĐIỂN: Chỉ có đúng 2 từ đặc biệt nhóm 3:「来ます ➔ くる」và「します ➔ する」, còn lại tất cả đều tuân theo quy tắc cột「う」(nhóm 1) và thêm「る」(nhóm 2).",
+        example: "• Nhóm 1: 行く (いき), 読む (よみ), 泳ぐ (およぎ), 遊ぶ (あそび)\n• Nhóm 2: 食べる (たべ), 寝る (ね), 見る (み), 借りる (かり)\n• Nhóm 3: する, くる (来る), 勉強する",
+        note: "💡 Thần chú thể từ điển: Nhóm 1 đổi 'i sang u'; Nhóm 2 bỏ masu thêm 'ru'; Nhóm 3 'kuru' & 'suru'."
+      },
+      {
+        title: "39. [Bài 18] Diễn tả khả năng: [N] / [V-る こと] が できます",
+        meaning: "Dùng để diễn tả năng lực, khả năng của bản thân hoặc điều kiện cho phép có thể làm được việc gì:\n• Cấu trúc: [Danh từ] / [V-る こと] が できます。(Có thể làm gì / Biết làm gì).\n• 💡 Bản chất danh từ hóa: Động từ không thể trực tiếp đi trước が できます, nên ta thêm「こと」(việc/chuyện) vào sau động từ thể từ điển:「V-る + こと」➔ biến cả cụm động từ thành một cụm danh từ tương đương.",
+        example: "• わたしは ピアノを 弾く ことが できます。(Tôi có thể chơi piano).\n• 日本語を 話す ことが できます。(Tôi có thể nói tiếng Nhật).\n• 車の 運転が できます。(Tôi biết lái xe ô tô - 運転 là danh từ).\n• ここで カードで 払う ことが できますか。(Ở đây có thể thanh toán bằng thẻ được không?).",
+        note: "💡 Danh từ hóa động từ: V-る + こと = 'việc làm V'. Cấu trúc diễn tả khả năng luôn là: [V-る こと] が できます."
+      },
+      {
+        title: "40. [Bài 18] Diễn tả sở thích: わたしの趣味は [N] / [V-る こと] です",
+        meaning: "Dùng để giới thiệu về sở thích chung của bản thân:\n• Cấu trúc: わたしの 趣味は [Danh từ] / [V-る こと] です。(Sở thích của tôi là việc...).\n• Bản chất vẫn là danh từ hóa động từ bằng「V-る + こと」vì sau trợ từ は và trước です phải là một danh từ.",
+        example: "• わたしの 趣味は 写真を 撮る ことです。(Sở thích của tôi là chụp ảnh).\n• わたしの 趣味は 音楽を 聞く ことです。(Sở thích của tôi là nghe nhạc).\n• わたしの 趣味は スポーツです。(Sở thích của tôi là thể thao - スポーツ là danh từ).",
+        note: "💡 Không nói: 趣味は 写真を 撮ります (sai); Bắt buộc phải danh từ hóa: 趣味は 写真を 撮る ことです."
+      },
+      {
+        title: "41. [Bài 18] Trước khi làm V1 thì làm V2: [V-る / Nの / Thời gian] 前に、V2",
+        meaning: "Diễn tả hành động V2 được thực hiện trước một hành động V1, trước sự việc N hoặc trước một mốc thời gian.\n• Cấu trúc: [V1-る / Nの / Khoảng thời gian] + 前に、V2。\n• ⚠️ LÝ DO V1 LUÔN Ở THỂ TỪ ĐIỂN「V-る」: Vì hành động V2 luôn luôn được thực hiện và hoàn thành TRƯỚC hành động V1, cho dù cả câu có chia ở thời quá khứ thì V1 vẫn giữ nguyên thể từ điển V-る!\n• 3 dạng đứng trước「前に」:\n  1) Động từ: V-る + 前に (V-る まえに)\n  2) Danh từ: N + の + 前に (N の まえに)\n  3) Khoảng thời gian: [Thời gian] + 前に (KHÔNG CÓ の, ví dụ: 1年前、1時間前).",
+        example: "• [V-る + 前に]:\n  - 日本へ 来る 前に、日本語を 勉強しました。(Trước khi đến Nhật, tôi đã học tiếng Nhật - 来る luôn ở thể V-る).\n  - 寝る 前に、本を 読みます。(Trước khi đi ngủ, tôi đọc sách).\n• [N + の + 前に]:\n  - 食事の 前に、手を 洗います。(Trước bữa ăn, hãy rửa tay).\n• [Thời gian + 前に - Không có の]:\n  - 田中さんは 1時間 前に、出かけました。(Anh Tanaka đã ra ngoài cách đây 1 tiếng).\n  - 3年 前に、大学を 卒業しました。(Tôi đã tốt nghiệp đại học 3 năm trước).",
+        note: "💡 Khẩu quyết: Trước「前に」luôn là V-る (dù câu ở quá khứ); Danh từ phải có「の」; Số từ thời gian KHÔNG có「の」."
+      },
+      {
+        title: "42. [Bài 19] Quy tắc chia thể quá khứ「た」(V-た)",
+        meaning: "Quy tắc biến đổi động từ sang thể「た」GIỐNG HỆT NHƯ THỂ「て」, chỉ cần:\n• Đổi「て」➔「た」\n• Đổi「で」➔「だ」\n\n1. NHÓM 1:\n• い, ち, り ➔ った : 買った (mua), 待った (chờ), 帰った (về)\n• み, び, に ➔ んだ : 飲んだ (uống), 遊んだ (chơi), 死んだ (chết)\n• き ➔ いた : 書いた (viết), 聞いた (nghe)\n• ぎ ➔ いだ : 急いだ (vội), 泳いだ (bơi)\n• し ➔ した : 話した (nói), 貸した (cho mượn)\n• ★ ĐẶC BIỆT DUY NHẤT: 行きます ➔ 行った (いった).\n\n2. NHÓM 2: Bỏ「ます」thêm「た」:\n• 食べた (ăn), 見た (nhìn), 起きた (dậy).\n\n3. NHÓM 3: Bất quy tắc:\n• します ➔ した (勉強した)\n• 来（き）ます ➔ 来た (きた)",
+        example: "• 飲みました ➔ 飲んだ; 食べました ➔ 食べた; 勉強しました ➔ 勉強した; 来ました ➔ 来た",
+        note: "💡 Đã thuộc thể て là thuộc luôn thể た! Chỉ cần đổi て ➔ た, で ➔ だ."
+      },
+      {
+        title: "43. [Bài 19] Trải nghiệm, đã từng làm gì: V-た ことが あります",
+        meaning: "Dùng để diễn tả một trải nghiệm, kinh nghiệm trong quá khứ: 'Đã từng làm việc gì' hoặc 'Chưa từng làm việc gì bao giờ'.\n• Khẳng định: V-た ことが あります。(Đã từng làm V).\n• Phủ định: V-た ことが ありません。(Chưa từng làm V bao giờ).\n• Nghi vấn: V-た ことが ありますか。(Đã từng làm V bao giờ chưa?).\n• 💡 Bản chất danh từ hóa:「V-た + こと」(việc đã làm trong quá khứ).",
+        example: "• わたしは 富士山に 登った ことが あります。(Tôi đã từng leo núi Phú Sĩ).\n• 日本料理を 食べた ことが ありますか。(Bạn đã từng ăn món ăn Nhật bao giờ chưa?)\n  ➔ いいえ、一度も 食べた ことが ありません。(Chưa, tôi chưa từng ăn một lần nào cả).\n• 馬に 乗った ことが あります。(Tôi đã từng cưỡi ngựa).",
+        note: "💡 Phân biệt:「V-ました」(hành động đơn thuần xảy ra trong quá khứ) khác với「V-た ことが あります」(nhấn mạnh TRẢI NGHIỆM / KINH NGHIỆM trong đời)."
+      },
+      {
+        title: "44. [Bài 19] Liệt kê hành động tiêu biểu: V1-たり、V2-たり します",
+        meaning: "Dùng để liệt kê một vài hành động tiêu biểu, đại diện trong số nhiều hành động (lúc thì làm việc này, lúc thì làm việc kia; không theo trình tự thời gian).\n• Cấu trúc: [V1 thể た + り]、[V2 thể た + り] + します／しました。\n• Thì của cả câu (hiện tại hay quá khứ) do động từ「します／しました」ở cuối câu quyết định.\n• 💡 Phân biệt với thể「V1-て、V2-て」: Thể て kể các hành động liên tiếp theo đúng thứ tự thời gian; còn「たり～たり」chỉ nêu vài việc tiêu biểu không kể hết và không theo thứ tự.",
+        example: "• 日曜日は テニスを したり、映画を 見たり します。(Chủ nhật tôi lúc thì chơi tennis, lúc thì xem phim).\n• きのうは 買い物を したり、部屋を 掃除したり しました。(Hôm qua tôi đi mua sắm, dọn dẹp phòng...).\n• 休みの日は 本を 読んだり、音楽を 聞いたり して います。(Ngày nghỉ tôi đọc sách, nghe nhạc...).",
+        note: "💡 Công thức: Thể た thêm り (V-たり、V-たり します). Nêu việc đại diện, không cần theo thứ tự."
+      },
+      {
+        title: "45. [Bài 19] Biến đổi trạng thái: くなります & になります (Trở nên, trở thành)",
+        meaning: "Dùng để diễn tả sự THAY ĐỔI / BIẾN ĐỔI về tính chất, trạng thái hoặc nghề nghiệp, tuổi tác ('trở nên...', 'trở thành...'):\n1) Tính từ đuôi「い」: Bỏ「い」+「くなります」\n   - さむい ➔ さむく なります (trở nên lạnh)\n   - いい ➔ よく なります (trở nên tốt)\n2) Tính từ đuôi「な」: Bỏ「な」+「になります」\n   - げんき (な) ➔ げんきに なります (trở nên khỏe mạnh)\n   - きれい (な) ➔ きれいに なります (trở nên xinh đẹp)\n3) Danh từ: +「になります」\n   - 20さい ➔ 20さいに なります (tròn 20 tuổi)\n   - せんせい ➔ せんせいに なります (trở thành giáo viên).",
+        example: "• [Tính từ đuôi い]:\n  - 寒く なりましたね。(Trời đã trở nên lạnh rồi nhỉ).\n  - 髪を 短く しました。(Tôi đã cắt tóc ngắn lại).\n• [Tính từ đuôi な]:\n  - 日本語が 上手に なりました。(Tiếng Nhật đã trở nên giỏi hơn).\n• [Danh từ]:\n  - 春に なると、桜が 咲きます。(Khi trời sang xuân, hoa anh đào sẽ nở).\n  - 来年 30歳に なります。(Năm sau tôi tròn 30 tuổi).",
+        note: "💡 Khẩu quyết biến đổi trạng thái: Đuôi い ➔ くなります; Đuôi な & Danh từ ➔ になります."
       }
     ]
   },

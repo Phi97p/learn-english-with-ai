@@ -419,9 +419,9 @@ const VocabJaModule = (() => {
             </div>
             <div class="spk-item-vi" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
               ${(item.hiragana && item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana} (${item.romaji}) •</span>` : ((item.hiragana || item.romaji) ? `<span class="spk-item-romaji phonetic-text" style="color: var(--accent-cyan); font-family: var(--font-mono); margin-right: 6px;">${item.hiragana || item.romaji} •</span>` : '')}
-              ${isMeaningShown 
-                ? `<span>${item.vi}</span>` 
-                : `<span class="vocab-list-spoiler" style="color: #fcd34d; font-style: italic; cursor: pointer; text-decoration: underline;" title="Bấm để xem nghĩa">(Bấm để xem nghĩa)</span><span class="vocab-list-actual" style="display: none;">${item.vi}</span>`}
+              ${isMeaningShown
+          ? `<span>${item.vi}</span>`
+          : `<span class="vocab-list-spoiler" style="color: #fcd34d; font-style: italic; cursor: pointer; text-decoration: underline;" title="Bấm để xem nghĩa">(Bấm để xem nghĩa)</span><span class="vocab-list-actual" style="display: none;">${item.vi}</span>`}
             </div>
           </div>
         </div>
