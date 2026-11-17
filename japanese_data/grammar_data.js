@@ -2940,6 +2940,316 @@ const JA_GRAMMAR_DATA = {
         "explanation": "• Dạng câu hỏi mở hỏi về bản thân bạn để tự luyện tập đối thoại (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「ダイエットをしたことがありますか」(Bạn đã từng ăn kiêng giảm cân chưa?)\n  - Trả lời về kinh nghiệm bản thân: Khẳng định:「はい、あります / はい、したことがあります」(Vâng, tôi đã từng); Phủ định:「いいえ、ありません / いいえ、一度もありません」(Chưa, tôi chưa từng làm bao giờ).\n• 2):「先週の日曜日は何をしましたか」(Chủ Nhật tuần trước bạn đã làm những gì?)\n  - Vận dụng cấu trúc liệt kê hành động「〜たり、〜たりしました」ở thì quá khứ: Ví dụ「部屋を掃除したり、洗濯したりしました」(Tôi đã dọn phòng, giặt quần áo...); hoặc「買い物に行ったり、映画を見たりしました」(Tôi đã đi mua sắm, xem phim...).\n• 3):「日本語が上手になりましたか」(Tiếng Nhật của bạn đã giỏi lên chưa?)\n  - Trả lời khiêm tốn chuẩn văn hóa Nhật:「いいえ、まだまだです」(Chưa, tôi vẫn còn kém lắm); hoặc「いいえ、なかなか上手になりません」(Không, mãi mà tôi vẫn chưa giỏi lên được); hoặc khẳng định:「はい、少し上手になりました」(Vâng, đã tiến bộ một chút rồi ạ)."
       }
     ]
+  },
+  "bai_20": {
+    "title": "Bài 20",
+    "completed": false,
+    "questions": [
+      {
+        "id": "b20_q1",
+        "type": "fill",
+        "tag": "Bảng chuyển đổi Thể lịch sự (丁寧形) ⇔ Thể thông thường (普通形)",
+        "table": {
+          "title": "Bảng chuyển đổi: Thể lịch sự (丁寧形) ⇔ Thể thông thường (普通形)",
+          "headers": [
+            "丁寧形 (Thể lịch sự: 〜です／〜ます)",
+            "普通形 (Thể thông thường)"
+          ],
+          "rows": [
+            [
+              "例：書きました",
+              "書いた"
+            ],
+            [
+              "1) （____）",
+              "調べた"
+            ],
+            [
+              "飲みました",
+              "2) （____）"
+            ],
+            [
+              "3) （____）",
+              "降らない"
+            ],
+            [
+              "なくしません",
+              "4) （____）"
+            ],
+            [
+              "5) （____）",
+              "待たなかった"
+            ],
+            [
+              "来ませんでした",
+              "6) （____）"
+            ],
+            [
+              "7) （____）",
+              "修理する"
+            ],
+            [
+              "買いました",
+              "8) （____）"
+            ],
+            [
+              "9) （____）",
+              "要る"
+            ],
+            [
+              "ありません",
+              "10) （____）"
+            ],
+            [
+              "便利です",
+              "11) （____）"
+            ],
+            [
+              "12) （____）",
+              "眠い"
+            ],
+            [
+              "雨でした",
+              "13) （____）"
+            ],
+            [
+              "14) （____）",
+              "暑くなかった"
+            ],
+            [
+              "よくないです",
+              "15) （____）"
+            ],
+            [
+              "16) （____）",
+              "休みじゃなかった"
+            ],
+            [
+              "無理じゃありません",
+              "17) （____）"
+            ],
+            [
+              "18) （____）",
+              "知らない"
+            ],
+            [
+              "持っています",
+              "19) （____）"
+            ],
+            [
+              "20) （____）",
+              "帰らなければならない"
+            ],
+            [
+              "21) （____）",
+              "食事しない？"
+            ]
+          ]
+        },
+        "question": "1.",
+        "answers": [
+          "調べました / しらべました / shirabemashita",
+          "飲んだ / のんだ / nonda",
+          "降りません / ふりません / furimasen",
+          "なくさない / nakusanai",
+          "待ちませんでした / まちませんでした / machimasendeshita / machimasen deshita",
+          "来なかった / こなかった / konakatta",
+          "修理します / しゅうりします / shuurishimasu / shuuri shimasu",
+          "買った / かった / katta",
+          "要ります / いります / irimasu",
+          "ない / nai",
+          "便利だ / べんりだ / benrida / benri da",
+          "眠いです / ねむいです / nemuidesu / nemui desu",
+          "雨だった / あめだった / amedatta / ame datta",
+          "暑くなかったです / あつくなかったです / 暑くありませんでした / あつくありませんでした / atsukunakatta desu / atsukunakattadesu",
+          "よくない / yokunai",
+          "休みじゃありませんでした / やすみじゃありませんでした / 休みではありませんでした / やすみではありませんでした / 休みじゃなかったです / やすみじゃなかったです / yasumijaarimasendeshita",
+          "無理じゃない / むりじゃない / murijanai / muri janai / 無理ではない / むりではない",
+          "知りません / しりません / shirimasen",
+          "持っている / もっている / motteiru / motte iru",
+          "帰らなければなりません / かえらなければなりません / kaeranakerebanarimasen / kaeranakereba narimasen",
+          "食事しませんか / 食事しませんか？ / しょくじしませんか / しょくじしませんか？ / shokujishimasenka / shokuji shimasen ka"
+        ],
+        "explanation": "• Quy tắc chuyển đổi giữa Thể lịch sự (丁寧形: 〜です／〜ます) và Thể thông thường (普通形) trọng tâm Bài 20:\n• 例: Động từ「書きます」(viết) ở quá khứ lịch sự「書きました」➔ Thể thông thường (thể た):「書いた」(かいた).\n• 1):「調べた」(tra cứu/điều tra, nhóm 2) ➔ Quá khứ lịch sự:「調べました」(しらべました).\n• 2):「飲みました」(uống, nhóm 1: みました ➔ んだ) ➔ Thể thông thường quá khứ:「飲んだ」(のんだ).\n• 3):「降らない」(mưa rơi, thể phủ định ngắn của 降ります, nhóm 1: ります ➔ らない) ➔ Thể lịch sự phủ định hiện tại:「降りません」(ふりません).\n• 4):「なくしません」(làm mất, nhóm 1: し ➔ さ + ない) ➔ Thể thông thường phủ định:「なくさない」(nakusanai).\n• 5):「待たなかった」(đợi, phủ định quá khứ của 待ちます, nhóm 1: ち ➔ た + なかった) ➔ Phủ định quá khứ lịch sự:「待ちませんでした」(まちませんでした).\n• 6):「来ませんでした」(đến, nhóm 3 bất quy tắc) ➔ Thể thông thường phủ định quá khứ:「来なかった」(đọc là こなかった - chữ 来 đổi phát âm thành こ).\n• 7):「修理する」(sửa chữa, nhóm 3) ➔ Khẳng định hiện tại lịch sự:「修理します」(しゅうりします).\n• 8):「買いました」(mua, nhóm 1: いました ➔ った) ➔ Thể thông thường quá khứ:「買った」(かった).\n• 9):「要る」(cần thiết, động từ nhóm 1 đặc biệt) ➔ Khẳng định hiện tại lịch sự:「要ります」(いります).\n• 10):「ありません」(có/ở đồ vật) ➔ Thể thông thường phủ định của あります là từ bất quy tắc đặc biệt:「ない」(nai).\n• 11):「便利です」(tiện lợi, tính từ đuôi な) ➔ Thể thông thường khẳng định hiện tại của tính từ đuôi な và danh từ là「〜だ」:「便利だ」(べんりだ).\n• 12):「眠い」(buồn ngủ, tính từ đuôi い) ➔ Thể lịch sự khẳng định hiện tại: thêm「です」➔「眠いです」(ねむいです).\n• 13):「雨でした」(trời mưa, danh từ ở quá khứ lịch sự) ➔ Thể thông thường quá khứ của danh từ là「〜だった」:「雨だった」(あめだった).\n• 14):「暑くなかった」(nóng, tính từ đuôi い ở phủ định quá khứ) ➔ Thể lịch sự phủ định quá khứ: thêm「です」➔「暑くなかったです」(hoặc「暑くありませんでした」).\n• 15):「よくないです」(tốt, tính từ đặc biệt いい ➔ よくない) ➔ Thể thông thường phủ định: bỏ「です」➔「よくない」(yokunai).\n• 16):「休みじゃなかった」(ngày nghỉ, danh từ ở phủ định quá khứ) ➔ Thể lịch sự phủ định quá khứ:「休みじゃありませんでした」(hoặc「休みではありませんでした」,「休みじゃなかったです」).\n• 17):「無理じゃありません」(vô lý/quá sức, tính từ đuôi な ở phủ định hiện tại) ➔ Thể thông thường phủ định:「無理じゃない」(むりじゃない; hoặc「無理ではない」).\n• 18):「知らない」(biết, động từ 知ります ở thể ない) ➔ Thể lịch sự phủ định của 知ります luôn là:「知りません」(しりません - không dùng 知っていません).\n• 19):「持っています」(đang có/mang theo, dạng V-ています) ➔ Thể thông thường:「持っている」(もっている).\n• 20):「帰らなければならない」(phải về, thể thông thường của mẫu bắt buộc) ➔ Thể lịch sự:「帰らなければなりません」(かえらなければなりません).\n• 21):「食事しない？」(Đi ăn cơm không?, rủ rê ở thể thông thường lên giọng cuối câu) ➔ Thể lịch sự rủ rê tương ứng:「食事しませんか」(しょくじしませんか; hoặc có dấu hỏi「食事しませんか？」)."
+      },
+      {
+        "id": "b20_q2",
+        "type": "fill",
+        "tag": "Hội thoại thể thông thường (普通形の会話)",
+        "question": "2. 例：ミラーさんに電話した？…ううん、<u>電話しなかった。</u>\n\n1) 英語がわかる？…ううん、＿＿＿＿＿＿＿＿＿＿\n2) ダンスが＿＿＿＿＿＿＿＿＿＿…うん、できる。\n3) 山田さんに会った？…ううん、＿＿＿＿＿＿＿＿＿＿\n4) 何枚ぐらい写真を＿＿＿＿＿＿＿＿＿＿…50枚ぐらい撮った。\n5) カリーナさんの住所を知っている？…ううん、＿＿＿＿＿＿＿＿＿＿\n6) 漢字の勉強は＿＿＿＿＿＿＿＿＿＿…うん、大変。\n7) 今何が欲しい？…何も＿＿＿＿＿＿＿＿＿＿\n8) ビザが＿＿＿＿＿＿＿＿＿＿…ううん、要らない。\n9) きのうは休みだった？…ううん、＿＿＿＿＿＿＿＿＿＿\n10) 天気はよかった？…ううん、あまり＿＿＿＿＿＿＿＿＿＿\n11) 誕生日に何を＿＿＿＿＿＿＿＿＿＿…何ももらわなかった。\n12) 日本の海で泳いだことがある？…うん、＿＿＿＿＿＿＿＿＿＿\n13) パスポートを持って行かなければならない？\n…ううん、＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "わからない。 / わからない / wakaranai",
+          "できる？ / できる / dekiru? / dekiru / できるの？ / できるの",
+          "会わなかった。 / 会わなかった / あわなかった。 / あわなかった / awanakatta",
+          "撮った？ / 撮った / とった？ / とった / totta? / totta / 撮ったの？ / とったの？",
+          "知らない。 / 知らない / しらない。 / しらない / shiranai",
+          "大変？ / 大変 / たいへん？ / たいへん / どう？ / どう / taihen? / taihen / dou? / dou",
+          "欲しくない。 / 欲しくない / ほしくない。 / ほしくない / hoshikunai",
+          "要る？ / 要る / いる？ / いる / iru? / iru / 要るの？ / いるの？",
+          "休みじゃなかった。 / 休みじゃなかった / やすみじゃなかった。 / やすみじゃなかった / 休みではなかった。 / 休みではなかった / じゃなかった。 / じゃなかった / yasumijanakatta / yasumi janakatta / janakatta",
+          "よくなかった。 / よくなかった / yokunakatta",
+          "もらった？ / もらった / moratta? / moratta / もらったの？ / もらったの",
+          "ある。 / ある / aru. / aru / あるよ。 / あるよ / 泳いだことがある。 / 泳いだことがある / およいだことがある。 / およいだことがある",
+          "持って行かなくてもいい。 / 持って行かなくてもいい / もっていかなくてもいい。 / もっていかなくてもいい / 行かなくてもいい。 / 行かなくてもいい / いかなくてもいい。 / いかなくてもいい / 持って行かなくていい。 / 持って行かなくていい / motte ikanakutemo ii"
+        ],
+        "explanation": "• Hội thoại thể thông thường (普通形の会話) giữa bạn bè, người thân thiết:\n• 例: Hỏi quá khứ「電話した？」(Đã gọi điện chưa?). Đáp phủ định「ううん、」➔「電話しなかった。」(Chưa gọi điện).\n• 1): Động từ「わかる」(hiểu, nhóm 1: る ➔ らない). Đáp phủ định thân mật:「ううん、わからない。」(Không, tớ không hiểu).\n• 2): Đáp là「うん、できる。」(thể từ điển của できます). Câu hỏi thân mật hỏi khả năng:「ダンスができる？」(Cậu biết khiêu vũ không?).\n• 3): Hỏi quá khứ「会った？」(Đã gặp... chưa?). Động từ「会う」(nhóm 1: う ➔ わ + なかった). Đáp phủ định:「ううん、会わなかった。」(Không, tớ đã không gặp).\n• 4): Đáp quá khứ「50枚ぐらい撮った。」(Đã chụp khoảng 50 tấm). Câu hỏi quá khứ thân mật:「何枚ぐらい写真を撮った？」(Cậu đã chụp khoảng bao nhiêu tấm ảnh?).\n• 5): Hỏi「知っている？」(Có biết... không?). Ngữ pháp: Phủ định của「知っています」luôn là「知りません」, nên ở thể thông thường là「知らない」(Không dùng 知っていない) ➔「ううん、知らない。」(Không, tớ không biết).\n• 6): Đáp「うん、大変。」(Tính từ đuôi な lược bỏ だ trong hội thoại thân mật). Câu hỏi thăm dò cảm nhận:「漢字の勉強は大変？」(Học chữ Hán có vất vả không?) hoặc「どう？」(như thế nào?).\n• 7): Hỏi「今何が欲しい？」(Bây giờ muốn cái gì?). Đi với phủ định hoàn toàn「何も」+ tính từ đuôi い「欲しい」➔「何も欲しくない。」(Không muốn gì cả).\n• 8): Đáp「ううん、要らない。」(phủ định của động từ nhóm 1 đặc biệt 要る). Câu hỏi thân mật ở thể từ điển:「ビザが要る？」(Cậu có cần visa không?).\n• 9): Hỏi quá khứ danh từ「休みだった？」(Hôm qua là ngày nghỉ à?). Phủ định quá khứ thể thông thường của danh từ là「〜じゃなかった」➔「ううん、休みじゃなかった。」(Không, không phải ngày nghỉ).\n• 10): Hỏi quá khứ tính từ「よかった？」(Thời tiết có đẹp không?). Đi với「あまり」(không... lắm) + phủ định quá khứ của いい ➔「ううん、あまりよくなかった。」(Không, không đẹp lắm).\n• 11): Đáp quá khứ phủ định「何ももらわなかった。」(Chẳng nhận được gì). Câu hỏi quá khứ thân mật:「誕生日に何をもらった？」(Sinh nhật cậu đã nhận được gì thế?).\n• 12): Hỏi kinh nghiệm「〜たことがある？」. Câu trả lời khẳng định ngắn gọn thân mật:「うん、ある。」(hoặc「泳いだことがある。」).\n• 13): Hỏi mẫu bắt buộc「〜なければならない？」(Có phải mang hộ chiếu không?). Mẫu phủ định \"không cần phải làm gì\" là「〜なくてもいい」➔「ううん、持って行かなくてもいい。」(hoặc「行かなくてもいい。」)."
+      },
+      {
+        "id": "b20_q3",
+        "type": "fill",
+        "tag": "Đọc hiểu đoạn văn thể thông thường & Trả lời câu hỏi",
+        "question": "3.\n<div style=\"background: rgba(15, 23, 42, 0.45); border: 1.5px solid rgba(148, 163, 184, 0.25); border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; line-height: 1.9; font-size: 1.05rem;\">暑くなった。もうすぐ7月だ。<br>また暑い夏が来る。僕は暑い季節が好きだから、夏は元気になる。<br>夏はいつも山に登ったり、海で泳いだりするが、去年の夏は忙しかったから、どこへも行くことができなかった。<br>ことしの夏は7月の初めに海へ行く。海へ行って、泳いだり、釣りをしたりしたい。早くホテルを予約しなければならない。</div>\n例：もう7月になりましたか。…<u>いいえ、まだです。</u>\n\n1) この人は男の人ですか、女の人ですか。…＿＿＿＿＿＿＿＿＿＿\n2) この人は夏が好きですか。…＿＿＿＿＿＿＿＿＿＿\n3) この人は去年の夏、山や海へ行きましたか。…＿＿＿＿＿＿＿＿＿＿\n4) この人はことし海へ行きますか。…＿＿＿＿＿＿＿＿＿＿\n5) もうホテルの予約をしましたか。…＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "男の人です。 / 男の人です / 男の人 / おとこのひとです。 / おとこのひとです / おとこのひと / otoko no hito desu / otoko no hito",
+          "はい、好きです。 / はい、好きです / はい、すきです。 / はい、すきです / はい、夏が好きです。 / はい、夏が好きです / 好きです。 / 好きです / すきです。 / すきです / hai, suki desu / hai, sukidesu",
+          "いいえ、行きませんでした。 / いいえ、行きませんでした / いいえ、いきませんでした。 / いいえ、いきませんでした / いいえ、どこへも行きませんでした。 / いいえ、どこへも行きませんでした / 行きませんでした。 / 行きませんでした / いきませんでした。 / いきませんでした / iie, ikimasendeshita / iie, ikimasen deshita",
+          "はい、行きます。 / はい、行きます / はい、いきます。 / はい、いきます / はい、海へ行きます。 / はい、海へ行きます / 行きます。 / 行きます / いきます。 / いきます / hai, ikimasu",
+          "いいえ、まだです。 / いいえ、まだです / いいえ、まだしていません。 / いいえ、まだしていません / いいえ、まだ予約していません。 / いいえ、まだ予約していません / まだです。 / まだです / iie, mada desu / iie, madadesu / mada desu"
+        ],
+        "explanation": "• Đọc hiểu đoạn văn thể thông thường & Trả lời câu hỏi:\n• Dịch nghĩa đoạn văn:\n  「Trời đã nóng lên rồi. Sắp sửa sang tháng 7 rồi.\n   Lại một mùa hè oi bức sắp tới. Vì tôi thích mùa nóng, nên mùa hè tôi thấy rất khỏe khoắn/tràn đầy năng lượng.\n   Mùa hè tôi thường leo núi, đi bơi ở biển..., nhưng mùa hè năm ngoái vì bận rộn nên tôi chẳng thể đi đâu được.\n   Mùa hè năm nay, vào đầu tháng 7 tôi sẽ đi biển. Đến biển, tôi muốn vừa bơi lội lại vừa câu cá. Tôi phải nhanh chóng đặt phòng khách sạn.」\n• 例: Câu hỏi「もう7月になりましたか」(Đã sang tháng 7 chưa?). Đoạn văn viết「もうすぐ7月だ」(Sắp tháng 7 rồi) ➔ Chưa sang tháng 7 ➔「いいえ、まだです。」(Chưa, vẫn chưa).\n• 1): Câu hỏi「この人は男の人ですか、女の人ですか」(Người này là nam hay nữ?). Trong bài nhân vật tự xưng là「僕」(boku - đại từ nhân xưng ngôi thứ nhất thân mật của nam giới) ➔「男の人です。」(Là nam giới).\n• 2): Câu hỏi「この人は夏が好きですか」(Người này có thích mùa hè không?). Trong bài:「僕は暑い季節が好きだから、夏は元気になる」(Vì tôi thích mùa nóng nên mùa hè thấy tràn đầy năng lượng) ➔「はい、好きです。」(Vâng, thích).\n• 3): Câu hỏi「この人は去年の夏、山や海へ行きましたか」(Người này mùa hè năm ngoái có đi núi hay đi biển không?). Trong bài:「去年の夏は忙しかったから、どこへも行くことができなかった」(Mùa hè năm ngoái vì bận nên chẳng đi đâu được) ➔「いいえ、行きませんでした。」(Không, đã không đi).\n• 4): Câu hỏi「この人はことし海へ行きますか」(Người này năm nay có đi biển không?). Trong bài:「ことしの夏は7月の初めに海へ行く」(Mùa hè năm nay đầu tháng 7 sẽ đi biển) ➔「はい、行きます。」(Có, sẽ đi).\n• 5): Câu hỏi「もうホテルの予約をしましたか」(Đã đặt phòng khách sạn chưa?). Trong bài:「早くホテルを予約しなければならない」(Phải nhanh chóng đặt khách sạn ➔ tức là vẫn chưa đặt) ➔「いいえ、まだです。」(Chưa, vẫn chưa đặt)."
+      },
+      {
+        "id": "b20_q4",
+        "type": "open_ended",
+        "tag": "Trả lời câu hỏi mở",
+        "question": "4. 例：いつ日本へ来た？…<u>去年の3月に来ました。</u>\n\n1) 今何時？\n＿＿＿＿＿＿＿＿＿＿\n\n2) 車の運転ができる？\n＿＿＿＿＿＿＿＿＿＿\n\n3) けさ新聞を読んだ？\n＿＿＿＿＿＿＿＿＿＿\n\n4) きのうは忙しかった？\n＿＿＿＿＿＿＿＿＿＿\n\n5) パンとごはんとどっちが好き？\n＿＿＿＿＿＿＿＿＿＿\n\n6) 日本語の辞書を持っている？\n＿＿＿＿＿＿＿＿＿＿\n\n7) きのうの天気はどうだった？\n＿＿＿＿＿＿＿＿＿＿",
+        "answers": [
+          "9時です。 / 9時半です。 / 9時だ。 / 9時半だ。",
+          "はい、できます。 / うん、できる。 / いいえ、できません。 / ううん、できない。",
+          "はい、読みました。 / うん、読んだ。 / いいえ、読みませんでした。 / ううん、読まなかった。",
+          "はい、忙しかったです。 / うん、忙しかった。 / いいえ、忙しくなかったです。 / ううん、忙しくなかった。",
+          "ごはんのほうが好きです。 / パンのほうが好きです。 / ごはんのほうが好き。 / パンのほうが好き。 / どちらも好きです。",
+          "はい、持っています。 / うん、持っている。 / いいえ、持っていません。 / ううん、持っていない。",
+          "いい天気でした。 / いい天気だった。 / 雨でした。 / 雨だった。 / 晴れでした。 / 寒かったです。 / 暑かったです。"
+        ],
+        "explanation": "• Dạng câu hỏi mở hỏi về bản thân bạn để tự luyện tập đối thoại (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 例:「いつ日本へ来た？」(Bạn đến Nhật Bản khi nào?) ➔ Câu trả lời mẫu:「去年の3月に来ました。」(Tôi đã đến vào tháng 3 năm ngoái).\n• 1):「今何時？」(Bây giờ là mấy giờ?)\n  - Trả lời thời gian lúc bạn làm bài:「[Số giờ] 時 [Số phút] 分です」(Ví dụ:「9時です」「9時半です」; hoặc thân mật:「9時だ」「9時半だ」).\n• 2):「車の運転ができる？」(Bạn có biết lái xe ô tô không?)\n  - Khẳng định:「はい、できます」(hoặc thân mật:「うん、できる」); Phủ định:「いいえ、できません」(hoặc thân mật:「ううん、できない」).\n• 3):「けさ新聞を読んだ？」(Sáng nay bạn đã đọc báo chưa?)\n  - Khẳng định:「はい、読みました」(hoặc thân mật:「うん、読んだ」); Phủ định:「いいえ、読みませんでした」(hoặc thân mật:「ううん、読まなかった」).\n• 4):「きのうは忙しかった？」(Hôm qua bạn có bận không?)\n  - Khẳng định:「はい、忙しかったです」(hoặc thân mật:「うん、忙しかった」); Phủ định:「いいえ、忙しくなかったです」(hoặc thân mật:「ううん、忙しくなかった / あまり忙しくなかった」).\n• 5):「パンとごはんとどっちが好き？」(Bánh mì với cơm, bạn thích cái nào hơn?)\n  - Cấu trúc so sánh lựa chọn:「[A] のほうが好きです」(hoặc thân mật:「[A] のほうが好き」; ví dụ:「ごはんのほうが好きです」「パンのほうが好きです」; hoặc cả hai:「どちらも好きです」).\n• 6):「日本語の辞書を持っている？」(Bạn có từ điển tiếng Nhật không?)\n  - Khẳng định:「はい、持っています」(hoặc thân mật:「うん、持っている」); Phủ định:「いいえ、持っていません」(hoặc thân mật:「ううん、持っていない」).\n• 7):「きのうの天気はどうだった？」(Thời tiết hôm qua thế nào?)\n  - Trả lời tính từ/danh từ thời tiết ở quá khứ:「いい天気でした」(hoặc「いい天気だった」「雨でした」「雨だった」「晴れでした」「寒かったです」「暑かったです」)."
+      }
+    ]
+  },
+  bai_21: {
+    title: "Bài 21",
+    completed: false,
+    questions: [
+      {
+        id: "b21_q1",
+        type: "matching",
+        tag: "Chọn câu trả lời phù hợp từ các từ có sẵn",
+        question: "1. 例：夏休みに（ d ）をしたいです。\n\n1) この靴は（____）があまりよくないです。\n2) ここは（____）がちょっと不便です。\n3) ここは（____）が高いです。\n4) 会議で（____）を言いましたか。\n5) 日本の（____）はとてもおもしろいです。\n6) 先生の（____）はとても役に立ちました。\n7) 毎朝ラジオで英語の（____）を聞きます。",
+        choices: [
+          { key: "a", text: "交通" },
+          { key: "b", text: "お話" },
+          { key: "c", text: "デザイン" },
+          { key: "d", text: "アルバイト", isExample: true },
+          { key: "e", text: "ニュース" },
+          { key: "f", text: "アニメ" },
+          { key: "g", text: "物価" },
+          { key: "h", text: "天才" },
+          { key: "i", text: "意見" }
+        ],
+        answers: [
+          "c / デザイン",
+          "a / 交通 / こうつう",
+          "g / 物価 / ぶっか",
+          "i / 意見 / いけん",
+          "f / アニメ",
+          "b / お話 / おはなし",
+          "e / ニュース"
+        ],
+        explanation: "• Chọn từ vựng phù hợp từ bảng có sẵn để hoàn thành câu:\n• 例:「夏休みに（ d: アルバイト ）をしたいです」(Kỳ nghỉ hè tôi muốn đi làm thêm).\n• 1):「この靴は（ c: デザイン ）があまりよくないです」(Đôi giày này thì thiết kế không được đẹp/tốt lắm) ➔ Chọn c. デザイン.\n• 2):「ここは（ a: 交通 ）がちょっと不便です」(Nơi này thì giao thông hơi bất tiện một chút) ➔ Đi với 不便 là a. 交通 (giao thông).\n• 3):「ここは（ g: 物価 ）が高いです」(Nơi này thì vật giá/giá cả sinh hoạt đắt đỏ) ➔ Đi với 高い khi nói về chi phí sống là g. 物価.\n• 4):「会議で（ i: 意見 ）を言いましたか」(Trong cuộc họp bạn có phát biểu ý kiến không?) ➔ Đi với động từ 言います (nói/phát biểu) là i. 意見 (ý kiến).\n• 5):「日本の（ f: アニメ ）はとてもおもしろいです」(Phim hoạt hình của Nhật Bản rất hay/thú vị) ➔ Chọn f. アニメ.\n• 6):「先生の（ b: お話 ）はとても役に立ちました」(Câu chuyện/Lời khuyên của thầy giáo đã rất có ích) ➔ Chọn b. お話.\n• 7):「毎朝ラジオで英語の（ e: ニュース ）を聞きます」(Mỗi sáng tôi nghe tin tức tiếng Anh trên đài radio) ➔ Nghe qua radio là e. ニュース (tin tức).\n(Lưu ý: Phương án h: 天才 là từ dư/bẫy)."
+      },
+      {
+        id: "b21_q2",
+        type: "fill",
+        tag: "Hoàn thành câu dựa vào câu có sẵn",
+        question: "2. 例：佐藤さんは車の運転ができますか。…ええ、<u>できる</u>と思います。\n\n1) 松本さんは何時ごろ来ますか。…10時ごろ＿＿＿＿＿＿＿＿＿＿と思います。\n2) 図書館はきょう休みですか。…いいえ、＿＿＿＿＿＿＿＿＿＿と思います。\n3) イーさんはたばこを吸いますか。…いいえ、＿＿＿＿＿＿＿＿＿＿と思います。\n4) 佐藤さんは独身ですか。…ええ、＿＿＿＿＿＿＿＿＿＿と思います。\n5) 部長はもうこれを読みましたか。…ええ、もう＿＿＿＿＿＿＿＿＿＿と思います。\n6) この資料は役に立ちますか。…ええ、とても＿＿＿＿＿＿＿＿＿＿と思います。\n7) 試験は難しかったですか。…いいえ、そんなに＿＿＿＿＿＿＿＿＿＿と思います。\n8) 来週会議がありますか。…いいえ、たぶん＿＿＿＿＿＿＿＿＿＿と思います。\n9) ミラーさんは伊藤さんを知っていますか。\n…いいえ、たぶん＿＿＿＿＿＿＿＿＿＿と思います。",
+        answers: [
+          "来る / くる / kuru",
+          "休みじゃない / 休みではない / やすみじゃない / やすみではない / yasumijanai / yasumi janai",
+          "吸わない / すわない / suwanai",
+          "独身だ / どくしんだ / dokushinda / dokushin da",
+          "読んだ / よんだ / yonda",
+          "役に立つ / やくにたつ / yakunitatsu / yaku ni tatsu",
+          "難しくなかった / むずかしくなかった / muzukashikunakatta",
+          "ない / nai",
+          "知らない / しらない / shiranai"
+        ],
+        explanation: "• Cấu trúc biểu thị suy nghĩ, phán đoán của bản thân:「[Thể thông thường (普通形)] + と思います」(Tôi nghĩ là...):\n• 例: Động từ「できます」ở thể từ điển:「できる」➔「できると思います」(Tôi nghĩ là chị ấy có thể lái được).\n• 1): Động từ「来ます」(đến, nhóm 3 bất quy tắc) ở thể từ điển tương lai:「来る」(đọc là くる) ➔「10時ごろ来ると思います」(Tôi nghĩ khoảng 10 giờ anh Matsumoto sẽ đến).\n• 2): Danh từ「休み」(ngày nghỉ) ở thể phủ định hiện tại thân mật là「〜じゃない」➔「休みじゃないと思います」(hoặc「休みではないと思います」- Tôi nghĩ là thư viện không nghỉ).\n• 3): Động từ「吸います」(hút thuốc, nhóm 1: い ➔ わ + ない) ở thể phủ định:「吸わない」➔「吸わないと思います」(Tôi nghĩ là anh Lee không hút thuốc).\n• 4): Danh từ / Tính từ đuôi な ở khẳng định hiện tại BẮT BUỘC phải đi kèm「だ」trước と思います:「独身だ」➔「独身だと思います」(Tôi nghĩ chị Sato vẫn độc thân).\n• 5): Động từ「読みました」(đã đọc, nhóm 1: みました ➔ んだ) ở thể quá khứ thân mật (thể た):「読んだ」➔「もう読んだと思います」(Tôi nghĩ trưởng phòng đã đọc rồi).\n• 6): Cụm động từ「役に立ちます」(có ích, nhóm 1: ち ➔ つ) ở thể từ điển:「役に立つ」➔「とても役に立つと思います」(Tôi nghĩ tài liệu này rất có ích).\n• 7): Tính từ đuôi い「難しかった」(khó, quá khứ). Khi đi với「そんなに」(đến mức như thế), chuyển sang phủ định quá khứ:「難しくなかった」(bỏ い thêm くなかった) ➔「そんなに難しくなかったと思います」(Tôi nghĩ bài thi không khó đến mức như thế).\n• 8): Động từ「あります」(có sự kiện/đồ vật) ở thể phủ định thân mật là từ đặc biệt bất quy tắc:「ない」➔「たぶんないと思います」(Tôi nghĩ có lẽ là không có cuộc họp).\n• 9): Động từ「知っています」(biết). Ngữ pháp đặc biệt: Phủ định của 知っています luôn là 知りません, do đó ở thể thông thường phủ định là「知らない」(tuyệt đối không dùng 知っていない) ➔「たぶん知らないと思います」(Tôi nghĩ có lẽ anh Miller không biết anh Ito)."
+      },
+      {
+        id: "b21_q3",
+        type: "fill",
+        tag: "Hoàn thành câu dựa vào câu có sẵn",
+        question: "3. 例：ミラーさんはお酒を飲むでしょう？…ええ、<u>飲みます</u>。\n\n1) カリナさんは＿＿＿＿＿＿＿＿＿＿でしょう？…ええ、留学生です。\n2) このカレーは辛いでしょう？…いいえ、そんなに＿＿＿＿＿＿＿＿＿＿\n3) きのうマリアさんに会ったでしょう？…いいえ、＿＿＿＿＿＿＿＿＿＿\n4) 出張は＿＿＿＿＿＿＿＿＿＿でしょう？…ええ、ちょっと大変でした。\n5) あしたもこのパソコンを＿＿＿＿＿＿＿＿＿＿でしょう？…ええ、使います。\n6) パスポートを持って来たでしょう？…いいえ、＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "留学生 / りゅうがくせい / ryuugakusei",
+          "辛くないです / からくないです / 辛くないです。 / からくないです。 / 辛くありません / からくありません / karakunai desu / karakunaidesu",
+          "会いませんでした / あいませんでした / 会いませんでした。 / あいませんでした。 / 会わなかったです / あわなかったです / aimasen deshita / aimasendeshita",
+          "大変だった / たいへんだった / taihendatta / taihen datta",
+          "使う / つかう / tsukau",
+          "持って来ませんでした / 持ってきませんでした / もってきませんでした / 持って来ませんでした。 / 持ってきませんでした。 / もってきませんでした。 / 持って来なかったです / motte kimasen deshita / motte kimasendeshita"
+        ],
+        explanation: "• Cấu trúc xác nhận thông tin với ngữ điệu lên giọng:「[Thể thông thường (普通形)] + でしょう？」(Có phải không? / Đúng không nhỉ?):\n• Lưu ý: Danh từ và Tính từ đuôi な ở thể khẳng định hiện tại BỎ「だ」(không nói だでしょう, chỉ dùng N / A-na + でしょう).\n• 例: Hỏi xác nhận hành động「飲むでしょう？」(Anh Miller uống được rượu đúng không?) ➔ Trả lời lịch sự:「ええ、飲みます」(Vâng, uống được).\n• 1): Đáp là「ええ、留学生です」(Vâng, là du học sinh). Danh từ「留学生」đứng trước「でしょう？」bỏ だ ➔「カリナさんは留学生でしょう？」(Chị Karina là du học sinh đúng không?).\n• 2): Hỏi「このカレーは辛いでしょう？」(Món cà ri này cay đúng không?). Đi với phó từ「そんなに」(đến mức như thế), tính từ đuôi い「辛い」chuyển sang phủ định lịch sự:「そんなに辛くないです」(hoặc「辛くありません」- Không, không cay đến mức như thế).\n• 3): Hỏi xác nhận quá khứ「きのうマリアさんに会ったでしょう？」(Hôm qua bạn đã gặp chị Maria đúng không?). Đáp phủ định quá khứ lịch sự của động từ「会います」(gặp) là:「いいえ、会いませんでした」(hoặc「会わなかったです」- Không, tôi đã không gặp).\n• 4): Đáp quá khứ「ええ、ちょっと大変でした」(Vâng, hơi vất vả một chút). Câu hỏi xác nhận sự việc trong quá khứ: Tính từ đuôi な「大変」ở quá khứ thể thông thường là「大変だった」➔「出張は大変だったでしょう？」(Chuyến công tác đã vất vả đúng không?).\n• 5): Đáp tương lai「ええ、使います」(Vâng, tôi sẽ dùng). Động từ「使います」(dùng, nhóm 1: います ➔ う) ở thể từ điển tương lai là「使う」➔「あしたもこのパソコンを使うでしょう？」(Ngày mai bạn cũng sẽ dùng chiếc máy tính này đúng không?).\n• 6): Hỏi quá khứ「パスポートを持って来たでしょう？」(Bạn đã mang theo hộ chiếu đến đây đúng không?). Đáp phủ định quá khứ lịch sự của「持って来ます」là:「いいえ、持って来ませんでした」(hoặc「持ってきませんでした」- Không, tôi đã không mang đến)."
+      },
+      {
+        id: "b21_q4",
+        type: "fill",
+        tag: "Điền trợ từ vào ngoặc",
+        question: "4. 例：さくら大学（ は ）どこ（ に ）ありますか。\n\n1) どこ（____）サッカーの試合（____）ありますか。\n2) 学校（____）食堂（____）ありますか。\n3) どこ（____）パーティー（____）しますか。\n4) パーティー（____）佐藤さんの友達（____）会いました。\n5) 会議（____）何か意見（____）言いましたか。",
+        answers: [
+          "で",
+          "が",
+          "に",
+          "が",
+          "で",
+          "を",
+          "で",
+          "に",
+          "で",
+          "を"
+        ],
+        explanation: "• Phân biệt các trợ từ chỉ nơi chốn (で／に) và tân ngữ/chủ ngữ (が／を／は):\n• 例: Xác định vị trí địa điểm tồn tại của trường học:「さくら大学 は どこ に ありますか」➔ Dùng は và に.\n• 1):\n  - Blank 1:「サッカーの試合」(trận đấu bóng đá) là sự kiện (event) ➔ Nơi diễn ra sự kiện dùng trợ từ「で」:「どこで」.\n  - Blank 2: Sự kiện diễn ra dùng trợ từ「が」:「試合がありますか」.\n• 2):\n  - Blank 3:「食堂」(nhà ăn) là địa điểm/phòng ốc tĩnh tồn tại bên trong trường học ➔ Nơi tồn tại dùng trợ từ「に」:「学校に」.\n  - Blank 4: Sự vật tồn tại dùng trợ từ「が」:「食堂がありますか」.\n• 3):\n  - Blank 5: Đi với động từ hành động「します」(tổ chức) ➔ Nơi diễn ra hành động dùng trợ từ「で」:「どこで」.\n  - Blank 6: Tân ngữ của hành động「します」dùng trợ từ「を」:「パーティーをしますか」.\n• 4):\n  - Blank 7: Nơi chốn diễn ra hành động gặp gỡ tại sự kiện bữa tiệc ➔ Dùng trợ từ「で」:「パーティーで」.\n  - Blank 8: Đối tượng gặp gỡ của động từ「会います」(gặp) dùng trợ từ「に」:「佐藤さんの友達に会いました」.\n• 5):\n  - Blank 9: Nơi chốn diễn ra sự kiện cuộc họp ➔ Dùng trợ từ「で」:「会議で」.\n  - Blank 10: Tân ngữ của hành động phát biểu「言いましたか」(nói/phát biểu) ➔ Dùng trợ từ「を」:「何か意見を言いましたか」."
+      },
+      {
+        id: "b21_q5",
+        type: "fill",
+        tag: "Hoàn thành câu dựa vào câu có sẵn",
+        question: "5. 冬休みは何をしますか。\n例：A：試験勉強をします。 ➔ Aさんは<u>試験勉強をする</u>と言いました。\n\n1) B：スキーに行きます。 ➔ Bさんは＿＿＿＿＿＿＿＿＿＿と言いました。\n2) C：家族と旅行したいです。 ➔ Cさんは＿＿＿＿＿＿＿＿＿＿と言いました。\n3) D：マンガを読んだり、アニメを見たりします。\n   ➔ Dさんは＿＿＿＿＿＿＿＿＿＿と言いました。\n4) E：レポートを書かなければなりません。\n   ➔ Eさんは＿＿＿＿＿＿＿＿＿＿と言いました。",
+        answers: [
+          "スキーに行く / スキーにいく / suki- ni iku / sukii ni iku",
+          "家族と旅行したい / かぞくとりょこうしたい / kazoku to ryokou shitai / kazoku to ryoko shitai",
+          "マンガを読んだり、アニメを見たりする / マンガをよんだり、アニメをみたりする / 漫画を読んだり、アニメを見たりする / manga o yondari, anime o mitari suru",
+          "レポートを書かなければならない / レポートをかかなければならない / repooto o kakanakereba naranai / repo-to o kakanakereba naranai"
+        ],
+        explanation: "• Cấu trúc trích dẫn gián tiếp:「[Người] は [Thể thông thường (普通形)] と言いました」(Ai đó đã nói rằng...):\n• 例: Câu trực tiếp「試験勉強をします」(Tôi sẽ học thi). Chuyển động từ「します」sang thể từ điển「する」➔「Aさんは試験勉強をすると言いました」(Anh A đã nói rằng anh ấy sẽ học thi).\n• 1): Câu trực tiếp「スキーに行きます」(Tôi sẽ đi trượt tuyết). Động từ「行きます」(đi, nhóm 1: きます ➔ く) chuyển sang thể từ điển là「行く」➔「Bさんはスキーに行くと言いました」(Anh B đã nói rằng anh ấy sẽ đi trượt tuyết).\n• 2): Câu trực tiếp「家族と旅行したいです」(Tôi muốn đi du lịch cùng gia đình). Dạng đuôi mong muốn「〜たいです」có tính chất như tính từ đuôi い, ở thể thông thường chỉ cần bỏ「です」➔「家族と旅行したい」➔「Cさんは家族と旅行したいと言いました」(Chị C đã nói rằng chị ấy muốn đi du lịch cùng gia đình).\n• 3): Câu trực tiếp「マンガを読んだり、アニメを見たりします」(Tôi đọc truyện tranh, xem anime...). Động từ kết câu là「します」ở hiện tại, chuyển sang thể từ điển là「する」➔「Dさんはマンガを読んだり、アニメを見たりすると言いました」(Anh D đã nói rằng anh ấy đọc truyện tranh, xem anime...).\n• 4): Câu trực tiếp「レポートを書かなければなりません」(Tôi phải viết báo cáo). Mẫu bắt buộc「〜なければなりません」ở thể thông thường chuyển「なりません」thành「ならない」➔「レポートを書かなければならない」➔「Eさんはレポートを書かなければならないと言いました」(Chị E đã nói rằng chị ấy phải viết báo cáo)."
+      },
+      {
+        id: "b21_q6",
+        type: "binary_choice",
+        tag: "Chọn từ thích hợp",
+        question: "6. 例：〔そんなに／<u>これから</u>／特に〕食事に行きます。\n\n1) 〔だんだん／もちろん／最近〕体の調子はどうですか。\n2) カリナさんは〔そんなに／ほんとうに／たくさん〕いい人ですね。\n3) ここは物価が〔そんなに／とても／なかなか〕高くないです。\n4) タワポンさんは〔ぜひ／きっと／ずっと〕大学に入ることができると思います。\n5) あしたのサッカーの試合は〔ぜひ／よく／たぶん〕韓国が勝つと思います。\n6) グプタさんもいっしょにお祭りに行くでしょう？\n   …ええ、〔ほんとうに／もちろん／特に〕行きますよ。",
+        answers: [
+          "最近 / さいきん / saikin",
+          "ほんとうに / 本当に / hontouni",
+          "そんなに / sonnani",
+          "きっと / kitto",
+          "たぶん / 多分 / tabun",
+          "もちろん / mochiron"
+        ],
+        explanation: "• Lựa chọn phó từ thích hợp theo ngữ cảnh và cấu trúc câu:\n• 例: Đi với hành động sắp xảy ra ngay「食事に行きます」(đi ăn cơm) ➔ Dùng「これから」(từ bây giờ / sau đây).\n• 1): Cụm từ hỏi thăm tình trạng sức khỏe dạo gần đây:「最近、体の調子はどうですか」(Dạo gần đây sức khỏe của bạn thế nào?) ➔ Chọn「最近」.\n• 2): Lời khen ngợi, cảm thán:「ほんとうにいい人ですね」(Quả thực là một người rất tốt nhỉ) ➔ Chọn「ほんとうに」(thực sự / quả thật).\n• 3): Vị ngữ phủ định「高くないです」(không đắt). Phó từ phủ định「そんなに」(không... đến mức như thế / không... lắm) ➔「物価がそんなに高くないです」(Vật giá không đắt lắm) ➔ Chọn「そんなに」.\n• 4): Bày tỏ niềm tin, sự phán đoán có căn cứ cao trước「〜と思います」:「きっと大学に入ることができると思います」(Tôi nghĩ chắc chắn anh Thawaphon có thể đỗ đại học) ➔ Chọn「きっと」(chắc chắn).\n• 5): Dự đoán về khả năng xảy ra của một sự việc trong tương lai trước「〜と思います」:「たぶん韓国が勝つと思います」(Tôi nghĩ có lẽ Hàn Quốc sẽ thắng) ➔ Chọn「たぶん」(có lẽ / chắc là).\n• 6): Trả lời đồng ý một cách hiển nhiên, hào hứng trước lời xác nhận rủ rê:「ええ、もちろん行きますよ」(Vâng, tất nhiên là tôi đi rồi!) ➔ Chọn「もちろん」(tất nhiên / đương nhiên)."
+      },
+      {
+        id: "b21_q7",
+        type: "open_ended",
+        tag: "Trả lời câu hỏi mở",
+        question: "7. 1) あした雨が降ると思いますか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 銀行は日曜日休みでしょう？\n＿＿＿＿＿＿＿＿＿＿\n\n3) 病気の友達に何と言いますか。\n＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "はい、降ると思います。 / いいえ、降らないと思います。 / たぶん降ると思います。",
+          "はい、休みです。 / ええ、休みです。 / はい、そうです。",
+          "「お大事に」と言います。 / お大事にと言います。 / 「どうぞお大事に」と言います。"
+        ],
+        explanation: "• Dạng câu hỏi mở hỏi về suy nghĩ và cách ứng xử của bạn (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「あした雨が降ると思いますか」(Bạn có nghĩ ngày mai trời sẽ mưa không?)\n  - Dùng mẫu「[Thể thông thường] + と思います」: Khẳng định:「はい、降ると思います」(Vâng, tôi nghĩ là sẽ mưa); Phủ định:「いいえ、降らないと思います」(Không, tôi nghĩ là không mưa).\n• 2):「銀行は日曜日休みでしょう？」(Ngân hàng thì Chủ Nhật nghỉ đúng không nhỉ?)\n  - Trả lời xác nhận thực tế:「はい、休みです」(Vâng, ngày nghỉ ạ) hoặc「ええ、休みです」.\n• 3):「病気の友達に何と言いますか」(Bạn sẽ nói gì với người bạn đang bị ốm?)\n  - Câu chúc sức khỏe chuẩn trong văn hóa Nhật:「お大事に」(Mau khỏe nhé / Hãy giữ gìn sức khỏe nhé). Dùng mẫu trích dẫn:「「お大事に」と言います」(Tôi sẽ nói là \"Giữ gìn sức khỏe nhé\")."
+      }
+    ]
   }
 };
 

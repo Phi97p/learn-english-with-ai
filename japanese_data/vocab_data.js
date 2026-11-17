@@ -2594,6 +2594,275 @@ const JA_VOCAB_DATA = {
         vi: "Đúng vậy nhỉ / Để xem nào... (đồng tình hoặc câu đệm suy nghĩ)"
       }
     ]
+  },
+  bai_10: {
+    title: "Bài 10",
+    words: [
+      {
+        word: "運転します",
+        hiragana: "うんてんします",
+        romaji: "Untenshimasu",
+        vi: "Lái xe (ô tô, tàu...)"
+      },
+      {
+        word: "捨てます",
+        hiragana: "すてます",
+        romaji: "Sutemasu",
+        vi: "Vứt, vứt bỏ (rác, đồ không dùng)"
+      },
+      {
+        word: "プール",
+        hiragana: "プール (ぷーる)",
+        romaji: "Puuru",
+        vi: "Bể bơi, hồ bơi"
+      },
+      {
+        word: "集めます",
+        hiragana: "あつめます",
+        romaji: "Atsumemasu",
+        vi: "Thu thập, gom góp, sưu tầm"
+      },
+      {
+        word: "洗濯します",
+        hiragana: "せんたくします",
+        romaji: "Sentakushimasu",
+        vi: "Giặt giũ (quần áo)"
+      },
+      {
+        word: "泊まります",
+        hiragana: "とまります",
+        romaji: "Tomarimasu",
+        vi: "Trọ, nghỉ trọ, ở lại (khách sạn; mẹo: chữ 泊 gần giống 消 trong 消します)"
+      },
+      {
+        word: "一度",
+        hiragana: "いちど",
+        romaji: "Ichido",
+        vi: "Một lần (chỉ số lần)"
+      },
+      {
+        word: "一度も",
+        hiragana: "いちども",
+        romaji: "Ichidomo",
+        vi: "Chưa một lần nào (đi với câu phủ định: 一度もありません)"
+      },
+      {
+        word: "登ります",
+        hiragana: "のぼります",
+        romaji: "Noborimasu",
+        vi: "Leo (núi), trèo (山に登ります)"
+      },
+      {
+        word: "相撲",
+        hiragana: "すもう",
+        romaji: "Sumou",
+        vi: "Đấu vật Sumo (môn võ truyền thống Nhật Bản)"
+      },
+      {
+        word: "手紙",
+        hiragana: "てがみ",
+        romaji: "Tegami",
+        vi: "Bức thư (mẹo: 手 tay + 紙 giấy)"
+      },
+      {
+        word: "時々",
+        hiragana: "ときどき",
+        romaji: "Tokidoki",
+        vi: "Thỉnh thoảng, đôi khi"
+      },
+      {
+        word: "色々",
+        hiragana: "いろいろ",
+        romaji: "Iroiro",
+        vi: "Nhiều, phong phú, đa dạng (tính từ đuôi な)"
+      },
+      {
+        word: "要ります",
+        hiragana: "いります",
+        romaji: "Irimasu",
+        vi: "Cần, cần có (ビザが要ります)"
+      },
+      {
+        word: "調べます",
+        hiragana: "しらべます",
+        romaji: "Shirabemasu",
+        vi: "Tra cứu, tìm hiểu, kiểm tra"
+      },
+      {
+        word: "直します",
+        hiragana: "なおします",
+        romaji: "Naoshimasu",
+        vi: "Sửa, sửa chữa (lỗi, văn bản, đồ vật)"
+      },
+      {
+        word: "修理します",
+        hiragana: "しゅうりします",
+        romaji: "Shuurishimasu",
+        vi: "Sửa chữa (máy móc, thiết bị, xe cộ)"
+      },
+      {
+        word: "僕",
+        hiragana: "ぼく",
+        romaji: "Boku",
+        vi: "Tôi, tớ, mình (cách xưng hô thân mật của nam giới)"
+      },
+      {
+        word: "君",
+        hiragana: "きみ",
+        romaji: "Kimi",
+        vi: "Cậu, bạn, em (cách gọi thân mật người bằng hoặc nhỏ tuổi hơn)"
+      },
+      {
+        word: "〜君",
+        hiragana: "〜くん",
+        romaji: "~kun",
+        vi: "Bạn ~ (hậu tố thêm sau tên của bạn nam, đồng nghiệp nhỏ tuổi)"
+      },
+      {
+        word: "言葉",
+        hiragana: "ことば",
+        romaji: "Kotoba",
+        vi: "Từ ngữ, từ vựng, tiếng nói"
+      },
+      {
+        word: "物価",
+        hiragana: "ぶっか",
+        romaji: "Bukka",
+        vi: "Vật giá, giá cả sinh hoạt"
+      },
+      {
+        word: "着物",
+        hiragana: "きもの",
+        romaji: "Kimono",
+        vi: "Áo Kimono (trang phục truyền thống Nhật Bản)"
+      },
+      {
+        word: "始め",
+        hiragana: "はじめ",
+        romaji: "Hajime",
+        vi: "Ban đầu, lúc đầu, sự khởi đầu"
+      },
+      {
+        word: "終わり",
+        hiragana: "おわり",
+        romaji: "Owari",
+        vi: "Kết thúc, sự kết thúc"
+      },
+      {
+        word: "この間",
+        hiragana: "このあいだ",
+        romaji: "Konoaida",
+        vi: "Vừa rồi, hôm nọ, dạo gần đây"
+      },
+      {
+        word: "練習します",
+        hiragana: "れんしゅうします",
+        romaji: "Renshuushimasu",
+        vi: "Luyện tập, rèn luyện"
+      },
+      {
+        word: "掃除します",
+        hiragana: "そうじします",
+        romaji: "Soujishimasu",
+        vi: "Dọn dẹp, quét dọn (phòng ốc)"
+      },
+      {
+        word: "眠い",
+        hiragana: "ねむい",
+        romaji: "Nemui",
+        vi: "Buồn ngủ"
+      },
+      {
+        word: "強い",
+        hiragana: "つよい",
+        romaji: "Tsuyoi",
+        vi: "Mạnh, khỏe, mạnh mẽ"
+      },
+      {
+        word: "弱い",
+        hiragana: "よわい",
+        romaji: "Yowai",
+        vi: "Yếu, yếu ớt"
+      },
+      {
+        word: "調子",
+        hiragana: "ちょうし",
+        romaji: "Choushi",
+        vi: "Tình trạng, phong độ (sức khỏe, máy móc: 体の調子)"
+      },
+      {
+        word: "悪い",
+        hiragana: "わるい",
+        romaji: "Warui",
+        vi: "Xấu, tồi, tệ (調子が悪い: tình trạng không tốt)"
+      },
+      {
+        word: "乾杯",
+        hiragana: "かんぱい",
+        romaji: "Kanpai",
+        vi: "Cạn ly, nâng ly! (chúc rượu)"
+      },
+      {
+        word: "何回も",
+        hiragana: "なんかいも",
+        romaji: "Nankaimo",
+        vi: "Nhiều lần, không biết bao nhiêu lần"
+      },
+      {
+        word: "洗います",
+        hiragana: "あらいます",
+        romaji: "Araimasu",
+        vi: "Rửa (tay, mặt, đồ dùng)"
+      },
+      {
+        word: "弾きます",
+        hiragana: "ひきます",
+        romaji: "Hikimasu",
+        vi: "Chơi (nhạc cụ gảy hoặc đàn: piano, guitar...)"
+      },
+      {
+        word: "歌います",
+        hiragana: "うたいます",
+        romaji: "Utaimasu",
+        vi: "Hát"
+      },
+      {
+        word: "予約します",
+        hiragana: "よやくします",
+        romaji: "Yoyakushimasu",
+        vi: "Đặt trước, hẹn trước (vé, phòng, nhà hàng)"
+      },
+      {
+        word: "国際",
+        hiragana: "こくさい",
+        romaji: "Kokusai",
+        vi: "Quốc tế (国際電話, 国際空港)"
+      },
+      {
+        word: "現金",
+        hiragana: "げんきん",
+        romaji: "Genkin",
+        vi: "Tiền mặt"
+      },
+      {
+        word: "祈り",
+        hiragana: "いのり",
+        romaji: "Inori",
+        vi: "Sự cầu nguyện, lời cầu nguyện (祈ります: cầu nguyện)"
+      },
+      {
+        word: "課長",
+        hiragana: "かちょう",
+        romaji: "Kachou",
+        vi: "Trưởng phòng, trưởng ban / trưởng nhóm"
+      },
+      {
+        word: "馬",
+        hiragana: "うま",
+        romaji: "Uma",
+        vi: "Con ngựa"
+      }
+    ]
   }
 };
 
