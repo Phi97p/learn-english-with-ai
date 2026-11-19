@@ -3250,6 +3250,207 @@ const JA_GRAMMAR_DATA = {
         explanation: "• Dạng câu hỏi mở hỏi về suy nghĩ và cách ứng xử của bạn (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「あした雨が降ると思いますか」(Bạn có nghĩ ngày mai trời sẽ mưa không?)\n  - Dùng mẫu「[Thể thông thường] + と思います」: Khẳng định:「はい、降ると思います」(Vâng, tôi nghĩ là sẽ mưa); Phủ định:「いいえ、降らないと思います」(Không, tôi nghĩ là không mưa).\n• 2):「銀行は日曜日休みでしょう？」(Ngân hàng thì Chủ Nhật nghỉ đúng không nhỉ?)\n  - Trả lời xác nhận thực tế:「はい、休みです」(Vâng, ngày nghỉ ạ) hoặc「ええ、休みです」.\n• 3):「病気の友達に何と言いますか」(Bạn sẽ nói gì với người bạn đang bị ốm?)\n  - Câu chúc sức khỏe chuẩn trong văn hóa Nhật:「お大事に」(Mau khỏe nhé / Hãy giữ gìn sức khỏe nhé). Dùng mẫu trích dẫn:「「お大事に」と言います」(Tôi sẽ nói là \"Giữ gìn sức khỏe nhé\")."
       }
     ]
+  },
+  bai_22: {
+    title: "Bài 22",
+    completed: false,
+    questions: [
+      {
+        id: "b22_q1",
+        type: "fill",
+        tag: "Bổ nghĩa cho danh từ (連体修飾節)",
+        question: "1.\n<div style=\"background: rgba(15, 23, 42, 0.45); border: 1.5px solid rgba(148, 163, 184, 0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;\">\n  <div style=\"font-weight: 700; color: #38bdf8; margin-bottom: 8px;\">🖼️ Hình ảnh đồ vật gợi ý:</div>\n  <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; text-align: center; font-size: 0.98rem;\">\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">例: 📖 <strong>本</strong><br><small style=\"color: #94a3b8;\">(BOOK / にほんご)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">1): ⏰ <strong>時計</strong><br><small style=\"color: #94a3b8;\">(Đồng hồ để bàn)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">2): 📷 <strong>カメラ</strong><br><small style=\"color: #94a3b8;\">(Máy ảnh)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">3): ✏️ <strong>シャープペンシル</strong><br><small style=\"color: #94a3b8;\">(Bút chì kim)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">4): 🪑 <strong>いす</strong><br><small style=\"color: #94a3b8;\">(Ghế đẩu / 椅子)</small></div>\n  </div>\n</div>\n例：これから使います…これは<u>これから使う本です。</u>\n\n1) イギリスで買いました…それは＿＿＿＿＿＿＿＿＿＿\n2) 友達に借りました…これは＿＿＿＿＿＿＿＿＿＿\n3) 山田さんにあげます…それは＿＿＿＿＿＿＿＿＿＿\n4) ミラーさんが作りました…あれは＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "イギリスで買った時計です。 / イギリスで買った時計です / イギリスでかったとけいです。 / イギリスでかったとけいです / イギリスで買った時計 / igirisu de katta tokei desu / igirisu de katta tokeidesu",
+          "友達に借りたカメラです。 / 友達に借りたカメラです / ともだちにかりたカメラです。 / ともだちにかりたカメラです / 友達に借りたカメラ / tomodachi ni karita kamera desu / tomodachi ni karita kameradesu",
+          "山田さんにあげるシャープペンシルです。 / 山田さんにあげるシャープペンシルです / やまださんにあげるシャープペンシルです。 / やまださんにあげるシャープペンシルです / 山田さんにあげるシャープペンシル / yamada san ni ageru sha-pupenshiru desu / yamadasan ni ageru sha-pupenshiru desu",
+          "ミラーさんが作ったいすです。 / ミラーさんが作ったいすです / ミラーさんが作った椅子です。 / ミラーさんが作った椅子です / ミラーさんがつくったいすです。 / ミラーさんがつくったいすです / ミラーさんが作ったいす / mira- san ga tsukutta isu desu / mira-san ga tsukutta isu desu"
+        ],
+        explanation: "• Cấu trúc mệnh đề bổ nghĩa cho danh từ (連体修飾節 - Định từ đi kèm danh từ):\n• Quy tắc ngữ pháp trọng tâm Bài 22:\n  - Khi một động từ hoặc mệnh đề bổ nghĩa cho một danh từ đứng sau, động từ đó LUÔN ở thể thông thường (普通形).\n  - Thì tương lai / thói quen hiện tại: dùng Thể từ điển (辞書形: V-る).\n  - Thì quá khứ: dùng Thể た (V-た).\n  - Chủ ngữ nằm bên trong mệnh đề bổ nghĩa luôn đi với trợ từ「が」(không dùng「は」, ví dụ:「ミラーさんが作りました」➔「ミラーさんが作ったいす」).\n• 例: Gợi ý「これから使います」(từ bây giờ sẽ dùng - tương lai) + Đồ vật là cuốn sách「本」➔ Động từ chuyển sang thể từ điển「これから使う」➔「これはこれから使う本です」(Đây là cuốn sách tôi sẽ dùng từ bây giờ).\n• 1): Gợi ý「イギリスで買いました」(đã mua ở nước Anh - quá khứ) + Đồ vật là chiếc đồng hồ「時計」➔ Chuyển động từ「買いました」thành thể た:「買った」➔ Câu hoàn chỉnh:「それはイギリスで買った時計です」(Đó là chiếc đồng hồ tôi đã mua ở Anh).\n• 2): Gợi ý「友達に借りました」(đã mượn của bạn - quá khứ) + Đồ vật là máy ảnh「カメラ」➔ Chuyển động từ「借りました」thành thể た:「借りた」➔ Câu hoàn chỉnh:「これは友達に借りたカメラです」(Đây là chiếc máy ảnh tôi đã mượn của bạn).\n• 3): Gợi ý「山田さんにあげます」(sẽ tặng cho anh Yamada - tương lai) + Đồ vật là bút chì kim「シャープペンシル」➔ Chuyển động từ「あげます」thành thể từ điển:「あげる」➔ Câu hoàn chỉnh:「それは山田さんにあげるシャープペンシルです」(Đó là chiếc bút chì kim tôi sẽ tặng cho anh Yamada).\n• 4): Gợi ý「ミラーさんが作りました」(anh Miller đã tự làm - quá khứ) + Đồ vật là chiếc ghế đẩu「いす」(椅子) ➔ Chuyển động từ「作りました」thành thể た:「作った」➔ Câu hoàn chỉnh:「あれはミラーさんが作ったいすです」(Kia là chiếc ghế mà anh Miller đã tự làm)."
+      },
+      {
+        id: "b22_q2",
+        type: "fill",
+        tag: "Bổ nghĩa cho danh từ (連体修飾節)",
+        question: "2. 例：わたしが（生まれました…生まれた）所は横浜です。\n\n1) 兄はおいしい水を（作ります…____）研究をしています。\n2) あの赤いコートを（着ています…____）人はだれですか。\n3) いつも（行きます…____）喫茶店のコーヒーはとてもおいしいです。\n4) この写真を（撮りました…____）お寺は奈良にあります。\n5) （要りません…____）服や本を捨てました。\n6) 安いパソコンを（売っています…____）店を知っていますか。\n7) パーティーで（着ます…____）服が欲しいです。\n8) 最近たばこを（吸いません…____）人が多くなりました。\n9) 静かで、ゆっくり食事が（できます…____）店が好きです。\n10) 医者が（話します…____）日本語がよくわかりませんでした。",
+        answers: [
+          "作る / つくる / tsukuru",
+          "着ている / きている / kiteiru / kite iru",
+          "行く / いく / iku",
+          "撮った / とった / totta",
+          "要らない / いらない / iranai",
+          "売っている / うっている / utteiru / utte iru",
+          "着る / きる / kiru",
+          "吸わない / すわない / suwanai",
+          "できる / dekiru",
+          "話す / はなす / hanasu / 話した / はなした / hanashita"
+        ],
+        explanation: "• Chia thể thông thường (普通形) phù hợp của động từ để bổ nghĩa cho danh từ đứng sau:\n• 例: Quá khứ「生まれました」(sinh ra, nhóm 2) ➔ thể た:「生まれた」(うまれた) ➔「わたしが生まれた所」(nơi tôi sinh ra).\n• 1): Động từ「作ります」(làm ra/chế tạo, nhóm 1: ります ➔ る). Hành vi nghiên cứu thói quen/tương lai ➔ thể từ điển:「作る」(つくる) ➔「おいしい水を作る研究」(nghiên cứu làm ra nước ngon).\n• 2): Trạng thái đang mặc「着ています」(nhóm 2) ➔ thể thông thường của V-ています là「着ている」(きている) ➔「あの赤いコートを着ている人」(người đang mặc chiếc áo khoác màu đỏ kia).\n• 3): Hành động thói quen「いつも行きます」(thường hay đi) ➔ thể từ điển:「行く」(いく) ➔「いつも行く喫茶店」(quán cà phê tôi hay ghé tới).\n• 4): Hành động đã chụp trong quá khứ「撮りました」(nhóm 1: りました ➔ った) ➔ thể た:「撮った」(とった) ➔「この写真を撮ったお寺」(ngôi chùa nơi tôi đã chụp bức ảnh này).\n• 5): Phủ định hiện tại của động từ nhóm 1 đặc biệt「要りません」(không cần) ➔ thể ない:「要らない」(いらない) ➔「要らない服や本」(quần áo và sách vở không cần thiết).\n• 6): Trạng thái cửa hàng đang bày bán「売っています」(nhóm 1) ➔ thể thông thường:「売っている」(うっている) ➔「安いパソコンを売っている店」(cửa hàng có bán máy tính giá rẻ).\n• 7): Hành động trong tương lai「着ます」(sẽ mặc ở bữa tiệc, nhóm 2) ➔ thể từ điển:「着る」(きる) ➔「パーティーで着る服」(quần áo để mặc trong bữa tiệc).\n• 8): Phủ định thói quen hiện tại「吸いません」(không hút thuốc, nhóm 1: い ➔ わ + ない) ➔ thể ない:「吸わない」(すわない) ➔「たばこを吸わない人」(những người không hút thuốc).\n• 9): Động từ khả năng「できます」(có thể, nhóm 2 đặc biệt) ➔ thể từ điển:「できる」➔「ゆっくり食事ができる店」(quán ăn có thể thong thả dùng bữa).\n• 10): Động từ「話します」(nói chuyện, nhóm 1: します ➔ す) ➔ thể từ điển:「話す」(hoặc thể quá khứ「話した」) ➔「医者が話す日本語」(tiếng Nhật mà bác sĩ nói)."
+      },
+      {
+        id: "b22_q3",
+        type: "fill",
+        tag: "Bổ nghĩa cho danh từ & Từ nghi vấn",
+        question: "3. 例：ミラーさんが（作りました…作った）ケーキは［ どれ ］ですか。\n…このチョコレートのケーキです。\n\n1) 旅行に（行きます…____）人は［ ____ ］ですか。…15人です。\n2) 名古屋で（泊まりました…____）ホテルは［ ____ ］でしたか。\n…きれいで、サービスがよかったです。\n3) 妹さんが（借りました…____）部屋の家賃は［ ____ ］ですか。\n…75,000円です。\n4) 今まで行ったことが（あります…____）国は［ ____ ］ですか。\n…韓国とタイとベトナムです。",
+        answers: [
+          "行く / いく / iku",
+          "何人 / なんにん / nannin",
+          "泊まった / とまった / tomatta",
+          "どう / dou",
+          "借りた / かりた / karita",
+          "いくら / ikura",
+          "ある / aru",
+          "どこ / doko"
+        ],
+        explanation: "• Kết hợp mệnh đề bổ nghĩa cho danh từ và từ nghi vấn (từ để hỏi) phù hợp:\n• 例:「作りました」➔ quá khứ「作った」. Hỏi lựa chọn đồ vật cụ thể (khi trả lời là このチョコレートのケーキ) ➔ Từ nghi vấn:「どれ」(cái nào).\n• 1):\n  - Blank 1: Hành động tương lai「行きます」(sẽ đi) ➔ thể từ điển:「行く」(いく) ➔「旅行に行く人」(những người sẽ đi du lịch).\n  - Blank 2: Câu trả lời là「15人」(15 người) ➔ Từ nghi vấn hỏi số lượng người:「何人」(なんにん - bao nhiêu người).\n• 2):\n  - Blank 3: Hành động đã ở/trọ trong quá khứ「泊まりました」(nhóm 1: りました ➔ った) ➔ thể た:「泊まった」(とまった) ➔「名古屋で泊まったホテル」(khách sạn đã ở tại Nagoya).\n  - Blank 4: Câu trả lời nêu cảm nhận tính chất「きれいで、サービスがよかったです」(đẹp và dịch vụ tốt) ➔ Từ nghi vấn hỏi cảm nhận trong quá khứ:「どう」(như thế nào: どうでしたか).\n• 3):\n  - Blank 5: Hành động đã thuê trong quá khứ「借りました」(nhóm 2: りました ➔ りた) ➔ thể た:「借りた」(かりた) ➔「妹さんが借りた部屋」(căn phòng em gái đã thuê).\n  - Blank 6: Câu trả lời là「75,000円」(75.000 yên) ➔ Từ nghi vấn hỏi giá tiền thuê nhà:「いくら」(bao nhiêu tiền).\n• 4):\n  - Blank 7: Mẫu câu kinh nghiệm「〜たことがある」➔ Động từ「あります」chuyển sang thể từ điển:「ある」➔「今まで行ったことがある国」(những đất nước mà cho đến nay bạn từng đến).\n  - Blank 8: Câu trả lời liệt kê các quốc gia「韓国とタイとベトナムです」(Hàn Quốc, Thái Lan và Việt Nam) ➔ Từ nghi vấn hỏi quốc gia/nơi chốn:「どこ」(ở đâu / nước nào)."
+      },
+      {
+        id: "b22_q4",
+        type: "fill",
+        tag: "Bổ nghĩa cho danh từ: Người đang làm hành động",
+        question: "4. 例1：新聞を（読んでいる）人は［ だれ ］ですか。…ワンさんです。\n例2：ワンさんは［ どの人 ］ですか。…<u>新聞を読んでいる人です。</u>\n\n1) 子どもと（____）人は［ ____ ］ですか。…＿＿＿＿＿＿＿＿＿＿\n2) サントスさんは［ ____ ］ですか。…＿＿＿＿＿＿＿＿＿＿\n3) ミラーさんと（____）人は［ ____ ］ですか。…＿＿＿＿＿＿＿＿＿＿\n4) カリナさんは［ ____ ］ですか。…＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "遊んでいる / あそんでいる / asondeiru / asonde iru",
+          "だれ / どなた / dare / donata",
+          "サントスさんです。 / サントスさんです / サントスさん / santosusan desu / santosu san desu",
+          "どの人 / どのひと / dono hito / donohito / どなた / donata",
+          "子どもと遊んでいる人です。 / 子どもと遊んでいる人です / こどもとあそんでいるひとです。 / こどもとあそんでいるひとです / 子どもと遊んでいる人 / こどもとあそんでいるひと / kodomo to asondeiru hito desu / kodomo to asonde iru hito desu",
+          "話している / はなしている / hanashiteiru / hanashite iru",
+          "だれ / どなた / dare / donata",
+          "カリナさんです。 / カリナさんです / カリナさん / karinasan desu / karina san desu",
+          "どの人 / どのひと / dono hito / donohito / どなた / donata",
+          "ミラーさんと話している人です。 / ミラーさんと話している人です / ミラーさんとはなしているひとです。 / ミラーさんとはなしているひとです / ミラーさんと話している人 / ミラーさんとはなしているひと / mira-san to hanashiteiru hito desu / mira- san to hanashiteiru hito desu / mira-san to hanashite iru hito desu"
+        ],
+        explanation: "• Luyện tập mẫu câu hỏi và trả lời xác định người đang thực hiện hành động (Dùng V-ている bổ nghĩa cho 人):\n• 例1 & 例2:\n  - Dạng 1:「〜ている人はだれですか」(Người đang làm ~ là ai?) ➔ Trả lời tên người:「ワンさんです」.\n  - Dạng 2:「〜さんはどの人ですか」(Anh/chị ~ là người nào?) ➔ Trả lời bằng mệnh đề định ngữ:「〜ている人です」(Là người đang làm ~).\n• 1): Hỏi người đang chơi cùng trẻ em:\n  - Blank 1: Hành động chơi「遊んでいます」chuyển sang thể thông thường:「遊んでいる」(あそんでいる).\n  - Blank 2: Nghi vấn từ hỏi người:「だれ」(hoặc「どなた」).\n  - Blank 3: Trả lời tên người trong tranh:「サントスさんです。」(Là anh Santos).\n• 2): Hỏi anh Santos là người nào:\n  - Blank 4: Nghi vấn từ hỏi xác định người trong nhóm:「どの人」(hoặc「どなた」).\n  - Blank 5: Câu trả lời định ngữ:「子どもと遊んでいる人です。」(Là người đang chơi cùng trẻ con).\n• 3): Hỏi người đang nói chuyện cùng anh Miller:\n  - Blank 6: Hành động nói chuyện「話しています」chuyển sang thể thông thường:「話している」(はなしている).\n  - Blank 7: Nghi vấn từ hỏi người:「だれ」(hoặc「どなた」).\n  - Blank 8: Trả lời tên người trong tranh:「カリナさんです。」(Là chị Karina).\n• 4): Hỏi chị Karina là người nào:\n  - Blank 9: Nghi vấn từ hỏi người nào:「どの人」(hoặc「どなた」).\n  - Blank 10: Câu trả lời định ngữ:「ミラーさんと話している人です。」(Là người đang nói chuyện cùng anh Miller)."
+      },
+      {
+        id: "b22_q5",
+        type: "open_ended",
+        tag: "Bổ nghĩa cho danh từ: 時間／用事／約束",
+        question: "5. 例：朝新聞を読む時間がありますか。\n\n1) きのうは忙しかったですから、＿＿＿＿＿＿＿＿＿＿時間がありませんでした。\n2) ＿＿＿＿＿＿＿＿＿＿用事がありますから、ちょっと出かけます。\n3) 次の日曜日は＿＿＿＿＿＿＿＿＿＿約束があります。",
+        answers: [
+          "テレビを見る / 本を読む / 勉強する / 映画を見る / 宿題をする / terebi o miru / hon o yomu / benkyou suru",
+          "市役所へ行く / 銀行へ行く / 郵便局へ行く / 友達に会う / 買い物に行く / shiyakusho e iku / ginkou e iku",
+          "友達と遊ぶ / 友達と食事する / 映画を見に行く / 友達に会う / 旅行に行く / tomodachi to asobu / tomodachi to shokuji suru"
+        ],
+        explanation: "• Cấu trúc động từ thể từ điển bổ nghĩa cho các danh từ「時間」(thời gian) /「用事」(việc bận) /「約束」(hẹn ước):\n  [V(thể từ điển)] + 時間／用事／約束 が あります／ありません\n• 例:「朝新聞を読む時間がありますか」(Bạn có thời gian đọc báo buổi sáng không?).\n• 1):「きのうは忙しかったですから、[V-る] 時間がありませんでした」(Hôm qua vì bận nên tôi không có thời gian để...)\n  - Động từ thể từ điển bổ nghĩa cho「時間」(thời gian làm gì đó).\n  - Đáp án mẫu:「テレビを見る」(xem TV),「本を読む」(đọc sách),「勉強する」(học bài),「映画を見る」(xem phim)...\n• 2):「[V-る] 用事がありますから、ちょっと出かけます」(Vì có việc bận [làm gì đó] nên tôi ra ngoài một chút).\n  - Động từ thể từ điển bổ nghĩa cho「用事」(việc bận / việc cần làm).\n  - Đáp án mẫu:「市役所へ行く」(đi lên ủy ban/tòa thị chính),「銀行へ行く」(đi ngân hàng),「郵便局へ行く」(đi bưu điện),「友達に会う」(gặp bạn)...\n• 3):「次の日曜日は [V-る] 約束があります」(Chủ Nhật tới tôi có hẹn [làm gì đó]).\n  - Động từ thể từ điển bổ nghĩa cho「約束」(lời hẹn / cuộc hẹn làm gì đó).\n  - Đáp án mẫu:「友達と遊ぶ」(đi chơi với bạn),「友達と食事する」(đi ăn với bạn),「映画を見に行く」(đi xem phim),「買い物に行く」(đi mua sắm)...\n(Lưu ý: Dạng bài hoàn thành câu tự do, người học tự điền hành động phù hợp ở thể từ điển và đối chiếu với câu mẫu)."
+      },
+      {
+        id: "b22_q6",
+        type: "open_ended",
+        tag: "Trả lời câu hỏi mở",
+        question: "6. 1) 家族で日本語を話す人がいますか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 夜どのくらい勉強する時間がありますか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) 今使っている日本語の本はどうですか。\n＿＿＿＿＿＿＿＿＿＿\n\n4) 初めて習った外国語は何ですか。\n＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "いいえ、いません。 / はい、います。 / はい、父が話します。 / いいえ、わたしだけです。",
+          "2時間ぐらいあります。 / 1時間ぐらいあります。 / 30分ぐらいあります。 / あまりありません。",
+          "とてもおもしろいです。 / わかりやすくて、いいです。 / ちょっと難しいですが、おもしろいです。",
+          "英語です。 / 日本語です。 / フランス語です。 / 中国語です。"
+        ],
+        explanation: "• Dạng câu hỏi mở luyện tập hội thoại và vận dụng ngữ pháp Bài 22 (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「家族で日本語を話す人がいますか」(Trong gia đình bạn có ai nói tiếng Nhật không?)\n  - Mệnh đề bổ nghĩa cho danh từ「人」:「日本語を話す人」(người nói tiếng Nhật).\n  - Trả lời: Khẳng định:「はい、います / はい、父が話します」; Phủ định:「いいえ、いません / いいえ、わたしだけです」.\n• 2):「夜どのくらい勉強する時間がありますか」(Buổi tối bạn có khoảng bao nhiêu thời gian học?)\n  - Mệnh đề bổ nghĩa cho「時間」:「勉強する時間」(thời gian học).\n  - Trả lời nêu khoảng thời gian:「2時間ぐらいあります / 1時間ぐらいあります / あまりありません」.\n• 3):「今使っている日本語の本はどうですか」(Quyển sách tiếng Nhật bạn đang dùng hiện nay thế nào?)\n  - Mệnh đề bổ nghĩa cho「本」:「今使っている日本語の本」(quyển sách tiếng Nhật đang dùng).\n  - Trả lời nêu cảm nhận / tính từ:「とてもおもしろいです / わかりやすくて、いいです / ちょっと難しいですが、おもしろいです」.\n• 4):「初めて習った外国語は何ですか」(Ngoại ngữ đầu tiên bạn đã học là gì?)\n  - Mệnh đề bổ nghĩa cho「外国語」ở quá khứ:「初めて習った外国語」(ngoại ngữ lần đầu tiên học).\n  - Trả lời tên ngôn ngữ:「英語です / 日本語です / フランス語です」。"
+      }
+    ]
+  },
+  bai_23: {
+    title: "Bài 23",
+    completed: false,
+    questions: [
+      {
+        id: "b23_q1",
+        type: "fill",
+        tag: "Biến đổi trước とき (V-る / V-ない / A-い / A-な / N-の)",
+        question: "1. 例：小さい字を（読みます…読む）とき、眼鏡をかけます。\n\n1) 道を（渡ります…____）とき、車に気をつけてください。\n2) バスが（来ません…____）とき、タクシーに乗ります。\n3) コピーのサイズを（変えたいです…____）とき、ここを押してください。\n4) （寂しいです…____）とき、いつもこの音楽を聞きます。\n5) （暇です…____）とき、よく美術館へ絵を見に行きます。\n6) （子どもです…____）とき、医者になりたいと思いました。",
+        answers: [
+          "渡る / わたる / wataru",
+          "来ない / こない / konai",
+          "変えたい / かえたい / kaetai",
+          "寂しい / さびしい / sabishii",
+          "暇な / ひまな / himana",
+          "子どもの / こどもの / kodomono / kodomo no"
+        ],
+        explanation: "• Quy tắc liên kết với「〜とき」(Khi / Lúc...):\n  - Động từ: Thể từ điển (V-る) hoặc thể ない (V-ない).\n  - Tính từ đuôi い: Giữ nguyên「〜い」(bỏ です).\n  - Tính từ đuôi な: Giữ đuôi「〜な」(thay です thành な).\n  - Danh từ: Nối bằng trợ từ「の」(N の とき).\n• 例: Động từ「読みます」(đọc, nhóm 1: みます ➔ む) ➔ thể từ điển:「読む」(よむ) ➔「小さい字を読むとき、眼鏡をかけます」(Khi đọc chữ nhỏ, tôi đeo kính).\n• 1): Động từ「渡ります」(băng qua đường, nhóm 1: ります ➔ る) ➔ thể từ điển:「渡る」(わたる) ➔「道を渡るとき、車に気をつけてください」(Khi băng qua đường, hãy chú ý xe cộ).\n• 2): Thể phủ định của động từ「来ます」(đến, nhóm 3 đặc biệt: きます ➔ こない) ➔ thể ない:「来ない」(こない) ➔「バスが来ないとき、タクシーに乗ります」(Khi xe buýt không đến, tôi đi taxi).\n• 3): Dạng đuôi mong muốn「変えたいです」(muốn thay đổi, nhóm 2) có cách chia như tính từ đuôi い, bỏ「です」➔「変えたい」(かえたい) ➔「コピーのサイズを変えたいとき、ここを押してください」(Khi muốn đổi cỡ bản photocopy, hãy bấm vào đây).\n• 4): Tính từ đuôi い:「寂しいです」(cô đơn / buồn bã), bỏ「です」giữ nguyên đuôi い ➔「寂しい」(さびしい) ➔「寂しいとき、いつもこの音楽を聞きます」(Khi cảm thấy cô đơn, tôi luôn nghe bản nhạc này).\n• 5): Tính từ đuôi な:「暇です」(rảnh rỗi), trước「とき」đổi「です」thành「な」➔「暇な」(ひまな) ➔「暇なとき、よく美術館へ絵を見に行きます」(Khi rảnh rỗi, tôi thường đến bảo tàng mỹ thuật để ngắm tranh).\n• 6): Danh từ:「子どもです」(trẻ con), trước「とき」nối bằng trợ từ「の」➔「子どもの」(こどもの) ➔「子どものとき、医者になりたいと思いました」(Khi còn là trẻ con, tôi đã muốn trở thành bác sĩ)."
+      },
+      {
+        id: "b23_q2",
+        type: "fill",
+        tag: "Phân biệt V-る とき và V-た とき",
+        question: "2. 例1：（寝ます…寝る）とき、電気を消します。\n例2：朝早く（起きます…起きた）とき、散歩に行きます。\n\n1) パスポートを（なくします…____）とき、どうしますか。\n2) けさここへ（来ます…____）とき、駅で新聞を買いました。\n3) 病院へ（行きます…____）とき、保険証を持って行きます。\n4) 初めて富士山を（見ます…____）とき、ほんとうにきれいな山だと思いました。",
+        answers: [
+          "なくした / 無くした / nakushita",
+          "来る / くる / kuru",
+          "行く / いく / iku",
+          "見た / みた / mita"
+        ],
+        explanation: "• Phân biệt hành động trước「とき」: Thể từ điển (V-る とき) vs Thể quá khứ (V-た とき):\n  - V-る とき: Hành động ở vế sau diễn ra TRƯỚC HOẶC TRONG KHI hành động ở vế trước hoàn thành (chưa kết thúc/chưa xảy ra xong).\n  - V-た とき: Hành động ở vế trước ĐÃ HOÀN THÀNH XONG XUÔI rồi hành động ở vế sau mới diễn ra.\n• 例1: Tắt điện trước khi ngủ (chưa ngủ) ➔「寝るとき、電気を消します」(Khi sắp ngủ thì tắt điện).\n• 例2: Đã thức dậy xong rồi mới đi dạo ➔「起きたとき、散歩に行きます」(Khi thức dậy xong thì đi dạo).\n• 1): Việc làm mất hộ chiếu đã xảy ra xong rồi (đã mất rồi mới đi giải quyết) ➔ dùng thể た:「なくした」(なくします, nhóm 1: します ➔ した) ➔「パスポートをなくしたとき、どうしますか」(Khi làm mất hộ chiếu thì bạn sẽ làm thế nào?).\n• 2): Việc mua báo diễn ra trên đường tới đây (chưa tới nơi) ➔ dùng thể từ điển:「来る」(くる) ➔「けさここへ来るとき、駅で新聞を買いました」(Sáng nay trên đường đến đây, tôi đã mua báo ở nhà ga).\n• 3): Việc mang theo thẻ bảo hiểm diễn ra trước khi đi đến bệnh viện (chuẩn bị trước) ➔ dùng thể từ điển:「行く」(いく) ➔「病院へ行くとき、保険証を持って行きます」(Khi đi bệnh viện, tôi mang theo thẻ bảo hiểm).\n• 4): Sau khi đã nhìn thấy núi Phú Sĩ rồi thì mới nảy sinh cảm nghĩ/cảm thán là núi thật đẹp ➔ dùng thể た:「見た」(みた) (見ます, nhóm 2: みます ➔ みた) ➔「初めて富士山を見たとき、ほんとうにきれいな山だと思いました」(Khi lần đầu tiên nhìn thấy núi Phú Sĩ, tôi đã nghĩ đó thực sự là một ngọn núi rất đẹp)."
+      },
+      {
+        id: "b23_q3",
+        type: "fill",
+        tag: "Cấu trúc điều kiện hiển nhiên (V-る と)",
+        question: "3. 例：セーターを（脱ぎます…脱ぐ）と、寒いです。\n\n1) この歌を（聞きます…____）と、家族を思い出します。\n2) 雨が（降ります…____）と、サッカーの試合ができません。\n3) ここに（触ります…____）と、危ないです。\n4) 子どもが（生まれます…____）と、忙しくなると思います。",
+        answers: [
+          "聞く / きく / kiku",
+          "降る / ふる / furu",
+          "触る / さわる / sawaru",
+          "生まれる / うまれる / umareru"
+        ],
+        explanation: "• Cấu trúc giả định điều kiện tự nhiên / tất yếu:「V(thể từ điển) + と、...」(Hễ... là / Cứ... thì...):\n  - Động từ đứng trước trợ từ「と」LUÔN ở thể từ điển (辞書形: V-る).\n  - Biểu thị quan hệ nhân quả tự nhiên, phản xạ tất yếu hoặc thói quen cứ hễ hành động trước xảy ra thì hành động/trạng thái sau sẽ diễn ra.\n• 例: Động từ「脱ぎます」(cởi áo, nhóm 1: ぎます ➔ ぐ) ➔ thể từ điển:「脱ぐ」(ぬぐ) ➔「セーターを脱ぐと、寒いです」(Hễ cởi áo len ra là thấy lạnh).\n• 1): Động từ「聞きます」(nghe, nhóm 1: きます ➔ く) ➔ thể từ điển:「聞く」(きく) ➔「この歌を聞くと、家族を思い出します」(Cứ nghe bài hát này là tôi lại nhớ về gia đình).\n• 2): Động từ「降ります」(rơi/mưa, nhóm 1: ります ➔ る) ➔ thể từ điển:「降る」(ふる) ➔「雨が降ると、サッカーの試合ができません」(Hễ trời mưa là không thể thi đấu bóng đá).\n• 3): Động từ「触ります」(chạm vào/sờ vào, nhóm 1: ります ➔ る) ➔ thể từ điển:「触る」(さわる) ➔「ここに触ると、危ないです」(Cứ chạm vào chỗ này là rất nguy hiểm).\n• 4): Động từ「生まれます」(sinh ra/ra đời, nhóm 2: れます ➔ れる) ➔ thể từ điển:「生まれる」(うまれる) ➔「子どもが生まれると、忙しくなると思います」(Tôi nghĩ cứ sinh con ra là sẽ trở nên bận rộn)."
+      },
+      {
+        id: "b23_q4",
+        type: "binary_choice",
+        tag: "Chọn từ thích hợp",
+        question: "4. 例：ここを〔押すとき／<u>押すと</u>／押して〕、切符が出ます。\n\n1) 〔出かけるとき／出かけると／出かけて〕、「行ってきます」と言います。\n2) 学校へ〔行くとき／行くと／行って〕、梅田まで地下鉄で〔行くとき／行くと／行って〕、ＪＲに乗り換えます。\n3) お酒を〔飲むとき／飲むと／飲んで〕、車を〔運転するとき／運転すると／運転して〕、危ないです。\n4) あの交差点を〔渡るとき／渡ると／渡って〕、まっすぐ〔行くとき／行くと／行って〕、左にさくら大学があります。",
+        answers: [
+          "出かけるとき / でかけるとき / dekakeru toki / dekakerutoki",
+          "行くとき / いくとき / iku toki / ikutoki",
+          "行って / いって / itte",
+          "飲んで / のんで / nonde",
+          "運転すると / うんてんすると / unten suru to / untensuruto",
+          "渡って / わたって / watatte",
+          "行くと / いくと / iku to / ikuto"
+        ],
+        explanation: "• Phân biệt các cấu trúc nối câu:「〜とき」(Khi/lúc) vs「〜と」(Hễ... là/Cứ... thì) vs「〜て」(Chuỗi hành động kế tiếp):\n• 例: Thao tác tự động của máy bán vé (kết quả tất yếu mang tính cơ học) ➔ Chọn「押すと」(Cứ bấm vào đây là vé sẽ ra).\n• 1):\n  - Trước khi rời nhà thì nói câu chào quen thuộc:「出かけるとき、「行ってきます」と言います」(Khi đi ra ngoài thì nói \"Tôi đi đây\"). Không dùng「出かけると」vì không phải kết quả tất yếu, cũng không dùng「出かけて」vì ra ngoài rồi thì không ai nghe thấy.\n• 2):\n  - Vị trí 1: Bối cảnh/mục đích của chuyến đi「学校へ行くとき」(Khi đi đến trường / Trên đường đi học).\n  - Vị trí 2: Chuỗi hành động di chuyển nối tiếp nhau theo thứ tự thời gian: đi tàu điện ngầm tới Umeda RỒI đổi sang tàu JR ➔ Dùng thể て:「梅田まで地下鉄で行って、JRに乗り換えます」.\n• 3):\n  - Vị trí 3: Chuỗi hành động liên tiếp (uống rượu RỒI lái xe) ➔ Dùng thể て:「お酒を飲んで」(Uống rượu rồi...).\n  - Vị trí 4: Kết quả cảnh báo tất yếu / quan hệ nhân quả (hễ lái xe là sẽ nguy hiểm) ➔ Dùng「〜と」:「車を運転すると、危ないです」(Hễ lái xe là nguy hiểm).\n• 4):\n  - Vị trí 5: Chuỗi hành động chỉ đường nối tiếp nhau: băng qua ngã tư kia RỒI đi tiếp ➔ Dùng thể て:「あの交差点を渡って」(Băng qua ngã tư kia rồi...).\n  - Vị trí 6: Hướng dẫn chỉ đường (hễ đi thẳng thì đích đến sẽ hiện ra) ➔ Dùng「〜と」:「まっすぐ行くと、左にさくら大学があります」(Cứ đi thẳng là trường đại học Sakura ở bên tay trái)."
+      },
+      {
+        id: "b23_q5",
+        type: "open_ended",
+        tag: "Chỉ đường (Hoàn thành câu theo bản đồ)",
+        question: "5. 例：駐車場：次の角を右へ曲がって、20メートルぐらい行くと、左にあります。\n\n1) 郵便局：＿＿＿＿＿＿＿＿＿＿\n2) アップル銀行：＿＿＿＿＿＿＿＿＿＿\n3) やまと美術館：＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "まっすぐ行って、橋を渡ると、右にあります。 / 橋を渡って、まっすぐ行くと、右にあります / 次の角を左へ曲がって、まっすぐ行くと、右にあります",
+          "まっすぐ50メートルぐらい行くと、右にあります。 / まっすぐ行って、一つ目の角を左へ曲がると、左にあります / まっすぐ行くと、右にあります",
+          "あの交差点を左へ曲がって、まっすぐ行くと、右にあります。 / あの角を右へ曲がって、まっすぐ行くと、左にあります / 2つ目の角を右へ曲がると、左にあります"
+        ],
+        explanation: "• Cấu trúc chỉ dẫn đường đi kết hợp thể て và「〜と」:\n  [Hành động di chuyển (thể て)] + [Hành động tiếp theo (thể từ điển)] + と、[Vị trí đích đến (右／左 にあります)]\n• 例: Bãi đỗ xe (駐車場):「次の角を右へ曲がって、20メートルぐらい行くと、左にあります」(Rẽ phải ở góc tiếp theo, đi khoảng 20 mét thì bãi đỗ xe ở bên trái).\n• 1): Bưu điện (郵便局):\n  - Đáp án mẫu:「まっすぐ行って、橋を渡ると、右にあります」(Đi thẳng rồi qua cầu thì bưu điện ở bên tay phải).\n• 2): Ngân hàng Apple (アップル銀行):\n  - Đáp án mẫu:「まっすぐ50メートルぐらい行くと、右にあります」(Đi thẳng khoảng 50 mét thì ngân hàng ở bên tay phải).\n• 3): Bảo tàng mỹ thuật Yamato (やまと美術館):\n  - Đáp án mẫu:「あの交差点を左へ曲がって、まっすぐ行くと、右にあります」(Rẽ trái ở ngã tư kia rồi đi thẳng thì bảo tàng ở bên tay phải).\n(Lưu ý: Dạng bài tập chỉ dẫn theo bản đồ, người học tự điền mẫu câu chỉ đường và đối chiếu với câu mẫu)."
+      },
+      {
+        id: "b23_q6",
+        type: "open_ended",
+        tag: "Hoàn thành câu tự do: と／とき",
+        question: "6. 例：お酒を飲むと、頭が痛くなります。\n\n1) ＿＿＿＿＿＿＿＿＿＿と、楽しくなります。\n2) 難しい本を読むと、＿＿＿＿＿＿＿＿＿＿\n3) ＿＿＿＿＿＿＿＿＿＿と、疲れます。\n4) ＿＿＿＿＿＿＿＿＿＿とき、早く寝ます。\n5) 道がわからないとき、＿＿＿＿＿＿＿＿＿＿\n6) ＿＿＿＿＿＿＿＿＿＿とき、タクシーに乗ります。",
+        answers: [
+          "友達とおしゃべりする / 友達と話す / 音楽を聞く / カラオケで歌う / 旅行に行く",
+          "眠くなります / 頭が痛くなります / 疲れます",
+          "たくさん働く / 残業する / 1日中パソコンを使う / たくさん歩く / 運動する",
+          "疲れた / 体調が悪い / 眠い / 病気の / 忙しかった",
+          "交番で聞きます / 人に聞きます / スマホで調べます / 地図を見ます",
+          "急いでいる / 時間がない / 雨が降っている / 電車がない / 荷物が多い"
+        ],
+        explanation: "• Luyện tập hoàn thành câu tự do với cấu trúc điều kiện tất yếu「〜と」và thời điểm「〜とき」:\n• 例:「お酒を飲むと、頭が痛くなります」(Cứ uống rượu là tôi bị đau đầu).\n• 1):「[V(thể từ điển)] と、楽しくなります」(Cứ... là thấy vui vẻ).\n  - Điền một hành động sở thích mang lại niềm vui:「友達とおしゃべりする」(tán gẫu với bạn bè),「音楽を聞く」(nghe nhạc),「カラオケで歌う」(hát karaoke)...\n• 2):「難しい本を読むと、＿＿＿＿」(Cứ đọc sách khó là...).\n  - Điền phản xạ/kết quả xảy ra:「眠くなります」(buồn ngủ),「頭が痛くなります」(đau đầu),「疲れます」(mệt mỏi)...\n• 3):「[V(thể từ điển)] と、疲れます」(Cứ... là thấy mệt mỏi).\n  - Điền hành động gây mệt mỏi:「たくさん働く」(làm việc nhiều),「残業する」(làm tăng ca),「たくさん歩く」(đi bộ nhiều)...\n• 4):「＿＿＿＿ とき、早く寝ます」(Khi... thì đi ngủ sớm).\n  - Điền trạng thái cơ thể trước khi ngủ sớm:「疲れた」(khi đã mệt - V-た),「体調が悪い」(khi người không khỏe - A-い),「眠い」(khi buồn ngủ - A-い)...\n• 5):「道がわからないとき、＿＿＿＿」(Khi không biết đường thì...).\n  - Điền cách giải quyết:「交番で聞きます」(hỏi ở bốt cảnh sát),「人に聞きます」(hỏi người qua đường),「スマホで調べます」(tra cứu bằng điện thoại),「地図を見ます」(xem bản đồ)...\n• 6):「＿＿＿＿ とき、タクシーに乗ります」(Khi... thì đi taxi).\n  - Điền lý do/hoàn cảnh:「急いでいる」(khi đang vội),「時間がない」(khi không có thời gian),「雨が降っている」(khi trời đang mưa),「荷物が多い」(khi nhiều hành lý)..."
+      },
+      {
+        id: "b23_q7",
+        type: "open_ended",
+        tag: "Trả lời câu hỏi mở",
+        question: "7. 1) 日本語を勉強するとき、辞書を使いますか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 日本へ来るとき、だれと来ましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) 疲れたとき、どうしますか。\n＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "はい、使います。 / いいえ、使いません。 / はい、電子辞書を使います。 / スマホのアプリを使います。",
+          "一人で来ました。 / 家族と来ました。 / 友達と来ました。 / 会社の同僚と来ました。",
+          "お風呂に入って、早く寝ます。 / 音楽を聞いて、ゆっくり休みます。 / マッサージに行きます。 / おいしい物を食べます。"
+        ],
+        explanation: "• Dạng câu hỏi mở phỏng vấn về thói quen và kinh nghiệm thực tế của bạn (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「日本語を勉強するとき、辞書を使いますか」(Khi học tiếng Nhật, bạn có dùng từ điển không?)\n  - Trả lời: Khẳng định:「はい、使います」(Vâng, tôi có dùng) hoặc「はい、電子辞書を使います」(Tôi dùng từ điển điện tử); Phủ định:「いいえ、使いません」(Không, tôi không dùng).\n• 2):「日本へ来るとき、だれと来ましたか」(Khi đến Nhật Bản, bạn đã đi cùng ai?)\n  - Chú ý: Hành động trước khi đến dùng「来るとき」(trên đường sang Nhật).\n  - Trả lời người đồng hành:「一人で来ました」(Tôi đi một mình),「家族と来ました」(Tôi đi cùng gia đình),「友達と来ました」(Tôi đi cùng bạn bè).\n• 3):「疲れたとき、どうしますか」(Khi mệt mỏi, bạn thường làm gì?)\n  - Chú ý: Trạng thái mệt mỏi đã xảy ra dùng「疲れたとき」.\n  - Trả lời giải pháp hồi phục sức khỏe:「お風呂に入って、早く寝ます」(Tôi ngâm bồn tắm rồi đi ngủ sớm),「音楽を聞いて、ゆっくり休みます」(Tôi nghe nhạc và nghỉ ngơi thong thả)."
+      }
+    ]
   }
 };
 

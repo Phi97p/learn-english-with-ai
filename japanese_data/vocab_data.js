@@ -2863,6 +2863,245 @@ const JA_VOCAB_DATA = {
         vi: "Con ngựa"
       }
     ]
+  },
+  bai_11: {
+    title: "Bài 11",
+    words: [
+      {
+        word: "思います",
+        hiragana: "おもいます",
+        romaji: "Omoimasu",
+        vi: "Nghĩ, suy nghĩ (〜と思います: tôi nghĩ rằng...)"
+      },
+      {
+        word: "言います",
+        hiragana: "いいます",
+        romaji: "Iimasu",
+        vi: "Nói (〜と言います: nói rằng...)"
+      },
+      {
+        word: "足ります",
+        hiragana: "たります",
+        romaji: "Tarimasu",
+        vi: "Đủ, đầy đủ (thời gian, tiền bạc: 時間が足ります)"
+      },
+      {
+        word: "勝ちます",
+        hiragana: "かちます",
+        romaji: "Kachimasu",
+        vi: "Thắng, chiến thắng (試合に勝ちます)"
+      },
+      {
+        word: "負けます",
+        hiragana: "まけます",
+        romaji: "Makemasu",
+        vi: "Thua, thất bại (試合に負けます)"
+      },
+      {
+        word: "役に立ちます",
+        hiragana: "やくにたちます",
+        romaji: "Yaku ni tachimasu",
+        vi: "Có ích, hữu ích, có tác dụng (thể từ điển: 役に立つ)"
+      },
+      {
+        word: "不便",
+        hiragana: "ふべん",
+        romaji: "Fuben",
+        vi: "Bất tiện, không thuận tiện (tính từ đuôi な)"
+      },
+      {
+        word: "同じ",
+        hiragana: "おなじ",
+        romaji: "Onaji",
+        vi: "Giống nhau, cùng một..."
+      },
+      {
+        word: "首相",
+        hiragana: "しゅしょう",
+        romaji: "Shushou",
+        vi: "Thủ tướng"
+      },
+      {
+        word: "大統領",
+        hiragana: "だいとうりょう",
+        romaji: "Daitouryou",
+        vi: "Tổng thống"
+      },
+      {
+        word: "政治",
+        hiragana: "せいじ",
+        romaji: "Seiji",
+        vi: "Chính trị"
+      },
+      {
+        word: "試合",
+        hiragana: "しあい",
+        romaji: "Shiai",
+        vi: "Trận đấu, cuộc thi đấu (thể thao)"
+      },
+      {
+        word: "意見",
+        hiragana: "いけん",
+        romaji: "Iken",
+        vi: "Ý kiến, quan điểm, cách nhìn nhận"
+      },
+      {
+        word: "交通",
+        hiragana: "こうつう",
+        romaji: "Koutsuu",
+        vi: "Giao thông (phương tiện, đi lại)"
+      },
+      {
+        word: "最近",
+        hiragana: "さいきん",
+        romaji: "Saikin",
+        vi: "Gần đây, dạo gần đây"
+      },
+      {
+        word: "本当に",
+        hiragana: "ほんとうに",
+        romaji: "Hontouni",
+        vi: "Thật sự, quả thực"
+      },
+      {
+        word: "について",
+        hiragana: "について",
+        romaji: "Ni tsuite",
+        vi: "Về, về vấn đề... (N について: về N)"
+      },
+      {
+        word: "予約",
+        hiragana: "よやく",
+        romaji: "Yoyaku",
+        vi: "Đặt trước, hẹn trước (mẹo: đặt trước để câu khách; 予約します)"
+      },
+      {
+        word: "洗います",
+        hiragana: "あらいます",
+        romaji: "Araimasu",
+        vi: "Rửa (mẹo: đọc là arai, rửa tay/mặt/chén đĩa)"
+      },
+      {
+        word: "洗濯",
+        hiragana: "せんたく",
+        romaji: "Sentaku",
+        vi: "Giặt giũ (mẹo: đọc là sen cũng mang nghĩa rửa, nhưng là rửa/giặt quần áo; 洗濯します)"
+      },
+      {
+        word: "現金",
+        hiragana: "げんきん",
+        romaji: "Genkin",
+        vi: "Tiền mặt (mẹo: tiền nhìn thấy được bằng mắt; phân biệt: げんき là khỏe, げんきん là tiền mặt)"
+      },
+      {
+        word: "調べます",
+        hiragana: "しらべます",
+        romaji: "Shirabemasu",
+        vi: "Tra cứu, tìm hiểu (chủ động tìm kiếm, tra cứu thông tin/từ điển)"
+      },
+      {
+        word: "確認します",
+        hiragana: "かくにんします",
+        romaji: "Kakuninshimasu",
+        vi: "Kiểm tra lại, xác nhận lại"
+      },
+      {
+        word: "無理",
+        hiragana: "むり",
+        romaji: "Muri",
+        vi: "Vô lý, quá sức, không thể làm được (tính từ đuôi な: 無理です)"
+      },
+      {
+        word: "知っている",
+        hiragana: "しっている",
+        romaji: "Shitte iru",
+        vi: "Biết (khi nói 'tôi biết' thường dùng dạng ている là 知っています/知っている; phủ định: 知りません)"
+      },
+      {
+        word: "ダンスができる",
+        hiragana: "だんすができる",
+        romaji: "Dansu ga dekiru",
+        vi: "Có thể khiêu vũ, biết nhảy (ダンス: khiêu vũ, nhảy múa)"
+      },
+      {
+        word: "できます",
+        hiragana: "できます",
+        romaji: "Dekimasu",
+        vi: "Có thể, có khả năng, biết làm (〜ができます)"
+      },
+      {
+        word: "もうすぐ",
+        hiragana: "もうすぐ",
+        romaji: "Mousugu",
+        vi: "Sắp sửa, chẳng mấy chốc"
+      },
+      {
+        word: "悪い",
+        hiragana: "わるい",
+        romaji: "Warui",
+        vi: "Xấu, tồi, tệ (phân biệt/gần nghĩa với 弱い - yếu)"
+      },
+      {
+        word: "弱い",
+        hiragana: "よわい",
+        romaji: "Yowai",
+        vi: "Yếu, yếu ớt (sức khỏe, phong độ)"
+      },
+      {
+        word: "会議",
+        hiragana: "かいぎ",
+        romaji: "Kaigi",
+        vi: "Cuộc họp, hội nghị"
+      },
+      {
+        word: "役",
+        hiragana: "やく",
+        romaji: "Yaku",
+        vi: "Vai trò, chức vụ, ích lợi (trong 役に立ちます)"
+      },
+      {
+        word: "天才",
+        hiragana: "てんさい",
+        romaji: "Tensai",
+        vi: "Thiên tài"
+      },
+      {
+        word: "独身",
+        hiragana: "どくしん",
+        romaji: "Dokushin",
+        vi: "Độc thân"
+      },
+      {
+        word: "そんなに",
+        hiragana: "そんなに",
+        romaji: "Sonnani",
+        vi: "Đến mức như thế, đến thế (thường đi với phủ định)"
+      },
+      {
+        word: "伊藤さん",
+        hiragana: "いとうさん",
+        romaji: "Itou-san",
+        vi: "Anh/chị Ito (họ người Nhật rất phổ biến)"
+      },
+      {
+        word: "留学生",
+        hiragana: "りゅうがくせい",
+        romaji: "Ryuugakusei",
+        vi: "Du học sinh"
+      },
+      {
+        word: "辛い",
+        hiragana: "からい",
+        romaji: "Karai",
+        vi: "Cay (vị cay) (hoặc つらい - cay đắng, khổ cực)"
+      },
+      {
+        word: "でしょう",
+        hiragana: "でしょう",
+        romaji: "Deshou",
+        vi: "Có lẽ là... / ...phải không nhỉ? (phỏng đoán hoặc xác nhận lịch sự)"
+      }
+    ]
   }
 };
 

@@ -46,7 +46,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 19)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 21)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -315,6 +315,66 @@ const JA_NOTES_DATA = {
         meaning: "Dùng để diễn tả sự THAY ĐỔI / BIẾN ĐỔI về tính chất, trạng thái hoặc nghề nghiệp, tuổi tác ('trở nên...', 'trở thành...'):\n1) Tính từ đuôi「い」: Bỏ「い」+「くなります」\n   - さむい ➔ さむく なります (trở nên lạnh)\n   - いい ➔ よく なります (trở nên tốt)\n2) Tính từ đuôi「な」: Bỏ「な」+「になります」\n   - げんき (な) ➔ げんきに なります (trở nên khỏe mạnh)\n   - きれい (な) ➔ きれいに なります (trở nên xinh đẹp)\n3) Danh từ: +「になります」\n   - 20さい ➔ 20さいに なります (tròn 20 tuổi)\n   - せんせい ➔ せんせいに なります (trở thành giáo viên).",
         example: "• [Tính từ đuôi い]:\n  - 寒く なりましたね。(Trời đã trở nên lạnh rồi nhỉ).\n  - 髪を 短く しました。(Tôi đã cắt tóc ngắn lại).\n• [Tính từ đuôi な]:\n  - 日本語が 上手に なりました。(Tiếng Nhật đã trở nên giỏi hơn).\n• [Danh từ]:\n  - 春に なると、桜が 咲きます。(Khi trời sang xuân, hoa anh đào sẽ nở).\n  - 来年 30歳に なります。(Năm sau tôi tròn 30 tuổi).",
         note: "💡 Khẩu quyết biến đổi trạng thái: Đuôi い ➔ くなります; Đuôi な & Danh từ ➔ になります."
+      },
+      {
+        title: "46. [Bài 20] Thể thông thường (普通形) vs Thể lịch sự (丁寧形)",
+        meaning: "• Thể lịch sự (丁寧形 - Teineikei): Đuôi câu là「です／ます」, dùng khi nói chuyện với người lớn tuổi, cấp trên, người mới gặp, khách hàng hoặc trong bối cảnh trang trọng.\n• Thể thông thường (普通形 - Futsūkei): Dùng khi nói chuyện với bạn bè thân thiết, người thân trong gia đình, người dưới tuổi/cấp bậc, hoặc dùng trong văn viết (nhật ký, báo chí) và là NỀN TẢNG để ghép vào các cấu trúc ngữ pháp nâng cao từ Bài 21 trở đi.\n• Thể thông thường áp dụng cho cả 4 từ loại: Động từ, Tính từ đuôi い, Tính từ đuôi な, và Danh từ.",
+        example: "• [Động từ]: 食べます ➔ 食べる; 行きません ➔ 行かない; 飲みました ➔ 飲んだ\n• [Tính từ-い]: 暑いです ➔ 暑い; 寒くないです ➔ 寒くない\n• [Tính từ-な]: 暇です ➔ 暇だ; 元気じゃありません ➔ 元気じゃない\n• [Danh từ]: 雨です ➔ 雨だ; 日曜日でした ➔ 日曜日だった",
+        note: "💡 Thể thông thường là nền tảng cốt lõi của tiếng Nhật sơ cấp (Bài 20 ➔ Bài 25 và toàn bộ trình độ N4/N3)."
+      },
+      {
+        title: "47. [Bài 20] Động từ thể thông thường: Từ điển (+), ない (-), た (+qk), なかった (-qk)",
+        meaning: "Động từ ở thể thông thường chỉ cần vận dụng các thể đã học ở Bài 14, 17, 18, 19:\n1) Khẳng định hiện tại (+) [V-ます] ➔ Thể từ điển:「V-る」\n2) Phủ định hiện tại (-) [V-ません] ➔ Thể phủ định:「V-ない」\n3) Khẳng định quá khứ (+ qk) [V-ました] ➔ Thể quá khứ:「V-た」\n4) Phủ định quá khứ (- qk) [V-ませんでした] ➔「V-なかった」(Chia như tính từ đuôi い: bỏ い thêm かった).\n\n⚡ BẢNG CHIA 3 NHÓM ĐỘNG TỪ:\n• [Nhóm 1]:\n  - 書く (viết) ⮂ 書かない ⮂ 書いた ⮂ 書かなかった\n  - 買う (mua) ⮂ 買わない ⮂ 買った ⮂ 買わなかった\n  - 待つ (chờ) ⮂ 待たない ⮂ 待った ⮂ 待たなかった\n• [Nhóm 2]:\n  - 食べる (ăn) ⮂ 食べない ⮂ 食べた ⮂ 食べなかった\n  - 見る (nhìn) ⮂ 見ない ⮂ 見た ⮂ 見なかった\n• [Nhóm 3]:\n  - する (làm) ⮂ しない ⮂ した ⮂ しなかった\n  - くる (đến) ⮂ こない ⮂ きた (来た) ⮂ こなかった",
+        example: "• 明日 東京へ 行く。(Ngày mai tôi đi Tokyo - 行きます ➔ 行く)\n• 何も 食べなかった。(Tôi đã không ăn gì cả - 食べませんでした ➔ 食べなかった)\n• もう 宿題を した？ (Đã làm bài tập chưa? - しましたか ➔ した？)\n• きのうは 誰とも 話さなかった。(Hôm qua tôi chẳng nói chuyện với ai cả).",
+        note: "💡 Công thức động từ thể thông thường: (+) = V-る; (-) = V-ない; (+qk) = V-た; (-qk) = V-なかった."
+      },
+      {
+        title: "48. [Bài 20] Tính từ đuôi「い」thể thông thường: Chỉ cần bỏ「です」",
+        meaning: "Tính từ đuôi「い」ở thể thông thường CỰC KỲ ĐƠN GIẢN: Chỉ cần LƯỢC BỎ「です」, giữ nguyên đuôi chia:\n1) Khẳng định hiện tại (+): [Tính từ-い] + です ➔ Bỏ です (giữ nguyên đuôi「い」)\n2) Phủ định hiện tại (-): [Tính từ-くない] + です ➔ Bỏ です (đuôi「くない」)\n3) Khẳng định quá khứ (+ qk): [Tính từ-かった] + です ➔ Bỏ です (đuôi「かった」)\n4) Phủ định quá khứ (- qk): [Tính từ-くなかった] + です ➔ Bỏ です (đuôi「くなかった」)\n\n★ NGOẠI LỆ TỪ「いい」(Tốt):\n• いい ➔ よく ない ➔ よかった ➔ よく なかった (chỉ cần bỏ です).",
+        example: "• 暑い (Nóng - 暑いです ➔ 暑い)\n• 暑くない (Không nóng - 暑くないです ➔ 暑くない)\n• 暑かった (Đã nóng - 暑かったです ➔ 暑かった)\n• 暑くなかった (Đã không nóng - 暑くなかったです ➔ 暑くなかった)\n• その 映画、すごく よかった！(Bộ phim đó đã cực kỳ hay! - よかったです ➔ よかった)",
+        note: "💡 Khẩu quyết: Tính từ đuôi い ở thể thông thường chỉ cần BỎ「です」, cách biến đổi đuôi giữ nguyên 100%."
+      },
+      {
+        title: "49. [Bài 20] Danh từ / Tính từ đuôi「な」: だ (+), じゃない (-), だった (+qk), じゃなかった (-qk)",
+        meaning: "Danh từ và Tính từ đuôi「な」chia thể thông thường HOÀN TOÀN GIỐNG HỆT NHAU:\n1) Khẳng định hiện tại (+): Thay「です」bằng「だ」\n   ➔ N / [Tính từ-な] + だ\n2) Phủ định hiện tại (-): Thay「じゃありません」bằng「じゃない」(hoặc ではない)\n   ➔ N / [Tính từ-な] + じゃない\n3) Khẳng định quá khứ (+ qk): Thay「でした」bằng「だった」\n   ➔ N / [Tính từ-な] + だった\n4) Phủ định quá khứ (- qk): Thay「じゃありませんでした」bằng「じゃなかった」(hoặc ではなかった)\n   ➔ N / [Tính từ-な] + じゃなかった",
+        example: "• [Tính từ đuôi な - 暇 (rảnh)]: 暇だ ⮂ 暇じゃない ⮂ 暇だった ⮂ 暇じゃなかった\n• [Tính từ đuôi な - 親切 (tốt bụng)]: 親切だ ⮂ 親切じゃない ⮂ 親切だった ⮂ 親切じゃなかった\n• [Danh từ - 雨 (mưa)]: 雨だ ⮂ 雨じゃない ⮂ 雨だった ⮂ 雨じゃなかった\n• [Danh từ - 休み (nghỉ)]: 明日は 休みだ。(Ngày mai là ngày nghỉ).\n• きのうは 試験で、すごく 大変だった。(Hôm qua có kỳ thi, đã vất vả ghê).",
+        note: "💡 Khẩu quyết: Danh từ và Tính từ đuôi な ➔ Hiện tại: だ / じゃない; Quá khứ: だった / じゃなかった."
+      },
+      {
+        title: "50. [Bài 20] 📌 Đặc trưng hội thoại ở thể thông thường (Văn nói hàng ngày)",
+        meaning: "Trong giao tiếp thân mật hàng ngày, thể thông thường có các quy tắc đặc trưng sau:\n1) CÂU HỎI: BỎ「か」và LÊN GIỌNG ở cuối câu (dấu chấm hỏi ❓).\n   • Với Danh từ / Tính từ-な: LƯỢC BỎ LUÔN「だ」(không nói 暇だ？ mà nói: 暇？ - lên giọng).\n   • Câu trả lời: Đồng ý dùng「うん」, không đồng ý dùng「ううん」.\n2) LƯỢC BỎ TRỢ TỪ: Các trợ từ như「は」,「が」,「を」thường được lược bỏ nếu nghĩa câu vẫn rõ ràng:\n   • ごはん(を) 食べる？ ➔ うん、食べる。\n   • これ(は) おいしい？ ➔ うん、おいしい。\n3) RÚT GỌN「V-ている」➔「V-てる」:\n   • 知っている ➔ 知ってる (Biết)\n   • 持っている ➔ 持ってる (Có/mang)\n   • 読んでいる ➔ 読んでる (Đang đọc)\n4) LIÊN TỪ NỐI: Dùng「けど」(nhưng) thay cho「が」:\n   • 時間が ないけど、手伝うよ。(Không có thời gian nhưng tôi sẽ giúp nhé).",
+        example: "• A：明日 暇？ (Mai rảnh không? - bỏ だ và か, lên giọng)\n  B：うん、暇。(Ừ, rảnh) ／ ううん、暇じゃない。(Không, không rảnh).\n• A：コーヒー(を) 飲む？ (Uống cà phê không?)\n  B：うん、飲む。(Ừ, uống).\n• ミラーさんの 電話番号、知ってる？ (Có biết số điện thoại của Miller không? - 知っている ➔ 知ってる)\n  ➔ ううん、知らない。(Không, không biết).",
+        note: "⚡ Tóm gọn khẩu quyết văn nói thân mật:\n• Câu hỏi bỏ「か」lên giọng; N / đuôi な bỏ luôn「だ」.\n• Có = うん, Không = ううん.\n• Bỏ trợ từ を/は/が khi rõ nghĩa; V-ている ➔ V-てる; thay が ➔ けど."
+      },
+      {
+        title: "51. [Bài 21] Phỏng đoán & Ý kiến: [Thể thông thường] + と 思います",
+        meaning: "Dùng để bày tỏ ý kiến, quan điểm hoặc phỏng đoán của bản thân về một sự việc nào đó ('Tôi nghĩ là...').\n• Cấu trúc: [Mệnh đề thể thông thường (普通形)] + と 思います。\n  - Động từ: V-る / V-ない / V-た / V-なかった + と 思います。\n  - Tính từ-い: A-い / A-くない / A-かった / A-くなかった + と 思います。\n  - Tính từ-な: [Tính từ-な] + だ / じゃない / だった / じゃなかった + と 思います。\n  - Danh từ: N + だ / じゃない / だった / じゃなかった + と 思います。\n• 💡 Mẹo dịch câu: Cứ dịch mệnh đề trước「と」như một câu hoàn chỉnh bình thường, rồi ghép thêm 'tôi nghĩ là...' ở cuối.\n• ⚠️ Chú ý câu phủ định: Khi muốn bày tỏ ý nghĩ 'Tôi nghĩ là không...', người Nhật thường phủ định ở mệnh đề trước: [V-ない / じゃない] + と 思います (ví dụ: 明日は 雨が 降らないと 思います - Tôi nghĩ mai sẽ không mưa).",
+        example: "• 明日は 雨が 降ると 思います。(Tôi nghĩ ngày mai trời sẽ mưa).\n• 日本は 物価が 高いと 思います。(Tôi nghĩ giá cả ở Nhật Bản đắt đỏ).\n• ミラーさんは もう うちへ 帰ったと 思います。(Tôi nghĩ anh Miller đã về nhà rồi).\n• 明日は 暇じゃないと 思います。(Tôi nghĩ ngày mai anh ấy không rảnh).",
+        note: "💡 Trước「と 思います」bắt buộc phải là THỂ THÔNG THƯỜNG (kể cả Danh từ và Tính từ-な phải có「だ」: 暇だと 思います, 雨だと 思います)."
+      },
+      {
+        title: "52. [Bài 21] Hỏi ý kiến: N + について どう 思いますか (Không có「と」)",
+        meaning: "Dùng khi muốn hỏi đối phương có suy nghĩ, nhận định hoặc đánh giá như thế nào về một người, sự vật hoặc vấn đề N nào đó ('Bạn nghĩ thế nào về N?').\n• Cấu trúc: [Danh từ N] + について どう 思いますか。\n• ⚠️ LƯU Ý ĐẶC BIỆT CỰC KỲ QUAN TRỌNG: Trước「どう」KHÔNG DÙNG trợ từ「と」(không nói どうと思いますか mà nói thẳng là どう 思いますか).",
+        example: "• 日本の生活について どう 思いますか。(Bạn nghĩ thế nào về cuộc sống ở Nhật?)\n  ➔ 便利ですが、物価が 高いと 思います。(Tôi nghĩ tiện lợi nhưng vật giá đắt đỏ).\n• 新しい 首相について どう 思いますか。(Bạn nghĩ thế nào về thủ tướng mới?)\n• この 計画について どう 思いますか。(Bạn nghĩ thế nào về kế hoạch này?)",
+        note: "⚠️ Nhớ quy tắc: Khi trả lời「～と 思います」thì có「と」; nhưng khi hỏi「どう 思いますか」thì TUYỆT ĐỐI KHÔNG CÓ「と」."
+      },
+      {
+        title: "53. [Bài 21] Trích dẫn câu nói: [Thể thông thường] + と 言います / 言いました",
+        meaning: "Dùng để truyền đạt, trích dẫn lại lời ai đó đã nói ('Nói rằng...', 'Đã nói là...'):\n1) Trích dẫn TRỰC TIẾP (nguyên văn câu nói của người khác đặt trong dấu ngoặc vuông「...」):\n   • Cấu trúc:「Câu nói nguyên văn」+ と 言いました。\n   • Giữ nguyên thể lịch sự hay câu chào hỏi của người nói.\n2) Trích dẫn GIÁN TIẾP (thuật lại ý của người khác theo lời của mình):\n   • Cấu trúc: [Mệnh đề thể thông thường] + と 言いました。\n   • Toàn bộ câu nói trước「と」phải được chuyển về THỂ THÔNG THƯỜNG.",
+        example: "• [Trực tiếp]: 寝る前に、「お休みなさい」と 言います。(Trước khi đi ngủ, ta nói 'Chúc ngủ ngon').\n• [Trực tiếp]: ミラーさんは「来週 東京へ 行きます」と 言いました。(Anh Miller đã nói: 'Tuần sau tôi sẽ đi Tokyo').\n• [Gián tiếp]: ミラーさんは 来週 東京へ 行くと 言いました。(Anh Miller đã nói rằng tuần sau anh ấy sẽ đi Tokyo - 行きます ➔ 行く).\n• [Gián tiếp]: 田中さんは 明日は 休みだと 言いました。(Anh Tanaka nói rằng ngày mai anh ấy nghỉ - 休みです ➔ 休みだ).",
+        note: "💡 Trích dẫn trực tiếp để trong ngoặc「...」; trích dẫn gián tiếp bắt buộc chuyển câu về THỂ THÔNG THƯỜNG rồi thêm「と 言いました」."
+      },
+      {
+        title: "54. [Bài 21] Sự kiện diễn ra ở đâu: N1 (Địa điểm) で N2 (Sự kiện) が あります",
+        meaning: "Diễn tả một sự kiện, hoạt động, biến cố được tổ chức hoặc xảy ra tại một địa điểm nào đó ('Ở N1 diễn ra / tổ chức N2').\n• Cấu trúc: [N1: Địa điểm] で + [N2: Sự kiện] が あります。\n• 💡 Mẹo nhớ danh từ sự kiện (Danh từ động): N2 là các danh từ chỉ sự kiện có tính chất diễn ra trong thời gian nhất định như:\n  - パーティー (tiệc), お祭り (lễ hội), 会議 (cuộc họp), 試合 (trận đấu), コンサート (hòa nhạc), 事故 (tai nạn), 地震 (động đất)...\n• ⚠️ PHÂN BIỆT TRỢ TỪ「で」VÀ「に」VỚI あります:\n  - Bài 10 (Có đồ vật cố định, tĩnh): [Địa điểm] に [Vật] が あります。(机の上に 本があります).\n  - Bài 21 (Diễn ra sự kiện, động): [Địa điểm] で [Sự kiện] が あります。(東京で コンサートがあります).",
+        example: "• 明日 神戸で パーティーが あります。(Ngày mai ở Kobe có tổ chức bữa tiệc - パーティー là sự kiện, dùng で).\n• 東京ドームで 野球の 試合が あります。(Ở Tokyo Dome có trận đấu bóng chày).\n• 昨日 駅前で 交通事故が ありました。(Hôm qua trước nhà ga đã xảy ra vụ tai nạn giao thông).",
+        note: "💡 Khẩu quyết: Sự vật tĩnh ở đâu dùng「に あります」; Sự kiện diễn ra/tổ chức ở đâu dùng「で あります」."
+      },
+      {
+        title: "55. [Bài 21] Phỏng đoán & Tìm sự đồng tình: ～でしょう (Có lẽ / ... đúng không?)",
+        meaning: "Dùng khi phỏng đoán hoặc muốn xác nhận, tìm kiếm sự đồng tình từ phía người nghe:\n• Cấu trúc: [Thể thông thường (bỏ だ với N và Tính từ-な)] + でしょう。\n  - Động từ: V-thông thường + でしょう。\n  - Tính từ-い: A-い + でしょう。\n  - Tính từ-な: [Tính từ-な bỏ だ] + でしょう (Ví dụ: 暇でしょう, 親切でしょう).\n  - Danh từ: [Danh từ bỏ だ] + でしょう (Ví dụ: 雨でしょう, 明日は 休みでしょう).\n• 2 ngữ điệu nói:\n  1) Xuống giọng (↘): Phỏng đoán không chắc chắn ('Có lẽ là...').\n  2) Lên giọng (↗): Hỏi để tìm kiếm sự đồng tình từ người nghe ('... đúng không? / ... phải không?').",
+        example: "• 明日は 雨が 降るでしょう。(Ngày mai có lẽ trời sẽ mưa - phỏng đoán, xuống giọng ↘).\n• 北海道は 寒かったでしょう。(Ở Hokkaido đã lạnh lắm đúng không? - lên giọng ↗).\n• 明日の パーティー、ミラーさんも 行くでしょう？(Bữa tiệc ngày mai, anh Miller cũng đi đúng không?).",
+        note: "⚠️ Lưu ý cực kỳ quan trọng: Danh từ và Tính từ đuôi な khi đi với「でしょう」thì BỎ「だ」(không nói 雨だでしょう, mà nói: 雨でしょう; 暇でしょう)."
       }
     ]
   },
