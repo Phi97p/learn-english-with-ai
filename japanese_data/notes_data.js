@@ -46,7 +46,7 @@ const JA_NOTES_DATA = {
     title: "Ngữ pháp",
     badge: "💬 NGỮ PHÁP",
     description: "Các mẫu câu ngữ pháp hay và thông dụng trong tiếng Nhật",
-    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 21)",
+    notice: "Minna no Nihongo: Tổng hợp các cấu trúc ngữ pháp trọng tâm (Bài 5 - Bài 23)",
     items: [
       {
         title: "1. [Bài 5] Phương tiện di chuyển: [Phương tiện] + で",
@@ -375,6 +375,36 @@ const JA_NOTES_DATA = {
         meaning: "Dùng khi phỏng đoán hoặc muốn xác nhận, tìm kiếm sự đồng tình từ phía người nghe:\n• Cấu trúc: [Thể thông thường (bỏ だ với N và Tính từ-な)] + でしょう。\n  - Động từ: V-thông thường + でしょう。\n  - Tính từ-い: A-い + でしょう。\n  - Tính từ-な: [Tính từ-な bỏ だ] + でしょう (Ví dụ: 暇でしょう, 親切でしょう).\n  - Danh từ: [Danh từ bỏ だ] + でしょう (Ví dụ: 雨でしょう, 明日は 休みでしょう).\n• 2 ngữ điệu nói:\n  1) Xuống giọng (↘): Phỏng đoán không chắc chắn ('Có lẽ là...').\n  2) Lên giọng (↗): Hỏi để tìm kiếm sự đồng tình từ người nghe ('... đúng không? / ... phải không?').",
         example: "• 明日は 雨が 降るでしょう。(Ngày mai có lẽ trời sẽ mưa - phỏng đoán, xuống giọng ↘).\n• 北海道は 寒かったでしょう。(Ở Hokkaido đã lạnh lắm đúng không? - lên giọng ↗).\n• 明日の パーティー、ミラーさんも 行くでしょう？(Bữa tiệc ngày mai, anh Miller cũng đi đúng không?).",
         note: "⚠️ Lưu ý cực kỳ quan trọng: Danh từ và Tính từ đuôi な khi đi với「でしょう」thì BỎ「だ」(không nói 雨だでしょう, mà nói: 雨でしょう; 暇でしょう)."
+      },
+      {
+        title: "56. [Bài 22] Mệnh đề bổ ngữ cho danh từ: [Mệnh đề thể thông thường] + Danh từ",
+        meaning: "Trong tiếng Nhật, mệnh đề bổ ngữ (mệnh đề định ngữ) BẮT BUỘC phải đứng ngay TRƯỚC danh từ mà nó bổ nghĩa (ngược lại với tiếng Việt: 'người [tôi gặp hôm qua]' ➔ '[きのう 会った] 人'):\n• Mệnh đề đứng trước danh từ luôn được chia ở THỂ THÔNG THƯỜNG (普通形):\n  1) Động từ: V-る / V-ない / V-た / V-なかった + Danh từ\n  2) Tính từ đuôi「い」: A-い / A-くない / A-かった / A-くなかった + Danh từ\n\n⚡ 2 TRƯỜNG HỢP ĐẶC BIỆT CẦN LƯU Ý KỸ:\n  3) Tính từ đuôi「な」ở khẳng định hiện tại: Chuyển「だ」➔「な」(A-な + Danh từ: 親切な人, 静かな町).\n  4) Danh từ ở khẳng định hiện tại: Chuyển「だ」➔「の」(N-の + Danh từ: 桜の木, 日本の車).\n\n⚠️ QUY TẮC CHỦ NGỮ TRONG MỆNH ĐỀ BỔ NGỮ:\n• Chủ ngữ nằm BÊN TRONG mệnh đề bổ ngữ BẮT BUỘC dùng trợ từ「が」thay vì「は」(để không bị nhầm lẫn với chủ đề của toàn câu).\n  - Ví dụ: [わたしが 作った] ケーキ (Cái bánh mà tôi đã làm - dùng が cho 'tôi').",
+        example: "• [Động từ bổ nghĩa N]:\n  - あそこに いる 人は ミラーさんです。(Người ở đằng kia là anh Miller).\n  - これは [きのう 買った] 本です。(Đây là cuốn sách tôi đã mua hôm qua).\n  - [わたしが 作った] ケーキを 食べて ください。(Xin hãy ăn chiếc bánh mà tôi đã làm).\n  - [ミラーさんが 住んでいた] 家は 古いです。(Ngôi nhà mà anh Miller từng sống thì cổ kính).\n• [Tính từ đuôi な]:\n  - 親切な 人に 会いました。(Tôi đã gặp một người tốt bụng - だ ➔ な).\n• [Danh từ]:\n  - 日本の 車を 買いました。(Tôi đã mua xe ô tô của Nhật - だ ➔ の).",
+        note: "💡 Khẩu quyết Bài 22: Mệnh đề bổ ngữ đứng TRƯỚC danh từ; Đuôi な chuyển だ ➔ な; Danh từ chuyển だ ➔ の; Chủ ngữ trong mệnh đề phụ BẮT BUỘC dùng が."
+      },
+      {
+        title: "57. [Bài 22] Cụm danh từ: V-る 時間 / 約束 / 用事 (Thời gian / Hẹn / Việc bận)",
+        meaning: "Dùng động từ thể từ điển (hoặc thể phủ định V-ない) đứng trước các danh từ chỉ thời gian, cuộc hẹn, việc bận để diễn tả 'thời gian làm gì...', 'có hẹn làm gì...', 'có việc bận cần làm...':\n• Cấu trúc: [V-る / V-ない] + 時間 (じかん) / 約束 (やくそく) / 用事 (ようじ) + が あります / ありません。\n\n1) [V-る] 時間: Thời gian để làm V\n   - 朝ごはんを 食べる 時間 (Thời gian ăn sáng)\n2) [V-る] 約束: Có cuộc hẹn làm V\n   - 友達と 映画を 見る 約束 (Hẹn xem phim với bạn)\n3) [V-る] 用事: Có việc bận / việc cần làm V\n   - 銀行へ 行く 用事 (Việc bận cần đi ngân hàng)",
+        example: "• わたしは 朝ごはんを 食べる 時間が ありません。(Tôi không có thời gian để ăn bữa sáng).\n• きょうは 友達と 会う 約束が あります。(Hôm nay tôi có hẹn gặp bạn bè).\n• 市役所へ 行く 用事が ありますから、早く 帰ります。(Vì có việc bận đi ủy ban nên tôi xin phép về sớm).\n• 日本語を 勉強する 時間が ほしいです。(Tôi muốn có thời gian để học tiếng Nhật).",
+        note: "💡 Ghi nhớ: Động từ bổ nghĩa cho 時間, 約束, 用事 luôn ở thể từ điển V-る (hoặc V-ない)."
+      },
+      {
+        title: "58. [Bài 23] Mẫu câu とき (Khi làm gì...): Phân biệt sâu sắc [V-る とき] vs [V-た とき]",
+        meaning: "Bản chất「とき」(時 - thời khắc, lúc) là một DANH TỪ, do đó các từ loại đứng trước bổ nghĩa cho「とき」hoàn toàn theo quy tắc bổ nghĩa danh từ của Bài 22:\n• Động từ: V-る / V-た / V-ない + とき\n• Tính từ-い: A-い + とき (忙しい とき: Khi bận rộn; 暑い とき: Khi trời nóng)\n• Tính từ-な: A-な + とき (暇な とき: Khi rảnh rỗi; 元気な とき: Khi khỏe mạnh)\n• Danh từ: N の + とき (子供の とき: Khi còn nhỏ; 独身の とき: Khi còn độc thân)\n\n⚡ PHÂN BIỆT SÂU SẮC GIỮA [V-る とき] VÀ [V-た とき]:\n1)「V-る とき」: Hành động V1 CHƯA HOÀN THÀNH, khi chuẩn bị/chuẩn bị thực hiện V1 thì làm V2.\n   ➔ Mẹo dịch: 'Trước khi / Lúc chuẩn bị làm V1 thì làm V2'.\n   • Ví dụ: 国へ 帰る とき、かばんを 買いました。(Lúc/trước khi về nước, tôi đã mua một cái cặp ➔ Mua cặp ở nước ngoài trước khi về).\n2)「V-た とき」: Hành động V1 ĐÃ HOÀN TẤT xong xuôi rồi mới thực hiện hành động V2.\n   ➔ Mẹo dịch: 'Sau khi đã làm xong V1 thì làm V2'.\n   • Ví dụ: 国へ 帰った とき、かばんを 買いました。(Sau khi đã về đến nước xong, tôi đã mua một cái cặp ➔ Về quê hương rồi mới mua cặp).",
+        example: "• [Quy tắc ăn uống - Mẹo nhớ kinh điển]:\n  - ごはんを 食べる とき、「いただきます」と 言います。(Trước khi ăn cơm ➔ nói 'Itadakimasu' - dùng 食べる とき).\n  - ごはんを 食べた とき、「ごちそうさま」と 言います。(Sau khi ăn xong ➔ nói 'Gochisousama' - dùng 食べた とき).\n• [Đeo kính]:\n  - 新聞を 読む とき、眼鏡を かけます。(Khi đọc báo thì đeo kính - đeo kính trước/trong lúc đọc ➔ 読む とき).\n• [Bỏ quên đồ]:\n  - うちを 出た とき、傘を 忘れました。(Sau khi ra khỏi nhà mới nhận ra quên ô ➔ 出た とき).\n• [Tính từ & Danh từ]:\n  - 暇な とき、音楽を 聞きます。(Khi rảnh rỗi, tôi nghe nhạc).\n  - 子供の とき、よく 川で 泳ぎました。(Khi còn là đứa trẻ, tôi hay bơi ở sông).",
+        note: "💡 Khẩu quyết vàng: Hành động sau xảy ra SAU KHI V1 đã hoàn thành ➔ dùng「V-た とき」; Hành động chuẩn bị / xảy ra TRƯỚC V1 ➔ dùng「V-る とき」."
+      },
+      {
+        title: "59. [Bài 23] Điều kiện tất yếu: V-る + と (Hễ... thì / Cứ... là)",
+        meaning: "Dùng để diễn tả một kết quả TẤT YẾU, hiển nhiên sẽ xảy ra nếu hành động ở vế trước diễn ra ('Hễ làm V1 thì tất yếu V2 sẽ xảy ra'):\n• Cấu trúc: [V-る / V-ない] + と、[Mệnh đề kết quả]。\n• 💡 Mẹo dịch: Dịch là 'HỄ... THÌ' hoặc 'CỨ... LÀ' sẽ chuẩn và tự nhiên hơn dịch là 'Nếu'.\n\n📌 3 PHẠM VI SỬ DỤNG CHÍNH:\n1) Vận hành, thao tác máy móc thiết bị: Ấn nút/vặn công tắc thì máy hoạt động.\n2) Chỉ dẫn đường sá giao thông: Cứ rẽ/đi thẳng thì địa điểm sẽ xuất hiện.\n3) Quy luật tự nhiên, hiện tượng hiển nhiên: Sang mùa, thời tiết biến đổi.\n\n⚠️ CẤM KỴ TUYỆT ĐỐI Ở VẾ 2 (HỆ QUẢ TẤT YẾU):\n• Vì vế 2 là kết quả tất nhiên ngoài tầm kiểm soát ý chí, nên vế 2 TUYỆT ĐỐI KHÔNG dùng câu mệnh lệnh, ý chí, rủ rê, khuyên bảo hay xin phép (KHÔNG dùng: ～てください, ～ましょう, ～たいです, ～てもいいです).",
+        example: "• [Thao tác máy móc]:\n  - この ボタンを 押すと、切符が 出ます。(Cứ bấm nút này thì vé sẽ chạy ra).\n  - これを 右へ 回すと、音が 大きく なります。(Hễ vặn cái này sang phải thì âm thanh to lên).\n• [Chỉ đường]:\n  - あの 交差点を 右へ 曲がると、左に 銀行が あります。(Cứ rẽ phải ở ngã tư kia thì bên trái có ngân hàng).\n  - まっすぐ 行くと、駅が あります。(Cứ đi thẳng là đến nhà ga).\n• [Quy luật tự nhiên]:\n  - 春に なると、桜が 咲きます。(Hễ sang xuân thì hoa anh đào nở).",
+        note: "💡 Khẩu quyết: V-る + と diễn tả kết quả hiển nhiên ('Hễ/Cứ... thì'); Vế sau tuyệt đối không chia ý chí, rủ rê, khuyên bảo."
+      },
+      {
+        title: "60. [Bài 23] Động từ di chuyển qua không gian: [Địa điểm] を + [Động từ di chuyển]",
+        meaning: "Trợ từ「を」ở đây dùng để đánh dấu NƠI CHỐN, KHÔNG GIAN, QUÃNG ĐƯỜNG mà chủ thể DI CHUYỂN ĐI XUYÊN QUA hoặc BĂNG QUA (không phải là đối tượng chịu tác động như ăn cơm, uống nước):\n• Cấu trúc: [Địa điểm / Không gian / Quãng đường] を + [Động từ di chuyển].\n• Các động từ di chuyển thường gặp:\n  - 散歩します (さんぽします: đi dạo)\n  - 渡ります (わたります: băng qua đường, qua cầu)\n  - 歩きます (あるきます: đi bộ)\n  - 走ります (はしります: chạy)\n  - 曲がります (まがります: rẽ qua)\n  - 飛びます (とびます: bay qua).\n\n⚡ PHÂN BIỆT TRỢ TỪ「で」VÀ「を」:\n• [Địa điểm] で [Hành động]: Địa điểm là NƠI DIỄN RA hành động tại chỗ (ví dụ: 公園で サッカーを します - đá bóng trong công viên).\n• [Địa điểm] を [V-di chuyển]: Địa điểm là KHÔNG GIAN DI CHUYỂN ĐI QUA / BĂNG QUA (ví dụ: 公園を 散歩します - đi dạo trong/xuyên qua công viên).",
+        example: "• 毎朝 公園を 散歩します。(Mỗi sáng tôi đi dạo trong công viên - công viên là không gian dạo qua).\n• あの 信号で 道を 渡ります。(Băng qua đường ở chỗ cột đèn giao thông kia).\n• 橋を 渡って、まっすぐ 行って ください。(Hãy băng qua cầu rồi đi thẳng).\n• 交差点を 右へ 曲がります。(Rẽ phải ở ngã tư).\n• 鳥が 青空を 飛んでいます。(Đàn chim đang bay lượn trên bầu trời xanh).",
+        note: "💡 Khẩu quyết: Đi dạo trong công viên, băng qua đường, qua cầu ➔ Dùng trợ từ「を」vì là không gian/quãng đường di chuyển đi qua."
       }
     ]
   },
@@ -384,11 +414,11 @@ const JA_NOTES_DATA = {
     title: "Trợ từ",
     badge: "🔖 TRỢ TỪ",
     description: "Note về trợ từ: は, が, で, に, へ, の, と",
-    notice: "Ghi nhớ quy tắc trợ từ khi nói về Ở đâu, Thời gian, Tần suất, Tập cha, Đặt lên (に), [Vị trí + の + N] và [N を 持っています].",
+    notice: "Ghi nhớ quy tắc trợ từ khi nói về Ở đâu, Thời gian, Tần suất, Tập cha, Đặt lên (に), [Vị trí + の + N], [N を 持っています] và [Địa điểm を V-di chuyển].",
     items: [
       {
         title: "1. 📌 Tổng kết",
-        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• に + thời gian: chỉ tần suất làm việc / hành động (1週間に 1回: 1 tuần 1 lần)\n• に + vị trí/bề mặt: lên, vào - chỉ điểm đến & kết quả hiện diện của hành động (đặt gì lên đâu đó: 机の上に 置きます)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• で：trong - đứng sau danh từ là tập cha của chủ thể (ví dụ: スポーツの中で, クラスで)\n• の：của, về, thuộc; và [Vị trí: 上/下/中...] + の + Danh từ để bổ nghĩa xác định vị trí cho danh từ phía sau (机の上の本)\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ] (tính từ mô tả đặc điểm của N; muốn bổ nghĩa phải đặt tính từ đứng trước N); hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)\n• を + 持っています：Có, sở hữu, mang theo [đồ vật] (車を 持っています, 傘を 持っています)",
+        meaning: "• に + người：từ, cho - nhận từ ai, học từ ai, gửi cho ai, gọi điện cho ai\n• に + giờ：lúc, vào ngày..\n• に + địa điểm: ở - hiện diện có ai ở đâu,…\n• に + mục đích: để - mục đích của di chuyển (N hoặc danh động từ / V-bỏ ます + に + 行きます/来ます/帰ります)\n• に + thời gian: chỉ tần suất làm việc / hành động (1週間に 1回: 1 tuần 1 lần)\n• に + vị trí/bề mặt: lên, vào - chỉ điểm đến & kết quả hiện diện của hành động (đặt gì lên đâu đó: 机の上に 置きます)\n• で : bằng …làm gì bằng gì, bằng tiếng gì\n• で：ở - làm gì ở đâu\n• で：thời gian hoàn thành việc gì\n• で：trong - đứng sau danh từ là tập cha của chủ thể (ví dụ: スポーツの中で, クラスで)\n• の：của, về, thuộc; và [Vị trí: 上/下/中...] + の + Danh từ để bổ nghĩa xác định vị trí cho danh từ phía sau (机の上の本)\n• へ：đến - phương hướng\n• と：với, cùng với (làm gì cùng ai), và (nối các danh từ; và - trong câu lựa chọn A と B と どちらが...)\n• は ：Là - đánh dấu chủ đề của câu\n• が ：Thường không dịch - trong [Danh từ が Tính từ] (tính từ mô tả đặc điểm của N; muốn bổ nghĩa phải đặt tính từ đứng trước N); hoặc trong mẫu câu có, hiểu, thích, ghét, giỏi, kém (N が あります/わかります/すき/きらい...)\n• を + 持っています：Có, sở hữu, mang theo [đồ vật] (車を 持っています, 傘を 持っています)\n• を + V di chuyển: đi qua, băng qua không gian/quãng đường (公園を 散歩します, 道を 渡ります)",
         note: "⚡ Nắm chắc các quy tắc trên để làm bài tập ngữ pháp và hội thoại chuẩn xác."
       },
       {
@@ -424,6 +454,12 @@ const JA_NOTES_DATA = {
         meaning: "1) [Vị trí: 上, 下, 前, 後ろ, 中...] + の + Danh từ:\n   ➔ Dùng từ chỉ vị trí +「の」để BỔ NGHĨA trực tiếp cho danh từ phía sau, nhằm xác định chính xác đối tượng đó đang ở đâu (Ví dụ: 上の + N = N ở phía trên).\n2) [Đồ vật] を 持って います (もっています):\n   ➔ Biểu thị: CÓ, SỞ HỮU hoặc MANG THEO một đồ vật nào đó (chú ý đi với trợ từ「を」, khác với mẫu「N が あります」).",
         example: "• [Vị trí: 上の + Danh từ]:\n  - 机の 上の 本 (Quyển sách ở trên bàn - 上の bổ nghĩa cho 本).\n  - テーブルの 上の りんご (Quả táo ở trên bàn).\n  - かばんの 中の 財布 (Ví tiền ở trong cặp).\n• [[Đồ vật] を 持っています - Có / Sở hữu / Mang theo]:\n  - わたしは 車を 持って います。(Tôi có / sở hữu xe ô tô).\n  - パソコンを 持って いますか。(Bạn có máy tính không?)\n  - 傘を 持って います。(Tôi có mang theo ô).",
         note: "💡 Mẹo nhớ:\n• Cụm「上の + Danh từ」bổ nghĩa vị trí cho danh từ sau.\n•「N を 持っています」mang 3 nghĩa: CÓ, SỞ HỮU, MANG THEO (dùng trợ từ を)."
+      },
+      {
+        title: "8. を : 'Qua / Xuyên qua' - Không gian & Quãng đường di chuyển (Địa điểm を V-di chuyển)",
+        meaning: "Trợ từ「を」đứng sau danh từ chỉ ĐỊA ĐIỂM / KHÔNG GIAN mà người hoặc vật DI CHUYỂN ĐI XUYÊN QUA, BĂNG QUA (không phải là tân ngữ chịu tác động như ăn cơm, uống nước):\n• Cấu trúc: [Địa điểm / Không gian / Quãng đường] を + [Động từ di chuyển].\n• Các động từ di chuyển thường gặp:\n  - 散歩します (さんぽします: đi dạo)\n  - 渡ります (わたります: băng qua đường / qua cầu)\n  - 歩きます (あるきます: đi bộ qua)\n  - 走ります (はしります: chạy qua)\n  - 曲がります (まがります: rẽ qua)\n  - 飛びます (とびます: bay qua).\n\n⚡ PHÂN BIỆT TRỢ TỪ「で」VÀ「を」:\n• [Địa điểm] で [Hành động]: Nơi DIỄN RA hành động tại chỗ (ví dụ: 公園で サッカーを します - đá bóng trong công viên).\n• [Địa điểm] を [V-di chuyển]: Không gian / Quãng đường DI CHUYỂN ĐI QUA (ví dụ: 公園を 散歩します - đi dạo xuyên qua công viên).",
+        example: "• 毎朝 公園を 散歩します。(Mỗi sáng tôi đi dạo trong công viên - công viên là không gian dạo qua).\n• あの 信号で 道を 渡ります。(Băng qua đường ở chỗ cột đèn giao thông kia).\n• 橋を 渡って、まっすぐ 行きます。(Băng qua cầu rồi đi thẳng).\n• 鳥が 青空を 飛んでいます。(Chim đang bay lượn trên bầu trời xanh).",
+        note: "💡 Khẩu quyết: Đi dạo trong công viên, băng qua đường, qua cầu ➔ Dùng trợ từ「を」vì là không gian/quãng đường di chuyển đi qua."
       }
     ]
   },
@@ -488,6 +524,12 @@ const JA_NOTES_DATA = {
         meaning: "Dùng để liên kết 2 mệnh đề diễn tả hai hành động liên tiếp nhau: Sau khi KẾT THÚC hoàn toàn hành động V1 thì mới bắt đầu thực hiện hành động V2.\n• Cấu trúc: [V1-てから]、[V2]。\n• ⚠️ Lưu ý: Trong 1 câu chỉ dùng「V-てから」đúng 1 lần.",
         example: "• 仕事が 終わってから、泳ぎに 行きます。(Sau khi kết thúc công việc, tôi đi bơi.)\n• お金を 入れてから、ボタンを 押して ください。(Sau khi bỏ tiền vào, xin hãy bấm nút.)\n• 国へ 帰ってから、父の 会社で 働きます。(Sau khi về nước, tôi sẽ làm việc ở công ty của bố.)",
         note: "💡 Phân biệt:「から」đứng sau mệnh đề giải thích nghĩa là 'Vì, bởi vì'; còn khi đi trực tiếp sau động từ thể て (V-てから) thì mang nghĩa 'Sau khi kết thúc V1 thì làm V2'."
+      },
+      {
+        title: "10. と : Hễ / Cứ ... thì (V-る + と)",
+        meaning: "Dùng để diễn tả một kết quả TẤT YẾU, hiển nhiên sẽ xảy ra khi thực hiện hành động ở vế trước (hễ làm V1 thì vế 2 tất yếu xảy ra):\n• Cấu trúc: [V-る / V-ない] + と、[V2]。\n• 💡 Mẹo dịch: Dịch là 'HỄ... THÌ' hoặc 'CỨ... LÀ' chuẩn và tự nhiên hơn dịch là 'Nếu'.\n• Thường dùng cho: Vận hành máy móc thiết bị, chỉ dẫn đường sá giao thông, quy luật tự nhiên.\n• ⚠️ Chú ý: Vì vế sau là kết quả tất yếu nên KHÔNG DÙNG câu mệnh lệnh, ý chí, rủ rê, khuyên bảo (không dùng てください, ましょう, たいです, てはいけません).",
+        example: "• この ボタンを 押すと、切符が 出ます。(Cứ bấm nút này thì vé sẽ chạy ra).\n• あの 交差点を 右へ 曲がると、銀行が あります。(Cứ rẽ phải ở ngã tư kia thì sẽ thấy ngân hàng).\n• 春に なると、桜が 咲きます。(Hễ sang xuân thì hoa anh đào nở).",
+        note: "💡 Khẩu quyết: V-る + と diễn tả kết quả tất yếu ('Hễ... thì'). Vế sau tuyệt đối không chia ý chí, rủ rê hay mệnh lệnh."
       }
     ]
   },

@@ -3102,6 +3102,443 @@ const JA_VOCAB_DATA = {
         vi: "Có lẽ là... / ...phải không nhỉ? (phỏng đoán hoặc xác nhận lịch sự)"
       }
     ]
+  },
+  bai_12: {
+    title: "Bài 12",
+    words: [
+      {
+        word: "服",
+        hiragana: "ふく",
+        romaji: "Fuku",
+        vi: "Quần áo, trang phục"
+      },
+      {
+        word: "留学生",
+        hiragana: "りゅうがくせい",
+        romaji: "Ryuugakusei",
+        vi: "Du học sinh"
+      },
+      {
+        word: "カレー",
+        hiragana: "かれー",
+        romaji: "Karee",
+        vi: "Món cà ri (curry)"
+      },
+      {
+        word: "でしょう",
+        hiragana: "でしょう",
+        romaji: "Deshou",
+        vi: "Có lẽ là... / ...phải không? (phỏng đoán, xác nhận lịch sự)"
+      },
+      {
+        word: "試験",
+        hiragana: "しけん",
+        romaji: "Shiken",
+        vi: "Kỳ thi, bài kiểm tra"
+      },
+      {
+        word: "最近",
+        hiragana: "さいきん",
+        romaji: "Saikin",
+        vi: "Gần đây, dạo gần đây (phân biệt: 現金 げんきん tiền mặt vs 最近 さいきん gần đây)"
+      },
+      {
+        word: "もちろん",
+        hiragana: "もちろん",
+        romaji: "Mochiron",
+        vi: "Tất nhiên, đương nhiên"
+      },
+      {
+        word: "きっと",
+        hiragana: "きっと",
+        romaji: "Kitto",
+        vi: "Chắc chắn, nhất định (mang tính phỏng đoán cao: きっと〜でしょう)"
+      },
+      {
+        word: "ぜひ",
+        hiragana: "ぜひ",
+        romaji: "Zehi",
+        vi: "Nhất định (thể hiện nguyện vọng tha thiết: ぜひ〜てください)"
+      },
+      {
+        word: "勝ちます",
+        hiragana: "かちます",
+        romaji: "Kachimasu",
+        vi: "Thắng, chiến thắng (thể từ điển: 勝つ かつ; mẹo: thắng cả chì lẫn chài)"
+      },
+      {
+        word: "たぶん",
+        hiragana: "たぶん",
+        romaji: "Tabun",
+        vi: "Có lẽ, có thể (thường đi với 〜でしょう / 〜と思います)"
+      },
+      {
+        word: "着ます",
+        hiragana: "きます",
+        romaji: "Kimasu",
+        vi: "Mặc (áo sơ mi, áo khoác, quần áo từ vai trở xuống)"
+      },
+      {
+        word: "履きます",
+        hiragana: "はきます",
+        romaji: "Hakimasu",
+        vi: "Đi, xỏ, mặc (giày, dép, tất, quần, váy - từ hông trở xuống)"
+      },
+      {
+        word: "かぶります",
+        hiragana: "かぶります",
+        romaji: "Kaburimasu",
+        vi: "Đội (mũ, nón)"
+      },
+      {
+        word: "かけます",
+        hiragana: "かけます",
+        romaji: "Kakemasu",
+        vi: "Đeo (kính: 眼鏡をかけます) / Gọi (điện thoại: 電話をかけます)"
+      },
+      {
+        word: "生まれます",
+        hiragana: "うまれます",
+        romaji: "Umaremasu",
+        vi: "Sinh ra, chào đời"
+      },
+      {
+        word: "コート",
+        hiragana: "こーと",
+        romaji: "Kooto",
+        vi: "Áo khoác, áo choàng (coat)"
+      },
+      {
+        word: "スーツ",
+        hiragana: "すーつ",
+        romaji: "Suutsu",
+        vi: "Bộ vest, bộ comple (suit)"
+      },
+      {
+        word: "セーター",
+        hiragana: "せーたー",
+        romaji: "Seetaa",
+        vi: "Áo len (sweater)"
+      },
+      {
+        word: "帽子",
+        hiragana: "ぼうし",
+        romaji: "Boushi",
+        vi: "Cái mũ, cái nón (đi với かぶります)"
+      },
+      {
+        word: "眼鏡",
+        hiragana: "めがね",
+        romaji: "Megane",
+        vi: "Kính mắt (đi với かけます)"
+      },
+      {
+        word: "家賃",
+        hiragana: "やちん",
+        romaji: "Yachin",
+        vi: "Tiền thuê nhà"
+      },
+      {
+        word: "布団",
+        hiragana: "ふとん",
+        romaji: "Futon",
+        vi: "Chăn đệm (kiểu Nhật)"
+      },
+      {
+        word: "アパート",
+        hiragana: "あぱーと",
+        romaji: "Apaato",
+        vi: "Căn hộ, chung cư mini (apartment)"
+      },
+      {
+        word: "交通",
+        hiragana: "こうつう",
+        romaji: "Koutsuu",
+        vi: "Giao thông (mẹo: chữ 交 giống trong 学校 がっこう)"
+      },
+      {
+        word: "現金",
+        hiragana: "げんきん",
+        romaji: "Genkin",
+        vi: "Tiền mặt (phân biệt: 現金 げんきん tiền mặt vs 最近 さいきん gần đây)"
+      },
+      {
+        word: "横浜",
+        hiragana: "よこはま",
+        romaji: "Yokohama",
+        vi: "Thành phố Yokohama (tỉnh Kanagawa, Nhật Bản)"
+      },
+      {
+        word: "赤い",
+        hiragana: "あかい",
+        romaji: "Akai",
+        vi: "Màu đỏ (tính từ đuôi い)"
+      },
+      {
+        word: "名古屋",
+        hiragana: "なごや",
+        romaji: "Nagoya",
+        vi: "Thành phố Nagoya (tỉnh Aichi, Nhật Bản)"
+      },
+      {
+        word: "用事",
+        hiragana: "ようじ",
+        romaji: "Youji",
+        vi: "Việc bận, công chuyện"
+      },
+      {
+        word: "〜時間",
+        hiragana: "〜じかん",
+        romaji: "~ Jikan",
+        vi: "Thời gian làm gì đó (cấu trúc: V-る + 時間: 朝ご飯を食べる時間がありません)"
+      },
+      {
+        word: "〜用事",
+        hiragana: "〜ようじ",
+        romaji: "~ Youji",
+        vi: "Việc bận làm gì đó (cấu trúc: V-る + 用事: 銀行へ行く用事があります)"
+      },
+      {
+        word: "〜約束",
+        hiragana: "〜やくそく",
+        romaji: "~ Yakusoku",
+        vi: "Hẹn làm gì đó (cấu trúc: V-る + 約束: 友達と映画を見る約束があります)"
+      },
+      {
+        word: "〜と",
+        hiragana: "〜と",
+        romaji: "~ To",
+        vi: "Hễ... thì... / Cứ... là... (cấu trúc câu điều kiện hiển nhiên: V-る + と)"
+      },
+      {
+        word: "聞きます",
+        hiragana: "ききます",
+        romaji: "Kikimasu",
+        vi: "Hỏi (nghe / hỏi: 先生に聞きます)"
+      },
+      {
+        word: "首",
+        hiragana: "くび",
+        romaji: "Kubi",
+        vi: "Cái cổ"
+      },
+      {
+        word: "道",
+        hiragana: "みち",
+        romaji: "Michi",
+        vi: "Con đường (mẹo: chữ Hán 道 gồm bộ Thủ 首 cái cổ đi trên bộ Xước 辶 con đường)"
+      },
+      {
+        word: "交差点",
+        hiragana: "こうさてん",
+        romaji: "Kousaten",
+        vi: "Ngã tư, giao lộ (mẹo: 交 こう giống trong 交通, đuôi さてん giống trong 喫茶店)"
+      },
+      {
+        word: "信号",
+        hiragana: "しんごう",
+        romaji: "Shingou",
+        vi: "Đèn tín hiệu giao thông (mẹo: 号 ごう giống trong 番号 - đèn giao thông đếm số)"
+      },
+      {
+        word: "引きます",
+        hiragana: "ひきます",
+        romaji: "Hikimasu",
+        vi: "Kéo, kéo ra / tra (từ điển)"
+      },
+      {
+        word: "引っ越しします",
+        hiragana: "ひっこしします",
+        romaji: "Hikkoshishimasu",
+        vi: "Chuyển nhà (danh từ: 引っ越し)"
+      },
+      {
+        word: "回します",
+        hiragana: "まわします",
+        romaji: "Mawashimasu",
+        vi: "Vặn, xoay (núm điều chỉnh; mẹo: 1 hình vuông có cái núm vặn 回)"
+      },
+      {
+        word: "変えます",
+        hiragana: "かえます",
+        romaji: "Kaemasu",
+        vi: "Đổi, thay đổi (ví dụ: đổi màu đỏ 赤い)"
+      },
+      {
+        word: "角",
+        hiragana: "かど",
+        romaji: "Kado",
+        vi: "Góc (góc phố, ngã rẽ: 右の角を曲がります)"
+      },
+      {
+        word: "触ります",
+        hiragana: "さわります",
+        romaji: "Sawarimasu",
+        vi: "Chạm vào, sờ vào (bắt đầu bằng chữ さ: ボタンに触ります)"
+      },
+      {
+        word: "出ます",
+        hiragana: "でます",
+        romaji: "Demasu",
+        vi: "Ra, xuất hiện (tiền thối ra: お釣りが出ます)"
+      },
+      {
+        word: "動きます",
+        hiragana: "うごきます",
+        romaji: "Ugokimasu",
+        vi: "Hoạt động, chuyển động, chạy (máy móc: 機械が動きます)"
+      },
+      {
+        word: "歩きます",
+        hiragana: "あるきます",
+        romaji: "Arukimasu",
+        vi: "Đi bộ (thể từ điển: 歩く あるく)"
+      },
+      {
+        word: "一度",
+        hiragana: "いちど",
+        romaji: "Ichido",
+        vi: "Một lần (chỉ số lần)"
+      },
+      {
+        word: "渡ります",
+        hiragana: "わたります",
+        romaji: "Watarimasu",
+        vi: "Băng qua, qua (đường, cầu: 橋を渡ります; mẹo: 1 lần băng qua わたり)"
+      },
+      {
+        word: "気を付けます",
+        hiragana: "きをつけます",
+        romaji: "Ki o tsukemasu",
+        vi: "Chú ý, cẩn thận (気を付けて: hãy cẩn thận)"
+      },
+      {
+        word: "故障",
+        hiragana: "こしょう",
+        romaji: "Koshou",
+        vi: "Hư hỏng, sự cố trục trặc (máy móc: 故障します)"
+      },
+      {
+        word: "音",
+        hiragana: "おと",
+        romaji: "Oto",
+        vi: "Âm thanh, tiếng động"
+      },
+      {
+        word: "機械",
+        hiragana: "きかい",
+        romaji: "Kikai",
+        vi: "Máy móc, cơ khí"
+      },
+      {
+        word: "つまみ",
+        hiragana: "つまみ",
+        romaji: "Tsumami",
+        vi: "Núm xoay, núm vặn (điều chỉnh âm lượng, nhiệt độ...)"
+      },
+      {
+        word: "橋",
+        hiragana: "はし",
+        romaji: "Hashi",
+        vi: "Cây cầu (phân biệt với 箸 はし: đôi đũa)"
+      },
+      {
+        word: "駐車場",
+        hiragana: "ちゅうしゃじょう",
+        romaji: "Chuushajou",
+        vi: "Bãi đỗ xe"
+      },
+      {
+        word: "お正月",
+        hiragana: "おしょうがつ",
+        romaji: "Oshougatsu",
+        vi: "Tết, dịp năm mới"
+      },
+      {
+        word: "建物",
+        hiragana: "たてもの",
+        romaji: "Tatemono",
+        vi: "Tòa nhà, công trình kiến trúc"
+      },
+      {
+        word: "字",
+        hiragana: "じ",
+        romaji: "Ji",
+        vi: "Chữ, chữ viết"
+      },
+      {
+        word: "寂しい",
+        hiragana: "さびしい",
+        romaji: "Sabishii",
+        vi: "Buồn, cô đơn (tính từ đuôi い)"
+      },
+      {
+        word: "散歩",
+        hiragana: "さんぽ",
+        romaji: "Sanpo",
+        vi: "Sự đi dạo, tản bộ (散歩します: đi dạo)"
+      },
+      {
+        word: "学生証",
+        hiragana: "がくせいしょう",
+        romaji: "Gakuseishou",
+        vi: "Thẻ học sinh, thẻ sinh viên"
+      },
+      {
+        word: "保険証",
+        hiragana: "ほけんしょう",
+        romaji: "Hokenshou",
+        vi: "Thẻ bảo hiểm y tế"
+      },
+      {
+        word: "暗証番号",
+        hiragana: "あんしょうばんごう",
+        romaji: "Anshou bangou",
+        vi: "Mã PIN, số mật mã bí mật"
+      },
+      {
+        word: "〜たとき",
+        hiragana: "〜たとき",
+        romaji: "~ Ta toki",
+        vi: "Sau khi làm gì đó (cấu trúc: V-た + とき: 国へ帰ったとき、買いました)"
+      },
+      {
+        word: "〜るとき",
+        hiragana: "〜るとき",
+        romaji: "~ Ru toki",
+        vi: "Trước khi / Khi làm gì đó (cấu trúc: V-る + とき: 国へ帰るとき、買いました)"
+      },
+      {
+        word: "思い出します",
+        hiragana: "おもいだします",
+        romaji: "Omoidashimasu",
+        vi: "Nhớ lại, hồi tưởng (đi với trợ từ を)"
+      },
+      {
+        word: "切符",
+        hiragana: "きっぷ",
+        romaji: "Kippu",
+        vi: "Vé (tàu, xe)"
+      },
+      {
+        word: "梅田",
+        hiragana: "うめだ",
+        romaji: "Umeda",
+        vi: "Umeda (khu phố, ga Umeda nổi tiếng ở Osaka)"
+      },
+      {
+        word: "まっすぐ",
+        hiragana: "まっすぐ",
+        romaji: "Massugu",
+        vi: "Thẳng (đi thẳng: まっすぐ行きます)"
+      },
+      {
+        word: "〜て、〜て",
+        hiragana: "〜て、〜て",
+        romaji: "~ Te, ~ te",
+        vi: "...rồi... rồi... (cấu trúc nối hành động tuần tự theo thời gian: V1-て、V2-て、V3)"
+      }
+    ]
   }
 };
 

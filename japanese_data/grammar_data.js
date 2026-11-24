@@ -3451,6 +3451,131 @@ const JA_GRAMMAR_DATA = {
         explanation: "• Dạng câu hỏi mở phỏng vấn về thói quen và kinh nghiệm thực tế của bạn (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「日本語を勉強するとき、辞書を使いますか」(Khi học tiếng Nhật, bạn có dùng từ điển không?)\n  - Trả lời: Khẳng định:「はい、使います」(Vâng, tôi có dùng) hoặc「はい、電子辞書を使います」(Tôi dùng từ điển điện tử); Phủ định:「いいえ、使いません」(Không, tôi không dùng).\n• 2):「日本へ来るとき、だれと来ましたか」(Khi đến Nhật Bản, bạn đã đi cùng ai?)\n  - Chú ý: Hành động trước khi đến dùng「来るとき」(trên đường sang Nhật).\n  - Trả lời người đồng hành:「一人で来ました」(Tôi đi một mình),「家族と来ました」(Tôi đi cùng gia đình),「友達と来ました」(Tôi đi cùng bạn bè).\n• 3):「疲れたとき、どうしますか」(Khi mệt mỏi, bạn thường làm gì?)\n  - Chú ý: Trạng thái mệt mỏi đã xảy ra dùng「疲れたとき」.\n  - Trả lời giải pháp hồi phục sức khỏe:「お風呂に入って、早く寝ます」(Tôi ngâm bồn tắm rồi đi ngủ sớm),「音楽を聞いて、ゆっくり休みます」(Tôi nghe nhạc và nghỉ ngơi thong thả)."
       }
     ]
+  },
+  bai_24: {
+    title: "Bài 24",
+    completed: false,
+    questions: [
+      {
+        id: "b24_q1",
+        type: "binary_choice",
+        tag: "Chọn từ thích hợp: あげます／もらいます／くれます",
+        question: "1. 例：わたし：傘を貸しましょうか。\n   山田：ええ、お願いします。\n   ➔ わたしは山田さんに傘を貸して〔<u>あげました</u>／もらいました／くれました〕。\n\n1) 木村：あした奈良を案内しますよ。\n   わたし：ありがとうございます。\n   ➔ わたしは木村さんに奈良を案内して〔あげます／もらいます／くれます〕。\n\n2) わたし：地図をかきましょうか。\n   グプタ：ええ、お願いします。\n   ➔ わたしはグプタさんに地図をかいて〔あげました／もらいました／くれました〕。\n\n3) わたし：お茶を習いたいです。いい先生を知っていますか。\n   松本：ええ。紹介しますよ。\n   ➔ 松本さんはお茶の先生を紹介して〔あげました／もらいました／くれました〕。",
+        answers: [
+          "もらいます / moraimasu",
+          "あげました / agemashita",
+          "くれました / kuremashita"
+        ],
+        explanation: "• Cấu trúc cho và nhận hành động (Cho - Nhận ân huệ):\n  1) [Người 1] は [Người 2] に [V-て] あげます: Người 1 làm gì đó giúp/cho Người 2.\n  2) [Người nhận] は [Người làm] に [V-て] もらいます: Người nhận được/nhờ ai đó làm gì cho mình (chủ ngữ là người nhận, người làm đi với trợ từ「に」).\n  3) [Người làm] は (わたしに) [V-て] くれます: Ai đó làm gì giúp tôi (hoặc người thân trong gia đình tôi), chủ ngữ là người thực hiện hành động.\n• 例: Tôi chủ động đề nghị cho mượn ô「傘を貸しましょうか」và anh Yamada đồng ý「お願いします」➔ Tôi làm giúp cho anh Yamada ➔ Dùng「〜てあげました」(Tôi đã cho anh Yamada mượn ô).\n• 1): Chị Kimura nói「あした奈良を案内しますよ」(Ngày mai tôi sẽ hướng dẫn Nara cho bạn) và tôi cảm ơn「ありがとうございます」.\n  - Câu kết luận có chủ ngữ là「わたしは」(Tôi) và người làm đi với trợ từ に là「木村さんに」➔ Cấu trúc「わたしは [Người làm] に 〜てもらいます」(Tôi được chị Kimura hướng dẫn Nara cho) ➔ Chọn「もらいます」(hành động ngày mai diễn ra nên dùng thì hiện tại/tương lai).\n• 2): Tôi đề nghị vẽ bản đồ「地図をかきましょうか」và anh Gupta nhờ cậy「ええ、お願いします」.\n  - Chủ ngữ là「わたしは」(Tôi) làm cho「グプタさんに」(anh Gupta) ➔ Cấu trúc「わたしは [Người nhận] に 〜てあげました」(Tôi đã vẽ bản đồ giúp anh Gupta) ➔ Chọn「あげました」.\n• 3): Tôi muốn học trà đạo và hỏi anh Matsumoto có biết thầy cô giáo nào tốt không. Anh Matsumoto bảo「ええ。紹介しますよ」(Ừ, tôi sẽ giới thiệu cho nhé).\n  - Chủ ngữ trong câu kết luận là「松本さんは」(anh Matsumoto) và người nhận lợi ích ngầm định là tôi ➔ Cấu trúc「[Người khác] は (わたしに) 〜てくれました」(Anh Matsumoto đã giới thiệu giáo viên dạy trà đạo cho tôi) ➔ Chọn「くれました」。"
+      },
+      {
+        id: "b24_q2",
+        type: "fill",
+        tag: "Hoàn thành câu: 〜てもらいました vs 〜てくれました",
+        question: "2.\n<div style=\"background: rgba(15, 23, 42, 0.45); border: 1.5px solid rgba(148, 163, 184, 0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;\">\n  <div style=\"font-weight: 700; color: #38bdf8; margin-bottom: 8px;\">🖼️ Hình ảnh nhân vật & hành động gợi ý:</div>\n  <div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; text-align: center; font-size: 0.98rem;\">\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">例: 👩‍🏫 <strong>小林先生</strong><br><small style=\"color: #94a3b8;\">(日本語を教えます)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">1): 👵 <strong>母</strong><br><small style=\"color: #94a3b8;\">(セーターを送ります)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">2): ☂️ <strong>佐藤さん</strong><br><small style=\"color: #94a3b8;\">(傘を貸します)</small></div>\n    <div style=\"background: rgba(30, 41, 59, 0.6); padding: 8px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">3): 🍲 <strong>松本さん</strong><br><small style=\"color: #94a3b8;\">(すき焼きを作ります)</small></div>\n  </div>\n</div>\n例：(日本語を教えます)\nわたしは小林先生に日本語を教えてもらいました。\n小林先生は日本語を教えてくれました。\n\n1) (セーターを送ります)\nわたしは＿＿＿＿＿＿＿＿＿＿\n母は＿＿＿＿＿＿＿＿＿＿\n\n2) (傘を貸します)\nわたしは＿＿＿＿＿＿＿＿＿＿\n佐藤さんは＿＿＿＿＿＿＿＿＿＿\n\n3) (すき焼きを作ります)\nわたしは＿＿＿＿＿＿＿＿＿＿\n松本さんは＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "母にセーターを送ってもらいました。 / 母にセーターを送ってもらいました / ははにセーターをおくってもらいました。 / ははにセーターをおくってもらいました / 母にセーターを送ってもらった / haha ni se-ta- o okutte moraimashita / haha ni seetaa o okutte moraimashita",
+          "セーターを送ってくれました。 / セーターを送ってくれました / セーターをおくってくれました。 / セーターをおくってくれました / わたしにセーターを送ってくれました。 / わたしにセーターを送ってくれました / se-ta- o okutte kuremashita / seetaa o okutte kuremashita",
+          "佐藤さんに傘を貸してもらいました。 / 佐藤さんに傘を貸してもらいました / さとうさんにかさをかしてもらいました。 / さとうさんにかさをかしてもらいました / 佐藤さんに傘を貸してもらった / satousan ni kasa o kashite moraimashita / sato-san ni kasa o kashite moraimashita",
+          "傘を貸してくれました。 / 傘を貸してくれました / かさをかしてくれました。 / かさをかしてくれました / わたしに傘を貸してくれました。 / わたしに傘を貸してくれました / kasa o kashite kuremashita",
+          "松本さんにすき焼きを作ってもらいました。 / 松本さんにすき焼きを作ってもらいました / まつもとさんにすきやきをつくってもらいました。 / まつもとさんにすきやきをつくってもらいました / 松本さんにすき焼きを作ってもらった / matsumotosan ni sukiyaki o tsukutte moraimashita",
+          "すき焼きを作ってくれました。 / すき焼きを作ってくれました / すきやきをつくってくれました。 / すきやきをつくってくれました / わたしにすき焼きを作ってくれました。 / わたしにすき焼きを作ってくれました / sukiyaki o tsukutte kuremashita"
+        ],
+        explanation: "• Luyện tập 2 cách diễn đạt cùng một hành động nhận ân huệ từ người khác:\n  - Dạng 1:「わたしは [Người làm] に [V-て] もらいました」(Tôi được ai đó làm gì cho).\n  - Dạng 2:「[Người làm] は (わたしに) [V-て] くれました」(Ai đó đã làm gì cho tôi).\n• 例: Gợi ý「小林先生」(Cô Kobayashi) và hành động「日本語を教えます」(dạy tiếng Nhật):\n  - Dạng 1:「わたしは小林先生に日本語を教えてもらいました」(Tôi được cô Kobayashi dạy tiếng Nhật cho).\n  - Dạng 2:「小林先生は日本語を教えてくれました」(Cô Kobayashi đã dạy tiếng Nhật cho tôi).\n• 1): Gợi ý「母」(Mẹ) và hành động「セーターを送ります」(gửi áo len):\n  - Câu a:「わたしは母にセーターを送ってもらいました」(Tôi được mẹ gửi áo len cho).\n  - Câu b:「母はセーターを送ってくれました」(Mẹ đã gửi áo len cho tôi).\n• 2): Gợi ý「佐藤さん」(Chị Sato) và hành động「傘を貸します」(cho mượn ô):\n  - Câu a:「わたしは佐藤さんに傘を貸してもらいました」(Tôi được chị Sato cho mượn ô).\n  - Câu b:「佐藤さんは傘を貸してくれました」(Chị Sato đã cho tôi mượn ô).\n• 3): Gợi ý「松本さん」(Anh Matsumoto) và hành động「すき焼きを作ります」(nấu món lẩu Sukiyaki):\n  - Câu a:「わたしは松本さんにすき焼きを作ってもらいました」(Tôi được anh Matsumoto nấu lẩu Sukiyaki cho).\n  - Câu b:「松本さんはすき焼きを作ってくれました」(Anh Matsumoto đã nấu lẩu Sukiyaki cho tôi)."
+      },
+      {
+        id: "b24_q3",
+        type: "fill",
+        tag: "Phân biệt: [Người] に 〜てもらう vs [Người] が 〜てくれる",
+        question: "3. 例1：旅行のかばんを買いましたか。（貸します）\n…いいえ、佐藤さんが貸してくれました。\n例2：木村さんの電話番号がわかりましたか。（教えます）\n…ええ、佐藤さんに教えてもらいました。\n\n1) このコピー、全部一人でしましたか。（手伝います）\n…いいえ、カリナさんに＿＿＿＿＿＿＿＿＿＿\n2) ここまで歩いて来ましたか。（車で送ります）\n…いいえ、松本さんが＿＿＿＿＿＿＿＿＿＿\n3) 一人で病院へ行きましたか。（いっしょに行きます）\n…いいえ、山田さんに＿＿＿＿＿＿＿＿＿＿\n4) すてきなセーターですね。どこで買いましたか。（作ります）\n…母が＿＿＿＿＿＿＿＿＿＿\n5) あした引っ越しの手伝いに行く人がいますか。（来ます）\n…ええ、佐藤さんとミラーさんが＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "手伝ってもらいました。 / 手伝ってもらいました / てつだってもらいました。 / てつだってもらいました / 手伝ってもらった / tetsudatte moraimashita",
+          "車で送ってくれました。 / 車で送ってくれました / くるまでおくってくれました。 / くるまでおくってくれました / 送ってくれました。 / 送ってくれました / おくってくれました。 / おくってくれました / 車で送ってくれた / kuruma de okutte kuremashita / okutte kuremashita",
+          "いっしょに行ってもらいました。 / いっしょに行ってもらいました / 一緒に行ってもらいました。 / 一緒に行ってもらいました / いっしょにいってもらいました。 / いっしょにいってもらいました / 行ってもらいました。 / 行ってもらいました / いってもらいました。 / いってもらいました / issho ni itte moraimashita / itte moraimashita",
+          "作ってくれました。 / 作ってくれました / つくってくれました。 / つくってくれました / 作ってくれた / tsukutte kuremashita",
+          "来てくれます。 / 来てくれます / きてくれます。 / きてくれます / 来てくれる / 来てくれました。 / 来てくれました / きてくれました。 / きてくれました / kite kuremasu / kite kuremashita"
+        ],
+        explanation: "• Phân biệt chọn cấu trúc「〜てもらいました」và「〜てくれました」dựa theo trợ từ đi với chủ thể hành động:\n  - Nếu chủ thể đi với trợ từ「に」➔ Cấu trúc「[Người] に [V-て] もらいました」(Được ai đó làm cho).\n  - Nếu chủ thể đi với trợ từ「が」➔ Cấu trúc「[Người] が [V-て] くれました」(Ai đó đã làm cho tôi).\n• 例1: Sau「佐藤さん」là trợ từ「が」➔ Dùng「貸してくれました」(Chị Sato đã cho tôi mượn).\n• 例2: Sau「佐藤さん」là trợ từ「に」➔ Dùng「教えてもらいました」(Tôi được chị Sato chỉ cho).\n• 1): Sau「カリナさん」là trợ từ「に」(カリナさんに) ➔ Dùng「〜てもらいました」:「手伝ってもらいました」(Tôi được chị Karina giúp đỡ).\n• 2): Sau「松本さん」là trợ từ「が」(松本さんが) ➔ Dùng「〜てくれました」:「車で送ってくれました」(Anh Matsumoto đã chở tôi bằng ô tô).\n• 3): Sau「山田さん」là trợ từ「に」(山田さんに) ➔ Dùng「〜てもらいました」:「いっしょに行ってもらいました」(Tôi được anh Yamada đi cùng đến bệnh viện).\n• 4): Sau「母」là trợ từ「が」(母が) ➔ Dùng「〜てくれました」:「作ってくれました」(Mẹ đã đan/làm cho tôi).\n• 5): Sau「佐藤さんとミラーさん」là trợ từ「が」➔ Dùng「〜てくれます」. Lưu ý: Hành động diễn ra vào ngày mai「あした」nên dùng thì hiện tại/tương lai:「来てくれます」(Anh Miller và chị Sato sẽ đến giúp tôi)."
+      },
+      {
+        id: "b24_q4",
+        type: "binary_choice",
+        tag: "Chọn từ thích hợp",
+        question: "4. 例：図書館で借りた本はもう〔<u>全部</u>／全部で／みんなで〕返しました。\n\n1) ビールとジュースとワインを買いました。〔ほかに／別々に／いっしょに〕何か飲み物が要りますか。\n2) 冷蔵庫にあったケーキは？\n…わたしが〔みんなで／全部で／全部〕食べました。\n3) 食事はいつも〔一人で／自分で／全部で〕作りますか。\n…いいえ、コンビニでお弁当を買ったり、外へ食べに行ったりします。",
+        answers: [
+          "ほかに / 他に / hokani",
+          "全部 / ぜんぶ / zenbu",
+          "自分で / じぶんで / jibunde"
+        ],
+        explanation: "• Phân biệt ý nghĩa và cách dùng của các phó từ chỉ số lượng / cách thức:\n  -「全部」(ぜんぶ): Toàn bộ, tất cả (dùng làm phó từ bổ nghĩa trực tiếp cho hành vi thực hiện hết toàn bộ đối tượng).\n  -「全部で」(ぜんぶで): Tổng cộng (thường dùng khi tính tổng số tiền hoặc tổng số lượng vật phẩm).\n  -「みんなで」: Mọi người cùng nhau làm gì đó.\n  -「ほかに」: Ngoài ra, thêm nữa.\n  -「自分で」(じぶんで): Tự mình (tự bản thân làm, đối lập với việc mua sẵn hoặc nhờ người khác).\n  -「一人で」(ひとりで): Một mình (chỉ số lượng 1 người đơn độc, đối lập với việc làm cùng người khác).\n• 例: Sách mượn ở thư viện thì đã trả lại 「hết toàn bộ」 ➔ Dùng phó từ「全部」(図書館で借りた本はもう全部返しました).\n• 1): Đã mua bia, nước ngọt và rượu rồi. Hỏi 「Ngoài ra còn cần đồ uống gì nữa không?」 ➔ Dùng「ほかに」(ほかに何か飲み物が要りますか).\n• 2): Bánh ngọt trong tủ lạnh đâu rồi? Chủ ngữ là「わたしが」(tôi) nên không dùng「みんなで」, không dùng「全部で」(tổng cộng số tiền/lượng) ➔ Dùng phó từ「全部」(tôi đã ăn hết sạch toàn bộ):「わたしが全部食べました」.\n• 3): Hỏi về phương thức bữa ăn 「Có tự mình nấu không?」 (đối lập với việc đi mua ở combini hay ra ngoài ăn ở vế trả lời:「コンビニでお弁当を買ったり、外へ食べに行ったりします」) ➔ Dùng「自分で」(食事はいつも自分で作りますか)."
+      },
+      {
+        id: "b24_q5",
+        type: "open_ended",
+        tag: "Trả lời câu hỏi mở",
+        question: "5. 1) 子どものとき、誕生日に何を買ってもらいましたか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) 食事を作ってくれる人がいますか。\n＿＿＿＿＿＿＿＿＿＿\n\n3) 外国から友達が来たとき、あなたの国のどこを案内してあげますか。\n＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "母に自転車を買ってもらいました。 / 父に本を買ってもらいました。 / おもちゃを買ってもらいました。 / 時計を買ってもらいました。 / haha ni jitensha o katte moraimashita",
+          "はい、母が作ってくれます。 / はい、妻が作ってくれます。 / はい、家族が作ってくれます。 / いいえ、自分で作ります。 / いいえ、いません。 / hai, haha ga tsukutte kuremasu",
+          "ハノイを案内してあげます。 / ハロン湾を案内してあげます。 / ホーチミン市を案内してあげます。 / 京都を案内してあげます。 / わたしの町を案内してあげます。 / hanoi o annai shite agemasu"
+        ],
+        explanation: "• Dạng câu hỏi mở phỏng vấn về bản thân sử dụng các cấu trúc cho - nhận hành động (〜てもらう, 〜てくれる, 〜てあげる) (tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「子どものとき、誕生日に何を買ってもらいましたか」(Hồi còn nhỏ, vào ngày sinh nhật bạn đã được mua cho món gì?)\n  - Cấu trúc:「[Người tặng] に [Đồ vật] を 買ってもらいました」(Được ai mua cho cái gì).\n  - Ví dụ trả lời:「母に自転車を買ってもらいました」(Tôi được mẹ mua cho chiếc xe đạp),「父に本を買ってもらいました」(Tôi được bố mua cho sách), hoặc「おもちゃを買ってもらいました」(Tôi được mua đồ chơi cho).\n• 2):「食事を作ってくれる人がいますか」(Có người nấu ăn cho bạn không?)\n  - Cấu trúc:「[Người làm] が 作ってくれます」(Ai đó nấu cho mình).\n  - Ví dụ trả lời: Khẳng định:「はい、母が作ってくれます」(Có, mẹ nấu cho tôi) hoặc「はい、妻が作ってくれます」(Có, vợ nấu cho tôi); Phủ định:「いいえ、自分で作ります」(Không, tôi tự nấu) hoặc「いいえ、いません」(Không, không có ai cả).\n• 3):「外国から友達が来たとき、あなたの国のどこを案内してあげますか」(Khi có bạn bè từ nước ngoài đến, bạn sẽ dẫn đi tham quan nơi nào ở đất nước của bạn?)\n  - Cấu trúc:「[Địa điểm] を 案内してあげます」(Dẫn đi tham quan nơi nào cho ai đó).\n  - Ví dụ trả lời:「ハノイを案内してあげます」(Tôi sẽ dẫn đi tham quan Hà Nội),「ハロン湾を案内してあげます」(Tôi sẽ dẫn đi tham quan Vịnh Hạ Long), hoặc「私の町を案内してあげます」(Tôi sẽ dẫn đi tham quan thành phố của tôi)."
+      }
+    ]
+  },
+  bai_25: {
+    title: "Bài 25",
+    completed: false,
+    questions: [
+      {
+        id: "b25_q1",
+        type: "fill",
+        tag: "Chia thể 〜たら (Câu điều kiện giả định)",
+        question: "1.\n<div style=\"background: rgba(15, 23, 42, 0.45); border: 1.5px solid rgba(148, 163, 184, 0.25); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;\">\n  <div style=\"font-weight: 700; color: #38bdf8; margin-bottom: 8px;\">📋 Từ gợi ý trong khung (chọn từ và chia sang thể 〜た trước ら):</div>\n  <div style=\"display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.95rem;\">\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">わかりません</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">知っています</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2); text-decoration: line-through; opacity: 0.6;\">あります (例)</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">悪いです</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">かぜです</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">着きません</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">広いです</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">取ります</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">無理です</span>\n    <span style=\"background: rgba(30, 41, 59, 0.7); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(148, 163, 184, 0.2);\">入りたいです</span>\n  </div>\n</div>\n例：時間が（あった）ら、ちょっとお茶でも飲みませんか。\n\n1) いい大学に（____）ら、頑張らなければなりません。\n2) いい日本語の辞書を（____）ら、教えてください。\n3) あさってまでに荷物が（____）ら、電話をください。\n4) 漢字が（____）ら、ひらがなで書いてもいいですか。\n5) 庭が（____）ら、花を作りたいです。\n6) 体の調子が（____）ら、休んでください。\n7) 修理が（____）ら、新しい冷蔵庫を買わなければなりません。\n8) （____）ら、この薬がいいですよ。",
+        answers: [
+          "入りたかった / はいりたかった / hairitakatta / 入りたかったら / はいりたかったら / hairitakattara",
+          "知っていた / しっていた / shitteita / 知っていたら / しっていたら / shitteitara",
+          "着かなかった / つかなかった / tsukanakatta / 着かなかったら / つかなかったら / tsukanakattara",
+          "わからなかった / 分からなかった / wakaranakatta / わからなかったら / 分からなかったら / wakaranakattara",
+          "広かった / ひろかった / hirokatta / 広かったら / ひろかったら / hirokattara",
+          "悪かった / わるかった / warukatta / 悪かったら / わるかったら / warukattara",
+          "無理だった / むりだった / muridatta / 無理だったら / むりだったら / muridattara",
+          "かぜだった / 風邪だった / kazedatta / かぜだったら / 風邪だったら / kazedattara"
+        ],
+        explanation: "• Cấu trúc câu điều kiện giả định:「Thể quá khứ ngắn (thể 〜た) + ら、...」(Nếu... thì...):\n  - Động từ: V-た + ら / V-なかった + ら\n  - Tính từ đuôi -i: A-かった + ら / A-くなかった + ら (bao gồm đuôi mong muốn 〜たい ➔ 〜たかった + ら)\n  - Tính từ đuôi -na / Danh từ: Na/N-だった + ら / Na/N-じゃなかった + ら\n• 例: Động từ「あります」(có, nhóm 1) ➔ thể quá khứ「あった」➔「時間があったら、ちょっとお茶でも飲みませんか」(Nếu có thời gian, uống chút trà nhé?).\n• 1): Chọn「入りたいです」(muốn vào đại học, đuôi 〜たい chia như tính từ đuôi -i: い ➔ かった) ➔「入りたかった」➔「いい大学に入りたかったら、頑張らなければなりません」(Nếu muốn vào trường đại học tốt thì phải cố gắng).\n• 2): Chọn「知っています」(biết, nhóm 2) ➔ thể quá khứ「知っていた」➔「いい日本語の辞書を知っていたら、教えてください」(Nếu bạn biết cuốn từ điển tiếng Nhật nào tốt thì hãy chỉ cho tôi nhé).\n• 3): Chọn「着きません」(không đến/chưa tới, nhóm 1: き ➔ か) ➔ thể quá khứ phủ định「着かなかった」➔「あさってまでに荷物が着かなかったら、電話をください」(Nếu đến ngày kia mà hành lý vẫn chưa đến thì hãy gọi điện cho tôi).\n• 4): Chọn「わかりません」(không hiểu/không biết, nhóm 1: り ➔ ら) ➔ thể quá khứ phủ định「わからなかった」➔「漢字がわからなかったら、ひらがなで書いてもいいですか」(Nếu không hiểu chữ Hán thì tôi viết bằng Hiragana có được không?).\n• 5): Chọn「広いです」(rộng, tính từ đuôi -i: い ➔ かった) ➔「広かった」➔「庭が広かったら、花を作りたいです」(Nếu vườn rộng thì tôi muốn trồng hoa).\n• 6): Chọn「悪いです」(xấu/không tốt, tính từ đuôi -i: い ➔ かった) ➔「悪かった」➔「体の調子が悪かったら、休んでください」(Nếu tình trạng sức khỏe không tốt thì hãy nghỉ ngơi đi).\n• 7): Chọn「無理です」(không thể/quá sức, tính từ đuôi -na: です ➔ だった) ➔「無理だった」➔「修理が無理だったら、新しい冷蔵庫を買わなければなりません」(Nếu không sửa được thì phải mua tủ lạnh mới).\n• 8): Chọn「かぜです」(bị cảm, danh từ: です ➔ だった) ➔「かぜだった」➔「かぜだったら、この薬がいいですよ」(Nếu bị cảm cúm thì uống thuốc này tốt đấy).\n*(Lưu ý: Từ「取ります」trong khung là từ bẫy / từ dư không sử dụng)."
+      },
+      {
+        id: "b25_q2",
+        type: "fill",
+        tag: "Chia thể động từ tổng hợp (〜たら, 〜に行く, 〜て, 〜ないで, 〜たい)",
+        question: "2. 例：A：これ、（コピーします…コピーし）ましょうか。\n      B：ええ。（コピーします…コピーした）ら、会議室へ持って行ってください。\n\n1) A：3時ごろ京都に着く電車で行きます。\n   B：じゃ、（着きます…____）ら、電話をください。\n      （迎えます…____）に行きますから。\n\n2) A：すみませんが、ちょっとこの辞書を（貸します…____）ください。\n      （終わります…____）ら、すぐ（返します…____）に来ますから。\n   B：どうぞ。（急ぎます…____）なくてもいいですよ。\n\n3) A：大学を（出ます…____）ら、お父さんの仕事を手伝いますか。\n   B：いいえ。留学して、もう少し（勉強します…____）たいと思います。",
+        answers: [
+          "着いた / ついた / tsuita / 着いたら / ついたら / tsuitara",
+          "迎え / むかえ / mukae / 迎えに / むかえに / mukaeni",
+          "貸して / かして / kashite / 貸してください / かしてください / kashitekudasai",
+          "終わった / おわった / owatta / 終わったら / おわったら / owattara",
+          "返し / かえし / kaeshi / 返しに / かえしに / kaeshini",
+          "急が / いそが / isoga / 急がなくて / いそがなくて / isoganakute / 急がなくても / いそがなくても",
+          "出た / でた / deta / 出たら / でたら / detara",
+          "勉強し / べんきょうし / benkyoushi / 勉強したい / べんきょうしたい / benkyoushitai"
+        ],
+        explanation: "• Ôn tập và tổng hợp các cấu trúc biến đổi động từ theo ngữ cảnh hội thoại:\n  -「V-たら」(Sau khi... / Hễ... thì...): Diễn tả hành động sau được thực hiện sau khi hành động trước hoàn thành xong.\n  -「V(bỏ ます) + に行きます／に来ます」(Đi/Đến để làm gì): Chỉ mục đích di chuyển.\n  -「V-てください」(Xin hãy...): Yêu cầu, nhờ vả lịch sự.\n  -「V-なくてもいいです」(Không cần phải... cũng được): Không bắt buộc làm gì đó.\n  -「V(bỏ ます) + たいと思います」(Tôi nghĩ là tôi muốn...): Bày tỏ nguyện vọng, mong muốn của bản thân.\n• 例:\n  -「これ、（コピーし）ましょうか」(Tôi photo cái này nhé?):「V(bỏ ます) + ましょうか」(Đề nghị làm gì giúp người khác).\n  -「（コピーした）ら、会議室へ持って行ってください」(Sau khi photo xong thì hãy mang vào phòng họp):「V-た + ら」(Sau khi hoàn thành hành động 1).\n• 1):\n  - Vị trí 1:「じゃ、（着いた）ら、電話をください」(Vậy thì sau khi đến nơi hãy gọi điện cho tôi nhé) ➔ Động từ「着きます」(nhóm 1: きます ➔ いた) chia thể quá khứ「着いた」.\n  - Vị trí 2:「（迎え）に行きますから」(Vì tôi sẽ đi đón bạn mà) ➔ Động từ「迎えます」(nhóm 2) bỏ ます còn「迎え」kết hợp với「に行きます」chỉ mục đích.\n• 2):\n  - Vị trí 3:「ちょっとこの辞書を（貸して）ください」(Xin vui lòng cho tôi mượn cuốn từ điển này một chút) ➔ Động từ「貸します」(nhóm 1: します ➔ して) chia thể て:「貸して」.\n  - Vị trí 4:「（終わった）ら、」(Sau khi dùng xong thì...) ➔ Động từ「終わります」(nhóm 1: ります ➔ った) chia thể quá khứ「終わった」.\n  - Vị trí 5:「すぐ（返し）に来ますから」(Tôi sẽ đến trả lại ngay mà) ➔ Động từ「返します」(nhóm 1: します ➔ し) bỏ ます còn「返し」kết hợp với「に来ます」chỉ mục đích.\n  - Vị trí 6:「（急が）なくてもいいですよ」(Bạn không cần phải vội đâu nhé) ➔ Động từ「急ぎます」(nhóm 1: ぎます ➔ がない) bỏ「なくてもいいですよ」ở ngoài còn「急が」.\n• 3):\n  - Vị trí 7:「大学を（出た）ら、お父さんの仕事を手伝いますか」(Sau khi tốt nghiệp đại học thì bạn có phụ giúp công việc của bố không?) ➔ Động từ「出ます」(nhóm 2) chia thể quá khứ「出た」kết hợp với「ら」biểu thị mốc thời gian sau khi tốt nghiệp.\n  - Vị trí 8:「もう少し（勉強し）たいと思います」(Tôi nghĩ tôi muốn học thêm một chút nữa) ➔ Động từ「勉強します」(nhóm 3) bỏ ます còn「勉強し」kết hợp với「たいと思います」."
+      },
+      {
+        id: "b25_q3",
+        type: "fill",
+        tag: "Chia thể 〜ても / 〜でも (Dù... nhưng...)",
+        question: "3. 例：ゆっくり（歩きます…歩いて）も、駅まで15分ぐらいです。\n\n1) （頑張ります…____）も、この仕事はあしたまでに終わらないと思います。\n2) 辞書を（見ます…____）も、意味がよくわかりません。\n3) （眠いです…____）も、日記を書いてから、寝ます。\n4) 簡単な（漢字です…____）も、なかなか覚えることができません。\n5) （下手です…____）も、日本語で話さなければなりません。",
+        answers: [
+          "頑張って / がんばって / ganbatte / 頑張っても / がんばっても / ganbattemo",
+          "見て / みて / mite / 見ても / みても / mitemo",
+          "眠くて / ねむくて / nemukute / 眠くても / ねむくても / nemukutemo",
+          "漢字で / かんじで / kanjide / 漢字でも / かんじでも / kanjidemo",
+          "下手で / へたで / hetade / 下手でも / へたでも / hetademo"
+        ],
+        explanation: "• Cấu trúc câu điều kiện nghịch chuyển / nhượng bộ:「〜ても／〜でも」(Dù... nhưng... / Cho dù... đi chăng nữa thì...):\n  - Động từ: V-て + も (chia thể て kết hợp với も).\n  - Tính từ đuôi -i: Bỏ「い」thay bằng「くても」(A-くて + も).\n  - Tính từ đuôi -na / Danh từ: Thay「です」bằng「でも」(Na/N-で + も).\n• 例: Động từ「歩きます」(đi bộ, nhóm 1: きます ➔ いて) ➔ thể て:「歩いて」➔「ゆっくり歩いても、駅まで15分ぐらいです」(Dù đi bộ thong thả thì cũng chỉ mất khoảng 15 phút tới ga).\n• 1): Động từ「頑張ります」(cố gắng, nhóm 1: ります ➔ って) ➔ thể て:「頑張って」➔「頑張っても、この仕事はあしたまでに終わらないと思います」(Dù có cố gắng thì tôi nghĩ công việc này cũng không thể xong trước ngày mai).\n• 2): Động từ「見ます」(tra/xem, nhóm 2: bỏ ます thêm て) ➔ thể て:「見て」➔「辞書を見ても、意味がよくわかりません」(Dù có tra từ điển thì tôi cũng không hiểu rõ nghĩa).\n• 3): Tính từ đuôi -i「眠いです」(buồn ngủ: bỏ い thêm くて) ➔「眠くて」➔「眠くても、日記を書いてから、寝ます」(Dù buồn ngủ nhưng tôi vẫn viết nhật ký rồi mới đi ngủ).\n• 4): Danh từ「漢字です」(chữ Hán: です ➔ で) ➔「漢字で」➔「簡単な漢字でも、なかなか覚えることができません」(Dù là chữ Hán đơn giản nhưng mãi mà tôi không thể nhớ được).\n• 5): Tính từ đuôi -na「下手です」(kém: です ➔ で) ➔「下手で」➔「下手でも、日本語で話さなければなりません」(Dù còn kém nhưng tôi vẫn phải nói bằng tiếng Nhật)."
+      }
+    ]
   }
 };
 
