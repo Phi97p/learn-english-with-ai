@@ -3574,6 +3574,50 @@ const JA_GRAMMAR_DATA = {
           "下手で / へたで / hetade / 下手でも / へたでも / hetademo"
         ],
         explanation: "• Cấu trúc câu điều kiện nghịch chuyển / nhượng bộ:「〜ても／〜でも」(Dù... nhưng... / Cho dù... đi chăng nữa thì...):\n  - Động từ: V-て + も (chia thể て kết hợp với も).\n  - Tính từ đuôi -i: Bỏ「い」thay bằng「くても」(A-くて + も).\n  - Tính từ đuôi -na / Danh từ: Thay「です」bằng「でも」(Na/N-で + も).\n• 例: Động từ「歩きます」(đi bộ, nhóm 1: きます ➔ いて) ➔ thể て:「歩いて」➔「ゆっくり歩いても、駅まで15分ぐらいです」(Dù đi bộ thong thả thì cũng chỉ mất khoảng 15 phút tới ga).\n• 1): Động từ「頑張ります」(cố gắng, nhóm 1: ります ➔ って) ➔ thể て:「頑張って」➔「頑張っても、この仕事はあしたまでに終わらないと思います」(Dù có cố gắng thì tôi nghĩ công việc này cũng không thể xong trước ngày mai).\n• 2): Động từ「見ます」(tra/xem, nhóm 2: bỏ ます thêm て) ➔ thể て:「見て」➔「辞書を見ても、意味がよくわかりません」(Dù có tra từ điển thì tôi cũng không hiểu rõ nghĩa).\n• 3): Tính từ đuôi -i「眠いです」(buồn ngủ: bỏ い thêm くて) ➔「眠くて」➔「眠くても、日記を書いてから、寝ます」(Dù buồn ngủ nhưng tôi vẫn viết nhật ký rồi mới đi ngủ).\n• 4): Danh từ「漢字です」(chữ Hán: です ➔ で) ➔「漢字で」➔「簡単な漢字でも、なかなか覚えることができません」(Dù là chữ Hán đơn giản nhưng mãi mà tôi không thể nhớ được).\n• 5): Tính từ đuôi -na「下手です」(kém: です ➔ で) ➔「下手で」➔「下手でも、日本語で話さなければなりません」(Dù còn kém nhưng tôi vẫn phải nói bằng tiếng Nhật)."
+      },
+      {
+        id: "b25_q4",
+        type: "fill",
+        tag: "Phân biệt & kết hợp: 〜たら (Nếu) vs 〜ても (Dù)",
+        question: "4. 例：（欲しいです…欲しかった）ら、（高いです…高くて）も、買います。\n\n1) 大きい（車です…____）ら、荷物が（多いです…____）も、大丈夫ですね。\n2) 天気が（いいです…____）も、（寒いです…____）ら、泳ぎに行きません。\n3) 自分で（調べます…____）も、（わかりません…____）ら、先生に聞きます。\n4) （古いです…____）も、家賃が（安いです…____）ら、借りたいです。\n5) お金が（あります…____）も、夢が（ありません…____）ら、楽しくないと思います。",
+        answers: [
+          "車だった / くるまだった / kurumadatta / 車だったら / くるまだったら / kurumadattara",
+          "多くて / おおくて / ookute / 多くても / おおくても / ookutemo",
+          "よくて / 良くて / yokute / よくても / 良くても / yokutemo",
+          "寒かった / さむかった / samukatta / 寒かったら / さむかったら / samukattara",
+          "調べて / しらべて / shirabete / 調べても / しらべても / shirabetemo",
+          "わからなかった / 分からなかった / wakaranakatta / わからなかったら / 分からなかったら / wakaranakattara",
+          "古くて / ふるくて / furukute / 古くても / ふるくても / furukutemo",
+          "安かった / やすかった / yasukatta / 安かったら / やすかったら / yasukattara",
+          "あって / atte / あっても / attemo",
+          "なかった / nakatta / なかったら / nakattara"
+        ],
+        explanation: "• Phân biệt và phối hợp linh hoạt giữa hai cấu trúc câu điều kiện:\n  -「〜たら」(Nếu... thì...): Điều kiện giả định thuận (kết quả ở vế sau phụ thuộc vào điều kiện vế trước).\n    • Động từ: V-た + ら / V-なかった + ら\n    • Tính từ đuôi -i: A-かった + ら / A-くなかった + ら\n    • Tính từ đuôi -na / Danh từ: Na/N-だった + ら / Na/N-じゃなかった + ら\n  -「〜ても／〜でも」(Dù... nhưng... / Cho dù... thì vẫn...): Điều kiện nhượng bộ / nghịch chuyển (kết quả ở vế sau trái ngược với kỳ vọng thông thường).\n    • Động từ: V-て + も\n    • Tính từ đuôi -i: A-くて + も (đặc biệt: いいです ➔ よくても)\n    • Tính từ đuôi -na / Danh từ: Na/N-để + も\n• 例:「（欲しかった）ら、（高くて）も、買います」(Nếu muốn mua thì dù có đắt tôi cũng sẽ mua).\n• 1):\n  - Vị trí 1: Ngoài ngoặc là「ら」➔ Danh từ「車です」chia「車だった」➔「大きい車だったら」(Nếu là xe ô tô to...).\n  - Vị trí 2: Ngoài ngoặc là「も」➔ Tính từ đuôi -i「多いです」chia「多くて」➔「荷物が多くても」(Dù hành lý có nhiều...).\n  ➔「大きい車だったら、荷物が多くても、大丈夫ですね」(Nếu là xe ô tô to thì dù hành lý có nhiều cũng không sao nhỉ).\n• 2):\n  - Vị trí 3: Ngoài ngoặc là「も」➔ Tính từ「いいです」bất quy tắc chia「よくて」➔「天気がよくても」(Dù thời tiết có đẹp...).\n  - Vị trí 4: Ngoài ngoặc là「ら」➔ Tính từ「寒いです」chia「寒かった」➔「寒かったら」(Nếu trời lạnh...).\n  ➔「天気がよくても、寒かったら、泳ぎに行きません」(Dù thời tiết có đẹp nhưng nếu trời lạnh thì tôi cũng không đi bơi).\n• 3):\n  - Vị trí 5: Ngoài ngoặc là「も」➔ Động từ「調べます」(nhóm 2) chia「調べて」➔「自分で調べても」(Dù có tự mình tra cứu/tìm hiểu...).\n  - Vị trí 6: Ngoài ngoặc là「ら」➔ Phủ định「わかりません」chia quá khứ「わからなかった」➔「わからなかったら」(Nếu không hiểu...).\n  ➔「自分で調べても、わからなかったら、先生に聞きます」(Dù có tự mình tra cứu nhưng nếu vẫn không hiểu thì tôi sẽ hỏi thầy giáo).\n• 4):\n  - Vị trí 7: Ngoài ngoặc là「も」➔ Tính từ「古いです」chia「古くて」➔「古くても」(Dù nhà có cũ...).\n  - Vị trí 8: Ngoài ngoặc là「ら」➔ Tính từ「安いです」chia「安かった」➔「家賃が安かったら」(Nếu tiền thuê nhà rẻ...).\n  ➔「古くても、家賃が安かったら、借りたいです」(Dù nhà có cũ nhưng nếu tiền thuê rẻ thì tôi muốn thuê).\n• 5):\n  - Vị trí 9: Ngoài ngoặc là「も」➔ Động từ「あります」(nhóm 1) chia「あって」➔「お金があっても」(Dù có nhiều tiền...).\n  - Vị trí 10: Ngoài ngoặc là「ら」➔ Phủ định「ありません」chia quá khứ「なかった」➔「夢がなかったら」(Nếu không có ước mơ...).\n  ➔「お金があっても、夢がなかったら、楽しくないと思います」(Dù có nhiều tiền nhưng nếu không có ước mơ thì tôi nghĩ cũng chẳng vui vẻ gì)."
+      },
+      {
+        id: "b25_q5",
+        type: "fill",
+        tag: "Nối câu: Chọn 〜たら vs 〜ても／〜でも",
+        question: "5. 例1：日曜日天気がいいです・お花見に行きませんか\n   …日曜日天気がよかったら、お花見に行きませんか。\n   例2：考えます・わかりません\n   …考えても、わかりません。\n\n1) 修理します・このパソコンはすぐ故障します\n   …＿＿＿＿＿＿＿＿＿＿\n2) お酒を飲みます・車を運転しないでください\n   …＿＿＿＿＿＿＿＿＿＿\n3) 不便です・物価が安い所に住みたいです\n   …＿＿＿＿＿＿＿＿＿＿\n4) あしたは無理ですが、あさってです・時間があります\n   …＿＿＿＿＿＿＿＿＿＿\n5) 安いです・要らない物は買いません\n   …＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "修理しても、このパソコンはすぐ故障します。 / 修理しても、このパソコンはすぐ故障します / 修理してもこのパソコンはすぐ故障します / 修理しても、このパソコンはすぐこしょうします。 / 修理しても、このパソコンはすぐこしょうします / しゅうりしても、このパソコンはすぐこしょうします。 / しゅうりしても、このパソコンはすぐこしょうします / shuuri shitemo, kono pasokon wa sugu koshou shimasu",
+          "お酒を飲んだら、車を運転しないでください。 / お酒を飲んだら、車を運転しないでください / お酒を飲んだら車を運転しないでください / おさけをのんだら、くるまをうんてんしないでください。 / おさけをのんだら、くるまをうんてんしないでください / お酒を飲んだら、くるまを運転しないでください。 / osake o nondara, kuruma o unten shinaide kudasai",
+          "不便でも、物価が安い所に住みたいです。 / 不便でも、物価が安い所に住みたいです / 不便でも物価が安い所に住みたいです / 不便でも、物価が安いところに住みたいです。 / 不便でも、物価が安いところに住みたいです / ふべんでも、ぶっかがやすいところにすみたいです。 / ふべんでも、ぶっかがやすいところにすみたいです / fuben demo, bukka ga yasui tokoro ni sumitai desu",
+          "あしたは無理ですが、あさってだったら、時間があります。 / あしたは無理ですが、あさってだったら、時間があります / あしたは無理ですが、あさってだったら時間があります。 / あしたは無理ですが、あさってだったら時間があります / 明日は無理ですが、明後日だったら、時間があります。 / 明日は無理ですが、明後日だったら、時間があります / ashita wa muri desu ga, asatte dattara, jikan ga arimasu",
+          "安くても、要らない物は買いません。 / 安くても、要らない物は買いません / 安くても要らない物は買いません / 安くても、いらない物は買いません。 / 安くても、いらない物は買いません / 安くても、いらないものは買いません。 / 安くても、いらないものは買いません / やすくても、いらないものはかいません。 / やすくても、いらないものはかいません / yasukutemo, iranai mono wa kaimasen"
+        ],
+        explanation: "• Luyện tập phân biệt chọn nối câu bằng「〜たら」(Nếu... thì...) hay「〜ても／〜でも」(Dù... nhưng...):\n  - Dùng「〜たら」khi quan hệ mang tính giả định thuận (hành động/kết quả ở vế sau dựa trên điều kiện của vế trước, hoặc vế sau là lời mời, nhờ vả, mệnh lệnh).\n  - Dùng「〜ても／〜でも」khi quan hệ mang tính nhượng bộ / nghịch chuyển (kết quả ở vế sau đi ngược lại với lẽ thường của điều kiện vế trước).\n• 例1: Điều kiện thuận「日曜日天気がいいです」(Chủ nhật thời tiết đẹp) kết hợp rủ rê「お花見に行きませんか」➔ Dùng「〜たら」:「日曜日天気がよかったら、お花見に行きませんか」(Chủ nhật nếu thời tiết đẹp thì cùng đi ngắm hoa nhé?).\n• 例2: Quan hệ nghịch chuyển dù suy nghĩ nhưng vẫn không hiểu ➔ Dùng「〜ても」:「考えても、わかりません」(Dù có suy nghĩ thì tôi cũng không hiểu).\n• 1): Quan hệ nghịch chuyển: Dù có sửa chữa thì chiếc máy tính này lại hỏng ngay ➔ Dùng「〜ても」:「修理しても、このパソコンはすぐ故障します」(Dù có sửa chữa thì cái máy tính này vẫn hỏng ngay).\n• 2): Điều kiện thuận kèm yêu cầu xin đừng làm gì (〜ないでください): Đã uống rượu thì đừng lái xe ➔ Dùng「〜たら」:「お酒を飲んだら、車を運転しないでください」(Nếu đã uống rượu thì xin đừng lái xe).\n• 3): Quan hệ nghịch chuyển: Dù bất tiện nhưng vì giá cả rẻ nên vẫn muốn sống ➔ Dùng「〜でも」:「不便でも、物価が安い所に住みたいです」(Dù bất tiện nhưng tôi vẫn muốn sống ở nơi vật giá rẻ).\n• 4): Điều kiện thuận: Ngày mai thì không được nhưng nếu là ngày kia thì có thời gian ➔ Dùng「〜たら」:「あしたは無理ですが、あさってだったら、時間があります」(Ngày mai thì không được nhưng nếu là ngày kia thì tôi có thời gian).\n• 5): Quan hệ nghịch chuyển: Dù giá có rẻ nhưng đồ không cần thiết thì không mua ➔ Dùng「〜ても」:「安くても、要らない物は買いません」(Dù có rẻ thì đồ không cần thiết tôi cũng không mua)."
+      },
+      {
+        id: "b25_q6",
+        type: "open_ended",
+        tag: "Trả lời câu hỏi mở",
+        question: "6. 1) 年を取って、仕事をやめたら、何をしたいですか。\n＿＿＿＿＿＿＿＿＿＿\n\n2) もし、もう一度生まれることができたら、男の人がいいですか、女の人がいいですか。\n＿＿＿＿＿＿＿＿＿＿",
+        answers: [
+          "世界中を旅行したいです。 / 田舎でのんびり暮らしたいです。 / 庭で花や野菜を作りたいです。 / 本をたくさん読みたいです。 / せかいりょこうをしたいです。 / sekai ryokou o shitai desu",
+          "男の人がいいです。 / 女の人がいいです。 / また男の人がいいです。 / また女の人がいいです。 / otoko no hito ga ii desu / onna no hito ga ii desu"
+        ],
+        explanation: "• Dạng câu hỏi mở phỏng vấn về bản thân áp dụng câu điều kiện「〜たら」(tự đối chiếu câu trả lời mẫu sau khi nộp bài):\n• 1):「年を取って、仕事をやめたら、何をしたいですか」(Khi có tuổi và nghỉ hưu rồi thì bạn muốn làm gì?)\n  - Cấu trúc:「V-たら、何をしたいですか」(Sau khi... thì muốn làm gì).\n  - Ví dụ trả lời:「世界中を旅行したいです」(Tôi muốn đi du lịch khắp thế giới),「田舎でのんびり暮らしたいです」(Tôi muốn sống thảnh thơi ở quê), hoặc「庭で花や野菜を作りたいです」(Tôi muốn trồng hoa và rau trong vườn).\n• 2):「もし、もう一度生まれることができたら、男の人がいいですか、女の人がいいですか」(Giả sử nếu có thể được sinh ra một lần nữa thì bạn muốn làm nam giới hay nữ giới?)\n  - Cấu trúc:「もし〜たら」(Giả sử nếu...), kết hợp câu hỏi lựa chọn「A がいいですか、B がいいですか」(Thích/chọn A hay B).\n  - Ví dụ trả lời:「男の人がいいです」(Tôi muốn làm nam giới),「女の人がいいです」(Tôi muốn làm nữ giới), hoặc「また男の人がいいです」(Tôi vẫn muốn làm nam giới như bây giờ)."
       }
     ]
   }
