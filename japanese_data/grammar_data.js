@@ -3798,6 +3798,175 @@ const JA_GRAMMAR_DATA = {
         explanation: "• Ôn tập các mẫu câu đàm thoại và lời đáp xã giao thông dụng trong đời sống hàng ngày:\n• 例: Khi được người khác nhờ vả và mình vui lòng đồng ý giúp đỡ ➔ Đáp lại「ええ、いいですよ」(Vâng, được chứ ạ).\n• 1): Khi nghe người khác báo tin vui như kết hôn「結婚します」➔ Nói lời chúc mừng「おめでとうございます」(Xin chúc mừng bạn).「お大事に」dùng chúc người ốm mau khỏi;「ありがとうございます」là lời cảm ơn của người nhận được lời chúc.\n• 2): Lời mời lịch sự khi rủ rê ai đó đi chơi「いっしょに行きませんか」➔ Đặt「よかったら」(Nếu bạn tiện / Nếu bạn thấy thích...) ở đầu câu ➔「よかったらいっしょにお花見に行きませんか」(Nếu tiện thì cùng đi ngắm hoa với tôi nhé?).\n• 3): Khi được người khác hỏi thăm về sức khỏe đã bình phục「よくなりました」➔ Bày tỏ sự biết ơn đối với sự quan tâm「おかげさまで」(Nhờ ơn trời / Nhờ có bạn quan tâm hỏi thăm) ➔「おかげさまでよくなりました」(Nhờ có bạn hỏi thăm, cô ấy đã khỏi rồi ạ).\n• 4): Khi nghe tin bất ngờ「部長は会社をやめると言いました」(Trưởng phòng bảo sẽ nghỉ việc) ➔ Bày tỏ sự ngạc nhiên hỏi xác nhận「えっ、ほんとうですか」(Hả, thật vậy sao?!).\n• 5): Lời chào hỏi quen thuộc khi đã lâu không gặp lại người quen ➔ Dùng「久しぶりですね」(Lâu quá rồi không gặp nhỉ) ➔「あ、ミラーさん、久しぶりですね。お元気ですか」(A, anh Miller, lâu quá không gặp nhỉ. Bạn khỏe không?)."
       }
     ]
+  },
+  bai_kiem_tra_cuoi_ky: {
+    title: "Bài Kiểm Tra Cuối Kỳ",
+    completed: false,
+    questions: [
+      {
+        id: "bktck_q1",
+        type: "fill",
+        tag: "Cách đọc số, ngày tháng, thời gian",
+        question: "1. 例：1,752（せんななひゃくごじゅうに）\n\n1) 93,648（____）\n2) 10月10日（____）\n3) 4月20日（____）\n4) 9 : 50（____）\n5) 4 : 45（____）",
+        answers: [
+          "きゅうまんさんぜんろっぴゃくよんじゅうはち / kyuumansanzenroppyakuyonjuuhachi / kyuuman sanzen roppyaku yonjuuhachi / 九万三千六百四十八",
+          "じゅうがつとおか / じゅうがつ とおか / juugatsutooka / juugatsu tooka / 十月十日",
+          "しがつはつか / しがつ はつか / shigatsuhatsuka / shigatsu hatsuka / 四月二十日",
+          "くじごじゅっぷん / くじごじっぷん / kujigojuppun / kujigojippun / kuji gojuppun / kuji gojippun / じゅうじじゅっぷんまえ / じゅうじじっぷんまえ / 九時五十分",
+          "よじよんじゅうごふん / よじ よんじゅうごふん / yojiyonjuugofun / yoji yonjuugofun / ごじじゅうごふんまえ / ごじ じゅうごふんまえ / 四時四十五分"
+        ],
+        explanation: "• 例: 1,752 ➔ せんななひゃくごじゅうに (sen nana hyaku go juu ni).\n• 1): 93,648 ➔ Số đếm hàng vạn: 9 vạn (きゅうまん) + 3 ngàn (さんぜん - biến âm đục) + 6 trăm (ろっぴゃく - biến âm ngắt) + 48 (よんじゅうはち) ➔「きゅうまんさんぜんろっぴゃくよんじゅうはち」(kyūman sanzen roppyaku yonjūhachi).\n• 2): 10月10日 ➔ Tháng 10 là「じゅうがつ」(jūgatsu), ngày mùng 10 là ngày đặc biệt đọc là「とおか」(tōka) ➔「じゅうがつとおか」(jūgatsu tōka).\n• 3): 4月20日 ➔ Tháng 4 đọc là「しがつ」(shigatsu, không đọc là yongatsu), ngày 20 là ngày đặc biệt đọc là「はつか」(hatsuka) ➔「しがつはつか」(shigatsu hatsuka).\n• 4): 9 : 50 ➔ 9 giờ đọc là「くじ」(kuji, không đọc là kyūji), 50 phút đọc là「ごじゅっぷん」hoặc「ごじっぷん」(gojuppun / gojippun). Ngoài ra cũng có thể nói giờ kém「じゅうじじゅっぷんまえ」(10 giờ kém 10) ➔「くじごじゅっぷん」(kuji gojuppun).\n• 5): 4 : 45 ➔ 4 giờ đọc là「よじ」(yoji, không đọc là yonji/shiji), 45 phút đọc là「よんじゅうごふん」(yonjūgofun). Ngoài ra cũng có thể nói giờ kém「ごじじゅうごふんまえ」(5 giờ kém 15) ➔「よじよんじゅうごふん」(yoji yonjūgofun)."
+      },
+      {
+            "id": "bktck_q2",
+            "type": "fill",
+            "tag": "Điền từ để hỏi thích hợp (Nghi vấn từ)",
+            "question": "2. 例：駅まで（どのくらい）かかりますか。\\n…歩いて15分ぐらいです。\\n\\n1) 趣味は（____）ですか。\\n…釣りです。\\n2) 佐藤さんは（____）人ですか。\\n…あの赤いセーターを着ている人です。\\n3) （____）ぐらい漢字を覚えましたか。\\n…50ぐらい覚えました。\\n4) コーヒーと紅茶と（____）が好きですか。\\n…コーヒーのほうが好きです。\\n5) 課長は（____）と言いましたか。\\n…あさって名古屋へ出張すると言いました。\\n6) タワポンさんの傘は（____）ですか。\\n…あの青い傘です。\\n7) （____）きのう休みましたか。\\n…熱がありましたから。\\n8) このコピー、（____）紙のサイズを変えますか。\\n…ここを押してください。\\n9) （____）転勤しますか。\\n…3月の終わりに転勤します。\\n10) 最近の子どもについて（____）思いますか。\\n…そうですね。あまり外で遊ばないと思います。",
+            "answers": [
+                  "何 / なん / nan",
+                  "どんな / donna",
+                  "いくつ / どのくらい / どれくらい / ikutsu / donokurai / dorekurai",
+                  "どちら / どっち / dochira / docchi",
+                  "何 / なん / nan",
+                  "どれ / どちら / どっち / dore / dochira / docchi",
+                  "どうして / なぜ / なんで / doushite / naze / nande",
+                  "どうやって / どう / douyatte / dou",
+                  "いつ / itsu",
+                  "どう / dou"
+            ],
+            "explanation": "• 例: Hỏi về khoảng thời gian/khoảng cách mất bao lâu「かかりますか」➔ Dùng nghi vấn từ「どのくらい」(mất bao lâu/khoảng bao nhiêu).\\n• 1): Hỏi về sở thích「趣味は～ですか」, câu trả lời là danh từ chỉ sự vật/hành động「釣りです」(Câu cá) ➔ Dùng nghi vấn từ「何」(đọc là なん trước です) ➔「趣味は何ですか」(Sở thích của bạn là gì?).\\n• 2): Câu trả lời mô tả đặc điểm, ngoại hình, trang phục của người đó「あの赤いセーターを着ている人です」(Là người đang mặc áo len màu đỏ kia) ➔ Hỏi về đặc điểm/tính chất của người bổ nghĩa cho danh từ「人」➔ Dùng「どんな」➔「佐藤さんはどんな人ですか」(Chị Sato là người như thế nào?).\\n• 3): Câu trả lời là số lượng「50ぐらい覚えました」(Đã nhớ khoảng 50 chữ), phía sau chỗ trống đã có chữ「ぐらい」(khoảng) ➔ Hỏi số lượng đồ vật/chữ Hán dùng「いくつ」(bao nhiêu cái/chữ) ➔「いくつぐらい漢字を覚えましたか」(Bạn đã nhớ khoảng bao nhiêu chữ Hán?).\\n• 4): Mẫu câu so sánh lựa chọn giữa 2 đối tượng「Aと Bと ～が好きですか」, câu trả lời「コーヒーのほうが好きです」(Tôi thích cà phê hơn) ➔ Dùng từ để hỏi lựa chọn giữa 2 vật「どちら」(hoặc thân mật là「どっち」) ➔「コーヒーと紅茶とどちらが好きですか」(Cà phê và hồng trà, bạn thích thứ nào hơn?).\\n• 5): Mẫu câu trích dẫn lời nói trực tiếp/gián tiếp「～と言いましたか」(Đã nói gì?). Đứng trước trợ từ「と」, chữ「何」đọc là「なん」➔ Dùng「何」(なん) ➔「課長は何と言いましたか」(Tổ trưởng đã nói gì?).\\n• 6): Câu trả lời xác định rõ một vật trong nhóm「あの青い傘です」(Là chiếc ô màu xanh đằng kia) ➔ Hỏi để chọn ra một vật cụ thể trong số từ 3 vật trở lên dùng「どれ」(hoặc lịch sự dùng「どちら」) ➔「タワポンさんの傘はどれですか」(Cái ô của anh Thawaphon là cái nào?).\\n• 7): Câu trả lời đưa ra lý do, nguyên nhân với đuôi câu「～から」(Vì tôi bị sốt) ➔ Hỏi về nguyên nhân/lý do tại sao dùng「どうして」(hoặc「なぜ」/「なんで」) ➔「どうしてきのう休みましたか」(Tại sao hôm qua bạn lại nghỉ?).\\n• 8): Câu trả lời hướng dẫn thao tác, cách làm「ここを押してください」(Hãy nhấn vào đây) ➔ Hỏi về cách thức, phương pháp tiến hành hành động dùng「どうやって」(làm như thế nào/bằng cách nào) ➔「このコピー、どうやって紙のサイズを変えますか」(Máy photocopy này, làm thế nào để đổi cỡ giấy?).\\n• 9): Câu trả lời chỉ mốc thời gian「3月の終わりに」(vào cuối tháng 3) ➔ Hỏi về thời điểm diễn ra sự việc dùng từ để hỏi thời gian「いつ」(khi nào/bao giờ) ➔「いつ転勤しますか」(Khi nào bạn sẽ chuyển công tác?).\\n• 10): Mẫu câu hỏi ý kiến, suy nghĩ, cảm nhận của ai đó về một vấn đề「～について どう 思いますか」➔ Dùng từ để hỏi ý kiến「どう」(như thế nào) ➔「最近の子どもについてどう思いますか」(Bạn nghĩ như thế nào về trẻ em dạo gần đây?)."
+      },
+      {
+            "id": "bktck_q3",
+            "type": "fill",
+            "tag": "Điền trợ từ thích hợp",
+            "question": "3. 例：去年（×）日本（へ）来ました。\\n\\n1) 会議（____）まえに、資料を準備しなければなりません。\\n2) 1週間（____）2回プール（____）泳ぎ（____）行きます。\\n3) 先月1週間（____）学校（____）休みました。\\n4) バスで東京駅まで行って、東京駅（____）地下鉄（____）乗り換えます。\\n5) だれ（____）市役所の電話番号を調べてくれましたか。\\n6) おなかが痛かったですから、何（____）食べませんでした。\\n7) 3年（____）まえに、この会社（____）入りました。\\n8) ワットさんは大学（____）近く（____）住んでいます。\\n9) 何メートルぐらい（____）泳ぐこと（____）できますか。\\n10) わたしは佐藤さん（____）すき焼き（____）作り方を教えてもらいました。\\n11) 富士大学はあの角（____）左（____）曲がると、右（____）あります。\\n12) 夫はわたし（____）料理（____）上手です。\\n13) ここ（____）お金を入れて、金額ボタンを押すと、切符（____）出ます。\\n14) 北海道（____）沖縄まで自転車（____）旅行したこと（____）あります。",
+            "answers": [
+                  "の / no",
+                  "に / ni",
+                  "へ / に / he / e / ni",
+                  "に / ni",
+                  "× / x",
+                  "を / o / wo",
+                  "で / de",
+                  "に / ni",
+                  "が / ga",
+                  "も / mo",
+                  "× / x",
+                  "に / ni",
+                  "の / no",
+                  "に / ni",
+                  "× / x",
+                  "が / ga",
+                  "に / から / ni / kara",
+                  "の / no",
+                  "を / o / wo",
+                  "へ / に / he / e / ni",
+                  "に / ni",
+                  "より / yori",
+                  "が / ga",
+                  "に / ni",
+                  "が / ga",
+                  "から / kara",
+                  "で / de",
+                  "が / ga"
+            ],
+            "explanation": "• 例: 去年 (năm ngoái) là mốc thời gian tương đối nên không dùng trợ từ「に」➔ Điền「×」. Đi đến đâu dùng「へ」(hoặc「に」) ➔「日本へ来ました」。\\n• 1): Danh từ kết hợp với「まえに」(trước khi) phải nối bằng trợ từ「の」➔「会議のまえに」(trước cuộc họp).\\n• 2):\\n  - Tần suất trong một khoảng thời gian「1週間に2回」(1 tuần 2 lần) ➔ Dùng「に」.\\n  - Hướng tới địa điểm bơi ➔ Dùng「プールへ」(hoặc「プールに」).\\n  - Đi để bơi: [V-masu bỏ masu] + に + 行きます ➔「泳ぎに行きます」➔ Dùng「に」.\\n• 3):\\n  - Lượng từ thời gian「1週間」(trong 1 tuần) bổ nghĩa trực tiếp cho động từ, không dùng trợ từ ➔ Điền「×」.\\n  - Nghỉ học / vắng mặt ở trường:「学校を休みました」➔ Dùng trợ từ「を」.\\n• 4):\\n  - Đổi tàu tại ga Tokyo (nơi diễn ra hành động) ➔「東京駅で」(dùng「で」).\\n  - Đổi sang phương tiện mới: [Phương tiện mới] + に + 乗り換えます ➔「地下鉄に乗り換えます」(dùng「に」).\\n• 5): Khi từ để hỏi (nghi vấn từ「だれ」) làm chủ ngữ trong câu, bắt buộc đi với trợ từ「が」(không dùng は) ➔「だれが調べてくれましたか」.\\n• 6): Mẫu phủ định hoàn toàn: [Từ để hỏi] + も + [Phủ định] ➔「何も食べませんでした」(đã không ăn bất cứ thứ gì).\\n• 7):\\n  - Lượng từ thời gian「3年」đứng trước「まえに」ghép trực tiếp không có「の」(khác với danh từ thường) ➔ Điền「×」➔「3年まえに」(3 năm trước).\\n  - Vào công ty / gia nhập tổ chức ➔「会社に入りました」(dùng「に」).\\n• 8):\\n  - N1 nối N2:「大学の近く」(gần trường đại học) ➔ Dùng「の」.\\n  - Địa điểm cư trú/sinh sống: [Nơi chốn] + に + 住んでいます ➔「近くに住んでいます」(dùng「に」).\\n• 9):\\n  - Lượng từ「何メートルぐらい」(khoảng mấy mét) bổ nghĩa trực tiếp cho「泳ぐ」, không cần trợ từ ➔ Điền「×」.\\n  - Mẫu câu khả năng: [V-ru] + ことが + できます ➔「泳ぐことができます」(dùng「が」).\\n• 10):\\n  - Nhận được sự chỉ bảo từ ai: [Người dạy] + に / から + 教えてもらいました ➔「佐藤さんに」(hoặc「佐藤さんから」).\\n  - Cách làm món Sukiyaki:「すき焼きの作り方」(N1 の N2) ➔ Dùng「の」.\\n• 11):\\n  - Rẽ qua góc đường (không gian chuyển động rẽ) ➔「あの角を」(dùng「を」).\\n  - Hướng rẽ:「左へ」(hoặc「左に」曲がる).\\n  - Vị trí tồn tại của tòa nhà ➔「右にあります」(dùng「に」).\\n• 12):\\n  - So sánh:「わたしより」(so với tôi ➔ dùng「より」).\\n  - Giỏi về lĩnh vực gì ➔「料理が上手です」(dùng「が」).\\n• 13):\\n  - Bỏ tiền vào điểm đến「ここに」(dùng「に」).\\n  - Vé chạy ra (chủ ngữ của tự động từ 出ます) ➔「切符が出ます」(dùng「が」).\\n• 14):\\n  - Điểm xuất phát:「北海道から」(từ Hokkaido ➔ dùng「から」).\\n  - Phương tiện di chuyển:「自転車で」(bằng xe đạp ➔ dùng「で」).\\n  - Mẫu câu trải nghiệm: [V-ta] + ことが + あります ➔「旅行したことがあります」(dùng「が」)."
+      },
+      {
+            "id": "bktck_q4",
+            "type": "fill",
+            "tag": "Chia thể động từ và tính từ thích hợp",
+            "question": "4. 例：ここでたばこを（吸います…吸わ）ないでください。\\n\\n1) 時間が（ありません…____）ら、タクシーで（行きます…____）ましょう。\\n2) ミラーさんはマリアさんに（会います…____）ことが（ありません…____）と言いました。\\n3) 友達が駅まで迎えに（来ます…____）くれました。\\n4) バスを（降ります…____）から、20分ぐらい（歩きます…____）なければなりません。\\n5) ミラーさんが（作りました…____）ケーキは（おいしいです…____）と思います。\\n6) （暇です…____）とき、本を（読みます…____）り、絵を（かきます…____）りします。\\n7) すみません、ちょっとそのホッチキスを（借ります…____）もいいですか。\\n…ええ、どうぞ（使います…____）ください。\\n8) （疲れました…____）とき、子どもの顔を（見ます…____）と、（元気です…____）なります。\\n9) 車が（故障します…____）も、簡単な（故障です…____）ら、自分で（直します…____）ことができます。\\n10) 両親は年を取って、足が弱く（なります…____）まえに、いろいろな国を（旅行します…____）たいと言います。",
+            "answers": [
+                  "なかった / なかっ / nakatta / nakat",
+                  "行き / いき / iki",
+                  "会った / あった / atta",
+                  "ない / nai",
+                  "来て / きて / kite",
+                  "降りて / おりて / orite",
+                  "歩か / あるか / 歩かな / あるかな / aruka / arukana",
+                  "作った / つくった / tsukutta",
+                  "おいしい / oishii",
+                  "暇な / ひまな / 暇 / ひま / himana / hima",
+                  "読んだ / よんだ / yonda",
+                  "かいた / 描いた / 書いた / kaita",
+                  "借りて / かりて / karite",
+                  "使って / つかって / tsukatte",
+                  "疲れた / つかれた / tsukareta",
+                  "見る / みる / miru",
+                  "元気に / げんきに / 元気 / げんき / genkini / genki",
+                  "故障して / こしょうして / koshoushite",
+                  "故障だった / 故障だっ / こしょうだった / こしょうだっ / koshoudatta / koshoudat",
+                  "直す / なおす / naosu",
+                  "なる / naru",
+                  "旅行し / りょこうし / 旅行 / りょこう / ryokoushi / ryokou"
+            ],
+            "explanation": "• 例: Mẫu yêu cầu không làm gì: [V-nai] + でください ➔「吸わないでください」(điền 吸わ).\\n• 1):\\n  - Mẫu điều kiện giả định [V-ta] + ら:「ありません」➔ thể ngắn quá khứ「なかった」➔「なかったら」(nếu không có thời gian).\\n  - Rủ rê: [V-masu bỏ masu] + ましょう ➔「行きましょう」(chúng ta hãy đi nào).\\n• 2):\\n  - Mẫu trải nghiệm [V-ta] + ことが ありません:「会います」➔「会った」(chưa từng gặp).\\n  - Thể thông thường trước「と言いました」:「ありません」➔「ない」(anh ấy bảo là chưa từng gặp).\\n• 3): Mẫu ai đó làm giúp việc gì: [V-te] + くれました ➔「来ます」➔「来てくれました」(bạn đã đến ga đón tôi).\\n• 4):\\n  - Sau khi làm gì: [V-te] + から ➔「降ります」➔「降りてから」(sau khi xuống xe buýt).\\n  - Phải làm gì: [V-nai bỏ i] + ければなりません ➔「歩きます」➔「歩かなければなりません」(phải đi bộ khoảng 20 phút).\\n• 5):\\n  - Bổ nghĩa cho danh từ「ケーキ」dùng thể ngắn:「作りました」➔「作ったケーキ」(bánh anh Miller đã làm).\\n  - Đứng trước「と思います」dùng thể ngắn:「おいしいです」➔「おいしいと思います」(tôi nghĩ là ngon).\\n• 6):\\n  - Tính từ đuôi na bổ nghĩa cho「とき」:「暇です」➔「暇なとき」(khi rảnh rỗi).\\n  - Liệt kê hành động: [V-ta] + り、[V-ta] + りします ➔「読んだり、かいたりします」(lúc thì đọc sách, lúc thì vẽ tranh).\\n• 7):\\n  - Xin phép: [V-te] + もいいですか ➔「借ります」➔「借りてもいいですか」(tôi mượn có được không?).\\n  - Cho phép / mời: [V-te] + ください ➔「使います」➔「使ってください」(xin mời hãy dùng đi).\\n• 8):\\n  - Bổ nghĩa cho「とき」:「疲れました」➔「疲れたとき」(những khi mệt mỏi).\\n  - Điều kiện hiển nhiên [V-ru] + と:「見ます」➔「見ると」(hễ nhìn thấy khuôn mặt con...).\\n  - Biến đổi trạng thái với tính từ na: [Tính từ na bỏ na] + に + なります ➔「元気に」(trở nên khỏe khoắn/vui vẻ).\\n• 9):\\n  - Nhượng bộ [V-te] + も:「故障します」➔「故障しても」(cho dù xe có bị hỏng...).\\n  - Điều kiện giả định với Danh từ [N] + だったら:「故障です」➔「故障だった」(nếu là hỏng nhẹ...).\\n  - Khả năng [V-ru] + ことが できます ➔「直します」➔「直すことができます」(có thể tự sửa được).\\n• 10):\\n  - Trước khi: [V-ru] + まえに ➔「なります」➔「なるまえに」(trước khi chân trở nên yếu đi).\\n  - Mong muốn: [V-masu bỏ masu] + たいと言います ➔「旅行します」➔「旅行したいと言います」(bố mẹ bảo là muốn đi du lịch nhiều nước)."
+      },
+      {
+            "id": "bktck_q5",
+            "type": "binary_choice",
+            "tag": "Chọn câu giao tiếp / hội thoại chuẩn xác",
+            "question": "5. 例：ありがとうございます。\\n…〔どうぞ／どうもすみません／<u>どういたしまして</u>〕。\\n\\n1) ジュース、もう一杯いかがですか。\\n…いいえ、〔まだまだです／けっこうです／どういたしまして〕。\\n2) お茶をどうぞ。\\n…〔いただきます／ありがとうございました／どういたしまして〕。\\n3) ただいま。\\n…〔行ってらっしゃい／行ってきます／お帰りなさい〕。\\n4) どうぞお上がりください。\\n…〔いらっしゃい／失礼します／お帰りなさい〕。\\n5) 熱がありますから、これから病院へ行って、帰ります。\\n…〔そうですね／そうですよ／そうですか〕。\\n〔おかげさまで／お大事に／お元気で〕。\\n6) てんぷら定食1つと刺身定食を2つお願いします。\\n…〔かしこまりました／ごちそうさまでした／いただきます〕。\\n7) 木村です。どうぞよろしくお願いします。\\n…〔どうも／これでお願いします／こちらこそよろしくお願いします〕。\\n8) 来月国へ帰ります。〔そろそろ失礼します／いろいろお世話になりました／これからお世話になります〕。\\n…〔どうぞお元気で／お大事に／久しぶりですね〕。",
+            "answers": [
+                  "けっこうです / 結構です / kekkoudesu / kekkou desu",
+                  "いただきます / itadakimasu",
+                  "お帰りなさい / おかえりなさい / okaerinasai",
+                  "失礼します / しつれいします / shitsureishimasu / shitsurei shimasu",
+                  "そうですか / soudesuka / sou desu ka",
+                  "お大事に / おだいじに / odaijini / odaiji ni",
+                  "かしこまりました / kashikomarimashita",
+                  "こちらこそよろしくお願いします / こちらこそよろしくおねがいします / kochirakoso yoroshiku onegaishimasu",
+                  "いろいろお世話になりました / いろいろおせわになりました / iroiro osewa ni narimashita",
+                  "どうぞお元気で / どうぞおげんきで / douzo ogenkide / douzo ogenki de"
+            ],
+            "explanation": "• 例: Khi người khác cảm ơn「ありがとうございます」➔ Đáp lại lịch sự「どういたしまして」(Không có chi).\\n• 1): Từ chối lời mời ăn uống thêm một cách nhã nhặn「いいえ、けっこうです」(Dạ không, tôi đủ rồi ạ).「まだまだです」dùng khiêm tốn trước lời khen ngợi;「どういたしまして」dùng đáp lại lời cảm ơn.\\n• 2): Khi được chủ nhà mời đồ ăn/uống「お茶をどうぞ」➔ Nói「いただきます」(Tôi xin phép được nhận / dùng) trước khi thưởng thức.\\n• 3): Lời chào khi về nhà: Người về nói「ただいま」(Tôi đã về rồi) ➔ Người ở nhà đáp lại đón chào「お帰りなさい」(Bạn đã về rồi đấy à).\\n• 4): Khi được chủ nhà mời bước lên/vào nhà「どうぞお上がりください」➔ Khách đáp lại lễ phép xin phép bước vào「失礼します」(Tôi xin phép thất lễ).\\n• 5):\\n  - Tiếp nhận thông tin mới từ người đối thoại ➔ Thể hiện sự lắng nghe「そうですか」(Thế à / Vậy à).\\n  - Khi biết đối phương bị sốt/ốm đi khám bệnh ➔ Lời chúc giữ gìn sức khỏe, mau khỏe lại「お大事に」(Bạn nhớ giữ gìn sức khỏe nhé).\\n• 6): Nhân viên phục vụ nhà hàng khi tiếp nhận yêu cầu gọi món từ khách「～お願いします」➔ Đáp lại câu nhận lệnh lịch sự「かしこまりました」(Vâng, tôi đã rõ rồi ạ).\\n• 7): Khi đối phương tự giới thiệu bản thân và chào「どうぞよろしくお願いします」➔ Đáp lại sự lịch thiệp tương ứng「こちらこそよろしくお願いします」(Chính tôi mới mong được sự giúp đỡ của bạn).\\n• 8):\\n  - Khi sắp về nước và chia tay những người đã giúp đỡ mình trong suốt thời gian qua ➔ Nói lời cảm ơn chân thành「いろいろお世話になりました」(Thời gian qua cảm ơn bạn đã luôn giúp đỡ tôi).\\n  - Người ở lại chào tạm biệt người sắp về nước/đi xa dài lâu ➔ Lời chúc bảo trọng, luôn mạnh khỏe bình an「どうぞお元気で」(Chúc bạn luôn dồi dào sức khỏe / thượng lộ bình an)."
+      },
+      {
+            "id": "bktck_q6",
+            "type": "binary_choice",
+            "tag": "Lựa chọn từ vựng chính xác theo ngữ cảnh",
+            "question": "6. 例：〔耳／鼻／<u>歯</u>〕が痛いですから、食事ができません。\\n\\n1) 〔妻／家内／奥さん〕はお元気ですか。\\n2) 本は棚のいちばん〔下／外／中〕に置いてください。\\n3) ここは〔金額／現金／物価〕が安いと思います。\\n4) 暑いですから、〔寒い／涼しい／冷たい〕物を飲みたいです。\\n5) 会議で〔何を／何か／何も〕〔意味／意見／用事〕を言いましたか。\\n6) 靴を〔着ます／はきます／かぶります〕。\\n7) 〔チャンス／サービス／サイズ〕があったら、留学したいです。\\n8) 先生は学生の〔物／人／こと〕を考えていると思います。\\n9) 〔地図／時刻表／保険証〕で新幹線の時間を調べてください。",
+            "answers": [
+                  "奥さん / おくさん / okusan",
+                  "下 / した / shita",
+                  "物価 / ぶっか / bukka",
+                  "冷たい / つめたい / tsumetai",
+                  "何か / なにか / nanika",
+                  "意見 / いけん / iken",
+                  "はきます / 履きます / hakimasu",
+                  "チャンス / chansu",
+                  "こと / koto",
+                  "時刻表 / じこくひょう / jikokuhyou"
+            ],
+            "explanation": "• 例: Không ăn được cơm「食事ができません」thì nguyên nhân do đau răng「歯が痛い」(đau tai là 耳, đau mũi là 鼻).\\n• 1): Khi hỏi thăm sức khỏe vợ của người đối thoại một cách lịch sự「お元気ですか」➔ Phải dùng kính ngữ「奥さん」(vợ của bạn/ông/anh).「妻」và「家内」chỉ dùng khiêm nhường để gọi vợ của chính mình.\\n• 2): Giá sách có các tầng trên dưới theo chiều dọc「いちばん上」(trên cùng) hoặc「いちばん下」(dưới cùng) ➔「棚のいちばん下に置いてください」(Hãy để sách ở tầng dưới cùng của giá sách).\\n• 3): Đi với「安い」(rẻ) để chỉ giá cả thị trường / mức sinh hoạt của một địa phương rẻ ➔ Dùng「物価」(vật giá) ➔「物価が安い」(vật giá rẻ).「金額」(số tiền) và「現金」(tiền mặt) không đi với rẻ để chỉ vùng miền.\\n• 4): Đồ uống mát lạnh (nhiệt độ của vật chất cảm nhận bằng xúc giác/vị giác) ➔ Dùng「冷たい物」(đồ uống lạnh).「寒い」dùng cho thời tiết lạnh;「涼しい」dùng cho khí hậu mát mẻ.\\n• 5):\\n  - Phía sau đã có「意見を言いましたか」(đã có trợ từ を) ➔ Không thể dùng「何を」vì sẽ thừa trợ từ を, cũng không dùng「何も」vì đây là câu hỏi khẳng định (không phải phủ định) ➔ Dùng「何か」(có phát biểu ý kiến gì không).\\n  - Trong cuộc họp, việc phát biểu bày tỏ quan điểm của mình ➔ Dùng「意見」(ý kiến).「意味」là ý nghĩa;「用事」là việc bận.\\n• 6): Động từ mặc/xỏ đồ từ thắt lưng trở xuống (quần, tất, giày, dép) ➔ Dùng「はきます」(xỏ/đi giày).「着ます」mặc áo từ vai xuống;「かぶります」đội mũ trên đầu.\\n• 7): Muốn đi du học「留学したい」thì cần có cơ hội ➔ Dùng「チャンス」(cơ hội/chance).「サービス」là dịch vụ;「サイズ」là kích cỡ quần áo.\\n• 8): Mẫu câu「[Người] の ことを考える」(suy nghĩ, lo lắng cho ai đó) ➔ Dùng danh từ trừu tượng「こと」(chuyện/mọi điều của học sinh).「物」chỉ đồ vật;「人」chỉ người.\\n• 9): Tra cứu giờ chạy của tàu Shinkansen「新幹線の時間を調べる」➔ Phải tra bằng bảng giờ tàu xe chạy「時刻表」.「地図」là bản đồ;「保険証」là thẻ bảo hiểm y tế."
+      },
+      {
+            "id": "bktck_q7",
+            "type": "binary_choice",
+            "tag": "Lựa chọn phó từ và liên từ thích hợp",
+            "question": "7. 例：日本の夏は〔あまり／<u>とても</u>／たくさん〕暑いです。\\n\\n1) 先週〔一度も／初めて／一度〕スキーをしました。\\n2) 日本語は〔全部で／特に／ほかに〕漢字が難しいと思います。\\n3) このケーキは〔とても／そんなに／なかなか〕甘くないです。\\n4) バスが〔ほかに／もうすぐ／なかなか〕来ませんでした。\\n〔そして／ですから／でも〕タクシーで来ました。\\n5) 旅行はとても楽しかったです。\\n〔そして／ですから／でも〕ちょっと疲れました。\\n6) コーヒーを2つと紅茶を1つお願いします。\\n〔それから／これから／ですから〕ケーキも2つお願いします。\\n7) 本を借りるとき、このカードを持って来てください。\\n…〔ほかに／いろいろ／なかなか〕何か要りますか。\\n8) 〔また／まだ／もう〕昼ごはんを食べましたか。\\n…いいえ、〔また／まだ／もう〕です。\\n〔それから／これから／ですから〕食べに行きます。\\n9) 〔よく／あまり／なかなか〕テレビを見ますか。\\n…いいえ、〔よく／あまり／なかなか〕見ません。\\n10) 〔まだ／もう／まず〕ここにお金を入れて、〔ほかに／次に／別々に〕金額を押してください。",
+            "answers": [
+                  "初めて / はじめて / hajimete",
+                  "特に / とくに / tokuni",
+                  "そんなに / sonnani",
+                  "なかなか / nakanaka",
+                  "ですから / desukara",
+                  "でも / demo",
+                  "それから / sorekara",
+                  "ほかに / hokani",
+                  "もう / mou",
+                  "まだ / mada",
+                  "これから / korekara",
+                  "よく / yoku",
+                  "あまり / amari",
+                  "まず / mazu",
+                  "次に / つぎに / tsugini"
+            ],
+            "explanation": "• 例: Bổ nghĩa mức độ cao cho tính từ khẳng định「暑いです」(nóng) ➔ Dùng「とても」(rất).「あまり」chỉ đi với phủ định;「たくさん」chỉ số lượng sự vật.\\n• 1): Kể về việc lần đầu tiên làm trong đời với câu khẳng định「スキーをしました」➔ Dùng phó từ「初めて」(lần đầu tiên).「一度も」bắt buộc đi với thể phủ định (chưa từng một lần nào).\\n• 2): Nhấn mạnh đối tượng nổi bật, đặc thù nhất trong một phạm vi (trong tiếng Nhật thì chữ Hán khó nhất) ➔ Dùng「特に」(đặc biệt là).「全部で」là tổng cộng;「ほかに」là ngoài ra.\\n• 3): Đuôi câu phủ định「甘くないです」(không ngọt) ➔ Dùng phó từ「そんなに」mang nghĩa không ngọt đến mức như thế「そんなに～ない」.「とても」đi với khẳng định;「なかなか」thường đi với động từ chỉ sự khó khăn.\\n• 4):\\n  - Chờ đợi xe buýt trong sốt ruột và kết quả phủ định ➔ Dùng「なかなか～来ませんでした」(xe buýt mãi không đến).\\n  - Nối kết quả vì xe mãi không đến nên bắt taxi ➔ Dùng liên từ chỉ nguyên nhân-kết quả「ですから」(vì vậy / cho nên).\\n• 5): Nối hai vế đối lập: Vế trước tích cực「楽しかったです」(rất vui), vế sau tiêu cực「ちょっと疲れました」(hơi mệt) ➔ Dùng liên từ tương phản「でも」(nhưng).\\n• 6): Khi gọi món hoặc thêm vào danh mục yêu cầu đồ ăn「ケーキも2つお願いします」➔ Dùng liên từ bổ sung「それから」(ngoài ra / thêm vào đó nữa là).\\n• 7): Hỏi ngoài chiếc thẻ thư viện này ra còn cần thêm thứ gì khác nữa không ➔ Dùng「ほかに」(ngoài ra còn...).\\n• 8):\\n  - Hỏi hành động đã hoàn tất hay chưa ➔ Dùng「もう」(đã... chưa) ➔「もう昼ごはんを食べましたか」.\\n  - Trả lời hành động chưa diễn ra ➔ Dùng「いいえ、まだです」(chưa, tôi vẫn chưa ăn).\\n  - Hành động chuẩn bị thực hiện ngay sau đây ➔ Dùng「これから」(từ bây giờ tôi sẽ đi ăn).\\n• 9):\\n  - Hỏi tần suất có thường xuyên làm gì trong câu khẳng định ➔ Dùng「よく」(có thường xem tivi không?).\\n  - Trả lời phủ định chỉ mức độ tần suất thấp ➔ Dùng「あまり～見ません」(không hay xem lắm).\\n• 10):\\n  - Trình tự thực hiện các bước thao tác: Bước 1 dùng「まず」(trước hết hãy bỏ tiền vào).\\n  - Bước 2 dùng「次に」(tiếp theo hãy nhấn nút số tiền)."
+      }
+    ]
   }
 };
 
